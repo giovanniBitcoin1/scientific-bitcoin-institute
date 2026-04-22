@@ -1,0 +1,41 @@
+name: Fetch Newhedge Data Daily
+
+on:
+  schedule:
+    # Runs every day at 06:00 UTC (approx 23:00 previous day Pacific, 02:00 Eastern).
+    # Change the cron expression to adjust — https://crontab.guru helps.
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # also runnable manually from the Actions tab
+
+permissions:
+  contents: write  # needed to commit the refreshed JSON
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch Newhedge data
+        env:
+          NEWHEDGE_API_KEY: ${{ secrets.NEWHEDGE_API_KEY }}
+        run: node scripts/fetch-newhedge.js
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/
+          # Only commit if there are actual changes
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore: refresh newhedge data [skip ci]"
+            git push
+          fi

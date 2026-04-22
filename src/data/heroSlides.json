@@ -1,0 +1,23 @@
+[
+  {
+    "title": "What is the true nature of digital scarcity?",
+    "description": "At the Scientific Bitcoin Institute, we're exploring fundamental questions",
+    "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop",
+    "cta": "Explore Our Research",
+    "color": "#f7931a"
+  },
+  {
+    "title": "Cryptography Meets Economics",
+    "description": "Advancing the science of decentralized monetary systems",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=600&fit=crop",
+    "cta": "Read Publications",
+    "color": "#1a4d6f"
+  },
+  {
+    "title": "Building Sound Money Science",
+    "description": "Rigorous research for a decentralized future",
+    "image": "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=1200&h=600&fit=crop",
+    "cta": "Join Our Community",
+    "color": "#2d5a4a"
+  }
+]

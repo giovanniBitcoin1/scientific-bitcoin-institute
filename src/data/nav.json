@@ -1,0 +1,37 @@
+[
+  {
+    "label": "Research",
+    "href": "/research",
+    "submenu": ["Research Themes", "Publications", "Working Papers", "Bitcoin Science Library", "Research Fellows", "Sponsored Research", "Open Problems"]
+  },
+  {
+    "label": "News + Events",
+    "href": "/news",
+    "submenu": ["Latest News", "Research Updates", "Conferences", "Seminars", "Workshops", "Community Events", "Newsletter"]
+  },
+  {
+    "label": "Education",
+    "href": "/education",
+    "submenu": ["Bitcoin Fundamentals", "Advanced Cryptography", "Game Theory", "Network Science", "Economic Modeling", "Online Courses", "Summer School"]
+  },
+  {
+    "label": "People",
+    "href": "/people",
+    "submenu": ["Researchers", "Faculty", "Postdocs", "Visiting Scholars", "Advisory Board", "Alumni Network"]
+  },
+  {
+    "label": "Collaborate",
+    "href": "/collaborate",
+    "submenu": ["Research Partnerships", "Industry Connections", "Developer Relations", "Academic Programs", "Grant Opportunities"]
+  },
+  {
+    "label": "Support",
+    "href": "/support",
+    "submenu": ["Donate Bitcoin", "Endowment Fund", "Research Grants", "Contact Us"]
+  },
+  {
+    "label": "About",
+    "href": "/about",
+    "submenu": ["Mission & Vision", "History", "FAQs", "Governance", "Transparency", "Contact"]
+  }
+]
