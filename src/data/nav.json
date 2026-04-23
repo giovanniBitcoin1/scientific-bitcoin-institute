@@ -32,6 +32,6 @@
   {
     "label": "About",
     "href": "/about",
-    "submenu": ["Mission & Vision", "History", "FAQs", "Governance", "Transparency", "Contact"]
+    "submenu": ["Manifesto", "History", "FAQs", "Governance", "Transparency", "Contact"]
   }
 ]

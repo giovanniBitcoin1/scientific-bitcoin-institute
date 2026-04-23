@@ -1,6 +1,15 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Menu, X, Search } from './Icons.jsx'
 import navItems from '../data/nav.json'
+
+const submenuHrefs = {
+  'Manifesto': '/manifesto',
+}
+
+function subHref(label) {
+  return submenuHrefs[label] || '#'
+}
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -10,7 +19,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img
               src="/assets/logo.jpg"
               alt="Scientific Bitcoin Institute"
@@ -20,28 +29,28 @@ export default function Header() {
               <span className="text-lg font-semibold tracking-tight text-slate-900 font-serif">Scientific Bitcoin</span>
               <span className="text-lg font-semibold tracking-tight text-slate-900 font-serif">Institute</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item, idx) => (
               <div key={idx} className="nav-item relative">
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 transition-colors block"
                 >
                   {item.label}
-                </a>
+                </Link>
                 {item.submenu && (
                   <div className="nav-dropdown mt-0 bg-white shadow-xl rounded-lg min-w-[220px] py-2 border border-slate-100">
                     {item.submenu.map((subitem, subidx) => (
-                      <a
+                      <Link
                         key={subidx}
-                        href="#"
+                        to={subHref(subitem)}
                         className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-orange-50 hover:text-orange-600 transition-colors"
                       >
                         {subitem}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -68,15 +77,15 @@ export default function Header() {
         <div className="lg:hidden bg-white border-t border-slate-200 max-h-[80vh] overflow-y-auto">
           {navItems.map((item, idx) => (
             <div key={idx} className="border-b border-slate-100">
-              <a href={item.href} className="block px-6 py-4 font-medium text-slate-800">
+              <Link to={item.href} className="block px-6 py-4 font-medium text-slate-800">
                 {item.label}
-              </a>
+              </Link>
               {item.submenu && (
                 <div className="bg-slate-50 px-6 py-2">
                   {item.submenu.map((subitem, subidx) => (
-                    <a key={subidx} href="#" className="block py-2 text-sm text-slate-600">
+                    <Link key={subidx} to={subHref(subitem)} className="block py-2 text-sm text-slate-600">
                       {subitem}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
