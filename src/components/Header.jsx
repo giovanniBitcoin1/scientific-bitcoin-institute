@@ -35,12 +35,21 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item, idx) => (
               <div key={idx} className="nav-item relative">
-                <Link
-                  to={item.href}
-                  className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 transition-colors block"
-                >
-                  {item.label}
-                </Link>
+                {item.submenu ? (
+                  <span
+                    className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 transition-colors block cursor-default select-none"
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                  </span>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 transition-colors block"
+                  >
+                    {item.label}
+                  </Link>
+                )}
                 {item.submenu && (
                   <div className="nav-dropdown mt-0 bg-white shadow-xl rounded-lg min-w-[220px] py-2 border border-slate-100">
                     {item.submenu.map((subitem, subidx) => (
@@ -77,9 +86,15 @@ export default function Header() {
         <div className="lg:hidden bg-white border-t border-slate-200 max-h-[80vh] overflow-y-auto">
           {navItems.map((item, idx) => (
             <div key={idx} className="border-b border-slate-100">
-              <Link to={item.href} className="block px-6 py-4 font-medium text-slate-800">
-                {item.label}
-              </Link>
+              {item.submenu ? (
+                <span className="block px-6 py-4 font-medium text-slate-800 select-none">
+                  {item.label}
+                </span>
+              ) : (
+                <Link to={item.href} className="block px-6 py-4 font-medium text-slate-800">
+                  {item.label}
+                </Link>
+              )}
               {item.submenu && (
                 <div className="bg-slate-50 px-6 py-2">
                   {item.submenu.map((subitem, subidx) => (
