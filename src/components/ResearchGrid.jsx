@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ChevronRight } from './Icons.jsx'
 import areas from '../data/researchAreas.json'
 
@@ -27,10 +28,13 @@ export default function ResearchGrid() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-slate-900 font-serif">{card.title}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">{card.desc}</p>
-                <button className="mt-4 text-orange-600 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                <Link
+                  to={`/research#${card.anchor}`}
+                  className="mt-4 text-orange-600 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"
+                >
                   Learn more
                   <ChevronRight size={16} />
-                </button>
+                </Link>
               </div>
             </div>
           ))}
