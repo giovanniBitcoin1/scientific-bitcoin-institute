@@ -9,6 +9,7 @@ const submenuHrefs = {
   'Research Areas': '/research',
   'Bitcoin Science Library': '/research/bitcoin-science-library',
   'Publications': '/research/publications',
+  'Sponsored Research': '/research/sponsored-research',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
 }
 

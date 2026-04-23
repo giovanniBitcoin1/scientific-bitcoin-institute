@@ -5,6 +5,7 @@ import People from './pages/People.jsx'
 import Research from './pages/Research.jsx'
 import BitcoinScienceLibrary from './pages/BitcoinScienceLibrary.jsx'
 import Publications from './pages/Publications.jsx'
+import SponsoredResearch from './pages/SponsoredResearch.jsx'
 import Education from './pages/Education.jsx'
 import BitcoinFundamentals from './pages/BitcoinFundamentals.jsx'
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/research" element={<Research />} />
         <Route path="/research/bitcoin-science-library" element={<BitcoinScienceLibrary />} />
         <Route path="/research/publications" element={<Publications />} />
+        <Route path="/research/sponsored-research" element={<SponsoredResearch />} />
         <Route path="/education" element={<Education />} />
         <Route path="/education/bitcoin-fundamentals" element={<BitcoinFundamentals />} />
       </Routes>
