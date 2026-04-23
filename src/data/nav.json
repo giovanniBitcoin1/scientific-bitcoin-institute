@@ -17,7 +17,7 @@
   {
     "label": "People",
     "href": "/people",
-    "submenu": ["Researchers", "Faculty", "Postdocs", "Visiting Scholars", "Advisory Board", "Alumni Network"]
+    "submenu": ["Team", "Faculty", "Postdocs", "Visiting Scholars", "Advisory Board", "Alumni Network"]
   },
   {
     "label": "Collaborate",

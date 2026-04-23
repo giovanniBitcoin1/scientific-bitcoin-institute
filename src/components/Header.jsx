@@ -5,6 +5,7 @@ import navItems from '../data/nav.json'
 
 const submenuHrefs = {
   'Manifesto': '/manifesto',
+  'Team': '/people',
 }
 
 function subHref(label) {
