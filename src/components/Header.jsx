@@ -7,6 +7,7 @@ const submenuHrefs = {
   'Manifesto': '/manifesto',
   'Team': '/people',
   'Research Areas': '/research',
+  'Bitcoin Science Library': '/research/bitcoin-science-library',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
 }
 
