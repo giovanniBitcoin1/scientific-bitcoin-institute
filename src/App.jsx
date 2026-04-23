@@ -3,6 +3,8 @@ import Home from './pages/Home.jsx'
 import Manifesto from './pages/Manifesto.jsx'
 import People from './pages/People.jsx'
 import Research from './pages/Research.jsx'
+import Education from './pages/Education.jsx'
+import BitcoinFundamentals from './pages/BitcoinFundamentals.jsx'
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
         <Route path="/manifesto" element={<Manifesto />} />
         <Route path="/people" element={<People />} />
         <Route path="/research" element={<Research />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/education/bitcoin-fundamentals" element={<BitcoinFundamentals />} />
       </Routes>
     </BrowserRouter>
   )

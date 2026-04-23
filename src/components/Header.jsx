@@ -7,6 +7,7 @@ const submenuHrefs = {
   'Manifesto': '/manifesto',
   'Team': '/people',
   'Research Areas': '/research',
+  'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
 }
 
 function subHref(label) {

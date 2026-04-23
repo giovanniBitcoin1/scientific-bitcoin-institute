@@ -80,7 +80,7 @@ const areas = [
       <>
         Our research examines Bitcoin as sound money in the tradition of Carl Menger, Ludwig von Mises, and the
         Austrian School, while grounding these classical arguments in quantitative network analysis. We study global
-        liquidity cycles and their interaction with Bitcoin's deflationary schedule; the Kelly optimization of Bitcoin
+        liquidity cycles and their interaction with Bitcoin's issuance schedule; the Kelly optimization of Bitcoin
         allocation in institutional portfolios; the role of Bitcoin as a reserve asset at the sovereign and corporate
         level; and the implications of its monetary properties for the future architecture of the international
         financial system.
