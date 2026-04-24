@@ -11,6 +11,7 @@ const submenuHrefs = {
   'Publications': '/research/publications',
   'Sponsored Research': '/research/sponsored-research',
   'Open Problems': '/research/open-problems',
+  'Latest News': '/news',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
 }
 

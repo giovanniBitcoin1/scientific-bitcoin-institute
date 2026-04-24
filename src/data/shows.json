@@ -1,0 +1,26 @@
+[
+  {
+    "number": 44,
+    "date": "2026-04-22",
+    "title": "The Physics of Bitcoin — Episode 44",
+    "description": "Giovanni and Stephen continue the long-periodic analysis of Bitcoin, building on the complex-exponent formulation of the Power Law.",
+    "youtubeUrl": "https://www.youtube.com/watch?v=MuDnBb1EpTo",
+    "thumbnailUrl": "https://img.youtube.com/vi/MuDnBb1EpTo/hqdefault.jpg"
+  },
+  {
+    "number": 43,
+    "date": "2026-04-08",
+    "title": "The Physics of Bitcoin — Episode 43",
+    "description": "The long-periodic analysis of Bitcoin, continuing the series on scale-invariant dynamics and bubble structure.",
+    "youtubeUrl": "https://www.youtube.com/watch?v=tsCdFjVgXdg",
+    "thumbnailUrl": "https://img.youtube.com/vi/tsCdFjVgXdg/hqdefault.jpg"
+  },
+  {
+    "number": 42,
+    "date": "2026-04-01",
+    "title": "The Physics of Bitcoin — Episode 42",
+    "description": "The long-periodic analysis of Bitcoin and its relationship to the Power Law Theory.",
+    "youtubeUrl": "https://www.youtube.com/watch?v=WOgXnsGk0Rk",
+    "thumbnailUrl": "https://img.youtube.com/vi/WOgXnsGk0Rk/hqdefault.jpg"
+  }
+]

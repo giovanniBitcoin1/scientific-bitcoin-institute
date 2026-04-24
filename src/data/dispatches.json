@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-04-10",
+    "headline": "The Physics of Bitcoin reaches #1 in Macroeconomics on Amazon",
+    "body": [
+      "Giovanni Santostasi's new book, The Physics of Bitcoin: Not an Asset but a Force of Nature, has reached #1 in Macroeconomics on Amazon. The book develops the Power Law Theory in full mathematical rigor and situates Bitcoin within the framework of statistical physics, the renormalization group, and self-organized criticality.",
+      "The book includes a foreword by Stephen Perrenod, Ph.D., SBI Vice-Director."
+    ],
+    "link": {
+      "text": "More about the book →",
+      "href": "/research/publications#physics-of-bitcoin"
+    }
+  },
+  {
+    "date": "2026-04-02",
+    "headline": "A Mechanistic Derivation of the Bitcoin Price Power Law — preprint published",
+    "body": [
+      "The Institute's first formal research publication is now available on Zenodo. A Mechanistic Derivation of the Bitcoin Price Power Law: Network Adoption Dynamics and Generalised Metcalfe Scaling, by Giovanni Santostasi and Stephen Perrenod, establishes that Bitcoin's price trajectory follows a power law in time with exponent β = 5.69 ± 0.05, and — crucially — derives this exponent mechanistically as the product of two independently measured physical scaling relations.",
+      "The paper is openly available under a CC-BY 4.0 license and is indexed with a permanent DOI. It represents the mathematical foundation of the Institute's research program."
+    ],
+    "link": {
+      "text": "Read the preprint →",
+      "href": "/research/publications#preprint"
+    }
+  }
+]
