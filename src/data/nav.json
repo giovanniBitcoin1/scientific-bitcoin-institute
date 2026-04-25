@@ -2,7 +2,7 @@
   {
     "label": "Research",
     "href": "/research",
-    "submenu": ["Research Areas", "Publications", "Working Papers", "Bitcoin Science Library", "Research Fellows", "Sponsored Research", "Open Problems"]
+    "submenu": ["Research Areas", "Publications", "Working Papers", "Bitcoin Science Library", "Sponsored Research", "Open Problems"]
   },
   {
     "label": "News + Events",
@@ -17,7 +17,7 @@
   {
     "label": "People",
     "href": "/people",
-    "submenu": ["Team", "Faculty", "Postdocs", "Visiting Scholars", "Advisory Board", "Alumni Network"]
+    "submenu": ["Team", "Faculty", "Postdocs", "Visiting Scholars", "Advisory Board", "Research Fellows", "Alumni Network"]
   },
   {
     "label": "Collaborate",
