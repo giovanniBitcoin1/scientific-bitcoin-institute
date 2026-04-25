@@ -8,6 +8,8 @@ import Publications from './pages/Publications.jsx'
 import SponsoredResearch from './pages/SponsoredResearch.jsx'
 import OpenProblems from './pages/OpenProblems.jsx'
 import News from './pages/News.jsx'
+import NewsletterIndex from './pages/NewsletterIndex.jsx'
+import NewsletterIssue01 from './pages/NewsletterIssue01.jsx'
 import Education from './pages/Education.jsx'
 import BitcoinFundamentals from './pages/BitcoinFundamentals.jsx'
 
@@ -24,6 +26,8 @@ export default function App() {
         <Route path="/research/sponsored-research" element={<SponsoredResearch />} />
         <Route path="/research/open-problems" element={<OpenProblems />} />
         <Route path="/news" element={<News />} />
+        <Route path="/news/newsletter" element={<NewsletterIndex />} />
+        <Route path="/news/newsletter/issue-01" element={<NewsletterIssue01 />} />
         <Route path="/education" element={<Education />} />
         <Route path="/education/bitcoin-fundamentals" element={<BitcoinFundamentals />} />
       </Routes>

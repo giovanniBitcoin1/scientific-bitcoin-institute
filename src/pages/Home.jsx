@@ -5,6 +5,7 @@ import Testimonials from '../components/Testimonials.jsx'
 import ResearchGrid from '../components/ResearchGrid.jsx'
 import BitcoinPriceChart from '../components/charts/BitcoinPriceChart.jsx'
 import CTA from '../components/CTA.jsx'
+import NewsletterSignup from '../components/NewsletterSignup.jsx'
 import Footer from '../components/Footer.jsx'
 
 export default function Home() {
@@ -17,6 +18,8 @@ export default function Home() {
       <ResearchGrid />
       <BitcoinPriceChart />
       <CTA />
+      <NewsletterSignup />
+      <div className="pb-16" />
       <Footer />
     </div>
   )
