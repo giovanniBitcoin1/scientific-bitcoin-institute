@@ -15,6 +15,8 @@ const submenuHrefs = {
   'Newsletter': '/news/newsletter',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
   'Contact': '/about/contact',
+  'Collaborate': '/collaborate',
+  'Industry Connections': '/collaborate/industry-connections',
 }
 
 function subHref(label) {

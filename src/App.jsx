@@ -13,6 +13,8 @@ import NewsletterIssue01 from './pages/NewsletterIssue01.jsx'
 import Education from './pages/Education.jsx'
 import BitcoinFundamentals from './pages/BitcoinFundamentals.jsx'
 import Contact from './pages/Contact.jsx'
+import Collaborate from './pages/Collaborate.jsx'
+import IndustryConnections from './pages/IndustryConnections.jsx'
 
 export default function App() {
   return (
@@ -32,6 +34,8 @@ export default function App() {
         <Route path="/education" element={<Education />} />
         <Route path="/education/bitcoin-fundamentals" element={<BitcoinFundamentals />} />
         <Route path="/about/contact" element={<Contact />} />
+        <Route path="/collaborate" element={<Collaborate />} />
+        <Route path="/collaborate/industry-connections" element={<IndustryConnections />} />
       </Routes>
     </BrowserRouter>
   )
