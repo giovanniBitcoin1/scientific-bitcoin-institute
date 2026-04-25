@@ -12,6 +12,7 @@ import NewsletterIndex from './pages/NewsletterIndex.jsx'
 import NewsletterIssue01 from './pages/NewsletterIssue01.jsx'
 import Education from './pages/Education.jsx'
 import BitcoinFundamentals from './pages/BitcoinFundamentals.jsx'
+import Contact from './pages/Contact.jsx'
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/news/newsletter/issue-01" element={<NewsletterIssue01 />} />
         <Route path="/education" element={<Education />} />
         <Route path="/education/bitcoin-fundamentals" element={<BitcoinFundamentals />} />
+        <Route path="/about/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   )

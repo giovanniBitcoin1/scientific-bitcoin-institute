@@ -14,6 +14,7 @@ const submenuHrefs = {
   'Latest News': '/news',
   'Newsletter': '/news/newsletter',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
+  'Contact': '/about/contact',
 }
 
 function subHref(label) {
