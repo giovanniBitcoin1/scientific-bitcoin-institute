@@ -15,6 +15,7 @@ const submenuHrefs = {
   'Faculty': '/people/faculty',
   'Postdocs': '/people/postdocs',
   'Visiting Scholars': '/people/visiting-scholars',
+  'Advisory Board': '/people#advisory-board',
   'Latest News': '/news',
   'Conferences': '/news/conferences',
   'Seminars': '/news/seminars',

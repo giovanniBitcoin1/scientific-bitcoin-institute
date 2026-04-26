@@ -1,5 +1,22 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
+
+function ScrollToHash() {
+  const { hash } = useLocation()
+  useEffect(() => {
+    if (!hash) return
+    const id = hash.replace('#', '')
+    const el = document.getElementById(id)
+    if (el) {
+      requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    }
+  }, [hash])
+  return null
+}
 
 const team = [
   {
@@ -201,6 +218,7 @@ export default function People() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
+      <ScrollToHash />
 
       <main className="pt-28 pb-24">
         {/* Intro */}
@@ -227,7 +245,7 @@ export default function People() {
         </section>
 
         {/* Advisory Board */}
-        <section className="max-w-6xl mx-auto px-6 mt-24">
+        <section id="advisory-board" className="max-w-6xl mx-auto px-6 mt-24 scroll-mt-28">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight">
               Advisory Board
