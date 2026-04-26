@@ -17,6 +17,13 @@ import NewsletterIndex from './pages/NewsletterIndex.jsx'
 import NewsletterIssue01 from './pages/NewsletterIssue01.jsx'
 import Education from './pages/Education.jsx'
 import BitcoinFundamentals from './pages/BitcoinFundamentals.jsx'
+import AdvancedCryptography from './pages/AdvancedCryptography.jsx'
+import GameTheory from './pages/GameTheory.jsx'
+import NetworkScience from './pages/NetworkScience.jsx'
+import ComplexityScience from './pages/ComplexityScience.jsx'
+import EconomicModels from './pages/EconomicModels.jsx'
+import OnlineCourses from './pages/OnlineCourses.jsx'
+import SummerSchool from './pages/SummerSchool.jsx'
 import Contact from './pages/Contact.jsx'
 import Collaborate from './pages/Collaborate.jsx'
 import IndustryConnections from './pages/IndustryConnections.jsx'
@@ -43,6 +50,13 @@ export default function App() {
         <Route path="/news/newsletter/issue-01" element={<NewsletterIssue01 />} />
         <Route path="/education" element={<Education />} />
         <Route path="/education/bitcoin-fundamentals" element={<BitcoinFundamentals />} />
+        <Route path="/education/advanced-cryptography" element={<AdvancedCryptography />} />
+        <Route path="/education/game-theory" element={<GameTheory />} />
+        <Route path="/education/network-science" element={<NetworkScience />} />
+        <Route path="/education/complexity-science" element={<ComplexityScience />} />
+        <Route path="/education/economic-models" element={<EconomicModels />} />
+        <Route path="/education/online-courses" element={<OnlineCourses />} />
+        <Route path="/education/summer-school" element={<SummerSchool />} />
         <Route path="/about/contact" element={<Contact />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/collaborate/industry-connections" element={<IndustryConnections />} />
