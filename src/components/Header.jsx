@@ -32,6 +32,10 @@ const submenuHrefs = {
   'Contact': '/about/contact',
   'Collaborate': '/collaborate',
   'Industry Connections': '/collaborate/industry-connections',
+  'Research Partnerships': '/collaborate/research-partnerships',
+  'Developer Relations': '/collaborate/developer-relations',
+  'Academic Programs': '/collaborate/academic-programs',
+  'Grant Opportunities': '/collaborate/grant-opportunities',
 }
 
 function subHref(label) {

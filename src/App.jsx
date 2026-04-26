@@ -30,6 +30,10 @@ import SummerSchool from './pages/SummerSchool.jsx'
 import Contact from './pages/Contact.jsx'
 import Collaborate from './pages/Collaborate.jsx'
 import IndustryConnections from './pages/IndustryConnections.jsx'
+import ResearchPartnerships from './pages/ResearchPartnerships.jsx'
+import DeveloperRelations from './pages/DeveloperRelations.jsx'
+import AcademicPrograms from './pages/AcademicPrograms.jsx'
+import GrantOpportunities from './pages/GrantOpportunities.jsx'
 
 export default function App() {
   return (
@@ -66,6 +70,10 @@ export default function App() {
         <Route path="/about/contact" element={<Contact />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/collaborate/industry-connections" element={<IndustryConnections />} />
+        <Route path="/collaborate/research-partnerships" element={<ResearchPartnerships />} />
+        <Route path="/collaborate/developer-relations" element={<DeveloperRelations />} />
+        <Route path="/collaborate/academic-programs" element={<AcademicPrograms />} />
+        <Route path="/collaborate/grant-opportunities" element={<GrantOpportunities />} />
       </Routes>
     </BrowserRouter>
   )
