@@ -16,6 +16,7 @@ const submenuHrefs = {
   'Conferences': '/news/conferences',
   'Seminars': '/news/seminars',
   'Workshops': '/news/workshops',
+  'Community Events': '/news/community-events',
   'Newsletter': '/news/newsletter',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
   'Contact': '/about/contact',
