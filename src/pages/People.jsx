@@ -126,6 +126,26 @@ const advisors = [
     ],
     links: [],
   },
+  {
+    photo: '/assets/team/luca.png',
+    name: 'Luca Esposito',
+    title: 'Advisor',
+    bio: [
+      <>
+        Luca Esposito brings more than two decades of corporate IT leadership to the Institute's Advisory Board, with
+        senior roles at Oracle, Microsoft, and Nuance leading large-scale transformations for financial institutions
+        and global partner ecosystems. Alongside this corporate work, he has spent fifteen years as a startup coach
+        and mentor, supporting early-stage technology companies through scale-up and institutional partnership phases.
+      </>,
+      <>
+        Over the past decade, Luca has focused increasingly on the blockchain and Bitcoin ecosystem, with seven years
+        dedicated full-time to Bitcoin. He currently serves as Advisor to Blockstream Capital Partners, where he
+        supports the integration of Bitcoin into institutional treasury, collateral, and capital-market frameworks —
+        bridging traditional finance with Bitcoin-native infrastructure.
+      </>,
+    ],
+    links: [],
+  },
 ]
 
 function AdvisorCard({ member }) {
