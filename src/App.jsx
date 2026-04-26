@@ -31,6 +31,11 @@ import Contact from './pages/Contact.jsx'
 import History from './pages/History.jsx'
 import FAQs from './pages/FAQs.jsx'
 import Transparency from './pages/Transparency.jsx'
+import Support from './pages/Support.jsx'
+import Donate from './pages/Donate.jsx'
+import DonateBitcoin from './pages/DonateBitcoin.jsx'
+import EndowmentFund from './pages/EndowmentFund.jsx'
+import ResearchGrantsSupport from './pages/ResearchGrantsSupport.jsx'
 import Collaborate from './pages/Collaborate.jsx'
 import IndustryConnections from './pages/IndustryConnections.jsx'
 import ResearchPartnerships from './pages/ResearchPartnerships.jsx'
@@ -74,6 +79,11 @@ export default function App() {
         <Route path="/about/history" element={<History />} />
         <Route path="/about/faqs" element={<FAQs />} />
         <Route path="/about/transparency" element={<Transparency />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/support/donate" element={<Donate />} />
+        <Route path="/support/donate-bitcoin" element={<DonateBitcoin />} />
+        <Route path="/support/endowment-fund" element={<EndowmentFund />} />
+        <Route path="/support/research-grants" element={<ResearchGrantsSupport />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/collaborate/industry-connections" element={<IndustryConnections />} />
         <Route path="/collaborate/research-partnerships" element={<ResearchPartnerships />} />

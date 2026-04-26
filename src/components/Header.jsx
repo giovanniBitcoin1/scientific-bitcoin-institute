@@ -42,6 +42,11 @@ const submenuHrefs = {
   'Developer Relations': '/collaborate/developer-relations',
   'Academic Programs': '/collaborate/academic-programs',
   'Grant Opportunities': '/collaborate/grant-opportunities',
+  'Support': '/support',
+  'Donate': '/support/donate',
+  'Donate Bitcoin': '/support/donate-bitcoin',
+  'Endowment Fund': '/support/endowment-fund',
+  'Research Grants': '/support/research-grants',
 }
 
 function subHref(label) {

@@ -27,7 +27,7 @@
   {
     "label": "Support",
     "href": "/support",
-    "submenu": ["Donate Bitcoin", "Endowment Fund", "Research Grants", "Contact Us"]
+    "submenu": ["Donate", "Donate Bitcoin", "Endowment Fund", "Research Grants"]
   },
   {
     "label": "About",
