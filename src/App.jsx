@@ -28,6 +28,9 @@ import EconomicModels from './pages/EconomicModels.jsx'
 import OnlineCourses from './pages/OnlineCourses.jsx'
 import SummerSchool from './pages/SummerSchool.jsx'
 import Contact from './pages/Contact.jsx'
+import History from './pages/History.jsx'
+import FAQs from './pages/FAQs.jsx'
+import Transparency from './pages/Transparency.jsx'
 import Collaborate from './pages/Collaborate.jsx'
 import IndustryConnections from './pages/IndustryConnections.jsx'
 import ResearchPartnerships from './pages/ResearchPartnerships.jsx'
@@ -68,6 +71,9 @@ export default function App() {
         <Route path="/education/online-courses" element={<OnlineCourses />} />
         <Route path="/education/summer-school" element={<SummerSchool />} />
         <Route path="/about/contact" element={<Contact />} />
+        <Route path="/about/history" element={<History />} />
+        <Route path="/about/faqs" element={<FAQs />} />
+        <Route path="/about/transparency" element={<Transparency />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/collaborate/industry-connections" element={<IndustryConnections />} />
         <Route path="/collaborate/research-partnerships" element={<ResearchPartnerships />} />

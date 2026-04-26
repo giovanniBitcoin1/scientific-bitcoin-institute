@@ -1,5 +1,22 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
+
+function ScrollToHash() {
+  const { hash } = useLocation()
+  useEffect(() => {
+    if (!hash) return
+    const id = hash.replace('#', '')
+    const el = document.getElementById(id)
+    if (el) {
+      requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    }
+  }, [hash])
+  return null
+}
 
 const tenets = [
   {
@@ -168,6 +185,7 @@ export default function Manifesto() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
+      <ScrollToHash />
 
       <main className="pt-28 pb-24">
         {/* Page title */}
