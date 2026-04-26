@@ -3,6 +3,9 @@ import Home from './pages/Home.jsx'
 import Manifesto from './pages/Manifesto.jsx'
 import People from './pages/People.jsx'
 import ResearchFellows from './pages/ResearchFellows.jsx'
+import Faculty from './pages/Faculty.jsx'
+import Postdocs from './pages/Postdocs.jsx'
+import VisitingScholars from './pages/VisitingScholars.jsx'
 import Research from './pages/Research.jsx'
 import BitcoinScienceLibrary from './pages/BitcoinScienceLibrary.jsx'
 import Publications from './pages/Publications.jsx'
@@ -36,6 +39,9 @@ export default function App() {
         <Route path="/manifesto" element={<Manifesto />} />
         <Route path="/people" element={<People />} />
         <Route path="/people/research-fellows" element={<ResearchFellows />} />
+        <Route path="/people/faculty" element={<Faculty />} />
+        <Route path="/people/postdocs" element={<Postdocs />} />
+        <Route path="/people/visiting-scholars" element={<VisitingScholars />} />
         <Route path="/research" element={<Research />} />
         <Route path="/research/bitcoin-science-library" element={<BitcoinScienceLibrary />} />
         <Route path="/research/publications" element={<Publications />} />
