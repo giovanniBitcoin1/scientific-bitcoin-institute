@@ -2,7 +2,7 @@
   {
     "label": "Research",
     "href": "/research",
-    "submenu": ["Research Areas", "Publications", "Working Papers", "Bitcoin Science Library", "Sponsored Research", "Open Problems"]
+    "submenu": ["Research Areas", "Publications", "Bitcoin Science Library", "Sponsored Research", "Open Problems"]
   },
   {
     "label": "News + Events",
