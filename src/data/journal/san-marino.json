@@ -1,0 +1,106 @@
+{
+  "slug": "san-marino",
+  "status": "past",
+  "date": "2026-05-27",
+  "location": "Welcome Hotel San Marino, Dogana (San Marino)",
+  "type": "Summit",
+  "cover_image": "/assets/journal/san-marino/06-interview.jpg",
+  "title_en": "Bitcoin Capital Summit — San Marino",
+  "title_it": "Bitcoin Capital Summit — San Marino",
+  "summary_en": "The Bitcoin Capital Summit came to San Marino on 27 May 2026 at the Welcome Hotel in Dogana, in collaboration with the Cassa di Risparmio della Repubblica di San Marino. After Lugano, Turin and San Salvador, the gathering offered a clear, strategic reading of Bitcoin's evolution, with an institutional rather than technical focus. The Scientific Bitcoin Institute was represented by its Director, Giovanni Santostasi, who presented the scientific view of Bitcoin as a complex system.",
+  "summary_it": "Il Bitcoin Capital Summit ha fatto tappa a San Marino il 27 maggio 2026, al Welcome Hotel di Dogana, in collaborazione con la Cassa di Risparmio della Repubblica di San Marino. Dopo Lugano, Torino e San Salvador, l'incontro ha offerto una lettura chiara e strategica dell'evoluzione di Bitcoin, con taglio istituzionale e non tecnico. Per lo Scientific Bitcoin Institute è intervenuto il Direttore Giovanni Santostasi, con la prospettiva scientifica su Bitcoin come sistema complesso.",
+  "highlights_en": [
+    "San Marino edition after Lugano, Turin and San Salvador",
+    "Talk by Giovanni Santostasi on the physics of Bitcoin and power laws",
+    "Institutional dialogue with Carisp and Secretary of State for Finance Marco Gatti",
+    "International speakers: Luca Esposito, Christian Miccoli, Denis Roio",
+    "San Marino RTV interviews with Esposito, Santostasi and Alessandra Grendele"
+  ],
+  "highlights_it": [
+    "Tappa sammarinese dopo Lugano, Torino e San Salvador",
+    "Intervento di Giovanni Santostasi sulla fisica di Bitcoin e le leggi di potenza",
+    "Dialogo istituzionale con Carisp e il Segretario di Stato per le Finanze Marco Gatti",
+    "Relatori internazionali: Luca Esposito, Christian Miccoli, Denis Roio",
+    "Interviste di San Marino RTV a Esposito, Santostasi e Alessandra Grendele"
+  ],
+  "people_met": [
+    "Luca Simoni (Carisp)",
+    "Marco Gatti (Segretario di Stato Finanze)",
+    "Luca Esposito (Blockstream Capital Partners)",
+    "Christian Miccoli (Conio)",
+    "Alessandra Grendele (Conio)",
+    "Denis Roio (Fondazione Plan ₿)"
+  ],
+  "gallery": [
+    {
+      "src": "/assets/journal/san-marino/01-audience.jpg",
+      "alt_en": "The audience at the Welcome Hotel San Marino",
+      "alt_it": "Il pubblico al Welcome Hotel San Marino"
+    },
+    {
+      "src": "/assets/journal/san-marino/02-power-law-talk.jpg",
+      "alt_en": "Giovanni Santostasi presenting Bitcoin's power-law behaviour",
+      "alt_it": "Giovanni Santostasi presenta il comportamento a legge di potenza di Bitcoin"
+    },
+    {
+      "src": "/assets/journal/san-marino/03-power-laws-in-nature.jpg",
+      "alt_en": "Bitcoin compared with power laws in nature, planets, languages and cities",
+      "alt_it": "Bitcoin a confronto con le leggi di potenza in natura, pianeti, lingue e città"
+    },
+    {
+      "src": "/assets/journal/san-marino/04-bitcoin-price-chart.jpg",
+      "alt_en": "The long-term Bitcoin price chart on screen",
+      "alt_it": "Il grafico di lungo periodo del prezzo di Bitcoin"
+    },
+    {
+      "src": "/assets/journal/san-marino/05-physics-of-bitcoin-book.jpg",
+      "alt_en": "The Physics of Bitcoin by Giovanni Santostasi",
+      "alt_it": "The Physics of Bitcoin di Giovanni Santostasi"
+    },
+    {
+      "src": "/assets/journal/san-marino/cover.jpg",
+      "alt_en": "Luca Esposito (Blockstream Capital Partners) presenting at the summit",
+      "alt_it": "Luca Esposito (Blockstream Capital Partners) sul palco al summit"
+    },
+    {
+      "src": "/assets/journal/san-marino/07-panel.jpg",
+      "alt_en": "Panel discussion at the Bitcoin Capital Summit",
+      "alt_it": "Il panel del Bitcoin Capital Summit"
+    },
+    {
+      "src": "/assets/journal/san-marino/08-complexity-slide.jpg",
+      "alt_en": "A slide on Bitcoin, complexity and self-organization",
+      "alt_it": "Una slide su Bitcoin, complessità e auto-organizzazione"
+    }
+  ],
+  "videos": [
+    {
+      "url": "https://youtu.be/znqZBRpT9jI",
+      "title_en": "Giovanni Santostasi — talk (part 1)",
+      "title_it": "Giovanni Santostasi — intervento (parte 1)"
+    },
+    {
+      "url": "https://youtu.be/GWBu_tgDbCY",
+      "title_en": "Giovanni Santostasi — talk (part 2)",
+      "title_it": "Giovanni Santostasi — intervento (parte 2)"
+    },
+    {
+      "url": "https://youtu.be/ew0N6s6N51U",
+      "title_en": "Luca Esposito (Blockstream Capital Partners) — talk",
+      "title_it": "Luca Esposito (Blockstream Capital Partners) — intervento"
+    },
+    {
+      "url": "/assets/journal/san-marino/san-marino-interview.mp4",
+      "title_en": "Giovanni Santostasi — interview clip",
+      "title_it": "Giovanni Santostasi — clip dell'intervista"
+    }
+  ],
+  "official_links": [
+    { "label": "Carisp", "url": "https://www.carisp.sm/il-bitcoin-capital-summit-arriva-a-san-marino" },
+    { "label": "San Marino RTV (interviste)", "url": "https://www.sanmarinortv.sm/news/economia-c5/bitcoin-capital-summit-arriva-a-san-marino-in-collaborazione-con-cassa-di-risparmio-a291087" },
+    { "label": "San Marino RTV (evento)", "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/bitcoin-capital-summit-a-san-marino-e4859" },
+    { "label": "Instagram", "url": "https://www.instagram.com/p/DX_daJ1CBB0/" }
+  ],
+  "pull_quote_en": "We discovered that Bitcoin behaves like a natural system. — Giovanni Santostasi",
+  "pull_quote_it": "Abbiamo scoperto che Bitcoin si comporta come un sistema naturale. — Giovanni Santostasi"
+}

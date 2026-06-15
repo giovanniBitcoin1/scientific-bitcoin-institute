@@ -22,6 +22,7 @@ const submenuHrefs = {
   'Workshops': '/news/workshops',
   'Community Events': '/news/community-events',
   'Newsletter': '/news/newsletter',
+  'Event Journal': '/news/journal',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
   'Advanced Cryptography': '/education/advanced-cryptography',
   'Game Theory': '/education/game-theory',

@@ -1,0 +1,32 @@
+{
+  "slug": "plan-b-forum",
+  "status": "upcoming",
+  "date": "2026-10-23",
+  "location": "Lugano, Switzerland",
+  "type": "Forum · Session",
+  "cover_image": "/assets/journal/plan-b-forum-cover.svg",
+  "title_en": "Plan ₿ Forum",
+  "title_it": "Plan ₿ Forum",
+  "summary_en": "The Institute joins the Plan ₿ Forum, the major annual gathering of the European Bitcoin community, with a dedicated session.",
+  "summary_it": "L'Istituto partecipa al Plan ₿ Forum, il principale raduno annuale della comunità Bitcoin europea, con una sessione dedicata.",
+  "highlights_en": [
+    "Two-day forum on 23–24 October 2026",
+    "Session led by Giovanni Santostasi on a side stage",
+    "Hundreds of builders, researchers, and investors from across Europe",
+    "Program details to be confirmed closer to the event"
+  ],
+  "highlights_it": [
+    "Forum di due giorni il 23–24 ottobre 2026",
+    "Sessione condotta da Giovanni Santostasi su un palco secondario",
+    "Centinaia di builder, ricercatori e investitori da tutta Europa",
+    "Dettagli del programma da confermare in prossimità dell'evento"
+  ],
+  "people_met": [],
+  "gallery": [],
+  "videos": [],
+  "official_links": [
+    { "label": "Plan ₿ Forum", "url": "https://www.planb.lugano.ch" }
+  ],
+  "pull_quote_en": "Lugano has become one of Europe's great laboratories for sound money.",
+  "pull_quote_it": "Lugano è diventata uno dei grandi laboratori europei per la moneta sana."
+}

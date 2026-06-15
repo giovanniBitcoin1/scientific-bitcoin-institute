@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         serif: ['"Crimson Pro"', 'Georgia', 'serif'],
         sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
         bitcoin: {

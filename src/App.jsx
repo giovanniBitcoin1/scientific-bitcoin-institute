@@ -18,6 +18,8 @@ import Workshops from './pages/Workshops.jsx'
 import CommunityEvents from './pages/CommunityEvents.jsx'
 import NewsletterIndex from './pages/NewsletterIndex.jsx'
 import NewsletterIssue01 from './pages/NewsletterIssue01.jsx'
+import JournalIndex from './pages/JournalIndex.jsx'
+import JournalPost from './pages/JournalPost.jsx'
 import Education from './pages/Education.jsx'
 import BitcoinFundamentals from './pages/BitcoinFundamentals.jsx'
 import AdvancedCryptography from './pages/AdvancedCryptography.jsx'
@@ -66,6 +68,8 @@ export default function App() {
         <Route path="/news/community-events" element={<CommunityEvents />} />
         <Route path="/news/newsletter" element={<NewsletterIndex />} />
         <Route path="/news/newsletter/issue-01" element={<NewsletterIssue01 />} />
+        <Route path="/news/journal" element={<JournalIndex />} />
+        <Route path="/news/journal/:slug" element={<JournalPost />} />
         <Route path="/education" element={<Education />} />
         <Route path="/education/bitcoin-fundamentals" element={<BitcoinFundamentals />} />
         <Route path="/education/advanced-cryptography" element={<AdvancedCryptography />} />

@@ -1,0 +1,33 @@
+{
+  "slug": "lac-lugano",
+  "status": "upcoming",
+  "date": "2026-10-22",
+  "location": "Lugano, Switzerland",
+  "type": "Summit · Keynote",
+  "cover_image": "/assets/journal/lac-lugano-cover.svg",
+  "title_en": "Bitcoin Capital Summit at LAC",
+  "title_it": "Bitcoin Capital Summit al LAC",
+  "summary_en": "A full-day summit at the LAC cultural centre in collaboration with Bitfinex, with an Institute keynote and a dedicated space.",
+  "summary_it": "Un summit di un'intera giornata al centro culturale LAC in collaborazione con Bitfinex, con un keynote dell'Istituto e uno spazio dedicato.",
+  "highlights_en": [
+    "20-minute keynote by Giovanni Santostasi",
+    "Roughly 400 attendees expected at the LAC (Lugano Arte e Cultura)",
+    "Dedicated Institute space for discussion throughout the day",
+    "Book signing of The Physics of Bitcoin"
+  ],
+  "highlights_it": [
+    "Keynote di 20 minuti di Giovanni Santostasi",
+    "Circa 400 partecipanti previsti al LAC (Lugano Arte e Cultura)",
+    "Spazio dedicato dell'Istituto per il confronto durante tutta la giornata",
+    "Firma del libro The Physics of Bitcoin"
+  ],
+  "people_met": [],
+  "gallery": [],
+  "videos": [],
+  "official_links": [
+    { "label": "LAC Lugano", "url": "https://www.luganolac.ch" },
+    { "label": "Bitfinex", "url": "https://www.bitfinex.com" }
+  ],
+  "pull_quote_en": "We bring the rigor of physics to the most important monetary network of our time.",
+  "pull_quote_it": "Portiamo il rigore della fisica nella più importante rete monetaria del nostro tempo."
+}
