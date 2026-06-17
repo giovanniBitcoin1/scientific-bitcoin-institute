@@ -1,0 +1,86 @@
+{
+  "slug": "bitcoin-corporate-day",
+  "status": "past",
+  "date": "2026-06-10",
+  "location": "Lobkowicz Palace, Prague Castle, Czech Republic",
+  "type": "Conference",
+  "cover_image": "/assets/journal/bitcoin-corporate-day/cover-santostasi-staircase.jpg",
+  "title_en": "Bitcoin Corporate Day — Lobkowicz Palace, Prague",
+  "title_it": "Bitcoin Corporate Day — Lobkowicz Palace, Prague",
+  "summary_en": "On 10 June 2026, on the eve of BTC Prague, the Scientific Bitcoin Institute took part in Bitcoin Corporate Day, an invitation-only gathering at the Lobkowicz Palace inside Prague Castle. Organised by BTC Prague with Bitwise as general partner, the closed-door event brought together around 210 institutional investors, executives and Bitcoin industry leaders around corporate adoption, treasury strategy and Bitcoin as institutional-grade collateral. The Institute's Director, Giovanni Santostasi, joined the panel 'Building a fully integrated Bitcoin financial ecosystem', moderated by Sean Bill, bringing a scientific, quantitative perspective into a room focused on capital markets and corporate finance.",
+  "summary_it": "Il 10 giugno 2026, alla vigilia del BTC Prague, lo Scientific Bitcoin Institute ha partecipato al Bitcoin Corporate Day, un incontro su invito al Palazzo Lobkowicz, dentro il Castello di Praga. Organizzato da BTC Prague con Bitwise come general partner, l'evento a porte chiuse ha riunito circa 210 tra investitori istituzionali, dirigenti e protagonisti del settore Bitcoin attorno all'adozione aziendale, alla strategia di tesoreria e a Bitcoin come collaterale di livello istituzionale. Il Direttore dell'Istituto, Giovanni Santostasi, è intervenuto nel panel 'Building a fully integrated Bitcoin financial ecosystem', moderato da Sean Bill, portando una prospettiva scientifica e quantitativa in una sala dedicata ai mercati dei capitali e alla finanza aziendale.",
+  "highlights_en": [
+    "Giovanni Santostasi joined the panel on building a fully integrated Bitcoin financial ecosystem, moderated by Sean Bill (with Julien Lederer, Alfonso Delgado and Fredrik Werneman).",
+    "Invitation-only gathering with around 210 institutional investors, executives and industry leaders, the day before BTC Prague.",
+    "Held at the historic Lobkowicz Palace, inside Prague Castle; organised by BTC Prague with Bitwise as general partner.",
+    "The Institute brought a scientific, quantitative reading of Bitcoin into a corporate-finance setting."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi è intervenuto nel panel sulla costruzione di un ecosistema finanziario Bitcoin integrato, moderato da Sean Bill (con Julien Lederer, Alfonso Delgado e Fredrik Werneman).",
+    "Incontro su invito con circa 210 tra investitori istituzionali, dirigenti e leader del settore, il giorno prima del BTC Prague.",
+    "Ospitato nello storico Palazzo Lobkowicz, dentro il Castello di Praga; organizzato da BTC Prague con Bitwise come general partner.",
+    "L'Istituto ha portato una lettura scientifica e quantitativa di Bitcoin in un contesto di finanza aziendale."
+  ],
+  "people_met": [
+    "Sean Bill",
+    "Julien Lederer",
+    "Alfonso Delgado",
+    "Fredrik Werneman"
+  ],
+  "gallery": [
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/01-lobkowicz-exterior.jpg",
+      "alt_en": "The entrance of the Lobkowicz Palace",
+      "alt_it": "L'ingresso del Palazzo Lobkowicz"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/02-staircase.jpg",
+      "alt_en": "The grand staircase of the Lobkowicz Palace",
+      "alt_it": "La scalinata monumentale del Palazzo Lobkowicz"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/03-bcd-totem.jpg",
+      "alt_en": "The Bitcoin Corporate Day 2026 totem",
+      "alt_it": "Il totem del Bitcoin Corporate Day 2026"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/04-gold-partners.jpg",
+      "alt_en": "The event's Gold Partners",
+      "alt_it": "I Gold Partner dell'evento"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/05-networking-hall.jpg",
+      "alt_en": "The frescoed hall during networking",
+      "alt_it": "La sala affrescata durante il networking"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/06-room-wide.jpg",
+      "alt_en": "The Lobkowicz Palace hall during the talks",
+      "alt_it": "La sala del Palazzo Lobkowicz durante gli interventi"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/07-santostasi-panel.jpg",
+      "alt_en": "Giovanni Santostasi in the panel on stage",
+      "alt_it": "Giovanni Santostasi nel panel sul palco"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day/08-panel-bcp.jpg",
+      "alt_en": "The panel 'Building a fully integrated Bitcoin financial ecosystem'",
+      "alt_it": "Il panel 'Building a fully integrated Bitcoin financial ecosystem'"
+    }
+  ],
+  "videos": [
+    {
+      "url": "/assets/journal/bitcoin-corporate-day/bcd-santostasi-panel.mp4",
+      "title_en": "The panel with Giovanni Santostasi at Bitcoin Corporate Day",
+      "title_it": "Il panel con Giovanni Santostasi al Bitcoin Corporate Day"
+    }
+  ],
+  "official_links": [
+    { "label": "Bitcoin Corporate Day", "url": "https://www.bitcoincorporateday.com/" },
+    { "label": "BTC Prague (organiser)", "url": "https://btcprague.com/" }
+  ],
+  "pull_quote_plain": true,
+  "pull_quote_en": "Bitcoin's long-term trajectory as a measurable, falsifiable phenomenon — not speculation.",
+  "pull_quote_it": "La traiettoria di lungo periodo di Bitcoin come fenomeno misurabile e falsificabile, non come speculazione."
+}

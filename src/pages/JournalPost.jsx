@@ -224,7 +224,7 @@ export default function JournalPost() {
           {pullQuote && (
             <blockquote className="mt-10 border-l-4 border-orange-500 pl-6 py-2">
               <p className="font-serif text-2xl md:text-3xl text-slate-900 italic leading-snug">
-                “{pullQuote}”
+                {event.pull_quote_plain ? pullQuote : `“${pullQuote}”`}
               </p>
             </blockquote>
           )}
