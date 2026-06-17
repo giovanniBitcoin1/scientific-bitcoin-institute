@@ -275,6 +275,121 @@ export default function Publications() {
 
         <SectionDivider />
 
+        {/* Pecere — Multilevel Adaptive System */}
+        <section
+          id="multilevel-adaptive-system"
+          className="max-w-6xl mx-auto px-6 my-20 scroll-mt-28"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-[minmax(240px,320px)_1fr] gap-10 md:gap-14 items-start">
+            <div>
+              <a
+                href="https://zenodo.org/records/20731403"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <img
+                  src="/assets/publications/pecere-multilevel-adaptive-system-cover.png"
+                  alt="Cover page of From Local Incentives to Global Power Law Dynamics by Adriano Pecere"
+                  className="rounded-lg shadow-lg w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
+                />
+              </a>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
+                Preprint &nbsp;·&nbsp; November 2025
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold text-slate-900 leading-tight mt-3">
+                From Local Incentives to Global Power Law Dynamics: Modeling Bitcoin as a Multilevel
+                Adaptive System
+              </h2>
+              <p className="text-slate-600 text-sm italic mt-2">
+                Adriano Pecere — Scientific Bitcoin Institute, Università la Sapienza
+              </p>
+
+              <p className="text-slate-700 text-base leading-relaxed mt-4">
+                Pecere models Bitcoin adoption as a multilevel adaptive system whose evolution
+                follows an empirical power law. By establishing a structural equivalence between
+                System Dynamics and Game Theory formulations, the paper shows that Bitcoin's
+                power-law growth reflects a fractal strategic equilibrium across individual,
+                corporate, and institutional scales — rather than stochastic dynamics. The work
+                provides a dual SD⇄GT framework linking micro-level strategic optimization to
+                macro-level structural dynamics.
+              </p>
+
+              <p className="text-slate-500 text-xs mt-3">DOI: 10.13140/RG.2.2.34945.93289</p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <PrimaryButton href="https://zenodo.org/records/20731403">
+                  Read on Zenodo →
+                </PrimaryButton>
+                <SecondaryButton href="/assets/publications/pecere-multilevel-adaptive-system.pdf">
+                  Download PDF
+                </SecondaryButton>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        {/* Pecere — Economics / Ecology Bridge */}
+        <section
+          id="economics-ecology-bridge"
+          className="max-w-6xl mx-auto px-6 my-20 scroll-mt-28"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-[minmax(240px,320px)_1fr] gap-10 md:gap-14 items-start">
+            <div>
+              <a
+                href="https://zenodo.org/records/20731928"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <img
+                  src="/assets/publications/pecere-economics-ecology-bridge-cover.png"
+                  alt="Cover page of Resource-Constrained Competition: A Mathematical Bridge Between Economics and Ecology by Adriano Pecere"
+                  className="rounded-lg shadow-lg w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
+                />
+              </a>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
+                Preprint &nbsp;·&nbsp; November 2025
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold text-slate-900 leading-tight mt-3">
+                Resource-Constrained Competition: A Mathematical Bridge Between Economics and Ecology
+              </h2>
+              <p className="text-slate-600 text-sm italic mt-2">
+                Adriano Pecere — Scientific Bitcoin Institute, Università la Sapienza
+              </p>
+
+              <p className="text-slate-700 text-base leading-relaxed mt-4">
+                Pecere demonstrates that market equilibria in economic theory and ecological
+                equilibria in population dynamics are mathematically isomorphic solutions to resource
+                allocation problems. Monopoly, duopoly, oligopoly, and perfect competition correspond
+                precisely to single-species, two-species, multi-species, and intense competition
+                scenarios in ecology. The result reveals a general principle: systems where agents
+                compete for scarce resources converge to predictable configurations regardless of
+                whether allocation occurs through conscious optimization or evolutionary selection.
+              </p>
+
+              <p className="text-slate-500 text-xs mt-3">DOI: 10.13140/RG.2.2.22995.44326</p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <PrimaryButton href="https://zenodo.org/records/20731928">
+                  Read on Zenodo →
+                </PrimaryButton>
+                <SecondaryButton href="/assets/publications/pecere-economics-ecology-bridge.pdf">
+                  Download PDF
+                </SecondaryButton>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
         {/* Closing */}
         <section className="max-w-2xl mx-auto px-6 text-center mt-20">
           <h3 className="font-serif text-2xl font-semibold text-slate-900 mb-4">
