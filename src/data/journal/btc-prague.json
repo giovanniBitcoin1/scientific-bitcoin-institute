@@ -1,0 +1,116 @@
+{
+  "slug": "btc-prague",
+  "status": "past",
+  "date": "2026-06-11",
+  "date_display": "11–13 giugno 2026",
+  "location": "PVA Expo Praha, Prague, Czech Republic",
+  "type": "Conference",
+  "cover_image": "/assets/journal/btc-prague/cover-santostasi-screen.jpg",
+  "title_en": "BTC Prague 2026 — PVA Expo Praha",
+  "title_it": "BTC Prague 2026 — PVA Expo Praha",
+  "summary_en": "From 11 to 13 June 2026, the Scientific Bitcoin Institute took part in BTC Prague, Europe's largest Bitcoin conference, at the PVA Expo Praha. On the Main Stage, the Institute's Director, Giovanni Santostasi, presented the Bitcoin Power Law — the empirical scaling relationship he is known for — showing how power-law dynamics offer a rigorous, falsifiable framework for valuing Bitcoin, turning long-term analysis from speculation into science. With over 8,500 attendees and more than 200 speakers across multiple stages, BTC Prague gave the Institute's scientific reading of Bitcoin its widest European audience.",
+  "summary_it": "Dall'11 al 13 giugno 2026 lo Scientific Bitcoin Institute ha partecipato al BTC Prague, la più grande conferenza Bitcoin europea, al PVA Expo Praha. Sul Main Stage il Direttore dell'Istituto, Giovanni Santostasi, ha presentato la Bitcoin Power Law — la relazione di scala empirica per cui è noto — mostrando come la dinamica a legge di potenza offra una cornice rigorosa e falsificabile per valutare Bitcoin, trasformando l'analisi di lungo periodo da speculazione a scienza. Con oltre 8.500 partecipanti e più di 200 relatori su più palchi, il BTC Prague ha dato alla lettura scientifica dell'Istituto il suo pubblico europeo più ampio.",
+  "highlights_en": [
+    "Giovanni Santostasi presented the Bitcoin Power Law on the Main Stage.",
+    "A scientific, falsifiable framework for valuing Bitcoin, beyond speculation.",
+    "BTC Prague: Europe's largest Bitcoin conference (4th edition), 11–13 June 2026 at the PVA Expo Praha.",
+    "Over 8,500 attendees and more than 200 speakers across multiple stages."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi ha presentato la Bitcoin Power Law sul Main Stage.",
+    "Una cornice scientifica e falsificabile per valutare Bitcoin, oltre la speculazione.",
+    "BTC Prague: la più grande conferenza Bitcoin d'Europa (4ª edizione), 11–13 giugno 2026 al PVA Expo Praha.",
+    "Oltre 8.500 partecipanti e più di 200 relatori su più palchi."
+  ],
+  "gallery": [
+    {
+      "src": "/assets/journal/btc-prague/01-arrival-exterior.jpg",
+      "alt_en": "The entrance of PVA Expo Praha, BTC Prague venue",
+      "alt_it": "L'ingresso del PVA Expo Praha, sede del BTC Prague"
+    },
+    {
+      "src": "/assets/journal/btc-prague/02-sponsor-wall.jpg",
+      "alt_en": "Giovanni Santostasi at the BTC Prague sponsor wall",
+      "alt_it": "Giovanni Santostasi al muro sponsor del BTC Prague"
+    },
+    {
+      "src": "/assets/journal/btc-prague/03-mainstage.jpg",
+      "alt_en": "Giovanni Santostasi presenting the Bitcoin Power Law on the Main Stage",
+      "alt_it": "Giovanni Santostasi presenta la Bitcoin Power Law sul Main Stage"
+    },
+    {
+      "src": "/assets/journal/btc-prague/04-mainstage-2.jpg",
+      "alt_en": "The talk on the BTC Prague Main Stage",
+      "alt_it": "L'intervento sul Main Stage del BTC Prague"
+    },
+    {
+      "src": "/assets/journal/btc-prague/05-offstage.jpg",
+      "alt_en": "Giovanni Santostasi by the stage",
+      "alt_it": "Giovanni Santostasi a bordo palco"
+    },
+    {
+      "src": "/assets/journal/btc-prague/06-theblock-interview.jpg",
+      "alt_en": "The interview with The Block at the BTC Prague studio",
+      "alt_it": "L'intervista a The Block, nello studio del BTC Prague"
+    },
+    {
+      "src": "/assets/journal/btc-prague/07-theblock-conversation.jpg",
+      "alt_en": "Giovanni Santostasi during The Block interview",
+      "alt_it": "Giovanni Santostasi durante l'intervista a The Block"
+    },
+    {
+      "src": "/assets/journal/btc-prague/08-theblock-studio.jpg",
+      "alt_en": "The Block studio at BTC Prague",
+      "alt_it": "Lo studio di The Block al BTC Prague"
+    },
+    {
+      "src": "/assets/journal/btc-prague/09-networking.jpg",
+      "alt_en": "Networking at BTC Prague",
+      "alt_it": "Networking al BTC Prague"
+    },
+    {
+      "src": "/assets/journal/btc-prague/10-mascot-group.jpg",
+      "alt_en": "A lighter moment at BTC Prague",
+      "alt_it": "Un momento leggero al BTC Prague"
+    },
+    {
+      "src": "/assets/journal/btc-prague/11-mascot.jpg",
+      "alt_en": "With the BTC Prague mascot",
+      "alt_it": "Con la mascotte del BTC Prague"
+    }
+  ],
+  "videos": [
+    {
+      "url": "/assets/journal/btc-prague/btc-prague-mainstage-atmosphere.mp4",
+      "title_en": "The Main Stage atmosphere",
+      "title_it": "L'atmosfera del Main Stage"
+    },
+    {
+      "url": "/assets/journal/btc-prague/btc-prague-backstage-mic.mp4",
+      "title_en": "Backstage: getting mic'd up before the talk",
+      "title_it": "Dietro le quinte: la microfonatura prima del talk"
+    },
+    {
+      "url": "/assets/journal/btc-prague/btc-prague-backstage-sidestage.mp4",
+      "title_en": "Waiting at the side of the stage",
+      "title_it": "In attesa a bordo palco"
+    },
+    {
+      "url": "/assets/journal/btc-prague/btc-prague-theblock-bts.mp4",
+      "title_en": "Behind the scenes of The Block interview",
+      "title_it": "Dietro le quinte dell'intervista a The Block"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bULfrYP01yA",
+      "title_en": "Giovanni Santostasi interview — The Block · BTC Prague 2026",
+      "title_it": "Intervista a Giovanni Santostasi — The Block · BTC Prague 2026"
+    }
+  ],
+  "official_links": [
+    { "label": "BTC Prague", "url": "https://btcprague.com/" },
+    { "label": "Intervista The Block (YouTube)", "url": "https://www.youtube.com/watch?v=bULfrYP01yA" }
+  ],
+  "pull_quote_plain": true,
+  "pull_quote_en": "Bitcoin follows a power law — the same mathematics behind city growth and network phenomena in nature.",
+  "pull_quote_it": "Bitcoin segue una legge di potenza — la stessa matematica che governa la crescita delle città e i fenomeni di rete in natura."
+}

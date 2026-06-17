@@ -194,7 +194,7 @@ export default function JournalPost() {
           {/* Title block */}
           <header className="mt-8">
             <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
-              {formatLongDateUpper(event.date)} &nbsp;·&nbsp; {event.location}
+              {event.date_display || formatLongDateUpper(event.date)} &nbsp;·&nbsp; {event.location}
               {event.type ? <> &nbsp;·&nbsp; {event.type}</> : null}
             </p>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight mt-3">
