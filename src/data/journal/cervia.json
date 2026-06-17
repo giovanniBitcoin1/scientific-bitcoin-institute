@@ -1,0 +1,59 @@
+{
+  "slug": "cervia",
+  "status": "past",
+  "date": "2026-06-05",
+  "location": "Darsena del Sale, Cervia (RA)",
+  "type": "Conference",
+  "cover_image": "/assets/journal/cervia/cover.jpg",
+  "title_en": "Plan B Waves — Cervia",
+  "title_it": "Plan B Waves — Cervia",
+  "summary_en": "Plan B Waves brought a deliberately \u201cpop\u201d take on Bitcoin to the Darsena del Sale in Cervia on 5 June 2026. The festival's first edition paired accessible, high-energy talks across two stages with networking, live music and an evening DJ set, opening Bitcoin to newcomers without diluting the content. The Scientific Bitcoin Institute took part with its Director, Giovanni Santostasi, who presented the scientific reading of Bitcoin as a complex system \u2014 from power laws and the Bitcoin Power Law to the case for Bitcoin's fundamental value.",
+  "summary_it": "Plan B Waves ha portato una lettura volutamente \u201cpop\u201d di Bitcoin alla Darsena del Sale di Cervia, il 5 giugno 2026. La prima edizione del festival ha unito talk accessibili e dinamici su due palchi a networking, musica dal vivo e un DJ set serale, avvicinando anche i neofiti senza rinunciare alla qualit\u00e0 dei contenuti. Lo Scientific Bitcoin Institute ha partecipato con il suo Direttore, Giovanni Santostasi, che ha presentato la lettura scientifica di Bitcoin come sistema complesso: dalle power law e dalla Bitcoin Power Law fino al tema del valore fondamentale di Bitcoin.",
+  "highlights_en": [
+    "Giovanni Santostasi presented Bitcoin as a complex system, explaining the Bitcoin Power Law.",
+    "A central argument: Bitcoin is not merely a speculative asset but an experiment carrying fundamental, human value.",
+    "Held at the Darsena del Sale, a reclaimed salt-warehouse landmark on Cervia's canal harbour.",
+    "A two-stage \u201cpop\u201d format mixing talks, live music, networking and an evening DJ set."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi ha presentato Bitcoin come sistema complesso, spiegando la Bitcoin Power Law.",
+    "Un'idea centrale: Bitcoin non \u00e8 solo un asset speculativo, ma un esperimento dal valore fondamentale e umano.",
+    "Ospitato alla Darsena del Sale, ex magazzino del sale riqualificato sul porto canale di Cervia.",
+    "Format \u201cpop\u201d su due palchi, tra talk, musica dal vivo, networking e DJ set serale."
+  ],
+  "people_met": [
+    "Giacomo Zucco",
+    "Mir Liponi",
+    "Luca Boiardi",
+    "Luca Esposito",
+    "Marco Costanza",
+    "Turtlecute"
+  ],
+  "gallery": [
+    { "src": "/assets/journal/cervia/01-venue-interior.jpg", "alt_en": "Inside the Darsena del Sale, red-lit brick arches before the talks", "alt_it": "Interno della Darsena del Sale, archi in mattoni illuminati di rosso prima dei talk" },
+    { "src": "/assets/journal/cervia/02-venue-wide.jpg", "alt_en": "Wide view of the Plan B Waves venue and audience", "alt_it": "Veduta d'insieme della sala di Plan B Waves e del pubblico" },
+    { "src": "/assets/journal/cervia/03-gadgets.jpg", "alt_en": "Plan B Waves merchandise: t-shirts, caps, lanyards and stickers", "alt_it": "Gadget di Plan B Waves: t-shirt, cappellini, lanyard e adesivi" },
+    { "src": "/assets/journal/cervia/04-stage.jpg", "alt_en": "The Plan B Waves stage with the event branding", "alt_it": "Il palco di Plan B Waves con il branding dell'evento" },
+    { "src": "/assets/journal/cervia/05-santostasi-stage.jpg", "alt_en": "Giovanni Santostasi on stage at Plan B Waves", "alt_it": "Giovanni Santostasi sul palco di Plan B Waves" },
+    { "src": "/assets/journal/cervia/06-santostasi-chart.jpg", "alt_en": "Giovanni Santostasi presenting the Bitcoin growth chart", "alt_it": "Giovanni Santostasi presenta il grafico di crescita di Bitcoin" },
+    { "src": "/assets/journal/cervia/07-santostasi-power-law.jpg", "alt_en": "Giovanni Santostasi explaining the Bitcoin Power Law", "alt_it": "Giovanni Santostasi spiega la Bitcoin Power Law" },
+    { "src": "/assets/journal/cervia/08-panel.jpg", "alt_en": "Panel discussion at Plan B Waves", "alt_it": "Il panel di discussione a Plan B Waves" },
+    { "src": "/assets/journal/cervia/09-group.jpg", "alt_en": "Speakers and organizers together on stage at Plan B Waves", "alt_it": "Relatori e organizzatori insieme sul palco di Plan B Waves" },
+    { "src": "/assets/journal/cervia/cervia-aperitivo-darsena.jpg", "alt_en": "Networking aperitivo on the Darsena del Sale terrace", "alt_it": "Aperitivo di networking sulla terrazza della Darsena del Sale" }
+  ],
+  "videos": [
+    { "url": "/assets/journal/cervia/cervia-santostasi-entrance.mp4", "title_en": "Giovanni Santostasi takes the stage", "title_it": "Giovanni Santostasi sale sul palco" },
+    { "url": "/assets/journal/cervia/cervia-santostasi-on-stage.mp4", "title_en": "Giovanni Santostasi on stage", "title_it": "Giovanni Santostasi sul palco" },
+    { "url": "/assets/journal/cervia/cervia-santostasi-fundamental-value.mp4", "title_en": "Bitcoin's fundamental value", "title_it": "Il valore fondamentale di Bitcoin" },
+    { "url": "/assets/journal/cervia/cervia-santostasi-growth-chart.mp4", "title_en": "The Bitcoin Power Law growth curve", "title_it": "La curva di crescita della Bitcoin Power Law" },
+    { "url": "/assets/journal/cervia/cervia-speakers-panel.mp4", "title_en": "The Plan B Waves speakers \u2014 incl. Giovanni Santostasi", "title_it": "Gli speaker di Plan B Waves \u2014 anche Giovanni Santostasi" },
+    { "url": "/assets/journal/cervia/cervia-brindisi-cena.mp4", "title_en": "A toast at the networking dinner", "title_it": "Brindisi alla cena di networking" }
+  ],
+  "official_links": [
+    { "label": "Plan B Waves \u2014 official site", "url": "https://www.planbwaves.com/" },
+    { "label": "Teleromagna \u2014 Plan B Waves preview", "url": "https://teleromagna.it/it/programmi/oggi-parliamo-di/2026/5/28/oggi-parliamo-di-plan-b-waves-la-bitcoin-conference-28-05-2026" },
+    { "label": "The Cryptonomist \u2014 coverage", "url": "https://cryptonomist.ch/2026/05/24/planb-waves-bitcoin-conference-cervia-5-giugno/" }
+  ],
+  "pull_quote_en": "Bitcoin is not a speculative asset: it has fundamental value \u2014 an experiment to express a universal human value.",
+  "pull_quote_it": "Bitcoin non \u00e8 un asset speculativo: ha un valore fondamentale, un esperimento per esprimere un valore umano universale."
+}
