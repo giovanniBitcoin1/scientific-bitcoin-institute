@@ -11,6 +11,7 @@ const submenuHrefs = {
   'Publications': '/research/publications',
   'Sponsored Research': '/research/sponsored-research',
   'Open Problems': '/research/open-problems',
+  'Insights': '/insights',
   'Research Fellows': '/people/research-fellows',
   'Faculty': '/people/faculty',
   'Postdocs': '/people/postdocs',

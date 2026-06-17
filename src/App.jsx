@@ -9,6 +9,8 @@ import VisitingScholars from './pages/VisitingScholars.jsx'
 import Research from './pages/Research.jsx'
 import BitcoinScienceLibrary from './pages/BitcoinScienceLibrary.jsx'
 import Publications from './pages/Publications.jsx'
+import Insights from './pages/Insights.jsx'
+import InsightArticle from './pages/InsightArticle.jsx'
 import SponsoredResearch from './pages/SponsoredResearch.jsx'
 import OpenProblems from './pages/OpenProblems.jsx'
 import News from './pages/News.jsx'
@@ -61,6 +63,8 @@ export default function App() {
         <Route path="/research/publications" element={<Publications />} />
         <Route path="/research/sponsored-research" element={<SponsoredResearch />} />
         <Route path="/research/open-problems" element={<OpenProblems />} />
+        <Route path="/insights" element={<Insights />} />
+        <Route path="/insights/:slug" element={<InsightArticle />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/conferences" element={<Conferences />} />
         <Route path="/news/seminars" element={<Seminars />} />

@@ -5,6 +5,10 @@
     "submenu": ["Research Areas", "Publications", "Bitcoin Science Library", "Sponsored Research", "Open Problems"]
   },
   {
+    "label": "Insights",
+    "href": "/insights"
+  },
+  {
     "label": "News + Events",
     "href": "/news",
     "submenu": ["Latest News", "Research Updates", "Conferences", "Seminars", "Workshops", "Community Events", "Newsletter", "Event Journal"]
