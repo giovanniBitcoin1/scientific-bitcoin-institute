@@ -54,16 +54,6 @@
       "alt_it": "L'intervista a The Block, nello studio del BTC Prague"
     },
     {
-      "src": "/assets/journal/btc-prague/07-theblock-conversation.jpg",
-      "alt_en": "Giovanni Santostasi during The Block interview",
-      "alt_it": "Giovanni Santostasi durante l'intervista a The Block"
-    },
-    {
-      "src": "/assets/journal/btc-prague/08-theblock-studio.jpg",
-      "alt_en": "The Block studio at BTC Prague",
-      "alt_it": "Lo studio di The Block al BTC Prague"
-    },
-    {
       "src": "/assets/journal/btc-prague/09-networking.jpg",
       "alt_en": "Networking at BTC Prague",
       "alt_it": "Networking al BTC Prague"
@@ -94,6 +84,11 @@
       "url": "/assets/journal/btc-prague/btc-prague-backstage-sidestage.mp4",
       "title_en": "Waiting at the side of the stage",
       "title_it": "In attesa a bordo palco"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qbjwDHL2dlU",
+      "title_en": "Giovanni Santostasi's Main Stage talk — BTC Prague 2026",
+      "title_it": "L'intervento di Giovanni Santostasi sul Main Stage — BTC Prague 2026"
     },
     {
       "url": "/assets/journal/btc-prague/btc-prague-theblock-bts.mp4",
