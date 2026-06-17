@@ -146,6 +146,29 @@ const advisors = [
     ],
     links: [],
   },
+  {
+    photo: '/assets/team/holger.jpg',
+    name: 'Holger Wolff',
+    title: 'Advisor',
+    bio: [
+      <>
+        Holger Wolff graduated from high school with a strong focus on Mathematics and Physics and later studied
+        Business Administration in Munich and Augsburg. He holds an MBA with distinction from the
+        University of Munich. Holger is a successful German entrepreneur who, over the past years, has built an IT
+        services company with nearly 1,000 employees and approximately $100 million in annual revenue.
+      </>,
+      <>
+        He is a well-known and integral part of the German Bitcoin community and has been a frequent speaker at
+        conferences and events for many years. He serves on the advisory boards of several Bitcoin companies and has
+        held Bitcoin on the balance sheet of his own company for several years. Since 2019, he intensively studied the
+        Bitcoin Power Law and explored its underlying mathematical and physical principles. In his role as a board
+        member of the Scientific Bitcoin Institute, he aims to contribute to intensifying and advancing Bitcoin
+        research — and to ensure that Bitcoin is studied and understood using rigorous scientific methods within the
+        academic community.
+      </>,
+    ],
+    links: [],
+  },
 ]
 
 function AdvisorCard({ member }) {
@@ -192,7 +215,7 @@ function TeamCard({ member }) {
   return (
     <article className="flex flex-col rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden card-hover">
       <div className="pt-8 md:pt-10 flex justify-center">
-        <div className="w-full max-w-[280px] aspect-[4/5] overflow-hidden rounded-lg bg-slate-100">
+        <div className="w-full max-w-[220px] aspect-square overflow-hidden rounded-lg bg-slate-100">
           <img
             src={member.photo}
             alt={member.name}
