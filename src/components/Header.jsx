@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X, Search } from './Icons.jsx'
 import navItems from '../data/nav.json'
@@ -57,9 +57,23 @@ function subHref(label) {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30)
+    onScroll()
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-slate-100">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-slate-900/95 backdrop-blur-sm border-b border-white/10 shadow-lg'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -67,21 +81,24 @@ export default function Header() {
             <img
               src="/assets/logo.jpg"
               alt="Scientific Bitcoin Institute"
-              className="w-16 h-16 object-contain"
+              className="w-20 h-20 object-contain"
             />
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg font-semibold tracking-tight text-slate-900 font-serif">Scientific Bitcoin</span>
-              <span className="text-lg font-semibold tracking-tight text-slate-900 font-serif">Institute</span>
+            <div
+              className="flex flex-col leading-tight"
+              style={{ fontFamily: "'Fraunces', serif" }}
+            >
+              <span className="text-xl md:text-2xl font-semibold tracking-tight text-white leading-tight">Scientific Bitcoin</span>
+              <span className="text-xl md:text-2xl font-semibold tracking-tight text-white leading-tight">Institute</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {navItems.map((item, idx) => (
               <div key={idx} className="nav-item relative">
                 {item.submenu ? (
                   <span
-                    className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 transition-colors block cursor-default select-none"
+                    className="px-3 py-2 text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block cursor-default select-none"
                     aria-haspopup="true"
                   >
                     {item.label}
@@ -89,18 +106,18 @@ export default function Header() {
                 ) : (
                   <Link
                     to={item.href}
-                    className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 transition-colors block"
+                    className="px-3 py-2 text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block"
                   >
                     {item.label}
                   </Link>
                 )}
                 {item.submenu && (
-                  <div className="nav-dropdown mt-0 bg-white shadow-xl rounded-lg min-w-[220px] py-2 border border-slate-100">
+                  <div className="nav-dropdown mt-0 bg-slate-800/95 backdrop-blur-sm shadow-xl rounded-lg min-w-[220px] py-2 border border-white/10">
                     {item.submenu.map((subitem, subidx) => (
                       <Link
                         key={subidx}
                         to={subHref(subitem)}
-                        className="block px-6 py-2.5 text-sm text-slate-600 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                        className="block px-6 py-2.5 text-sm text-white/80 hover:bg-white/5 hover:text-orange-400 transition-colors"
                       >
                         {subitem}
                       </Link>
@@ -109,14 +126,14 @@ export default function Header() {
                 )}
               </div>
             ))}
-            <button className="ml-2 p-2 text-slate-600 hover:text-orange-600 transition-colors" aria-label="Search">
+            <button className="ml-2 p-2 text-white hover:text-orange-400 transition-colors duration-200" aria-label="Search">
               <Search size={20} />
             </button>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-slate-700"
+            className="lg:hidden p-2 text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -127,22 +144,22 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-200 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-slate-900 border-t border-white/10 max-h-[80vh] overflow-y-auto">
           {navItems.map((item, idx) => (
-            <div key={idx} className="border-b border-slate-100">
+            <div key={idx} className="border-b border-white/10">
               {item.submenu ? (
-                <span className="block px-6 py-4 font-medium text-slate-800 select-none">
+                <span className="block px-6 py-4 font-medium text-white select-none">
                   {item.label}
                 </span>
               ) : (
-                <Link to={item.href} className="block px-6 py-4 font-medium text-slate-800">
+                <Link to={item.href} className="block px-6 py-4 font-medium text-white hover:text-orange-400 transition-colors">
                   {item.label}
                 </Link>
               )}
               {item.submenu && (
-                <div className="bg-slate-50 px-6 py-2">
+                <div className="bg-slate-800/60 px-6 py-2">
                   {item.submenu.map((subitem, subidx) => (
-                    <Link key={subidx} to={subHref(subitem)} className="block py-2 text-sm text-slate-600">
+                    <Link key={subidx} to={subHref(subitem)} className="block py-2 text-sm text-white/75 hover:text-orange-400 transition-colors">
                       {subitem}
                     </Link>
                   ))}
