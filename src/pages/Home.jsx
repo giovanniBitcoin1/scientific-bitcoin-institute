@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Header from '../components/Header.jsx'
 import Hero from '../components/Hero.jsx'
-import StatsBanner from '../components/StatsBanner.jsx'
 import Testimonials from '../components/Testimonials.jsx'
 import ResearchGrid from '../components/ResearchGrid.jsx'
 import BitcoinPriceChart from '../components/charts/BitcoinPriceChart.jsx'
@@ -46,12 +45,11 @@ export default function Home() {
       <Header />
       <Hero />
       <ManifestoVideoSection />
-      <StatsBanner />
+      <CTA />
       <Testimonials />
       <ResearchGrid />
       <BitcoinPriceChart />
       <FeaturedResearch />
-      <CTA />
       <NewsletterSignup />
       <div className="pb-16" />
       <Footer />
