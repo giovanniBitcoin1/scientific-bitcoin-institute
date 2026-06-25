@@ -5,6 +5,7 @@ import StatsBanner from '../components/StatsBanner.jsx'
 import Testimonials from '../components/Testimonials.jsx'
 import ResearchGrid from '../components/ResearchGrid.jsx'
 import BitcoinPriceChart from '../components/charts/BitcoinPriceChart.jsx'
+import FeaturedResearch from '../components/FeaturedResearch.jsx'
 import CTA from '../components/CTA.jsx'
 import NewsletterSignup from '../components/NewsletterSignup.jsx'
 import Footer from '../components/Footer.jsx'
@@ -49,6 +50,7 @@ export default function Home() {
       <Testimonials />
       <ResearchGrid />
       <BitcoinPriceChart />
+      <FeaturedResearch />
       <CTA />
       <NewsletterSignup />
       <div className="pb-16" />
