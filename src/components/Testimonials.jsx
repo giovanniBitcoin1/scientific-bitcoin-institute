@@ -56,20 +56,16 @@ export default function Testimonials() {
 
         <div className="mt-16 flex flex-wrap items-center justify-center gap-3 text-slate-400">
           <span className="uppercase tracking-widest text-xs">As featured in</span>
-          {featuredIn.map((outlet, idx) => (
+          {featuredIn.map(({ name, logo, url }) => (
             <a
-              key={idx}
-              href={outlet.url}
+              key={name}
+              href={url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={outlet.name}
-              className="inline-flex items-center bg-white/95 rounded-md px-3 py-1.5 shadow-sm hover:bg-white transition-colors"
+              className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity"
             >
-              <img
-                src={outlet.logo}
-                alt={outlet.name}
-                className="h-6 w-auto object-contain"
-              />
+              <img src={logo} alt={name} className="h-5 w-auto object-contain" />
+              <span className="text-sm font-medium">{name}</span>
             </a>
           ))}
         </div>
