@@ -26,12 +26,7 @@ export default function BitcoinPriceChart() {
         {failed ? (
           <div className="h-64 flex flex-col items-center justify-center text-center text-slate-500">
             <p>The live chart is taking a moment to load.</p>
-            
-              href={SOURCE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 text-orange-600 font-semibold hover:underline"
-            >
+            <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" className="mt-3 text-orange-600 font-semibold hover:underline">
               View it on thephysicsofbitcoin.com &rarr;
             </a>
           </div>
@@ -48,12 +43,7 @@ export default function BitcoinPriceChart() {
         )}
 
         <div className="mt-6 text-center">
-          
-            href={SOURCE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-600 hover:text-orange-700 hover:underline transition-colors text-base font-medium"
-          >
+          <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 hover:underline transition-colors text-base font-medium">
             Explore the full model &rarr;
           </a>
         </div>
