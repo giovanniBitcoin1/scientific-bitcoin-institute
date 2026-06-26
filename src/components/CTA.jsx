@@ -1,22 +1,48 @@
 import { Link } from 'react-router-dom'
 
+// Where the recurring-membership button points. TODO: set this to the SBI
+// Patreon URL or the member dashboard (app.scientificbitcoininstitute.org)
+// once decided. Until then it routes to the donation page so it never dead-ends.
+const MEMBERSHIP_URL = '/support/donate'
+
+const isExternal = (url) => /^https?:\/\//.test(url)
+
 export default function CTA() {
+  const external = isExternal(MEMBERSHIP_URL)
+  const MembershipTag = external ? 'a' : Link
+  const membershipProps = external
+    ? { href: MEMBERSHIP_URL, target: '_blank', rel: 'noopener noreferrer' }
+    : { to: MEMBERSHIP_URL }
+
   return (
     <section className="bg-orange-500 text-white py-16 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-3">Join the Bitcoin Research Community</h2>
+        <h2 className="text-4xl font-bold mb-3 font-serif">Support independent Bitcoin research</h2>
         <p className="text-lg mb-8 text-white/90">
-          Collaborate with leading researchers advancing the science of sound money
+          The Institute runs on contributions. Donate once, or become a member and fund rigorous, open science.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/collaborate" className="bg-white text-orange-600 font-semibold rounded-full px-8 py-3 hover:bg-white/90 transition-colors">
+          <Link
+            to="/support/donate"
+            className="bg-white text-orange-600 font-semibold rounded-full px-8 py-3 hover:bg-white/90 transition-colors"
+          >
+            Donate
+          </Link>
+          <MembershipTag
+            {...membershipProps}
+            className="border border-white text-white font-semibold rounded-full px-8 py-3 hover:bg-white/10 transition-colors"
+          >
             Become a Member
-          </Link>
-          <Link to="/collaborate/academic-programs" className="border border-white text-white font-semibold rounded-full px-8 py-3 hover:bg-white/10 transition-colors">
-            View Open Positions
-          </Link>
+          </MembershipTag>
         </div>
+
+        <p className="mt-6 text-sm text-white/80">
+          Researcher?{' '}
+          <Link to="/collaborate/academic-programs" className="underline hover:text-white">
+            View open positions
+          </Link>
+        </p>
       </div>
     </section>
   )
