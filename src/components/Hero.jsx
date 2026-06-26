@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight } from './Icons.jsx'
 import heroSlides from '../data/heroSlides.json'
 
@@ -54,18 +53,10 @@ export default function Hero() {
         <h1 className="text-5xl md:text-6xl font-bold mb-5 leading-tight font-serif">{slide.title}</h1>
         <div className="w-12 h-0.5 bg-orange-500 mb-6"></div>
         <p className="text-lg md:text-xl mb-8 font-light opacity-90 max-w-xl">{slide.description}</p>
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="group px-8 py-4 bitcoin-gradient text-white rounded-full font-semibold inline-flex items-center gap-3 hover:gap-4 transition-all duration-300 shadow-lg hover:shadow-xl">
-            {slide.cta}
-            <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
-          </button>
-          <Link
-            to="/support/donate"
-            className="px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 border-2 border-white/80 text-white hover:bg-white hover:text-orange-600 transition-colors duration-300"
-          >
-            Donate
-          </Link>
-        </div>
+        <button className="group px-8 py-4 bitcoin-gradient text-white rounded-full font-semibold inline-flex items-center gap-3 hover:gap-4 transition-all duration-300 shadow-lg hover:shadow-xl">
+          {slide.cta}
+          <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
+        </button>
       </div>
 
       {/* Carousel controls */}
