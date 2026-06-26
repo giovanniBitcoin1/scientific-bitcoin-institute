@@ -126,11 +126,7 @@ export default function Donate() {
                   <span className="text-sm text-slate-500 font-sans"> / month</span>
                 </p>
                 <p className="text-sm text-slate-600 mt-3 mb-6 leading-relaxed">{t.blurb}</p>
-                
-                  href={t.url}
-                  {...ext}
-                  className="block bg-orange-600 text-white font-semibold rounded-full py-3 hover:bg-orange-700 transition-colors"
-                >
+                <a href={t.url} {...ext} className="block bg-orange-600 text-white font-semibold rounded-full py-3 hover:bg-orange-700 transition-colors">
                   Donate monthly
                 </a>
               </div>
@@ -155,20 +151,11 @@ export default function Donate() {
           </h2>
           <div className="flex flex-wrap justify-center gap-3">
             {ONE_TIME_AMOUNTS.map((o) => (
-              
-                key={o.amount}
-                href={o.url}
-                {...ext}
-                className="border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-800 font-semibold rounded-full px-7 py-3 transition-colors"
-              >
+              <a key={o.amount} href={o.url} {...ext} className="border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-800 font-semibold rounded-full px-7 py-3 transition-colors">
                 ${o.amount}
               </a>
             ))}
-            
-              href={ONE_TIME_OTHER_URL}
-              {...ext}
-              className="border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-600 font-semibold rounded-full px-7 py-3 transition-colors"
-            >
+            <a href={ONE_TIME_OTHER_URL} {...ext} className="border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-600 font-semibold rounded-full px-7 py-3 transition-colors">
               Other amount
             </a>
           </div>
