@@ -1,91 +1,61 @@
-import { useState, useEffect } from 'react'
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts'
+import { useState } from 'react'
 
-/**
- * Reads the JSON file written daily by the newhedge.io GitHub Actions workflow
- * at /data/btc-price.json and renders a log-scale price chart.
- *
- * Expected JSON shape:
- *   {
- *     "lastUpdated": "2026-04-19T06:00:00Z",
- *     "series": [
- *       { "date": "2009-01-03", "price": 0.001 },
- *       { "date": "2026-04-18", "price": 68420.12 },
- *       ...
- *     ]
- *   }
- */
+// The Power Law figure is generated daily by the physics-of-bitcoin repo
+// (a GitHub Action) and published at thephysicsofbitcoin.com. We embed the
+// live image directly so the homepage always shows the latest chart, instead
+// of the previous /data/btc-price.json fetch that had no data source.
+const FIGURE_URL = 'https://www.thephysicsofbitcoin.com/bitcoin_powerlaw.png'
+const SOURCE_URL = 'https://www.thephysicsofbitcoin.com'
+
 export default function BitcoinPriceChart() {
-  const [data, setData] = useState(null)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    fetch('/data/btc-price.json')
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`)
-        return r.json()
-      })
-      .then(setData)
-      .catch((e) => setError(e.message))
-  }, [])
-
-  if (error) {
-    return (
-      <div className="p-8 text-center text-slate-500 font-sans text-sm">
-        Chart data unavailable &mdash; check back shortly.
-      </div>
-    )
-  }
-
-  if (!data) {
-    return (
-      <div className="p-8 text-center text-slate-400 font-sans text-sm animate-pulse">
-        Loading chart&hellip;
-      </div>
-    )
-  }
+  const [failed, setFailed] = useState(false)
 
   return (
     <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold mb-2 font-serif">Bitcoin Price &mdash; Live</h2>
-          <p className="text-sm text-slate-500 font-sans">
-            Updated daily &middot; Last refresh:{' '}
-            {data.lastUpdated ? new Date(data.lastUpdated).toLocaleDateString() : 'unknown'}
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-orange-600 mb-2">
+            Flagship research &middot; updated daily
+          </p>
+          <h2 className="text-4xl font-bold mb-2 font-serif">The Bitcoin Power Law</h2>
+          <p className="text-sm text-slate-500">
+            Long-term price model on a log&ndash;log scale, refreshed every day.
           </p>
         </div>
-        <div className="h-96">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data.series}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis dataKey="date" stroke="#64748b" fontSize={12} />
-              <YAxis scale="log" domain={['auto', 'auto']} stroke="#64748b" fontSize={12} />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: '#fff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '0.5rem',
-                }}
-                formatter={(value) => [`$${Number(value).toLocaleString()}`, 'BTC']}
-              />
-              <Line
-                type="monotone"
-                dataKey="price"
-                stroke="#f7931a"
-                strokeWidth={2}
-                dot={false}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+
+        {failed ? (
+          <div className="h-64 flex flex-col items-center justify-center text-center text-slate-500">
+            <p>The live chart is taking a moment to load.</p>
+            
+              href={SOURCE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 text-orange-600 font-semibold hover:underline"
+            >
+              View it on thephysicsofbitcoin.com &rarr;
+            </a>
+          </div>
+        ) : (
+          <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" className="block">
+            <img
+              src={FIGURE_URL}
+              alt="Bitcoin price plotted against the long-term power-law model, updated daily"
+              loading="lazy"
+              onError={() => setFailed(true)}
+              className="w-full rounded-lg shadow-sm border border-slate-100"
+            />
+          </a>
+        )}
+
+        <div className="mt-6 text-center">
+          
+            href={SOURCE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 hover:text-orange-700 hover:underline transition-colors text-base font-medium"
+          >
+            Explore the full model &rarr;
+          </a>
         </div>
       </div>
     </section>
