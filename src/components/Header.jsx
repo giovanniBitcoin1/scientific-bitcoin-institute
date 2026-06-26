@@ -92,6 +92,8 @@ export default function Header() {
             </div>
           </Link>
 
+          {/* Right cluster: nav + persistent Donate + mobile toggle */}
+          <div className="flex items-center gap-3">
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-0.5">
             {navItems.map((item, idx) => (
@@ -131,6 +133,14 @@ export default function Header() {
             </button>
           </nav>
 
+          {/* Persistent Donate button — always visible */}
+          <Link
+            to="/support/donate"
+            className="px-4 sm:px-5 py-2 rounded-full bitcoin-gradient text-white text-[13px] font-semibold hover:opacity-90 transition-opacity whitespace-nowrap shadow-sm"
+          >
+            Donate
+          </Link>
+
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 text-white"
@@ -139,12 +149,20 @@ export default function Header() {
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-slate-900 border-t border-white/10 max-h-[80vh] overflow-y-auto">
+          <Link
+            to="/support/donate"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block m-4 text-center px-6 py-3 rounded-full bitcoin-gradient text-white font-semibold"
+          >
+            Donate
+          </Link>
           {navItems.map((item, idx) => (
             <div key={idx} className="border-b border-white/10">
               {item.submenu ? (
