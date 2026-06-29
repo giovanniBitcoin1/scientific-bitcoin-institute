@@ -1,19 +1,54 @@
 {
   "slug": "franklin-university-lugano",
-  "status": "upcoming",
+  "status": "past",
   "date": "2026-06-22",
-  "date_display": "22 giugno 2026 · ore 10:20",
+  "date_display": "22 giugno 2026",
   "location": "Auditorium, Franklin University Switzerland, Sorengo, Lugano, Switzerland",
-  "type": "Panel",
-  "cover_image": "/assets/journal/franklin-university-lugano-cover.svg",
-  "title_en": "Giovanni Santostasi alla Franklin University — Lugano",
-  "title_it": "Giovanni Santostasi alla Franklin University — Lugano",
-  "summary_en": "On 22 June 2026 at 10:20, the Director of the Scientific Bitcoin Institute, Giovanni Santostasi, takes part in a panel at the Auditorium of Franklin University Switzerland in Sorengo, Lugano.",
-  "summary_it": "Il 22 giugno 2026, alle 10:20, il Direttore dello Scientific Bitcoin Institute, Giovanni Santostasi, interviene in un panel all'Auditorium della Franklin University Switzerland, a Sorengo (Lugano).",
-  "highlights_en": [],
-  "highlights_it": [],
-  "people_met": [],
-  "official_links": [],
-  "pull_quote_en": "",
-  "pull_quote_it": ""
+  "type": "Summer School",
+  "cover_image": "/assets/journal/franklin-university-lugano/cover-santostasi-whiteboard.jpg",
+  "title_en": "Plan ₿ Summer School — Franklin University, Lugano",
+  "title_it": "Plan ₿ Summer School — Franklin University, Lugano",
+  "summary_en": "On 22 June 2026, the Scientific Bitcoin Institute took part in the Plan ₿ Summer School at Franklin University Switzerland in Sorengo, Lugano — the educational programme on Bitcoin and peer-to-peer technologies that brings international students and faculty together on the Franklin campus. The Institute's Director, Giovanni Santostasi, joined a panel on the main stage — alongside Tiziano Leidi, Massimo Morini, Denis \"Jaromil\" Roio and Edoardo Beretta — and gave a whiteboard masterclass on the \"physics of Bitcoin\", walking students through the power-law model and the scaling laws behind it. Across both moments, the Institute brought a scientific, quantitative reading of Bitcoin into a hands-on academic setting.",
+  "summary_it": "Il 22 giugno 2026 lo Scientific Bitcoin Institute ha partecipato alla Plan ₿ Summer School, alla Franklin University Switzerland di Sorengo (Lugano): il programma educativo su Bitcoin e tecnologie peer-to-peer che riunisce studenti e docenti internazionali nel campus di Franklin. Il Direttore dell'Istituto, Giovanni Santostasi, è intervenuto in un panel sul palco principale — insieme a Tiziano Leidi, Massimo Morini, Denis \"Jaromil\" Roio ed Edoardo Beretta — e ha tenuto una masterclass alla lavagna sulla \"fisica di Bitcoin\", guidando gli studenti attraverso il modello a legge di potenza e le leggi di scala che lo governano. In entrambi i momenti l'Istituto ha portato una lettura scientifica e quantitativa di Bitcoin in un contesto accademico e pratico.",
+  "highlights_en": [
+    "Giovanni Santostasi joined a panel on the Summer School's main stage, with Tiziano Leidi, Massimo Morini, Denis \"Jaromil\" Roio and Edoardo Beretta.",
+    "A whiteboard masterclass on the \"physics of Bitcoin\": the power-law model and the scaling laws behind it, explained step by step to the students.",
+    "Hosted on the Franklin University Switzerland campus (Sorengo, Lugano), as part of the Plan ₿ Summer School on Bitcoin and peer-to-peer technologies.",
+    "The Institute brought a scientific, quantitative perspective into an international academic setting of lectures, panels and a hackathon."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi è intervenuto in un panel sul palco principale della Summer School, con Tiziano Leidi, Massimo Morini, Denis \"Jaromil\" Roio ed Edoardo Beretta.",
+    "Masterclass alla lavagna sulla \"fisica di Bitcoin\": il modello a legge di potenza e le leggi di scala, spiegati passo passo agli studenti.",
+    "Evento ospitato nel campus della Franklin University Switzerland (Sorengo, Lugano), nell'ambito della Plan ₿ Summer School su Bitcoin e tecnologie peer-to-peer.",
+    "L'Istituto ha portato una prospettiva scientifica e quantitativa in un contesto accademico internazionale fatto di lezioni, panel e hackathon."
+  ],
+  "people_met": [
+    "Tiziano Leidi",
+    "Massimo Morini",
+    "Denis \"Jaromil\" Roio",
+    "Edoardo Beretta"
+  ],
+  "gallery": [
+    { "src": "/assets/journal/franklin-university-lugano/01-auditorium.jpg", "alt_en": "The Plan ₿ Summer School auditorium at Franklin University", "alt_it": "L'auditorium della Plan ₿ Summer School alla Franklin University" },
+    { "src": "/assets/journal/franklin-university-lugano/02-panel-wide.jpg", "alt_en": "The panel on the Summer School's main stage", "alt_it": "Il panel sul palco principale della Summer School" },
+    { "src": "/assets/journal/franklin-university-lugano/03-panel.jpg", "alt_en": "The panel with the speakers, including Giovanni Santostasi", "alt_it": "Il panel con i relatori, tra cui Giovanni Santostasi" },
+    { "src": "/assets/journal/franklin-university-lugano/04-santostasi-whiteboard.jpg", "alt_en": "Giovanni Santostasi during the whiteboard masterclass", "alt_it": "Giovanni Santostasi durante la masterclass alla lavagna" },
+    { "src": "/assets/journal/franklin-university-lugano/09-santostasi-whiteboard-2.jpg", "alt_en": "Giovanni Santostasi explaining the model at the whiteboard", "alt_it": "Giovanni Santostasi spiega il modello alla lavagna" },
+    { "src": "/assets/journal/franklin-university-lugano/05-whiteboard-equations.jpg", "alt_en": "The whiteboard with Bitcoin's power-law model", "alt_it": "La lavagna con il modello a legge di potenza di Bitcoin" },
+    { "src": "/assets/journal/franklin-university-lugano/10-santostasi-whiteboard-3.jpg", "alt_en": "Giovanni Santostasi pointing to the power-law equations", "alt_it": "Giovanni Santostasi indica le equazioni della legge di potenza" },
+    { "src": "/assets/journal/franklin-university-lugano/06-workshop.jpg", "alt_en": "The Summer School workshop and hackathon room", "alt_it": "La sala workshop e hackathon della Summer School" },
+    { "src": "/assets/journal/franklin-university-lugano/07-networking-campus.jpg", "alt_en": "Networking on the Franklin University campus", "alt_it": "Networking nel campus della Franklin University" }
+  ],
+  "videos": [
+    { "url": "/assets/journal/franklin-university-lugano/campus-lugano.mp4", "title_en": "The Franklin University campus, Lugano", "title_it": "Il campus della Franklin University, Lugano" },
+    { "url": "/assets/journal/franklin-university-lugano/workshop-clip.mp4", "title_en": "The Summer School workshop and hackathon", "title_it": "Il workshop e l'hackathon della Summer School" },
+    { "url": "/assets/journal/franklin-university-lugano/networking-clip.mp4", "title_en": "Networking on the Franklin campus", "title_it": "Networking nel campus di Franklin" }
+  ],
+  "official_links": [
+    { "label": "Plan ₿ Summer School", "url": "https://summerschool.planb.network/" },
+    { "label": "Franklin University Switzerland", "url": "https://fus.edu/" }
+  ],
+  "pull_quote_en": "The physics of Bitcoin, on a whiteboard — a power law, the same mathematics behind growth in nature and cities.",
+  "pull_quote_it": "La fisica di Bitcoin, spiegata alla lavagna — una legge di potenza, la stessa matematica che governa la crescita in natura e nelle città.",
+  "pull_quote_plain": true
 }
