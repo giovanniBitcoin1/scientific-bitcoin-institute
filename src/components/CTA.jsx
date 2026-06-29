@@ -22,17 +22,11 @@ export default function CTA() {
           The Institute runs on contributions. Donate once, or become a member and fund rigorous, open science.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            to="/support/donate"
-            className="bg-white text-orange-600 font-semibold rounded-full px-8 py-3 hover:bg-white/90 transition-colors"
-          >
+        <div className="flex flex-wrap justify-center items-center gap-4">
+          <Link to="/support/donate" className="bg-white text-orange-600 font-semibold rounded-full px-10 py-3.5 shadow-sm hover:bg-white/90 transition-colors">
             Donate
           </Link>
-          <MembershipTag
-            {...membershipProps}
-            className="border border-white text-white font-semibold rounded-full px-8 py-3 hover:bg-white/10 transition-colors"
-          >
+          <MembershipTag {...membershipProps} className="border border-white/50 text-white/90 font-medium rounded-full px-7 py-2.5 text-sm hover:bg-white/10 hover:border-white transition-colors">
             Become a Member
           </MembershipTag>
         </div>
