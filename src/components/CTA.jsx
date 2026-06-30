@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 
-// Where the recurring-membership button points. TODO: set this to the SBI
-// Patreon URL or the member dashboard (app.scientificbitcoininstitute.org)
-// once decided. Until then it routes to the donation page so it never dead-ends.
-const MEMBERSHIP_URL = '/support/donate'
+// Where the recurring-membership button points: the dashboard sign-up, where
+// visitors create a free Reader account and enter the funnel. The same URL will
+// later let them contribute, so this link does not need to change when paid
+// tiers ship. The ?source tag lets the funnel be measured.
+const MEMBERSHIP_URL = 'https://app.scientificbitcoininstitute.org/sign-up?source=home-cta'
 
 const isExternal = (url) => /^https?:\/\//.test(url)
 
