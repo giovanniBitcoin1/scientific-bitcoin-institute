@@ -23,7 +23,7 @@ export default function Hero() {
   const slide = heroSlides[currentSlide]
 
   return (
-    <section className="relative h-screen">
+    <section className="relative h-[85vh]">
       {/* Background slides */}
       <div className="absolute inset-0">
         {heroSlides.map((s, idx) => (
