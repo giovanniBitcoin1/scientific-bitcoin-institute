@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from './Icons.jsx'
 import heroSlides from '../data/heroSlides.json'
 
+// Where the hero call-to-action sends visitors: the dashboard sign-up, where
+// they create a free Reader account (newsletter + the full interactive
+// power-law chart). The ?source tag lets the funnel be measured later.
+const SIGNUP_URL = 'https://app.scientificbitcoininstitute.org/sign-up?source=home-hero'
+
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -53,10 +58,13 @@ export default function Hero() {
         <h1 className="text-5xl md:text-6xl font-bold mb-5 leading-tight font-serif">{slide.title}</h1>
         <div className="w-12 h-0.5 bg-orange-500 mb-6"></div>
         <p className="text-lg md:text-xl mb-8 font-light opacity-90 max-w-xl">{slide.description}</p>
-        <button className="group px-8 py-4 bitcoin-gradient text-white rounded-full font-semibold inline-flex items-center gap-3 hover:gap-4 transition-all duration-300 shadow-lg hover:shadow-xl">
+        
+          href={SIGNUP_URL}
+          className="group px-8 py-4 bitcoin-gradient text-white rounded-full font-semibold inline-flex items-center gap-3 hover:gap-4 transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
           {slide.cta}
           <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
-        </button>
+        </a>
       </div>
 
       {/* Carousel controls */}
