@@ -31,6 +31,13 @@ const inlineLink =
 
 const pathways = [
   {
+    eyebrow: 'Membership',
+    title: 'Become a Member',
+    description:
+      "Start free as a Reader for the newsletter and the full interactive Bitcoin Power-Law chart. Supporters go deeper with more indicators, member content, and early access.",
+    href: '/support/membership',
+  },
+  {
     eyebrow: 'One-time or recurring',
     title: 'Donate',
     description:

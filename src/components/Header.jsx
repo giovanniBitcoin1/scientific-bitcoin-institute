@@ -45,6 +45,7 @@ const submenuHrefs = {
   'Academic Programs': '/collaborate/academic-programs',
   'Grant Opportunities': '/collaborate/grant-opportunities',
   'Support': '/support',
+  'Become a Member': '/support/membership',
   'Donate': '/support/donate',
   'Donate Bitcoin': '/support/donate-bitcoin',
   'Endowment Fund': '/support/endowment-fund',

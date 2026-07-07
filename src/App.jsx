@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Manifesto from './pages/Manifesto.jsx'
 import People from './pages/People.jsx'
@@ -36,6 +36,7 @@ import History from './pages/History.jsx'
 import FAQs from './pages/FAQs.jsx'
 import Transparency from './pages/Transparency.jsx'
 import Support from './pages/Support.jsx'
+import Membership from './pages/Membership.jsx'
 import Donate from './pages/Donate.jsx'
 import DonateBitcoin from './pages/DonateBitcoin.jsx'
 import EndowmentFund from './pages/EndowmentFund.jsx'
@@ -88,6 +89,8 @@ export default function App() {
         <Route path="/about/faqs" element={<FAQs />} />
         <Route path="/about/transparency" element={<Transparency />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/support/membership" element={<Membership />} />
+        <Route path="/support/become-a-member" element={<Navigate to="/support/membership" replace />} />
         <Route path="/support/donate" element={<Donate />} />
         <Route path="/support/donate-bitcoin" element={<DonateBitcoin />} />
         <Route path="/support/endowment-fund" element={<EndowmentFund />} />

@@ -4,46 +4,16 @@ import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 
 // ─────────────────────────────────────────────────────────────────────────
-// PAYMENT LINKS — replace each value with the matching Square link.
-// In your Square account, create:
-//   • 3 monthly subscription plans      ($10 / $25 / $75 per month)
-//   • 1 monthly "let customer choose the amount" link
-//   • 3 one-time fixed links             ($25 / $50 / $100)
-//   • 1 one-time "let customer choose the amount" link
-// Until you replace them, every button falls back to your existing Square
+// ONE-TIME GIFT LINKS — replace each value with the matching Square link.
+// Recurring monthly giving now lives on the Become a Member page.
+// Until you replace these, every button falls back to your existing Square
 // donation link, so nothing ever leads to a dead page.
 // ─────────────────────────────────────────────────────────────────────────
 const SQUARE_FALLBACK = 'https://square.link/u/C6PPHkBM'
 
-const MONTHLY_TIERS = [
-  {
-    name: 'Supporter',
-    amount: 10,
-    blurb: 'Keeps our research open and freely available.',
-    url: SQUARE_FALLBACK, // TODO: $10/month Square subscription link
-    featured: false,
-  },
-  {
-    name: 'Sustaining Supporter',
-    amount: 25,
-    blurb: 'Funds ongoing publications and analysis.',
-    url: SQUARE_FALLBACK, // TODO: $25/month Square subscription link
-    featured: true,
-  },
-  {
-    name: 'Founding Patron',
-    amount: 75,
-    blurb: 'Directly backs flagship research projects.',
-    url: SQUARE_FALLBACK, // TODO: $75/month Square subscription link
-    featured: false,
-  },
-]
-
-const MONTHLY_OTHER_URL = SQUARE_FALLBACK // TODO: monthly "choose amount" link
-
 const ONE_TIME_AMOUNTS = [
-  { amount: 25, url: SQUARE_FALLBACK }, // TODO: $25 one-time link
-  { amount: 50, url: SQUARE_FALLBACK }, // TODO: $50 one-time link
+  { amount: 25, url: SQUARE_FALLBACK },  // TODO: $25 one-time link
+  { amount: 50, url: SQUARE_FALLBACK },  // TODO: $50 one-time link
   { amount: 100, url: SQUARE_FALLBACK }, // TODO: $100 one-time link
 ]
 
@@ -87,59 +57,20 @@ export default function Donate() {
         {/* Page title */}
         <section className="max-w-4xl mx-auto px-6 text-center">
           <p className="text-xs uppercase tracking-[0.25em] text-orange-600 font-semibold mb-4 font-mono">
-            Scientific Bitcoin Institute &nbsp;·&nbsp; Support
+            Scientific Bitcoin Institute &nbsp;&middot;&nbsp; Support
           </p>
           <h1 className="font-serif text-5xl md:text-6xl font-semibold text-slate-900 leading-tight">
             Donate
           </h1>
           <p className="text-slate-700 text-base leading-relaxed mt-6 max-w-2xl mx-auto">
             The Scientific Bitcoin Institute is a non-profit and runs on tax-deductible
-            contributions. A recurring monthly gift is the most valuable way to support our
-            work, but a one-time donation of any size helps too.
+            contributions. Make a one-time gift of any size below. If you would like to support
+            the Institute every month, you can{' '}
+            <Link to="/support/become-a-member" className={inlineLink}>become a member</Link>.
           </p>
         </section>
 
-        {/* Monthly */}
-        <section className="max-w-5xl mx-auto px-6 mt-14">
-          <p className="text-xs uppercase tracking-[0.2em] text-orange-600 font-semibold font-mono text-center mb-2">
-            Monthly support
-          </p>
-          <h2 className="font-serif text-2xl md:text-3xl text-slate-900 text-center mb-8">
-            Become a monthly supporter
-          </h2>
-          <div className="grid gap-5 md:grid-cols-3">
-            {MONTHLY_TIERS.map((t) => (
-              <div
-                key={t.name}
-                className={`relative bg-white rounded-2xl p-6 text-center shadow-sm border ${
-                  t.featured ? 'border-2 border-orange-500' : 'border-orange-100'
-                }`}
-              >
-                {t.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    Most popular
-                  </span>
-                )}
-                <p className="font-serif text-xl text-slate-900">{t.name}</p>
-                <p className="font-serif text-4xl text-orange-600 mt-2">
-                  ${t.amount}
-                  <span className="text-sm text-slate-500 font-sans"> / month</span>
-                </p>
-                <p className="text-sm text-slate-600 mt-3 mb-6 leading-relaxed">{t.blurb}</p>
-                <a href={t.url} {...ext} className="block bg-orange-600 text-white font-semibold rounded-full py-3 hover:bg-orange-700 transition-colors">
-                  Donate monthly
-                </a>
-              </div>
-            ))}
-          </div>
-          <p className="text-center mt-6">
-            <a href={MONTHLY_OTHER_URL} {...ext} className={`${inlineLink} text-sm`}>
-              Choose another monthly amount &rarr;
-            </a>
-          </p>
-        </section>
-
-        <SectionDivider />
+        <div className="mt-14" />
 
         {/* One-time */}
         <section className="max-w-3xl mx-auto px-6">
