@@ -106,6 +106,13 @@ export default function Header() {
                   >
                     {item.label}
                   </span>
+                ) : item.external ? (
+                  <a
+                    href={item.href}
+                    className="px-3 py-2 text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block"
+                  >
+                    {item.label}
+                  </a>
                 ) : (
                   <Link
                     to={item.href}
@@ -170,6 +177,10 @@ export default function Header() {
                 <span className="block px-6 py-4 font-medium text-white select-none">
                   {item.label}
                 </span>
+              ) : item.external ? (
+                <a href={item.href} className="block px-6 py-4 font-medium text-white hover:text-orange-400 transition-colors">
+                  {item.label}
+                </a>
               ) : (
                 <Link to={item.href} className="block px-6 py-4 font-medium text-white hover:text-orange-400 transition-colors">
                   {item.label}

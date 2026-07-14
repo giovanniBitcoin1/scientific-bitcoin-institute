@@ -19,6 +19,11 @@
     "submenu": ["Bitcoin Fundamentals", "Advanced Cryptography", "Game Theory", "Network Science", "Complexity Science", "Economic Models", "Online Courses", "Summer School"]
   },
   {
+    "label": "Academy",
+    "href": "/accademia/",
+    "external": true
+  },
+  {
     "label": "People",
     "href": "/people",
     "submenu": ["Team", "Faculty", "Postdocs", "Visiting Scholars", "Advisory Board", "Research Fellows"]
