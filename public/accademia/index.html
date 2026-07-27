@@ -124,6 +124,10 @@ h1{font-family:'Space Grotesk';font-size:clamp(26px,5vw,34px);font-weight:700;li
 .pcard h4{font-family:'Space Grotesk';font-size:16px;margin-bottom:6px}
 .pcard p{font-size:13.5px;color:var(--muted);line-height:1.5}
 .premium-zone.blurred .premium-grid{filter:blur(9px) saturate(.7);pointer-events:none;user-select:none}
+.premium-zone.blurred .pro-course{filter:blur(9px) saturate(.7);pointer-events:none;user-select:none}
+.pro-course{margin-top:34px}
+.pro-course .course-head{margin-top:0}
+.pro-course h1{font-size:30px}
 .premium-overlay{
   position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:14px;text-align:center;padding:24px;
@@ -326,6 +330,20 @@ h1{font-family:'Space Grotesk';font-size:clamp(26px,5vw,34px);font-weight:700;li
         <div class="pcard"><div class="ptag">Live</div><h4>Sessioni mensili di approfondimento</h4><p>Ogni mese una diretta su un tema del corso — dal mining alla Lightning Network — con Q&A della community.</p></div>
         <div class="pcard"><div class="ptag">Risorse</div><h4>Guide e checklist scaricabili</h4><p>Schede riassuntive dei capitoli, checklist di sicurezza e guide pratiche passo passo.</p></div>
         <div class="pcard"><div class="ptag">Community</div><h4>Gruppo privato</h4><p>Confronto diretto con gli altri membri e supporto prioritario del team.</p></div>
+      </div>
+      <div class="pro-course" id="proCourse">
+        <header class="course-head">
+          <div class="eyebrow" id="proEyebrow">Corso PRO · Bitcoin Power Law</div>
+          <h1 id="proH1">Il Bitcoin Power Law: la scienza del prezzo</h1>
+          <p class="course-sub" id="proSub">6 capitoli + esame finale: dagli ordini di magnitudine ai prossimi 100×. Ogni capitolo si sblocca superando il quiz del precedente; l’esame finale richiede l’80%.</p>
+          <div class="progress-row">
+            <div class="pbar"><i id="proBar"></i></div>
+            <span class="plabel" id="proLabel">0 / 7 capitoli</span>
+          </div>
+        </header>
+        <section class="path" id="proPath">
+          <div class="path-fill" id="proPathFill"></div>
+        </section>
       </div>
       <div class="premium-overlay">
         <div class="lockicon">🔒</div>
@@ -1002,9 +1020,385 @@ sistemi: CHARTS.sistemi
   .replace('massimo 21 milioni, regole fisse','21 million cap, fixed rules')
 };
 
+/* ================= CORSO PRO · BITCOIN POWER LAW ================= */
+/* Per collegare le video-lezioni: aggiungere videoUrl:"/percorso/video.mp4"
+   (o youtube:"VIDEOID") alla prima lezione di ogni capitolo, come nel corso base. */
+const PRO_IT = [
+  {
+    title:"PRO 1 · Ordini di Magnitudine",
+    desc:"La scala giusta per leggere Bitcoin: perché 17 anni di apparente caos nascondono una delle regolarità più nette mai osservate in un mercato.",
+    lessons:[
+      {tag:"Lezione 1 di 3", h:"Un dollaro nel 2009",
+       p:["Un dollaro investito in Bitcoin nel 2009 varrebbe oggi circa <b>170 miliardi</b>: un fattore nell'ordine di <b>10<sup>11</sup></b>. Lo stesso dollaro nell'S&P 500 sarebbe ~7 dollari; nell'oro, ~3. Non è una differenza di grado: è una differenza di <b>categoria</b>. Restringendo l'analisi alle sole transazioni reali di mercato, Bitcoin ha attraversato <b>8 ordini di magnitudine</b> — nessun altro asset nella storia ne ha attraversati più di 1–2 in un secolo.",
+          "La reazione istintiva è lo scetticismo: bolla? fortuna? manipolazione? Domande legittime — la scienza parte dai dubbi. Ma questa lezione mostra il dettaglio che cambia tutto: <b>Bitcoin non è cresciuto in modo casuale</b>. La sua crescita segue una regolarità matematica precisa, verificabile da chiunque sui dati pubblici. Serve solo lo strumento giusto per vederla."],
+       call:"<b>I numeri:</b> fattore 10<sup>11</sup> dal 2009 · 8 ordini di magnitudine di mercato. La domanda del corso: caso o struttura?"},
+      {tag:"Lezione 2 di 3", h:"La rivelazione: la scala log-log",
+       p:["Il grafico lineare inganna: schiaccia il passato e amplifica il presente, perché Bitcoin cresce <b>moltiplicando</b>, non sommando. L'unità naturale dei fenomeni moltiplicativi è l'<b>ordine di magnitudine</b> (potenza di 10) — la stessa logica di Richter, decibel e pH. La scala coerente è quella logaritmica su <em>entrambi</em> gli assi: il grafico <b>log-log</b>.",
+          "E qui avviene la rivelazione: su assi log-log <b>una legge di potenza appare come una linea retta</b> — e 17 anni di prezzo collassano su un'unica retta con pendenza ~5,7. L'equazione: <b>Prezzo ∼ tempo<sup>5,7</sup></b>, con <b>R² = 0,96</b> (il 96% della varianza spiegato dal solo tempo). Quando il tempo dalla genesi raddoppia, il prezzo si moltiplica per ~52."],
+       call:"<b>Da fissare:</b> log-log → retta. Pendenza = esponente 5,7. R² = 0,96 su 8 ordini di grandezza: senza precedenti in letteratura."},
+      {tag:"Lezione 3 di 3", h:"Il motore: la rete di Metcalfe",
+       p:["Perché esiste questa legge? Perché Bitcoin è una <b>rete</b>. I dati on-chain mostrano due regolarità: gli indirizzi attivi crescono come <b>N ∼ t³</b>, e il valore scala con la rete secondo un Metcalfe generalizzato, <b>P ∼ N<sup>1,84</sup></b>. Componendo: P ∼ t<sup>5,5</sup> ≈ <b>t<sup>5,6</sup></b> — che coincide con il 5,7 osservato nel prezzo. Due misure indipendenti predicono l'esponente.",
+          "La prova più convincente: durante i grandi crolli (−85% nel 2015, −84% nel 2018, −77% nel 2022) la rete ha <b>continuato a crescere</b>, indisturbata. È il discrimine tra bolla e adozione strutturale: quando scoppia una vera bolla, gli utenti spariscono col prezzo. Il modello è formalizzato in un <b>paper peer-reviewed pubblicato su rivista Elsevier</b> (Santostasi & Perrenod) — che dichiara anche come potrebbe essere falsificato."],
+       call:"<b>La coerenza interna:</b> rete t³ × Metcalfe 1,84 ⇒ prezzo t<sup>5,6</sup>. Nei crash il prezzo crolla, la rete no: firma dell'adozione."}
+    ],
+    quiz:[
+    {q:"Di quale fattore è cresciuto Bitcoin dal 2009 a oggi?", a:["Circa ×1 milione","Circa ×10.000","Circa ×100","Nell'ordine di 10\u00B9\u00B9"], ok:3},
+    {q:"Perché il grafico in scala lineare inganna, guardando Bitcoin?", a:["Perché schiaccia il passato e amplifica il presente: Bitcoin cresce moltiplicando, non sommando","Perché mostra troppi anni","Perché il prezzo è troppo volatile per qualsiasi grafico","Perché i dati sono sbagliati"], ok:0},
+    {q:"Come appare una legge di potenza su un grafico log-log?", a:["Come una parabola","Come una curva a S","Come un'onda ciclica","Come una linea retta"], ok:3},
+    {q:"Quali sono esponente e qualità del fit del Bitcoin Power Law?", a:["n \u2248 3, R\u00B2 = 0,70","n \u2248 10, R\u00B2 = 0,99","n \u2248 2, R\u00B2 = 0,50","n \u2248 5,7, R\u00B2 = 0,96"], ok:3},
+    {q:"Cosa ha fatto la rete Bitcoin durante i grandi crolli di prezzo (2015, 2018, 2022)?", a:["Ha continuato a crescere, quasi indisturbata","Ha smesso di funzionare","Ha perso la maggior parte degli utenti","È stata sostituita da altre reti"], ok:0}
+  ]
+  },
+  {
+    title:"PRO 2 · Il Segnale e il Rumore",
+    desc:"L'informazione strutturale e le fluttuazioni temporanee: confonderle è l'errore più costoso che un investitore possa commettere.",
+    lessons:[
+      {tag:"Lezione 1 di 3", h:"Due componenti, un errore universale",
+       p:["Ogni sistema misurabile contiene <b>segnale</b> (l'informazione strutturale: dove il sistema sta andando) e <b>rumore</b> (le fluttuazioni temporanee attorno alla traiettoria). Il clima è segnale, il meteo è rumore: nessuno dichiara finita l'estate per un temporale di luglio — eppure nei mercati si fa esattamente questo, ogni giorno.",
+          "Bitcoin è stato dichiarato \u201Cmorto\u201D centinaia di volte: 2011 (−93%), 2015 (−85%), 2018 (−84%), 2022 (−77%). Ogni volta, chi lo diceva guardava il <b>rumore</b> credendo di guardare il <b>segnale</b>. Il segnale di Bitcoin è la retta del power law: lenta, costante da 17 anni e — per costruzione — invisibile ai media, il cui mestiere è amplificare il rumore."],
+       call:"<b>Il test:</b> quale notizia degli ultimi 17 anni ha spostato stabilmente il prezzo fuori dal trend? Nessuna. Impatto momentaneo ≠ informazione strutturale."},
+      {tag:"Lezione 2 di 3", h:"La prova dei residui",
+       p:["Lo strumento per <em>vedere</em> il rumore è il grafico dei <b>residui</b>: la distanza (in scala log) tra prezzo reale e retta del trend. Il fatto centrale: da 17 anni i residui <b>oscillano attorno allo zero senza alcuna deriva sistematica</b>. È la firma della <b>mean reversion</b> — e il punto tecnico decisivo: se il power law fosse un'illusione statistica, i residui divergerebbero nel tempo. Non lo fanno.",
+          "Ed ecco l'idea contro-intuitiva più importante: <b>il rumore che non rompe il trend lo certifica</b>. Il mercato ha provato di tutto — euforie a leva, panico globale (marzo 2020: −50% in 48 ore), divieti, fallimenti da miliardi (Mt. Gox, FTX). Ogni attacco è stato riassorbito. In ingegneria si chiama stress test: un pattern che sopravvive a 17 anni di sollecitazioni simili è straordinariamente robusto."],
+       call:"<b>Da ricordare:</b> residui stazionari attorno allo zero = mean reversion. Il rumore è stato, senza volerlo, il collaudatore più severo del segnale."},
+      {tag:"Lezione 3 di 3", h:"La mappa in sigma",
+       p:["La distanza dal trend si misura in <b>deviazioni standard (σ)</b>: l'unità naturale del rumore. La mappa storica: <b>+2/+3σ</b> = picchi delle bolle (2011, 2013, 2017, 2021); <b>0</b> = equilibrio; <b>−1σ</b> = minimi dei bear market, la zona storica di accumulazione. Il prezzo passa la maggior parte del tempo entro ±1σ.",
+          "Due fatti operativi: primo, l'ampiezza del rumore <b>si sta comprimendo</b> ciclo dopo ciclo (da ~0,38 a ~0,14 in unità log) — la fisiologia di un asset che matura. Secondo, l'errore tipico documentato dalla finanza comportamentale (studi DALBAR): comprare nell'euforia a +3σ e vendere nel panico — cioè <b>leggere il rumore come informazione</b>. La mappa in sigma sostituisce un numero all'emozione."],
+       call:"<b>La domanda giusta non è</b> \u201Cquanto si è mosso il prezzo?\u201D <b>ma</b> \u201Cdove siamo rispetto al trend, in sigma?\u201D"}
+    ],
+    quiz:[
+    {q:"Nel caso di Bitcoin, qual è il \u201Csegnale\u201D?", a:["I tweet degli influencer","Il prezzo giornaliero","Le notizie di mercato","La retta del power law sul grafico log-log"], ok:3},
+    {q:"Come si sono comportati i residui (le distanze dal trend) in 17 anni?", a:["Oscillano attorno allo zero, senza deriva sistematica","Sono sempre negativi","Crescono costantemente","Sono divergenti: si allontanano sempre più dallo zero"], ok:0},
+    {q:"Cosa fa il rumore che, per 17 anni, non è mai riuscito a rompere il trend?", a:["Lo nasconde","Lo indebolisce","Lo certifica: è uno stress test superato","Lo rende inutile"], ok:2},
+    {q:"Cosa rappresenta storicamente la zona a \u22121\u03C3 sotto il trend?", a:["La zona dei minimi di ciclo e dell'accumulazione storica","Il prezzo \u201Cgiusto\u201D del modello","I picchi delle bolle","Una zona mai raggiunta"], ok:0},
+    {q:"Come sta evolvendo l'ampiezza del rumore nel tempo?", a:["Sta esplodendo","È imprevedibile e senza pattern","È costante da 17 anni","Si sta comprimendo ciclo dopo ciclo (\u22480,38 \u2192 0,14 in unità log)"], ok:3}
+  ]
+  },
+  {
+    title:"PRO 3 · L'Asimmetria",
+    desc:"Aghi sopra il trend, valli sotto: la differenza di forma è una firma — e rivela due meccanismi opposti.",
+    lessons:[
+      {tag:"Lezione 1 di 3", h:"Aghi e valli",
+       p:["Guarda le <em>forme</em> dei residui: le deviazioni <b>verso l'alto sono aghi</b> — guglie strette e ripidissime che collassano in settimane; le deviazioni <b>verso il basso sono valli</b> — conche larghe e piatte dove il prezzo staziona per mesi o anni. Su e giù non sono simmetrici.",
+          "La doppia asimmetria, identica in tutti e quattro i cicli (2011, 2013, 2017, 2021): in <b>ampiezza</b> — l'alto arriva a ×10–16 il trend, il basso raramente oltre ÷2 — e in <b>durata</b> — settimane sopra, mesi o anni sotto. In un sistema fisico, quando due direzioni si comportano diversamente, sono governate da <b>meccanismi diversi</b>."],
+       call:"<b>La struttura:</b> ×10–16 ma breve verso l'alto · ÷2 ma lungo verso il basso. Forme diverse = meccanismi diversi."},
+      {tag:"Lezione 2 di 3", h:"Leva sopra, capitolazione sotto",
+       p:["Sopra il trend agisce la <b>leva finanziaria</b>: prezzo su → media → nuovi compratori a debito → prezzo ancora su. È una <b>retroazione positiva</b>: produce crescita esplosiva ed è intrinsecamente instabile — quando il carburante finisce, le liquidazioni forzate la ribaltano e il collasso è rapido quanto la salita. L'ago è la firma geometrica della leva.",
+          "Sotto il trend il mondo è diverso: la leva è già stata spazzata via. Agisce la <b>capitolazione</b>: ondata dopo ondata i venditori si esauriscono, restano i <b>detentori di lungo periodo</b>. La risalita è lenta perché la fiducia — a differenza del panico — non ha amplificatori: si ricostruisce persona per persona. I dati on-chain confermano: nelle valli le monete migrano dalle mani deboli alle <b>mani forti</b>."],
+       call:"<b>Sopra:</b> feedback positivo, instabile → ago. <b>Sotto:</b> esaurimento progressivo → valle. La migrazione silenziosa prepara il ciclo successivo."},
+      {tag:"Lezione 3 di 3", h:"La campana storta e l'implicazione d'oro",
+       p:["Il nome tecnico: <b>skew positivo</b>. La distribuzione delle deviazioni ha skew <b>+0,84</b> — coda destra lunga e pesante, coda sinistra corta e leggera. Il modello che la descrive è la <b>skew-normal</b> (Azzalini, 1985): al test di Kolmogorov–Smirnov ottiene <b>0,047 contro 0,091</b> della normale simmetrica — un adattamento due volte migliore. Non un'impressione: una proprietà misurata.",
+          "L'implicazione più importante dell'intera lezione: se le discese sono <b>limitate in profondità</b> — le code verso il basso si fermano storicamente attorno a −1/−1,5σ — allora esiste un livello sotto il quale il prezzo, statisticamente, non scende. La coda sinistra corta è il <b>fondamento matematico del floor</b>: il tema del prossimo capitolo."],
+       call:"<b>Skew +0,84 · KS 0,047 vs 0,091.</b> Verso l'alto tutto può succedere; verso il basso la storia mostra un confine netto e ripetuto."}
+    ],
+    quiz:[
+    {q:"Che forma hanno le deviazioni di Bitcoin sopra il trend?", a:["Linee piatte","Valli larghe e lunghe","Aghi: stretti, verticali, brevi","Onde regolari"], ok:2},
+    {q:"Quale meccanismo governa le salite sopra il trend?", a:["Le decisioni delle banche centrali","La leva finanziaria: una retroazione positiva instabile","L'accumulazione dei detentori","La capitolazione"], ok:1},
+    {q:"Quale processo governa invece le discese sotto il trend?", a:["L'intervento dei regolatori","La retroazione positiva","La capitolazione: i venditori si esauriscono ondata dopo ondata","Le liquidazioni a leva"], ok:2},
+    {q:"Quanto vale lo skew della distribuzione delle deviazioni di Bitcoin?", a:["\u22120,84 (coda sinistra pesante)","+5,7","0 (simmetrica)","+0,84 (coda destra lunga e pesante)"], ok:3},
+    {q:"Qual è l'implicazione più importante della coda sinistra corta?", a:["È il fondamento matematico del floor: le discese sono limitate in profondità","Il rumore sparirà","Le salite dureranno per sempre","Il prezzo non può salire oltre ×2"], ok:0}
+  ]
+  },
+  {
+    title:"PRO 4 · Il Floor",
+    desc:"Il livello che in 17 anni non è mai stato davvero violato: dove sta, perché esiste, come si calcola.",
+    lessons:[
+      {tag:"Lezione 1 di 3", h:"Definizione e verifica storica",
+       p:["<b>Floor = la banda a −1 deviazione standard sotto il trend</b>: in pratica, circa la metà del suo valore. Due proprietà essenziali: <b>non è un numero fisso</b> — sale col trend, anno dopo anno il \u201Cpeggior scenario storico\u201D si alza — ed è una <b>banda statistica</b>, non un muro: può essere punta brevemente, ma la storia mostra che il prezzo non ci resta.",
+          "La verifica empirica: i cinque minimi generazionali — 2012, 2015, 2019, marzo 2020 (panico COVID: −50% in 48 ore), fine 2022 — innescati da cause completamente diverse, sono atterrati tutti nella stessa zona: <b>media −1,05σ</b>. Cinque eventi indipendenti, una sola riga matematica: non è compatibile col caso. È la firma di una <b>struttura</b>."],
+       call:"<b>Da fissare:</b> floor = −1σ ≈ metà del trend, e sale nel tempo. Cinque capitolazioni, un pavimento: media −1,05σ."},
+      {tag:"Lezione 2 di 3", h:"Lo stress test 2022 e il meccanismo",
+       p:["Il 2022 fu il collaudo definitivo: Terra/Luna (~60 miliardi evaporati), Celsius, e l'implosione di <b>FTX</b> — la peggiore catena di fallimenti della storia del settore, in un anno solo. Il prezzo scese sotto il floor? <b>Sì, per pochi giorni, con penetrazione minima</b>: statisticamente indistinguibile dal rumore. Il pavimento si è <b>piegato — e non si è rotto</b>.",
+          "Perché esiste? Il meccanismo l'abbiamo già costruito: sotto il trend la capitolazione <b>si esaurisce</b> (i venditori finiscono), restano i detentori di lungo periodo che accumulano — mentre sotto tutto la rete <b>continua a crescere</b> (N ∼ t³), quindi la domanda strutturale aumenta mentre il prezzo scende. Il floor è l'incontro tra un'offerta che si prosciuga e una domanda che non smette di crescere: microeconomia, non magia."],
+       call:"<b>2022:</b> pochi giorni sotto, penetrazione minima = rumore. <b>Il meccanismo:</b> offerta esausta + domanda strutturale crescente."},
+      {tag:"Lezione 3 di 3", h:"Quattro metodi e la mappa del rischio",
+       p:["Quattro calcoli indipendenti, applicati ai valori attuali: banda naive −1σ ≈ <b>67.000$</b>; 5° percentile della skew-normal ≈ <b>55.000$</b>; 2,5° percentile (il più conservativo) ≈ <b>50.000$</b>; varianza tempo-variante ≈ <b>79.000$</b> — il più alto e probabilmente il più realistico, perché incorpora la compressione della volatilità. Quattro logiche, una fascia coerente: <b>50–79.000$</b>. Il floor è una zona, non una linea.",
+          "Come si usa: è una <b>mappa del rischio</b>. Vicino al pavimento il rischio residuo è storicamente minimo; molto sopra il trend (+2/+3σ) il rischio di correzione violenta è al culmine. Nota il paradosso: è l'<b>esatto contrario dell'istinto</b> — la zona che fa più paura è statisticamente la più sicura degli ultimi 17 anni. E ricorda i limiti: il floor è statistica, valida finché il modello è valido. I criteri di validità sono il prossimo capitolo."],
+       call:"<b>50k · 55k · 67k · 79k $:</b> una zona convergente. Mappa del rischio, non promessa — e sale col tempo."}
+    ],
+    quiz:[
+    {q:"Come si definisce il floor?", a:["Il minimo storico assoluto","La banda a \u22121 deviazione standard sotto il trend: circa metà del suo valore","Il prezzo di lancio di Bitcoin","Una media mobile a 200 giorni"], ok:1},
+    {q:"Dove sono atterrati, in media, i cinque minimi generazionali (2012, '15, '19, '20, '22)?", a:["A \u22123\u03C3","A livelli casuali e diversi tra loro","A \u22121,05\u03C3: tutti sulla stessa riga matematica","Sul trend"], ok:2},
+    {q:"Cosa accadde al floor nel 2022, l'anno di Terra, Celsius e FTX?", a:["Non fu mai avvicinato","Fu rotto definitivamente","Fu violato per mesi","Fu bucato per pochi giorni con penetrazione minima: statisticamente rumore. Piegato, non rotto"], ok:3},
+    {q:"Su quale fascia convergono oggi i quattro metodi di calcolo del floor?", a:["200\u2013300.000 $","10\u201320.000 $","100\u2013150.000 $","50\u201379.000 $"], ok:3},
+    {q:"Come va usato correttamente il floor?", a:["Come garanzia assoluta contro le perdite","Come mappa del rischio: sale col tempo e vale finché il modello è valido","Come segnale per il trading giornaliero","Come una promessa di guadagno"], ok:1}
+  ]
+  },
+  {
+    title:"PRO 5 · La Falsificabilità",
+    desc:"La domanda che separa scienza e fede — e i cinque semafori che rispondono con i numeri.",
+    lessons:[
+      {tag:"Lezione 1 di 3", h:"Popper e la domanda decisiva",
+       p:["«Cosa dovrebbe succedere per farti cambiare idea?» Il credente non ha risposta: reinterpreterà qualsiasi evento a favore della propria fede. Lo scienziato risponde con numeri. Karl Popper ne fece il criterio di demarcazione: <b>una teoria è scientifica non perché può essere confermata, ma perché può essere falsificata</b> — perché dichiara in anticipo quali osservazioni la smentirebbero. L'esempio classico: la relatività di Einstein rischiò tutto sull'eclissi del 1919 — e vinse.",
+          "Applichiamolo: «Bitcoin salirà» non è scienza — senza soglie né scadenze, è compatibile con tutto, quindi non vale niente. «Il prezzo segue t<sup>5,7</sup>, e il modello è falsificato se si verificano queste cinque condizioni precise» — questa è scienza. La forza non sta nell'infallibilità: sta nell'aver dichiarato, per iscritto e in anticipo (nel paper peer-reviewed), <b>come potrebbe fallire</b>."],
+       call:"<b>Il criterio di Popper:</b> scientifico = falsificabile. La tesi che non rischia niente non dice niente."},
+      {tag:"Lezione 2 di 3", h:"I cinque criteri di rottura",
+       p:["<b>1 · Rottura del floor:</b> prezzo sotto −1σ <em>per mesi e in profondità</em> — la doppia condizione che distingue la rottura dal rumore (il 2022: pochi giorni = rumore). <b>2 · Deriva dei residui:</b> se smettessero di oscillare attorno allo zero; il test esiste ed è standard (Dickey–Fuller aumentato) — a oggi: superato. <b>3 · Arresto della rete:</b> adozione ferma per anni — ha rallentato molte volte, non si è mai fermata.",
+          "<b>4 · Distribuzione dei detentori di lungo periodo:</b> se le mani forti distribuissero in massa (visibile on-chain), il pavimento perderebbe il pilastro della domanda. <b>5 · Rottura dell'esponente:</b> se il ricalcolo su dati nuovi desse un valore sistematicamente diverso dal 5,7 stabile da oltre un decennio. Cinque criteri: <b>tutti misurabili, tutti su dati pubblici, verificabili da chiunque</b>. Nessun guru richiesto."],
+       call:"<b>Floor · Residui · Rete · Detentori · Esponente.</b> Soglie quantitative, dichiarate prima degli eventi."},
+      {tag:"Lezione 3 di 3", h:"I semafori e il contratto con se stessi",
+       p:["Lo stato attuale, criterio per criterio: floor mai rotto · residui stazionari · rete in crescita · detentori in accumulazione · esponente stabile. <b>Cinque semafori, cinque verdi.</b> La formulazione corretta: il modello <b>non è dimostrato vero</b> — la scienza non dimostra, corrobora. Ha superato ogni test a cui la realtà l'ha sottoposto per 17 anni: il massimo concesso a una teoria empirica.",
+          "Cosa cambia per te: <b>non devi credere, devi monitorare cinque numeri</b> — trimestralmente basta. Se un semaforo diventasse rosso lo sapresti prima dei telegiornali, con criteri decisi a mente fredda anni prima: il \u201Ccontratto con se stessi\u201D, la versione epistemologica di Ulisse legato all'albero. Il modello falsificabile ti dice quando ha torto; lo slogan ti accompagna fino a zero."],
+       call:"<b>Oggi: 5/5 verdi.</b> Misurare sostituisce credere — e il primo rosso non si discute: si agisce secondo il piano scritto in anticipo."}
+    ],
+    quiz:[
+    {q:"Secondo Karl Popper, cosa rende scientifica una teoria?", a:["L'essere stata confermata molte volte","Il dichiarare in anticipo quali osservazioni la dimostrerebbero falsa","L'essere sostenuta da esperti","L'essere pubblicata su una rivista"], ok:1},
+    {q:"Quanti sono i criteri di rottura del modello Power Law?", a:["Tre","Uno","Dieci","Cinque: floor, residui, rete, detentori, esponente"], ok:3},
+    {q:"Cosa distingue una vera rottura del floor dal semplice rumore?", a:["Un titolo di giornale","La doppia condizione: durata (mesi) e profondità (oltre il territorio storico)","Il volume degli scambi","L'opinione degli analisti"], ok:1},
+    {q:"Quale test statistico verifica che i residui tornino verso il centro invece di derivare?", a:["Il beta di mercato","Il test di Dickey\u2013Fuller aumentato (stazionarietà)","La media mobile","Il test del chi quadro"], ok:1},
+    {q:"Qual è lo stato attuale dei cinque semafori — e cosa significa, correttamente?", a:["5 verdi: il modello non è \u201Cdimostrato\u201D ma ha superato 17 anni di test — è corroborato","5 rossi: modello falsificato","5 verdi: il modello è dimostrato vero per sempre","3 verdi e 2 rossi"], ok:0}
+  ]
+  },
+  {
+    title:"PRO 6 · I Prossimi 100×",
+    desc:"L'estrapolazione condizionale: dove porta la retta, a quale tasso — e dentro quale «se».",
+    lessons:[
+      {tag:"Lezione 1 di 3", h:"Previsione vs estrapolazione condizionale",
+       p:["Una <b>previsione</b> dice: «il prezzo sarà X alla data Y» — un azzardo incondizionato. Un'<b>estrapolazione condizionale</b> dice: «<b>SE</b> la legge che ha governato 17 anni di dati continua a valere, <b>ALLORA</b> la traiettoria porta a X» — matematica applicata a un'ipotesi esplicita.",
+          "La differenza è strutturale: il «se» non è un atto di fede — è <b>esattamente ciò che i cinque semafori monitorano</b>. Finché sono verdi, l'estrapolazione ha fondamento empirico; se diventassero rossi, i numeri di questo capitolo morirebbero con il modello — e lo sapremmo. Un'estrapolazione con criteri di invalidazione dichiarati resta scienza. Una previsione \u201Csecca\u201D no."],
+       call:"<b>Tutto questo capitolo vive dentro il «se»</b> — monitorato in tempo reale dai cinque semafori del capitolo 5."},
+      {tag:"Lezione 2 di 3", h:"La traiettoria e i rendimenti decrescenti",
+       p:["La retta proiettata in avanti indica: <b>1.000.000$</b> nella prima metà degli anni 2030 (~×10 da oggi) e <b>10.000.000$</b> verso il 2045 (~×100). Suona assurdo? Anche 10<sup>11</sup> suonava assurdo — ed è già successo. Precisazione: sono i traguardi della <b>traiettoria centrale</b>; il prezzo reale continuerà a oscillarle attorno (aghi sopra, valli sotto), e l'incertezza cresce con l'orizzonte.",
+          "Il vincolo che la legge <em>impone</em>: i <b>rendimenti decrescenti</b>. Per una power law il tasso annuo cala come <b>n/t</b>: oggi ~<b>39%</b>, nell'era del prossimo 100× (rete ~40enne) ~<b>16%</b> — dolcemente, senza mai azzerarsi. Non è una debolezza: è la firma. Chi promette \u201C100× in tre anni\u201D sta contraddicendo il power law, non applicandolo."],
+       call:"<b>$1M → prima metà 2030s · $10M → ~2045</b> (condizionali). Tasso: 39% → 16%, per la stessa matematica della legge (n/t)."},
+      {tag:"Lezione 3 di 3", h:"Il 16% in prospettiva — e il congedo",
+       p:["«Solo il 16%?» In prospettiva: le azioni rendono storicamente il <b>7–10%</b> annuo di lungo periodo; l'immobiliare meno. Un 16% strutturale — con volatilità compressa e floor più alto — resterebbe tra i migliori investimenti sistematici del pianeta: al 16% un capitale raddoppia in <b>~4,5 anni</b>. La fine dei fuochi d'artificio è l'ingresso nell'età adulta.",
+          "Un'ultima volta: <b>niente di tutto questo è una promessa</b>. Chi ti garantisce il milione vende fede; chi ti mostra la traiettoria <em>con i criteri di rottura accanto</em> ti offre uno strumento — e nessuno strumento è consulenza finanziaria personalizzata. Ora possiedi un modello completo, quantitativo e falsificabile. La disciplina da qui in avanti è una sola: <b>non seguire le opinioni, segui i numeri</b>. Cinque semafori. Una retta. Diciassette anni di dati. Il resto è rumore."],
+       call:"<b>Strumento, non promessa.</b> Ora l'esame finale: 20 domande su tutto il corso. In bocca al lupo! 🎓"}
+    ],
+    quiz:[
+    {q:"Che differenza c'è tra previsione ed estrapolazione condizionale?", a:["La previsione usa più dati","La previsione è incondizionata (\u201Csarà X\u201D); l'estrapolazione dice \u201CSE la legge regge, ALLORA...\u201D con criteri di invalidazione dichiarati","L'estrapolazione è sempre più precisa","Nessuna: sono sinonimi"], ok:1},
+    {q:"Quando la traiettoria centrale del trend attraversa 1.000.000 $?", a:["L'anno prossimo","Nella prima metà degli anni 2030 (condizionale ai semafori)","Mai, secondo il modello","Verso il 2100"], ok:1},
+    {q:"Cosa impone la legge di potenza sui rendimenti futuri?", a:["Il 39% annuo per sempre","Rendimenti decrescenti: il tasso cala come n/t, dal ~39% attuale verso il ~16% dell'era del prossimo 100×","Rendimenti crescenti nel tempo","Un crollo improvviso a zero"], ok:1},
+    {q:"Come si confronta un 16% annuo strutturale con i mercati azionari?", a:["È circa il doppio del 7\u201310% storico degli indici azionari","È circa uguale","Non è confrontabile","È molto inferiore"], ok:0},
+    {q:"Fino a quando è valida la traiettoria dei prossimi 100×?", a:["Finché i cinque semafori della falsificabilità restano verdi","Per sempre, senza condizioni","Fino al prossimo halving","Fino alla prossima recessione"], ok:0}
+  ]
+  },
+  {
+    title:"Esame finale · Bitcoin Power Law",
+    desc:"20 domande su tutto il corso, dalla scala log-log ai prossimi 100×. Soglia di superamento: 80%.",
+    pass:0.8,
+    lessons:[
+      {tag:"Esame finale", h:"Come funziona",
+       p:["L'esame copre <b>tutti e sei i capitoli</b>: gli ordini di magnitudine, il segnale e il rumore, l'asimmetria, il floor, la falsificabilità e i prossimi 100×. Sono <b>20 domande</b> a risposta multipla, e per superarlo serve almeno l'<b>80%</b> (16 risposte corrette) — un gradino sopra i quiz di capitolo, perché qui si certifica la padronanza dell'intero metodo.",
+          "Un consiglio prima di iniziare: ripassa i <b>numeri da ricordare</b> di ogni capitolo — 5,7 · R² 0,96 · skew +0,84 · −1,05σ · i cinque semafori · 39%→16%. E ricorda che molte domande sono <em>applicative</em>: non chiedono solo \u201Cquanto\u201D, ma \u201Ccosa significa\u201D. Quando sei pronto, vai all'esame. In bocca al lupo!"],
+       call:"<b>20 domande · soglia 80%.</b> Puoi ripeterlo quante volte vuoi: l'obiettivo è la padronanza, non il voto."}
+    ],
+    quiz:[
+  {q:"Qual è l'equazione fondamentale del Bitcoin Power Law?", a:["Prezzo \u223C e\u1D57 (esponenziale)","Prezzo \u223C tempo\u2075\u00B7\u2077","Prezzo = costante","Prezzo \u223C tempo\u00B2"], ok:1},
+  {q:"Quanti ordini di magnitudine di mercato ha attraversato Bitcoin in 17 anni?", a:["2","8","4","22"], ok:1},
+  {q:"Cosa significa un R\u00B2 di 0,96 su 17 anni di dati?", a:["Il 96% degli analisti concorda","Il prezzo sale il 96% dei giorni","Il 96% della varianza del (log-)prezzo è spiegato da una sola variabile: il tempo","Il modello sbaglia il 96% delle volte"], ok:2},
+  {q:"Qual è la derivazione via Metcalfe dell'esponente?", a:["P = N\u00B2 esattamente","Non esiste alcuna derivazione","N \u223C t\u00B3 e P \u223C N\u00B9\u00B7\u2078\u2074 \u21D2 P \u223C t\u2075\u00B7\u2076, coerente col 5,7 osservato","N \u223C t\u2075\u00B7\u2077 direttamente"], ok:2},
+  {q:"Un crollo del \u221250% corrisponde a quanti ordini di magnitudine?", a:["1","0,3","5","0,05"], ok:1},
+  {q:"Cosa distingue il segnale dal rumore nel modello?", a:["Il segnale sono le notizie, il rumore i dati","Non c'è distinzione misurabile","Il segnale è la retta del trend (lento, costante); il rumore sono le oscillazioni temporanee attorno, prive di persistenza","Il segnale è il prezzo giornaliero"], ok:2},
+  {q:"Cos'è la mean reversion, osservata nei residui di Bitcoin?", a:["La tendenza sistematica a rientrare verso il valore centrale dopo ogni scostamento","Un indicatore di trading a breve","La media dei rendimenti mensili","La deriva progressiva dal trend"], ok:0},
+  {q:"In quale zona di sigma si trovano storicamente i picchi delle bolle?", a:["+2/+3\u03C3","0","+10\u03C3","\u22121\u03C3"], ok:0},
+  {q:"L'errore tipico dell'investitore, secondo la finanza comportamentale, è:", a:["Comprare nell'euforia e vendere nel panico: leggere il rumore come informazione","Non guardare mai il prezzo","Investire solo in obbligazioni","Seguire il floor"], ok:0},
+  {q:"Perché le salite di Bitcoin hanno forma di ago?", a:["Per la leva finanziaria: retroazione positiva che esplode e si autoliquida","Perché i dati sono campionati male","Per la capitolazione dei venditori","Per le decisioni delle banche centrali"], ok:0},
+  {q:"Quale distribuzione descrive meglio le deviazioni dal trend, e con quale verifica?", a:["La normale simmetrica (KS 0,091)","La distribuzione uniforme","La skew-normal con skew +0,84 (KS 0,047: adattamento doppio rispetto alla normale)","Nessuna distribuzione le descrive"], ok:2},
+  {q:"Durante i \u201Ccrypto winter\u201D, cosa mostrano i dati on-chain?", a:["La rete smette di funzionare","Tutti vendono, inclusi i long-term holders","La supply dormiente cala","Le monete migrano dalle mani deboli alle mani forti: la supply detenuta a lungo termine cresce"], ok:3},
+  {q:"Perché il supporto inferiore (floor) è più affidabile della resistenza superiore?", a:["Non è più affidabile","Perché il prezzo non scende mai","Perché la coda sinistra della distribuzione è corta: le discese sono limitate, mentre verso l'alto la coda è lunga","Perché lo dicono gli analisti tecnici"], ok:2},
+  {q:"Quale metodo di stima del floor dà il valore più alto, e perché?", a:["Il metodo naive, perché ignora lo skew","Nessuno: danno tutti lo stesso numero","Il 2,5\u00B0 percentile, perché è conservativo","La varianza tempo-variante (~79k$), perché incorpora la compressione recente della volatilità"], ok:3},
+  {q:"Il marzo 2020 (\u221250% in 48 ore) cosa dimostrò riguardo al floor?", a:["Che il floor non esiste","Che il modello fallì","Che la rete si fermò","Che anche il panico più acuto e globale atterrò in zona floor, seguito dal rimbalzo"], ok:3},
+  {q:"Quali sono i cinque criteri di falsificazione del modello?", a:["Solo il prezzo sotto il floor","Floor, residui, rete, detentori di lungo periodo, esponente","RSI, MACD, medie mobili, volumi, momentum","Prezzo, volume, sentiment, notizie, halving"], ok:1},
+  {q:"Perché i criteri di rottura vanno dichiarati in anticipo?", a:["Per marketing","Perché è ciò che distingue la scienza dalla fede: evita la reinterpretazione retroattiva e funziona da \u201Ccontratto con se stessi\u201D","Non è necessario dichiararli","Perché lo richiede la legge"], ok:1},
+  {q:"Con che frequenza è sensato controllare i cinque semafori?", a:["Una volta ogni dieci anni","Ogni ora","Trimestralmente: i criteri sono definiti su scale di mesi/anni","Ogni giorno"], ok:2},
+  {q:"Da dove viene il tasso di crescita decrescente della traiettoria?", a:["Dalla stessa matematica della legge: dP/P \u2248 n/t, quindi il tasso cala col tempo senza mai azzerarsi","Da una decisione del mercato","Dall'halving","Da una stima soggettiva"], ok:0},
+  {q:"Qual è, in una frase, il messaggio finale del corso?", a:["Compra e spera","Il prezzo salirà per sempre, garantito","Non seguire le opinioni, segui i numeri: cinque semafori, una retta, diciassette anni di dati — il resto è rumore","Bitcoin è imprevedibile e non va studiato"], ok:2}
+]
+  }
+];
+
+const PRO_EN = [
+  {
+    title:"PRO 1 · Orders of Magnitude",
+    desc:"The right scale for reading Bitcoin: why 17 years of apparent chaos conceal one of the sharpest regularities ever observed in a market.",
+    lessons:[
+      {tag:"Lesson 1 of 3", h:"One dollar in 2009",
+       p:["One dollar invested in Bitcoin in 2009 would be worth about <b>170 billion</b> today: a factor on the order of <b>10<sup>11</sup></b>. The same dollar in the S&P 500 would be ~7 dollars; in gold, ~3. It is not a difference of degree: it is a difference of <b>category</b>. Restricting the analysis to real market transactions, Bitcoin has crossed <b>8 orders of magnitude</b> — no other asset in history has crossed more than 1–2 in a century.",
+          "The instinctive reaction is skepticism: bubble? luck? manipulation? Legitimate questions — science starts from doubt. But this lesson shows the detail that changes everything: <b>Bitcoin did not grow randomly</b>. Its growth follows a precise mathematical regularity, verifiable by anyone on public data. All you need is the right instrument to see it."],
+       call:"<b>The numbers:</b> factor 10<sup>11</sup> since 2009 · 8 market orders of magnitude. The course's question: chance or structure?"},
+      {tag:"Lesson 2 of 3", h:"The revelation: the log-log scale",
+       p:["The linear chart deceives: it crushes the past and amplifies the present, because Bitcoin grows by <b>multiplying</b>, not adding. The natural unit of multiplicative phenomena is the <b>order of magnitude</b> (power of 10) — the same logic as Richter, decibels and pH. The consistent scale is logarithmic on <em>both</em> axes: the <b>log-log</b> chart.",
+          "And here comes the revelation: on log-log axes <b>a power law appears as a straight line</b> — and 17 years of price collapse onto a single line with slope ~5.7. The equation: <b>Price ∼ time<sup>5.7</sup></b>, with <b>R² = 0.96</b> (96% of the variance explained by time alone). When the time since genesis doubles, the price multiplies by ~52."],
+       call:"<b>To remember:</b> log-log → straight line. Slope = exponent 5.7. R² = 0.96 across 8 orders of magnitude: unprecedented in the literature."},
+      {tag:"Lesson 3 of 3", h:"The engine: Metcalfe's network",
+       p:["Why does this law exist? Because Bitcoin is a <b>network</b>. On-chain data show two regularities: active addresses grow as <b>N ∼ t³</b>, and value scales with the network via a generalized Metcalfe, <b>P ∼ N<sup>1.84</sup></b>. Composing: P ∼ t<sup>5.5</sup> ≈ <b>t<sup>5.6</sup></b> — which matches the 5.7 observed in the price. Two independent measurements predict the exponent.",
+          "The most convincing evidence: during the great crashes (−85% in 2015, −84% in 2018, −77% in 2022) the network <b>kept growing</b>, undisturbed. That is the discriminator between a bubble and structural adoption: when a true bubble bursts, the users vanish with the price. The model is formalized in a <b>peer-reviewed paper published in an Elsevier journal</b> (Santostasi & Perrenod) — which also declares how it could be falsified."],
+       call:"<b>The internal consistency:</b> network t³ × Metcalfe 1.84 ⇒ price t<sup>5.6</sup>. In crashes the price collapses, the network does not: the signature of adoption."}
+    ],
+    quiz:[
+    {q:"By what factor has Bitcoin grown since 2009?", a:["About \u00D71 million","On the order of 10\u00B9\u00B9","About \u00D710,000","About \u00D7100"], ok:1},
+    {q:"Why is the linear-scale chart deceptive when looking at Bitcoin?", a:["Because it crushes the past and amplifies the present: Bitcoin grows by multiplying, not adding","Because it shows too many years","Because the price is too volatile for any chart","Because the data is wrong"], ok:0},
+    {q:"How does a power law appear on a log-log chart?", a:["As a straight line","As an S-curve","As a cyclical wave","As a parabola"], ok:0},
+    {q:"What are the exponent and the fit quality of the Bitcoin Power Law?", a:["n \u2248 10, R\u00B2 = 0.99","n \u2248 3, R\u00B2 = 0.70","n \u2248 5.7, R\u00B2 = 0.96","n \u2248 2, R\u00B2 = 0.50"], ok:2},
+    {q:"What did the Bitcoin network do during the great price crashes (2015, 2018, 2022)?", a:["It lost most of its users","It kept growing, essentially undisturbed","It was replaced by other networks","It stopped working"], ok:1}
+  ]
+  },
+  {
+    title:"PRO 2 · The Signal and the Noise",
+    desc:"Structural information vs temporary fluctuations: confusing them is the most expensive mistake an investor can make.",
+    lessons:[
+      {tag:"Lesson 1 of 3", h:"Two components, one universal mistake",
+       p:["Every measurable system contains <b>signal</b> (the structural information: where the system is going) and <b>noise</b> (the temporary fluctuations around the trajectory). Climate is signal, weather is noise: nobody declares summer over because of a July thunderstorm — yet in the markets people do exactly this, every day.",
+          "Bitcoin has been declared \u201Cdead\u201D hundreds of times: 2011 (−93%), 2015 (−85%), 2018 (−84%), 2022 (−77%). Every time, those saying it were looking at the <b>noise</b> believing it was the <b>signal</b>. Bitcoin's signal is the power law line: slow, constant for 17 years and — by construction — invisible to the media, whose job is to amplify the noise."],
+       call:"<b>The test:</b> which piece of news from the last 17 years permanently pushed the price out of the trend band? None. Momentary impact ≠ structural information."},
+      {tag:"Lesson 2 of 3", h:"The proof of the residuals",
+       p:["The tool for <em>seeing</em> the noise is the chart of the <b>residuals</b>: the distance (log scale) between actual price and trend line. The central fact: for 17 years the residuals have <b>oscillated around zero with no systematic drift</b>. It is the signature of <b>mean reversion</b> — and the decisive technical point: if the power law were a statistical illusion, the residuals would diverge over time. They do not.",
+          "And here is the most important counterintuitive idea: <b>noise that fails to break the trend certifies it</b>. The market has tried everything — leveraged euphoria, global panic (March 2020: −50% in 48 hours), bans, billion-dollar failures (Mt. Gox, FTX). Every attack was reabsorbed. In engineering it is called a stress test: a pattern that survives 17 years of such stresses is extraordinarily robust."],
+       call:"<b>To remember:</b> stationary residuals around zero = mean reversion. The noise has been, unwittingly, the signal's most severe test engineer."},
+      {tag:"Lesson 3 of 3", h:"The map in sigmas",
+       p:["The distance from the trend is measured in <b>standard deviations (σ)</b>: the natural unit of the noise. The historical map: <b>+2/+3σ</b> = bubble peaks (2011, 2013, 2017, 2021); <b>0</b> = equilibrium; <b>−1σ</b> = bear-market bottoms, the historical accumulation zone. The price spends most of its time within ±1σ.",
+          "Two operational facts: first, the amplitude of the noise <b>is compressing</b> cycle after cycle (from ~0.38 to ~0.14 in log units) — the physiology of a maturing asset. Second, the typical mistake documented by behavioral finance (DALBAR studies): buying in the euphoria at +3σ and selling in the panic — that is, <b>reading the noise as information</b>. The sigma map replaces emotion with a number."],
+       call:"<b>The right question is not</b> \u201Chow much did the price move?\u201D <b>but</b> \u201Cwhere are we relative to the trend, in sigmas?\u201D"}
+    ],
+    quiz:[
+    {q:"In Bitcoin's case, what is the \u201Csignal\u201D?", a:["Influencers' tweets","The daily price","The power law line on the log-log chart","Market news"], ok:2},
+    {q:"How have the residuals (distances from the trend) behaved over 17 years?", a:["They grow constantly","They oscillate around zero, with no systematic drift","They are always negative","They diverge: farther and farther from zero"], ok:1},
+    {q:"What does noise that has failed to break the trend for 17 years actually do?", a:["It weakens it","It hides it","It certifies it: a stress test passed","It makes it useless"], ok:2},
+    {q:"What does the \u22121\u03C3 zone below the trend historically represent?", a:["Bubble peaks","The zone of cycle bottoms and historical accumulation","A zone never reached","The model's \u201Cfair\u201D price"], ok:1},
+    {q:"How is the amplitude of the noise evolving over time?", a:["It is exploding","It has been constant for 17 years","It is compressing cycle after cycle (\u22480.38 \u2192 0.14 in log units)","It is unpredictable with no pattern"], ok:2}
+  ]
+  },
+  {
+    title:"PRO 3 · The Asymmetry",
+    desc:"Needles above the trend, valleys below: the difference in shape is a signature — and it reveals two opposite mechanisms.",
+    lessons:[
+      {tag:"Lesson 1 of 3", h:"Needles and valleys",
+       p:["Look at the <em>shapes</em> of the residuals: the deviations <b>upward are needles</b> — narrow, extremely steep spires collapsing within weeks; the deviations <b>downward are valleys</b> — wide, flat basins where the price sits for months or years. Up and down are not symmetrical.",
+          "The double asymmetry, identical in all four cycles (2011, 2013, 2017, 2021): in <b>amplitude</b> — the upside reaches ×10–16 the trend, the downside rarely beyond ÷2 — and in <b>duration</b> — weeks above, months or years below. In a physical system, when two directions behave differently, they are governed by <b>different mechanisms</b>."],
+       call:"<b>The structure:</b> ×10–16 but brief upward · ÷2 but long downward. Different shapes = different mechanisms."},
+      {tag:"Lesson 2 of 3", h:"Leverage above, capitulation below",
+       p:["Above the trend, <b>financial leverage</b> operates: price up → media → new leveraged buyers → price further up. It is a <b>positive feedback loop</b>: it produces explosive growth and is intrinsically unstable — when the fuel runs out, forced liquidations flip it and the collapse is as fast as the rise. The needle is leverage's geometric signature.",
+          "Below the trend the world is different: the leverage has already been swept away. <b>Capitulation</b> operates: wave after wave the sellers exhaust themselves, and the <b>long-term holders</b> remain. The recovery is slow because confidence — unlike panic — has no amplifiers: it rebuilds person by person. On-chain data confirm it: in the valleys, coins migrate from weak hands to <b>strong hands</b>."],
+       call:"<b>Above:</b> positive feedback, unstable → needle. <b>Below:</b> progressive exhaustion → valley. The silent migration prepares the next cycle."},
+      {tag:"Lesson 3 of 3", h:"The tilted bell and the golden implication",
+       p:["The technical name: <b>positive skew</b>. The distribution of the deviations has skew <b>+0.84</b> — long, heavy right tail; short, light left tail. The model that describes it is the <b>skew-normal</b> (Azzalini, 1985): on the Kolmogorov–Smirnov test it scores <b>0.047 against 0.091</b> for the symmetric normal — a fit twice as good. Not an impression: a measured property.",
+          "The most important implication of the entire lesson: if the declines are <b>limited in depth</b> — the downward tails historically stop around −1/−1.5σ — then there exists a level below which the price, statistically, does not go. The short left tail is the <b>mathematical foundation of the floor</b>: the subject of the next chapter."],
+       call:"<b>Skew +0.84 · KS 0.047 vs 0.091.</b> Upward anything can happen; downward, history shows a sharp, repeated boundary."}
+    ],
+    quiz:[
+    {q:"What shape do Bitcoin's deviations above the trend have?", a:["Wide, long valleys","Regular waves","Needles: narrow, vertical, brief","Flat lines"], ok:2},
+    {q:"Which mechanism governs the rises above the trend?", a:["Holder accumulation","Capitulation","Financial leverage: an unstable positive feedback loop","Central bank decisions"], ok:2},
+    {q:"Which process governs the declines below the trend instead?", a:["Positive feedback","Regulators' intervention","Capitulation: the sellers exhaust themselves wave after wave","Leveraged liquidations"], ok:2},
+    {q:"What is the skew of the distribution of Bitcoin's deviations?", a:["+5.7","0 (symmetric)","\u22120.84 (heavy left tail)","+0.84 (long, heavy right tail)"], ok:3},
+    {q:"What is the most important implication of the short left tail?", a:["The rallies will last forever","It is the mathematical foundation of the floor: declines are limited in depth","The noise will disappear","The price cannot rise beyond \u00D72"], ok:1}
+  ]
+  },
+  {
+    title:"PRO 4 · The Floor",
+    desc:"The level never truly violated in 17 years: where it lies, why it exists, how it is calculated.",
+    lessons:[
+      {tag:"Lesson 1 of 3", h:"Definition and historical verification",
+       p:["<b>Floor = the band at −1 standard deviation below the trend</b>: in practice, about half its value. Two essential properties: <b>it is not a fixed number</b> — it rises with the trend; year after year the \u201Cworst historical scenario\u201D climbs — and it is a <b>statistical band</b>, not a wall: it can be pierced briefly, but history shows the price does not stay there.",
+          "The empirical verification: the five generational bottoms — 2012, 2015, 2019, March 2020 (COVID panic: −50% in 48 hours), late 2022 — triggered by completely different causes, all landed in the same zone: <b>average −1.05σ</b>. Five independent events, one mathematical line: not compatible with chance. It is the signature of a <b>structure</b>."],
+       call:"<b>To fix in mind:</b> floor = −1σ ≈ half the trend, rising over time. Five capitulations, one pavement: average −1.05σ."},
+      {tag:"Lesson 2 of 3", h:"The 2022 stress test and the mechanism",
+       p:["2022 was the definitive trial: Terra/Luna (~$60 billion evaporated), Celsius, and the implosion of <b>FTX</b> — the worst chain of failures in the industry's history, in a single year. Did the price fall below the floor? <b>Yes, for a few days, with minimal penetration</b>: statistically indistinguishable from noise. The pavement <b>bent — and did not break</b>.",
+          "Why does it exist? We have already built the mechanism: below the trend, capitulation <b>exhausts itself</b> (the sellers run out), the long-term holders remain and accumulate — while underneath it all the network <b>keeps growing</b> (N ∼ t³), so structural demand rises while the price falls. The floor is the meeting between a supply that dries up and a demand that never stops growing: microeconomics, not magic."],
+       call:"<b>2022:</b> a few days below, minimal penetration = noise. <b>The mechanism:</b> exhausted supply + growing structural demand."},
+      {tag:"Lesson 3 of 3", h:"Four methods and the risk map",
+       p:["Four independent calculations, applied to current values: naive −1σ band ≈ <b>$67,000</b>; 5th percentile of the skew-normal ≈ <b>$55,000</b>; 2.5th percentile (the most conservative) ≈ <b>$50,000</b>; time-varying variance ≈ <b>$79,000</b> — the highest and probably the most realistic, because it incorporates the compression of volatility. Four logics, one coherent range: <b>$50–79,000</b>. The floor is a zone, not a line.",
+          "How to use it: it is a <b>risk map</b>. Near the pavement, residual risk is historically minimal; far above the trend (+2/+3σ), the risk of a violent correction peaks. Note the paradox: it is the <b>exact opposite of instinct</b> — the zone that scares the most is statistically the safest of the last 17 years. And remember the limits: the floor is statistics, valid as long as the model is valid. The validity criteria are the next chapter."],
+       call:"<b>$50k · $55k · $67k · $79k:</b> a converging zone. A risk map, not a promise — and it rises over time."}
+    ],
+    quiz:[
+    {q:"How is the floor defined?", a:["A 200-day moving average","The absolute historical low","Bitcoin's launch price","The band at \u22121 standard deviation below the trend: about half its value"], ok:3},
+    {q:"Where did the five generational bottoms (2012, '15, '19, '20, '22) land, on average?", a:["At \u22121.05\u03C3: all on the same mathematical line","At \u22123\u03C3","At random, different levels","On the trend"], ok:0},
+    {q:"What happened to the floor in 2022, the year of Terra, Celsius and FTX?", a:["It was broken for good","It was violated for months","It was never approached","It was pierced for a few days with minimal penetration: statistically noise. Bent, not broken"], ok:3},
+    {q:"On what range do the four floor-calculation methods converge today?", a:["$100\u2013150,000","$10\u201320,000","$200\u2013300,000","$50\u201379,000"], ok:3},
+    {q:"How should the floor be used correctly?", a:["As a risk map: it rises over time and is valid as long as the model is valid","As a promise of profit","As an absolute guarantee against losses","As a day-trading signal"], ok:0}
+  ]
+  },
+  {
+    title:"PRO 5 · Falsifiability",
+    desc:"The question that separates science and faith — and the five traffic lights that answer with numbers.",
+    lessons:[
+      {tag:"Lesson 1 of 3", h:"Popper and the decisive question",
+       p:["\u201CWhat would have to happen to make you change your mind?\u201D The believer has no answer: they will reinterpret any event in favor of their faith. The scientist answers with numbers. Karl Popper made it the demarcation criterion: <b>a theory is scientific not because it can be confirmed, but because it can be falsified</b> — because it declares in advance which observations would refute it. The classic example: Einstein's relativity risked everything on the 1919 eclipse — and won.",
+          "Let us apply it: \u201CBitcoin will go up\u201D is not science — with no thresholds and no deadlines, it is compatible with everything, therefore worth nothing. \u201CThe price follows t<sup>5.7</sup>, and the model is falsified if these five precise conditions occur\u201D — that is science. The strength lies not in infallibility: it lies in having declared, in writing and in advance (in the peer-reviewed paper), <b>how it could fail</b>."],
+       call:"<b>Popper's criterion:</b> scientific = falsifiable. A thesis that risks nothing says nothing."},
+      {tag:"Lesson 2 of 3", h:"The five breaking criteria",
+       p:["<b>1 · Rupture of the floor:</b> price below −1σ <em>for months and in depth</em> — the double condition that distinguishes rupture from noise (2022: a few days = noise). <b>2 · Drift of the residuals:</b> if they stopped oscillating around zero; the test exists and is standard (augmented Dickey–Fuller) — to date: passed. <b>3 · The network stopping:</b> adoption frozen for years — it has slowed many times, it has never stopped.",
+          "<b>4 · Distribution by the long-term holders:</b> if the strong hands distributed en masse (visible on-chain), the pavement would lose its demand pillar. <b>5 · Break of the exponent:</b> if recalculation on new data yielded a value systematically different from the 5.7 that has been stable for over a decade. Five criteria: <b>all measurable, all on public data, verifiable by anyone</b>. No guru required."],
+       call:"<b>Floor · Residuals · Network · Holders · Exponent.</b> Quantitative thresholds, declared before the events."},
+      {tag:"Lesson 3 of 3", h:"The traffic lights and the contract with yourself",
+       p:["The current status, criterion by criterion: floor never broken · residuals stationary · network growing · holders accumulating · exponent stable. <b>Five traffic lights, five green.</b> The correct formulation: the model <b>is not proven true</b> — science does not prove, it corroborates. It has passed every test reality has subjected it to for 17 years: the most granted to an empirical theory.",
+          "What changes for you: <b>you do not have to believe, you have to monitor five numbers</b> — quarterly is enough. If a light turned red you would know before the news, with criteria decided in cold blood years earlier: the \u201Ccontract with yourself\u201D, the epistemological version of Ulysses tied to the mast. The falsifiable model tells you when it is wrong; the slogan accompanies you all the way to zero."],
+       call:"<b>Today: 5/5 green.</b> Measuring replaces believing — and at the first red you do not debate: you act on the plan written in advance."}
+    ],
+    quiz:[
+    {q:"According to Karl Popper, what makes a theory scientific?", a:["Declaring in advance which observations would prove it false","Being published in a journal","Having been confirmed many times","Being supported by experts"], ok:0},
+    {q:"How many breaking criteria does the Power Law model have?", a:["Five: floor, residuals, network, holders, exponent","Ten","One","Three"], ok:0},
+    {q:"What distinguishes a true rupture of the floor from mere noise?", a:["The double condition: duration (months) and depth (beyond the historical territory)","Analysts' opinions","A newspaper headline","Trading volume"], ok:0},
+    {q:"Which statistical test checks that the residuals return toward the center instead of drifting?", a:["The moving average","The market beta","The chi-square test","The augmented Dickey\u2013Fuller test (stationarity)"], ok:3},
+    {q:"What is the current status of the five traffic lights \u2014 and what does it correctly mean?", a:["3 green and 2 red","5 green: the model is proven true forever","5 red: model falsified","5 green: the model is not \u201Cproven\u201D but has passed 17 years of tests \u2014 it is corroborated"], ok:3}
+  ]
+  },
+  {
+    title:"PRO 6 · The Next 100×",
+    desc:"The conditional extrapolation: where the line leads, at what rate — and inside which \u201Cif\u201D.",
+    lessons:[
+      {tag:"Lesson 1 of 3", h:"Prediction vs conditional extrapolation",
+       p:["A <b>prediction</b> says: \u201Cthe price will be X by date Y\u201D — an unconditional gamble. A <b>conditional extrapolation</b> says: \u201C<b>IF</b> the law that has governed 17 years of data keeps holding, <b>THEN</b> the trajectory leads to X\u201D — mathematics applied to an explicit hypothesis.",
+          "The difference is structural: the \u201Cif\u201D is not an act of faith — it is <b>exactly what the five traffic lights monitor</b>. As long as they are green, the extrapolation has an empirical foundation; if they turned red, this chapter's numbers would die with the model — and we would know. An extrapolation with declared invalidation criteria remains science. A \u201Cdry\u201D prediction does not."],
+       call:"<b>This entire chapter lives inside the \u201Cif\u201D</b> — monitored in real time by the five traffic lights of chapter 5."},
+      {tag:"Lesson 2 of 3", h:"The trajectory and the diminishing returns",
+       p:["The line projected forward indicates: <b>$1,000,000</b> in the first half of the 2030s (~×10 from today) and <b>$10,000,000</b> toward 2045 (~×100). Sounds absurd? So did 10<sup>11</sup> — and it has already happened. Clarification: these are milestones of the <b>central trajectory</b>; the actual price will keep oscillating around it (needles above, valleys below), and uncertainty grows with the horizon.",
+          "The constraint the law <em>imposes</em>: <b>diminishing returns</b>. For a power law, the annual rate falls as <b>n/t</b>: today ~<b>39%</b>, in the next-100× era (network ~40 years old) ~<b>16%</b> — gently, without ever reaching zero. It is not a weakness: it is the signature. Whoever promises \u201C100× in three years\u201D is contradicting the power law, not applying it."],
+       call:"<b>$1M → first half of the 2030s · $10M → ~2045</b> (conditional). Rate: 39% → 16%, by the law's own mathematics (n/t)."},
+      {tag:"Lesson 3 of 3", h:"The 16% in perspective — and the farewell",
+       p:["\u201COnly 16%?\u201D In perspective: equities historically return <b>7–10%</b> per year over the long run; real estate less. A structural 16% — with compressed volatility and a higher floor — would remain among the best systematic investments on the planet: at 16% a capital doubles in <b>~4.5 years</b>. The end of the fireworks is the entry into adult age.",
+          "One last time: <b>none of this is a promise</b>. Whoever guarantees you the million is selling faith; whoever shows you the trajectory <em>with the breaking criteria alongside it</em> is offering you a tool — and no tool is personalized financial advice. You now possess a complete, quantitative, falsifiable model. From here on, there is only one discipline: <b>do not follow opinions, follow the numbers</b>. Five traffic lights. One straight line. Seventeen years of data. Everything else is noise."],
+       call:"<b>Tool, not promise.</b> Now the final exam: 20 questions on the whole course. Good luck! 🎓"}
+    ],
+    quiz:[
+    {q:"What is the difference between a prediction and a conditional extrapolation?", a:["None: they are synonyms","A prediction is unconditional (\u201Cit will be X\u201D); an extrapolation says \u201CIF the law holds, THEN...\u201D with declared invalidation criteria","An extrapolation is always more precise","A prediction uses more data"], ok:1},
+    {q:"When does the trend's central trajectory cross $1,000,000?", a:["In the first half of the 2030s (conditional on the traffic lights)","Never, according to the model","Next year","Around 2100"], ok:0},
+    {q:"What does the power law impose on future returns?", a:["Increasing returns over time","Diminishing returns: the rate falls as n/t, from today's ~39% toward the ~16% of the next-100\u00D7 era","A sudden crash to zero","39% per year forever"], ok:1},
+    {q:"How does a structural 16% per year compare with the equity markets?", a:["It is about double the historical 7\u201310% of equity indices","It is much lower","It is not comparable","It is about the same"], ok:0},
+    {q:"For how long is the next-100\u00D7 trajectory valid?", a:["As long as the five falsifiability traffic lights stay green","Forever, unconditionally","Until the next halving","Until the next recession"], ok:0}
+  ]
+  },
+  {
+    title:"Final Exam · Bitcoin Power Law",
+    desc:"20 questions covering the whole course, from the log-log scale to the next 100×. Pass threshold: 80%.",
+    pass:0.8,
+    lessons:[
+      {tag:"Final exam", h:"How it works",
+       p:["The exam covers <b>all six chapters</b>: orders of magnitude, the signal and the noise, the asymmetry, the floor, falsifiability and the next 100×. There are <b>20 multiple-choice questions</b>, and passing requires at least <b>80%</b> (16 correct answers) — a step above the chapter quizzes, because here you certify mastery of the entire method.",
+          "One piece of advice before starting: review the <b>numbers to remember</b> of each chapter — 5.7 · R² 0.96 · skew +0.84 · −1.05σ · the five traffic lights · 39%→16%. And remember that many questions are <em>applied</em>: they do not just ask \u201Chow much\u201D, but \u201Cwhat does it mean\u201D. When you are ready, go to the exam. Good luck!"],
+       call:"<b>20 questions · 80% threshold.</b> You can retake it as many times as you like: the goal is mastery, not the grade."}
+    ],
+    quiz:[
+  {q:"What is the fundamental equation of the Bitcoin Power Law?", a:["Price \u223C time\u00B2","Price \u223C time\u2075\u00B7\u2077","Price = constant","Price \u223C e\u1D57 (exponential)"], ok:1},
+  {q:"How many market orders of magnitude has Bitcoin crossed in 17 years?", a:["4","22","8","2"], ok:2},
+  {q:"What does an R\u00B2 of 0.96 over 17 years of data mean?", a:["The price rises 96% of days","96% of the (log-)price variance is explained by a single variable: time","The model is wrong 96% of the time","96% of analysts agree"], ok:1},
+  {q:"What is the Metcalfe derivation of the exponent?", a:["N \u223C t\u2075\u00B7\u2077 directly","P = N\u00B2 exactly","N \u223C t\u00B3 and P \u223C N\u00B9\u00B7\u2078\u2074 \u21D2 P \u223C t\u2075\u00B7\u2076, consistent with the observed 5.7","There is no derivation"], ok:2},
+  {q:"A \u221250% crash corresponds to how many orders of magnitude?", a:["0.05","1","5","0.3"], ok:3},
+  {q:"What distinguishes the signal from the noise in the model?", a:["The signal is the daily price","The signal is the trend line (slow, constant); the noise is the temporary oscillations around it, lacking persistence","The signal is the news, the noise is the data","There is no measurable distinction"], ok:1},
+  {q:"What is mean reversion, as observed in Bitcoin's residuals?", a:["The progressive drift from the trend","A short-term trading indicator","The systematic tendency to return toward the central value after every departure","The average of monthly returns"], ok:2},
+  {q:"In which sigma zone are the bubble peaks historically found?", a:["+2/+3\u03C3","0","+10\u03C3","\u22121\u03C3"], ok:0},
+  {q:"The typical investor's mistake, according to behavioral finance, is:", a:["Buying in the euphoria and selling in the panic: reading the noise as information","Following the floor","Investing only in bonds","Never looking at the price"], ok:0},
+  {q:"Why do Bitcoin's rallies have the shape of a needle?", a:["Because of central bank decisions","Because of seller capitulation","Because of financial leverage: a positive feedback loop that explodes and self-liquidates","Because the data is badly sampled"], ok:2},
+  {q:"Which distribution best describes the deviations from the trend, and with what verification?", a:["The skew-normal with skew +0.84 (KS 0.047: twice the fit of the normal)","The uniform distribution","No distribution describes them","The symmetric normal (KS 0.091)"], ok:0},
+  {q:"During the \u201Ccrypto winters\u201D, what do the on-chain data show?", a:["Everyone sells, including the long-term holders","Dormant supply falls","The network stops working","Coins migrate from weak hands to strong hands: long-term-held supply grows"], ok:3},
+  {q:"Why is the lower support (floor) more reliable than the upper resistance?", a:["Because the price never falls","It is not more reliable","Because the distribution's left tail is short: declines are limited, while the upward tail is long","Because technical analysts say so"], ok:2},
+  {q:"Which floor-estimation method gives the highest value, and why?", a:["The naive method, because it ignores the skew","The 2.5th percentile, because it is conservative","None: they all give the same number","The time-varying variance (~$79k), because it incorporates the recent compression of volatility"], ok:3},
+  {q:"What did March 2020 (\u221250% in 48 hours) demonstrate about the floor?", a:["That the floor does not exist","That the network stopped","That even the most acute, global panic landed in the floor zone, followed by the rebound","That the model failed"], ok:2},
+  {q:"What are the five falsification criteria of the model?", a:["Only the price below the floor","RSI, MACD, moving averages, volumes, momentum","Price, volume, sentiment, news, halving","Floor, residuals, network, long-term holders, exponent"], ok:3},
+  {q:"Why must the breaking criteria be declared in advance?", a:["For marketing","Because it is what separates science from faith: it prevents retroactive reinterpretation and works as a \u201Ccontract with yourself\u201D","Because the law requires it","There is no need to declare them"], ok:1},
+  {q:"How often does it make sense to check the five traffic lights?", a:["Once every ten years","Every hour","Quarterly: the criteria are defined on scales of months/years","Every day"], ok:2},
+  {q:"Where does the trajectory's decreasing growth rate come from?", a:["From the halving","From a subjective estimate","From a market decision","From the law's own mathematics: dP/P \u2248 n/t, so the rate falls over time without ever reaching zero"], ok:3},
+  {q:"What is, in one sentence, the final message of the course?", a:["Do not follow opinions, follow the numbers: five traffic lights, one straight line, seventeen years of data \u2014 everything else is noise","The price will rise forever, guaranteed","Bitcoin is unpredictable and should not be studied","Buy and hope"], ok:0}
+]
+  }
+];
+
 /* ================= LINGUA ================= */
 let LANG = 'it';
 let COURSE = COURSE_IT;
+let PRO_COURSE = PRO_IT;
 /* copia i media (video) dalle lezioni IT alle EN */
 COURSE_IT.forEach((ch,ci)=>ch.lessons.forEach((L,li)=>{
   const E = COURSE_EN[ci].lessons[li];
@@ -1031,6 +1425,10 @@ const I18N = {
   sub:'Un percorso in 7 capitoli: cos\u2019\u00e8 il denaro, come si \u00e8 evoluto, perch\u00e9 si \u00e8 rotto \u2014 e cosa propone Bitcoin. Ogni capitolo si sblocca superando il quiz del precedente.',
   premH:'Area riservata', premSub:'Contenuti avanzati visibili solo ai membri iscritti e abbonati.',
   premLockT:'Contenuto riservato agli abbonati', premLockP:'Sblocca masterclass, live settimanali, risorse scaricabili e la community privata.', premBtn:'Abbonati e sblocca',
+  proEyebrow:'Corso PRO \u00b7 Bitcoin Power Law', proH1:'Il Bitcoin Power Law: la scienza del prezzo',
+  proSub:'6 capitoli + esame finale: dagli ordini di magnitudine ai prossimi 100\u00d7. Ogni capitolo si sblocca superando il quiz del precedente; l\u2019esame finale richiede l\u201980%.',
+  proPassLast:'Hai completato il corso PRO e superato l\u2019esame finale. Ora possiedi il metodo: cinque semafori, una retta, diciassette anni di dati.',
+  proCourseDone:'\ud83c\udf93 Corso PRO completato!',
   enVideoNote:''},
  en:{videoTab:'\u25b6 Video lesson', textTab:'\ud83d\udcd6 Written deep-dive',
   videoCap:'Official course video lesson. For the full summary, open the \u201cWritten deep-dive\u201d tab.',
@@ -1049,6 +1447,10 @@ const I18N = {
   sub:'A 7-chapter journey: what money is, how it evolved, why it broke \u2014 and what Bitcoin proposes. Each chapter unlocks by passing the previous quiz.',
   premH:'Members area', premSub:'Advanced content visible only to subscribed members.',
   premLockT:'Content reserved for subscribers', premLockP:'Unlock masterclasses, live sessions, downloadable resources and the private community.', premBtn:'Subscribe & unlock',
+  proEyebrow:'PRO course \u00b7 Bitcoin Power Law', proH1:'The Bitcoin Power Law: the science of the price',
+  proSub:'6 chapters + final exam: from orders of magnitude to the next 100\u00d7. Each chapter unlocks by passing the previous quiz; the final exam requires 80%.',
+  proPassLast:'You completed the PRO course and passed the final exam. You now own the method: five traffic lights, one straight line, seventeen years of data.',
+  proCourseDone:'\ud83c\udf93 PRO course completed!',
   enVideoNote:' (narration in Italian)'}
 };
 function T(k){ return I18N[LANG][k]; }
@@ -1056,6 +1458,7 @@ function CH(){ return LANG==='en' ? CHARTS_EN : CHARTS; }
 function setLang(l){
   LANG = l;
   COURSE = l==='it' ? COURSE_IT : COURSE_EN;
+  PRO_COURSE = l==='it' ? PRO_IT : PRO_EN;
   document.getElementById('langIT').classList.toggle('on', l==='it');
   document.getElementById('langEN').classList.toggle('on', l==='en');
   document.getElementById('eyebrow').textContent = T('eyebrow');
@@ -1066,7 +1469,11 @@ function setLang(l){
   document.getElementById('premLockT').textContent = T('premLockT');
   document.getElementById('premLockP').textContent = T('premLockP');
   document.getElementById('premBtn').textContent = T('premBtn');
+  document.getElementById('proEyebrow').textContent = T('proEyebrow');
+  document.getElementById('proH1').textContent = T('proH1');
+  document.getElementById('proSub').textContent = T('proSub');
   renderPath();
+  renderProPath();
   if(flow) renderScreen();
 }
 
@@ -1074,6 +1481,8 @@ function setLang(l){
 let state = {
   unlocked: 1,               // quanti capitoli sono accessibili
   scores: {},                // punteggi migliori per capitolo
+  proUnlocked: 1,            // capitoli PRO accessibili
+  proScores: {},             // punteggi migliori corso PRO
   xp: 120,
   premium: false
 };
@@ -1120,11 +1529,53 @@ function renderPath(){
   document.getElementById('xp').textContent = state.xp;
 }
 
-/* ================= LESSON FLOW ================= */
-let flow = null; // {chapter, step, mode:'lesson'|'quiz'|'result', qIndex, correct, selected, answered}
+function renderProPath(){
+  const path = document.getElementById('proPath');
+  if(!path) return;
+  path.querySelectorAll('.chapter').forEach(e=>e.remove());
+  PRO_COURSE.forEach((ch,i)=>{
+    const TH = ch.pass || PASS;
+    const done = state.proScores[i] !== undefined && state.proScores[i] >= TH;
+    const locked = i >= state.proUnlocked;
+    const current = !done && !locked;
+    const el = document.createElement('div');
+    el.className = 'chapter ' + (done?'done':current?'current':'locked');
+    const nodeIcon = done ? '\u2713' : locked ? '\ud83d\udd12' : (i+1);
+    const chip = done
+      ? `<span class="chip done">${T('chipDone')}</span>`
+      : locked ? `<span class="chip locked">${T('chipLock')}</span>`
+      : `<span class="chip current">${T('chipCur')}</span>`;
+    const score = done ? `<span class="score-pill">${T('quizScore')} ${Math.round(state.proScores[i]*100)}%</span>` : '';
+    const btn = locked
+      ? `<button class="btn btn-ghost" disabled>${T('btnLocked')}</button>`
+      : done
+        ? `<button class="btn btn-ghost" onclick="openLesson(${i},'pro')">${T('btnReview')}</button>`
+        : `<button class="btn btn-gold" onclick="openLesson(${i},'pro')">${T('btnStart')}</button>`;
+    el.innerHTML = `
+      <div class="node">${nodeIcon}</div>
+      <div class="card">
+        ${chip}
+        <h3>${ch.title}</h3>
+        <p>${ch.desc}</p>
+        <div class="card-foot">
+          <div class="meta"><span>\ud83d\udcd6 ${ch.lessons.length} ${T('lessons')}</span><span>\u2753 ${ch.quiz.length} ${T('questions')}</span>${score}</div>
+          ${btn}
+        </div>
+      </div>`;
+    path.appendChild(el);
+  });
+  const doneCount = PRO_COURSE.filter((ch,k)=>state.proScores[k] >= (ch.pass||PASS)).length;
+  document.getElementById('proBar').style.width = (doneCount/PRO_COURSE.length*100)+'%';
+  document.getElementById('proLabel').textContent = `${doneCount} / ${PRO_COURSE.length} ${T('chapters')}`;
+  document.getElementById('proPathFill').style.height = (doneCount/PRO_COURSE.length*100)+'%';
+}
 
-function openLesson(i){
-  flow = {chapter:i, step:0, mode:'lesson'};
+/* ================= LESSON FLOW ================= */
+let flow = null; // {chapter, step, mode:'lesson'|'quiz'|'result', qIndex, correct, selected, answered, course:'base'|'pro'}
+function AC(){ return (flow && flow.course==='pro') ? PRO_COURSE : COURSE; }
+
+function openLesson(i, course){
+  flow = {chapter:i, step:0, mode:'lesson', course:course||'base'};
   document.getElementById('screen').classList.add('open');
   renderScreen();
 }
@@ -1134,7 +1585,7 @@ function closeScreen(){
   flow = null;
 }
 function renderScreen(){
-  const ch = COURSE[flow.chapter];
+  const ch = AC()[flow.chapter];
   const content = document.getElementById('screenContent');
   const bar = document.getElementById('screenBar');
   const footBtn = document.getElementById('footBtn');
@@ -1247,12 +1698,13 @@ function renderScreen(){
   else if(flow.mode === 'result'){
     bar.style.width = '100%';
     const pct = flow.correct / ch.quiz.length;
-    const passed = pct >= PASS;
-    const isLast = flow.chapter === COURSE.length-1;
+    const TH = ch.pass || PASS;
+    const passed = pct >= TH;
+    const isLast = flow.chapter === AC().length-1;
     content.innerHTML = `<div class="result">
       <div class="big">${passed ? '🏆' : '💪'}</div>
       <h2>${passed ? T('passT') : T('failT')}</h2>
-      ${passed ? (isLast ? T('passLast') : T('passMid')) : T('failB')}
+      ${passed ? (isLast ? (flow.course==='pro' ? T('proPassLast') : T('passLast')) : T('passMid')) : T('failB').replace('70', Math.round(TH*100))}
       <div class="stats">
         <div class="stat green"><div class="n">${Math.round(pct*100)}%</div><div class="l">${T('score')}</div></div>
         <div class="stat"><div class="n">${flow.correct}/${ch.quiz.length}</div><div class="l">${T('correct')}</div></div>
@@ -1385,7 +1837,7 @@ function pickAnswer(j){
 }
 
 function checkAnswer(){
-  const ch = COURSE[flow.chapter];
+  const ch = AC()[flow.chapter];
   const Q = ch.quiz[flow.qIndex];
   const footBtn = document.getElementById('footBtn');
   const footMsg = document.getElementById('footMsg');
@@ -1411,17 +1863,25 @@ function checkAnswer(){
 }
 
 function finishQuiz(){
-  const ch = COURSE[flow.chapter];
+  const CRS = AC();
+  const ch = CRS[flow.chapter];
+  const TH = ch.pass || PASS;
   const pct = flow.correct / ch.quiz.length;
-  const passed = pct >= PASS;
+  const passed = pct >= TH;
+  const pro = flow.course === 'pro';
+  const S = pro ? state.proScores : state.scores;
   if(passed){
-    const first = !(state.scores[flow.chapter] >= PASS);
-    state.scores[flow.chapter] = Math.max(state.scores[flow.chapter]||0, pct);
+    const first = !(S[flow.chapter] >= TH);
+    S[flow.chapter] = Math.max(S[flow.chapter]||0, pct);
     if(first){
       state.xp += ch.quiz.length*10;
-      if(flow.chapter+1 > state.unlocked-1) state.unlocked = Math.min(COURSE.length, flow.chapter+2);
-      if(flow.chapter < COURSE.length-1) toast(I18N[LANG].unlocked(COURSE[flow.chapter+1].title.split('·')[0].trim()));
-      else toast(T('courseDone'));
+      if(pro){
+        if(flow.chapter+1 > state.proUnlocked-1) state.proUnlocked = Math.min(CRS.length, flow.chapter+2);
+      } else {
+        if(flow.chapter+1 > state.unlocked-1) state.unlocked = Math.min(CRS.length, flow.chapter+2);
+      }
+      if(flow.chapter < CRS.length-1) toast(I18N[LANG].unlocked(CRS[flow.chapter+1].title.split('·')[0].trim()));
+      else toast(pro ? T('proCourseDone') : T('courseDone'));
     }
   } else {
     state.xp += flow.correct*5;
@@ -1429,6 +1889,7 @@ function finishQuiz(){
   flow.mode = 'result';
   renderScreen();
   renderPath();
+  renderProPath();
 }
 
 /* ================= PREMIUM ================= */
@@ -1455,6 +1916,7 @@ document.addEventListener('keydown', e=>{
 });
 
 renderPath();
+renderProPath();
 </script>
 </body>
 </html>
