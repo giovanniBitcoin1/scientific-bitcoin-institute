@@ -53,6 +53,17 @@ body{
 .xp b{color:var(--gold)}
 .streak b{color:var(--green)}
 
+/* ---------- spiegazioni e ripasso ---------- */
+.why{margin-top:14px;background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:13px 15px}
+.why-lab{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.why-txt{font-size:14px;line-height:1.6;color:var(--text)}
+.rev-intro{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:18px}
+.rev-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:12px}
+.rev-q{font-size:15px;font-weight:600;line-height:1.4;margin-bottom:10px}
+.rev-a{font-size:13.5px;line-height:1.5;background:var(--green-dim);border-radius:9px;padding:9px 11px;color:var(--text)}
+.rev-a b{color:var(--green)}
+.rev-card .why{margin-top:11px}
+
 /* ---------- barra corsi (tab orizzontali) ---------- */
 #course1,#premium{scroll-margin-top:76px}
 .coursebar{background:var(--bg);border-bottom:1px solid var(--line)}
@@ -1417,6 +1428,14 @@ const PRO_EN = [
   }
 ];
 
+/* ================= SPIEGAZIONI QUIZ (corso base) =================
+   Un testo per ogni domanda, nello stesso ordine dei quiz.
+   Per correggerne una: trova capitolo e posizione e riscrivi la stringa. */
+const WHY_IT = [["Riserva di valore, mezzo di scambio e unità di conto sono le tre <b>funzioni</b> con cui gli economisti definiscono il denaro. Rarità e durabilità sono invece <b>proprietà</b>: servono a svolgere bene quelle funzioni, non le sostituiscono.", "Riserva di valore significa che ciò che risparmi oggi deve valere anche domani. Non ha nulla a che vedere con il luogo fisico in cui il denaro è custodito.", "Nessun altro bene univa nella stessa misura rarità, durabilità e divisibilità. Non fu una legge a imporli: furono queste proprietà a farli emergere in culture lontanissime fra loro.", "Le banconote sono portabili, durevoli e divisibili: quello che manca è la scarsità, perché la loro quantità può essere espansa per decisione di chi le emette.", "Hayek sosteneva che non avremo un buon denaro finché resterà sotto il pieno controllo dei governi, e che non potendoglielo togliere con la forza l’unica via fosse introdurre “per vie indirette e astute” qualcosa che non potessero fermare."], ["Prima delle monete si scambiavano beni già facilmente commerciabili — grano, bestiame, sale, metalli preziosi — scelti perché tutti li accettavano, non per decreto.", "Il conio era controllato dal potere politico, ma ogni grammo d’oro andava estratto dal sottosuolo: nessun sovrano poteva crearne dal nulla. La quantità di denaro restava ancorata alla realtà fisica.", "I banchieri medievali capirono di poter emettere più ricevute cartacee dell’oro realmente custodito, tanto non tutti sarebbero venuti a ritirarlo insieme. Da lì nascono le crisi di fiducia, fino alle corse agli sportelli moderne.", "Le banche centrali nacquero come prestatore di ultima istanza: servivano a salvare le banche commerciali travolte dalle proprie emissioni eccessive.", "Nel 1971 fu sospesa la convertibilità del dollaro in oro, chiudendo il sistema di Bretton Woods. Da allora nessuna valuta importante è più ancorata a un bene fisico.", "Il grafico mostra che dopo il 1971 le due curve si separano: la produttività continua a salire, le retribuzioni molto meno. Il corso mostra la coincidenza temporale; sulle cause il dibattito fra economisti è aperto."], ["L’inflazione è la perdita di potere d’acquisto della moneta: con la stessa cifra, col passare del tempo, compri meno cose.", "Dal 1999 l’euro ha perso circa il 44% del potere d’acquisto: cento euro di allora comprano oggi poco più di metà di quello che compravano.", "Nessuno te la preleva in busta paga e nessun parlamento la vota, ma anno dopo anno erode il valore reale di salari e risparmi. L’effetto sul tuo portafoglio è quello di un prelievo.", "Mises avvertiva che aumentare la quantità di moneta ne riduce il potere d’acquisto — e che chi quell’aumento lo desidera spesso non collega le due cose.", "La banconota da 100 trilioni di dollari zimbabwesi è il simbolo di una delle iperinflazioni moderne più note: cifre enormi stampate su carta che non comprava quasi nulla.", "Cade per prima la riserva di valore: il denaro continua per un po’ a servire come mezzo di scambio, ma smette di conservare ciò che hai risparmiato. È la funzione più fragile delle tre."], ["La crisi partì dai mutui subprime: prestiti concessi con criteri sempre più rischiosi, poi impacchettati in titoli e venduti come se fossero sicuri.", "Lehman Brothers fallì il 15 settembre 2008: il più grande crac della storia americana, e il momento in cui la crisi divenne globale.", "Le banche furono salvate con denaro pubblico, ma il conto arrivò alla società: credito più rigido, rendimenti dei risparmi compressi, pressioni sui prezzi e potere d’acquisto ridotto.", "Il 31 ottobre 2008, con la crisi in pieno svolgimento, Satoshi pubblicò il whitepaper: una moneta elettronica peer-to-peer che non richiede istituzioni finanziarie come intermediari.", "Nel primo blocco Satoshi incise il titolo del Times sul secondo salvataggio delle banche: insieme una marca temporale verificabile e una dichiarazione d’intenti.", "Per Satoshi il problema di fondo non era tecnico ma di fiducia: il sistema ne richiede moltissima, e la storia mostra quante volte sia stata tradita."], ["Controllo centralizzato, accesso su autorizzazione e offerta espandibile: sono i tre nodi che i capitoli precedenti hanno messo in fila, dalla riserva frazionaria al 1971 all’inflazione.", "Non esiste un ente che decida da solo: le regole sono pubbliche e chiunque può verificarle mandando avanti un proprio nodo.", "Non serve il permesso di nessuno: bastano una connessione e un portafoglio, senza requisiti di reddito, documenti o approvazioni.", "Il limite è 21 milioni, scritto nelle regole del protocollo e non modificabile per decisione di una singola volontà.", "Circa ogni quattro anni la quantità di nuovi bitcoin emessi per blocco si dimezza: l’emissione rallenta secondo un calendario noto in anticipo da chiunque.", "Dell’oro non sappiamo quanto ne resti da estrarre né a che ritmo arriverà; di Bitcoin la traiettoria di emissione è calcolabile da chiunque, fino all’ultima unità."], ["Secondo la Banca Mondiale circa 1,8 miliardi di adulti non hanno accesso ai servizi bancari di base.", "L’esclusione finanziaria non riguarda solo i Paesi poveri: in Italia oltre 2,3 milioni di adulti non hanno un conto, in maggioranza donne e persone a basso reddito.", "Secondo la Human Rights Foundation 5,7 miliardi di persone — oltre il 70% della popolazione mondiale — vivono sotto regimi autoritari.", "Nel 2010 Visa e Mastercard bloccarono le donazioni destinate a WikiLeaks: nessun processo, semplicemente i rubinetti chiusi. Bitcoin divenne la via d’uscita.", "Dopo le rivelazioni del 2013 i suoi conti furono bloccati, e Bitcoin gli permise di coprire le spese legali.", "Roya Mahboob pagò in bitcoin le proprie collaboratrici afghane: uno stipendio che non passava né dalla banca né dal controllo maschile sui conti.", "Il filo comune di tutti questi casi è uno: nessun ente può bloccare unilateralmente una transazione sulla rete. Non è la velocità né il costo — è la resistenza alla censura."], ["Un nodo è un computer che conserva una copia della blockchain e verifica ogni transazione secondo le regole. Non “crea” bitcoin: controlla che tutti rispettino il protocollo.", "Il sistema fiat ha un centro che decide; Bitcoin è una rete di migliaia di nodi indipendenti che applicano le stesse regole senza doversi fidare l’uno dell’altro.", "La mempool è la sala d’attesa: le transazioni valide restano lì finché un blocco non le include.", "Ricezione, verifica, memorizzazione in mempool, propagazione ai nodi vicini, fornitura dei dati a chi li richiede.", "L’hardware wallet tiene le chiavi private in un dispositivo separato, mai esposto a internet: anche con un computer infetto le chiavi restano al sicuro.", "Le 12 parole ti danno il controllo totale dei fondi, e con esso la responsabilità totale: se le perdi, non esiste un’assistenza clienti che possa recuperarle.", "Lightning è un secondo livello costruito sopra Bitcoin: serve a pagamenti piccoli e immediati con commissioni minime, senza scrivere ogni caffè sulla blockchain."]];
+const WHY_EN = [["Store of value, medium of exchange and unit of account are the three <b>functions</b> economists use to define money. Scarcity and durability are <b>properties</b>: they help money perform those functions, they don't replace them.", "Store of value means what you save today must still be worth something tomorrow. It has nothing to do with where the money is physically kept.", "No other good combined scarcity, durability and divisibility to the same degree. No law imposed them: those properties made them emerge in cultures far apart from one another.", "Banknotes are portable, durable and divisible: what they lack is scarcity, because their quantity can be expanded by whoever issues them.", "Hayek argued we will never have good money while it stays under full government control, and that since it can't be taken away by force, the only way was to introduce “by some sly roundabout way” something they could not stop."], ["Before coins, people exchanged goods that were already easy to trade — grain, cattle, salt, precious metals — chosen because everyone accepted them, not by decree.", "Minting was controlled by political power, but every gram of gold had to be dug out of the ground: no ruler could create it from nothing. The money supply stayed anchored to physical reality.", "Medieval bankers realised they could issue more paper receipts than the gold actually held, since not everyone would come to redeem at once. That is where crises of confidence begin, right up to modern bank runs.", "Central banks emerged as lenders of last resort: their job was to rescue commercial banks overwhelmed by their own excessive issuance.", "In 1971 the dollar's convertibility into gold was suspended, ending the Bretton Woods system. Since then no major currency has been anchored to a physical good.", "The chart shows the two curves separating after 1971: productivity keeps rising, pay much less so. The course shows the timing; among economists the causes are still debated."], ["Inflation is the loss of a currency's purchasing power: with the same amount, over time, you buy less.", "Since 1999 the euro has lost roughly 44% of its purchasing power: a hundred euros back then buys little more than half of what it did.", "Nobody deducts it from your payslip and no parliament votes on it, yet year after year it erodes the real value of wages and savings. The effect on your pocket is that of a levy.", "Mises warned that increasing the quantity of money reduces its purchasing power — and that those who want that increase often fail to connect the two.", "The 100-trillion Zimbabwean dollar note is the symbol of one of the best-known modern hyperinflations: enormous figures printed on paper that bought almost nothing.", "The store of value falls first: money keeps working as a medium of exchange for a while, but stops preserving what you saved. It is the most fragile of the three functions."], ["The crisis started with subprime mortgages: loans granted on ever riskier terms, then packaged into securities and sold as if they were safe.", "Lehman Brothers collapsed on 15 September 2008: the largest failure in American history, and the moment the crisis turned global.", "The banks were rescued with public money, but society got the bill: tighter credit, compressed returns on savings, price pressures and reduced purchasing power.", "On 31 October 2008, with the crisis in full swing, Satoshi published the whitepaper: peer-to-peer electronic cash requiring no financial institutions as intermediaries.", "In the first block Satoshi engraved the Times headline about the second bank bailout: at once a verifiable timestamp and a statement of intent.", "For Satoshi the root problem was not technical but one of trust: the system demands a great deal of it, and history shows how often it has been betrayed."], ["Centralised control, permissioned access and expandable supply: the three knots the previous chapters lined up, from fractional reserve to 1971 to inflation.", "No single entity decides alone: the rules are public and anyone can verify them by running their own node.", "You need nobody's permission: a connection and a wallet are enough, with no income requirements, documents or approvals.", "The cap is 21 million, written into the protocol rules and not changeable by any single will.", "Roughly every four years the amount of new bitcoin issued per block is halved: issuance slows on a schedule everyone knows in advance.", "With gold we don't know how much is left to mine or at what pace it will arrive; with Bitcoin the issuance path can be computed by anyone, down to the last unit."], ["According to the World Bank, around 1.8 billion adults have no access to basic banking services.", "Financial exclusion is not only a poor-country problem: in Italy over 2.3 million adults have no bank account, mostly women and low-income people.", "According to the Human Rights Foundation, 5.7 billion people — over 70% of the world's population — live under authoritarian regimes.", "In 2010 Visa and Mastercard blocked donations to WikiLeaks: no trial, simply the taps turned off. Bitcoin became the way out.", "After the 2013 revelations his accounts were frozen, and Bitcoin let him cover his legal costs.", "Roya Mahboob paid her Afghan colleagues in bitcoin: a wage that passed neither through a bank nor through male control over accounts.", "The common thread in all these cases is one: no entity can unilaterally block a transaction on the network. It isn't speed or cost — it is censorship resistance."], ["A node is a computer that keeps a copy of the blockchain and verifies every transaction against the rules. It does not “create” bitcoin: it checks that everyone follows the protocol.", "The fiat system has a centre that decides; Bitcoin is a network of thousands of independent nodes applying the same rules without having to trust one another.", "The mempool is the waiting room: valid transactions sit there until a block includes them.", "Reception, verification, storage in the mempool, propagation to neighbouring nodes, and serving data to whoever requests it.", "A hardware wallet keeps private keys on a separate device, never exposed to the internet: even with an infected computer the keys stay safe.", "The 12 words give you total control of your funds, and with it total responsibility: if you lose them, there is no customer service that can recover them.", "Lightning is a second layer built on top of Bitcoin: it handles small, instant payments with minimal fees, without writing every coffee onto the blockchain."]];
+COURSE_IT.forEach((ch,ci)=>ch.quiz.forEach((q,qi)=>{ if(WHY_IT[ci]&&WHY_IT[ci][qi]) q.why = WHY_IT[ci][qi]; }));
+COURSE_EN.forEach((ch,ci)=>ch.quiz.forEach((q,qi)=>{ if(WHY_EN[ci]&&WHY_EN[ci][qi]) q.why = WHY_EN[ci][qi]; }));
+
 /* ================= LINGUA ================= */
 let LANG = 'it';
 let COURSE = COURSE_IT;
@@ -1456,6 +1475,11 @@ const I18N = {
   proSub:'6 capitoli + esame finale: dagli ordini di magnitudine ai prossimi 100\u00d7. Ogni capitolo si sblocca superando il quiz del precedente; l\u2019esame finale richiede l\u201980%.',
   proPassLast:'Hai completato il corso PRO e superato l\u2019esame finale. Ora possiedi il metodo: cinque semafori, una retta, diciassette anni di dati.',
   proCourseDone:'\ud83c\udf93 Corso PRO completato!',
+  whyLab:'Perch\u00e9', revTitle:'Ripasso delle domande sbagliate',
+  revIntro:'Prima di ritentare, rileggi con calma. Sotto ogni domanda trovi la risposta corretta e il motivo.',
+  revBtn:(n)=>`Ripassa ${n} ${n===1?'domanda sbagliata':'domande sbagliate'}`,
+  revRetry:'Ho capito, riprova il quiz', revBack:'Torna al percorso',
+  correctIs:'Risposta corretta', shuffleNote:'Le risposte sono state mescolate.',
   enVideoNote:''},
  en:{videoTab:'\u25b6 Video lesson', textTab:'\ud83d\udcd6 Written deep-dive',
   videoCap:'Official course video lesson. For the full summary, open the \u201cWritten deep-dive\u201d tab.',
@@ -1478,6 +1502,11 @@ const I18N = {
   proSub:'6 chapters + final exam: from orders of magnitude to the next 100\u00d7. Each chapter unlocks by passing the previous quiz; the final exam requires 80%.',
   proPassLast:'You completed the PRO course and passed the final exam. You now own the method: five traffic lights, one straight line, seventeen years of data.',
   proCourseDone:'\ud83c\udf93 PRO course completed!',
+  whyLab:'Why', revTitle:'Reviewing the questions you missed',
+  revIntro:'Before trying again, read through calmly. Under each question you\u2019ll find the correct answer and the reason.',
+  revBtn:(n)=>`Review ${n} missed ${n===1?'question':'questions'}`,
+  revRetry:'Got it, retry the quiz', revBack:'Back to path',
+  correctIs:'Correct answer', shuffleNote:'The answers have been shuffled.',
   enVideoNote:' (narration in Italian)'}
 };
 function T(k){ return I18N[LANG][k]; }
@@ -1640,7 +1669,7 @@ let flow = null; // {chapter, step, mode:'lesson'|'quiz'|'result', qIndex, corre
 function AC(){ return (flow && flow.course==='pro') ? PRO_COURSE : COURSE; }
 
 function openLesson(i, course){
-  flow = {chapter:i, step:0, mode:'lesson', course:course||'base'};
+  flow = {chapter:i, step:0, attempt:0, wrong:[], order:{}, mode:'lesson', course:course||'base'};
   document.getElementById('screen').classList.add('open');
   renderScreen();
 }
@@ -1737,7 +1766,7 @@ function renderScreen(){
     footBtn.onclick = ()=>{
       stopPlayer();
       if(flow.step < ch.lessons.length-1){ flow.step++; flow.tab = undefined; renderScreen(); }
-      else { flow.mode='quiz'; flow.qIndex=0; flow.correct=0; flow.selected=null; flow.answered=false; renderScreen(); }
+      else { startQuiz(); }
     };
   }
 
@@ -1745,12 +1774,22 @@ function renderScreen(){
     const total = ch.lessons.length + ch.quiz.length;
     bar.style.width = ((ch.lessons.length+flow.qIndex)/total*100)+'%';
     const Q = ch.quiz[flow.qIndex];
+    if(!flow.order) flow.order = {};
+    if(!flow.order[flow.qIndex]){
+      let idx = Q.a.map((_,k)=>k);
+      if(flow.attempt > 0){ for(let k=idx.length-1;k>0;k--){ const r=Math.floor(Math.random()*(k+1)); [idx[k],idx[r]]=[idx[r],idx[k]]; } }
+      flow.order[flow.qIndex] = idx;
+    }
+    const ord = flow.order[flow.qIndex];
+    const shuf = flow.attempt>0 && flow.qIndex===0
+      ? `<div class="q-count" style="color:var(--muted)">${T('shuffleNote')}</div>` : '';
     content.innerHTML = `<div class="step">
       <div class="q-count">${I18N[LANG].qOf(flow.qIndex+1, ch.quiz.length)}</div>
       <div class="q-title">${Q.q}</div>
-      <div class="answers">${Q.a.map((a,j)=>`
-        <button class="ans" data-j="${j}" onclick="pickAnswer(${j})">
-          <span class="key">${'ABCD'[j]}</span> ${a}
+      ${shuf}
+      <div class="answers">${ord.map((orig,pos)=>`
+        <button class="ans" data-j="${pos}" onclick="pickAnswer(${pos})">
+          <span class="key">${'ABCD'[pos]}</span> ${Q.a[orig]}
         </button>`).join('')}
       </div>
     </div>`;
@@ -1776,14 +1815,47 @@ function renderScreen(){
         <div class="stat gold"><div class="n">+${passed? ch.quiz.length*10 : flow.correct*5}</div><div class="l">XP</div></div>
       </div>
     </div>`;
-    footBtn.textContent = passed ? T('back') : T('retry');
-    footBtn.className = passed ? 'btn btn-green' : 'btn btn-gold';
+    const nWrong = flow.wrong.length;
+    if(nWrong > 0){
+      footBtn.textContent = I18N[LANG].revBtn(nWrong);
+      footBtn.className = 'btn btn-gold';
+      footBtn.onclick = ()=>{ flow.mode='review'; renderScreen(); };
+    } else {
+      footBtn.textContent = T('back');
+      footBtn.className = 'btn btn-green';
+      footBtn.onclick = ()=>{ closeScreen(); };
+    }
     footBtn.disabled = false;
-    footBtn.onclick = ()=>{
-      if(passed){ closeScreen(); }
-      else { flow.mode='quiz'; flow.qIndex=0; flow.correct=0; flow.selected=null; flow.answered=false; renderScreen(); }
-    };
   }
+
+  else if(flow.mode === 'review'){
+    bar.style.width = '100%';
+    const TH2 = ch.pass || PASS;
+    const passed2 = (flow.correct / ch.quiz.length) >= TH2;
+    const cards = flow.wrong.map(qi=>{
+      const Q = ch.quiz[qi];
+      return `<div class="rev-card">
+        <div class="rev-q">${qi+1}. ${Q.q}</div>
+        <div class="rev-a"><b>${T('correctIs')}:</b> ${Q.a[Q.ok]}</div>
+        ${Q.why ? `<div class="why"><div class="why-lab">${T('whyLab')}</div><div class="why-txt">${Q.why}</div></div>` : ''}
+      </div>`;
+    }).join('');
+    content.innerHTML = `<div class="step">
+      <div class="q-title">${T('revTitle')}</div>
+      <p class="rev-intro">${T('revIntro')}</p>
+      ${cards}
+    </div>`;
+    footBtn.textContent = passed2 ? T('revBack') : T('revRetry');
+    footBtn.className = passed2 ? 'btn btn-green' : 'btn btn-gold';
+    footBtn.disabled = false;
+    footBtn.onclick = ()=>{ if(passed2) closeScreen(); else { flow.attempt = (flow.attempt||0)+1; startQuiz(); } };
+  }
+}
+
+function startQuiz(){
+  flow.mode='quiz'; flow.qIndex=0; flow.correct=0; flow.selected=null;
+  flow.answered=false; flow.wrong=[]; flow.order={};
+  renderScreen();
 }
 
 /* ================= VIDEO PLAYER (animazioni) ================= */
@@ -1907,15 +1979,24 @@ function checkAnswer(){
   const footBtn = document.getElementById('footBtn');
   const footMsg = document.getElementById('footMsg');
   flow.answered = true;
-  const ok = flow.selected === Q.ok;
+  const ord = (flow.order && flow.order[flow.qIndex]) || Q.a.map((_,k)=>k);
+  const ok = ord[flow.selected] === Q.ok;
   if(ok) flow.correct++;
+  else if(!flow.wrong.includes(flow.qIndex)) flow.wrong.push(flow.qIndex);
   document.querySelectorAll('.ans').forEach(a=>{
     a.setAttribute('disabled','');
-    const j = +a.dataset.j;
-    if(j === Q.ok) a.classList.add('right');
-    else if(j === flow.selected) a.classList.add('wrong');
+    const pos = +a.dataset.j;
+    if(ord[pos] === Q.ok) a.classList.add('right');
+    else if(pos === flow.selected) a.classList.add('wrong');
     a.classList.remove('sel');
   });
+  if(Q.why){
+    const box = document.createElement('div');
+    box.className = 'why';
+    box.innerHTML = '<div class="why-lab">'+T('whyLab')+'</div><div class="why-txt">'+Q.why+'</div>';
+    const step = document.querySelector('#screenContent .step');
+    if(step){ step.appendChild(box); setTimeout(()=>box.scrollIntoView({behavior:'smooth', block:'nearest'}), 60); }
+  }
   footMsg.textContent = ok ? T('ok') : T('ko');
   footMsg.className = 'foot-msg ' + (ok?'ok':'ko');
   const last = flow.qIndex === ch.quiz.length-1;
