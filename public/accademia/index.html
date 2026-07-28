@@ -53,6 +53,24 @@ body{
 .xp b{color:var(--gold)}
 .streak b{color:var(--green)}
 
+/* ---------- barra corsi (tab orizzontali) ---------- */
+#course1,#premium{scroll-margin-top:76px}
+.coursebar{background:var(--bg);border-bottom:1px solid var(--line)}
+.coursebar-in{max-width:680px;margin:0 auto;padding:14px 20px 0;display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.coursebar-in::-webkit-scrollbar{display:none}
+.ctab{
+  flex:none;white-space:nowrap;text-decoration:none;cursor:pointer;
+  font-family:'Inter',system-ui,sans-serif;font-size:13.5px;font-weight:600;
+  background:none;border:0;border-bottom:2px solid transparent;
+  padding:0 0 11px;color:var(--muted);transition:color .12s ease,border-color .12s ease;
+}
+.ctab-live{color:var(--gold);border-bottom-color:var(--gold)}
+.ctab-pro{color:var(--violet)}
+.ctab-pro:hover{border-bottom-color:var(--violet)}
+.ctab-soon{color:var(--lock);cursor:default;font-weight:500}
+.ctab-badge{font-size:9.5px;font-weight:700;letter-spacing:.06em;border:1px solid var(--violet);border-radius:5px;padding:1px 5px;margin-left:6px;vertical-align:1px}
+.ctab-note{font-size:10.5px;font-weight:500;margin-left:5px}
+
 /* ---------- course header ---------- */
 .course-head{padding:36px 0 8px}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
@@ -301,9 +319,13 @@ h1{font-family:'Space Grotesk';font-size:clamp(26px,5vw,34px);font-weight:700;li
   </div>
 </div>
 
+<div class="coursebar">
+  <div class="coursebar-in" id="tabsRow"><!-- tab corsi generate da JS --></div>
+</div>
+
 <div class="wrap">
 
-  <header class="course-head">
+  <header class="course-head" id="course1">
     <div class="eyebrow" id="eyebrow">Corso base · Educazione Bitcoin</div>
     <h1 id="h1">Capire Bitcoin: dal denaro alla pratica</h1>
     <p class="course-sub" id="courseSub">Un percorso in 7 capitoli: cos’è il denaro, come si è evoluto, perché si è rotto — e cosa propone Bitcoin. Ogni capitolo si sblocca superando il quiz del precedente.</p>
@@ -1460,6 +1482,43 @@ const I18N = {
 };
 function T(k){ return I18N[LANG][k]; }
 function CH(){ return LANG==='en' ? CHARTS_EN : CHARTS; }
+
+/* ================= BARRA CORSI =================
+   Corso futuro: copia un blocco {..} con state:'soon' e cambia le etichette.
+   Per attivarlo: state:'live' (oro) o 'pro' (viola) + target:'#idSezione'. */
+const TABS = [
+  { state:'live', target:'#course1', label:{it:'Capire Bitcoin', en:'Understanding Bitcoin'} },
+  { state:'pro',  target:'#premium', label:{it:'Power Law',      en:'Power Law'}, badge:'PRO' },
+  { state:'soon', label:{it:'Come funziona', en:'How it works'} },
+  { state:'soon', label:{it:'Energia',       en:'Energy'} },
+  { state:'soon', label:{it:'Obiezioni',     en:'Objections'} }
+];
+function renderTabs(){
+  const row = document.getElementById('tabsRow');
+  if(!row) return;
+  row.innerHTML = '';
+  TABS.forEach(t=>{
+    const clickable = t.state==='live' || t.state==='pro';
+    const el = document.createElement(clickable ? 'a' : 'span');
+    el.className = 'ctab ctab-' + t.state;
+    let html = t.label[LANG];
+    if(t.badge) html += '<span class="ctab-badge">'+t.badge+'</span>';
+    if(t.state==='soon') html += '<span class="ctab-note">\u00b7 '+(LANG==='it'?'in arrivo':'coming soon')+'</span>';
+    el.innerHTML = html;
+    if(clickable){
+      el.href = t.target;
+      el.addEventListener('click', ev=>{
+        ev.preventDefault();
+        const dest = document.querySelector(t.target);
+        if(dest) dest.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    }else{
+      el.setAttribute('aria-disabled','true');
+    }
+    row.appendChild(el);
+  });
+}
+
 function setLang(l){
   LANG = l;
   COURSE = l==='it' ? COURSE_IT : COURSE_EN;
@@ -1477,6 +1536,7 @@ function setLang(l){
   document.getElementById('proEyebrow').textContent = T('proEyebrow');
   document.getElementById('proH1').textContent = T('proH1');
   document.getElementById('proSub').textContent = T('proSub');
+  renderTabs();
   renderPath();
   renderProPath();
   if(flow) renderScreen();
@@ -1920,6 +1980,7 @@ document.addEventListener('keydown', e=>{
   if(e.key==='Escape' && flow) closeScreen();
 });
 
+renderTabs();
 renderPath();
 renderProPath();
 </script>
