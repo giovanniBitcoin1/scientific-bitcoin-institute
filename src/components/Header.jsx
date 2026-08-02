@@ -50,6 +50,7 @@ const submenuHrefs = {
   'Donate Bitcoin': '/support/donate-bitcoin',
   'Endowment Fund': '/support/endowment-fund',
   'Research Grants': '/support/research-grants',
+  'Seed Tool': '/seed-tool',
 }
 
 function subHref(label) {

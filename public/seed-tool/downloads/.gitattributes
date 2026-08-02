@@ -1,0 +1,4 @@
+# Security requirement: the seed-tool kit files must be served byte-for-byte
+# identical to their published SHA-256 hashes. Disable ALL git line-ending
+# conversion here so core.autocrlf never rewrites LF<->CRLF on commit/checkout.
+* -text

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pen-and-Paper Seed Worksheet — Scientific Bitcoin Institute</title>
+<style>
+  body{font:13px/1.45 Georgia,serif;color:#111;margin:24px;max-width:900px}
+  h1{font-size:20px;margin:0 0 2px} .sub{color:#555;font-size:12px;margin-bottom:14px}
+  h2{font-size:15px;border-bottom:1px solid #999;padding-bottom:2px;margin:18px 0 8px}
+  table{border-collapse:collapse;width:100%;margin:8px 0}
+  th,td{border:1px solid #333;padding:3px 6px;font-family:Menlo,Consolas,monospace;font-size:12px;text-align:center}
+  th{background:#eee;font-family:Georgia,serif}
+  .cell{width:22px;height:20px}
+  .idxcol{width:70px}.wordcol{width:150px;text-align:left}
+  ol li{margin:4px 0}
+  .small{font-size:11px;color:#444}
+  .pv td{font-weight:bold;background:#f7f7f7}
+  @media print{ .noprint{display:none} body{margin:8mm} }
+</style>
+</head>
+<body>
+<h1>Pen-and-Paper Seed Worksheet</h1>
+<div class="sub">Scientific Bitcoin Institute — fully manual BIP-39 seed generation (method of Estudio Bitcoin,
+<i>&ldquo;Do you trust your seed? Don&rsquo;t generate it yourself&rdquo;</i>). Print this page; work offline, in private, in pencil.</div>
+
+<h2>Procedure</h2>
+<ol>
+  <li>Flip a fair coin <b>128 times</b> (12 words) or <b>256 times</b> (24 words). Record heads as <b>1</b>, tails as <b>0</b>, left to right into the grid below. Vary your flipping technique; never redo &ldquo;ugly&rdquo; sequences.</li>
+  <li>Each row of the grid holds <b>11 bits</b> = one word. The final row is intentionally short by 4 bits (12-word) or 8 bits (24-word): those missing bits are the <b>checksum</b>, which must be computed by machine.</li>
+  <li>For each full row, convert the 11 bits to a number 0&ndash;2047 using the place values, then look the number up in the printed word list (numbered 0&ndash;2047) included in this kit.</li>
+  <li>For the <b>final word</b>: enter all your flips into either app in this kit <i>offline</i> (or an air-gapped signer with a &ldquo;final word&rdquo; feature — SeedSigner, SpecterDIY, Coldcard). Confirm the machine agrees with every word you derived by hand; it will supply the last word.</li>
+</ol>
+
+<h2>Place values for an 11-bit row</h2>
+<table class="pv">
+  <tr><th>bit</th><td>1st</td><td>2nd</td><td>3rd</td><td>4th</td><td>5th</td><td>6th</td><td>7th</td><td>8th</td><td>9th</td><td>10th</td><td>11th</td></tr>
+  <tr><th>value if 1</th><td>1024</td><td>512</td><td>256</td><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+</table>
+<p class="small">Example: <code>0 1 0 0 1 1 1 0 1 0 1</code> &rarr; 512+64+32+16+4+1 = <b>629</b> &rarr; word #629 in the 0-indexed list.
+(If your printed list is numbered 1&ndash;2048, add 1 and look up word #630.)</p>
+
+<h2>Flip grid — one row per word (write 1 for heads, 0 for tails)</h2>
+<table>
+  <tr><th class="idxcol">word #</th><th colspan="11">bits (11 per row)</th><th class="idxcol">number 0–2047</th><th class="wordcol">word</th></tr>
+  <tr><td class="idxcol">1</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">2</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">3</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">4</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">5</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">6</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">7</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">8</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">9</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">10</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">11</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">12</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">13</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">14</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">15</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">16</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">17</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">18</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">19</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">20</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">21</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">22</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">23</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+  <tr><td class="idxcol">24</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="cell">&nbsp;</td><td class="idxcol">&nbsp;</td><td class="wordcol">&nbsp;</td></tr>
+</table>
+<p class="small">12-word seed: use rows 1&ndash;11 fully; row 12 gets only 7 bits (its last 4 bits are checksum).<br>
+24-word seed: use all rows 1&ndash;23 fully; row 24 gets only 3 bits (its last 8 bits are checksum).</p>
+
+<h2>Checklist before funding</h2>
+<table>
+  <tr><td style="text-align:left">&#9744; Hand-derived words match the app&rsquo;s words exactly (both editions of the app agree)</td></tr>
+  <tr><td style="text-align:left">&#9744; Final checksum word obtained from an offline machine / air-gapped signer</td></tr>
+  <tr><td style="text-align:left">&#9744; Phrase written on paper (or metal); no photos, no digital copies</td></tr>
+  <tr><td style="text-align:left">&#9744; Dry-run restore on hardware wallet succeeded; small test amount sent and recovered</td></tr>
+  <tr><td style="text-align:left">&#9744; This worksheet and all scratch paper destroyed (burn, don&rsquo;t bin)</td></tr>
+</table>
+<p class="small noprint">Tip: print two copies — one to work on, one blank spare. Destroy both when done.</p>
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  ============================================================================
+  PHYSICAL ENTROPY SEED TOOL — Scientific Bitcoin Institute
+  ============================================================================
+  A single-file, offline-first BIP39 seed construction tool.
+
+  DESIGN PRINCIPLE: This page NEVER generates randomness. All entropy comes
+  from YOUR physical coin flips or dice rolls. The page only performs
+  deterministic, independently verifiable arithmetic:
+
+      your bits  ->  11-bit groups  ->  BIP39 words  ->  SHA-256 checksum
+
+  Because every step is deterministic, you can (and should) verify the output
+  against independent implementations. Instructions are at the bottom of the
+  page.
+
+  AUDITABILITY:
+  - No external resources. No network requests. A Content-Security-Policy
+    meta tag blocks all outbound connections (default-src 'none').
+  - No use of Math.random(), crypto.getRandomValues(), or any RNG. Search
+    this file: those strings appear only in this comment.
+  - SHA-256 is implemented in plain, readable JavaScript below (FIPS 180-4).
+  - The embedded word list is the official BIP39 English list (2048 words,
+    SHA-256 of the newline-joined list is printed in the footer at runtime).
+  - On load, the page runs the official BIP39 test vectors against its own
+    code and displays PASS/FAIL.
+
+  USAGE (recommended):
+  1. Verify this file's SHA-256 against the published hash.
+  2. Copy it to a computer that is permanently offline (or boot from a live
+     USB with networking disabled).
+  3. Flip coins / roll dice, enter results, transcribe the words to paper.
+  4. Verify the result on a second, independent offline tool before funding.
+  5. Never type a funded seed into any online device. Ever.
+
+  License: MIT. (c) Scientific Bitcoin Institute.
+  ============================================================================
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:;">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physical Entropy Seed Tool — Scientific Bitcoin Institute</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c2230; --line:#2b3444;
+    --text:#e6e9ef; --muted:#9aa4b2; --accent:#f7931a; --accent2:#ffb84d;
+    --good:#3fb950; --warn:#d29922; --bad:#f85149; --mono:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 20px 80px}
+  header{border-bottom:1px solid var(--line);padding:18px 0 22px;margin-bottom:26px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{width:56px;height:56px;flex:0 0 56px;border-radius:50%}
+  h1{font-size:1.45rem;margin:0;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:.95rem;margin-top:2px}
+  h2{font-size:1.15rem;margin:34px 0 10px;color:var(--accent2)}
+  h3{font-size:1rem;margin:20px 0 8px}
+  p{margin:8px 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0}
+  .callout{border-left:4px solid var(--accent);background:var(--panel2)}
+  .danger{border-left:4px solid var(--bad);background:#231518}
+  .oknote{border-left:4px solid var(--good)}
+  .muted{color:var(--muted)}
+  code,.mono{font-family:var(--mono);font-size:.86em}
+  pre{background:#0a0d12;border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-family:var(--mono);font-size:.82rem;line-height:1.5}
+  .row{display:flex;gap:14px;flex-wrap:wrap}
+  .row>*{flex:1;min-width:240px}
+  label{display:block;font-size:.9rem;color:var(--muted);margin-bottom:6px}
+  textarea{width:100%;min-height:110px;background:#0a0d12;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-family:var(--mono);font-size:.95rem;letter-spacing:.12em;resize:vertical}
+  textarea:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{background:var(--panel);color:var(--muted);border:0;padding:9px 18px;font-size:.95rem;cursor:pointer}
+  .seg button.on{background:var(--accent);color:#111;font-weight:600}
+  .btn{background:var(--accent);color:#111;border:0;border-radius:8px;padding:11px 22px;font-size:1rem;font-weight:600;cursor:pointer}
+  .btn:disabled{background:#3a4150;color:#77808f;cursor:not-allowed}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .stat{display:inline-block;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:4px 10px;margin:3px 6px 3px 0;font-size:.85rem}
+  .stat b{font-family:var(--mono)}
+  .bar{height:10px;background:#0a0d12;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:8px 0 4px}
+  .bar>div{height:100%;background:var(--accent);width:0%;transition:width .15s}
+  .ok{color:var(--good)} .wr{color:var(--warn)} .er{color:var(--bad)}
+  table{border-collapse:collapse;width:100%;font-size:.85rem}
+  th,td{border:1px solid var(--line);padding:5px 9px;text-align:left;font-family:var(--mono)}
+  th{background:var(--panel2);font-family:inherit}
+  .words{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:12px 0}
+  .word{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-family:var(--mono);font-size:1rem}
+  .word .n{color:var(--muted);font-size:.75rem;margin-right:8px}
+  .word.cksum{border-color:var(--accent)}
+  .badge{display:inline-block;border-radius:6px;padding:2px 10px;font-size:.8rem;font-weight:600}
+  .badge.pass{background:#12351c;color:var(--good);border:1px solid var(--good)}
+  .badge.fail{background:#3a1518;color:var(--bad);border:1px solid var(--bad)}
+  .badge.online{background:#3a2a10;color:var(--warn);border:1px solid var(--warn)}
+  details{margin:10px 0}
+  summary{cursor:pointer;color:var(--accent2)}
+  .hide{display:none}
+  footer{margin-top:50px;border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:.85rem}
+  a{color:var(--accent2)}
+  ol li,ul li{margin:6px 0}
+  @media print{ body{background:#fff;color:#000} .card{border-color:#999} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    <img class="logo" alt="Scientific Bitcoin Institute" src="data:image/jpeg;base64,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">
+    <div>
+      <h1>Physical Entropy Seed Tool</h1>
+      <div class="sub">Scientific Bitcoin Institute &mdash; don&rsquo;t trust any random number generator, including this page&rsquo;s. It has none.</div>
+    </div>
+  </div>
+  <div style="margin-top:12px">
+    <span id="selftestBadge" class="badge">self-test&hellip;</span>
+    <span id="onlineBadge" class="badge online hide">&#9888; This device appears to be ONLINE &mdash; for real funds, go offline first</span>
+  </div>
+</header>
+
+<div class="card callout">
+  <b>The one rule this tool is built on:</b> a computer must never be the <i>source</i> of your seed&rsquo;s randomness.
+  Software randomness can be weakened or backdoored &mdash; by a malicious developer, a compromised supply chain, or
+  AI-generated code no human fully reviewed &mdash; and you cannot tell by looking at the output.
+  Physical randomness (coins, casino dice) that <i>you</i> produce cannot be predicted by anyone.
+  This page only does the <b>deterministic bookkeeping</b> defined by
+  <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" rel="noopener">BIP-39</a>:
+  the same flips in, the same words out, on any correct implementation, forever. That is what makes it auditable &mdash;
+  and it is why you should <a href="#verify">verify the result independently</a> before trusting it.
+</div>
+
+<div class="card danger">
+  <b>Before generating a seed for real funds:</b>
+  <ol>
+    <li>Verify this file&rsquo;s SHA-256 hash against the hash published by the Scientific Bitcoin Institute.</li>
+    <li>Move the file to a computer that is <b>offline</b> (best: a live-USB Linux session with Wi-Fi disabled, no disk).</li>
+    <li>Work in private: no cameras, no smart speakers, no screen sharing. Write the words on paper only.</li>
+    <li>When done on a live-USB session, power off; nothing persists. On a normal computer, treat the machine as having seen your seed.</li>
+    <li><b>Never</b> type a funded seed phrase into any internet-connected device, website, or app &mdash; no exceptions.</li>
+  </ol>
+</div>
+
+<h2>1 &middot; Choose seed length</h2>
+<div class="card">
+  <div class="seg" id="lenSeg">
+    <button data-len="128" class="on">12 words (128-bit)</button>
+    <button data-len="256">24 words (256-bit)</button>
+  </div>
+  <p class="muted" style="margin-top:10px">Both are secure. 128 bits is already far beyond brute force; 24 words is the common standard for long-term cold storage.</p>
+</div>
+
+<h2>2 &middot; Enter your physical entropy</h2>
+<div class="card">
+  <div class="seg" id="methodSeg">
+    <button data-m="coin" class="on">Coin flips</button>
+    <button data-m="dice">Casino dice</button>
+  </div>
+
+  <!-- ============ COIN ============ -->
+  <div id="coinPane" style="margin-top:16px">
+    <p>Flip a coin and record each result: <code>H</code> or <code>1</code> for heads, <code>T</code> or <code>0</code> for tails.
+       Spaces and line breaks are ignored. Vary your flipping technique; don&rsquo;t reject &ldquo;ugly-looking&rdquo; sequences &mdash;
+       real randomness contains long runs.</p>
+    <label for="coinIn">Your flips (<span id="coinNeed"></span> needed)</label>
+    <textarea id="coinIn" spellcheck="false" autocomplete="off" placeholder="e.g. HTTHHHTHTTTH&hellip; or 100110&hellip;"></textarea>
+    <div class="bar"><div id="coinBar"></div></div>
+    <div id="coinStats" class="muted" style="font-size:.9rem"></div>
+
+    <details>
+      <summary>Advanced: von Neumann debiasing (for a possibly unfair coin)</summary>
+      <div style="padding:8px 2px">
+        <label><input type="checkbox" id="vnCheck"> Apply von Neumann debiasing</label>
+        <p class="muted">Flips are taken in non-overlapping pairs: <code>HT&nbsp;&rarr;&nbsp;1</code>, <code>TH&nbsp;&rarr;&nbsp;0</code>,
+        <code>HH</code>/<code>TT</code> discarded. This provably removes any constant bias of the coin, at the cost of
+        needing roughly 4&times; more flips. It does <i>not</i> fix correlated flips &mdash; vary your technique regardless.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Advanced: mix a second independent source (XOR)</summary>
+      <div style="padding:8px 2px">
+        <label><input type="checkbox" id="xorCheck"> XOR with a second flip series</label>
+        <p class="muted">Enter a second, independently produced series (a different coin, a different person, a different day).
+        The two series are combined bit-by-bit with XOR: the result is at least as random as the <i>better</i> of the two
+        sources, so neither source needs to be trusted alone. Debiasing, if enabled, is applied to each series separately.</p>
+        <div id="xorArea" class="hide">
+          <label for="coinIn2">Second series</label>
+          <textarea id="coinIn2" spellcheck="false" autocomplete="off"></textarea>
+          <div class="bar"><div id="coinBar2"></div></div>
+          <div id="coinStats2" class="muted" style="font-size:.9rem"></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ DICE ============ -->
+  <div id="dicePane" class="hide" style="margin-top:16px">
+    <p>Roll one or more dice and type each face value <code>1</code>&ndash;<code>6</code> in order. Casino-grade dice are
+       preferred (balanced, sharp edges). Spaces and line breaks are ignored.</p>
+    <p class="muted">Method: your roll string is hashed with SHA-256 and the first 128/256 bits of the digest become the
+       entropy. This is the same convention used by the Coldcard hardware wallet, so you can
+       <a href="#verify">cross-verify with one shell command</a>. Hashing also removes any residual bias of the dice.
+       Each roll of a fair d6 contributes log&#8322;6 &asymp; 2.585 bits, hence the minimum roll counts.</p>
+    <label for="diceIn">Your rolls (<span id="diceNeed"></span> rolls minimum &mdash; more is fine)</label>
+    <textarea id="diceIn" spellcheck="false" autocomplete="off" placeholder="e.g. 3 1 4 1 5 6 2 6&hellip;"></textarea>
+    <div class="bar"><div id="diceBar"></div></div>
+    <div id="diceStats" class="muted" style="font-size:.9rem"></div>
+  </div>
+
+  <div style="margin-top:18px">
+    <button class="btn" id="goBtn" disabled>Compute seed phrase</button>
+    <button class="btn ghost" id="clearBtn">Clear everything</button>
+  </div>
+  <div id="inputMsg" class="wr" style="margin-top:8px;font-size:.9rem"></div>
+</div>
+
+<!-- ============ RESULTS ============ -->
+<div id="results" class="hide">
+  <h2>3 &middot; Your seed phrase</h2>
+  <div class="card">
+    <div class="words" id="wordGrid"></div>
+    <p class="muted">The last word (outlined) is the BIP-39 checksum word &mdash; it is computed from your entropy, not chosen by you.
+       Write all words on paper, in order, then <b>clear this page and power off</b>.</p>
+  </div>
+
+  <h2>4 &middot; Show your work (audit trail)</h2>
+  <div class="card">
+    <p class="muted">Everything below is deterministic. Recompute any step with independent tools and you must get identical results.</p>
+    <div id="auditTrail"></div>
+    <details>
+      <summary>Word-by-word derivation table</summary>
+      <div style="overflow-x:auto;margin-top:8px"><table id="derivTable"></table></div>
+    </details>
+  </div>
+
+  <h2 id="verify">5 &middot; Verify independently (do not skip)</h2>
+  <div class="card oknote">
+    <p>A tool asking you to trust it would defeat the purpose. Check the result with at least one independent implementation, <b>offline</b>:</p>
+    <div id="verifyBlock"></div>
+    <p style="margin-top:10px">Finally, do a <b>dry-run recovery</b>: enter the phrase into a hardware wallet as a restore,
+       confirm it accepts the checksum, send a small test amount, and recover it before committing real funds.</p>
+  </div>
+</div>
+
+<h2>Why not let a computer pick the numbers?</h2>
+<div class="card">
+  <p>Every wallet must turn 128&ndash;256 random bits into your keys. If those bits come from software, you are trusting an
+     invisible pipeline: the RNG code, the compiler, the operating system, the hardware, and everyone who ever touched them.
+     History includes real failures and real thefts from weak or rigged RNGs (Android&rsquo;s 2013 <code>SecureRandom</code> flaw,
+     the Trust Wallet browser-extension RNG flaw of 2023, the &ldquo;Milk Sad&rdquo; weak-entropy incident of 2023, among others).
+     A modern concern is scale: code is increasingly written with AI assistance, and a subtly weakened RNG is exactly the kind
+     of bug that survives casual review &mdash; its output still <i>looks</i> perfectly random.</p>
+  <p>Physical entropy inverts the trust: a coin or die in your hand cannot be influenced by any software, and the arithmetic
+     that turns your flips into words is fully checkable. The computer is demoted from <b>trusted oracle</b> to
+     <b>auditable calculator</b> &mdash; and for the truly paranoid, the calculation itself
+     <a href="#manual">can be done entirely by hand</a>.</p>
+</div>
+
+<h2 id="manual">Fully manual method (no computer at all)</h2>
+<div class="card">
+  <p>As described in the Estudio Bitcoin article that inspired this page [1], the entire conversion can be done with pen and paper
+     (a printable worksheet and numbered word list are included in the downloadable kit):</p>
+  <ol>
+    <li>Flip 128 (or 256) coin flips; write heads as 1, tails as 0.</li>
+    <li>Group the bits into 11-bit chunks (the last chunk will be short by 4 or 8 bits &mdash; that&rsquo;s the checksum&rsquo;s slot).</li>
+    <li>Convert each 11-bit chunk to a number 0&ndash;2047 (place values 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1) and add 1 to get the word number.</li>
+    <li>Look up each word number in a printed BIP-39 word list.</li>
+    <li>The final word requires a SHA-256 checksum, which is impractical by hand. Compute <i>only this step</i> on an air-gapped
+        device (a hardware wallet with a &ldquo;final word&rdquo; feature such as SeedSigner, SpecterDIY or Coldcard) &mdash; or use this page offline
+        and check that words 1&ndash;11 (or 1&ndash;23) match what you derived by hand.</li>
+  </ol>
+  <p class="muted">This page is the calculator-assisted version of exactly that procedure, plus the dice option and self-tests.</p>
+</div>
+
+<h2>Threat model &mdash; what this protects against, and what it doesn&rsquo;t</h2>
+<div class="card">
+  <table>
+    <tr><th style="font-family:inherit">Threat</th><th style="font-family:inherit">Covered?</th><th style="font-family:inherit">How / why not</th></tr>
+    <tr><td>Backdoored / weak wallet RNG</td><td class="ok">Yes</td><td>No software RNG is used anywhere.</td></tr>
+    <tr><td>Malicious modification of this tool</td><td class="ok">Yes, if you verify</td><td>File hash check + independent cross-verification of output + built-in test vectors.</td></tr>
+    <tr><td>Biased coin or dice</td><td class="ok">Yes</td><td>Von Neumann debiasing (coin); SHA-256 conditioning (dice); XOR mixing of two sources.</td></tr>
+    <tr><td>Malware on the computer you use</td><td class="er">No</td><td>A keylogger sees your entered flips. That is why you must use an offline, amnesic machine (live USB).</td></tr>
+    <tr><td>Cameras / shoulder surfing</td><td class="er">No</td><td>Physical opsec is on you: private room, no devices, paper only.</td></tr>
+    <tr><td>Loss / theft of the paper backup</td><td class="er">No</td><td>Separate problem: use passphrases, metal backups, multisig as appropriate.</td></tr>
+  </table>
+</div>
+
+<h2 id="method-full">Methodology, in full</h2>
+<div class="card">
+  <h3>1. The entropy target</h3>
+  <p>A BIP-39 seed phrase [2] encodes a random number: <b>128 bits</b> for 12 words, <b>256 bits</b> for 24 words.
+     Security rests entirely on those bits being unpredictable. Everything else &mdash; words, keys, addresses &mdash; is
+     deterministic arithmetic derived from them.</p>
+
+  <h3>2. Coin method (the Estudio Bitcoin procedure [1])</h3>
+  <p>Each flip of a fair coin yields exactly one bit of entropy. Your flips, in the order entered
+     (heads&nbsp;=&nbsp;1, tails&nbsp;=&nbsp;0), <i>are</i> the entropy &mdash; no transformation at all. This is the most
+     transparent possible path: the 128 or 256 bits you wrote down with your own hand appear verbatim as the
+     &ldquo;entropy (hex)&rdquo; in the audit trail, and the first 11-bit group is literally your first eleven flips.</p>
+
+  <h3>3. Dice method (Coldcard convention [9])</h3>
+  <p>A fair six-sided die yields log&#8322;6 &asymp; 2.585 bits per roll, hence the minimums:
+     &#8968;128&nbsp;/&nbsp;2.585&#8969;&nbsp;=&nbsp;50 rolls for 12 words, &#8968;256&nbsp;/&nbsp;2.585&#8969;&nbsp;=&nbsp;99 rolls for 24 words.
+     The roll string (ASCII digits <code>1</code>&ndash;<code>6</code>) is hashed once with SHA-256 and the first 128 or 256 bits of the
+     digest become the entropy. Hashing is used instead of naive base-6&rarr;base-2 conversion for three reasons:
+     (a) it <i>conditions</i> the input &mdash; any residual bias or imperfection of the dice is diffused, and the output retains
+     the full min-entropy of the rolls up to the digest size; (b) it avoids the modulo-bias pitfalls of ad-hoc base
+     conversion; and (c) it exactly matches the convention documented and implemented by Coldcard [9], so the same rolls
+     entered into a Coldcard, or piped through <code>sha256sum</code>, must produce the same seed &mdash; a free, independent,
+     hardware cross-check. Notably, seeds generated this way with 50+ dice rolls were explicitly <b>unaffected</b> by
+     Coldcard&rsquo;s 2026 RNG failure [6], because the dice entropy never depended on the device&rsquo;s RNG.</p>
+
+  <h3>4. Optional: von Neumann debiasing (coin)</h3>
+  <p>If a coin has constant bias p&nbsp;&ne;&nbsp;&frac12;, raw flips carry less than one bit each. Von Neumann&rsquo;s 1951
+     procedure [7] takes flips in non-overlapping pairs: since P(HT)&nbsp;=&nbsp;p(1&minus;p)&nbsp;=&nbsp;P(TH), mapping
+     HT&nbsp;&rarr;&nbsp;1 and TH&nbsp;&rarr;&nbsp;0 and discarding HH/TT yields provably unbiased bits from <i>any</i> constant
+     bias, at an expected cost of 1 output bit per 1/(2p(1&minus;p))&nbsp;&ge;&nbsp;2 pairs. It does not repair
+     <i>correlated</i> flips &mdash; so vary your flipping technique regardless.</p>
+
+  <h3>5. Optional: XOR mixing of two sources</h3>
+  <p>The XOR of two independent bit streams is at least as unpredictable as the more unpredictable of the two.
+     Producing two series (different coin, different person, different day) and combining them bit-by-bit means an
+     attacker must compromise <i>both</i> sources; neither needs to be trusted alone.</p>
+
+  <h3>6. The checksum word</h3>
+  <p>BIP-39 appends ENT/32 checksum bits (4 for 128, 8 for 256) taken from the front of SHA-256(entropy), then splits
+     the ENT+CS bits into 11-bit groups, each indexing one of 2&sup1;&sup1;&nbsp;=&nbsp;2048 words. This is why the last word
+     is computed, not chosen &mdash; and why a hand-derived phrase needs one machine step (or a
+     &ldquo;final word&rdquo; feature on an air-gapped signer [10]) to finish.</p>
+
+  <h3>7. Why determinism is the security feature</h3>
+  <p>Every step above is a pure function: same input, same output, on any correct implementation, forever. That is what
+     makes the tool auditable &mdash; you verify it by <i>agreement</i>: this page, the companion Python app, the reference
+     <code>mnemonic</code> library [3], Ian Coleman&rsquo;s tool [8], a Coldcard, and pen-and-paper must all produce identical
+     words from identical flips. A backdoor would have to hide inside deterministic, cross-checked arithmetic &mdash; where
+     it cannot survive a single independent comparison. The on-load self-test runs the official BIP-39 test vectors [4]
+     plus a dice vector and the word-list hash, and disables the tool on any mismatch.</p>
+</div>
+
+<h2 id="history">Why this matters: a short history of entropy failures</h2>
+<div class="card">
+  <p>Every incident below shipped seeds or keys that <i>looked</i> perfectly random. The flaw was always upstream,
+     in the randomness pipeline &mdash; exactly the part physical entropy removes.</p>
+  <table>
+    <tr><th style="font-family:inherit">Source of randomness</th><th style="font-family:inherit">Effective entropy</th><th style="font-family:inherit">Time to break*</th><th style="font-family:inherit">Real-world outcome</th></tr>
+    <tr><td style="font-family:inherit">Human-chosen &ldquo;brainwallets&rdquo;</td><td>&#8804; ~45 bits</td><td>seconds</td><td style="font-family:inherit">Drained by bots, often within seconds of funding</td></tr>
+    <tr><td style="font-family:inherit">Trust Wallet browser ext. (2022&ndash;23)</td><td>32 bits</td><td>instant</td><td style="font-family:inherit">~$170k exploited; every wallet recomputable</td></tr>
+    <tr><td style="font-family:inherit">Libbitcoin <code>bx seed</code> &mdash; &ldquo;Milk Sad&rdquo; (2023) [5]</td><td>32 bits</td><td>instant</td><td style="font-family:inherit">$900k+ stolen; researchers enumerated the whole keyspace</td></tr>
+    <tr><td style="font-family:inherit">Coldcard Mk2/Mk3 fw 4.0.x&ndash;4.1.9 (2021&ndash;26) [6]</td><td>~40 bits</td><td>seconds&ndash;minutes</td><td style="font-family:inherit"><b>$70M swept from 1,196 addresses in 41 minutes, July 30 2026</b></td></tr>
+    <tr><td style="font-family:inherit">Coldcard Mk4/Mk5/Q, same bug [6]</td><td>~72 bits</td><td>reachable at nation-state / AI-datacenter scale</td><td style="font-family:inherit">Coinkite: migrate funds</td></tr>
+    <tr><td style="font-family:inherit">Correct wallet CSPRNG (no bug)</td><td>128&ndash;256 bits</td><td>&gt; age of universe</td><td style="font-family:inherit">Secure &mdash; but the absence of a bug is unverifiable from outside</td></tr>
+    <tr><td style="font-family:inherit"><b>Physical: 128 flips / 50 dice (this tool)</b></td><td><b>128 bits</b></td><td>&gt; age of universe</td><td style="font-family:inherit">No pipeline to compromise; entropy verifiable by construction</td></tr>
+    <tr><td style="font-family:inherit"><b>Physical: 256 flips / 99 dice (this tool)</b></td><td><b>256 bits</b></td><td>thermodynamically impossible</td><td style="font-family:inherit">Counting 2&#178;&#8309;&#8310; states exceeds the Sun&rsquo;s lifetime energy output</td></tr>
+  </table>
+  <p class="muted" style="margin-top:10px">*At an implausibly generous 10&sup1;&sup2; seed-guesses per second (a large GPU farm credited with zero
+     derivation cost). Even repurposing the entire Bitcoin mining network (~10&sup2;&sup1; hashes/s) as a seed-cracker, exhausting
+     128 bits takes on the order of the age of the universe.</p>
+  <p><b>Where AI fits:</b> brute force is bounded by compute and energy, not intelligence &mdash; a fair coin&rsquo;s output contains
+     no structure for a model to learn, so AI removes exactly zero bits from full physical entropy. What AI does accelerate is
+     everything <i>around</i> the exponent: guessing human-chosen phrases, industrializing the scan for weak-RNG victims
+     (the 2026 Coldcard sweep was offline precomputation plus blockchain matching), and slipping subtle RNG bugs into code.
+     The defense is to make effective entropy equal theoretical entropy &mdash; which is the entire purpose of this method.</p>
+</div>
+
+<h2 id="refs">References</h2>
+<div class="card">
+  <ol>
+    <li id="r1"><i>&ldquo;Do you trust your seed? Don&rsquo;t generate it yourself&rdquo;</i>, Estudio Bitcoin &mdash;
+        the article this tool implements and extends. <span class="mono">estudiobitcoin.com/do-you-trust-your-seed-dont-generate-it-yourself/</span></li>
+    <li id="r2">BIP-39: Mnemonic code for generating deterministic keys (Palatinus, Rusnak, Voisine, Bowe).
+        <span class="mono">github.com/bitcoin/bips/blob/master/bip-0039.mediawiki</span></li>
+    <li id="r3">Reference implementation: <code>python-mnemonic</code> (Trezor). <span class="mono">github.com/trezor/python-mnemonic</span></li>
+    <li id="r4">Official BIP-39 test vectors. <span class="mono">github.com/trezor/python-mnemonic/blob/master/vectors.json</span></li>
+    <li id="r5">&ldquo;Milk Sad&rdquo; disclosure: weak entropy in Libbitcoin Explorer (CVE-2023-39910). <span class="mono">milksad.info</span></li>
+    <li id="r6">Coldcard security advisory on seed-generation entropy (July 31, 2026). <span class="mono">blog.coinkite.com/coldcard-mk3-seed-generation-warning/</span>;
+        coverage: The Hacker News, &ldquo;Coldcard flaw linked to $70M Bitcoin theft&rdquo; (Aug 2026).</li>
+    <li id="r7">J. von Neumann, &ldquo;Various techniques used in connection with random digits&rdquo;,
+        <i>Nat. Bur. Stand. Appl. Math. Ser.</i> 12 (1951) 36&ndash;38.</li>
+    <li id="r8">Ian Coleman, BIP-39 mnemonic code converter (offline standalone build). <span class="mono">github.com/iancoleman/bip39</span></li>
+    <li id="r9">Coldcard, &ldquo;Verifiable dice-roll seed generation&rdquo;. <span class="mono">coldcard.com/docs/verifying-dice-roll-math/</span></li>
+    <li id="r10">SeedSigner (<span class="mono">seedsigner.com</span>), SpecterDIY, seedpicker.net &mdash; related air-gapped / manual-entropy prior art.</li>
+  </ol>
+  <p class="muted">Links are printed rather than clickable where possible by design &mdash; this page is meant to be used offline.</p>
+</div>
+
+<footer>
+  <p><b>Scientific Bitcoin Institute</b> &mdash; Physical Entropy Seed Tool v1.2 &middot; MIT License &middot; single-file, zero dependencies, zero network access.</p>
+  <p>Embedded word list: official BIP-39 English (2048 words). Runtime SHA-256 of the newline-joined list: <code id="wlHash">&hellip;</code><br>
+     Expected: <code>2f5eed53a4727b4bf8880d8f3f199efc90e58503646d9ff8eff3a2ed3b24dbda</code> (the canonical value for english.txt).</p>
+  <p>Self-test detail: <span id="selftestDetail" class="mono"></span></p>
+  <p>Inspired by <i>&ldquo;Do you trust your seed? Don&rsquo;t generate it yourself&rdquo;</i> (estudiobitcoin.com). Related prior art:
+     Ian Coleman&rsquo;s BIP39 tool, Coldcard verifiable dice rolls, SeedSigner, seedpicker.net.</p>
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+"use strict";
+/* ===========================================================================
+   SHA-256 — plain-JavaScript implementation of FIPS 180-4.
+   Operates on an array of bytes, returns an array of 32 bytes.
+   Written for readability and auditability; no external dependencies.
+   =========================================================================== */
+const SHA256 = (() => {
+  const K = [
+    0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+    0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+    0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+    0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+    0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+    0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+    0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+    0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+  const rotr = (x,n) => (x>>>n) | (x<<(32-n));
+  return function sha256(bytes){
+    const H = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+    // Pre-processing: append 0x80, pad with zeros, append 64-bit bit-length.
+    const bitLen = bytes.length * 8;
+    const padded = bytes.slice();
+    padded.push(0x80);
+    while (padded.length % 64 !== 56) padded.push(0);
+    // JS numbers are safe up to 2^53; entropy inputs here are tiny, so the
+    // high 32 bits of the length are effectively floor(bitLen / 2^32).
+    padded.push(
+      Math.floor(bitLen/0x100000000)>>>24 & 0xff, Math.floor(bitLen/0x100000000)>>>16 & 0xff,
+      Math.floor(bitLen/0x100000000)>>>8  & 0xff, Math.floor(bitLen/0x100000000)      & 0xff,
+      bitLen>>>24 & 0xff, bitLen>>>16 & 0xff, bitLen>>>8 & 0xff, bitLen & 0xff);
+    const w = new Array(64);
+    for (let i = 0; i < padded.length; i += 64){
+      for (let t = 0; t < 16; t++)
+        w[t] = (padded[i+4*t]<<24) | (padded[i+4*t+1]<<16) | (padded[i+4*t+2]<<8) | padded[i+4*t+3];
+      for (let t = 16; t < 64; t++){
+        const s0 = rotr(w[t-15],7) ^ rotr(w[t-15],18) ^ (w[t-15]>>>3);
+        const s1 = rotr(w[t-2],17) ^ rotr(w[t-2],19)  ^ (w[t-2]>>>10);
+        w[t] = (w[t-16] + s0 + w[t-7] + s1) | 0;
+      }
+      let [a,b,c,d,e,f,g,h] = H;
+      for (let t = 0; t < 64; t++){
+        const S1 = rotr(e,6) ^ rotr(e,11) ^ rotr(e,25);
+        const ch = (e & f) ^ (~e & g);
+        const t1 = (h + S1 + ch + K[t] + w[t]) | 0;
+        const S0 = rotr(a,2) ^ rotr(a,13) ^ rotr(a,22);
+        const maj = (a & b) ^ (a & c) ^ (b & c);
+        const t2 = (S0 + maj) | 0;
+        h=g; g=f; f=e; e=(d+t1)|0; d=c; c=b; b=a; a=(t1+t2)|0;
+      }
+      H[0]=(H[0]+a)|0; H[1]=(H[1]+b)|0; H[2]=(H[2]+c)|0; H[3]=(H[3]+d)|0;
+      H[4]=(H[4]+e)|0; H[5]=(H[5]+f)|0; H[6]=(H[6]+g)|0; H[7]=(H[7]+h)|0;
+    }
+    const out = [];
+    for (const h of H) out.push(h>>>24 & 0xff, h>>>16 & 0xff, h>>>8 & 0xff, h & 0xff);
+    return out;
+  };
+})();
+
+/* ============ Official BIP-39 English word list (2048 words) ============ */
+const WORDLIST = ["abandon","ability","able","about","above","absent","absorb","abstract","absurd","abuse","access","accident","account","accuse","achieve","acid","acoustic","acquire","across","act","action","actor","actress","actual","adapt","add","addict","address","adjust","admit","adult","advance","advice","aerobic","affair","afford","afraid","again","age","agent","agree","ahead","aim","air","airport","aisle","alarm","album","alcohol","alert","alien","all","alley","allow","almost","alone","alpha","already","also","alter","always","amateur","amazing","among","amount","amused","analyst","anchor","ancient","anger","angle","angry","animal","ankle","announce","annual","another","answer","antenna","antique","anxiety","any","apart","apology","appear","apple","approve","april","arch","arctic","area","arena","argue","arm","armed","armor","army","around","arrange","arrest","arrive","arrow","art","artefact","artist","artwork","ask","aspect","assault","asset","assist","assume","asthma","athlete","atom","attack","attend","attitude","attract","auction","audit","august","aunt","author","auto","autumn","average","avocado","avoid","awake","aware","away","awesome","awful","awkward","axis","baby","bachelor","bacon","badge","bag","balance","balcony","ball","bamboo","banana","banner","bar","barely","bargain","barrel","base","basic","basket","battle","beach","bean","beauty","because","become","beef","before","begin","behave","behind","believe","below","belt","bench","benefit","best","betray","better","between","beyond","bicycle","bid","bike","bind","biology","bird","birth","bitter","black","blade","blame","blanket","blast","bleak","bless","blind","blood","blossom","blouse","blue","blur","blush","board","boat","body","boil","bomb","bone","bonus","book","boost","border","boring","borrow","boss","bottom","bounce","box","boy","bracket","brain","brand","brass","brave","bread","breeze","brick","bridge","brief","bright","bring","brisk","broccoli","broken","bronze","broom","brother","brown","brush","bubble","buddy","budget","buffalo","build","bulb","bulk","bullet","bundle","bunker","burden","burger","burst","bus","business","busy","butter","buyer","buzz","cabbage","cabin","cable","cactus","cage","cake","call","calm","camera","camp","can","canal","cancel","candy","cannon","canoe","canvas","canyon","capable","capital","captain","car","carbon","card","cargo","carpet","carry","cart","case","cash","casino","castle","casual","cat","catalog","catch","category","cattle","caught","cause","caution","cave","ceiling","celery","cement","census","century","cereal","certain","chair","chalk","champion","change","chaos","chapter","charge","chase","chat","cheap","check","cheese","chef","cherry","chest","chicken","chief","child","chimney","choice","choose","chronic","chuckle","chunk","churn","cigar","cinnamon","circle","citizen","city","civil","claim","clap","clarify","claw","clay","clean","clerk","clever","click","client","cliff","climb","clinic","clip","clock","clog","close","cloth","cloud","clown","club","clump","cluster","clutch","coach","coast","coconut","code","coffee","coil","coin","collect","color","column","combine","come","comfort","comic","common","company","concert","conduct","confirm","congress","connect","consider","control","convince","cook","cool","copper","copy","coral","core","corn","correct","cost","cotton","couch","country","couple","course","cousin","cover","coyote","crack","cradle","craft","cram","crane","crash","crater","crawl","crazy","cream","credit","creek","crew","cricket","crime","crisp","critic","crop","cross","crouch","crowd","crucial","cruel","cruise","crumble","crunch","crush","cry","crystal","cube","culture","cup","cupboard","curious","current","curtain","curve","cushion","custom","cute","cycle","dad","damage","damp","dance","danger","daring","dash","daughter","dawn","day","deal","debate","debris","decade","december","decide","decline","decorate","decrease","deer","defense","define","defy","degree","delay","deliver","demand","demise","denial","dentist","deny","depart","depend","deposit","depth","deputy","derive","describe","desert","design","desk","despair","destroy","detail","detect","develop","device","devote","diagram","dial","diamond","diary","dice","diesel","diet","differ","digital","dignity","dilemma","dinner","dinosaur","direct","dirt","disagree","discover","disease","dish","dismiss","disorder","display","distance","divert","divide","divorce","dizzy","doctor","document","dog","doll","dolphin","domain","donate","donkey","donor","door","dose","double","dove","draft","dragon","drama","drastic","draw","dream","dress","drift","drill","drink","drip","drive","drop","drum","dry","duck","dumb","dune","during","dust","dutch","duty","dwarf","dynamic","eager","eagle","early","earn","earth","easily","east","easy","echo","ecology","economy","edge","edit","educate","effort","egg","eight","either","elbow","elder","electric","elegant","element","elephant","elevator","elite","else","embark","embody","embrace","emerge","emotion","employ","empower","empty","enable","enact","end","endless","endorse","enemy","energy","enforce","engage","engine","enhance","enjoy","enlist","enough","enrich","enroll","ensure","enter","entire","entry","envelope","episode","equal","equip","era","erase","erode","erosion","error","erupt","escape","essay","essence","estate","eternal","ethics","evidence","evil","evoke","evolve","exact","example","excess","exchange","excite","exclude","excuse","execute","exercise","exhaust","exhibit","exile","exist","exit","exotic","expand","expect","expire","explain","expose","express","extend","extra","eye","eyebrow","fabric","face","faculty","fade","faint","faith","fall","false","fame","family","famous","fan","fancy","fantasy","farm","fashion","fat","fatal","father","fatigue","fault","favorite","feature","february","federal","fee","feed","feel","female","fence","festival","fetch","fever","few","fiber","fiction","field","figure","file","film","filter","final","find","fine","finger","finish","fire","firm","first","fiscal","fish","fit","fitness","fix","flag","flame","flash","flat","flavor","flee","flight","flip","float","flock","floor","flower","fluid","flush","fly","foam","focus","fog","foil","fold","follow","food","foot","force","forest","forget","fork","fortune","forum","forward","fossil","foster","found","fox","fragile","frame","frequent","fresh","friend","fringe","frog","front","frost","frown","frozen","fruit","fuel","fun","funny","furnace","fury","future","gadget","gain","galaxy","gallery","game","gap","garage","garbage","garden","garlic","garment","gas","gasp","gate","gather","gauge","gaze","general","genius","genre","gentle","genuine","gesture","ghost","giant","gift","giggle","ginger","giraffe","girl","give","glad","glance","glare","glass","glide","glimpse","globe","gloom","glory","glove","glow","glue","goat","goddess","gold","good","goose","gorilla","gospel","gossip","govern","gown","grab","grace","grain","grant","grape","grass","gravity","great","green","grid","grief","grit","grocery","group","grow","grunt","guard","guess","guide","guilt","guitar","gun","gym","habit","hair","half","hammer","hamster","hand","happy","harbor","hard","harsh","harvest","hat","have","hawk","hazard","head","health","heart","heavy","hedgehog","height","hello","helmet","help","hen","hero","hidden","high","hill","hint","hip","hire","history","hobby","hockey","hold","hole","holiday","hollow","home","honey","hood","hope","horn","horror","horse","hospital","host","hotel","hour","hover","hub","huge","human","humble","humor","hundred","hungry","hunt","hurdle","hurry","hurt","husband","hybrid","ice","icon","idea","identify","idle","ignore","ill","illegal","illness","image","imitate","immense","immune","impact","impose","improve","impulse","inch","include","income","increase","index","indicate","indoor","industry","infant","inflict","inform","inhale","inherit","initial","inject","injury","inmate","inner","innocent","input","inquiry","insane","insect","inside","inspire","install","intact","interest","into","invest","invite","involve","iron","island","isolate","issue","item","ivory","jacket","jaguar","jar","jazz","jealous","jeans","jelly","jewel","job","join","joke","journey","joy","judge","juice","jump","jungle","junior","junk","just","kangaroo","keen","keep","ketchup","key","kick","kid","kidney","kind","kingdom","kiss","kit","kitchen","kite","kitten","kiwi","knee","knife","knock","know","lab","label","labor","ladder","lady","lake","lamp","language","laptop","large","later","latin","laugh","laundry","lava","law","lawn","lawsuit","layer","lazy","leader","leaf","learn","leave","lecture","left","leg","legal","legend","leisure","lemon","lend","length","lens","leopard","lesson","letter","level","liar","liberty","library","license","life","lift","light","like","limb","limit","link","lion","liquid","list","little","live","lizard","load","loan","lobster","local","lock","logic","lonely","long","loop","lottery","loud","lounge","love","loyal","lucky","luggage","lumber","lunar","lunch","luxury","lyrics","machine","mad","magic","magnet","maid","mail","main","major","make","mammal","man","manage","mandate","mango","mansion","manual","maple","marble","march","margin","marine","market","marriage","mask","mass","master","match","material","math","matrix","matter","maximum","maze","meadow","mean","measure","meat","mechanic","medal","media","melody","melt","member","memory","mention","menu","mercy","merge","merit","merry","mesh","message","metal","method","middle","midnight","milk","million","mimic","mind","minimum","minor","minute","miracle","mirror","misery","miss","mistake","mix","mixed","mixture","mobile","model","modify","mom","moment","monitor","monkey","monster","month","moon","moral","more","morning","mosquito","mother","motion","motor","mountain","mouse","move","movie","much","muffin","mule","multiply","muscle","museum","mushroom","music","must","mutual","myself","mystery","myth","naive","name","napkin","narrow","nasty","nation","nature","near","neck","need","negative","neglect","neither","nephew","nerve","nest","net","network","neutral","never","news","next","nice","night","noble","noise","nominee","noodle","normal","north","nose","notable","note","nothing","notice","novel","now","nuclear","number","nurse","nut","oak","obey","object","oblige","obscure","observe","obtain","obvious","occur","ocean","october","odor","off","offer","office","often","oil","okay","old","olive","olympic","omit","once","one","onion","online","only","open","opera","opinion","oppose","option","orange","orbit","orchard","order","ordinary","organ","orient","original","orphan","ostrich","other","outdoor","outer","output","outside","oval","oven","over","own","owner","oxygen","oyster","ozone","pact","paddle","page","pair","palace","palm","panda","panel","panic","panther","paper","parade","parent","park","parrot","party","pass","patch","path","patient","patrol","pattern","pause","pave","payment","peace","peanut","pear","peasant","pelican","pen","penalty","pencil","people","pepper","perfect","permit","person","pet","phone","photo","phrase","physical","piano","picnic","picture","piece","pig","pigeon","pill","pilot","pink","pioneer","pipe","pistol","pitch","pizza","place","planet","plastic","plate","play","please","pledge","pluck","plug","plunge","poem","poet","point","polar","pole","police","pond","pony","pool","popular","portion","position","possible","post","potato","pottery","poverty","powder","power","practice","praise","predict","prefer","prepare","present","pretty","prevent","price","pride","primary","print","priority","prison","private","prize","problem","process","produce","profit","program","project","promote","proof","property","prosper","protect","proud","provide","public","pudding","pull","pulp","pulse","pumpkin","punch","pupil","puppy","purchase","purity","purpose","purse","push","put","puzzle","pyramid","quality","quantum","quarter","question","quick","quit","quiz","quote","rabbit","raccoon","race","rack","radar","radio","rail","rain","raise","rally","ramp","ranch","random","range","rapid","rare","rate","rather","raven","raw","razor","ready","real","reason","rebel","rebuild","recall","receive","recipe","record","recycle","reduce","reflect","reform","refuse","region","regret","regular","reject","relax","release","relief","rely","remain","remember","remind","remove","render","renew","rent","reopen","repair","repeat","replace","report","require","rescue","resemble","resist","resource","response","result","retire","retreat","return","reunion","reveal","review","reward","rhythm","rib","ribbon","rice","rich","ride","ridge","rifle","right","rigid","ring","riot","ripple","risk","ritual","rival","river","road","roast","robot","robust","rocket","romance","roof","rookie","room","rose","rotate","rough","round","route","royal","rubber","rude","rug","rule","run","runway","rural","sad","saddle","sadness","safe","sail","salad","salmon","salon","salt","salute","same","sample","sand","satisfy","satoshi","sauce","sausage","save","say","scale","scan","scare","scatter","scene","scheme","school","science","scissors","scorpion","scout","scrap","screen","script","scrub","sea","search","season","seat","second","secret","section","security","seed","seek","segment","select","sell","seminar","senior","sense","sentence","series","service","session","settle","setup","seven","shadow","shaft","shallow","share","shed","shell","sheriff","shield","shift","shine","ship","shiver","shock","shoe","shoot","shop","short","shoulder","shove","shrimp","shrug","shuffle","shy","sibling","sick","side","siege","sight","sign","silent","silk","silly","silver","similar","simple","since","sing","siren","sister","situate","six","size","skate","sketch","ski","skill","skin","skirt","skull","slab","slam","sleep","slender","slice","slide","slight","slim","slogan","slot","slow","slush","small","smart","smile","smoke","smooth","snack","snake","snap","sniff","snow","soap","soccer","social","sock","soda","soft","solar","soldier","solid","solution","solve","someone","song","soon","sorry","sort","soul","sound","soup","source","south","space","spare","spatial","spawn","speak","special","speed","spell","spend","sphere","spice","spider","spike","spin","spirit","split","spoil","sponsor","spoon","sport","spot","spray","spread","spring","spy","square","squeeze","squirrel","stable","stadium","staff","stage","stairs","stamp","stand","start","state","stay","steak","steel","stem","step","stereo","stick","still","sting","stock","stomach","stone","stool","story","stove","strategy","street","strike","strong","struggle","student","stuff","stumble","style","subject","submit","subway","success","such","sudden","suffer","sugar","suggest","suit","summer","sun","sunny","sunset","super","supply","supreme","sure","surface","surge","surprise","surround","survey","suspect","sustain","swallow","swamp","swap","swarm","swear","sweet","swift","swim","swing","switch","sword","symbol","symptom","syrup","system","table","tackle","tag","tail","talent","talk","tank","tape","target","task","taste","tattoo","taxi","teach","team","tell","ten","tenant","tennis","tent","term","test","text","thank","that","theme","then","theory","there","they","thing","this","thought","three","thrive","throw","thumb","thunder","ticket","tide","tiger","tilt","timber","time","tiny","tip","tired","tissue","title","toast","tobacco","today","toddler","toe","together","toilet","token","tomato","tomorrow","tone","tongue","tonight","tool","tooth","top","topic","topple","torch","tornado","tortoise","toss","total","tourist","toward","tower","town","toy","track","trade","traffic","tragic","train","transfer","trap","trash","travel","tray","treat","tree","trend","trial","tribe","trick","trigger","trim","trip","trophy","trouble","truck","true","truly","trumpet","trust","truth","try","tube","tuition","tumble","tuna","tunnel","turkey","turn","turtle","twelve","twenty","twice","twin","twist","two","type","typical","ugly","umbrella","unable","unaware","uncle","uncover","under","undo","unfair","unfold","unhappy","uniform","unique","unit","universe","unknown","unlock","until","unusual","unveil","update","upgrade","uphold","upon","upper","upset","urban","urge","usage","use","used","useful","useless","usual","utility","vacant","vacuum","vague","valid","valley","valve","van","vanish","vapor","various","vast","vault","vehicle","velvet","vendor","venture","venue","verb","verify","version","very","vessel","veteran","viable","vibrant","vicious","victory","video","view","village","vintage","violin","virtual","virus","visa","visit","visual","vital","vivid","vocal","voice","void","volcano","volume","vote","voyage","wage","wagon","wait","walk","wall","walnut","want","warfare","warm","warrior","wash","wasp","waste","water","wave","way","wealth","weapon","wear","weasel","weather","web","wedding","weekend","weird","welcome","west","wet","whale","what","wheat","wheel","when","where","whip","whisper","wide","width","wife","wild","will","win","window","wine","wing","wink","winner","winter","wire","wisdom","wise","wish","witness","wolf","woman","wonder","wood","wool","word","work","world","worry","worth","wrap","wreck","wrestle","wrist","write","wrong","yard","year","yellow","you","young","youth","zebra","zero","zone","zoo"];
+
+/* ============ Test vectors (official BIP-39 vectors, Trezor set) ============
+   Each: [entropy hex, expected mnemonic]. Plus one dice vector:
+   SHA-256 of the ASCII string of rolls, computed independently. */
+const TEST_VECTORS = [["00000000000000000000000000000000","abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"],["7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f","legal winner thank year wave sausage worth useful legal winner thank yellow"],["80808080808080808080808080808080","letter advice cage absurd amount doctor acoustic avoid letter advice cage above"],["ffffffffffffffffffffffffffffffff","zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo wrong"],["0000000000000000000000000000000000000000000000000000000000000000","abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon art"],["7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f","legal winner thank year wave sausage worth useful legal winner thank year wave sausage worth useful legal winner thank year wave sausage worth title"],["8080808080808080808080808080808080808080808080808080808080808080","letter advice cage absurd amount doctor acoustic avoid letter advice cage absurd amount doctor acoustic avoid letter advice cage absurd amount doctor acoustic bless"],["ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo vote"],["9e885d952ad362caeb4efe34a8e91bd2","ozone drill grab fiber curtain grace pudding thank cruise elder eight picnic"],["68a79eaca2324873eacc50cb9c6eca8cc68ea5d936f98787c60c7ebc74e6ce7c","hamster diagram private dutch cause delay private meat slide toddler razor book happy fancy gospel tennis maple dilemma loan word shrug inflict delay length"],["f30f8c1da665478f49b001d94c5fc452","vessel ladder alter error federal sibling chat ability sun glass valve picture"],["066dca1a2bb7e8a1db2832148ce9933eea0f3ac9548d793112d9a95c9407efad","all hour make first leader extend hole alien behind guard gospel lava path output census museum junior mass reopen famous sing advance salt reform"]];
+const DICE_VECTOR = ["123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456","8fd128918b2e29d6dcbfa5b9a118e5c16d60498c7ba107922a8eb6eb1d36c112","more matter caught bind tip twin indicate visa rifle angle defense lizard stock cave cradle injury always mule photo horse range opinion affair garlic"]; /* [roll string, sha256 hex, 24-word mnemonic] */
+
+/* =========================== Core BIP-39 logic =========================== */
+const hexToBytes = h => { const a=[]; for(let i=0;i<h.length;i+=2) a.push(parseInt(h.slice(i,i+2),16)); return a; };
+const bytesToHex = b => b.map(x=>x.toString(16).padStart(2,"0")).join("");
+const bitsToBytes = bits => { const a=[]; for(let i=0;i<bits.length;i+=8) a.push(parseInt(bits.slice(i,i+8).join(""),2)); return a; };
+const bytesToBits = bytes => bytes.flatMap(b => [...Array(8)].map((_,i)=>(b>>(7-i))&1));
+
+function entropyToMnemonic(entropyBytes){
+  const entBits = bytesToBits(entropyBytes);
+  const csLen = entBits.length / 32;                    // 4 bits for 128, 8 for 256
+  const hash = SHA256(entropyBytes);
+  const csBits = bytesToBits(hash).slice(0, csLen);
+  const all = entBits.concat(csBits);
+  const indices = [];
+  for (let i = 0; i < all.length; i += 11)
+    indices.push(parseInt(all.slice(i, i+11).join(""), 2));
+  return { words: indices.map(i => WORDLIST[i]), indices, entBits, csBits, hashHex: bytesToHex(hash) };
+}
+
+/* ============================ Input parsing ============================ */
+const parseCoin = t => [...t.toUpperCase()].map(c => c==="H"||c==="1" ? 1 : c==="T"||c==="0" ? 0 : null).filter(v => v!==null);
+const parseDice = t => [...t].filter(c => "123456".includes(c));
+function vonNeumann(bits){
+  const out = [];
+  for (let i = 0; i + 1 < bits.length; i += 2){
+    if (bits[i] === 1 && bits[i+1] === 0) out.push(1);
+    else if (bits[i] === 0 && bits[i+1] === 1) out.push(0);
+  }
+  return out;
+}
+const longestRun = bits => bits.reduce((s,b)=>{ s.cur = b===s.last ? s.cur+1 : 1; s.last=b; s.max=Math.max(s.max,s.cur); return s; },{last:null,cur:0,max:0}).max;
+
+/* =============================== UI state =============================== */
+let entLen = 128;      // 128 or 256
+let method = "coin";   // "coin" or "dice"
+const $ = id => document.getElementById(id);
+const diceMin = () => entLen === 128 ? 50 : 99;   // ceil(bits / log2(6))
+
+function refresh(){
+  $("coinNeed").textContent = entLen + " flips";
+  $("diceNeed").textContent = diceMin();
+  $("coinPane").classList.toggle("hide", method!=="coin");
+  $("dicePane").classList.toggle("hide", method!=="dice");
+  $("xorArea").classList.toggle("hide", !$("xorCheck").checked);
+  let ready = false, msg = "";
+
+  if (method === "coin"){
+    const raw1 = parseCoin($("coinIn").value);
+    const vn = $("vnCheck").checked;
+    const eff1 = vn ? vonNeumann(raw1) : raw1;
+    coinStats("coinStats","coinBar", raw1, eff1, vn);
+    if ($("xorCheck").checked){
+      const raw2 = parseCoin($("coinIn2").value);
+      const eff2 = vn ? vonNeumann(raw2) : raw2;
+      coinStats("coinStats2","coinBar2", raw2, eff2, vn);
+      ready = eff1.length >= entLen && eff2.length >= entLen;
+      if (!ready) msg = "Both series need " + entLen + " usable bits.";
+    } else {
+      ready = eff1.length >= entLen;
+      if (!ready && raw1.length) msg = (entLen - eff1.length) + " more usable bits needed.";
+    }
+  } else {
+    const rolls = parseDice($("diceIn").value);
+    const pct = Math.min(100, 100*rolls.length/diceMin());
+    $("diceBar").style.width = pct + "%";
+    const counts = [1,2,3,4,5,6].map(f => rolls.filter(r=>r==+f).length);
+    $("diceStats").innerHTML = rolls.length
+      ? `<span class="stat">rolls <b>${rolls.length}</b> / ${diceMin()}</span>` +
+        `<span class="stat">&asymp; entropy <b>${(rolls.length*Math.log2(6)).toFixed(0)}</b> bits</span>` +
+        `<span class="stat">faces 1&ndash;6: <b>${counts.join(" / ")}</b></span>`
+      : "";
+    ready = rolls.length >= diceMin();
+    if (!ready && rolls.length) msg = (diceMin() - rolls.length) + " more rolls needed.";
+  }
+  $("goBtn").disabled = !ready;
+  $("inputMsg").textContent = msg;
+}
+
+function coinStats(statId, barId, raw, eff, vn){
+  const pct = Math.min(100, 100*eff.length/entLen);
+  $(barId).style.width = pct + "%";
+  if (!raw.length){ $(statId).innerHTML = ""; return; }
+  const heads = raw.filter(b=>b===1).length;
+  const hpct = (100*heads/raw.length).toFixed(1);
+  let biasNote = "";
+  if (raw.length >= 64){
+    const dev = Math.abs(heads/raw.length - .5);
+    if (dev > .15) biasNote = ` <span class="er">strong imbalance &mdash; check your coin/technique or enable debiasing</span>`;
+    else if (dev > .08) biasNote = ` <span class="wr">mild imbalance &mdash; consider debiasing</span>`;
+  }
+  $(statId).innerHTML =
+    `<span class="stat">flips <b>${raw.length}</b></span>` +
+    `<span class="stat">usable bits <b>${eff.length}</b> / ${entLen}${vn ? " (after debias)" : ""}</span>` +
+    `<span class="stat">heads <b>${hpct}%</b></span>` +
+    `<span class="stat">longest run <b>${longestRun(raw)}</b></span>` + biasNote;
+}
+
+/* ============================== Compute ============================== */
+function compute(){
+  let entropyBytes, sourceDesc, auditPre = "";
+  if (method === "coin"){
+    const vn = $("vnCheck").checked;
+    const mk = txt => { const r = parseCoin(txt); return (vn ? vonNeumann(r) : r).slice(0, entLen); };
+    let bits = mk($("coinIn").value);
+    sourceDesc = `${entLen} coin-flip bits` + (vn ? " (von Neumann debiased)" : "");
+    if ($("xorCheck").checked){
+      const b2 = mk($("coinIn2").value);
+      bits = bits.map((b,i) => b ^ b2[i]);
+      sourceDesc += ", XOR-mixed with a second series";
+    }
+    entropyBytes = bitsToBytes(bits);
+    auditPre = `<p><b>Entropy bits used (first ${entLen}):</b></p><pre>${fmtBits(bits, 8)}</pre>`;
+  } else {
+    const rolls = parseDice($("diceIn").value).join("");
+    const digest = SHA256([...rolls].map(c => c.charCodeAt(0)));
+    entropyBytes = digest.slice(0, entLen/8);
+    sourceDesc = `${rolls.length} dice rolls, SHA-256 conditioned (Coldcard-compatible)`;
+    auditPre = `<p><b>Roll string</b> (${rolls.length} rolls):</p><pre>${rolls.replace(/(.{50})/g,"$1\n")}</pre>
+      <p><b>SHA-256 of roll string:</b></p><pre>${bytesToHex(digest)}</pre>
+      <p class="muted">Entropy = first ${entLen/8} bytes of that digest.</p>`;
+  }
+  const r = entropyToMnemonic(entropyBytes);
+  renderResults(r, entropyBytes, sourceDesc, auditPre);
+}
+
+const fmtBits = (bits, group) => bits.map((b,i)=>((i%group===0&&i)?" ":"")+b).join("").replace(/(.{54})/g,"$1\n");
+
+function renderResults(r, entropyBytes, sourceDesc, auditPre){
+  const grid = $("wordGrid"); grid.innerHTML = "";
+  r.words.forEach((w,i)=>{
+    const d = document.createElement("div");
+    d.className = "word" + (i === r.words.length-1 ? " cksum" : "");
+    d.innerHTML = `<span class="n">${i+1}</span>${w}`;
+    grid.appendChild(d);
+  });
+  $("auditTrail").innerHTML = auditPre +
+    `<p><b>Source:</b> ${sourceDesc}</p>` +
+    `<p><b>Entropy (hex):</b></p><pre>${bytesToHex(entropyBytes)}</pre>` +
+    `<p><b>SHA-256 of entropy:</b></p><pre>${r.hashHex}</pre>` +
+    `<p><b>Checksum:</b> first ${r.csBits.length} bits of that hash = <code>${r.csBits.join("")}</code>, appended to the entropy; the combined ${r.entBits.length + r.csBits.length} bits split into ${r.indices.length} groups of 11.</p>`;
+  const tbl = $("derivTable");
+  tbl.innerHTML = "<tr><th>#</th><th>11 bits</th><th>index (0-based)</th><th>word</th></tr>" +
+    r.indices.map((idx,i)=>{
+      const all = r.entBits.concat(r.csBits);
+      const bits = all.slice(i*11,(i+1)*11).join("");
+      return `<tr><td>${i+1}</td><td>${bits}</td><td>${idx}</td><td>${r.words[i]}</td></tr>`;
+    }).join("");
+  verifyInstructions();
+  $("results").classList.remove("hide");
+  $("results").scrollIntoView({behavior:"smooth"});
+}
+
+function verifyInstructions(){
+  let html = `<p><b>Option A &mdash; Python (offline):</b> using the reference <code>mnemonic</code> package
+    (<code>pip download mnemonic</code> on another machine, move it over):</p>
+    <pre>python3 -c "from mnemonic import Mnemonic
+print(Mnemonic('english').to_mnemonic(bytes.fromhex('&lt;entropy hex above&gt;')))"</pre>
+    <p><b>Option B &mdash; Ian Coleman&rsquo;s BIP39 tool, run offline:</b> download <code>bip39-standalone.html</code> from its
+    GitHub releases, verify its hash, open it offline, choose &ldquo;Show entropy details&rdquo;, and paste your raw flips/rolls
+    or the entropy hex. The resulting mnemonic must match exactly.</p>`;
+  if (method === "dice"){
+    html += `<p><b>Option C &mdash; dice, one shell command:</b> the entropy is simply the SHA-256 of your roll string:</p>
+    <pre>echo -n "&lt;your rolls, digits only&gt;" | sha256sum</pre>
+    <p>The first ${entLen/8*2} hex characters must equal the entropy above. A Coldcard given the same rolls
+    (${entLen===256 ? "24-word mode" : "12-word mode"}) derives the same seed.</p>`;
+  } else {
+    html += `<p><b>Option C &mdash; by hand:</b> your flips <i>are</i> the entropy bits. Convert each 11-bit group to a number
+    and look the words up on a printed BIP-39 list &mdash; only the final checksum word needs a machine.</p>`;
+  }
+  $("verifyBlock").innerHTML = html;
+}
+
+/* ============================== Self-test ============================== */
+function selfTest(){
+  const failures = [];
+  for (const [hex, expected] of TEST_VECTORS){
+    const got = entropyToMnemonic(hexToBytes(hex)).words.join(" ");
+    if (got !== expected) failures.push(hex.slice(0,8));
+  }
+  const digest = bytesToHex(SHA256([...DICE_VECTOR[0]].map(c=>c.charCodeAt(0))));
+  if (digest !== DICE_VECTOR[1]) failures.push("dice-sha256");
+  const diceWords = entropyToMnemonic(hexToBytes(DICE_VECTOR[1])).words.join(" ");
+  if (diceWords !== DICE_VECTOR[2]) failures.push("dice-mnemonic");
+  if (WORDLIST.length !== 2048) failures.push("wordlist-length");
+  const wlDigest = bytesToHex(SHA256([...WORDLIST.join("\n")+"\n"].map(c=>c.charCodeAt(0))));
+  $("wlHash").textContent = wlDigest;
+  if (wlDigest !== "2f5eed53a4727b4bf8880d8f3f199efc90e58503646d9ff8eff3a2ed3b24dbda") failures.push("wordlist-hash");
+  const badge = $("selftestBadge");
+  if (failures.length === 0){
+    badge.className = "badge pass"; badge.textContent = "✓ self-test passed: " + TEST_VECTORS.length + " official BIP-39 vectors + dice vector + word-list hash";
+    $("selftestDetail").textContent = "all vectors OK";
+  } else {
+    badge.className = "badge fail"; badge.textContent = "✗ SELF-TEST FAILED — DO NOT USE THIS COPY";
+    $("selftestDetail").textContent = "failed: " + failures.join(", ");
+    $("goBtn").disabled = true;
+    $("goBtn").dataset.locked = "1";
+  }
+}
+
+/* ============================== Wiring ============================== */
+document.querySelectorAll("#lenSeg button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("#lenSeg button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); entLen = +b.dataset.len; $("results").classList.add("hide"); refresh();
+});
+document.querySelectorAll("#methodSeg button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("#methodSeg button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); method = b.dataset.m; $("results").classList.add("hide"); refresh();
+});
+["coinIn","coinIn2","diceIn"].forEach(id => $(id).addEventListener("input", refresh));
+["vnCheck","xorCheck"].forEach(id => $(id).addEventListener("change", refresh));
+$("goBtn").onclick = () => { if (!$("goBtn").dataset.locked) compute(); };
+$("clearBtn").onclick = () => {
+  ["coinIn","coinIn2","diceIn"].forEach(id => $(id).value = "");
+  $("results").classList.add("hide");
+  $("wordGrid").innerHTML = ""; $("auditTrail").innerHTML = ""; $("derivTable").innerHTML = "";
+  refresh();
+};
+if (navigator.onLine) $("onlineBadge").classList.remove("hide");
+window.addEventListener("online",  () => $("onlineBadge").classList.remove("hide"));
+window.addEventListener("offline", () => $("onlineBadge").classList.add("hide"));
+selfTest();
+refresh();
+</script>
+</body>
+</html>

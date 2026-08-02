@@ -42,5 +42,9 @@
     "label": "About",
     "href": "/about",
     "submenu": ["Mission", "History", "FAQs", "Governance", "Transparency", "Contact"]
+  },
+  {
+    "label": "Seed Tool",
+    "href": "/seed-tool"
   }
 ]

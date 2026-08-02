@@ -47,6 +47,8 @@ import ResearchPartnerships from './pages/ResearchPartnerships.jsx'
 import DeveloperRelations from './pages/DeveloperRelations.jsx'
 import AcademicPrograms from './pages/AcademicPrograms.jsx'
 import GrantOpportunities from './pages/GrantOpportunities.jsx'
+import SeedTool from './pages/SeedTool.jsx'
+import SeedToolGuide from './pages/SeedToolGuide.jsx'
 
 export default function App() {
   return (
@@ -101,6 +103,8 @@ export default function App() {
         <Route path="/collaborate/developer-relations" element={<DeveloperRelations />} />
         <Route path="/collaborate/academic-programs" element={<AcademicPrograms />} />
         <Route path="/collaborate/grant-opportunities" element={<GrantOpportunities />} />
+        <Route path="/seed-tool" element={<SeedTool />} />
+        <Route path="/seed-tool/guide" element={<SeedToolGuide />} />
       </Routes>
     </BrowserRouter>
   )
