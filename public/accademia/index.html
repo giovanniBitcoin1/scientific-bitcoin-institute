@@ -114,6 +114,8 @@ body{
 .ctab-live{color:var(--gold);border-bottom-color:var(--gold)}
 .ctab-pro{color:var(--violet)}
 .ctab-pro:hover{border-bottom-color:var(--violet)}
+.ctab-law{color:var(--green)}
+.ctab-law:hover{border-bottom-color:var(--green)}
 .ctab-soon{color:var(--lock);cursor:default;font-weight:500}
 .ctab-badge{font-size:9.5px;font-weight:700;letter-spacing:.06em;border:1px solid var(--violet);border-radius:5px;padding:1px 5px;margin-left:6px;vertical-align:1px}
 .ctab-note{font-size:10.5px;font-weight:500;margin-left:5px}
@@ -1569,7 +1571,7 @@ function CH(){ return LANG==='en' ? CHARTS_EN : CHARTS; }
 const TABS = [
   { state:'live', target:'#course1', label:{it:'Capire Bitcoin', en:'Understanding Bitcoin'} },
   { state:'pro',  target:'#premium', label:{it:'Power Law',      en:'Power Law'}, badge:'PRO' },
-  { state:'soon', label:{it:'Come funziona', en:'How it works'} },
+  { state:'law', href:'leggi-di-potenza/', label:{it:'Leggi di potenza', en:'Power Laws'} },
   { state:'soon', label:{it:'Energia',       en:'Energy'} },
   { state:'soon', label:{it:'Obiezioni',     en:'Objections'} }
 ];
@@ -1578,14 +1580,17 @@ function renderTabs(){
   if(!row) return;
   row.innerHTML = '';
   TABS.forEach(t=>{
-    const clickable = t.state==='live' || t.state==='pro';
+    const clickable = t.state==='live' || t.state==='pro' || t.state==='law';
     const el = document.createElement(clickable ? 'a' : 'span');
     el.className = 'ctab ctab-' + t.state;
     let html = t.label[LANG];
     if(t.badge) html += '<span class="ctab-badge">'+t.badge+'</span>';
+    if(t.state==='law') html += '<span class="ctab-badge" style="border-color:var(--green);color:var(--green)">'+(LANG==='it'?'NUOVO':'NEW')+'</span>';
     if(t.state==='soon') html += '<span class="ctab-note">\u00b7 '+(LANG==='it'?'in arrivo':'coming soon')+'</span>';
     el.innerHTML = html;
-    if(clickable){
+    if(t.state==='law'){
+      el.href = t.href;            // pagina separata: link normale
+    }else if(clickable){
       el.href = t.target;
       el.addEventListener('click', ev=>{
         ev.preventDefault();
