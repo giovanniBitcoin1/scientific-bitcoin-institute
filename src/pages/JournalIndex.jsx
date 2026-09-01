@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
+import EventGlobe from '../components/EventGlobe.jsx'
 import events from '../data/journalEvents.js'
 
 function parseIsoDate(iso) {
@@ -86,6 +87,11 @@ export default function JournalIndex() {
             A visual diary of the Institute's conferences and events — the summits, forums, and
             gatherings we have joined and those still ahead. In photos and video.
           </p>
+        </section>
+
+        {/* Interactive globe of the Institute's stops */}
+        <section className="max-w-6xl mx-auto mt-12 px-6">
+          <EventGlobe />
         </section>
 
         {/* Event grid */}
