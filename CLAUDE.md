@@ -123,6 +123,14 @@ supplementary list of stops in the engine, and a stop without a JSON file in
 `src/data/journal/` gets no pin. To put a place on the map, give it a Journal
 entry.
 
+Nothing under `public/` is fingerprinted by Vite, so the engine and its
+stylesheet would stay cached in browsers across deploys. `vite.config.js` hashes
+both files and exposes `__SBIG_JS_HASH__` / `__SBIG_CSS_HASH__`, which
+`EventGlobe.jsx` appends as `?v=` — automatic, so there is no version number to
+remember to bump, and the URL only moves when the file actually changes. The
+hashes are read when the config loads: **restart `npm run dev` after editing
+either file**.
+
 ### Checklist for a new event
 
 1. `src/data/journal/<slug>.json` with the full schema above — including

@@ -3,9 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import events from '../data/journalEvents.js'
 
 // Assets live in public/sbi-event-globe/ and are served from /sbi-event-globe/.
-const CSS_HREF = '/sbi-event-globe/sbi-event-globe.css'
+// Nothing under public/ gets a fingerprinted filename, so the engine and its
+// stylesheet carry a ?v= hash of their own contents, injected by vite.config.js,
+// to keep a stale copy from surviving a deploy. three.min.js is a pinned vendor
+// build that never changes, so it is left cacheable as-is.
+const CSS_HREF = `/sbi-event-globe/sbi-event-globe.css?v=${__SBIG_CSS_HASH__}`
 const THREE_SRC = '/sbi-event-globe/three.min.js'
-const ENGINE_SRC = '/sbi-event-globe/sbi-event-globe.js'
+const ENGINE_SRC = `/sbi-event-globe/sbi-event-globe.js?v=${__SBIG_JS_HASH__}`
 const TEXTURES_PATH = '/sbi-event-globe/textures/'
 
 // The pins are derived from the Event Journal, never hand-maintained: `events`
