@@ -2,6 +2,8 @@
   "slug": "lac-lugano",
   "status": "upcoming",
   "date": "2026-10-22",
+  "date_display_en": "October 22, 2026",
+  "date_display_it": "22 ottobre 2026",
   "location": "Lugano, Switzerland",
   "type": "Summit · Keynote",
   "cover_image": "/assets/journal/lac-lugano-cover.svg",

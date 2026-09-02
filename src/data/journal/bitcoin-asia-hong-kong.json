@@ -1,0 +1,50 @@
+{
+  "slug": "bitcoin-asia-hong-kong",
+  "status": "past",
+  "date": "2026-08-27",
+  "date_display_en": "August 27–28, 2026",
+  "date_display_it": "27–28 agosto 2026",
+  "location": "Hong Kong Convention and Exhibition Centre, Wan Chai, Hong Kong",
+  "type": "Conference",
+  "cover_image": "/assets/journal/bitcoin-asia-hong-kong/cover.jpg",
+  "title_en": "Bitcoin Asia 2026 — Hong Kong",
+  "title_it": "Bitcoin Asia 2026 — Hong Kong",
+  "summary_en": "Bitcoin Asia 2026 brought Asia's largest Bitcoin conference back to the Hong Kong Convention and Exhibition Centre on 27–28 August 2026. Organized by BTC Inc. and presented by Metaplanet, the two-day event gathered more than 10,000 attendees from over 125 countries and 150+ speakers, bridging the Eastern and Western Bitcoin ecosystems across institutional capital, policy, macro finance and open-source development. The Scientific Bitcoin Institute took the main stage with its Director, Giovanni Santostasi, together with co-author Stephen Perrenod, presenting \"The Bitcoin Power Law: Network Physics\" to an international audience — the model's first major conference appearance since the peer-reviewed publication of their paper.",
+  "summary_it": "Bitcoin Asia 2026 ha riportato la più grande conferenza Bitcoin d'Asia al Hong Kong Convention and Exhibition Centre il 27–28 agosto 2026. Organizzato da BTC Inc. e presentato da Metaplanet, l'evento di due giorni ha riunito oltre 10.000 partecipanti da più di 125 paesi e oltre 150 relatori, facendo da ponte tra gli ecosistemi Bitcoin d'Oriente e d'Occidente, tra capitale istituzionale, politiche pubbliche, macrofinanza e sviluppo open-source. Lo Scientific Bitcoin Institute è salito sul palco principale con il suo Direttore, Giovanni Santostasi, insieme al coautore Stephen Perrenod, presentando \"The Bitcoin Power Law: Network Physics\" a una platea internazionale — la prima grande conferenza dopo la pubblicazione peer-reviewed del paper sul modello.",
+  "highlights_en": [
+    "Giovanni Santostasi and Stephen Perrenod presented \"The Bitcoin Power Law: Network Physics\" on the main stage — the model's first major conference appearance since its peer-reviewed publication in June 2026.",
+    "Asia's largest Bitcoin event: more than 10,000 attendees from 125+ countries and over 150 speakers.",
+    "Giovanni Santostasi featured among the official speakers, alongside names such as Balaji Srinivasan and Simon Gerovich (Metaplanet).",
+    "A bridge between East and West: two days of programming on institutional capital, policy, macro finance and open-source development."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi e Stephen Perrenod hanno presentato sul palco principale \"The Bitcoin Power Law: Network Physics\" — la prima grande conferenza dopo la pubblicazione peer-reviewed del modello, a giugno 2026.",
+    "Il più grande evento Bitcoin d'Asia: oltre 10.000 partecipanti da più di 125 paesi e oltre 150 relatori.",
+    "Giovanni Santostasi tra gli speaker ufficiali, accanto a nomi come Balaji Srinivasan e Simon Gerovich (Metaplanet).",
+    "Un ponte tra Oriente e Occidente: due giorni di programma su capitale istituzionale, politiche pubbliche, macrofinanza e sviluppo open-source."
+  ],
+  "people_met": [],
+  "gallery": [
+    { "src": "/assets/journal/bitcoin-asia-hong-kong/01-venue-entrance.jpg", "alt_en": "Arriving at the Hong Kong Convention and Exhibition Centre", "alt_it": "L'arrivo al Hong Kong Convention and Exhibition Centre" },
+    { "src": "/assets/journal/bitcoin-asia-hong-kong/02-bitcoin-asia-banner.jpg", "alt_en": "Bitcoin Asia banners inside the venue", "alt_it": "Le insegne di Bitcoin Asia all'interno della sede" },
+    { "src": "/assets/journal/bitcoin-asia-hong-kong/03-hong-kong-wall.jpg", "alt_en": "Giovanni Santostasi in front of the Bitcoin Asia Hong Kong wall", "alt_it": "Giovanni Santostasi davanti al maxi-allestimento di Bitcoin Asia Hong Kong" },
+    { "src": "/assets/journal/bitcoin-asia-hong-kong/04-physics-of-bitcoin.jpg", "alt_en": "The Physics of Bitcoin in Hong Kong", "alt_it": "The Physics of Bitcoin a Hong Kong" },
+    { "src": "/assets/journal/bitcoin-asia-hong-kong/05-power-law-session.jpg", "alt_en": "The session screen: The Bitcoin Power Law — Network Physics", "alt_it": "Lo schermo della sessione: The Bitcoin Power Law — Network Physics" },
+    { "src": "/assets/journal/bitcoin-asia-hong-kong/06-backstage.jpg", "alt_en": "Backstage conversations", "alt_it": "Conversazioni dietro le quinte" },
+    { "src": "/assets/journal/bitcoin-asia-hong-kong/07-mascot.jpg", "alt_en": "With the Bitcoin Asia mascot", "alt_it": "Con la mascotte di Bitcoin Asia" }
+  ],
+  "videos": [
+    { "url": "https://youtu.be/-9QhW1O_Ofo", "title_en": "The talk on YouTube — Giovanni Santostasi & Stephen Perrenod at Bitcoin Asia 2026", "title_it": "L'intervento su YouTube — Giovanni Santostasi e Stephen Perrenod a Bitcoin Asia 2026" },
+    { "url": "/assets/journal/bitcoin-asia-hong-kong/videos/entrance-stage.mp4", "title_en": "Taking the stage", "title_it": "L'ingresso sul palco" },
+    { "url": "/assets/journal/bitcoin-asia-hong-kong/videos/power-law-talk.mp4", "title_en": "The Bitcoin Power Law: Network Physics — from the audience", "title_it": "The Bitcoin Power Law: Network Physics — dal pubblico" },
+    { "url": "/assets/journal/bitcoin-asia-hong-kong/videos/backstage.mp4", "title_en": "Backstage", "title_it": "Dietro le quinte" }
+  ],
+  "official_links": [
+    { "label": "Bitcoin Asia — official site", "url": "https://asia.b.tc/" },
+    { "label": "Bitcoin Asia — speakers", "url": "https://asia.b.tc/speakers" },
+    { "label": "Official clip on X", "url": "https://x.com/Bitcoinconfasia/status/2094526987805118726" },
+    { "label": "The talk on YouTube", "url": "https://youtu.be/-9QhW1O_Ofo" }
+  ],
+  "pull_quote_en": "A large audience fell silent when we showed our power law charts. — Giovanni Santostasi",
+  "pull_quote_it": "Un vasto pubblico è rimasto in silenzio quando abbiamo mostrato i grafici della power law. — Giovanni Santostasi"
+}

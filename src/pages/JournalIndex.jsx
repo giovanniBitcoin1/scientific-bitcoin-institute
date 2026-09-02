@@ -10,6 +10,8 @@ function parseIsoDate(iso) {
   return new Date(y, m - 1, d)
 }
 
+// The index is English-only (it renders title_en / summary_en), so dates here
+// always use date_display_en, falling back to an en-US auto-format.
 function formatLongDateUpper(iso) {
   return parseIsoDate(iso)
     .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -46,7 +48,7 @@ function EventCard({ event }) {
       </div>
       <div className="p-6">
         <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
-          {event.date_display || formatLongDateUpper(event.date)} &nbsp;·&nbsp; {event.location}
+          {event.date_display_en || formatLongDateUpper(event.date)} &nbsp;·&nbsp; {event.location}
         </p>
         <h2 className="font-serif text-2xl text-slate-900 leading-tight mt-2">{event.title_en}</h2>
         <p className="text-slate-600 text-sm mt-2 leading-relaxed">{event.summary_en}</p>

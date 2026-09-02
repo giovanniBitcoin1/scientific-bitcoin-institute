@@ -9,9 +9,17 @@ function parseIsoDate(iso) {
   return new Date(y, m - 1, d)
 }
 
-function formatLongDateUpper(iso) {
+const DATE_LOCALES = { en: 'en-US', it: 'it-IT' }
+
+// Fallback for events without date_display_en / date_display_it: auto-format
+// the ISO date in the locale of the active language toggle.
+function formatLongDateUpper(iso, lang) {
   return parseIsoDate(iso)
-    .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    .toLocaleDateString(DATE_LOCALES[lang] || DATE_LOCALES.en, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
     .toUpperCase()
 }
 
@@ -154,6 +162,9 @@ export default function JournalPost() {
   const summary = lang === 'en' ? event.summary_en : event.summary_it
   const highlights = lang === 'en' ? event.highlights_en : event.highlights_it
   const pullQuote = lang === 'en' ? event.pull_quote_en : event.pull_quote_it
+  const dateDisplay =
+    (lang === 'en' ? event.date_display_en : event.date_display_it) ||
+    formatLongDateUpper(event.date, lang)
   const isUpcoming = event.status === 'upcoming'
   const galleryImages = (event.gallery || []).map((g) => ({
     src: g.src,
@@ -194,7 +205,7 @@ export default function JournalPost() {
           {/* Title block */}
           <header className="mt-8">
             <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
-              {event.date_display || formatLongDateUpper(event.date)} &nbsp;·&nbsp; {event.location}
+              {dateDisplay} &nbsp;·&nbsp; {event.location}
               {event.type ? <> &nbsp;·&nbsp; {event.type}</> : null}
             </p>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight mt-3">

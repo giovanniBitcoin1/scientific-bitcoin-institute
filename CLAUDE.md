@@ -27,10 +27,10 @@ blog, essay collection, or academic article feed. There is no "author" byline
 and no long-form body text. Do not reintroduce the old "The Journal /
 essays / explainers" concept or the power-law articles.
 
-**Index** (`src/pages/JournalIndex.jsx`): a responsive grid of event cards,
-most-recent first. Each card = large 16:9 cover image, a `Past`/`Upcoming`
-badge, a mono eyebrow with date · location, the title, and a 1–2 line summary.
-No paragraphs, no author.
+**Index** (`src/pages/JournalIndex.jsx`): a responsive grid of event cards in
+a single ascending chronological timeline (see **Index order** below). Each card = large 16:9
+cover image, a `Past`/`Upcoming` badge, a mono eyebrow with date · location, the
+title, and a 1–2 line summary. No paragraphs, no author.
 
 **Detail** (`src/pages/JournalPost.jsx`, route `/news/journal/:slug`): large
 cover, title, date/location/type, short summary, highlights list, pull quote,
@@ -41,14 +41,33 @@ switches only the `*_en` / `*_it` fields.
 ### Data
 
 One JSON file per event in `src/data/journal/`. They are auto-loaded and
-sorted (newest first) by `src/data/journalEvents.js` via
+ordered by `src/data/journalEvents.js` via
 `import.meta.glob('./journal/*.json', { eager: true })`. Add an event by
 dropping a new JSON file — no wiring needed.
+
+### Index order
+
+`/news/journal` is **one single chronological timeline, ascending — oldest
+first, newest last — with no exceptions**. This is a diary: it reads front to
+back, like turning the pages in order. Implemented by the sort in
+`src/data/journalEvents.js`:
+
+```js
+.sort((a, b) => new Date(a.date) - new Date(b.date))
+```
+
+`status` does **not** affect ordering. Upcoming events are not pinned to the
+top and are not a separate block — they simply fall at the end because their
+dates are in the future, and the `Upcoming` badge is what marks them. Do not
+reintroduce "most-recent first", "newest first", or an "upcoming on top"
+grouping. The `date_display_*` fields are display strings only and never
+affect order.
 
 Event schema:
 
 ```
-slug, status ("past" | "upcoming"), date (ISO "YYYY-MM-DD"), location, type,
+slug, status ("past" | "upcoming"), date (ISO "YYYY-MM-DD"),
+date_display_en, date_display_it, location, type,
 cover_image, title_en, title_it, summary_en, summary_it,
 highlights_en[], highlights_it[], people_met[],
 gallery[] ({ src, alt_en, alt_it }),
@@ -60,5 +79,20 @@ videos[] — each item is either a plain URL string or an object
 official_links[] ({label, url}), pull_quote_en, pull_quote_it
 ```
 
-Images live in `public/assets/journal/` (placeholder SVGs for now). Current
-events: `san-marino` (past), `lac-lugano` (upcoming), `plan-b-forum` (upcoming).
+`date_display_en` / `date_display_it` are **required on every event** and carry
+the human-readable date shown in the card and detail eyebrows, replacing the
+date auto-formatted from `date`. Keep both in sync with the real span:
+
+- EN: `"June 5, 2026"`, multi-day `"August 27–28, 2026"` (en dash).
+- IT: `"5 giugno 2026"`, multi-day `"27–28 agosto 2026"` (en dash).
+
+The index is English-only, so it always renders `date_display_en`; the detail
+page follows the EN/IT toggle. Without them the date falls back to an
+auto-format in the active locale. Never use a single shared `date_display` —
+an Italian string then leaks into the English index. These are display strings
+only: `date` stays the ISO first day of the event and alone drives sort order.
+
+Images live in `public/assets/journal/`, one folder per event slug. Current
+events: `bitcoin-asia-hong-kong`, `franklin-university-lugano`, `btc-prague`,
+`bitcoin-corporate-day`, `cervia`, `san-marino` (all past), `lac-lugano` and
+`plan-b-forum` (upcoming).
