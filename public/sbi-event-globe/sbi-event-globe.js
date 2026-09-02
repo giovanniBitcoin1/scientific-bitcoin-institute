@@ -57,6 +57,11 @@ const TEX_CLOUDS = ASSET_PATH + "earth-clouds.png";
     // diventa "upcoming" (vuoto) solo se tutti i suoi eventi sono futuri.
     c.hasPast = c.events.some(e => e.status === "past");
     c.hasUpcoming = c.events.some(e => e.status === "upcoming");
+    // Numero mostrato nel pin: la PRIMA tappa di quella citta' sulla
+    // timeline del Journal (3 per Praga, 5 per Lugano). Il dettaglio dei
+    // singoli eventi, ciascuno col suo numero, sta nella scheda.
+    const nums = c.events.map(e => e.num).filter(n => n);
+    c.num = nums.length ? Math.min.apply(null, nums) : null;
   });
 
   // lat/lng -> punto 3D sulla sfera
@@ -147,6 +152,7 @@ const TEX_CLOUDS = ASSET_PATH + "earth-clouds.png";
   /* ---------- segnaposti (uno per gruppo di eventi) ---------- */
   const PIN = 0xf7931a; // colore dei segnaposti: cambia qui per provarne un altro (es. 0xe63946 = rosso)
 
+  // Cerchio col numero di tappa disegnato sopra la goccia del pin.
   function countSprite(n){
     const c = document.createElement("canvas");
     c.width = c.height = 64;
@@ -235,8 +241,8 @@ const TEX_CLOUDS = ASSET_PATH + "earth-clouds.png";
     }
 
     let cSprite = null;
-    if (cl.events.length > 1){
-      cSprite = countSprite(cl.events.length);
+    if (cl.num){
+      cSprite = countSprite(cl.num);
       pinGroup.add(cSprite.s);
     }
 
@@ -467,11 +473,13 @@ const TEX_CLOUDS = ASSET_PATH + "earth-clouds.png";
     b.className = "sbig-mpin" + (cl.hasPast ? "" : " sbig-mpin-future") + (cl.hasUpcoming ? " sbig-mpin-up" : "");
     b.style.left = ((cl.lng + 180) / 360 * 100) + "%";
     b.style.top  = ((90 - cl.lat) / 180 * 100) + "%";
-    b.setAttribute("aria-label", cl.label + " — " + cl.events.length + (cl.events.length > 1 ? " events" : " event"));
-    if (cl.events.length > 1){
+    b.setAttribute("aria-label",
+      (cl.num ? "Stop " + cl.num + ": " : "") + cl.label + " — " +
+      cl.events.length + (cl.events.length > 1 ? " events" : " event"));
+    if (cl.num){
       const n = document.createElement("span");
       n.className = "sbig-mcount";
-      n.textContent = cl.events.length;
+      n.textContent = cl.num;
       b.appendChild(n);
     }
     b.addEventListener("click", () => { if (mapMoved > 6) return; openCard(i); });
