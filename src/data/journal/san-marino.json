@@ -5,6 +5,11 @@
   "date_display_en": "May 27, 2026",
   "date_display_it": "27 maggio 2026",
   "location": "Welcome Hotel San Marino, Dogana (San Marino)",
+  "place": "San Marino",
+  "coords": {
+    "lat": 43.9356,
+    "lng": 12.4473
+  },
   "type": "Summit",
   "cover_image": "/assets/journal/san-marino/06-interview.jpg",
   "title_en": "Bitcoin Capital Summit — San Marino",
@@ -98,10 +103,22 @@
     }
   ],
   "official_links": [
-    { "label": "Carisp", "url": "https://www.carisp.sm/il-bitcoin-capital-summit-arriva-a-san-marino" },
-    { "label": "San Marino RTV (interviste)", "url": "https://www.sanmarinortv.sm/news/economia-c5/bitcoin-capital-summit-arriva-a-san-marino-in-collaborazione-con-cassa-di-risparmio-a291087" },
-    { "label": "San Marino RTV (evento)", "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/bitcoin-capital-summit-a-san-marino-e4859" },
-    { "label": "Instagram", "url": "https://www.instagram.com/p/DX_daJ1CBB0/" }
+    {
+      "label": "Carisp",
+      "url": "https://www.carisp.sm/il-bitcoin-capital-summit-arriva-a-san-marino"
+    },
+    {
+      "label": "San Marino RTV (interviste)",
+      "url": "https://www.sanmarinortv.sm/news/economia-c5/bitcoin-capital-summit-arriva-a-san-marino-in-collaborazione-con-cassa-di-risparmio-a291087"
+    },
+    {
+      "label": "San Marino RTV (evento)",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/bitcoin-capital-summit-a-san-marino-e4859"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/p/DX_daJ1CBB0/"
+    }
   ],
   "pull_quote_en": "We discovered that Bitcoin behaves like a natural system. — Giovanni Santostasi",
   "pull_quote_it": "Abbiamo scoperto che Bitcoin si comporta come un sistema naturale. — Giovanni Santostasi"

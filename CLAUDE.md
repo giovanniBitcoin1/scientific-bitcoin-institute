@@ -67,7 +67,7 @@ Event schema:
 
 ```
 slug, status ("past" | "upcoming"), date (ISO "YYYY-MM-DD"),
-date_display_en, date_display_it, location, type,
+date_display_en, date_display_it, location, place, coords {lat, lng}, type,
 cover_image, title_en, title_it, summary_en, summary_it,
 highlights_en[], highlights_it[], people_met[],
 gallery[] ({ src, alt_en, alt_it }),
@@ -91,6 +91,46 @@ page follows the EN/IT toggle. Without them the date falls back to an
 auto-format in the active locale. Never use a single shared `date_display` —
 an Italian string then leaks into the English index. These are display strings
 only: `date` stays the ISO first day of the event and alone drives sort order.
+
+### Event globe / map
+
+The "Follow us around the world" globe on `/news/journal` is **generated from
+these same JSON files — never hand-maintained**. `src/components/EventGlobe.jsx`
+reads `journalEvents.js` (the same `import.meta.glob` list the Journal pages
+use), numbers each stop by its position on the ascending timeline, and hands the
+result to the engine on `window.SBI_EVENTS`. The engine
+(`public/sbi-event-globe/sbi-event-globe.js`) is a plain script in `public/`, so
+it cannot import anything — that global is the only way data reaches it. Never
+add a stop to the engine's arrays by hand.
+
+Each pin is **one city**, grouped on the `place` field (not on a distance
+threshold, which merged genuinely different cities such as San Marino and
+Cervia). A city with several events shows them all in its popup, each with its
+own number and link. A pin is filled when the city has at least one `past`
+event and hollow when all of its events are upcoming, matching the legend.
+
+So **every new event needs `place` and `coords`**, or it gets no pin:
+
+- `place` — short city name, also the popup heading and the grouping key
+  (`"Lugano"`, `"Prague"`). Not derivable from `location`, whose format varies.
+- `coords` — `{"lat": 46.0021, "lng": 8.9440}`, the venue's real position.
+
+The globe's chrome is English-only (no EN/IT toggle), so popups use
+`date_display_en` and `title_en`.
+
+The map derives from the Journal **100%, with no exceptions**: there is no
+supplementary list of stops in the engine, and a stop without a JSON file in
+`src/data/journal/` gets no pin. To put a place on the map, give it a Journal
+entry.
+
+### Checklist for a new event
+
+1. `src/data/journal/<slug>.json` with the full schema above — including
+   `date_display_en` / `date_display_it`, `place` and `coords`.
+2. Assets in `public/assets/journal/<slug>/` (cover plus gallery and videos),
+   or a placeholder SVG cover in `public/assets/journal/`.
+3. Nothing else to wire: the index card, the detail route and the globe pin all
+   appear on their own.
 
 Images live in `public/assets/journal/`, one folder per event slug. Current
 events: `bitcoin-asia-hong-kong`, `franklin-university-lugano`, `btc-prague`,

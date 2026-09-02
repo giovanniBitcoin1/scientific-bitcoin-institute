@@ -72,6 +72,13 @@
   #sbi-event-globe .sbig-row:first-of-type{border-top:0;padding-top:0}
   #sbi-event-globe .sbig-rmeta{margin:0 0 3px;font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--sbig-orange-deep)}
   #sbi-event-globe .sbig-rtitle{margin:0 0 7px;font-size:.94rem;font-weight:650;line-height:1.35}
+  /* numero della tappa: posizione nella timeline cronologica del Journal */
+  #sbi-event-globe .sbig-num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:20px;height:20px;margin:0 8px 4px 0;vertical-align:middle;
+    border-radius:50%;background:var(--sbig-orange-deep);color:#fff;
+    font-size:.66rem;font-weight:700;line-height:1;
+  }
   #sbi-event-globe .sbig-pill{
     display:inline-block;margin:0 8px 4px 0;padding:2px 9px;
     border-radius:999px;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;

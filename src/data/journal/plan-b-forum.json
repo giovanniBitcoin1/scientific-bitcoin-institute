@@ -5,12 +5,17 @@
   "date_display_en": "October 23–24, 2026",
   "date_display_it": "23–24 ottobre 2026",
   "location": "Lugano, Switzerland",
+  "place": "Lugano",
+  "coords": {
+    "lat": 46.0047,
+    "lng": 8.956
+  },
   "type": "Forum · Session",
   "cover_image": "/assets/journal/plan-b-forum-cover.svg",
   "title_en": "Plan ₿ Forum",
   "title_it": "Plan ₿ Forum",
-  "summary_en": "The Institute joins the Plan ₿ Forum, the major annual gathering of the European Bitcoin community, with a dedicated session.",
-  "summary_it": "L'Istituto partecipa al Plan ₿ Forum, il principale raduno annuale della comunità Bitcoin europea, con una sessione dedicata.",
+  "summary_en": "The Institute joins the Plan ₿ Forum, the major annual gathering of the European Bitcoin community, with a dedicated session. The fifth edition returns to the Palazzo dei Congressi in Lugano on 23–24 October 2026, organized by the City of Lugano and Tether, with speakers including Paolo Ardoino, Elizabeth Stark, Adam Back and Saifedean Ammous.",
+  "summary_it": "L'Istituto partecipa al Plan ₿ Forum, il grande appuntamento annuale della comunità Bitcoin europea, con una sessione dedicata. La quinta edizione torna al Palazzo dei Congressi di Lugano il 23–24 ottobre 2026, organizzata dalla Città di Lugano e da Tether, con relatori come Paolo Ardoino, Elizabeth Stark, Adam Back e Saifedean Ammous.",
   "highlights_en": [
     "Two-day forum on 23–24 October 2026",
     "Session led by Giovanni Santostasi on a side stage",
@@ -27,7 +32,18 @@
   "gallery": [],
   "videos": [],
   "official_links": [
-    { "label": "Plan ₿ Forum", "url": "https://www.planb.lugano.ch" }
+    {
+      "label": "Plan ₿ Forum",
+      "url": "https://www.planb.lugano.ch"
+    },
+    {
+      "label": "Plan ₿ Forum — official site",
+      "url": "https://planb.lugano.ch/planb-forum/"
+    },
+    {
+      "label": "Plan ₿ Forum — speakers 2026",
+      "url": "https://planb.lugano.ch/planb-forum/speakers2026/"
+    }
   ],
   "pull_quote_en": "Lugano has become one of Europe's great laboratories for sound money.",
   "pull_quote_it": "Lugano è diventata uno dei grandi laboratori europei per la moneta sana."

@@ -1,10 +1,35 @@
 import { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import events from '../data/journalEvents.js'
 
 // Assets live in public/sbi-event-globe/ and are served from /sbi-event-globe/.
 const CSS_HREF = '/sbi-event-globe/sbi-event-globe.css'
 const THREE_SRC = '/sbi-event-globe/three.min.js'
 const ENGINE_SRC = '/sbi-event-globe/sbi-event-globe.js'
 const TEXTURES_PATH = '/sbi-event-globe/textures/'
+
+// The pins are derived from the Event Journal, never hand-maintained: `events`
+// is the same import.meta.glob list the Journal index and detail pages use, in
+// the same ascending chronological order, so a stop's number here is its
+// position on that timeline. The engine is a plain <script> in public/ and so
+// cannot import anything — it reads this off window.SBI_EVENTS instead.
+// The globe's chrome is English-only (no EN/IT toggle), so dates use
+// date_display_en.
+function journalStops() {
+  return events
+    .filter((e) => e.coords)
+    .map((e, i) => ({
+      num: i + 1,
+      status: e.status,
+      title: e.title_en,
+      place: e.place || e.location,
+      venue: e.location,
+      date: e.date_display_en || e.date,
+      lat: e.coords.lat,
+      lng: e.coords.lng,
+      url: `/news/journal/${e.slug}`,
+    }))
+}
 
 // Markup from the sbi-event-globe package (snippet.html), minus its <link>/<script>
 // tags — those are injected below, because React does not execute <script> in JSX.
@@ -83,10 +108,15 @@ function boot() {
 
 export default function EventGlobe() {
   const hostRef = useRef(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const host = hostRef.current
     if (!host) return undefined
+
+    // Hand the engine its data before it can run. Set on every mount so a
+    // parked globe that is re-shown still matches the current Journal.
+    window.SBI_EVENTS = journalStops()
 
     if (!document.querySelector(`link[data-sbig-css="true"]`)) {
       const link = document.createElement('link')
@@ -102,6 +132,23 @@ export default function EventGlobe() {
       stage = tpl.firstElementChild
     }
     host.appendChild(stage)
+
+    // The engine renders "View event →" as a real <a href="/news/journal/…">, so
+    // it still works without JS and honours middle- and modifier-click. Plain
+    // left-clicks are routed through React Router instead, which avoids a full
+    // reload — on GitHub Pages a hard navigation detours through 404.html.
+    const onClick = (e) => {
+      const a = e.target.closest('a.sbig-view')
+      if (!a) return
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+        return
+      }
+      const href = a.getAttribute('href')
+      if (!href || !href.startsWith('/')) return
+      e.preventDefault()
+      navigate(href)
+    }
+    stage.addEventListener('click', onClick)
 
     // three.js plus the engine and its textures are ~2 MB, so they are fetched
     // only once the block is about to come into view. The markup above is mounted
@@ -129,9 +176,12 @@ export default function EventGlobe() {
     // Park the globe instead of destroying it, so it survives navigation.
     return () => {
       if (observer) observer.disconnect()
-      if (stage) park().appendChild(stage)
+      if (stage) {
+        stage.removeEventListener('click', onClick)
+        park().appendChild(stage)
+      }
     }
-  }, [])
+  }, [navigate])
 
   return <div ref={hostRef} />
 }

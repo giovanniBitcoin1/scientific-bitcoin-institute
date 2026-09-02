@@ -5,6 +5,11 @@
   "date_display_en": "June 10, 2026",
   "date_display_it": "10 giugno 2026",
   "location": "Lobkowicz Palace, Prague Castle, Czech Republic",
+  "place": "Prague",
+  "coords": {
+    "lat": 50.0912,
+    "lng": 14.4046
+  },
   "type": "Conference",
   "cover_image": "/assets/journal/bitcoin-corporate-day/cover-santostasi-staircase.jpg",
   "title_en": "Bitcoin Corporate Day — Lobkowicz Palace, Prague",
@@ -84,8 +89,14 @@
     }
   ],
   "official_links": [
-    { "label": "Bitcoin Corporate Day", "url": "https://www.bitcoincorporateday.com/" },
-    { "label": "BTC Prague (organiser)", "url": "https://btcprague.com/" }
+    {
+      "label": "Bitcoin Corporate Day",
+      "url": "https://www.bitcoincorporateday.com/"
+    },
+    {
+      "label": "BTC Prague (organiser)",
+      "url": "https://btcprague.com/"
+    }
   ],
   "pull_quote_plain": true,
   "pull_quote_en": "Bitcoin's long-term trajectory as a measurable, falsifiable phenomenon — not speculation.",

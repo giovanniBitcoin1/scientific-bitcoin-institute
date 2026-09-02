@@ -1,33 +1,22 @@
 /* SBI Event Globe — motore del globo interattivo (three.js r128).
-   Gli eventi si modificano nell'array EVENTS qui sotto. */
+   I pin arrivano dall'Event Journal via window.SBI_EVENTS: vedi il blocco
+   EVENTI qui sotto. Non aggiungere tappe a mano in questo file. */
 "use strict";
 (function(){
 /* ================================================================
-   EVENTI — per ogni voce:
-   - status : "past" oppure "upcoming"
-   - place  : nome breve del luogo (serve anche a raggruppare i pin)
-   - lat/lng: coordinate (bastano 2 decimali)
-   - url    : INCOLLA QUI il link reale del post ("View event")
-   Gli eventi nello stesso posto vengono raggruppati in un unico
-   segnaposto con il contatore; la scheda li elenca tutti.
+   EVENTI — NON si modificano piu' qui.
+   I pin sono generati automaticamente dai JSON dell'Event Journal
+   (src/data/journal/*.json): EventGlobe.jsx li legge con lo stesso
+   import.meta.glob delle pagine del Journal, li ordina nella stessa
+   timeline cronologica crescente dell'indice, numera le tappe e
+   passa il risultato qui in window.SBI_EVENTS.
+   Per aggiungere una tappa basta quindi aggiungere l'evento al
+   Journal con i campi "coords" e "place".
+   Ogni voce ha: num, status, title, place, venue, date, lat, lng, url.
+   Non ci sono eccezioni: una tappa senza un JSON nel Journal non ha
+   un pin. Niente elenchi di tappe scritti a mano in questo file.
    ================================================================ */
-const EVENTS = [
-  { status:"past", title:"Bitcoin Capital Summit — San Salvador", place:"San Salvador", venue:"San Salvador", country:"El Salvador", date:"January 29, 2026", lat:13.69, lng:-89.19, url:"#" },
-  { status:"past", title:"Bitcoin Capital Summit — San Marino", place:"San Marino", venue:"Welcome Hotel, Dogana", country:"San Marino", date:"May 27, 2026", lat:43.98, lng:12.49, url:"/news/journal/san-marino" },
-  { status:"past", title:"Plan B Waves — Cervia", place:"Cervia", venue:"Darsena del Sale", country:"Italy", date:"June 5, 2026", lat:44.26, lng:12.35, url:"/news/journal/cervia" },
-  { status:"past", title:"Bitcoin Corporate Day — Lobkowicz Palace", place:"Prague", venue:"Lobkowicz Palace, Prague Castle", country:"Czech Republic", date:"June 10, 2026", lat:50.09, lng:14.40, url:"/news/journal/bitcoin-corporate-day" },
-  { status:"past", title:"BTC Prague 2026 — PVA Expo Praha", place:"Prague", venue:"PVA Expo Praha", country:"Czech Republic", date:"June 11–13, 2026", lat:50.13, lng:14.51, url:"/news/journal/btc-prague" },
-  { status:"past", title:"Plan ₿ Summer School — Franklin University", place:"Lugano", venue:"Franklin University Switzerland, Sorengo", country:"Switzerland", date:"June 22, 2026", lat:46.00, lng:8.94, url:"/news/journal/franklin-university-lugano" },
-  { status:"past", title:"Bitcoin Asia 2026", place:"Hong Kong", venue:"Hong Kong Convention and Exhibition Centre", country:"Hong Kong", date:"August 27–28, 2026", lat:22.28, lng:114.17, url:"#" },
-  { status:"upcoming", title:"Bitcoin Capital Summit at LAC", place:"Lugano", venue:"LAC", country:"Switzerland", date:"October 22, 2026", lat:46.00, lng:8.95, url:"/news/journal/lac-lugano" },
-  { status:"upcoming", title:"Plan ₿ Forum", place:"Lugano", venue:"Lugano", country:"Switzerland", date:"October 23, 2026", lat:46.00, lng:8.95, url:"/news/journal/plan-b-forum" }
-
-  /* Tappe precedenti citate nel journal: togli i commenti e completa
-     data + url quando vuoi mostrarle.
-  ,{ status:"past", title:"Bitcoin Capital Summit — Turin", place:"Turin", venue:"", country:"Italy", date:"", lat:45.07, lng:7.69, url:"" }
-  */
-];
-
+const EVENTS = Array.isArray(window.SBI_EVENTS) ? window.SBI_EVENTS : [];
 /* Percorso delle texture: di default in /sbi-event-globe/textures/.
    Si puo' cambiare qui oppure dal tag script:
    <script src="sbi-event-globe.js" data-assets="/altro/percorso/"></script> */
@@ -48,18 +37,24 @@ const TEX_CLOUDS = ASSET_PATH + "earth-clouds.png";
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-  /* ---- raggruppa gli eventi vicini in un unico segnaposto ---- */
+  /* ---- un segnaposto per citta' ----
+     Si raggruppa sul campo "place" dell'evento, non sulla distanza: due
+     eventi finiscono nello stesso pin solo se sono davvero nella stessa
+     citta' (i 3 di Lugano, i 2 di Praga). Una soglia in gradi univa invece
+     citta' diverse ma vicine, per esempio San Marino e Cervia.
+     Il pin si posiziona sulla media delle sedi di quella citta'. */
   const clusters = [];
   EVENTS.forEach(ev => {
-    let c = clusters.find(c =>
-      Math.hypot(c.lat - ev.lat, (c.lng - ev.lng) * Math.cos(ev.lat * Math.PI / 180)) < 0.8);
-    if (!c){ c = { lat: ev.lat, lng: ev.lng, events: [] }; clusters.push(c); }
+    const key = (ev.place || ev.title || "").trim().toLowerCase();
+    let c = clusters.find(c => c.key === key);
+    if (!c){ c = { key: key, label: ev.place || ev.title, lat: ev.lat, lng: ev.lng, events: [] }; clusters.push(c); }
     c.events.push(ev);
     c.lat = c.events.reduce((s, e) => s + e.lat, 0) / c.events.length;
     c.lng = c.events.reduce((s, e) => s + e.lng, 0) / c.events.length;
   });
   clusters.forEach(c => {
-    c.label = [...new Set(c.events.map(e => e.place))].join(" & ");
+    // Una citta' con almeno una tappa gia' fatta resta un pin "past";
+    // diventa "upcoming" (vuoto) solo se tutti i suoi eventi sono futuri.
     c.hasPast = c.events.some(e => e.status === "past");
     c.hasUpcoming = c.events.some(e => e.status === "upcoming");
   });
@@ -563,8 +558,16 @@ const TEX_CLOUDS = ASSET_PATH + "earth-clouds.png";
     const cl = clusters[i];
     cardPlace.textContent = cl.label;
     cardRows.textContent = "";
-    cl.events.forEach(ev => {
+    // Gli eventi di una stessa citta' sono elencati nell'ordine della
+    // timeline del Journal; le tappe senza pagina non hanno numero ne' link.
+    cl.events.slice().sort((a, b) => (a.num || 99) - (b.num || 99)).forEach(ev => {
       const row = document.createElement("div"); row.className = "sbig-row";
+      if (ev.num){
+        const num = document.createElement("span");
+        num.className = "sbig-num";
+        num.textContent = ev.num;
+        row.appendChild(num);
+      }
       const pill = document.createElement("span");
       pill.className = "sbig-pill " + (ev.status === "past" ? "sbig-pill-past" : "sbig-pill-next");
       pill.textContent = ev.status === "past" ? "Past" : "Upcoming";
@@ -573,10 +576,9 @@ const TEX_CLOUDS = ASSET_PATH + "earth-clouds.png";
       const title = document.createElement("p"); title.className = "sbig-rtitle";
       title.textContent = ev.title;
       row.append(pill, meta, title);
-      if (ev.url && ev.url !== "#"){
+      if (ev.url){
         const a = document.createElement("a");
         a.className = "sbig-view"; a.href = ev.url;
-        a.target = "_blank"; a.rel = "noopener";
         a.textContent = "View event →";
         row.appendChild(a);
       }

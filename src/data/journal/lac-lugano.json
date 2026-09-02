@@ -5,6 +5,11 @@
   "date_display_en": "October 22, 2026",
   "date_display_it": "22 ottobre 2026",
   "location": "Lugano, Switzerland",
+  "place": "Lugano",
+  "coords": {
+    "lat": 46.0021,
+    "lng": 8.944
+  },
   "type": "Summit · Keynote",
   "cover_image": "/assets/journal/lac-lugano-cover.svg",
   "title_en": "Bitcoin Capital Summit at LAC",
@@ -27,8 +32,14 @@
   "gallery": [],
   "videos": [],
   "official_links": [
-    { "label": "LAC Lugano", "url": "https://www.luganolac.ch" },
-    { "label": "Bitfinex", "url": "https://www.bitfinex.com" }
+    {
+      "label": "LAC Lugano",
+      "url": "https://www.luganolac.ch"
+    },
+    {
+      "label": "Bitfinex",
+      "url": "https://www.bitfinex.com"
+    }
   ],
   "pull_quote_en": "We bring the rigor of physics to the most important monetary network of our time.",
   "pull_quote_it": "Portiamo il rigore della fisica nella più importante rete monetaria del nostro tempo."

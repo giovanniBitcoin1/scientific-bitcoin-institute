@@ -5,6 +5,11 @@
   "date_display_en": "June 11–13, 2026",
   "date_display_it": "11–13 giugno 2026",
   "location": "PVA Expo Praha, Prague, Czech Republic",
+  "place": "Prague",
+  "coords": {
+    "lat": 50.1266,
+    "lng": 14.5163
+  },
   "type": "Conference",
   "cover_image": "/assets/journal/btc-prague/cover-santostasi-screen.jpg",
   "title_en": "BTC Prague 2026 — PVA Expo Praha",
@@ -103,8 +108,14 @@
     }
   ],
   "official_links": [
-    { "label": "BTC Prague", "url": "https://btcprague.com/" },
-    { "label": "Intervista The Block (YouTube)", "url": "https://www.youtube.com/watch?v=bULfrYP01yA" }
+    {
+      "label": "BTC Prague",
+      "url": "https://btcprague.com/"
+    },
+    {
+      "label": "Intervista The Block (YouTube)",
+      "url": "https://www.youtube.com/watch?v=bULfrYP01yA"
+    }
   ],
   "pull_quote_plain": true,
   "pull_quote_en": "Bitcoin follows a power law — the same mathematics behind city growth and network phenomena in nature.",
