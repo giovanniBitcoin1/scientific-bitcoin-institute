@@ -1,0 +1,90 @@
+{
+  "slug": "blockchain-beach-pescara",
+  "status": "past",
+  "date": "2026-09-18",
+  "date_display_en": "September 18–19, 2026",
+  "date_display_it": "18–19 settembre 2026",
+  "location": "Università degli Studi \"G. d'Annunzio\", Viale Pindaro 42, Pescara",
+  "place": "Pescara",
+  "coords": {
+    "lat": 42.4519116,
+    "lng": 14.2260352
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/blockchain-beach-pescara/cover.jpg",
+  "title_en": "Blockchain Beach 2026 — Pescara",
+  "title_it": "Blockchain Beach 2026 — Pescara",
+  "summary_en": "Blockchain Beach 2026 brought two days of blockchain, Web3 and artificial intelligence to the Università \"G. d'Annunzio\" in Pescara on 18–19 September 2026. Organized by Officina DeFi, the fifth edition of the event was the second hosted inside a university and the first within a European project that will also take the format to Cyprus and Spain. On the opening afternoon, the Scientific Bitcoin Institute was on stage twice: its Director, Giovanni Santostasi, presented the talk “The Bitcoin Power Law: Bitcoin as a complex system, beyond the narratives”, and later joined the closing panel of the day alongside Luca Boiardi, Marco Costanza, Matteo Pesaresi and Riccardo Carnevale.",
+  "summary_it": "La Blockchain Beach 2026 ha portato due giornate di blockchain, Web3 e intelligenza artificiale all'Università \"G. d'Annunzio\" di Pescara, il 18 e 19 settembre 2026. Organizzata da Officina DeFi, la quinta edizione dell'evento è stata la seconda ospitata all'interno di un ateneo e la prima nell'ambito di un progetto europeo che porterà il format anche a Cipro e in Spagna. Nel pomeriggio di apertura lo Scientific Bitcoin Institute è salito sul palco due volte: il suo Direttore, Giovanni Santostasi, ha presentato il talk “La Bitcoin Power Law: Bitcoin come sistema complesso, oltre le narrative” e ha poi preso parte al panel conclusivo della giornata insieme a Luca Boiardi, Marco Costanza, Matteo Pesaresi e Riccardo Carnevale.",
+  "highlights_en": [
+    "Giovanni Santostasi presented “The Bitcoin Power Law: Bitcoin as a complex system, beyond the narratives” on Friday 18 September at 15:00.",
+    "At 17:30 he joined the closing panel of Day 1 with Luca Boiardi, Marco Costanza, Matteo Pesaresi and Riccardo Carnevale.",
+    "The fifth edition of Blockchain Beach: the second inside a university and the first within a European project reaching Cyprus and Spain.",
+    "Two days of talks and panels on blockchain, Web3 and AI, with digital art, networking and evening meetups by the sea."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi ha presentato “La Bitcoin Power Law: Bitcoin come sistema complesso, oltre le narrative” venerdì 18 settembre alle 15:00.",
+    "Alle 17:30 ha preso parte al panel conclusivo della prima giornata con Luca Boiardi, Marco Costanza, Matteo Pesaresi e Riccardo Carnevale.",
+    "La quinta edizione della Blockchain Beach: la seconda in un ateneo e la prima nell'ambito di un progetto europeo che toccherà Cipro e Spagna.",
+    "Due giornate di talk e panel su blockchain, Web3 e AI, con arte digitale, networking e incontri serali sul mare."
+  ],
+  "people_met": [],
+  "gallery": [
+    {
+      "src": "/assets/journal/blockchain-beach-pescara/01-talk-on-stage.jpg",
+      "alt_en": "Giovanni Santostasi presents the Bitcoin Power Law, with the Scientific Bitcoin Institute website on screen",
+      "alt_it": "Giovanni Santostasi presenta la Bitcoin Power Law, con il sito dello Scientific Bitcoin Institute sullo schermo"
+    },
+    {
+      "src": "/assets/journal/blockchain-beach-pescara/02-explaining.jpg",
+      "alt_en": "Bitcoin as a complex system, beyond the narratives",
+      "alt_it": "Bitcoin come sistema complesso, oltre le narrative"
+    },
+    {
+      "src": "/assets/journal/blockchain-beach-pescara/03-sbi-homepage.jpg",
+      "alt_en": "The Scientific Bitcoin Institute homepage projected in the lecture hall",
+      "alt_it": "La homepage dello Scientific Bitcoin Institute proiettata in aula"
+    },
+    {
+      "src": "/assets/journal/blockchain-beach-pescara/04-lecture-hall.jpg",
+      "alt_en": "The lecture hall of the Università G. d'Annunzio during the talk",
+      "alt_it": "L'aula dell'Università G. d'Annunzio durante il talk"
+    },
+    {
+      "src": "/assets/journal/blockchain-beach-pescara/05-addressing-audience.jpg",
+      "alt_en": "Giovanni Santostasi addressing the audience",
+      "alt_it": "Giovanni Santostasi si rivolge al pubblico"
+    },
+    {
+      "src": "/assets/journal/blockchain-beach-pescara/06-panel-announcement.jpg",
+      "alt_en": "The 17:30 panel with Giovanni Santostasi announced on screen",
+      "alt_it": "Il panel delle 17:30 con Giovanni Santostasi annunciato sullo schermo"
+    }
+  ],
+  "videos": [
+    {
+      "url": "/assets/journal/blockchain-beach-pescara/audience.mp4",
+      "poster": "/assets/journal/blockchain-beach-pescara/audience-poster.jpg",
+      "title_en": "The audience during the talk",
+      "title_it": "Il pubblico durante il talk"
+    },
+    {
+      "url": "/assets/journal/blockchain-beach-pescara/interview.mp4",
+      "poster": "/assets/journal/blockchain-beach-pescara/interview-poster.jpg",
+      "title_en": "Giovanni Santostasi at Blockchain Beach 2026",
+      "title_it": "Giovanni Santostasi alla Blockchain Beach 2026"
+    }
+  ],
+  "official_links": [
+    {
+      "label": "Blockchain Beach 2026 — official page (Officina DeFi)",
+      "url": "https://www.officinadefi.com/blockchain-beach-2026/"
+    },
+    {
+      "label": "Event page on Eventbrite",
+      "url": "https://www.eventbrite.it/e/blockchain-beach-2026-tickets-1990348610272"
+    }
+  ],
+  "pull_quote_en": "The purpose of the Institute is to study Bitcoin as a complex system, with a scientific approach. — Giovanni Santostasi",
+  "pull_quote_it": "Lo scopo dell'Istituto è studiare Bitcoin come un sistema complesso, con un approccio scientifico. — Giovanni Santostasi"
+}

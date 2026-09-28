@@ -292,8 +292,9 @@ export default function JournalPost() {
               <div className="mt-4 space-y-8">
                 {event.videos.map((item, i) => {
                   // A video may be a plain URL string or an object with a url
-                  // plus localized titles.
+                  // plus localized titles and an optional poster image.
                   const url = typeof item === 'string' ? item : item.url
+                  const poster = typeof item === 'string' ? null : item.poster
                   const title =
                     typeof item === 'string'
                       ? null
@@ -304,7 +305,13 @@ export default function JournalPost() {
                   let player = null
                   if (isVideoFile(url)) {
                     player = (
-                      <video className="w-full h-full" src={url} controls preload="metadata">
+                      <video
+                        className="w-full h-full"
+                        src={url}
+                        poster={poster || undefined}
+                        controls
+                        preload="metadata"
+                      >
                         {lang === 'en'
                           ? 'Your browser does not support the video tag.'
                           : 'Il tuo browser non supporta il tag video.'}

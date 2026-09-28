@@ -72,7 +72,9 @@ cover_image, title_en, title_it, summary_en, summary_it,
 highlights_en[], highlights_it[], people_met[],
 gallery[] ({ src, alt_en, alt_it }),
 videos[] — each item is either a plain URL string or an object
-  { url, title_en, title_it } (the localized title is shown as a caption).
+  { url, title_en, title_it, poster } (the localized title is shown as a
+  caption; `poster` is optional — a still shown before playback, ignored for
+  YouTube embeds and omitted entirely when the field is absent).
   URLs may be YouTube (watch, youtu.be short links, or embed — the id is
   extracted and embedded as a responsive iframe) or local file paths like
   /assets/.../clip.mp4 (.mp4/.webm/.ogg/.mov rendered with a <video controls> tag),
