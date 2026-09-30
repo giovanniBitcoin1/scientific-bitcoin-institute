@@ -29,31 +29,32 @@ function ScrollToHash() {
 
 const events = [
   {
-    id: 'san-marino-2026',
-    date: 'May 26–27, 2026',
-    title: 'San Marino Bitcoin Capital Summit',
-    location: 'San Marino',
+    id: 'bitcoin-poland-2026',
+    date: 'October 5–6, 2026',
+    title: 'Bitcoin Poland Conference 2026',
+    location: 'Poznań Congress Center, ul. Głogowska 14, Poznań, Poland',
     description: (
       <>
-        The Scientific Bitcoin Institute's Director, Giovanni Santostasi, will deliver a 30-minute keynote address at
-        the San Marino Bitcoin Capital Summit, organized in cooperation with CARISP (Cassa di Risparmio della
-        Repubblica di San Marino). The event brings together approximately 100 attendees from family offices and the
-        broader Bitcoin community.
+        The first major international conference in Poland dedicated entirely to Bitcoin, bringing together experts,
+        entrepreneurs, investors and builders from Poland and abroad. Director Giovanni Santostasi is among the
+        announced speakers. The event runs alongside Invest Cuffs Poznań, with a single ticket granting access to
+        both conferences.
       </>
     ),
-    role: 'Keynote address by Giovanni Santostasi',
+    role: 'Giovanni Santostasi among the announced speakers',
   },
   {
     id: 'lac-lugano-2026',
     date: 'October 22, 2026',
-    title: 'Bitcoin Capital Summit at LAC',
-    location: 'Lugano, Switzerland',
+    title: 'The Future of Capital Markets',
+    location: 'LAC Lugano Arte e Cultura, Piazza Bernardino Luini 6, Lugano',
     description: (
       <>
-        Held at the LAC (Lugano Arte e Cultura) in collaboration with Bitfinex, the Bitcoin Capital Summit will gather
-        approximately 400 attendees for a full-day conference. Director Giovanni Santostasi will deliver a 20-minute
-        keynote and will be present at a dedicated Institute space throughout the event for discussion and book
-        signing of <em>The Physics of Bitcoin</em>.
+        An invitation-only, full-day event at the LAC (Lugano Arte e Cultura), organized by Bitfinex Securities
+        together with Blockstream Capital Partners as part of Lugano's Plan ₿ Week (19–28 October 2026), gathering
+        approximately 400 attendees. Director Giovanni Santostasi will deliver a 20-minute keynote and will be
+        present at a dedicated Institute space throughout the event for discussion and book signing of{' '}
+        <em>The Physics of Bitcoin</em>.
       </>
     ),
     role: 'Keynote address and Institute presence by Giovanni Santostasi',
@@ -144,7 +145,7 @@ export default function Conferences() {
             <p className="italic text-slate-600 text-sm mt-4 max-w-2xl mx-auto leading-relaxed">
               Lugano, October 20 or 21, 2026. The Scientific Bitcoin Institute is in discussions to host an academic
               event in Lugano, likely at SUPSI (Scuola universitaria professionale della Svizzera italiana), during
-              the broader Bitcoin events week. Full details will be published once finalized.
+              Plan ₿ Week (19–28 October 2026). Full details will be published once finalized.
             </p>
           </div>
         </section>
