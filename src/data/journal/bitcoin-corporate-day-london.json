@@ -1,0 +1,61 @@
+{
+  "slug": "bitcoin-corporate-day-london",
+  "status": "past",
+  "date": "2026-09-22",
+  "date_display_en": "September 22, 2026",
+  "date_display_it": "22 settembre 2026",
+  "location": "The Honourable Artillery Company, Armoury House, City of London",
+  "place": "London",
+  "coords": {
+    "lat": 51.52278,
+    "lng": -0.08833
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/bitcoin-corporate-day-london/cover.jpg",
+  "title_en": "Bitcoin Corporate Day 2026 — London",
+  "title_it": "Bitcoin Corporate Day 2026 — Londra",
+  "summary_en": "On 22 September 2026, Bitcoin Corporate Day brought 350 senior decision-makers to Armoury House, the historic home of the Honourable Artillery Company in the City of London. Organised by BTC Prague in partnership with Bitwise, the closed-door forum, held under the Chatham House Rule, examined how institutions are really using Bitcoin, and marked the event's first edition outside Prague. The Director of the Scientific Bitcoin Institute, Giovanni Santostasi, joined the panel “Macro, Power Law or Halving: What Really Drives Bitcoin's Performance?” alongside André Dragosch (Bitwise) and Richard Byworth (BYZ Partners), moderated by Tommy Doyle.",
+  "summary_it": "Il 22 settembre 2026 il Bitcoin Corporate Day ha riunito 350 dirigenti e decisori ad Armoury House, la storica sede della Honourable Artillery Company nella City di Londra. Organizzato da BTC Prague in partnership con Bitwise, il forum a porte chiuse, svolto secondo la Chatham House Rule, si è concentrato su come le istituzioni utilizzano davvero Bitcoin, ed è stata la prima edizione dell'evento fuori da Praga. Il Direttore dello Scientific Bitcoin Institute, Giovanni Santostasi, ha preso parte al panel “Macro, Power Law or Halving: What Really Drives Bitcoin's Performance?” insieme ad André Dragosch (Bitwise) e Richard Byworth (BYZ Partners), con la moderazione di Tommy Doyle.",
+  "highlights_en": [
+    "Giovanni Santostasi joined the panel “Macro, Power Law or Halving: What Really Drives Bitcoin's Performance?” at 11:25.",
+    "The debate: does Bitcoin follow a deterministic Power Law adoption curve, or does it move with global liquidity like a high-beta macro asset? And does the Halving still shape its cycles?",
+    "A closed-door forum for 350 senior decision-makers, held under the Chatham House Rule.",
+    "The first edition of Bitcoin Corporate Day outside Prague, hosted at Armoury House in the City of London."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi ha preso parte alle 11:25 al panel “Macro, Power Law or Halving: What Really Drives Bitcoin's Performance?”.",
+    "Il tema: Bitcoin segue una curva di adozione deterministica, la Power Law, o si muove al ritmo della liquidità globale come un asset macro ad alta volatilità? E l'Halving scandisce ancora i suoi cicli?",
+    "Un forum a porte chiuse per 350 dirigenti e decisori, svolto secondo la Chatham House Rule.",
+    "La prima edizione del Bitcoin Corporate Day fuori da Praga, ospitata ad Armoury House nella City di Londra."
+  ],
+  "people_met": [],
+  "gallery": [
+    {
+      "src": "/assets/journal/bitcoin-corporate-day-london/01-giovanni-london.jpg",
+      "alt_en": "Giovanni Santostasi in London, outside the Honourable Artillery Company",
+      "alt_it": "Giovanni Santostasi a Londra, fuori dalla Honourable Artillery Company"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day-london/02-artillery-garden.jpg",
+      "alt_en": "The Artillery Garden of the Honourable Artillery Company, in the heart of the City",
+      "alt_it": "L'Artillery Garden della Honourable Artillery Company, nel cuore della City"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day-london/03-guards-band.jpg",
+      "alt_en": "The evening ceremony outside Armoury House",
+      "alt_it": "La cerimonia serale davanti ad Armoury House"
+    },
+    {
+      "src": "/assets/journal/bitcoin-corporate-day-london/04-armoury-house-evening.jpg",
+      "alt_en": "The band in the courtyard of Armoury House at dusk",
+      "alt_it": "La banda nel cortile di Armoury House al calar della sera"
+    }
+  ],
+  "videos": [],
+  "official_links": [
+    {
+      "label": "Bitcoin Corporate Day — official website",
+      "url": "https://www.bitcoincorporateday.com/"
+    }
+  ]
+}
