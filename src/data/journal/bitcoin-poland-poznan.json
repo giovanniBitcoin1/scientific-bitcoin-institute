@@ -1,0 +1,40 @@
+{
+  "slug": "bitcoin-poland-poznan",
+  "status": "upcoming",
+  "date": "2026-10-05",
+  "date_display_en": "October 5–6, 2026",
+  "date_display_it": "5–6 ottobre 2026",
+  "location": "Poznań Congress Center, ul. Głogowska 14, Poznań, Poland",
+  "place": "Poznań",
+  "coords": {
+    "lat": 52.4025,
+    "lng": 16.9095
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/bitcoin-poland-poznan-cover.svg",
+  "title_en": "Bitcoin Poland Conference 2026 — Poznań",
+  "title_it": "Bitcoin Poland Conference 2026 — Poznań",
+  "summary_en": "Bitcoin Poland Conference 2026 takes place on 5–6 October at the Poznań Congress Center. It is the first major international conference in Poland dedicated entirely to Bitcoin, bringing together experts, entrepreneurs, investors and builders from Poland and abroad. Among the announced speakers is Giovanni Santostasi, Director of the Scientific Bitcoin Institute. The event runs alongside Invest Cuffs Poznań, with a single ticket granting access to both conferences.",
+  "summary_it": "La Bitcoin Poland Conference 2026 si terrà il 5 e 6 ottobre al Poznań Congress Center. È la prima grande conferenza internazionale in Polonia dedicata interamente a Bitcoin, e riunirà esperti, imprenditori, investitori e protagonisti dell'ecosistema polacco e internazionale. Tra i relatori annunciati c'è Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute. L'evento si svolge in parallelo con Invest Cuffs Poznań, e un unico biglietto dà accesso a entrambe le conferenze.",
+  "highlights_en": [
+    "Two-day conference on 5–6 October 2026 at the Poznań Congress Center",
+    "The first major international conference in Poland dedicated entirely to Bitcoin",
+    "Giovanni Santostasi, Director of the Scientific Bitcoin Institute, among the announced speakers",
+    "Held alongside Invest Cuffs Poznań: one ticket grants access to both conferences"
+  ],
+  "highlights_it": [
+    "Due giornate di conferenza il 5–6 ottobre 2026 al Poznań Congress Center",
+    "La prima grande conferenza internazionale in Polonia dedicata interamente a Bitcoin",
+    "Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, tra i relatori annunciati",
+    "In parallelo con Invest Cuffs Poznań: un unico biglietto dà accesso a entrambe le conferenze"
+  ],
+  "people_met": [],
+  "gallery": [],
+  "videos": [],
+  "official_links": [
+    {
+      "label": "Bitcoin Poland Conference — official website",
+      "url": "https://www.bitcoin-poland.com/"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "date": "2026-10-22",
   "date_display_en": "October 22, 2026",
   "date_display_it": "22 ottobre 2026",
-  "location": "Lugano, Switzerland",
+  "location": "LAC Lugano Arte e Cultura, Piazza Bernardino Luini 6, Lugano",
   "place": "Lugano",
   "coords": {
     "lat": 46.0021,
@@ -12,10 +12,10 @@
   },
   "type": "Summit · Keynote",
   "cover_image": "/assets/journal/lac-lugano-cover.svg",
-  "title_en": "Bitcoin Capital Summit at LAC",
-  "title_it": "Bitcoin Capital Summit al LAC",
-  "summary_en": "A full-day summit at the LAC cultural centre in collaboration with Bitfinex, with an Institute keynote and a dedicated space.",
-  "summary_it": "Un summit di un'intera giornata al centro culturale LAC in collaborazione con Bitfinex, con un keynote dell'Istituto e uno spazio dedicato.",
+  "title_en": "The Future of Capital Markets — LAC, Lugano",
+  "title_it": "The Future of Capital Markets — LAC, Lugano",
+  "summary_en": "An invitation-only, full-day event at the LAC cultural centre in Lugano, organized by Bitfinex Securities together with Blockstream Capital Partners as part of Lugano's Plan ₿ Week (19–28 October 2026). The Institute takes part with a keynote and a dedicated space.",
+  "summary_it": "Un evento di un'intera giornata al centro culturale LAC di Lugano, su invito, organizzato da Bitfinex Securities insieme a Blockstream Capital Partners nell'ambito della Plan ₿ Week di Lugano (19–28 ottobre 2026). L'Istituto partecipa con un keynote e uno spazio dedicato.",
   "highlights_en": [
     "20-minute keynote by Giovanni Santostasi",
     "Roughly 400 attendees expected at the LAC (Lugano Arte e Cultura)",
