@@ -1,0 +1,50 @@
+{
+  "slug": "camera-deputati-roma",
+  "status": "past",
+  "date": "2026-09-24",
+  "date_display_en": "September 24, 2026",
+  "date_display_it": "24 settembre 2026",
+  "location": "Camera dei Deputati – Aula dei Gruppi Parlamentari, Via di Campo Marzio 78, Roma",
+  "place": "Rome",
+  "coords": {
+    "lat": 41.9016,
+    "lng": 12.4773
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/camera-deputati-roma/cover.jpg",
+  "title_en": "Digital Finance, Markets and Monetary Sovereignty — Italian Chamber of Deputies, Rome",
+  "title_it": "Finanza digitale, mercati e sovranità monetaria — Camera dei Deputati, Roma",
+  "summary_en": "On 24 September 2026, the Italian Chamber of Deputies hosted «Finanza digitale, mercati e sovranità monetaria», the event promoted by the parliamentary intergroup “Digital Assets, Blockchain and Bitcoin”, chaired by Hon. Marcello Coppo. It was the first public presentation of seven months of work by the intergroup's Technical Table: 35 members, 14 thematic working groups and 164 participants from institutions, universities, professions, businesses, public administration and law enforcement. Giovanni Santostasi, Director of the Scientific Bitcoin Institute, leads Working Group 12 – “Statistics and analysis of Bitcoin in complex systems and social networks” – and presented its findings in the Aula dei Gruppi Parlamentari.",
+  "summary_it": "Il 24 settembre 2026 la Camera dei Deputati ha ospitato «Finanza digitale, mercati e sovranità monetaria», l'evento promosso dall'Intergruppo parlamentare “Asset Digitali, Blockchain e Bitcoin”, presieduto dall'On. Marcello Coppo. È stata la prima restituzione pubblica di sette mesi di lavoro del Tavolo Tecnico dell'Intergruppo: 35 componenti, 14 Gruppi di lavoro tematici e 164 partecipanti tra istituzioni, università, professioni, imprese, Pubblica Amministrazione e Forze dell'ordine. Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, è responsabile del Gruppo di lavoro 12 – “Statistica e analisi di Bitcoin nei sistemi complessi e nelle reti sociali” – e ne ha presentato le risultanze nell'Aula dei Gruppi Parlamentari.",
+  "highlights_en": [
+    "Giovanni Santostasi presented the findings of Working Group 12 during the morning session dedicated to the 14 working groups.",
+    "The first public presentation of seven months of work: 35 members, 14 working groups, 164 participants.",
+    "Institutional opening with a video message from Deputy Minister of Economy and Finance Maurizio Leo and interventions from members of the Chamber and the Senate.",
+    "In the afternoon, the States General of Digital Assets, Blockchain and Bitcoin gathered ideas and proposals from the ecosystem."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi ha presentato le risultanze del Gruppo di lavoro 12 nella sessione mattutina dedicata ai 14 Gruppi di lavoro.",
+    "La prima restituzione pubblica di sette mesi di lavoro: 35 componenti, 14 Gruppi di lavoro, 164 partecipanti.",
+    "Apertura istituzionale con il videomessaggio del Vice Ministro dell'Economia e delle Finanze Maurizio Leo e gli interventi di parlamentari di Camera e Senato.",
+    "Nel pomeriggio, gli Stati Generali degli Asset Digitali, della Blockchain e di Bitcoin hanno raccolto idee e proposte dall'ecosistema."
+  ],
+  "people_met": [],
+  "gallery": [
+    {
+      "src": "/assets/journal/camera-deputati-roma/01-programma.jpg",
+      "alt_en": "The official programme of the event",
+      "alt_it": "Il programma ufficiale dell'evento"
+    }
+  ],
+  "videos": [],
+  "official_links": [
+    {
+      "label": "Parliamentary intergroup — official website",
+      "url": "https://intergruppo-parlamentare.org/"
+    },
+    {
+      "label": "Event programme",
+      "url": "https://intergruppo-parlamentare.org/programma"
+    }
+  ]
+}
