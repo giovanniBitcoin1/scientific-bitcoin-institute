@@ -31,12 +31,39 @@
   "people_met": [],
   "gallery": [
     {
-      "src": "/assets/journal/camera-deputati-roma/01-programma.jpg",
+      "src": "/assets/journal/camera-deputati-roma/01-giovanni-aula.jpg",
+      "alt_en": "Giovanni Santostasi in the Aula dei Gruppi Parlamentari of the Chamber of Deputies",
+      "alt_it": "Giovanni Santostasi nell'Aula dei Gruppi Parlamentari della Camera dei Deputati"
+    },
+    {
+      "src": "/assets/journal/camera-deputati-roma/02-aula-gruppi-parlamentari.jpg",
+      "alt_en": "The Aula dei Gruppi Parlamentari before the start of proceedings",
+      "alt_it": "L'Aula dei Gruppi Parlamentari prima dell'inizio dei lavori"
+    },
+    {
+      "src": "/assets/journal/camera-deputati-roma/03-giovanni-conversation.jpg",
+      "alt_en": "Giovanni Santostasi in conversation in the Aula",
+      "alt_it": "Giovanni Santostasi a colloquio nell'Aula"
+    },
+    {
+      "src": "/assets/journal/camera-deputati-roma/04-official-graphic.jpg",
+      "alt_en": "The official graphic of the event",
+      "alt_it": "La grafica ufficiale dell'evento"
+    },
+    {
+      "src": "/assets/journal/camera-deputati-roma/05-programma.jpg",
       "alt_en": "The official programme of the event",
       "alt_it": "Il programma ufficiale dell'evento"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "url": "/assets/journal/camera-deputati-roma/session.mp4",
+      "poster": "/assets/journal/camera-deputati-roma/session-poster.jpg",
+      "title_en": "The Aula during the proceedings",
+      "title_it": "L'Aula durante i lavori"
+    }
+  ],
   "official_links": [
     {
       "label": "Parliamentary intergroup — official website",
