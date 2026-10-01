@@ -1,0 +1,92 @@
+{
+  "slug": "bitcoin-social-forum-firenze",
+  "status": "past",
+  "date": "2026-09-26",
+  "date_display_en": "September 26, 2026",
+  "date_display_it": "26 settembre 2026",
+  "location": "Le Murate, Piazza delle Murate, Florence",
+  "place": "Florence",
+  "coords": {
+    "lat": 43.7692,
+    "lng": 11.2679
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/bitcoin-social-forum-firenze/cover.jpg",
+  "title_en": "Bitcoin Social Forum 2026 — Il Rinascimento Digitale, Florence",
+  "title_it": "Bitcoin Social Forum 2026 — Il Rinascimento Digitale, Firenze",
+  "summary_en": "On 26 September 2026, the Bitcoin Social Forum brought “Il Rinascimento Digitale” (The Digital Renaissance) to Le Murate, in the heart of Florence: a free, open day dedicated to Bitcoin and artificial intelligence, designed for businesses, citizens and institutions. Organised by the non-profit Bitcoin Social Forum APS ETS with the patronage of the City of Florence, the Municipality of Colle di Val d'Elsa and Cesvot, the programme led participants from the origins of Bitcoin to the concrete opportunities for Florence, before turning to AI and its future scenarios. Giovanni Santostasi, Director of the Scientific Bitcoin Institute, presented the Bitcoin Power Law to the Florentine audience: starting from the price chart everyone sees, he showed how choosing the right coordinates turns Bitcoin's history into a straight line.",
+  "summary_it": "Il 26 settembre 2026 il Bitcoin Social Forum ha portato “Il Rinascimento Digitale” alle Murate, nel cuore di Firenze: una giornata gratuita e aperta a tutti dedicata a Bitcoin e all'intelligenza artificiale, pensata per imprese, cittadini e istituzioni. Organizzato dall'associazione senza scopo di lucro Bitcoin Social Forum APS ETS, con il patrocinio del Comune di Firenze, del Comune di Colle di Val d'Elsa e di Cesvot, il programma ha accompagnato i partecipanti dalle origini di Bitcoin alle opportunità concrete per Firenze, per poi spostarsi sull'intelligenza artificiale e sui suoi scenari futuri. Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, ha presentato la Bitcoin Power Law al pubblico fiorentino: partendo dal grafico del prezzo che vedono tutti, ha mostrato come, scegliendo le coordinate giuste, la storia di Bitcoin diventi una linea retta.",
+  "highlights_en": [
+    "Giovanni Santostasi presented the Bitcoin Power Law in Italian, from “the chart everyone sees” to the affine space where the price becomes a straight line.",
+    "A free day on Bitcoin and artificial intelligence for businesses, citizens and institutions, in the historic Le Murate complex.",
+    "With the patronage of the City of Florence, the Municipality of Colle di Val d'Elsa and Cesvot.",
+    "Among the speakers, Hon. Marcello Coppo, president of the parliamentary intergroup “Digital Assets, Blockchain and Bitcoin”, two days after the event at the Chamber of Deputies."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi ha presentato la Bitcoin Power Law in italiano, dal “grafico che vedono tutti” allo spazio affine in cui il prezzo diventa una linea retta.",
+    "Una giornata gratuita su Bitcoin e intelligenza artificiale per imprese, cittadini e istituzioni, nello storico complesso delle Murate.",
+    "Con il patrocinio del Comune di Firenze, del Comune di Colle di Val d'Elsa e di Cesvot.",
+    "Tra i relatori l'On. Marcello Coppo, presidente dell'Intergruppo parlamentare “Asset Digitali, Blockchain e Bitcoin”, a due giorni dall'evento alla Camera dei Deputati."
+  ],
+  "people_met": [],
+  "gallery": [
+    {
+      "src": "/assets/journal/bitcoin-social-forum-firenze/01-le-murate-courtyard.jpg",
+      "alt_en": "The courtyard of Le Murate, set up for the Bitcoin Social Forum",
+      "alt_it": "Il cortile delle Murate allestito per il Bitcoin Social Forum"
+    },
+    {
+      "src": "/assets/journal/bitcoin-social-forum-firenze/02-afternoon-session.jpg",
+      "alt_en": "The audience during the afternoon sessions",
+      "alt_it": "Il pubblico durante le sessioni del pomeriggio"
+    },
+    {
+      "src": "/assets/journal/bitcoin-social-forum-firenze/03-giovanni-le-murate.jpg",
+      "alt_en": "Giovanni Santostasi at Le Murate",
+      "alt_it": "Giovanni Santostasi alle Murate"
+    },
+    {
+      "src": "/assets/journal/bitcoin-social-forum-firenze/04-talk-the-chart.jpg",
+      "alt_en": "“The chart everyone sees”: fifteen years of Bitcoin on a linear scale",
+      "alt_it": "“Il grafico che vedono tutti”: quindici anni di Bitcoin in scala lineare"
+    },
+    {
+      "src": "/assets/journal/bitcoin-social-forum-firenze/05-talk-affine-space.jpg",
+      "alt_en": "“The affine space: finding the coordinates”, the heart of the Power Law",
+      "alt_it": "“Lo spazio affine: trovare le coordinate”, il cuore della Power Law"
+    },
+    {
+      "src": "/assets/journal/bitcoin-social-forum-firenze/06-group-photo.jpg",
+      "alt_en": "Speakers and organisers of the Bitcoin Social Forum 2026",
+      "alt_it": "Relatori e organizzatori del Bitcoin Social Forum 2026"
+    }
+  ],
+  "videos": [
+    {
+      "url": "/assets/journal/bitcoin-social-forum-firenze/introduction.mp4",
+      "poster": "/assets/journal/bitcoin-social-forum-firenze/introduction-poster.jpg",
+      "title_en": "Giovanni Santostasi is introduced on stage",
+      "title_it": "La presentazione di Giovanni Santostasi sul palco"
+    },
+    {
+      "url": "/assets/journal/bitcoin-social-forum-firenze/power-law-nature.mp4",
+      "poster": "/assets/journal/bitcoin-social-forum-firenze/power-law-nature-poster.jpg",
+      "title_en": "The power law and the growth of natural systems",
+      "title_it": "La power law e la crescita dei sistemi naturali"
+    },
+    {
+      "url": "/assets/journal/bitcoin-social-forum-firenze/logarithmic-scales.mp4",
+      "poster": "/assets/journal/bitcoin-social-forum-firenze/logarithmic-scales-poster.jpg",
+      "title_en": "Logarithmic scales, from the Richter scale to music",
+      "title_it": "Le scale logaritmiche, dalla scala Richter alla musica"
+    }
+  ],
+  "official_links": [
+    {
+      "label": "Bitcoin Social Forum — official website",
+      "url": "https://bitcoinsocialforum.it/"
+    }
+  ],
+  "pull_quote_en": "This growth slows down over time, but that is a good thing: it is what allows systems in nature to adapt. They grow in proportion to their resources. — Giovanni Santostasi",
+  "pull_quote_it": "Questa crescita rallenta col tempo, ma è una cosa buona: è ciò che permette ai sistemi in natura di adattarsi. Crescono in maniera proporzionale alle risorse. — Giovanni Santostasi"
+}
