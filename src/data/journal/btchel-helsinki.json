@@ -1,0 +1,112 @@
+{
+  "slug": "btchel-helsinki",
+  "status": "past",
+  "date": "2026-09-25",
+  "date_display_en": "September 25–26, 2026",
+  "date_display_it": "25–26 settembre 2026",
+  "location": "Kaapelitehdas (Cable Factory), Kaapeliaukio 3, Helsinki",
+  "place": "Helsinki",
+  "coords": {
+    "lat": 60.1622,
+    "lng": 24.9049
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/btchel-helsinki/cover.jpg",
+  "title_en": "BTCHEL 2026 — Helsinki",
+  "title_it": "BTCHEL 2026 — Helsinki",
+  "summary_en": "BTCHEL 2026, the Nordic Bitcoin conference, returned for its second edition on 25–26 September 2026 at Kaapelitehdas, Helsinki's historic Cable Factory: two days and three stages (Main, Expo and OG) dedicated to Bitcoin mining, human rights, Nordic sovereignty and the real-world use of Bitcoin as money. Independent and community-driven, the conference built on a 2025 debut that drew over 1,000 attendees from around the world. On Friday 25 September, on the Expo Stage, the Director of the Scientific Bitcoin Institute, Giovanni Santostasi, presented the talk “The Bitcoin Power Law”, showing why Bitcoin's long-term growth is described by a power law rather than by an exponential curve.",
+  "summary_it": "BTCHEL 2026, la conferenza Bitcoin dei Paesi nordici, è tornata per la sua seconda edizione il 25 e 26 settembre 2026 al Kaapelitehdas, la storica Cable Factory di Helsinki: due giorni e tre palchi (Main, Expo e OG) dedicati al mining di Bitcoin, ai diritti umani, alla sovranità nordica e all'uso di Bitcoin come moneta nella vita reale. Indipendente e nata dalla community, la conferenza ha raccolto il testimone di un debutto, nel 2025, con oltre 1.000 partecipanti da tutto il mondo. Venerdì 25 settembre, sull'Expo Stage, il Direttore dello Scientific Bitcoin Institute, Giovanni Santostasi, ha presentato il talk “The Bitcoin Power Law”, mostrando perché la crescita di Bitcoin nel lungo periodo è descritta da una legge di potenza e non da una curva esponenziale.",
+  "highlights_en": [
+    "Giovanni Santostasi presented “The Bitcoin Power Law” on Friday 25 September, 14:40–15:10, on the Expo Stage.",
+    "From the semi-log chart to the power law: if Bitcoin grew exponentially, its price would follow a straight line; instead, growth slows down in an orderly way.",
+    "The second edition of the Nordic Bitcoin conference, across three stages, after a 2025 debut with over 1,000 attendees.",
+    "Hosted at Kaapelitehdas, the historic Cable Factory of Helsinki."
+  ],
+  "highlights_it": [
+    "Giovanni Santostasi ha presentato “The Bitcoin Power Law” venerdì 25 settembre, dalle 14:40 alle 15:10, sull'Expo Stage.",
+    "Dal grafico semi-logaritmico alla legge di potenza: se Bitcoin crescesse in modo esponenziale, il suo prezzo seguirebbe una linea retta; invece la crescita rallenta, ma in modo ordinato.",
+    "La seconda edizione della conferenza Bitcoin nordica, su tre palchi, dopo il debutto del 2025 con oltre 1.000 partecipanti.",
+    "Ospitata al Kaapelitehdas, la storica Cable Factory di Helsinki."
+  ],
+  "people_met": [],
+  "gallery": [
+    {
+      "src": "/assets/journal/btchel-helsinki/01-bitcoin-van.jpg",
+      "alt_en": "A Bitcoin-branded van outside the Cable Factory",
+      "alt_it": "Un furgone a tema Bitcoin davanti alla Cable Factory"
+    },
+    {
+      "src": "/assets/journal/btchel-helsinki/02-cable-factory.jpg",
+      "alt_en": "BTCHEL 2026 at the Merikaapelihalli, Cable Factory",
+      "alt_it": "BTCHEL 2026 alla Merikaapelihalli della Cable Factory"
+    },
+    {
+      "src": "/assets/journal/btchel-helsinki/03-giovanni-arrival.jpg",
+      "alt_en": "Giovanni Santostasi arriving at BTCHEL 2026",
+      "alt_it": "Giovanni Santostasi all'arrivo a BTCHEL 2026"
+    },
+    {
+      "src": "/assets/journal/btchel-helsinki/04-expo-hall.jpg",
+      "alt_en": "The expo area of the conference",
+      "alt_it": "L'area expo della conferenza"
+    },
+    {
+      "src": "/assets/journal/btchel-helsinki/05-talk-power-law.jpg",
+      "alt_en": "“The Bitcoin Power Law” on the Expo Stage: semi-log, better but not an exponential",
+      "alt_it": "“The Bitcoin Power Law” sull'Expo Stage: il semi-logaritmico, meglio ma non esponenziale"
+    },
+    {
+      "src": "/assets/journal/btchel-helsinki/06-after-the-talk.jpg",
+      "alt_en": "Conversations after the talk",
+      "alt_it": "Conversazioni dopo il talk"
+    },
+    {
+      "src": "/assets/journal/btchel-helsinki/07-conversations.jpg",
+      "alt_en": "Networking in the Cable Factory",
+      "alt_it": "Networking alla Cable Factory"
+    },
+    {
+      "src": "/assets/journal/btchel-helsinki/08-glass-courtyard.jpg",
+      "alt_en": "The glass-roofed courtyard of the Cable Factory",
+      "alt_it": "Il cortile vetrato della Cable Factory"
+    }
+  ],
+  "videos": [
+    {
+      "url": "/assets/journal/btchel-helsinki/expo-stage.mp4",
+      "poster": "/assets/journal/btchel-helsinki/expo-stage-poster.jpg",
+      "title_en": "Giovanni Santostasi takes the Expo Stage",
+      "title_it": "Giovanni Santostasi sale sull'Expo Stage"
+    },
+    {
+      "url": "/assets/journal/btchel-helsinki/talk.mp4",
+      "poster": "/assets/journal/btchel-helsinki/talk-poster.jpg",
+      "title_en": "Giovanni Santostasi's talk on the Bitcoin Power Law",
+      "title_it": "Il talk di Giovanni Santostasi sulla Bitcoin Power Law"
+    },
+    {
+      "url": "/assets/journal/btchel-helsinki/power-law-stability.mp4",
+      "poster": "/assets/journal/btchel-helsinki/power-law-stability-poster.jpg",
+      "title_en": "The stability of the power law over time",
+      "title_it": "La stabilità della power law nel tempo"
+    },
+    {
+      "url": "/assets/journal/btchel-helsinki/qa.mp4",
+      "poster": "/assets/journal/btchel-helsinki/qa-poster.jpg",
+      "title_en": "Questions and answers after the talk",
+      "title_it": "Domande e risposte dopo il talk"
+    }
+  ],
+  "official_links": [
+    {
+      "label": "BTCHEL — official website",
+      "url": "https://btchel.com/"
+    },
+    {
+      "label": "BTCHEL 2026 — full agenda",
+      "url": "https://agenda.btchel.com/"
+    }
+  ],
+  "pull_quote_en": "This shows how stable the power law becomes with time: you can project it into the future, because it has worked all this time. — Giovanni Santostasi",
+  "pull_quote_it": "Questo mostra quanto la power law diventi stabile nel tempo: si può proiettare nel futuro, perché ha funzionato per tutto questo tempo. — Giovanni Santostasi"
+}
