@@ -1,0 +1,33 @@
+{
+  "slug": "sbi-academy-day-lugano",
+  "status": "upcoming",
+  "date": "2026-10-20",
+  "date_display_en": "October 20, 2026",
+  "date_display_it": "20 ottobre 2026",
+  "location": "Lugano, Switzerland",
+  "place": "Lugano",
+  "coords": {
+    "lat": 46.0038,
+    "lng": 8.9512
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/sbi-academy-day-lugano-cover.svg",
+  "title_en": "SBI Academy Day — Lugano",
+  "title_it": "SBI Academy Day — Lugano",
+  "summary_en": "On 20 October 2026, during Lugano's Plan ₿ Week, the Scientific Bitcoin Institute hosts the SBI Academy Day: a day dedicated to the scientific study of Bitcoin. Programme and details coming soon.",
+  "summary_it": "Il 20 ottobre 2026, durante la Plan ₿ Week di Lugano, lo Scientific Bitcoin Institute organizza l'SBI Academy Day: una giornata dedicata allo studio scientifico di Bitcoin. Programma e dettagli a breve.",
+  "highlights_en": [
+    "A day dedicated to the scientific study of Bitcoin, hosted by the Scientific Bitcoin Institute.",
+    "Part of Lugano's Plan ₿ Week (19–28 October 2026).",
+    "Programme and details to be announced."
+  ],
+  "highlights_it": [
+    "Una giornata dedicata allo studio scientifico di Bitcoin, organizzata dallo Scientific Bitcoin Institute.",
+    "Nell'ambito della Plan ₿ Week di Lugano (19–28 ottobre 2026).",
+    "Programma e dettagli in arrivo."
+  ],
+  "people_met": [],
+  "gallery": [],
+  "videos": [],
+  "official_links": []
+}

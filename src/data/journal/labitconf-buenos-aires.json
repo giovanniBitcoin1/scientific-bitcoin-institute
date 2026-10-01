@@ -1,0 +1,40 @@
+{
+  "slug": "labitconf-buenos-aires",
+  "status": "upcoming",
+  "date": "2026-10-29",
+  "date_display_en": "October 29 – November 1, 2026",
+  "date_display_it": "29 ottobre – 1 novembre 2026",
+  "location": "BAFerial (ex Costa Salguero), Buenos Aires",
+  "place": "Buenos Aires",
+  "coords": {
+    "lat": -34.5707,
+    "lng": -58.3956
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/labitconf-buenos-aires-cover.svg",
+  "title_en": "LABITCONF 2026 — Buenos Aires",
+  "title_it": "LABITCONF 2026 — Buenos Aires",
+  "summary_en": "LABITCONF, Latin America's longest-running Bitcoin conference since 2013, returns to Buenos Aires for its 14th edition, \"HODL\": two days and six stages on Bitcoin, blockchain and artificial intelligence on 30–31 October at BAFerial (ex Costa Salguero), as part of the city's Tecweek 2026. Giovanni Santostasi, Director of the Scientific Bitcoin Institute, takes part in the programme, which opens on 29 October with the unveiling of the Monument to Satoshi Nakamoto in Buenos Aires' Parque de la Innovación.",
+  "summary_it": "LABITCONF, la conferenza Bitcoin più longeva dell'America Latina, nata nel 2013, torna a Buenos Aires per la sua 14ª edizione, \"HODL\": due giorni e sei palchi su Bitcoin, blockchain e intelligenza artificiale il 30 e 31 ottobre al BAFerial (ex Costa Salguero), nell'ambito della Tecweek 2026 della città. Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, partecipa al programma, che si apre il 29 ottobre con l'inaugurazione del Monumento a Satoshi Nakamoto al Parque de la Innovación di Buenos Aires.",
+  "highlights_en": [
+    "29 October, 20:00: unveiling of the Monument to Satoshi Nakamoto.",
+    "30 October: Giovanni Santostasi speaks at 12:00 and in the afternoon after 17:30.",
+    "31 October: stage discussion.",
+    "1 November: closing day for speakers."
+  ],
+  "highlights_it": [
+    "29 ottobre, ore 20:00: inaugurazione del Monumento a Satoshi Nakamoto.",
+    "30 ottobre: Giovanni Santostasi interviene alle 12:00 e nel pomeriggio dopo le 17:30.",
+    "31 ottobre: discussione sul palco.",
+    "1 novembre: giornata di chiusura per i relatori."
+  ],
+  "people_met": [],
+  "gallery": [],
+  "videos": [],
+  "official_links": [
+    {
+      "label": "LABITCONF — official website",
+      "url": "https://www.labitconf.com/"
+    }
+  ]
+}

@@ -41,7 +41,33 @@ const events = [
         both conferences.
       </>
     ),
-    role: 'Giovanni Santostasi among the announced speakers',
+    role: 'Keynote on the Profit Stage and participation by Giovanni Santostasi',
+  },
+  {
+    id: 'academic-event-torino-2026',
+    date: 'October 13, 2026',
+    title: 'Academic event — Turin',
+    location: 'Turin, Italy',
+    description: (
+      <>
+        Director Giovanni Santostasi speaks at an academic event in Turin, from 11:00 to 11:45. Venue and programme
+        will be published once finalized.
+      </>
+    ),
+    role: 'Talk by Giovanni Santostasi',
+  },
+  {
+    id: 'sbi-academy-day-2026',
+    date: 'October 20, 2026',
+    title: 'SBI Academy Day',
+    location: 'Lugano, Switzerland',
+    description: (
+      <>
+        During Lugano's Plan ₿ Week (19–28 October 2026), the Scientific Bitcoin Institute hosts the SBI Academy Day:
+        a day dedicated to the scientific study of Bitcoin. Programme and details coming soon.
+      </>
+    ),
+    role: 'Day hosted by the Scientific Bitcoin Institute',
   },
   {
     id: 'lac-lugano-2026',
@@ -72,6 +98,21 @@ const events = [
       </>
     ),
     role: 'Session led by Giovanni Santostasi',
+  },
+  {
+    id: 'labitconf-2026',
+    date: 'October 29 – November 1, 2026',
+    title: 'LABITCONF 2026',
+    location: 'BAFerial (ex Costa Salguero), Buenos Aires',
+    description: (
+      <>
+        LABITCONF, Latin America's longest-running Bitcoin conference since 2013, returns to Buenos Aires for its
+        14th edition, “HODL”: two days and six stages on Bitcoin, blockchain and artificial intelligence on 30–31
+        October, as part of the city's Tecweek 2026. The programme opens on 29 October with the unveiling of the
+        Monument to Satoshi Nakamoto in the Parque de la Innovación.
+      </>
+    ),
+    role: 'Talks and stage discussion by Giovanni Santostasi',
   },
 ]
 

@@ -1,0 +1,31 @@
+{
+  "slug": "academic-event-torino",
+  "status": "upcoming",
+  "date": "2026-10-13",
+  "date_display_en": "October 13, 2026",
+  "date_display_it": "13 ottobre 2026",
+  "location": "Turin, Italy",
+  "place": "Turin",
+  "coords": {
+    "lat": 45.0678,
+    "lng": 7.6825
+  },
+  "type": "Conference",
+  "cover_image": "/assets/journal/academic-event-torino-cover.svg",
+  "title_en": "Academic event — Turin",
+  "title_it": "Evento accademico — Torino",
+  "summary_en": "On 13 October 2026, Giovanni Santostasi, Director of the Scientific Bitcoin Institute, speaks at an academic event in Turin, from 11:00 to 11:45. Details coming soon.",
+  "summary_it": "Il 13 ottobre 2026 Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, interviene a un evento accademico a Torino, dalle 11:00 alle 11:45. Dettagli a breve.",
+  "highlights_en": [
+    "Talk by Giovanni Santostasi, 11:00–11:45.",
+    "Venue and programme to be announced."
+  ],
+  "highlights_it": [
+    "Intervento di Giovanni Santostasi, dalle 11:00 alle 11:45.",
+    "Sede e programma in arrivo."
+  ],
+  "people_met": [],
+  "gallery": [],
+  "videos": [],
+  "official_links": []
+}
