@@ -1,6 +1,6 @@
 {
   "slug": "bitcoin-poland-poznan",
-  "status": "upcoming",
+  "status": "past",
   "date": "2026-10-05",
   "date_display_en": "October 5–6, 2026",
   "date_display_it": "5–6 ottobre 2026",
@@ -11,36 +11,103 @@
     "lng": 16.9095
   },
   "type": "Conference",
-  "cover_image": "/assets/journal/bitcoin-poland-poznan-cover.svg",
+  "cover_image": "/assets/journal/bitcoin-poland-poznan/cover.jpg",
   "title_en": "Bitcoin Poland Conference 2026 — Poznań",
   "title_it": "Bitcoin Poland Conference 2026 — Poznań",
-  "summary_en": "Bitcoin Poland Conference 2026 takes place on 5–6 October at the Poznań Congress Center. It is the first major international conference in Poland dedicated entirely to Bitcoin, bringing together experts, entrepreneurs, investors and builders from Poland and abroad. Among the announced speakers is Giovanni Santostasi, Director of the Scientific Bitcoin Institute. The event runs alongside Invest Cuffs Poznań, with a single ticket granting access to both conferences.",
-  "summary_it": "La Bitcoin Poland Conference 2026 si terrà il 5 e 6 ottobre al Poznań Congress Center. È la prima grande conferenza internazionale in Polonia dedicata interamente a Bitcoin, e riunirà esperti, imprenditori, investitori e protagonisti dell'ecosistema polacco e internazionale. Tra i relatori annunciati c'è Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute. L'evento si svolge in parallelo con Invest Cuffs Poznań, e un unico biglietto dà accesso a entrambe le conferenze.",
+  "summary_en": "Bitcoin Poland Conference 2026 took place on 5–6 October at the Poznań Congress Center: the first major international conference in Poland dedicated entirely to Bitcoin, held alongside Invest Cuffs. On the Profit Stage, Giovanni Santostasi, Director of the Scientific Bitcoin Institute, delivered the keynote \"Bitcoin Is Scale Invariant – From the Power Law to a Mechanistic Theory of Adoption\": from the power law as an observed regularity to a theory explaining why Bitcoin adoption grows the way it does.",
+  "summary_it": "La Bitcoin Poland Conference 2026 si è svolta il 5 e 6 ottobre al Poznań Congress Center: la prima grande conferenza internazionale in Polonia dedicata interamente a Bitcoin, in parallelo con Invest Cuffs. Sul Profit Stage Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, ha tenuto il keynote \"Bitcoin Is Scale Invariant – From the Power Law to a Mechanistic Theory of Adoption\": dalla legge di potenza come regolarità osservata a una teoria che spiega perché l'adozione di Bitcoin cresce in questo modo.",
   "highlights_en": [
-    "Two-day conference on 5–6 October 2026 at the Poznań Congress Center",
-    "The first major international conference in Poland dedicated entirely to Bitcoin",
-    "Giovanni Santostasi, Director of the Scientific Bitcoin Institute, among the announced speakers",
-    "Held alongside Invest Cuffs Poznań: one ticket grants access to both conferences",
-    "Keynote by Giovanni Santostasi on the Profit Stage, Monday 5 October, 13:30–13:50.",
-    "Official VIP Before Party on Sunday 4 October at 18:00.",
-    "Organisers expect over 2,000 participants and 100+ speakers across two stages, in English and Polish."
+    "Keynote by Giovanni Santostasi on the Profit Stage (Sala Zysk), Monday 5 October, 13:30–13:50",
+    "Scale invariance explained: no era is special — different periods of Bitcoin's history, rescaled, collapse onto the same curve",
+    "Power laws as the grammar of complex systems, from animal metabolism to Bitcoin",
+    "Step one of the mechanistic theory: adoption grows as the cube of time, like the Internet and the spread of viruses",
+    "Poland's first major Bitcoin-only conference, held alongside Invest Cuffs Poznań",
+    "Meeting with fellow speaker Jakub Dziadkowiec, PhD, who gave the keynote \"How Powerful Is Bitcoin Media?\" on the same stage"
   ],
   "highlights_it": [
-    "Due giornate di conferenza il 5–6 ottobre 2026 al Poznań Congress Center",
-    "La prima grande conferenza internazionale in Polonia dedicata interamente a Bitcoin",
-    "Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, tra i relatori annunciati",
-    "In parallelo con Invest Cuffs Poznań: un unico biglietto dà accesso a entrambe le conferenze",
-    "Keynote di Giovanni Santostasi sul Profit Stage, lunedì 5 ottobre, dalle 13:30 alle 13:50.",
-    "Official VIP Before Party domenica 4 ottobre alle 18:00.",
-    "Gli organizzatori prevedono oltre 2.000 partecipanti e più di 100 relatori su due palchi, in inglese e in polacco."
+    "Keynote di Giovanni Santostasi sul Profit Stage (Sala Zysk), lunedì 5 ottobre, dalle 13:30 alle 13:50",
+    "L'invarianza di scala spiegata: nessuna epoca è speciale — periodi diversi della storia di Bitcoin, riscalati, si sovrappongono sulla stessa curva",
+    "Le leggi di potenza come grammatica dei sistemi complessi, dal metabolismo animale a Bitcoin",
+    "Primo passo della teoria meccanicistica: l'adozione cresce con il cubo del tempo, come Internet e la diffusione dei virus",
+    "La prima grande conferenza polacca dedicata solo a Bitcoin, in parallelo con Invest Cuffs Poznań",
+    "Incontro con il relatore Jakub Dziadkowiec, PhD, autore del keynote \"How Powerful Is Bitcoin Media?\" sullo stesso palco"
   ],
-  "people_met": [],
-  "gallery": [],
-  "videos": [],
+  "people_met": [
+    "Jakub Dziadkowiec, PhD (speaker, Bitcoin Poland)"
+  ],
+  "gallery": [
+    {
+      "src": "/assets/journal/bitcoin-poland-poznan/01-scale-invariance.jpg",
+      "alt_en": "Giovanni Santostasi explaining scale invariance",
+      "alt_it": "Giovanni Santostasi spiega l'invarianza di scala"
+    },
+    {
+      "src": "/assets/journal/bitcoin-poland-poznan/02-profit-stage.jpg",
+      "alt_en": "The Profit Stage during the keynote",
+      "alt_it": "Il Profit Stage durante il keynote"
+    },
+    {
+      "src": "/assets/journal/bitcoin-poland-poznan/03-with-jakub-dziadkowiec.jpg",
+      "alt_en": "Giovanni Santostasi with fellow speaker Jakub Dziadkowiec",
+      "alt_it": "Giovanni Santostasi con il relatore Jakub Dziadkowiec"
+    },
+    {
+      "src": "/assets/journal/bitcoin-poland-poznan/04-sala-zysk-agenda.jpg",
+      "alt_en": "The Sala Zysk agenda with the keynote at 13:30",
+      "alt_it": "L'agenda della Sala Zysk con il keynote delle 13:30"
+    },
+    {
+      "src": "/assets/journal/bitcoin-poland-poznan/05-bitcoin-poland-stand.jpg",
+      "alt_en": "The Bitcoin Poland stand",
+      "alt_it": "Lo stand di Bitcoin Poland"
+    },
+    {
+      "src": "/assets/journal/bitcoin-poland-poznan/06-expo-area.jpg",
+      "alt_en": "Giovanni Santostasi in the expo area",
+      "alt_it": "Giovanni Santostasi nell'area expo"
+    },
+    {
+      "src": "/assets/journal/bitcoin-poland-poznan/07-old-market-square.jpg",
+      "alt_en": "Poznań Old Market Square",
+      "alt_it": "La piazza del Mercato Vecchio di Poznań"
+    }
+  ],
+  "videos": [
+    {
+      "url": "/assets/journal/bitcoin-poland-poznan/keynote-introduction.mp4",
+      "poster": "/assets/journal/bitcoin-poland-poznan/keynote-introduction-poster.jpg",
+      "title_en": "Introduction to the keynote",
+      "title_it": "Introduzione al keynote"
+    },
+    {
+      "url": "/assets/journal/bitcoin-poland-poznan/keynote-moment.mp4",
+      "poster": "/assets/journal/bitcoin-poland-poznan/keynote-moment-poster.jpg",
+      "title_en": "A moment from the keynote",
+      "title_it": "Un momento del keynote"
+    },
+    {
+      "url": "/assets/journal/bitcoin-poland-poznan/power-laws-not-exception.mp4",
+      "poster": "/assets/journal/bitcoin-poland-poznan/power-laws-not-exception-poster.jpg",
+      "title_en": "Power laws are not the exception",
+      "title_it": "Le leggi di potenza non sono l'eccezione"
+    },
+    {
+      "url": "/assets/journal/bitcoin-poland-poznan/adoption-cube-of-time.mp4",
+      "poster": "/assets/journal/bitcoin-poland-poznan/adoption-cube-of-time-poster.jpg",
+      "title_en": "Adoption grows as the cube of time",
+      "title_it": "L'adozione cresce con il cubo del tempo"
+    }
+  ],
   "official_links": [
     {
       "label": "Bitcoin Poland Conference — official website",
       "url": "https://www.bitcoin-poland.com/"
+    },
+    {
+      "label": "Bitcoin Poland Conference 2026 — agenda",
+      "url": "https://www.bitcoin-poland.com/agenda"
     }
-  ]
+  ],
+  "pull_quote_en": "Power laws are not the exception: they are the grammar of complex systems. — Giovanni Santostasi",
+  "pull_quote_it": "Le leggi di potenza non sono l'eccezione: sono la grammatica dei sistemi complessi. — Giovanni Santostasi"
 }

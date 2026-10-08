@@ -29,21 +29,6 @@ function ScrollToHash() {
 
 const events = [
   {
-    id: 'bitcoin-poland-2026',
-    date: 'October 5–6, 2026',
-    title: 'Bitcoin Poland Conference 2026',
-    location: 'Poznań Congress Center, ul. Głogowska 14, Poznań, Poland',
-    description: (
-      <>
-        The first major international conference in Poland dedicated entirely to Bitcoin, bringing together experts,
-        entrepreneurs, investors and builders from Poland and abroad. Director Giovanni Santostasi is among the
-        announced speakers. The event runs alongside Invest Cuffs Poznań, with a single ticket granting access to
-        both conferences.
-      </>
-    ),
-    role: 'Keynote on the Profit Stage and participation by Giovanni Santostasi',
-  },
-  {
     id: 'academic-event-torino-2026',
     date: 'October 13, 2026',
     title: 'Academic event — Turin',
