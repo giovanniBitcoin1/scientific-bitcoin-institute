@@ -9,6 +9,32 @@ import CTA from '../components/CTA.jsx'
 import NewsletterSignup from '../components/NewsletterSignup.jsx'
 import Footer from '../components/Footer.jsx'
 
+function AcademicDayBanner() {
+  return (
+    <section className="bg-slate-900 border-y border-orange-500/40">
+      <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 sm:gap-6 text-center sm:text-left">
+          <p className="text-sm md:text-base text-slate-200">
+            <span className="font-mono text-xs md:text-sm uppercase tracking-wider text-bitcoin font-semibold">
+              20 October 2026 &nbsp;·&nbsp; Lugano
+            </span>
+            <span className="hidden sm:inline text-slate-600 mx-3">|</span>
+            <span className="block sm:inline mt-1 sm:mt-0">
+              Academic Day: the public launch of the Scientific Bitcoin Institute
+            </span>
+          </p>
+          <Link
+            to="/events/academic-day"
+            className="flex-shrink-0 text-sm font-semibold text-orange-400 hover:text-orange-300 transition-colors whitespace-nowrap"
+          >
+            Details &amp; registration →
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function ManifestoVideoSection() {
   return (
     <section className="py-16 md:py-20 bg-slate-50">
@@ -102,6 +128,7 @@ export default function Home() {
     <div className="min-h-screen bg-slate-50">
       <Header />
       <Hero />
+      <AcademicDayBanner />
       <ManifestoVideoSection />
       <CTA />
       <Testimonials />

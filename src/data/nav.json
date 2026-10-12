@@ -11,7 +11,7 @@
   {
     "label": "News + Events",
     "href": "/news",
-    "submenu": ["Latest News", "Research Updates", "Conferences", "Seminars", "Workshops", "Community Events", "Newsletter", "Event Journal"]
+    "submenu": ["Latest News", "Research Updates", "Conferences", "Seminars", "Workshops", "Community Events", "Newsletter", "Event Journal", "Academic Day"]
   },
   {
     "label": "Education",

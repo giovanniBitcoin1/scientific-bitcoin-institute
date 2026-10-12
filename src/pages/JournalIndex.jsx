@@ -33,9 +33,11 @@ function StatusBadge({ status }) {
 }
 
 function EventCard({ event }) {
+  // Most events open their journal entry; an event with its own dedicated page
+  // (e.g. the Academic Day) points there instead via `page_href`.
   return (
     <Link
-      to={`/news/journal/${event.slug}`}
+      to={event.page_href || `/news/journal/${event.slug}`}
       className="group block bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-shadow"
     >
       <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">

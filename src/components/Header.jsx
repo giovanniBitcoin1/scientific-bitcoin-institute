@@ -24,6 +24,7 @@ const submenuHrefs = {
   'Community Events': '/news/community-events',
   'Newsletter': '/news/newsletter',
   'Event Journal': '/news/journal',
+  'Academic Day': '/events/academic-day',
   'Bitcoin Fundamentals': '/education/bitcoin-fundamentals',
   'Advanced Cryptography': '/education/advanced-cryptography',
   'Game Theory': '/education/game-theory',
