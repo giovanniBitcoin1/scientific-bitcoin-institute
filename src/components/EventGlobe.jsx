@@ -31,7 +31,8 @@ function journalStops() {
       date: e.date_display_en || e.date,
       lat: e.coords.lat,
       lng: e.coords.lng,
-      url: `/news/journal/${e.slug}`,
+      // An event with its own dedicated page points there, like the Journal card.
+      url: e.page_href || `/news/journal/${e.slug}`,
     }))
 }
 
