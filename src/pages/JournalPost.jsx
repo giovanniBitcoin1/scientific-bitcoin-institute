@@ -242,6 +242,12 @@ export default function JournalPost() {
               <p className="font-serif text-2xl md:text-3xl text-slate-900 italic leading-snug">
                 {event.pull_quote_plain ? pullQuote : `“${pullQuote}”`}
               </p>
+              {/* Attribution sits outside the quote marks, on its own line. */}
+              {event.pull_quote_by && (
+                <footer className="mt-3 text-sm text-slate-600 not-italic">
+                  — {event.pull_quote_by}
+                </footer>
+              )}
             </blockquote>
           )}
 
@@ -360,25 +366,29 @@ export default function JournalPost() {
                 {lang === 'en' ? 'Official links' : 'Link ufficiali'}
               </p>
               <ul className="mt-4 space-y-2">
-                {event.official_links.map((link, i) => (
-                  <li key={i}>
-                    {/* Site-internal paths ("/news/...") stay in the SPA, in the same tab. */}
-                    {link.url.startsWith('/') ? (
-                      <Link to={link.url} className={orangeLink}>
-                        {link.label} →
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={orangeLink}
-                      >
-                        {link.label} ↗
-                      </a>
-                    )}
-                  </li>
-                ))}
+                {event.official_links.map((link, i) => {
+                  // A link may carry localized labels; otherwise one shared label.
+                  const label = (lang === 'en' ? link.label_en : link.label_it) || link.label
+                  return (
+                    <li key={i}>
+                      {/* Site-internal paths ("/events/...") stay in the SPA, in the same tab. */}
+                      {link.url.startsWith('/') ? (
+                        <Link to={link.url} className={orangeLink}>
+                          {label} →
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={orangeLink}
+                        >
+                          {label} ↗
+                        </a>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </section>
           )}

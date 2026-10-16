@@ -78,8 +78,14 @@ videos[] — each item is either a plain URL string or an object
   URLs may be YouTube (watch, youtu.be short links, or embed — the id is
   extracted and embedded as a responsive iframe) or local file paths like
   /assets/.../clip.mp4 (.mp4/.webm/.ogg/.mov rendered with a <video controls> tag),
-official_links[] ({label, url}), pull_quote_en, pull_quote_it
+official_links[] ({label, url} — or {label_en, label_it, url} for a label
+  that follows the EN/IT toggle; `label` is the fallback),
+pull_quote_en, pull_quote_it, pull_quote_by (optional)
 ```
+
+`pull_quote_*` hold only the quoted words. The speaker goes in
+`pull_quote_by` (e.g. `"Giovanni Santostasi"`), rendered as "— Name" on its
+own line outside the quote marks. Never append "— Name" to the quote text.
 
 `summary_*` may hold several paragraphs separated by a blank line (`\n\n`):
 the detail page renders each as its own `<p>`, while the index card and the

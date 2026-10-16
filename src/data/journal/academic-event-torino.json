@@ -133,10 +133,12 @@
       "url": "https://torino.ordingegneri.it"
     },
     {
-      "label": "SBI Academy Day · Lugano, 20 ottobre",
-      "url": "/news/journal/sbi-academy-day-lugano"
+      "label_en": "SBI Academy Day · Lugano, 20 October",
+      "label_it": "SBI Academy Day · Lugano, 20 ottobre",
+      "url": "/events/academic-day"
     }
   ],
-  "pull_quote_en": "The idea is to build an academic institute that studies Bitcoin as a physical system, as a complex system. — Giovanni Santostasi",
-  "pull_quote_it": "L'idea è creare un istituto accademico che studi Bitcoin come sistema fisico, come sistema complesso. — Giovanni Santostasi"
+  "pull_quote_en": "The idea is to build an academic institute that studies Bitcoin as a physical system, as a complex system.",
+  "pull_quote_it": "L'idea è creare un istituto accademico che studi Bitcoin come sistema fisico, come sistema complesso.",
+  "pull_quote_by": "Giovanni Santostasi"
 }
