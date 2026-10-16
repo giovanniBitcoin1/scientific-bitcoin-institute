@@ -157,3 +157,39 @@ Images live in `public/assets/journal/`, one folder per event slug. Current
 events: `bitcoin-asia-hong-kong`, `franklin-university-lugano`, `btc-prague`,
 `bitcoin-corporate-day`, `cervia`, `san-marino` (all past), `lac-lugano` and
 `plan-b-forum` (upcoming).
+
+## Complexity Lab (`/lab`)
+
+An independent SBI course on complex systems: short lectures plus
+slider-driven simulations. Both routes are lazy-loaded in `src/App.jsx`, so
+lab code ships in its own chunk. Not yet linked from the nav.
+
+- `src/pages/lab/` — `LabIndex.jsx` (`/lab`), `LabChapter.jsx` (`/lab/:slug`).
+- `src/data/lab/modules.json` — ordered module list: `slug`, `number` ("01"),
+  `status` (`"ready"` | `"coming-soon"`), `title_en/it`, `summary_en/it`.
+- `src/content/lab/<slug>.en.md` / `.it.md` — lecture text. A line holding
+  only `<!-- simulation -->` splits it: the lecture before, then the sim, then
+  the part after ("What to observe", "Further reading"). Other HTML comments
+  (e.g. `<!-- DRAFT … -->`) are stripped. Display equations go in ```` ```math ````
+  fences, inline ones in backticks — no math library.
+- `src/components/lab/` — shared pieces: `Slider.jsx` (supports `log`),
+  `SimControls.jsx` (Play/Pause, Step, Reset), `useAnimationLoop.js`, `rng.js`
+  (seeded mulberry32), `LangToggle.jsx`, `useLabLang.js` (EN/IT, remembered in
+  localStorage `sbi_lab_lang`).
+- `src/components/lab/sims/` — one component per module plus `index.js`, the
+  slug → component registry. Sims take a `lang` prop.
+
+**Adding a module:** set its `status` to `"ready"` in `modules.json`, write
+the two markdown files, build the sim in `sims/`, register it in
+`sims/index.js`. A coming-soon or unknown slug shows a friendly "not
+available" page.
+
+Sims are plain React + canvas 2D (recharts for simple line plots), with no
+physics/math libraries; anything random uses the seeded RNG in `rng.js` so
+runs are reproducible. Heavy computations run progressively across animation
+frames so the UI never freezes, and every sim must fit a 375px-wide screen
+without horizontal scroll.
+
+**Originality:** all lecture text is original, written from scratch in our
+own words — never copy or closely paraphrase any book. No book PDFs or
+third-party course material may ever be committed to this public repo.

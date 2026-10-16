@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "what-is-complexity",
+    "number": "01",
+    "status": "ready",
+    "title_en": "What is a complex system?",
+    "title_it": "Che cos'è un sistema complesso?",
+    "summary_en": "Emergence, feedback and nonlinearity, explored through the logistic map and its route from order to chaos.",
+    "summary_it": "Emergenza, retroazione e non linearità, esplorate con la mappa logistica e il suo percorso dall'ordine al caos."
+  },
+  {
+    "slug": "random-networks",
+    "number": "02",
+    "status": "coming-soon",
+    "title_en": "Networks I: random graphs and phase transitions",
+    "title_it": "Reti I: grafi casuali e transizioni di fase",
+    "summary_en": "How a giant connected cluster appears suddenly when links are added at random.",
+    "summary_it": "Come un gigantesco cluster connesso compare all'improvviso aggiungendo collegamenti a caso."
+  },
+  {
+    "slug": "small-worlds",
+    "number": "03",
+    "status": "coming-soon",
+    "title_en": "Networks II: small worlds",
+    "title_it": "Reti II: piccoli mondi",
+    "summary_en": "Why a few long-range shortcuts make any two nodes only a handful of steps apart.",
+    "summary_it": "Perché poche scorciatoie a lungo raggio bastano a rendere vicini due nodi qualsiasi."
+  },
+  {
+    "slug": "scale-free",
+    "number": "04",
+    "status": "coming-soon",
+    "title_en": "Networks III: scale-free networks and power laws",
+    "title_it": "Reti III: reti a invarianza di scala e leggi di potenza",
+    "summary_en": "Growth with preferential attachment produces hubs and heavy-tailed degree distributions.",
+    "summary_it": "La crescita con aggancio preferenziale genera hub e distribuzioni dei gradi a coda pesante."
+  },
+  {
+    "slug": "cellular-automata",
+    "number": "05",
+    "status": "coming-soon",
+    "title_en": "Cellular automata",
+    "title_it": "Automi cellulari",
+    "summary_en": "One-dimensional rules of a few bits that produce order, randomness and everything in between.",
+    "summary_it": "Regole unidimensionali di pochi bit che producono ordine, casualità e tutto ciò che sta in mezzo."
+  },
+  {
+    "slug": "game-of-life",
+    "number": "06",
+    "status": "coming-soon",
+    "title_en": "Game of Life and emergent structures",
+    "title_it": "Il Gioco della Vita e le strutture emergenti",
+    "summary_en": "Gliders, oscillators and self-sustaining patterns arising from a two-line rule on a grid.",
+    "summary_it": "Alianti, oscillatori e configurazioni autosostenute che nascono da una regola di due righe su una griglia."
+  },
+  {
+    "slug": "fractals-percolation",
+    "number": "07",
+    "status": "coming-soon",
+    "title_en": "Fractals and percolation",
+    "title_it": "Frattali e percolazione",
+    "summary_en": "Self-similar shapes, fractional dimensions and the critical point where a path first crosses a random medium.",
+    "summary_it": "Forme autosimili, dimensioni frazionarie e il punto critico in cui un cammino attraversa per la prima volta un mezzo casuale."
+  },
+  {
+    "slug": "self-organized-criticality",
+    "number": "08",
+    "status": "coming-soon",
+    "title_en": "Self-organized criticality",
+    "title_it": "Criticità auto-organizzata",
+    "summary_en": "Sandpiles that tune themselves to the edge of instability and release avalanches of every size.",
+    "summary_it": "Mucchi di sabbia che si portano da soli al limite dell'instabilità e producono valanghe di ogni dimensione."
+  },
+  {
+    "slug": "agent-based-models",
+    "number": "09",
+    "status": "coming-soon",
+    "title_en": "Agent-based models: segregation and traffic",
+    "title_it": "Modelli ad agenti: segregazione e traffico",
+    "summary_en": "Mild individual preferences and simple driving rules that add up to strong collective patterns.",
+    "summary_it": "Preferenze individuali moderate e semplici regole di guida che si sommano in forti schemi collettivi."
+  },
+  {
+    "slug": "collective-behavior",
+    "number": "10",
+    "status": "coming-soon",
+    "title_en": "Collective behavior: flocks and ant trails",
+    "title_it": "Comportamento collettivo: stormi e piste di formiche",
+    "summary_en": "Alignment, attraction and pheromone feedback that let groups move and forage as one.",
+    "summary_it": "Allineamento, attrazione e retroazione dei feromoni che permettono ai gruppi di muoversi e cercare cibo come un tutt'uno."
+  },
+  {
+    "slug": "cooperation",
+    "number": "11",
+    "status": "coming-soon",
+    "title_en": "Cooperation and game theory",
+    "title_it": "Cooperazione e teoria dei giochi",
+    "summary_en": "How cooperation can survive among self-interested players in repeated and spatial games.",
+    "summary_it": "Come la cooperazione può sopravvivere tra giocatori egoisti nei giochi ripetuti e spaziali."
+  },
+  {
+    "slug": "wealth-inequality",
+    "number": "12",
+    "status": "coming-soon",
+    "title_en": "Wealth and inequality",
+    "title_it": "Ricchezza e disuguaglianza",
+    "summary_en": "Random exchanges between identical agents that still end in highly unequal distributions.",
+    "summary_it": "Scambi casuali tra agenti identici che finiscono comunque in distribuzioni molto diseguali."
+  },
+  {
+    "slug": "bitcoin-complex-system",
+    "number": "13",
+    "status": "coming-soon",
+    "title_en": "Bitcoin as a complex adaptive system",
+    "title_it": "Bitcoin come sistema complesso adattivo",
+    "summary_en": "Network growth, adoption and price regularities of Bitcoin seen through the tools of this course.",
+    "summary_it": "Crescita della rete, adozione e regolarità del prezzo di Bitcoin viste con gli strumenti di questo corso."
+  }
+]

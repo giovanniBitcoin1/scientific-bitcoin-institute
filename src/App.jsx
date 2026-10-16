@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Manifesto from './pages/Manifesto.jsx'
@@ -50,6 +51,15 @@ import GrantOpportunities from './pages/GrantOpportunities.jsx'
 import AcademicDay from './pages/AcademicDay.jsx'
 import SeedTool from './pages/SeedTool.jsx'
 import SeedToolGuide from './pages/SeedToolGuide.jsx'
+
+// The Complexity Lab is lazy-loaded so its pages, sims and lecture text ship
+// in their own chunk instead of the main bundle.
+const LabIndex = lazy(() => import('./pages/lab/LabIndex.jsx'))
+const LabChapter = lazy(() => import('./pages/lab/LabChapter.jsx'))
+
+function LabFallback() {
+  return <div className="min-h-screen bg-slate-50" />
+}
 
 export default function App() {
   return (
@@ -107,6 +117,22 @@ export default function App() {
         <Route path="/events/academic-day" element={<AcademicDay />} />
         <Route path="/seed-tool" element={<SeedTool />} />
         <Route path="/seed-tool/guide" element={<SeedToolGuide />} />
+        <Route
+          path="/lab"
+          element={
+            <Suspense fallback={<LabFallback />}>
+              <LabIndex />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/lab/:slug"
+          element={
+            <Suspense fallback={<LabFallback />}>
+              <LabChapter />
+            </Suspense>
+          }
+        />
       </Routes>
     </BrowserRouter>
   )
