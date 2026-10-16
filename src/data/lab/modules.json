@@ -11,7 +11,7 @@
   {
     "slug": "random-networks",
     "number": "02",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Networks I: random graphs and phase transitions",
     "title_it": "Reti I: grafi casuali e transizioni di fase",
     "summary_en": "How a giant connected cluster appears suddenly when links are added at random.",
