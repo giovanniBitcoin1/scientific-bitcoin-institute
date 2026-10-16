@@ -56,7 +56,7 @@
   {
     "slug": "fractals-percolation",
     "number": "07",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Fractals and percolation",
     "title_it": "Frattali e percolazione",
     "summary_en": "Self-similar shapes, fractional dimensions and the critical point where a path first crosses a random medium.",
