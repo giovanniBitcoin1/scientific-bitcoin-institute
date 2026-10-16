@@ -4,6 +4,7 @@ import Slider from '../Slider.jsx'
 import SimControls from '../SimControls.jsx'
 import useAnimationLoop from '../useAnimationLoop.js'
 import useExperiment from '../useExperiment.js'
+import DrawToggle, { canEdit, drawCanvasClass } from '../DrawToggle.jsx'
 import {
   runSpaceTime,
   diffCounts,
@@ -61,6 +62,8 @@ const T = {
     clear: 'Clear row',
     drawHint: 'Click or drag on the strip above the diagram to set cells of the first row. Lower the width for bigger cells.',
     stripAria: 'First row of the automaton. Click a cell to switch it on or off.',
+    drawToggle: 'Draw',
+    drawToggleHint: 'On a touch screen, switch Draw on to paint the strip with your finger; while it is off, swiping scrolls the page.',
     width: 'Width (cells)',
     steps: 'Time steps',
     boundary: 'Boundary',
@@ -147,6 +150,8 @@ const T = {
     drawHint:
       'Clicca o trascina sulla striscia sopra il diagramma per impostare le celle della prima riga. Riduci la larghezza per avere celle più grandi.',
     stripAria: "Prima riga dell'automa. Clicca una cella per accenderla o spegnerla.",
+    drawToggle: 'Disegna',
+    drawToggleHint: 'Su uno schermo touch, attiva Disegna per dipingere la striscia con il dito; quando è spento, scorrere fa scorrere la pagina.',
     width: 'Larghezza (celle)',
     steps: 'Passi temporali',
     boundary: 'Bordo',
@@ -421,6 +426,7 @@ const RuleExplorer = forwardRef(function RuleExplorer({ t, locale, rule, setRule
   const [density, setDensity] = useState(0.5)
   const [rowSeed, setRowSeed] = useState(1)
   const [drawn, setDrawn] = useState([0]) // offsets from the centre cell
+  const [drawOn, setDrawOn] = useState(false) // touch drawing armed
   const [flip, setFlip] = useState(false)
   const [playing, setPlaying] = useState(false)
   const [speed, setSpeed] = useState(2)
@@ -548,6 +554,7 @@ const RuleExplorer = forwardRef(function RuleExplorer({ t, locale, rule, setRule
     })
   }
   const onPointerDown = (e) => {
+    if (!canEdit(drawOn, e)) return
     const i = cellAt(e)
     paint.current = { on: !initial[i], last: i }
     e.currentTarget.setPointerCapture(e.pointerId)
@@ -615,7 +622,10 @@ const RuleExplorer = forwardRef(function RuleExplorer({ t, locale, rule, setRule
         {init === 'draw' && (
           <div className="flex flex-wrap items-center gap-3">
             <SimControls onReset={() => setDrawn([])} labels={{ reset: t.clear }} />
-            <p className="text-xs text-slate-500 leading-relaxed flex-1 min-w-[12rem]">{t.drawHint}</p>
+            <DrawToggle on={drawOn} onChange={setDrawOn} label={t.drawToggle} />
+            <p className="text-xs text-slate-500 leading-relaxed flex-1 min-w-[12rem]">
+              {t.drawHint} {t.drawToggleHint}
+            </p>
           </div>
         )}
         <div className="grid gap-4 sm:grid-cols-2">
@@ -682,7 +692,7 @@ const RuleExplorer = forwardRef(function RuleExplorer({ t, locale, rule, setRule
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
             onPointerCancel={onPointerUp}
-            className="block mx-auto mb-1.5 border border-orange-300 cursor-crosshair touch-none"
+            className={`block mx-auto mb-1.5 border border-orange-300 cursor-crosshair ${drawCanvasClass(drawOn)}`}
           />
         )}
         <canvas

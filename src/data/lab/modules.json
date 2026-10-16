@@ -47,7 +47,7 @@
   {
     "slug": "game-of-life",
     "number": "06",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Game of Life and emergent structures",
     "title_it": "Il Gioco della Vita e le strutture emergenti",
     "summary_en": "Gliders, oscillators and self-sustaining patterns arising from a two-line rule on a grid.",
