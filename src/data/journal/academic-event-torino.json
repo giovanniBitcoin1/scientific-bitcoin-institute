@@ -1,31 +1,142 @@
 {
   "slug": "academic-event-torino",
-  "status": "upcoming",
+  "status": "past",
   "date": "2026-10-13",
   "date_display_en": "October 13, 2026",
   "date_display_it": "13 ottobre 2026",
-  "location": "Turin, Italy",
+  "location": "Blox Space, Piazza Solferino, Turin",
   "place": "Turin",
   "coords": {
     "lat": 45.0678,
     "lng": 7.6825
   },
   "type": "Conference",
-  "cover_image": "/assets/journal/academic-event-torino-cover.svg",
-  "title_en": "Academic event — Turin",
-  "title_it": "Evento accademico — Torino",
-  "summary_en": "On 13 October 2026, Giovanni Santostasi, Director of the Scientific Bitcoin Institute, speaks at an academic event in Turin, from 11:00 to 11:45. Details coming soon.",
-  "summary_it": "Il 13 ottobre 2026 Giovanni Santostasi, Direttore dello Scientific Bitcoin Institute, interviene a un evento accademico a Torino, dalle 11:00 alle 11:45. Dettagli a breve.",
+  "cover_image": "/assets/journal/academic-event-torino/cover.jpg",
+  "title_en": "Bitcoin at the Turin Order of Engineers",
+  "title_it": "Bitcoin all'Ordine degli Ingegneri di Torino",
+  "summary_en": "On 13 October 2026 the Management, Production and Logistics Engineering Committee of the Order of Engineers of the Province of Turin held the training morning \"Bitcoin, Blockchain and Decentralised Finance: technology, markets and money in the age of digital assets\" at Blox Space, Piazza Solferino: the same building where the Scientific Bitcoin Institute has its home, on the top floor. After the morning's talks, including one by Prof. Cacciamani of the University of Parma, Giovanni Santostasi, Director of the Institute, gave a packed room of engineers the keynote \"Bitcoin is scale invariant – From the power law to a mechanistic theory of adoption\".\n\nStarting from the price chart everyone knows, Giovanni showed how, with the right coordinates, that irregular curve becomes a straight line. Two power laws, one for adoption and one for the price response, combine into the Institute's mechanistic model. To explain the change of scale he used two examples familiar to a technical audience: the Copernican revolution and the Richter scale for earthquakes.\n\nGiovanni also introduced the Institute, an American non-profit with an international mission, founded to study Bitcoin as a physical and complex system, and invited professors, students and researchers to the first scientific conference on Bitcoin, on 20 October in Lugano.",
+  "summary_it": "Il 13 ottobre 2026 la Commissione Ingegneria Gestionale, Produzione e Logistica dell'Ordine degli Ingegneri della Provincia di Torino ha dedicato a Bitcoin la mattinata di formazione «Bitcoin, Blockchain e Finanza Decentralizzata: tecnologia, mercati e moneta nell'era degli asset digitali», a Blox Space, in Piazza Solferino: lo stesso edificio in cui, all'ultimo piano, ha sede lo Scientific Bitcoin Institute. Dopo gli interventi della mattinata, tra cui quello del prof. Cacciamani dell'Università di Parma, Giovanni Santostasi, Direttore dell'Istituto, ha presentato a una sala piena di ingegneri il keynote «Bitcoin is scale invariant – From the power law to a mechanistic theory of adoption».\n\nPartendo dal grafico del prezzo che tutti conoscono, Giovanni ha mostrato come, con le coordinate giuste, quella curva irregolare diventi una linea retta. Sono due leggi di potenza, una per l'adozione e una per la risposta del prezzo, che insieme formano il modello meccanicistico dell'Istituto. Per spiegare il cambio di scala ha usato due esempi familiari a un pubblico tecnico: la rivoluzione copernicana e la scala Richter dei terremoti.\n\nGiovanni ha anche presentato l'Istituto, una non profit americana con vocazione internazionale nata per studiare Bitcoin come sistema fisico e complesso, e ha invitato professori, studenti e ricercatori alla prima conferenza scientifica su Bitcoin, il 20 ottobre a Lugano.",
   "highlights_en": [
-    "Talk by Giovanni Santostasi, 11:00–11:45.",
-    "Venue and programme to be announced."
+    "Giovanni Santostasi's keynote at 12:15, closing the morning.",
+    "His 540-page book \"The Physics of Bitcoin\", presented and available in the room.",
+    "From \"The chart everyone sees\" to the right coordinates: the mechanistic model built on two power laws.",
+    "Copernicus and the Richter scale to explain why \"changing coordinates is not cheating\".",
+    "An invitation to the SBI Academy Day on 20 October in Lugano, the first scientific conference on Bitcoin."
   ],
   "highlights_it": [
-    "Intervento di Giovanni Santostasi, dalle 11:00 alle 11:45.",
-    "Sede e programma in arrivo."
+    "Keynote di Giovanni Santostasi alle 12:15, a chiusura della mattinata.",
+    "Il libro «The Physics of Bitcoin», 540 pagine, presentato e disponibile in sala.",
+    "Dal grafico «The chart everyone sees» alle coordinate giuste: il modello meccanicistico con due leggi di potenza.",
+    "Copernico e la scala Richter per spiegare perché «changing coordinates is not cheating».",
+    "L'invito all'SBI Academy Day del 20 ottobre a Lugano, la prima conferenza scientifica su Bitcoin."
   ],
-  "people_met": [],
-  "gallery": [],
-  "videos": [],
-  "official_links": []
+  "people_met": [
+    "Ing. Giovanni Mancini (organiser, Commissione Ingegneria Gestionale, Ordine degli Ingegneri di Torino)",
+    "Ing. Christian Ametta (organiser, Commissione Ingegneria Gestionale, Ordine degli Ingegneri di Torino)",
+    "Prof. Cacciamani (speaker, Università di Parma)"
+  ],
+  "gallery": [
+    {
+      "src": "/assets/journal/academic-event-torino/01-the-chart-everyone-sees.jpg",
+      "alt_en": "The room at Blox Space during the keynote, with \"The chart everyone sees\" on screen",
+      "alt_it": "La sala di Blox Space durante il keynote, con «The chart everyone sees» sullo schermo"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/02-keynote-on-stage.jpg",
+      "alt_en": "Giovanni Santostasi on stage",
+      "alt_it": "Giovanni Santostasi sul palco"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/03-pointing-at-the-chart.jpg",
+      "alt_en": "Giovanni Santostasi points at the Bitcoin price chart",
+      "alt_it": "Giovanni Santostasi indica il grafico del prezzo di Bitcoin"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/04-affine-space.jpg",
+      "alt_en": "\"Affine space: finding the coordinates\": the power that turns price into a straight line",
+      "alt_it": "«Affine space: finding the coordinates»: la potenza che trasforma il prezzo in una linea retta"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/05-scale-invariant.jpg",
+      "alt_en": "Giovanni Santostasi in front of the title slide \"Bitcoin is scale invariant\"",
+      "alt_it": "Giovanni Santostasi davanti alla slide del titolo «Bitcoin is scale invariant»"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/06-arrivals-at-blox.jpg",
+      "alt_en": "Engineers arriving at Blox Space",
+      "alt_it": "Gli ingegneri arrivano a Blox Space"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/07-audience.jpg",
+      "alt_en": "The audience in the room",
+      "alt_it": "Il pubblico in sala"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/08-morning-session.jpg",
+      "alt_en": "A talk on Bitcoin's proof of work earlier in the morning",
+      "alt_it": "Un intervento sulla proof of work di Bitcoin nel corso della mattinata"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/09-blox-space.jpg",
+      "alt_en": "The Blox Space room before the start",
+      "alt_it": "La sala di Blox Space prima dell'inizio"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/10-blox-lounge.jpg",
+      "alt_en": "The lounge at Blox",
+      "alt_it": "La lounge di Blox"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/11-bitcoin-posters.jpg",
+      "alt_en": "Bitcoin posters in a corridor at Blox",
+      "alt_it": "Poster dedicati a Bitcoin in un corridoio di Blox"
+    },
+    {
+      "src": "/assets/journal/academic-event-torino/12-sculpture.jpg",
+      "alt_en": "A sculpture at Blox",
+      "alt_it": "Una scultura a Blox"
+    }
+  ],
+  "videos": [
+    {
+      "url": "/assets/journal/academic-event-torino/physics-and-the-book.mp4",
+      "poster": "/assets/journal/academic-event-torino/physics-and-the-book-poster.jpg",
+      "title_en": "Physics and the book",
+      "title_it": "La fisica e il libro"
+    },
+    {
+      "url": "/assets/journal/academic-event-torino/kurzweil-exponential-growth.mp4",
+      "poster": "/assets/journal/academic-event-torino/kurzweil-exponential-growth-poster.jpg",
+      "title_en": "Kurzweil and exponential growth",
+      "title_it": "Kurzweil e la crescita esponenziale"
+    },
+    {
+      "url": "/assets/journal/academic-event-torino/the-institute-at-blox.mp4",
+      "poster": "/assets/journal/academic-event-torino/the-institute-at-blox-poster.jpg",
+      "title_en": "The Institute, here at Blox",
+      "title_it": "L'Istituto, qui al Blox"
+    },
+    {
+      "url": "/assets/journal/academic-event-torino/copernicus-richter-scale.mp4",
+      "poster": "/assets/journal/academic-event-torino/copernicus-richter-scale-poster.jpg",
+      "title_en": "Copernicus and the Richter scale",
+      "title_it": "Copernico e la scala Richter"
+    },
+    {
+      "url": "/assets/journal/academic-event-torino/blox-space.mp4",
+      "poster": "/assets/journal/academic-event-torino/blox-space-poster.jpg"
+    }
+  ],
+  "official_links": [
+    {
+      "label": "Ordine degli Ingegneri della Provincia di Torino",
+      "url": "https://torino.ordingegneri.it"
+    },
+    {
+      "label": "SBI Academy Day · Lugano, 20 ottobre",
+      "url": "/news/journal/sbi-academy-day-lugano"
+    }
+  ],
+  "pull_quote_en": "The idea is to build an academic institute that studies Bitcoin as a physical system, as a complex system. — Giovanni Santostasi",
+  "pull_quote_it": "L'idea è creare un istituto accademico che studi Bitcoin come sistema fisico, come sistema complesso. — Giovanni Santostasi"
 }

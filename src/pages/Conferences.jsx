@@ -29,19 +29,6 @@ function ScrollToHash() {
 
 const events = [
   {
-    id: 'academic-event-torino-2026',
-    date: 'October 13, 2026',
-    title: 'Academic event — Turin',
-    location: 'Turin, Italy',
-    description: (
-      <>
-        Director Giovanni Santostasi speaks at an academic event in Turin, from 11:00 to 11:45. Venue and programme
-        will be published once finalized.
-      </>
-    ),
-    role: 'Talk by Giovanni Santostasi',
-  },
-  {
     id: 'sbi-academy-day-2026',
     date: 'October 20, 2026',
     title: 'SBI Academy Day',

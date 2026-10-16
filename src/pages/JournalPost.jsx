@@ -154,7 +154,7 @@ export default function JournalPost() {
     if (!event) return
     document.title = `${event.title_en} — Event Journal — Scientific Bitcoin Institute`
     const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.setAttribute('content', event.summary_en)
+    if (meta) meta.setAttribute('content', event.summary_en.split('\n\n')[0])
   }, [event])
 
   if (!event) return <NotFound />
@@ -211,7 +211,12 @@ export default function JournalPost() {
             <h1 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight mt-3">
               {title}
             </h1>
-            <p className="mt-5 text-slate-700 text-lg leading-relaxed">{summary}</p>
+            {/* Paragraphs in a summary are separated by a blank line ("\n\n"). */}
+            {summary.split('\n\n').map((para, i) => (
+              <p key={i} className="mt-5 text-slate-700 text-lg leading-relaxed">
+                {para}
+              </p>
+            ))}
           </header>
 
           {/* Highlights */}
@@ -357,14 +362,21 @@ export default function JournalPost() {
               <ul className="mt-4 space-y-2">
                 {event.official_links.map((link, i) => (
                   <li key={i}>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={orangeLink}
-                    >
-                      {link.label} ↗
-                    </a>
+                    {/* Site-internal paths ("/news/...") stay in the SPA, in the same tab. */}
+                    {link.url.startsWith('/') ? (
+                      <Link to={link.url} className={orangeLink}>
+                        {link.label} →
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={orangeLink}
+                      >
+                        {link.label} ↗
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

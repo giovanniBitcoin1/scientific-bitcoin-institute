@@ -53,7 +53,10 @@ function EventCard({ event }) {
           {event.date_display_en || formatLongDateUpper(event.date)} &nbsp;·&nbsp; {event.location}
         </p>
         <h2 className="font-serif text-2xl text-slate-900 leading-tight mt-2">{event.title_en}</h2>
-        <p className="text-slate-600 text-sm mt-2 leading-relaxed">{event.summary_en}</p>
+        <p className="text-slate-600 text-sm mt-2 leading-relaxed">
+          {/* A summary may hold several paragraphs; the card shows only the first. */}
+          {event.summary_en.split('\n\n')[0]}
+        </p>
         <p className="mt-4 text-sm font-semibold text-orange-600 group-hover:text-orange-700">
           View event →
         </p>

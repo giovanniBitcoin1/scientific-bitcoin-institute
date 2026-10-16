@@ -81,6 +81,11 @@ videos[] — each item is either a plain URL string or an object
 official_links[] ({label, url}), pull_quote_en, pull_quote_it
 ```
 
+`summary_*` may hold several paragraphs separated by a blank line (`\n\n`):
+the detail page renders each as its own `<p>`, while the index card and the
+meta description use only the first. An `official_links` URL starting with
+`/` is a site-internal link and opens in the same tab via `<Link>`.
+
 `date_display_en` / `date_display_it` are **required on every event** and carry
 the human-readable date shown in the card and detail eyebrows, replacing the
 date auto-formatted from `date`. Keep both in sync with the real span:
