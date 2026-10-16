@@ -272,3 +272,162 @@ export function rewireSequence(n, k, steps, seed) {
   }
   return { A, B, rewired, shortcuts }
 }
+
+// Erdős–Rényi G(n, M): M distinct edges chosen uniformly among all pairs.
+export function erdosRenyiGnm(n, M, seed) {
+  const random = mulberry32(seed)
+  const target = Math.min(M, (n * (n - 1)) / 2)
+  const A = new Int32Array(target)
+  const B = new Int32Array(target)
+  const keys = new Set()
+  let e = 0
+  while (e < target) {
+    const a = Math.floor(random() * n)
+    const b = Math.floor(random() * n)
+    if (a === b) continue
+    const key = edgeKey(n, a, b)
+    if (keys.has(key)) continue
+    keys.add(key)
+    A[e] = a
+    B[e] = b
+    e++
+  }
+  return { A, B }
+}
+
+// Barabási–Albert (1999) growth. The network starts as a complete graph on
+// m + 1 nodes; every later node arrives with m links to distinct earlier
+// nodes. With preferential attachment the targets are drawn from the list of
+// all edge endpoints so far, in which node i appears k_i times: a uniform
+// pick from that list chooses i with probability proportional to its degree.
+// With `uniform: true` every earlier node is equally likely instead.
+//
+// Edges are stored in order of arrival, and the random stream does not depend
+// on n, so for one seed the first t nodes of a larger network are exactly the
+// network grown to t nodes. edgesUpTo[t] is the number of edges among the
+// first t nodes (so A, B truncated there is the network at size t).
+export function barabasiAlbert(n, m, seed, { uniform = false } = {}) {
+  const m0 = m + 1
+  const N = Math.max(n, m0)
+  const total = (m0 * (m0 - 1)) / 2 + (N - m0) * m
+  const A = new Int32Array(total)
+  const B = new Int32Array(total)
+  const ends = new Int32Array(2 * total) // every edge endpoint, once per link
+  const edgesUpTo = new Int32Array(N + 1)
+  const random = mulberry32(seed)
+  const chosen = new Int32Array(m)
+  let e = 0
+  for (let v = 1; v < m0; v++) {
+    for (let u = 0; u < v; u++) {
+      A[e] = v
+      B[e] = u
+      ends[2 * e] = v
+      ends[2 * e + 1] = u
+      e++
+    }
+    edgesUpTo[v + 1] = e
+  }
+  for (let v = m0; v < N; v++) {
+    for (let j = 0; j < m; j++) {
+      let u
+      do {
+        u = uniform ? Math.floor(random() * v) : ends[Math.floor(random() * 2 * e)]
+      } while (chosen.subarray(0, j).includes(u))
+      chosen[j] = u
+    }
+    // Endpoints are appended only after all m targets are drawn, so a node's
+    // own new links do not raise its chances within the same step.
+    for (let j = 0; j < m; j++) {
+      A[e] = v
+      B[e] = chosen[j]
+      ends[2 * e] = v
+      ends[2 * e + 1] = chosen[j]
+      e++
+    }
+    edgesUpTo[v + 1] = e
+  }
+  return { A, B, edgesUpTo, m0 }
+}
+
+// Degree of every node from an edge list (the first m edges).
+export function degrees(n, A, B, m = A.length) {
+  const k = new Int32Array(n)
+  for (let e = 0; e < m; e++) {
+    k[A[e]]++
+    k[B[e]]++
+  }
+  return k
+}
+
+// Complementary cumulative distribution of a sample of non-negative integers:
+// one point { k, p } per distinct value k, with p = P(K ≥ k).
+export function ccdfInt(sample) {
+  let max = 0
+  for (let i = 0; i < sample.length; i++) if (sample[i] > max) max = sample[i]
+  const count = new Int32Array(max + 1)
+  for (let i = 0; i < sample.length; i++) count[sample[i]]++
+  const out = []
+  let above = sample.length
+  for (let k = 0; k <= max; k++) {
+    if (count[k]) out.push({ k, p: above / sample.length })
+    above -= count[k]
+  }
+  return out
+}
+
+// Maximum-likelihood exponent γ of a discrete power law P(k) ∝ k^(−γ), k ≥ kMin,
+// in the approximation of Clauset, Shalizi and Newman (2009):
+// γ̂ ≈ 1 + N / Σ ln(k_i / (kMin − ½)), over the N values k_i ≥ kMin.
+// The standard error is (γ̂ − 1) / √N.
+export function powerLawMLEDiscrete(sample, kMin) {
+  let N = 0
+  let sum = 0
+  for (let i = 0; i < sample.length; i++) {
+    if (sample[i] >= kMin) {
+      N++
+      sum += Math.log(sample[i] / (kMin - 0.5))
+    }
+  }
+  const gamma = N && sum > 0 ? 1 + N / sum : NaN
+  return { gamma, error: (gamma - 1) / Math.sqrt(N), N }
+}
+
+// Size of the largest connected component as nodes are removed in `order`:
+// largest[r] is its size once the first r nodes of `order` are gone
+// (r = 0 … n). Computed backwards, adding nodes in reverse order to a
+// union–find structure, so the whole curve costs about one pass over the edges.
+export function removalCurve(g, order) {
+  const { n, offsets, neighbors } = g
+  const parent = new Int32Array(n)
+  const size = new Int32Array(n)
+  const present = new Uint8Array(n)
+  const find = (x) => {
+    while (parent[x] !== x) {
+      parent[x] = parent[parent[x]]
+      x = parent[x]
+    }
+    return x
+  }
+  const largest = new Int32Array(n + 1)
+  let best = 0
+  for (let r = n - 1; r >= 0; r--) {
+    const v = order[r]
+    present[v] = 1
+    parent[v] = v
+    size[v] = 1
+    for (let i = offsets[v], end = offsets[v + 1]; i < end; i++) {
+      const u = neighbors[i]
+      if (!present[u]) continue
+      let a = find(u)
+      let b = find(v)
+      if (a === b) continue
+      if (size[a] < size[b]) [a, b] = [b, a]
+      parent[b] = a
+      size[a] += size[b]
+    }
+    const s = size[find(v)]
+    if (s > best) best = s
+    largest[r] = best
+  }
+  return largest
+}

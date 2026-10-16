@@ -29,7 +29,7 @@
   {
     "slug": "scale-free",
     "number": "04",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Networks III: scale-free networks and power laws",
     "title_it": "Reti III: reti a invarianza di scala e leggi di potenza",
     "summary_en": "Growth with preferential attachment produces hubs and heavy-tailed degree distributions.",

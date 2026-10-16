@@ -1,12 +1,14 @@
 import LogisticMap from './LogisticMap.jsx'
 import RandomNetwork from './RandomNetwork.jsx'
 import SmallWorld from './SmallWorld.jsx'
+import ScaleFree from './ScaleFree.jsx'
 
 // Module slug → simulation component. Each sim receives a `lang` prop ("en" | "it").
 const sims = {
   'what-is-complexity': LogisticMap,
   'random-networks': RandomNetwork,
   'small-worlds': SmallWorld,
+  'scale-free': ScaleFree,
 }
 
 export default sims
