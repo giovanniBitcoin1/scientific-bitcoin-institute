@@ -38,7 +38,7 @@
   {
     "slug": "cellular-automata",
     "number": "05",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Cellular automata",
     "title_it": "Automi cellulari",
     "summary_en": "One-dimensional rules of a few bits that produce order, randomness and everything in between.",
