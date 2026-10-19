@@ -5,6 +5,7 @@ import ScaleFree from './ScaleFree.jsx'
 import CellularAutomata from './CellularAutomata.jsx'
 import GameOfLife from './GameOfLife.jsx'
 import FractalsPercolation from './FractalsPercolation.jsx'
+import SelfOrganizedCriticality from './SelfOrganizedCriticality.jsx'
 
 // Module slug → simulation component. Each sim receives a `lang` prop ("en" | "it").
 const sims = {
@@ -15,6 +16,7 @@ const sims = {
   'cellular-automata': CellularAutomata,
   'game-of-life': GameOfLife,
   'fractals-percolation': FractalsPercolation,
+  'self-organized-criticality': SelfOrganizedCriticality,
 }
 
 export default sims

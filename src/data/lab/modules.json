@@ -65,7 +65,7 @@
   {
     "slug": "self-organized-criticality",
     "number": "08",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Self-organized criticality",
     "title_it": "Criticità auto-organizzata",
     "summary_en": "Sandpiles that tune themselves to the edge of instability and release avalanches of every size.",
