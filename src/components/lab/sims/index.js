@@ -7,6 +7,7 @@ import GameOfLife from './GameOfLife.jsx'
 import FractalsPercolation from './FractalsPercolation.jsx'
 import SelfOrganizedCriticality from './SelfOrganizedCriticality.jsx'
 import AgentBasedModels from './AgentBasedModels.jsx'
+import CollectiveBehavior from './CollectiveBehavior.jsx'
 
 // Module slug → simulation component. Each sim receives a `lang` prop ("en" | "it").
 const sims = {
@@ -19,6 +20,7 @@ const sims = {
   'fractals-percolation': FractalsPercolation,
   'self-organized-criticality': SelfOrganizedCriticality,
   'agent-based-models': AgentBasedModels,
+  'collective-behavior': CollectiveBehavior,
 }
 
 export default sims

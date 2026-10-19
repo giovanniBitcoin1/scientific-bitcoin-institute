@@ -83,7 +83,7 @@
   {
     "slug": "collective-behavior",
     "number": "10",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Collective behavior: flocks and ant trails",
     "title_it": "Comportamento collettivo: stormi e piste di formiche",
     "summary_en": "Alignment, attraction and pheromone feedback that let groups move and forage as one.",

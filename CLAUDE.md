@@ -190,6 +190,11 @@ runs are reproducible. Heavy computations run progressively across animation
 frames so the UI never freezes, and every sim must fit a 375px-wide screen
 without horizontal scroll.
 
+Experiments too slow to run on page load are precomputed by Node scripts in
+`scripts/lab/` into `src/data/lab/precomputed/` (e.g. `node
+scripts/lab/precompute-vicsek.mjs` → `vicsek.json`). Rerun a script whenever
+the lab code or default settings it uses change.
+
 **Originality:** all lecture text is original, written from scratch in our
 own words — never copy or closely paraphrase any book. No book PDFs or
 third-party course material may ever be committed to this public repo.
