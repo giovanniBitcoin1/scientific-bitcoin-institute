@@ -98,6 +98,20 @@ const markdownComponents = {
     </blockquote>
   ),
   hr: () => <hr className="my-10 border-t border-slate-200" />,
+  // Tables (remark-gfm) scroll inside their own box if they are wider than the column.
+  table: ({ children }) => (
+    <div className="my-6 overflow-x-auto rounded-lg border border-slate-200">
+      <table className="w-full border-collapse text-xs sm:text-sm">{children}</table>
+    </div>
+  ),
+  th: ({ children }) => (
+    <th className="bg-slate-50 border-b border-slate-200 px-2 sm:px-3 py-2 text-left align-bottom font-mono text-xs uppercase tracking-wider text-slate-500 font-semibold">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="border-b border-slate-100 px-2 sm:px-3 py-2 align-top text-slate-700 leading-snug">{children}</td>
+  ),
   // Display equations are fenced ```math blocks; inline equations use `backticks`.
   pre: ({ children }) => (
     <div className="my-6 overflow-x-auto rounded-lg bg-slate-50 border border-slate-200 px-4 py-4 text-center font-mono text-base md:text-lg text-slate-900">

@@ -77,7 +77,7 @@ Si sente spesso dire che il possesso di bitcoin è estremamente concentrato. Aff
 5. Nel pannello C, metti J = 0 e confronta la media e la mediana nel tempo. Quale delle due descrive un agente tipico?
 6. Con J > 0, aspetta che la coda si stabilizzi e confronta l'esponente stimato con 1 + J/σ². Poi dimezza J: che cosa succede alla coda?
 
-## Per approfondire
+## Letture consigliate
 
 - V. Pareto, *Cours d'économie politique* (Rouge, Losanna, 1896–97).
 - M. O. Lorenz, "Methods of measuring the concentration of wealth", *Publications of the American Statistical Association* 9 (1905) 209–219.

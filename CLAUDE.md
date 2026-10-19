@@ -195,6 +195,11 @@ Experiments too slow to run on page load are precomputed by Node scripts in
 scripts/lab/precompute-vicsek.mjs` → `vicsek.json`). Rerun a script whenever
 the lab code or default settings it uses change.
 
+Module 13's daily BTC/USD price is a static snapshot of Coin Metrics Community
+Data (CC BY-NC 4.0, attribution shown under the chart): refresh it by hand with
+`node scripts/lab/fetch-btc-price.mjs`, which rewrites
+`src/data/lab/bitcoin-price.json` and `bitcoin-price.meta.json`. No workflow.
+
 **Originality:** all lecture text is original, written from scratch in our
 own words — never copy or closely paraphrase any book. No book PDFs or
 third-party course material may ever be committed to this public repo.

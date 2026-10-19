@@ -10,6 +10,7 @@ import AgentBasedModels from './AgentBasedModels.jsx'
 import CollectiveBehavior from './CollectiveBehavior.jsx'
 import Cooperation from './Cooperation.jsx'
 import WealthInequality from './WealthInequality.jsx'
+import BitcoinComplexSystem from './BitcoinComplexSystem.jsx'
 
 // Module slug → simulation component. Each sim receives a `lang` prop ("en" | "it").
 const sims = {
@@ -25,6 +26,7 @@ const sims = {
   'collective-behavior': CollectiveBehavior,
   'cooperation': Cooperation,
   'wealth-inequality': WealthInequality,
+  'bitcoin-complex-system': BitcoinComplexSystem,
 }
 
 export default sims

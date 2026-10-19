@@ -69,7 +69,7 @@ La teoria dei giochi mostra anche i limiti di questo argomento. Nel 2014 Ittay E
 5. Fai partire la griglia da un miscuglio casuale con b tra 1,8 e 2. La quota di cooperatori si assesta vicino alla linea tratteggiata, qualunque sia la quota iniziale?
 6. Nel dilemma del volontario, raddoppia la dimensione del gruppo. Sono tutti più al sicuro? Che cosa succede alla probabilità che ciascuno si offra, e a quella che non si offra nessuno?
 
-## Per approfondire
+## Letture consigliate
 
 - J. F. Nash, "Equilibrium points in n-person games", *Proceedings of the National Academy of Sciences* 36 (1950) 48–49.
 - G. Hardin, "The tragedy of the commons", *Science* 162 (1968) 1243–1248.
