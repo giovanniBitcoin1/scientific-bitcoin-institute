@@ -54,7 +54,7 @@ Come sappiamo che p_c ≈ 0,5927? Con una simulazione **Monte Carlo**: si genera
 
 La percolazione descrive petrolio e acqua che si muovono nella roccia porosa, e il caffè che passa attraverso la polvere macinata. Descrive un'epidemia che si diffonde in una popolazione, o un incendio in un bosco (il modello dell'incendio boschivo torna nel Modulo 08), e la conducibilità di una miscela di grani conduttori e isolanti. E descrive la robustezza delle reti: l'esperimento del Modulo 04 sui guasti casuali e sugli attacchi mirati è percolazione su un grafo, togliendo nodi invece di aprirli, come mostrarono Reuven Cohen, Keren Erez, Daniel ben-Avraham e Shlomo Havlin nel 2000.
 
-## Un legame con Bitcoin
+## Un collegamento con Bitcoin
 
 Quanti nodi di una rete peer-to-peer possono guastarsi a caso prima che si frammenti? Considera una rete idealizzata, un grafo casuale con gradi di Poisson e grado medio ⟨k⟩. Se sopravvive una frazione q dei nodi, scelti a caso, una componente connessa gigante resta finché
 

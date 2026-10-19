@@ -101,7 +101,7 @@
   {
     "slug": "wealth-inequality",
     "number": "12",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Wealth and inequality",
     "title_it": "Ricchezza e disuguaglianza",
     "summary_en": "Random exchanges between identical agents that still end in highly unequal distributions.",

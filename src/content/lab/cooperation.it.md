@@ -52,7 +52,7 @@ Con molti giocatori il dilemma diventa la **tragedia dei beni comuni**, resa cel
 
 Un altro gioco a molti giocatori è il **dilemma del volontario** di Andreas Diekmann (1985). Qualcuno deve pagare un costo perché tutti ne traggano beneficio: chiamare l'ambulanza, segnalare il bug. Se ogni giocatore si offre a caso con la probabilità di equilibrio, ne segue un risultato sorprendente: più il gruppo è grande, più è probabile che non si offra **nessuno**. È un modello semplice dell'effetto spettatore.
 
-## Un legame con Bitcoin
+## Un collegamento con Bitcoin
 
 Bitcoin è un esercizio di progettazione degli incentivi. Nella sezione 6 del white paper del 2008, Satoshi Nakamoto sostiene che un attaccante capace di radunare più potenza di calcolo di tutti i nodi onesti insieme dovrebbe trovare più redditizio rispettare le regole, incassando nuove monete, che minare il sistema da cui dipende il valore di quelle stesse monete. La sicurezza non chiede che tutti siano buoni, ma che l'onestà sia la strategia migliore.
 

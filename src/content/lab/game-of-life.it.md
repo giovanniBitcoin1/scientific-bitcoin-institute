@@ -58,7 +58,7 @@ Riempi una griglia a caso e lascia girare il Gioco della Vita. Le prime generazi
 
 Nel 1989 Per Bak, Kan Chen e Michael Creutz si spinsero oltre e suggerirono che il Gioco della Vita si trovi vicino a uno stato critico, con perturbazioni che si spengono dopo valanghe di attività di ogni dimensione. Lavori successivi hanno messo in dubbio quanto ci sia davvero vicino, ma l'idea porta dritto al Modulo 08.
 
-## Un legame con Bitcoin
+## Un collegamento con Bitcoin
 
 Un aliante è una configurazione persistente, non un insieme fisso di celle. Anche Bitcoin è così. Le macchine che lo eseguono vanno e vengono, il software viene riscritto di versione in versione, le persone che vi partecipano cambiano; eppure il registro e le sue regole persistono, tenuti in vita da interazioni locali tra molti nodi indipendenti, senza nessuno al comando. Chiedersi "che cos'è davvero Bitcoin?" è una versione della domanda di Dennett.
 
