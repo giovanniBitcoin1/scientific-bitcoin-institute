@@ -74,7 +74,7 @@
   {
     "slug": "agent-based-models",
     "number": "09",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Agent-based models: segregation and traffic",
     "title_it": "Modelli ad agenti: segregazione e traffico",
     "summary_en": "Mild individual preferences and simple driving rules that add up to strong collective patterns.",
