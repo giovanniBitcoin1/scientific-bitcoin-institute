@@ -33,7 +33,6 @@ const submenuHrefs = {
   'Economic Models': '/education/economic-models',
   'Online Courses': '/education/online-courses',
   'Summer School': '/education/summer-school',
-  'Complexity Lab': '/lab',
   'Mission': '/manifesto#mission',
   'History': '/about/history',
   'FAQs': '/about/faqs',
