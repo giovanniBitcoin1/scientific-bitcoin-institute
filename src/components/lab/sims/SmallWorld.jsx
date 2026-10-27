@@ -98,7 +98,7 @@ const T = {
     tooltipP: (p) => `p = ${p.toPrecision(2)}`,
   },
   it: {
-    build: 'Costruisci un piccolo mondo',
+    build: 'Costruisci una rete small-world',
     n: 'Nodi n',
     k: 'Vicini per nodo k',
     p: 'Probabilità di ricollegamento p',

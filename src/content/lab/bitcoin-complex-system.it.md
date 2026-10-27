@@ -78,7 +78,7 @@ Quanto sono robusti la rete dei peer e l'ecosistema del mining rispetto a **guas
 
 ## Il corso, una frase per filone
 
-Retroazione e non linearità (Modulo 01) sono il motivo per cui piccole cause possono avere grandi effetti e la previsione ha dei limiti. Grafi casuali, piccoli mondi e reti a invarianza di scala (Moduli 02–04) spiegano come pochi collegamenti casuali per nodo connettano una rete globale, e perché gli hub sono una vulnerabilità da evitare. Automi cellulari e Gioco della Vita (Moduli 05–06) mostrano comportamenti complessi, e un'identità che persiste, che emergono da regole deterministiche semplici. Frattali, percolazione e criticità (Moduli 07–08) descrivono soglie, robustezza e code pesanti. Modelli ad agenti, stormi e giochi (Moduli 09–11) mostrano come aggregati, coordinamento e cooperazione nascano da decisioni e incentivi locali. La disuguaglianza (Modulo 12) ci ricorda di chiederci che cosa si sta contando.
+Retroazione e non linearità (Modulo 01) sono il motivo per cui piccole cause possono avere grandi effetti e la previsione ha dei limiti. Grafi casuali, reti small-world e reti a invarianza di scala (Moduli 02–04) spiegano come pochi collegamenti casuali per nodo connettano una rete globale, e perché gli hub sono una vulnerabilità da evitare. Automi cellulari e Gioco della Vita (Moduli 05–06) mostrano comportamenti complessi, e un'identità che persiste, che emergono da regole deterministiche semplici. Frattali, percolazione e criticità (Moduli 07–08) descrivono soglie, robustezza e code pesanti. Modelli ad agenti, stormi e giochi (Moduli 09–11) mostrano come aggregati, coordinamento e cooperazione nascano da decisioni e incentivi locali. La disuguaglianza (Modulo 12) ci ricorda di chiederci che cosa si sta contando.
 
 La complessità non è una teoria sola. È una cassetta degli attrezzi per i sistemi in cui il tutto si comporta diversamente dalle sue parti, e Bitcoin, aperto, globale, interamente registrato fin dal primo giorno, è un laboratorio straordinario in cui usarla.
 
@@ -99,7 +99,7 @@ La complessità non è una teoria sola. È una cassetta degli attrezzi per i sis
 |---|---|---|
 | 01 Sistemi complessi | retroazione, non linearità, nessuno al comando | prezzo, hash rate e sicurezza si influenzano a vicenda |
 | 02 Reti casuali | soglia di connessione ln n / n | ~10 peer in uscita tengono connessa la rete dei peer |
-| 03 Piccoli mondi | cammini brevi senza clustering | peer distribuiti su gruppi di rete diversi; i blocchi attraversano la rete in pochi secondi |
+| 03 Reti small-world | cammini brevi senza clustering | peer distribuiti su gruppi di rete diversi; i blocchi attraversano la rete in pochi secondi |
 | 04 Reti a invarianza di scala | hub, leggi di potenza, adattamenti onesti | niente hub per progetto; la legge di potenza del prezzo, verificata con cura |
 | 05 Automi cellulari | casualità da regole deterministiche | SHA-256 e l'effetto valanga |
 | 06 Gioco della Vita | strutture che persistono | il registro e le sue regole sopravvivono a ogni macchina e partecipante |

@@ -41,7 +41,7 @@ Le reti sociali reali hanno sia un C alto, come il reticolo, sia un L piccolo, c
 
 Nel 1998 Duncan Watts e Steven Strogatz proposero un ponte tra i due. Si parte dal reticolo ad anello. Si visita un arco alla volta e, con probabilità p, se ne stacca l'estremo lontano per riattaccarlo a un nodo scelto a caso. Con p = 0 non cambia nulla; con p = 1 quasi ogni arco è casuale.
 
-La sorpresa sta in mezzo. Con appena l'uno per cento circa degli archi ricollegati, L è già sceso quasi al valore del grafo casuale, mentre C è ancora vicino a quello del reticolo. In un ampio intervallo di p la rete è un **piccolo mondo** (*small world*): raggruppata come un reticolo e corta come un grafo casuale.
+La sorpresa sta in mezzo. Con appena l'uno per cento circa degli archi ricollegati, L è già sceso quasi al valore del grafo casuale, mentre C è ancora vicino a quello del reticolo. In un ampio intervallo di p si ottengono **reti *small-world*** (letteralmente «mondo piccolo»): raggruppate come un reticolo e corte come un grafo casuale.
 
 La ragione è un'asimmetria. Una sola scorciatoia che unisce due parti lontane dell'anello accorcia in un colpo i cammini di moltissime coppie: chiunque si trovi vicino a un estremo è ora vicino a chiunque si trovi vicino all'altro. Il suo effetto è globale. Il danno al clustering invece è locale: toglie un arco a un vicinato molto unito e scompaiono solo pochi triangoli. Così L crolla molto prima che C se ne accorga.
 

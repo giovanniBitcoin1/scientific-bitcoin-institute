@@ -56,7 +56,7 @@ Il meccanismo è più antico del nome: Udny Yule lo usò nel 1925 per le dimensi
 
 Gli hub cambiano il comportamento di una rete. I cammini diventano brevissimi, perché quasi ogni nodo è vicino a un hub. Albert, Hawoong Jeong e Barabási mostrarono nel 2000 che le reti a invarianza di scala sono **robuste ai guasti casuali**, perché un nodo scelto a caso è quasi sempre secondario, ma **fragili agli attacchi mirati**: rimuovi i pochi hub più grandi e la rete va in pezzi. E tutto ciò che si diffonde, dalle voci ai virus, si diffonde in fretta, perché gli hub lo raccolgono presto e lo ritrasmettono ovunque.
 
-Abbiamo quindi due spiegazioni del piccolo mondo del Modulo 03: gruppi locali più legami deboli, oppure hub. La scienza sceglie tra di esse non chiedendosi quale storia suoni meglio, ma ricavando previsioni che differiscono. Le reti di Watts e Strogatz hanno una distribuzione dei gradi stretta e nessun hub; le reti a invarianza di scala hanno hub e una risposta molto diversa agli attacchi. È la misura a decidere quale meccanismo prevale in una data rete.
+Abbiamo quindi due spiegazioni dell'effetto small-world del Modulo 03: gruppi locali più legami deboli, oppure hub. La scienza sceglie tra di esse non chiedendosi quale storia suoni meglio, ma ricavando previsioni che differiscono. Le reti di Watts e Strogatz hanno una distribuzione dei gradi stretta e nessun hub; le reti a invarianza di scala hanno hub e una risposta molto diversa agli attacchi. È la misura a decidere quale meccanismo prevale in una data rete.
 
 ## Un sano scetticismo
 
