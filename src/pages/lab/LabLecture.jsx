@@ -112,7 +112,7 @@ function Markdown({ children }) {
   )
 }
 
-export default function LabLecture({ mod, index, lang, setLang, c, notFound }) {
+export default function LabLecture({ mod, index, lang, setLang, c, notFound, darkLink }) {
   const lecture = getLecture(mod.slug, lang) || getLecture(mod.slug, 'en')
   if (!lecture) return notFound
 
@@ -122,25 +122,32 @@ export default function LabLecture({ mod, index, lang, setLang, c, notFound }) {
 
   return (
     <>
-      {/* Title + lecture */}
-      <section className="bg-white border-b border-slate-200">
+      {/* Title band */}
+      <section className="bg-slate-900 text-white pt-28">
         <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <Link to="/lab" className={orangeLink}>
+            <Link to="/lab" className={darkLink}>
               {c.all}
             </Link>
             <LangToggle lang={lang} setLang={setLang} />
           </div>
-          <p className="mt-10 text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
+          <p className="mt-10 text-xs uppercase tracking-[0.25em] text-bitcoin font-semibold font-mono">
             {c.module} {mod.number}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight mt-3">
+          <h1 className="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mt-3">
             {title}
           </h1>
-          <article className="mt-8">
-            <Markdown>{lecture.part1}</Markdown>
-          </article>
+          <p className="mt-6 text-lg text-slate-300 leading-relaxed">
+            {lang === 'en' ? mod.summary_en : mod.summary_it}
+          </p>
         </div>
+      </section>
+
+      {/* Lecture */}
+      <section className="bg-white border-b border-slate-200">
+        <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
+          <Markdown>{lecture.part1}</Markdown>
+        </article>
       </section>
 
       {/* Simulation */}

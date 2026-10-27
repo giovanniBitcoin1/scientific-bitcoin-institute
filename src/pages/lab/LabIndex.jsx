@@ -99,11 +99,12 @@ export default function LabIndex() {
     <div className="min-h-screen bg-slate-50">
       <Header />
 
-      <main className="pt-28 pb-24">
-        <section className="bg-slate-900 text-white">
+      {/* The header is transparent until scrolled: pt-28 sits inside the dark hero. */}
+      <main className="pb-24">
+        <section className="bg-slate-900 text-white pt-28">
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
             <div className="flex flex-wrap items-start justify-between gap-6">
-              <p className="text-xs uppercase tracking-[0.25em] text-orange-400 font-semibold font-mono">
+              <p className="text-xs uppercase tracking-[0.25em] text-bitcoin font-semibold font-mono">
                 Complexity Lab
               </p>
               <LangToggle lang={lang} setLang={setLang} />

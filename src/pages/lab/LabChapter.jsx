@@ -40,22 +40,29 @@ const COPY = {
 const orangeLink =
   'text-orange-600 hover:text-orange-700 hover:underline transition-colors font-semibold'
 
+// Links on the dark title band; the header is transparent until scrolled, so
+// the band starts at the very top of the page (pt-28 sits inside it).
+const darkLink =
+  'text-orange-400 hover:text-orange-300 hover:underline transition-colors font-semibold'
+
 function NotFound({ c, lang, setLang }) {
   return (
-    <section className="max-w-2xl mx-auto px-6 text-center">
-      <div className="flex justify-center mb-8">
-        <LangToggle lang={lang} setLang={setLang} />
+    <section className="bg-slate-900 text-white pt-28">
+      <div className="max-w-2xl mx-auto px-6 py-12 md:py-16 text-center">
+        <div className="flex justify-center mb-8">
+          <LangToggle lang={lang} setLang={setLang} />
+        </div>
+        <p className="text-xs uppercase tracking-[0.25em] text-bitcoin font-semibold mb-4 font-mono">
+          Complexity Lab
+        </p>
+        <h1 className="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight">
+          {c.notFound}
+        </h1>
+        <p className="mt-6 text-slate-300 leading-relaxed">{c.notFoundText}</p>
+        <Link to="/lab" className={`inline-block mt-6 ${darkLink}`}>
+          {c.back}
+        </Link>
       </div>
-      <p className="text-xs uppercase tracking-[0.25em] text-orange-600 font-semibold mb-4 font-mono">
-        Complexity Lab
-      </p>
-      <h1 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight">
-        {c.notFound}
-      </h1>
-      <p className="mt-6 text-slate-700 leading-relaxed">{c.notFoundText}</p>
-      <Link to="/lab" className={`inline-block mt-6 ${orangeLink}`}>
-        {c.back}
-      </Link>
     </section>
   )
 }
@@ -66,21 +73,21 @@ function LockedModule({ mod, lang, setLang, c }) {
   const bar = 'h-3 rounded bg-slate-200'
   return (
     <>
-      <section className="bg-white border-b border-slate-200">
+      <section className="bg-slate-900 text-white pt-28">
         <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <Link to="/lab" className={orangeLink}>
+            <Link to="/lab" className={darkLink}>
               {c.all}
             </Link>
             <LangToggle lang={lang} setLang={setLang} />
           </div>
-          <p className="mt-10 text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
+          <p className="mt-10 text-xs uppercase tracking-[0.25em] text-bitcoin font-semibold font-mono">
             {c.module} {mod.number}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight mt-3">
+          <h1 className="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight mt-3">
             {lang === 'en' ? mod.title_en : mod.title_it}
           </h1>
-          <p className="mt-6 text-lg text-slate-700 leading-relaxed">
+          <p className="mt-6 text-lg text-slate-300 leading-relaxed">
             {lang === 'en' ? mod.summary_en : mod.summary_it}
           </p>
         </div>
@@ -133,14 +140,14 @@ export default function LabChapter() {
   else
     content = (
       <Suspense fallback={<div className="min-h-[60vh]" />}>
-        <LabLecture mod={mod} index={index} lang={lang} setLang={setLang} c={c} notFound={notFound} />
+        <LabLecture mod={mod} index={index} lang={lang} setLang={setLang} c={c} notFound={notFound} darkLink={darkLink} />
       </Suspense>
     )
 
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="pt-28 pb-24">{content}</main>
+      <main className="pb-24">{content}</main>
       <Footer />
     </div>
   )
