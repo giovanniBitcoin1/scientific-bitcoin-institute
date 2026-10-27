@@ -10,18 +10,20 @@ import labConfig from '../../data/lab/config.json'
 
 const COPY = {
   en: {
-    title: 'An independent course on complex systems',
+    title: 'An advanced course on complex systems',
     intro:
-      'Flocks, traffic jams, markets and monetary networks all organise themselves without a central plan. The Complexity Lab is a course by the Scientific Bitcoin Institute on how that happens: short lectures, each paired with a simulation you can steer with sliders. You learn by changing a parameter and watching what the system does.',
+      'Why do starlings turn as one, traffic jam with no accident, and wealth concentrate in a few hands? The Complexity Lab is an advanced course by the Scientific Bitcoin Institute on the science of systems whose collective behaviour cannot be read off their parts. In thirteen modules it moves from nonlinear dynamics and chaos to random, small-world and scale-free networks; from cellular automata, fractals and percolation to self-organized criticality; and from agent-based models, collective motion and game theory to the physics of inequality — ending with Bitcoin as a complex adaptive system. Each module pairs a rigorous lecture, grounded in the primary scientific literature, with interactive simulations you can run, measure and test against theory.',
+    audience: 'Designed for readers comfortable with some mathematics: logarithms, probability and simple equations.',
     modules: 'Modules',
     module: 'Module',
     comingSoon: 'Coming soon',
     open: 'Open module →',
   },
   it: {
-    title: 'Un corso indipendente sui sistemi complessi',
+    title: 'Un corso avanzato sui sistemi complessi',
     intro:
-      "Stormi, ingorghi, mercati e reti monetarie si organizzano da soli, senza un piano centrale. Il Complexity Lab è un corso dello Scientific Bitcoin Institute su come questo accade: lezioni brevi, ciascuna accompagnata da una simulazione da guidare con i cursori. Si impara cambiando un parametro e osservando che cosa fa il sistema.",
+      "Perché uno stormo di storni vira all'unisono, un ingorgo si forma senza incidenti e la ricchezza si concentra in poche mani? Il Complexity Lab è un corso avanzato dello Scientific Bitcoin Institute sulla scienza dei sistemi il cui comportamento collettivo non si deduce dalle singole parti. In tredici moduli passa dalla dinamica non lineare e dal caos alle reti casuali, a piccolo mondo e a invarianza di scala; dagli automi cellulari, dai frattali e dalla percolazione alla criticità auto-organizzata; dai modelli ad agenti, dal moto collettivo e dalla teoria dei giochi alla fisica della disuguaglianza, fino a Bitcoin come sistema complesso adattivo. Ogni modulo unisce una lezione rigorosa, fondata sulla letteratura scientifica originale, a simulazioni interattive da eseguire, misurare e confrontare con la teoria.",
+    audience: "Pensato per chi ha familiarità con un po' di matematica: logaritmi, probabilità ed equazioni semplici.",
     modules: 'Moduli',
     module: 'Modulo',
     comingSoon: 'In arrivo',
@@ -39,7 +41,7 @@ export default function LabIndex() {
     if (meta) {
       meta.setAttribute(
         'content',
-        'An independent course on complex systems by the Scientific Bitcoin Institute: short lectures and interactive simulations.',
+        'An advanced course on complex systems by the Scientific Bitcoin Institute: 13 modules with rigorous lectures and interactive simulations, from chaos and networks to criticality, game theory and Bitcoin.',
       )
     }
   }, [])
@@ -113,6 +115,7 @@ export default function LabIndex() {
               {c.title}
             </h1>
             <p className="text-slate-300 text-lg leading-relaxed mt-6 max-w-2xl">{c.intro}</p>
+            <p className="text-slate-400 text-base leading-relaxed mt-4 max-w-2xl">{c.audience}</p>
           </div>
         </section>
 

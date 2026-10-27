@@ -160,8 +160,9 @@ events: `bitcoin-asia-hong-kong`, `franklin-university-lugano`, `btc-prague`,
 
 ## Complexity Lab (`/lab`)
 
-An independent SBI course on complex systems: short lectures plus
-slider-driven simulations. Both routes are lazy-loaded in `src/App.jsx`, so
+An advanced SBI course on complex systems (13 modules, for readers
+comfortable with some mathematics): rigorous lectures plus slider-driven
+simulations. Both routes are lazy-loaded in `src/App.jsx`, so
 lab code ships in its own chunk. The section is called "Complexity Lab"
 everywhere (EN and IT) and has its own top-level nav tab, between Education
 and Academy (`src/data/nav.json`). Never
