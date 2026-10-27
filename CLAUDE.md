@@ -162,9 +162,32 @@ events: `bitcoin-asia-hong-kong`, `franklin-university-lugano`, `btc-prague`,
 
 An independent SBI course on complex systems: short lectures plus
 slider-driven simulations. Both routes are lazy-loaded in `src/App.jsx`, so
-lab code ships in its own chunk. Not yet linked from the nav.
+lab code ships in its own chunk. The section is called "Complexity Lab"
+everywhere (EN and IT) and is linked from the Education submenu. Never
+describe the course as free ("free", "gratuito", "gratis"…) in Lab copy.
 
-- `src/pages/lab/` — `LabIndex.jsx` (`/lab`), `LabChapter.jsx` (`/lab/:slug`).
+### Lock
+
+One switch, `src/data/lab/config.json` → `{ "locked": true }`. While locked:
+
+- `/lab` shows the hero, then the module grid blurred under the site's lock
+  overlay (`src/components/lab/LockedZone.jsx`, a copy of the Accademia's
+  members-area treatment and wording: "Members area" + PRO, 🔒 "Content
+  reserved for subscribers", "Subscribe & unlock" → `/support/membership`).
+- `/lab/:slug` shows number, title and summary, a blurred stand-in under the
+  same overlay, and a link back to `/lab`. Lecture, sim and follow-up live in
+  `LabLecture.jsx`, which `LabChapter.jsx` imports lazily only when unlocked,
+  so the lecture text is never fetched while locked.
+- Module 13 never loads the Coin Metrics price file (CC BY-NC 4.0 may not be
+  used in a paid area); Panel A shows its synthetic placeholder.
+
+The lock is visual, not access control: the lecture and sim chunks are still
+built into `dist/` and anyone requesting them directly can read them.
+
+**To unlock:** set `"locked": false`, run `npx vite build`, commit, push.
+
+- `src/pages/lab/` — `LabIndex.jsx` (`/lab`), `LabChapter.jsx` (`/lab/:slug`,
+  locked view), `LabLecture.jsx` (lecture + sim, lazy).
 - `src/data/lab/modules.json` — ordered module list: `slug`, `number` ("01"),
   `status` (`"ready"` | `"coming-soon"`), `title_en/it`, `summary_en/it`.
 - `src/content/lab/<slug>.en.md` / `.it.md` — lecture text. A line holding

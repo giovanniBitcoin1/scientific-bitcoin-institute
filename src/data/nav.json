@@ -16,7 +16,7 @@
   {
     "label": "Education",
     "href": "/education",
-    "submenu": ["Bitcoin Fundamentals", "Advanced Cryptography", "Game Theory", "Network Science", "Complexity Science", "Economic Models", "Online Courses", "Summer School"]
+    "submenu": ["Bitcoin Fundamentals", "Advanced Cryptography", "Game Theory", "Network Science", "Complexity Science", "Economic Models", "Online Courses", "Summer School", "Complexity Lab"]
   },
   {
     "label": "Academy",
