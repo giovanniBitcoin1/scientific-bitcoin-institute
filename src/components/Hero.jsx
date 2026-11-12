@@ -53,7 +53,6 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative h-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center text-center text-white">
-        <img src="/assets/logo.jpg" alt="Scientific Bitcoin Institute" className="h-20 md:h-28 w-auto mb-6 object-contain drop-shadow-lg" />
         <p className="font-mono text-xs md:text-sm uppercase tracking-[0.2em] text-orange-400 mb-4">Scientific Bitcoin Institute</p>
         <h1 className="text-5xl md:text-6xl font-bold mb-5 leading-tight font-serif">{slide.title}</h1>
         <div className="w-12 h-0.5 bg-orange-500 mb-6"></div>
