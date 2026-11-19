@@ -74,7 +74,13 @@ Without either, the counts are only reported.
 
 ### `check-links.mjs`
 
-Where the labs are linked from.
+The "Labs" section. The hub page `/labs` at 1280 and 375 px, EN and IT:
+public, one card per lab with its name, its "ready of total" count and a
+working link, and each lab index links back with "All labs". The nav: "Labs"
+sits between Education and Academy and links to `/labs`; on desktop hovering
+it opens a dropdown with one link per lab, and in the mobile menu the same
+links are listed; all of them work. "Labs" is marked as the current section
+on `/labs` and on every lab page, and nowhere else.
 
 ### `modules/<lab>-<slug>.mjs`
 
@@ -89,8 +95,9 @@ node compare-main.mjs          # the default list of Complexity Lab pages
 node compare-main.mjs lab/random-networks lab/small-worlds
 ```
 
-For each page, on main's build and on this branch's build: same visible text,
-title, meta description, links, number of canvases, page height (±2 px) and
+For each page, on main's build and on this branch's build: same visible text
+inside `<main>` (the site header is left out: its nav differs from main since
+the "Labs" entry), title, meta description, links, number of canvases, page height (±2 px) and
 the same pixels on every canvas (the sims are seeded). Write the paths
 without the leading slash: Git Bash on Windows rewrites `/lab/…` into a file
 path. `--no-pixels` skips the canvas comparison; `--old-dist <dir>` compares

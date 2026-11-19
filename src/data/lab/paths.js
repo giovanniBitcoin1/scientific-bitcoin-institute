@@ -1,8 +1,10 @@
 // Base path of every lab, keyed by lab id. This is the one line to edit to
 // move a lab to another URL: the routes in App.jsx and every link inside the
-// labs are built from it. It is kept apart from registry.js so that App.jsx
-// can register the routes without pulling the labs' texts into the main bundle.
+// labs are built from it.
 export const LAB_PATHS = {
   complexity: '/lab',
   network: '/network-lab', // provisional
 }
+
+// The hub page that lists all the labs. "Labs" in the site nav links to it.
+export const LABS_HUB = '/labs'

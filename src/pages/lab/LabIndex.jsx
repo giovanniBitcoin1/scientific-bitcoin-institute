@@ -6,13 +6,14 @@ import LangToggle from '../../components/lab/LangToggle.jsx'
 import useLabLang from '../../components/lab/useLabLang.js'
 import LockedZone from '../../components/lab/LockedZone.jsx'
 import { getLab } from '../../data/lab/registry.js'
+import { LABS_HUB } from '../../data/lab/paths.js'
 import AdminBar from '../../components/lab/AdminBar.jsx'
 import AdminUnlock from '../../components/lab/AdminUnlock.jsx'
 import useLabAccess from '../../components/lab/useLabAccess.js'
 
 const COPY = {
-  en: { modules: 'Modules', module: 'Module', part: 'Part', open: 'Open module →' },
-  it: { modules: 'Moduli', module: 'Modulo', part: 'Parte', open: 'Apri il modulo →' },
+  en: { modules: 'Modules', module: 'Module', part: 'Part', open: 'Open module →', allLabs: '← All labs' },
+  it: { modules: 'Moduli', module: 'Modulo', part: 'Parte', open: 'Apri il modulo →', allLabs: '← Tutti i lab' },
 }
 
 // Index of one lab of the registry (src/data/lab/registry.js): hero, then the
@@ -111,6 +112,12 @@ export default function LabIndex({ labId = 'complexity' }) {
         <section className="bg-slate-900 text-white pt-28">
           <AdminBar lang={lang} />
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+            <Link
+              to={LABS_HUB}
+              className="inline-block mb-6 text-sm font-semibold text-orange-400 hover:text-orange-300 hover:underline transition-colors"
+            >
+              {c.allLabs}
+            </Link>
             <div className="flex flex-wrap items-start justify-between gap-6">
               <p className="text-xs uppercase tracking-[0.25em] text-bitcoin font-semibold font-mono">
                 {lab.eyebrow[lang]}

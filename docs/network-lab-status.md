@@ -20,8 +20,8 @@ checkpoint and in every module commit. How the labs engine works is in
 - **Do not touch:** git config; `npm audit fix`; the site's `package.json`
   (no new dependency); the admin passphrase (never print or write it);
   `adminHash` and `locked` in `src/data/lab/config.json`; `public/accademia`;
-  the Complexity Lab lecture texts; the site nav, except as recorded under
-  "Decisions" below.
+  the Complexity Lab lecture texts; the site nav (the one exception, the
+  "Labs" entry, is recorded under "Decisions" below).
 - **Originality:** everything is written from scratch: text, figures, tables,
   exercises. Nothing copied or closely paraphrased from any textbook. No book
   PDFs or third-party course material in the repo.
@@ -98,7 +98,9 @@ afterwards: no difference).
 | 13 | `social-contagion-network-effects` | planned | – | – | – |
 | 14 | `capstone-a-real-network` | planned | – | – | – |
 
-Earlier commits: 84e4f41 (multi-lab engine, Network Lab skeleton).
+Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
+(status file, browser checks, regression); "Labs: nav section and hub page"
+(the commit after 9efa518).
 
 ## Planned content (may change)
 
@@ -140,7 +142,22 @@ Nothing in progress. Next: module 02.
 ## Decisions
 
 - The Network Lab path `/network-lab` is provisional (`src/data/lab/paths.js`).
-- The Network Lab is unlinked: no nav entry and no link from any page.
+- **"Labs" section (prompt 2, step 1d).** This overrode two earlier rules,
+  for this purpose only: the nav was changed, and the Network Lab is now
+  linked. The top-level nav entry "Complexity Lab" became "Labs" (same place,
+  between Education and Academy), linking to the hub page `/labs` and with a
+  dropdown built from the lab registry (Complexity Lab → `/lab`, Network Lab →
+  `/network-lab`), on desktop and in the mobile menu. "Labs" is marked as the
+  current section on `/labs`, `/lab/*` and `/network-lab/*`. The hub
+  (`src/pages/lab/LabsHub.jsx`, path `LABS_HUB` in `paths.js`) is public and
+  never locked: one card per lab with name, tagline (`tagline` in
+  `registry.js`), modules ready out of the total and an "Open" link. Each lab
+  index has an "All labs" / "Tutti i lab" link back to it. `/lab` and
+  `/network-lab` keep their URLs and behaviour; the lock stays on their
+  content. Apart from this, the nav is still not to be touched.
+- Since the header's nav and the lab index differ from main on purpose,
+  `compare-main.mjs` compares the text inside `<main>` and leaves `/lab` out
+  of its default list.
 
 ## Open items
 

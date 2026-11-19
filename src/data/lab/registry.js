@@ -3,12 +3,14 @@ import complexityModules from './modules.json'
 import networkModules from './network-modules.json'
 
 // The one place that describes every lab. LabIndex and LabChapter render any
-// entry of this list, and a future hub page listing all labs can read it too.
+// entry of this list; the hub page (/labs, LabsHub.jsx) and the "Labs"
+// dropdown of the site header (Header.jsx) list them all.
 //
 //   id          key used by paths.js and by the content loaders
 //               (src/pages/lab/loaders.js)
 //   basePath    where the lab lives; edit it in paths.js
 //   name        the lab's name, the same in both languages
+//   tagline     one line under the name on the hub page (/labs)
 //   eyebrow     small line above the title on the index
 //   title       the index headline
 //   intro       index paragraphs: the first is the lead, the others are muted
@@ -25,6 +27,10 @@ export const labs = [
     id: 'complexity',
     basePath: LAB_PATHS.complexity,
     name: 'Complexity Lab',
+    tagline: {
+      en: 'An advanced course on complex systems',
+      it: 'Un corso avanzato sui sistemi complessi',
+    },
     eyebrow: { en: 'Complexity Lab', it: 'Complexity Lab' },
     title: {
       en: 'An advanced course on complex systems',
@@ -50,6 +56,10 @@ export const labs = [
     id: 'network',
     basePath: LAB_PATHS.network,
     name: 'Network Lab',
+    tagline: {
+      en: 'An advanced course on network science',
+      it: 'Un corso avanzato di scienza delle reti',
+    },
     eyebrow: { en: 'Advanced course', it: 'Corso avanzato' },
     title: { en: 'Network Lab', it: 'Network Lab' },
     intro: {

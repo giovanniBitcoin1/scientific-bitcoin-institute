@@ -3,7 +3,8 @@
 React + Vite + Tailwind single-page site. Routes in `src/App.jsx`, pages in
 `src/pages/`, shared chrome in `src/components/` (`Header.jsx`, `Footer.jsx`),
 content data in `src/data/`. Nav is data-driven from `src/data/nav.json` plus
-the `submenuHrefs` map in `src/components/Header.jsx`.
+the `submenuHrefs` map in `src/components/Header.jsx`; the one entry with
+`"labs": true` ("Labs") takes its dropdown from the lab registry instead.
 
 ## Design system
 
@@ -163,9 +164,9 @@ events: `bitcoin-asia-hong-kong`, `franklin-university-lugano`, `btc-prague`,
 An advanced SBI course on complex systems (13 modules, for readers
 comfortable with some mathematics): rigorous lectures plus slider-driven
 simulations. Both routes are lazy-loaded in `src/App.jsx`, so
-lab code ships in its own chunk. The section is called "Complexity Lab"
-everywhere (EN and IT) and has its own top-level nav tab, between Education
-and Academy (`src/data/nav.json`). Never
+lab code ships in its own chunk. The course is called "Complexity Lab"
+everywhere (EN and IT). It is reached from the top-level nav tab "Labs",
+between Education and Academy (see "Labs section" below). Never
 describe the course as free ("free", "gratuito", "gratis"…) in Lab copy.
 
 ### Lock
@@ -264,7 +265,24 @@ entry. Base paths live in `src/data/lab/paths.js` (`LAB_PATHS`), from which
 - `network` → `/network-lab` (provisional path; `network-modules.json`, four
   parts, 14 modules). An advanced general course on network science, not a
   course about Bitcoin: Bitcoin appears only in short optional boxes.
-  **Unlinked**: no nav entry and no link from any page, `/lab` included.
+
+### Labs section (`/labs`)
+
+The nav has one top-level entry for all the labs, "Labs", between Education
+and Academy: `{ "label": "Labs", "href": "/labs", "labs": true }` in
+`src/data/nav.json`. `Header.jsx` gives an entry with `"labs": true` a
+dropdown built from the registry (one link per lab: name → base path), on
+desktop and in the mobile menu, makes the label itself a link to the hub, and
+marks it as the current section (orange, `aria-current="page"`) on `/labs`
+and on every page of every lab. A lab added to the registry appears in the
+dropdown and on the hub by itself.
+
+The hub page `/labs` (`src/pages/lab/LabsHub.jsx`, path `LABS_HUB` in
+`paths.js`, lazy-loaded) shows one card per lab: name, `tagline` (EN/IT, in
+the registry), modules ready out of the total, and an "Open" link, with the
+EN/IT toggle. It is public and never locked: it only lists the labs, and the
+lock stays on their content. Each lab index has an "All labs" / "Tutti i lab"
+link back to it. Title "Labs" in both languages.
 
 **Where the Network Lab stands** (modules done, work in progress, working
 rules, how to resume) is in `docs/network-lab-status.md`: read it before

@@ -51,13 +51,15 @@ import GrantOpportunities from './pages/GrantOpportunities.jsx'
 import AcademicDay from './pages/AcademicDay.jsx'
 import SeedTool from './pages/SeedTool.jsx'
 import SeedToolGuide from './pages/SeedToolGuide.jsx'
-import { LAB_PATHS } from './data/lab/paths.js'
+import { LAB_PATHS, LABS_HUB } from './data/lab/paths.js'
 
 // The labs (Complexity Lab, Network Lab…) are lazy-loaded so their pages, sims
 // and lecture text ship in their own chunks instead of the main bundle. One
-// index route and one module route are registered per entry of LAB_PATHS.
+// index route and one module route are registered per entry of LAB_PATHS,
+// plus the hub page that lists the labs (LABS_HUB).
 const LabIndex = lazy(() => import('./pages/lab/LabIndex.jsx'))
 const LabChapter = lazy(() => import('./pages/lab/LabChapter.jsx'))
+const LabsHub = lazy(() => import('./pages/lab/LabsHub.jsx'))
 
 function LabFallback() {
   return <div className="min-h-screen bg-slate-50" />
@@ -119,6 +121,14 @@ export default function App() {
         <Route path="/events/academic-day" element={<AcademicDay />} />
         <Route path="/seed-tool" element={<SeedTool />} />
         <Route path="/seed-tool/guide" element={<SeedToolGuide />} />
+        <Route
+          path={LABS_HUB}
+          element={
+            <Suspense fallback={<LabFallback />}>
+              <LabsHub />
+            </Suspense>
+          }
+        />
         {Object.entries(LAB_PATHS).flatMap(([labId, basePath]) => [
           <Route
             key={labId}

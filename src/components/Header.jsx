@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Search } from './Icons.jsx'
 import navItems from '../data/nav.json'
+import { labs } from '../data/lab/registry.js'
+import { LABS_HUB } from '../data/lab/paths.js'
 
 const submenuHrefs = {
   'Manifesto': '/manifesto',
@@ -58,9 +60,24 @@ function subHref(label) {
   return submenuHrefs[label] || '#'
 }
 
+// The dropdown of a nav item as { label, href } pairs. An item with
+// "labs": true (the "Labs" entry) lists the labs of the registry, so a new
+// lab appears in the nav by itself; any other item lists its `submenu` labels.
+function submenuOf(item) {
+  if (item.labs) return labs.map((lab) => ({ label: lab.name, href: lab.basePath }))
+  return item.submenu ? item.submenu.map((label) => ({ label, href: subHref(label) })) : null
+}
+
+// "Labs" is the current section on the hub and on every page of every lab.
+function inLabs(pathname) {
+  const path = pathname.replace(/\/+$/, '') || '/'
+  return path === LABS_HUB || labs.some((lab) => path === lab.basePath || path.startsWith(`${lab.basePath}/`))
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const labsActive = inLabs(useLocation().pathname)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30)
@@ -99,9 +116,22 @@ export default function Header() {
           <div className="flex items-center gap-3">
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-0.5">
-            {navItems.map((item, idx) => (
+            {navItems.map((item, idx) => {
+              const submenu = submenuOf(item)
+              return (
               <div key={idx} className="nav-item relative">
-                {item.submenu ? (
+                {item.labs ? (
+                  <Link
+                    to={item.href}
+                    aria-haspopup="true"
+                    aria-current={labsActive ? 'page' : undefined}
+                    className={`px-1.5 xl:px-2.5 py-2 whitespace-nowrap text-[12px] xl:text-[13px] font-medium hover:text-orange-400 transition-colors duration-200 block ${
+                      labsActive ? 'text-orange-400' : 'text-white/85'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : item.submenu ? (
                   <span
                     className="px-1.5 xl:px-2.5 py-2 whitespace-nowrap text-[12px] xl:text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block cursor-default select-none"
                     aria-haspopup="true"
@@ -123,21 +153,22 @@ export default function Header() {
                     {item.label}
                   </Link>
                 )}
-                {item.submenu && (
+                {submenu && (
                   <div className="nav-dropdown mt-0 bg-slate-800/95 backdrop-blur-sm shadow-xl rounded-lg min-w-[220px] py-2 border border-white/10">
-                    {item.submenu.map((subitem, subidx) => (
+                    {submenu.map((sub, subidx) => (
                       <Link
                         key={subidx}
-                        to={subHref(subitem)}
+                        to={sub.href}
                         className="block px-6 py-2.5 text-sm text-white/80 hover:bg-white/5 hover:text-orange-400 transition-colors"
                       >
-                        {subitem}
+                        {sub.label}
                       </Link>
                     ))}
                   </div>
                 )}
               </div>
-            ))}
+              )
+            })}
             <button className="ml-2 p-2 text-white hover:text-orange-400 transition-colors duration-200" aria-label="Search">
               <Search size={20} />
             </button>
@@ -173,9 +204,21 @@ export default function Header() {
           >
             Donate
           </Link>
-          {navItems.map((item, idx) => (
+          {navItems.map((item, idx) => {
+            const submenu = submenuOf(item)
+            return (
             <div key={idx} className="border-b border-white/10">
-              {item.submenu ? (
+              {item.labs ? (
+                <Link
+                  to={item.href}
+                  aria-current={labsActive ? 'page' : undefined}
+                  className={`block px-6 py-4 font-medium hover:text-orange-400 transition-colors ${
+                    labsActive ? 'text-orange-400' : 'text-white'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ) : item.submenu ? (
                 <span className="block px-6 py-4 font-medium text-white select-none">
                   {item.label}
                 </span>
@@ -188,17 +231,18 @@ export default function Header() {
                   {item.label}
                 </Link>
               )}
-              {item.submenu && (
+              {submenu && (
                 <div className="bg-slate-800/60 px-6 py-2">
-                  {item.submenu.map((subitem, subidx) => (
-                    <Link key={subidx} to={subHref(subitem)} className="block py-2 text-sm text-white/75 hover:text-orange-400 transition-colors">
-                      {subitem}
+                  {submenu.map((sub, subidx) => (
+                    <Link key={subidx} to={sub.href} className="block py-2 text-sm text-white/75 hover:text-orange-400 transition-colors">
+                      {sub.label}
                     </Link>
                   ))}
                 </div>
               )}
             </div>
-          ))}
+            )
+          })}
         </div>
       )}
     </header>

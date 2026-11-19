@@ -4,8 +4,9 @@
 //   node build-main.mjs                       (once: builds main into .main-dist/)
 //   node compare-main.mjs [path …] [--old-dist <dir>] [--dist <dir>] [--chrome <path>] [--quiet]
 //
-// Without paths it compares DEFAULT_URLS (write a path as lab/small-worlds). Compared: visible text, title, meta
-// description, links inside <main>, number of canvases, page height (±2 px),
+// Without paths it compares DEFAULT_URLS (write a path as lab/small-worlds).
+// Compared: the visible text of <main> (not the site header, whose nav differs
+// from main since the "Labs" entry), title, meta description, links inside <main>, number of canvases, page height (±2 px),
 // and a fingerprint of what every canvas has drawn once the page has settled
 // (sims are seeded, so two builds of the same code draw the same pixels).
 // --no-pixels skips the fingerprint.
@@ -16,9 +17,10 @@ import {
 } from './lib.mjs'
 
 // Complexity Lab pages that share code with the Network Lab (graphUtils.js,
-// LabMarkdown, LabLecture, the lab pages themselves).
+// LabMarkdown, LabLecture, the lab pages themselves). The index /lab is not
+// on the list: it differs from main on purpose (the "All labs" link) and is
+// covered by check-index.mjs.
 const DEFAULT_URLS = [
-  '/lab',
   '/lab/what-is-complexity',
   '/lab/random-networks',
   '/lab/small-worlds',
@@ -46,7 +48,7 @@ async function snap(page, base, url) {
   await go(page, base + url, 1500)
   await settle(page)
   const s = await page.evaluate(() => ({
-    text: document.body.innerText,
+    text: (document.querySelector('main') || document.body).innerText,
     title: document.title,
     desc: document.querySelector('meta[name="description"]')?.content,
     links: [...document.querySelectorAll('main a')].map((x) => x.getAttribute('href')).join(','),
@@ -71,6 +73,11 @@ for (const width of WIDTHS) {
       const ctx = await browser.createBrowserContext()
       const a = await newPage(ctx, { width, lang, admin })
       const b = await newPage(ctx, { width, lang, admin })
+      // Warm-up: the first page loaded in a fresh browser draws its canvases
+      // before the web fonts are cached, the second one after. Load one page
+      // on each side first, so both sides are measured with the fonts cached.
+      await go(a, oldSite.url + urls[0], 800)
+      await go(b, newSite.url + urls[0], 800)
       for (const url of urls) {
         const x = await snap(a, oldSite.url, url)
         const y = await snap(b, newSite.url, url)
