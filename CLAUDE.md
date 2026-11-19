@@ -266,6 +266,10 @@ entry. Base paths live in `src/data/lab/paths.js` (`LAB_PATHS`), from which
   course about Bitcoin: Bitcoin appears only in short optional boxes.
   **Unlinked**: no nav entry and no link from any page, `/lab` included.
 
+**Where the Network Lab stands** (modules done, work in progress, working
+rules, how to resume) is in `docs/network-lab-status.md`: read it before
+working on the lab and update it in every module commit.
+
 One lock for all labs: the `locked` flag, `adminHash`, `?admin` and "Lock
 again" described above apply to every lab at once.
 
@@ -304,6 +308,12 @@ stored networks change). Shared helpers: `network/ui.jsx`; reuse
 `graphUtils.js` (including `forceLayout`), `Slider`, `DrawToggle`, `rng.js`.
 Network Lab code must not use recharts or anything else that would pull it
 into, or out of, the Complexity Lab chunk.
+
+Headless browser checks live in `scripts/lab/browser-checks/`, a
+self-contained folder with its own `package.json` (puppeteer-core; the site's
+`package.json` is not involved) and a README: index check, module check
+(locked and admin, EN and IT, 1280 and 375 px), link check and a regression
+compare against a build of main. Run them on `dist/` after `npx vite build`.
 
 Real network data sit in `src/data/lab/networks/` with `networks.meta.json`
 (source, licence, citation): Zachary's karate club and the Florentine

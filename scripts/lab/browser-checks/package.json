@@ -1,0 +1,15 @@
+{
+  "name": "sbi-lab-browser-checks",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Headless browser checks for the SBI labs. Self-contained: not part of the site's dependencies.",
+  "scripts": {
+    "index": "node check-index.mjs",
+    "module": "node check-module.mjs",
+    "compare": "node compare-main.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}
