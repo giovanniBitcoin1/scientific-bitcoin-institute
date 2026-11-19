@@ -34,7 +34,9 @@ node check-index.mjs network
 node check-index.mjs complexity
 node check-links.mjs
 node check-module.mjs network reading-a-network
+node check-module.mjs network what-are-we-measuring
 node modules/network-reading-a-network.mjs
+node modules/network-what-are-we-measuring.mjs
 ```
 
 Every script prints one `PASS`/`FAIL` line per check, then
@@ -86,6 +88,13 @@ on `/labs` and on every lab page, and nowhere else.
 
 Functional checks of one module: the panels are driven and the numbers they
 show are compared with the lecture and the exercises. One file per module.
+
+### `shots.mjs <labId> <slug>`
+
+Not a check: it saves a screenshot of every live figure and every panel of a
+module (1280 px in English, 375 px in Italian) as
+`screenshots/el-<slug>-fig<N>-<width>.png` and `…-panel<N>-<width>.png`, to
+look at the result.
 
 ### Regression compare against main
 

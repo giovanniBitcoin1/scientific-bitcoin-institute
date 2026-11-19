@@ -320,9 +320,12 @@ markdown (further reading). `LabMarkdown.jsx` is the shared renderer; besides
 `src/content/network-lab/<slug>.en.md` / `.it.md`; then set the module's
 `status` to `"ready"` in `network-modules.json`. Nothing else to wire. Module
 texts outside the lecture (observe lists, exercises) live in the folder's
-`texts.js`. Pure logic goes in plain `.js` files so Node can check it:
-`node scripts/lab/check-network-01.mjs` (rerun when the logic, presets or
-stored networks change). Shared helpers: `network/ui.jsx`; reuse
+`texts.js`. Pure logic goes in plain `.js` files so Node can check it, one
+script per module: `node scripts/lab/check-network-01.mjs`,
+`check-network-02.mjs`, … (rerun when the logic, presets, seeds or stored
+networks change). Where the texts quote numbers the page computes, the script
+pins them ("quoted on the page" checks), so a changed preset cannot leave the
+text behind. Shared helpers: `network/ui.jsx`; reuse
 `graphUtils.js` (including `forceLayout`), `Slider`, `DrawToggle`, `rng.js`.
 Network Lab code must not use recharts or anything else that would pull it
 into, or out of, the Complexity Lab chunk.

@@ -41,7 +41,7 @@ checkpoint and in every module commit. How the labs engine works is in
 
 ```
 npx vite build
-node scripts/lab/check-network-01.mjs          # and every later check-network-NN.mjs
+node scripts/lab/check-network-01.mjs          # and check-network-02.mjs, …
 cd scripts/lab/browser-checks                  # see its README; npm install once
 node check-index.mjs network
 node check-index.mjs complexity
@@ -84,8 +84,8 @@ afterwards: no difference).
 | No. | Slug | Status | Commit | Panels | Live figures |
 |---|---|---|---|---|---|
 | 01 | `reading-a-network` | done | 9267674 | A The bridges of Königsberg; B Network microscope; C One system, two projections | `three-ways`, `sparse` |
-| 02 | `what-are-we-measuring` | next | – | – | – |
-| 03 | `centrality` | planned | – | – | – |
+| 02 | `what-are-we-measuring` | done | the commit "Network Lab 02: What are we measuring?" | A The observer; B Compared to what?; C Your friends have more friends | `threshold`, `thinning` |
+| 03 | `centrality` | next | – | – | – |
 | 04 | `triangles-weak-ties-motifs` | planned | – | – | – |
 | 05 | `heavy-tails-done-right` | planned | – | – | – |
 | 06 | `growth-mechanisms` | planned | – | – | – |
@@ -99,14 +99,13 @@ afterwards: no difference).
 | 14 | `capstone-a-real-network` | planned | – | – | – |
 
 Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
-(status file, browser checks, regression); "Labs: nav section and hub page"
-(the commit after 9efa518).
+(status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
+page).
 
 ## Planned content (may change)
 
 - **01 Reading a network:** done.
-- **02 What are we measuring?:** sampling, measurement error, null models,
-  friendship paradox.
+- **02 What are we measuring?:** done.
 - **03 Centrality:** degree, closeness, betweenness, eigenvector, Katz,
   PageRank, hubs and authorities. Rankings compared on the Florentine
   families; random surfer.
@@ -137,7 +136,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 02.
+Nothing in progress. Next: module 03, `centrality`.
 
 ## Decisions
 
@@ -161,4 +160,18 @@ Nothing in progress. Next: module 02.
 
 ## Open items
 
-- Lectures of module 01 carry the DRAFT marker: to be reviewed by Adriano.
+- Lectures of modules 01 and 02 carry the DRAFT marker: to be reviewed by
+  Adriano.
+- Module 02, things a later module may reuse: `charts.jsx` (SVG line chart
+  with linear or log axes) and `NetCanvas.jsx` (static network drawing) live
+  in the module 02 folder; move them to `src/components/lab/network/` when a
+  second module needs them (a shared file ends up in a shared chunk).
+  `nullmodels.js` has the degree-preserving swap that module 04 needs for
+  motifs, and `friends.js` an SI spread that module 12 can start from.
+- Module 02 texts quote numbers produced with fixed seeds. They are pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-02.mjs`:
+  if a preset or a seed changes, those checks fail and `texts.js` must be
+  updated.
+- Module 02, choices to review: Panel A draws a 150-node network of the same
+  kind and computes on the full 600-node one; the Italian lecture is about
+  1,730 words counting markup (the target was 1,400–1,700).
