@@ -13,6 +13,7 @@ import Slider from '../Slider.jsx'
 import SimControls from '../SimControls.jsx'
 import useAnimationLoop from '../useAnimationLoop.js'
 import { mulberry32, randNormal } from '../rng.js'
+import { forceLayout } from '../graphUtils.js'
 
 // Erdős–Rényi random graphs G(n, p), in two panels: one network to explore
 // (layout, gradual growth, BFS) and two computed experiments showing the
@@ -287,56 +288,6 @@ function circleLayout(n) {
   return pos
 }
 
-// Fruchterman–Reingold: every pair repels with force K²/d, every edge attracts
-// with d²/K, and a weak pull towards the centre keeps separate components on
-// screen. Moves are capped by a temperature that cools linearly to zero.
-function forceLayout(n, A, B, m, start, t0) {
-  const pos = Float64Array.from(start)
-  const disp = new Float64Array(2 * n)
-  const K = 0.9 / Math.sqrt(n)
-  const K2 = K * K
-  const GRAVITY = 3
-  for (let it = 0; it < LAYOUT_ITERS; it++) {
-    disp.fill(0)
-    for (let i = 0; i < n; i++) {
-      const xi = pos[2 * i]
-      const yi = pos[2 * i + 1]
-      for (let j = i + 1; j < n; j++) {
-        const dx = xi - pos[2 * j]
-        const dy = yi - pos[2 * j + 1]
-        const f = K2 / Math.max(dx * dx + dy * dy, 1e-8)
-        disp[2 * i] += dx * f
-        disp[2 * i + 1] += dy * f
-        disp[2 * j] -= dx * f
-        disp[2 * j + 1] -= dy * f
-      }
-    }
-    for (let e = 0; e < m; e++) {
-      const a = A[e]
-      const b = B[e]
-      const dx = pos[2 * a] - pos[2 * b]
-      const dy = pos[2 * a + 1] - pos[2 * b + 1]
-      const f = Math.sqrt(dx * dx + dy * dy) / K
-      disp[2 * a] -= dx * f
-      disp[2 * a + 1] -= dy * f
-      disp[2 * b] += dx * f
-      disp[2 * b + 1] += dy * f
-    }
-    const temp = t0 * (1 - it / LAYOUT_ITERS)
-    for (let i = 0; i < n; i++) {
-      const dx = disp[2 * i] - GRAVITY * (pos[2 * i] - 0.5)
-      const dy = disp[2 * i + 1] - GRAVITY * (pos[2 * i + 1] - 0.5)
-      const d = Math.sqrt(dx * dx + dy * dy)
-      if (d > 0) {
-        const s = Math.min(d, temp) / d
-        pos[2 * i] += dx * s
-        pos[2 * i + 1] += dy * s
-      }
-    }
-  }
-  return pos
-}
-
 // ---------------------------------------------------------------- BFS
 
 function startBfs(n, source) {
@@ -426,7 +377,7 @@ function NetworkExplorer({ t }) {
     const prev = layoutRef.current
     const warm = prev && prev.n === n && prev.seed === seed
     const start = warm ? prev.pos : randomPositions(n, seed)
-    return forceLayout(n, pairs.A, pairs.B, M, start, warm ? 0.02 : 0.1)
+    return forceLayout(n, pairs.A, pairs.B, M, start, warm ? 0.02 : 0.1, LAYOUT_ITERS)
   }, [pairs, M, n, seed])
 
   useEffect(() => {

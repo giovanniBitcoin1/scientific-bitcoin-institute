@@ -251,3 +251,66 @@ Data (CC BY-NC 4.0, attribution shown under the chart): refresh it by hand with
 **Originality:** all lecture text is original, written from scratch in our
 own words — never copy or closely paraphrase any book. No book PDFs or
 third-party course material may ever be committed to this public repo.
+
+## Labs engine and Network Lab (`/network-lab`)
+
+The Lab pages host more than one lab. `src/data/lab/registry.js` is the one
+place that describes every lab (id, base path, name, index texts EN/IT, parts,
+modules); `LabIndex.jsx` and `LabChapter.jsx` take a `labId` and render any
+entry. Base paths live in `src/data/lab/paths.js` (`LAB_PATHS`), from which
+`App.jsx` registers the routes: to move a lab, edit that one line.
+
+- `complexity` → `/lab` (module list in `modules.json`, unchanged).
+- `network` → `/network-lab` (provisional path; `network-modules.json`, four
+  parts, 14 modules). An advanced general course on network science, not a
+  course about Bitcoin: Bitcoin appears only in short optional boxes.
+  **Unlinked**: no nav entry and no link from any page, `/lab` included.
+
+One lock for all labs: the `locked` flag, `adminHash`, `?admin` and "Lock
+again" described above apply to every lab at once.
+
+Content is fetched only when unlocked, through `src/pages/lab/loaders.js`:
+the Complexity Lab as one chunk (`pages/lab/content/complexity.js`), the
+Network Lab one chunk per module. `LabLecture.jsx` renders the content object:
+
+```
+lectures  { en, it }            raw markdown
+Sim       component             one simulation (Complexity Lab)
+panels    [{ id, title: {en,it}, Component, observe: {en,it} }]
+figures   { id: { Component, caption: {en,it} } }
+exercises [{ type: "paper" | "sim" | "both", statement: {en,it}, solution: {en,it} }]
+```
+
+Page order: lecture (with live figures), panels each followed by "What to
+observe", exercises, then whatever follows `<!-- simulation -->` in the
+markdown (further reading). `LabMarkdown.jsx` is the shared renderer; besides
+```` ```math ```` it understands two fenced blocks, usable by any lab:
+
+- ```` ```figure ```` — the body is a figure id from the module's `figures`
+  map. Live figures are small React components (about 340 px tall at most,
+  full width on mobile, one-line caption). One that captures touch must follow
+  the DrawToggle rule.
+- ```` ```box ```` — an optional box: first line is the title, the rest is
+  markdown.
+
+**Network Lab module** = a folder `src/components/lab/network/<slug>/` whose
+`index.js` default-exports the content object, plus
+`src/content/network-lab/<slug>.en.md` / `.it.md`; then set the module's
+`status` to `"ready"` in `network-modules.json`. Nothing else to wire. Module
+texts outside the lecture (observe lists, exercises) live in the folder's
+`texts.js`. Pure logic goes in plain `.js` files so Node can check it:
+`node scripts/lab/check-network-01.mjs` (rerun when the logic, presets or
+stored networks change). Shared helpers: `network/ui.jsx`; reuse
+`graphUtils.js` (including `forceLayout`), `Slider`, `DrawToggle`, `rng.js`.
+Network Lab code must not use recharts or anything else that would pull it
+into, or out of, the Complexity Lab chunk.
+
+Real network data sit in `src/data/lab/networks/` with `networks.meta.json`
+(source, licence, citation): Zachary's karate club and the Florentine
+families, taken from NetworkX (BSD-3-Clause).
+
+Italian terms, as in Complexity Lab modules 02–04: link = collegamento,
+degree = grado, path = cammino, shortest path = cammino minimo, component =
+componente, clustering = clustering, transitivity = transitività, adjacency
+matrix = matrice di adiacenza, bipartite = bipartita, projection =
+proiezione; "small-world" stays in English.

@@ -3,7 +3,7 @@
     "slug": "reading-a-network",
     "number": "01",
     "part": "I",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Reading a network",
     "title_it": "Leggere una rete",
     "summary_en": "Nodes, links, degree, paths, clustering, components: the alphabet of network science.",

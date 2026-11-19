@@ -1,0 +1,19 @@
+{
+  "source": "NetworkX, networkx/generators/social.py (karate_club_graph, florentine_families_graph)",
+  "url": "https://github.com/networkx/networkx/blob/main/networkx/generators/social.py",
+  "commit": "e33fa19ae7d8fc1d7872a19543dbb5d1204a4a07",
+  "retrieved": "2026-11-19",
+  "licence": "BSD-3-Clause",
+  "licence_url": "https://github.com/networkx/networkx/blob/main/LICENSE.txt",
+  "copyright": "Copyright (c) 2004-2026, NetworkX Developers: Aric Hagberg, Dan Schult, Pieter Swart. All rights reserved.",
+  "files": {
+    "karate-club.json": {
+      "description": "Zachary's karate club: 34 members, 78 links. Members are numbered 1-34 as in the paper; edges use 0-based positions in `nodes`. A link wherever the NetworkX matrix has an entry of at least 1 in either direction (the entry for members 23 and 34 appears on one side only). `mrHi` lists the members of Mr. Hi's faction after the split.",
+      "citation": "Zachary, W. W. (1977). An information flow model for conflict and fission in small groups. Journal of Anthropological Research 33, 452-473."
+    },
+    "florentine-families.json": {
+      "description": "Marriage ties among 15 Florentine families: 20 links. Edges use 0-based positions in `nodes` (alphabetical).",
+      "citation": "Padgett, J. F. and Ansell, C. K. (1993). Robust action and the rise of the Medici, 1400-1434. American Journal of Sociology 98, 1259-1319. Edge list as in Breiger, R. L. and Pattison, P. E. (1986). Cumulated social roles: the duality of persons and their algebras. Social Networks 8, 215-256."
+    }
+  }
+}
