@@ -87,7 +87,7 @@ export default function Header() {
               className="w-20 h-20 object-contain"
             />
             <div
-              className="flex flex-col leading-tight"
+              className="flex lg:hidden xl:flex flex-col leading-tight"
               style={{ fontFamily: "'Fraunces', serif" }}
             >
               <span className="text-xl md:text-2xl font-semibold tracking-tight text-white leading-tight">Scientific Bitcoin</span>
@@ -103,7 +103,7 @@ export default function Header() {
               <div key={idx} className="nav-item relative">
                 {item.submenu ? (
                   <span
-                    className="px-3 py-2 text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block cursor-default select-none"
+                    className="px-1.5 xl:px-2.5 py-2 whitespace-nowrap text-[12px] xl:text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block cursor-default select-none"
                     aria-haspopup="true"
                   >
                     {item.label}
@@ -111,14 +111,14 @@ export default function Header() {
                 ) : item.external ? (
                   <a
                     href={item.href}
-                    className="px-3 py-2 text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block"
+                    className="px-1.5 xl:px-2.5 py-2 whitespace-nowrap text-[12px] xl:text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block"
                   >
                     {item.label}
                   </a>
                 ) : (
                   <Link
                     to={item.href}
-                    className="px-3 py-2 text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block"
+                    className="px-1.5 xl:px-2.5 py-2 whitespace-nowrap text-[12px] xl:text-[13px] font-medium text-white/85 hover:text-orange-400 transition-colors duration-200 block"
                   >
                     {item.label}
                   </Link>

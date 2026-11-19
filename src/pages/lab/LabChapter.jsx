@@ -6,10 +6,11 @@ import LangToggle from '../../components/lab/LangToggle.jsx'
 import LockedZone from '../../components/lab/LockedZone.jsx'
 import useLabLang from '../../components/lab/useLabLang.js'
 import modules from '../../data/lab/modules.json'
-import labConfig from '../../data/lab/config.json'
+import AdminBar from '../../components/lab/AdminBar.jsx'
+import useLabAccess from '../../components/lab/useLabAccess.js'
 
 // Lecture, sim and follow-up live in their own chunk, requested only when the
-// Lab is unlocked (src/data/lab/config.json).
+// Lab is unlocked (src/data/lab/config.json, or an admin preview).
 const LabLecture = lazy(() => import('./LabLecture.jsx'))
 
 const COPY = {
@@ -120,6 +121,7 @@ export default function LabChapter() {
   const { slug } = useParams()
   const [lang, setLang] = useLabLang()
   const c = COPY[lang]
+  const { unlocked } = useLabAccess()
 
   const index = modules.findIndex((m) => m.slug === slug)
   const mod = index >= 0 && modules[index].status === 'ready' ? modules[index] : null
@@ -136,11 +138,11 @@ export default function LabChapter() {
 
   let content
   if (!mod) content = notFound
-  else if (labConfig.locked) content = <LockedModule mod={mod} lang={lang} setLang={setLang} c={c} />
+  else if (!unlocked) content = <LockedModule mod={mod} lang={lang} setLang={setLang} c={c} />
   else
     content = (
       <Suspense fallback={<div className="min-h-[60vh]" />}>
-        <LabLecture mod={mod} index={index} lang={lang} setLang={setLang} c={c} notFound={notFound} darkLink={darkLink} />
+        <LabLecture mod={mod} index={index} lang={lang} setLang={setLang} c={c} notFound={notFound} darkLink={darkLink} adminBar={<AdminBar lang={lang} />} />
       </Suspense>
     )
 

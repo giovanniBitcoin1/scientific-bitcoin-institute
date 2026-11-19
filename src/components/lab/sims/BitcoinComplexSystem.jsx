@@ -16,7 +16,7 @@ import {
 import Slider from '../Slider.jsx'
 import SimControls from '../SimControls.jsx'
 import useAnimationLoop from '../useAnimationLoop.js'
-import labConfig from '../../../data/lab/config.json'
+import { isLabUnlocked } from '../useLabAccess.js'
 import {
   SBI_WINDOW,
   daysSinceGenesis,
@@ -62,14 +62,14 @@ const MONO = 'IBM Plex Mono, monospace'
 const SBI_BETA = 5.69
 const SBI_BETA_SE = 0.05
 
-// Panel A: the price file, if present, is loaded on demand. Not while the Lab
-// is locked (src/data/lab/config.json): the lock presents it as a members'
-// area, and the Coin Metrics data (CC BY-NC 4.0) may not be used in a paid
-// one, so Panel A falls back to its synthetic placeholder.
+// Panel A: the price file, if present, is loaded on demand. Never for a
+// visitor while the Lab is locked (src/data/lab/config.json): the lock presents
+// it as a members' area, and the Coin Metrics data (CC BY-NC 4.0) may not be
+// used in a paid one, so Panel A falls back to its synthetic placeholder. An
+// admin preview (useLabAccess.js) is an internal check and may load it.
 const PRICE_FILE = '../../../data/lab/bitcoin-price.json'
-const priceFiles = labConfig.locked
-  ? {}
-  : import.meta.glob('../../../data/lab/bitcoin-price.json', { import: 'default' })
+const priceGlob = import.meta.glob('../../../data/lab/bitcoin-price.json', { import: 'default' })
+const priceFiles = () => (isLabUnlocked() ? priceGlob : {})
 // Source, licence and retrieval date of the price file, for the attribution line.
 const PRICE_META = Object.values(import.meta.glob('../../../data/lab/bitcoin-price.meta.json', { eager: true, import: 'default' }))[0] || null
 const MIN_WINDOW = 365 // days
@@ -587,9 +587,9 @@ function drawIndices(series) {
 }
 
 function usePriceData() {
-  const [state, setState] = useState(() => (priceFiles[PRICE_FILE] ? { status: 'loading' } : { status: 'missing' }))
+  const [state, setState] = useState(() => (priceFiles()[PRICE_FILE] ? { status: 'loading' } : { status: 'missing' }))
   useEffect(() => {
-    const load = priceFiles[PRICE_FILE]
+    const load = priceFiles()[PRICE_FILE]
     if (!load) return
     let alive = true
     load()

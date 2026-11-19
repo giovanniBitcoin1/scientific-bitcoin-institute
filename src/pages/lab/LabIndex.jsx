@@ -1,12 +1,14 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Header from '../../components/Header.jsx'
 import Footer from '../../components/Footer.jsx'
 import LangToggle from '../../components/lab/LangToggle.jsx'
 import useLabLang from '../../components/lab/useLabLang.js'
 import LockedZone from '../../components/lab/LockedZone.jsx'
 import modules from '../../data/lab/modules.json'
-import labConfig from '../../data/lab/config.json'
+import AdminBar from '../../components/lab/AdminBar.jsx'
+import AdminUnlock from '../../components/lab/AdminUnlock.jsx'
+import useLabAccess from '../../components/lab/useLabAccess.js'
 
 const COPY = {
   en: {
@@ -34,6 +36,9 @@ const COPY = {
 export default function LabIndex() {
   const [lang, setLang] = useLabLang()
   const c = COPY[lang]
+  const { admin, unlocked } = useLabAccess()
+  // ?admin shows the passphrase form; nothing links to it.
+  const showAdminForm = new URLSearchParams(useLocation().search).has('admin') && !admin
 
   useEffect(() => {
     document.title = 'Complexity Lab — Scientific Bitcoin Institute'
@@ -51,7 +56,7 @@ export default function LabIndex() {
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {modules.map((m) => {
         const ready = m.status === 'ready'
-        const open = ready && !labConfig.locked
+        const open = ready && unlocked
         const body = (
           <>
             <div className="flex items-center justify-between gap-3">
@@ -104,6 +109,7 @@ export default function LabIndex() {
       {/* The header is transparent until scrolled: pt-28 sits inside the dark hero. */}
       <main className="pb-24">
         <section className="bg-slate-900 text-white pt-28">
+          <AdminBar lang={lang} />
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
             <div className="flex flex-wrap items-start justify-between gap-6">
               <p className="text-xs uppercase tracking-[0.25em] text-bitcoin font-semibold font-mono">
@@ -119,11 +125,13 @@ export default function LabIndex() {
           </div>
         </section>
 
+        {showAdminForm && <AdminUnlock lang={lang} />}
+
         <section className="max-w-6xl mx-auto px-6 pt-16">
           <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
             {c.modules}
           </p>
-          <div className="mt-6">{labConfig.locked ? <LockedZone lang={lang}>{grid}</LockedZone> : grid}</div>
+          <div className="mt-6">{!unlocked ? <LockedZone lang={lang}>{grid}</LockedZone> : grid}</div>
         </section>
       </main>
 

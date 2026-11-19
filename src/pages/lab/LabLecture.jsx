@@ -112,7 +112,7 @@ function Markdown({ children }) {
   )
 }
 
-export default function LabLecture({ mod, index, lang, setLang, c, notFound, darkLink }) {
+export default function LabLecture({ mod, index, lang, setLang, c, notFound, darkLink, adminBar }) {
   const lecture = getLecture(mod.slug, lang) || getLecture(mod.slug, 'en')
   if (!lecture) return notFound
 
@@ -124,6 +124,7 @@ export default function LabLecture({ mod, index, lang, setLang, c, notFound, dar
     <>
       {/* Title band */}
       <section className="bg-slate-900 text-white pt-28">
+        {adminBar}
         <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <Link to="/lab" className={darkLink}>

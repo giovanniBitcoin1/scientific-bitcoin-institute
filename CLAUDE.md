@@ -186,7 +186,30 @@ One switch, `src/data/lab/config.json` → `{ "locked": true }`. While locked:
 The lock is visual, not access control: the lecture and sim chunks are still
 built into `dist/` and anyone requesting them directly can read them.
 
-**To unlock:** set `"locked": false`, run `npx vite build`, commit, push.
+**To unlock for everyone:** set `"locked": false`, run `npx vite build`,
+commit, push.
+
+**Admin preview.** `config.json` also holds `adminHash`, the SHA-256 (hex) of
+an admin passphrase — never the passphrase itself. Visiting `/lab?admin`
+shows a small EN/IT passphrase form under the hero (nothing links to it). The
+input is hashed in the browser with `crypto.subtle.digest` and compared with
+`adminHash`; on a match the hash is stored in localStorage `sbi_lab_admin`
+and that browser alone sees the Lab unlocked — module links, lectures and
+sims, and Module 13's real Coin Metrics prices (an internal preview; locked
+visitors never request the price file). A slate bar on top of Lab pages says
+"Admin preview — visitors see the locked Lab" with a "Lock again" button that
+clears the flag. A wrong passphrase gets a neutral "Not recognised." Logic in
+`src/components/lab/useLabAccess.js`, UI in `AdminUnlock.jsx` and
+`AdminBar.jsx`.
+
+To change the passphrase, put the new hash in `adminHash`
+(`printf '%s' 'new passphrase' | sha256sum`), build, commit, push; old
+previews lock again because the stored hash no longer matches.
+
+Honest limitation: this is a client-side convenience gate, not security. The
+site and the repo are public, so the hash, the lecture and sim chunks and the
+price-file chunk are all readable by anyone who looks, and anyone can set the
+localStorage key by hand. Nothing in the Lab is truly protected.
 
 - `src/pages/lab/` — `LabIndex.jsx` (`/lab`), `LabChapter.jsx` (`/lab/:slug`,
   locked view), `LabLecture.jsx` (lecture + sim, lazy).
