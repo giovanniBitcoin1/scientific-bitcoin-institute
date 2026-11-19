@@ -119,7 +119,7 @@ With numbers we can trust, we can ask the first real question about a network: w
 ## Further reading
 
 - Newman, M. E. J. (2018). *Networks*, 2nd ed. Oxford University Press. Ch. 9 and 12.
-- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Ch. 4.
+- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Ch. 4, section 4.8.
 - Latora, V., Nicosia, V. and Russo, G. (2017). *Complex Networks: Principles, Methods and Applications*. Cambridge University Press. Ch. 5.
 - Faloutsos, M., Faloutsos, P. and Faloutsos, C. (1999). On power-law relationships of the Internet topology. *Computer Communication Review* 29(4), 251–262.
 - Lakhina, A., Byers, J. W., Crovella, M. and Xie, P. (2003). Sampling biases in IP topology measurements. *IEEE INFOCOM 2003*, 332–341.

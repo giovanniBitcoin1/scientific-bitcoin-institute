@@ -394,8 +394,31 @@ function crossingOf(curve) {
   let a = P('smallWorld', 'nodes', 0.3).s
   let b = P('smallWorld', 'links', 0.3).s
   q('observer 1: small-world, f = 0.3: nodes ⟨k⟩ 1.7 and T 0.48, links T 0.14', near(a.meanDegree, 1.67, 0.005) && near(a.transitivity, 0.481, 0.001) && near(b.transitivity, 0.138, 0.001), `${f2(a.meanDegree)}, ${f3(a.transitivity)}, ${f3(b.transitivity)}`)
-  const giants = [0.5, 0.3, 0.2, 0.15].map((x) => P('random', 'nodes', x).s.giant)
-  q('observer 2: random truth, largest component 94%, 81%, 55%, 15% at f = 0.5, 0.3, 0.2, 0.15', near(giants[0], 0.94, 0.005) && near(giants[1], 0.81, 0.005) && near(giants[2], 0.55, 0.005) && near(giants[3], 0.15, 0.005), giants.map(f3).join(', '))
+  // Observer 2 quotes the 30-sample averages of the bias curve where the
+  // point is the threshold, and single samples (the Observed column, first
+  // sample and the next five presses of "New sample") only to show how far
+  // one sample can be from the average.
+  {
+    const bj = drain(biasJob(TRUTHS.random(1), 'nodes', BIAS_SEED))
+    const avg = [0.5, 0.3, 0.2, 0.15].map((x) => bj.points.find((p) => Math.abs(p.x - x) < 1e-9).giant * bj.truth.giant)
+    q('observer 2: random truth, bias curve (30 samples): largest component 95%, 71%, 28%, 15% at f = 0.5, 0.3, 0.2, 0.15', near(avg[0], 0.95, 0.006) && near(avg[1], 0.71, 0.006) && near(avg[2], 0.28, 0.006) && near(avg[3], 0.15, 0.006), avg.map(f3).join(', '))
+    const singles = [0, 1, 2, 3, 4, 5].map((nonce) => fullStats(panelSample('random', 'nodes', 0.2, nonce)).giant)
+    const want = [0.55, 0.19, 0.25, 0.1, 0.08, 0.33]
+    q('observer 2: random truth, f = 0.2, single samples: 55%, then 19%, 25%, 10%, 8%, 33%', singles.every((v, i) => near(v, want[i], 0.005)), singles.map(f3).join(', '))
+    // Theory for an infinite random network: S = 1 − exp(−f⟨k⟩S).
+    const theory = (c) => {
+      let s = c > 1 ? 0.5 : 0
+      for (let i = 0; i < 5000; i++) s = 1 - Math.exp(-c * s)
+      return s
+    }
+    const th = [0.5, 0.3, 0.2, 0.15].map((x) => theory(6 * x))
+    q('observer 2 and Exercise 4: theory 94%, 73%, 31% and 0 at f = 0.5, 0.3, 0.2, 0.15', near(th[0], 0.94, 0.005) && near(th[1], 0.73, 0.005) && near(th[2], 0.31, 0.005) && th[3] < 1e-6, th.map(f3).join(', '))
+    // Spread of a single sample at f = 0.2: 2,000 samples.
+    const random = mulberry32(1199)
+    const v = Array.from({ length: 2000 }, () => quickStats(observeNodes(TRUTHS.random(1), 0.2, random)).giant).sort((x, y) => x - y)
+    const mean = v.reduce((x, y) => x + y, 0) / v.length
+    q('Exercise 4: random truth, f = 0.2, 2,000 single samples: mean close to 0.31, 5th and 95th percentile 10% and 59%', near(mean, 0.31, 0.02) && near(v[100], 0.1, 0.01) && near(v[1900], 0.59, 0.015), `mean ${f3(mean)}, percentiles ${f3(v[100])} and ${f3(v[1900])}, range ${f3(v[0])} to ${f3(v[1999])}`)
+  }
   a = P('dense', 'trees', 1).s
   b = P('dense', 'trees', 10).s
   const src = P('dense', 'trees', 1).o.sources[0]

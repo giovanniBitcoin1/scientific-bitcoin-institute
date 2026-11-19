@@ -119,7 +119,7 @@ Con numeri di cui ci si può fidare, si può porre la prima vera domanda su una 
 ## Letture consigliate
 
 - Newman, M. E. J. (2018). *Networks*, 2ª ed. Oxford University Press. Cap. 9 e 12.
-- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Cap. 4.
+- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Cap. 4, sezione 4.8.
 - Latora, V., Nicosia, V. e Russo, G. (2017). *Complex Networks: Principles, Methods and Applications*. Cambridge University Press. Cap. 5.
 - Faloutsos, M., Faloutsos, P. e Faloutsos, C. (1999). On power-law relationships of the Internet topology. *Computer Communication Review* 29(4), 251–262.
 - Lakhina, A., Byers, J. W., Crovella, M. e Xie, P. (2003). Sampling biases in IP topology measurements. *IEEE INFOCOM 2003*, 332–341.
