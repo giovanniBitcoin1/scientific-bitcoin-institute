@@ -11,19 +11,20 @@ const COPY = {
     head: 'Members area',
     sub: 'Advanced content visible only to subscribed members.',
     lockTitle: 'Content reserved for subscribers',
-    lockText: 'Unlock the lectures and interactive simulations of the Complexity Lab.',
+    lockText: (name) => `Unlock the lectures and interactive simulations of the ${name}.`,
     button: 'Subscribe & unlock',
   },
   it: {
     head: 'Area riservata',
     sub: 'Contenuti avanzati visibili solo ai membri iscritti e abbonati.',
     lockTitle: 'Contenuto riservato agli abbonati',
-    lockText: 'Sblocca le lezioni e le simulazioni interattive del Complexity Lab.',
+    lockText: (name) => `Sblocca le lezioni e le simulazioni interattive del ${name}.`,
     button: 'Abbonati e sblocca',
   },
 }
 
-export default function LockedZone({ lang, children }) {
+// `labName` is the lab named in the overlay text (one lock covers all labs).
+export default function LockedZone({ lang, labName = 'Complexity Lab', children }) {
   const c = COPY[lang] || COPY.en
   return (
     <div>
@@ -46,7 +47,7 @@ export default function LockedZone({ lang, children }) {
               <span aria-hidden="true">🔒</span>
             </div>
             <h3 className="text-[19px] font-semibold text-[#EEF1F5]">{c.lockTitle}</h3>
-            <p className="text-sm text-[#98A2B3] max-w-[340px] leading-relaxed">{c.lockText}</p>
+            <p className="text-sm text-[#98A2B3] max-w-[340px] leading-relaxed">{c.lockText(labName)}</p>
             <Link
               to="/support/membership"
               className="text-sm font-bold text-white bg-[#8B7CF6] shadow-[0_4px_0_#5A4BC4] px-5 py-[11px] rounded-xl hover:brightness-110 active:scale-[.97] transition"

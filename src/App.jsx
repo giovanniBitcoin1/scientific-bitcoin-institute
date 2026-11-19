@@ -51,9 +51,11 @@ import GrantOpportunities from './pages/GrantOpportunities.jsx'
 import AcademicDay from './pages/AcademicDay.jsx'
 import SeedTool from './pages/SeedTool.jsx'
 import SeedToolGuide from './pages/SeedToolGuide.jsx'
+import { LAB_PATHS } from './data/lab/paths.js'
 
-// The Complexity Lab is lazy-loaded so its pages, sims and lecture text ship
-// in their own chunk instead of the main bundle.
+// The labs (Complexity Lab, Network Lab…) are lazy-loaded so their pages, sims
+// and lecture text ship in their own chunks instead of the main bundle. One
+// index route and one module route are registered per entry of LAB_PATHS.
 const LabIndex = lazy(() => import('./pages/lab/LabIndex.jsx'))
 const LabChapter = lazy(() => import('./pages/lab/LabChapter.jsx'))
 
@@ -117,22 +119,26 @@ export default function App() {
         <Route path="/events/academic-day" element={<AcademicDay />} />
         <Route path="/seed-tool" element={<SeedTool />} />
         <Route path="/seed-tool/guide" element={<SeedToolGuide />} />
-        <Route
-          path="/lab"
-          element={
-            <Suspense fallback={<LabFallback />}>
-              <LabIndex />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/lab/:slug"
-          element={
-            <Suspense fallback={<LabFallback />}>
-              <LabChapter />
-            </Suspense>
-          }
-        />
+        {Object.entries(LAB_PATHS).flatMap(([labId, basePath]) => [
+          <Route
+            key={labId}
+            path={basePath}
+            element={
+              <Suspense fallback={<LabFallback />}>
+                <LabIndex labId={labId} />
+              </Suspense>
+            }
+          />,
+          <Route
+            key={`${labId}/module`}
+            path={`${basePath}/:slug`}
+            element={
+              <Suspense fallback={<LabFallback />}>
+                <LabChapter key={labId} labId={labId} />
+              </Suspense>
+            }
+          />,
+        ])}
       </Routes>
     </BrowserRouter>
   )

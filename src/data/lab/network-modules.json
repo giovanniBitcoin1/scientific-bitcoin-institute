@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "reading-a-network",
+    "number": "01",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "Reading a network",
+    "title_it": "Leggere una rete",
+    "summary_en": "Nodes, links, degree, paths, clustering, components: the alphabet of network science.",
+    "summary_it": "Nodi, collegamenti, grado, cammini, clustering, componenti: l'alfabeto della scienza delle reti."
+  },
+  {
+    "slug": "what-are-we-measuring",
+    "number": "02",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "What are we measuring?",
+    "title_it": "Che cosa stiamo misurando?",
+    "summary_en": "Sampling, measurement error and null models: when a number about a network means something.",
+    "summary_it": "Campionamento, errori di misura e modelli nulli: quando un numero su una rete significa qualcosa."
+  },
+  {
+    "slug": "centrality",
+    "number": "03",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "Centrality",
+    "title_it": "Centralità",
+    "summary_en": "Who matters in a network, and why different measures disagree.",
+    "summary_it": "Chi conta in una rete, e perché misure diverse non sono d'accordo."
+  },
+  {
+    "slug": "triangles-weak-ties-motifs",
+    "number": "04",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "Triangles, weak ties and motifs",
+    "title_it": "Triangoli, legami deboli e motivi",
+    "summary_en": "Triadic closure, the strength of weak ties, and the small patterns networks are built from.",
+    "summary_it": "Chiusura triadica, forza dei legami deboli e i piccoli schemi di cui sono fatte le reti."
+  },
+  {
+    "slug": "heavy-tails-done-right",
+    "number": "05",
+    "part": "II",
+    "status": "coming-soon",
+    "title_en": "Heavy tails, done right",
+    "title_it": "Code pesanti, fatte bene",
+    "summary_en": "Hubs, cutoffs and ultra-small worlds, and how to test a power law honestly.",
+    "summary_it": "Hub, tagli e mondi ultra-piccoli, e come verificare onestamente una legge di potenza."
+  },
+  {
+    "slug": "growth-mechanisms",
+    "number": "06",
+    "part": "II",
+    "status": "coming-soon",
+    "title_en": "Growth mechanisms",
+    "title_it": "Meccanismi di crescita",
+    "summary_en": "Preferential attachment and its rivals: copying, optimisation and the role of chance.",
+    "summary_it": "Attaccamento preferenziale e i suoi rivali: copia, ottimizzazione e il ruolo del caso."
+  },
+  {
+    "slug": "fitness-and-competition",
+    "number": "07",
+    "part": "II",
+    "status": "coming-soon",
+    "title_en": "Fitness and competition",
+    "title_it": "Fitness e competizione",
+    "summary_en": "Why latecomers can win: fitness, condensation and ageing.",
+    "summary_it": "Perché gli ultimi arrivati possono vincere: fitness, condensazione e invecchiamento."
+  },
+  {
+    "slug": "who-connects-to-whom",
+    "number": "08",
+    "part": "III",
+    "status": "coming-soon",
+    "title_en": "Who connects to whom",
+    "title_it": "Chi si collega a chi",
+    "summary_en": "Assortativity, homophily and the rich club.",
+    "summary_it": "Assortatività, omofilia e rich club."
+  },
+  {
+    "slug": "communities",
+    "number": "09",
+    "part": "III",
+    "status": "coming-soon",
+    "title_en": "Communities",
+    "title_it": "Comunità",
+    "summary_en": "Finding groups, and knowing when they cannot be found.",
+    "summary_it": "Trovare i gruppi, e sapere quando non si possono trovare."
+  },
+  {
+    "slug": "weights-flows-navigation",
+    "number": "10",
+    "part": "III",
+    "status": "coming-soon",
+    "title_en": "Weights, flows and navigation",
+    "title_it": "Pesi, flussi e navigazione",
+    "summary_en": "Shortest paths, maximum flow, and finding your way with local information.",
+    "summary_it": "Cammini minimi, flusso massimo e come orientarsi con informazioni locali."
+  },
+  {
+    "slug": "robustness-and-cascades",
+    "number": "11",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Robustness and cascades",
+    "title_it": "Robustezza e cascate",
+    "summary_en": "Random failures, targeted attacks and failures that spread.",
+    "summary_it": "Guasti casuali, attacchi mirati e guasti che si propagano."
+  },
+  {
+    "slug": "epidemics-on-networks",
+    "number": "12",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Epidemics on networks",
+    "title_it": "Epidemie su reti",
+    "summary_en": "Thresholds, hubs and immunisation; exponential versus power-law growth.",
+    "summary_it": "Soglie, hub e immunizzazione; crescita esponenziale o a legge di potenza."
+  },
+  {
+    "slug": "social-contagion-network-effects",
+    "number": "13",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Social contagion and network effects",
+    "title_it": "Contagio sociale ed effetti di rete",
+    "summary_en": "Herding, tipping points, and why some ideas need reinforcement to spread.",
+    "summary_it": "Effetto gregge, punti di svolta e perché alcune idee hanno bisogno di rinforzo per diffondersi."
+  },
+  {
+    "slug": "capstone-a-real-network",
+    "number": "14",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Capstone: a real network from start to finish",
+    "title_it": "Capstone: una rete reale dall'inizio alla fine",
+    "summary_en": "The whole toolkit applied to one real network.",
+    "summary_it": "Tutti gli strumenti del corso applicati a una rete reale."
+  }
+]
