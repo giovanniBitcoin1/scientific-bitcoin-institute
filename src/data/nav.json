@@ -19,6 +19,10 @@
     "submenu": ["Bitcoin Fundamentals", "Advanced Cryptography", "Game Theory", "Network Science", "Complexity Science", "Economic Models", "Online Courses", "Summer School"]
   },
   {
+    "label": "Complexity Lab",
+    "href": "/lab"
+  },
+  {
     "label": "Academy",
     "href": "/accademia/",
     "external": true

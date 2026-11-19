@@ -157,3 +157,97 @@ Images live in `public/assets/journal/`, one folder per event slug. Current
 events: `bitcoin-asia-hong-kong`, `franklin-university-lugano`, `btc-prague`,
 `bitcoin-corporate-day`, `cervia`, `san-marino` (all past), `lac-lugano` and
 `plan-b-forum` (upcoming).
+
+## Complexity Lab (`/lab`)
+
+An advanced SBI course on complex systems (13 modules, for readers
+comfortable with some mathematics): rigorous lectures plus slider-driven
+simulations. Both routes are lazy-loaded in `src/App.jsx`, so
+lab code ships in its own chunk. The section is called "Complexity Lab"
+everywhere (EN and IT) and has its own top-level nav tab, between Education
+and Academy (`src/data/nav.json`). Never
+describe the course as free ("free", "gratuito", "gratis"…) in Lab copy.
+
+### Lock
+
+One switch, `src/data/lab/config.json` → `{ "locked": true }`. While locked:
+
+- `/lab` shows the hero, then the module grid blurred under the site's lock
+  overlay (`src/components/lab/LockedZone.jsx`, a copy of the Accademia's
+  members-area treatment and wording: "Members area" + PRO, 🔒 "Content
+  reserved for subscribers", "Subscribe & unlock" → `/support/membership`).
+- `/lab/:slug` shows number, title and summary, a blurred stand-in under the
+  same overlay, and a link back to `/lab`. Lecture, sim and follow-up live in
+  `LabLecture.jsx`, which `LabChapter.jsx` imports lazily only when unlocked,
+  so the lecture text is never fetched while locked.
+- Module 13 never loads the Coin Metrics price file (CC BY-NC 4.0 may not be
+  used in a paid area); Panel A shows its synthetic placeholder.
+
+The lock is visual, not access control: the lecture and sim chunks are still
+built into `dist/` and anyone requesting them directly can read them.
+
+**To unlock for everyone:** set `"locked": false`, run `npx vite build`,
+commit, push.
+
+**Admin preview.** `config.json` also holds `adminHash`, the SHA-256 (hex) of
+an admin passphrase — never the passphrase itself. Visiting `/lab?admin`
+shows a small EN/IT passphrase form under the hero (nothing links to it). The
+input is hashed in the browser with `crypto.subtle.digest` and compared with
+`adminHash`; on a match the hash is stored in localStorage `sbi_lab_admin`
+and that browser alone sees the Lab unlocked — module links, lectures and
+sims, and Module 13's real Coin Metrics prices (an internal preview; locked
+visitors never request the price file). A slate bar on top of Lab pages says
+"Admin preview — visitors see the locked Lab" with a "Lock again" button that
+clears the flag. A wrong passphrase gets a neutral "Not recognised." Logic in
+`src/components/lab/useLabAccess.js`, UI in `AdminUnlock.jsx` and
+`AdminBar.jsx`.
+
+To change the passphrase, put the new hash in `adminHash`
+(`printf '%s' 'new passphrase' | sha256sum`), build, commit, push; old
+previews lock again because the stored hash no longer matches.
+
+Honest limitation: this is a client-side convenience gate, not security. The
+site and the repo are public, so the hash, the lecture and sim chunks and the
+price-file chunk are all readable by anyone who looks, and anyone can set the
+localStorage key by hand. Nothing in the Lab is truly protected.
+
+- `src/pages/lab/` — `LabIndex.jsx` (`/lab`), `LabChapter.jsx` (`/lab/:slug`,
+  locked view), `LabLecture.jsx` (lecture + sim, lazy).
+- `src/data/lab/modules.json` — ordered module list: `slug`, `number` ("01"),
+  `status` (`"ready"` | `"coming-soon"`), `title_en/it`, `summary_en/it`.
+- `src/content/lab/<slug>.en.md` / `.it.md` — lecture text. A line holding
+  only `<!-- simulation -->` splits it: the lecture before, then the sim, then
+  the part after ("What to observe", "Further reading"). Other HTML comments
+  (e.g. `<!-- DRAFT … -->`) are stripped. Display equations go in ```` ```math ````
+  fences, inline ones in backticks — no math library.
+- `src/components/lab/` — shared pieces: `Slider.jsx` (supports `log`),
+  `SimControls.jsx` (Play/Pause, Step, Reset), `useAnimationLoop.js`, `rng.js`
+  (seeded mulberry32), `LangToggle.jsx`, `useLabLang.js` (EN/IT, remembered in
+  localStorage `sbi_lab_lang`).
+- `src/components/lab/sims/` — one component per module plus `index.js`, the
+  slug → component registry. Sims take a `lang` prop.
+
+**Adding a module:** set its `status` to `"ready"` in `modules.json`, write
+the two markdown files, build the sim in `sims/`, register it in
+`sims/index.js`. A coming-soon or unknown slug shows a friendly "not
+available" page.
+
+Sims are plain React + canvas 2D (recharts for simple line plots), with no
+physics/math libraries; anything random uses the seeded RNG in `rng.js` so
+runs are reproducible. Heavy computations run progressively across animation
+frames so the UI never freezes, and every sim must fit a 375px-wide screen
+without horizontal scroll.
+
+Experiments too slow to run on page load are precomputed by Node scripts in
+`scripts/lab/` into `src/data/lab/precomputed/` (e.g. `node
+scripts/lab/precompute-vicsek.mjs` → `vicsek.json`). Rerun a script whenever
+the lab code or default settings it uses change.
+
+Module 13's daily BTC/USD price is a static snapshot of Coin Metrics Community
+Data (CC BY-NC 4.0, attribution shown under the chart): refresh it by hand with
+`node scripts/lab/fetch-btc-price.mjs`, which rewrites
+`src/data/lab/bitcoin-price.json` and `bitcoin-price.meta.json`. No workflow.
+
+**Originality:** all lecture text is original, written from scratch in our
+own words — never copy or closely paraphrase any book. No book PDFs or
+third-party course material may ever be committed to this public repo.
