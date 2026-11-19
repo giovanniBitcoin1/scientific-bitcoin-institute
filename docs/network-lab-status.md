@@ -74,7 +74,10 @@ afterwards: no difference).
    observe, written from the numbers actually obtained; exercises, every
    answer recomputed) → `index.js`, `status: "ready"` in
    `network-modules.json`, `expect.json` → checks → squash.
-4. End each session with a report: what differs from the spec, exercise
+4. Save every final report, in full, to `docs/reports/network-lab-NN.md` (NN
+   = the prompt's number) and commit it locally on its own, as
+   "Network Lab NN: report". Standing instruction from Adriano (2026-11-20).
+5. End each session with a report: what differs from the spec, exercise
    answers that differ, self-check numbers, the numbers behind each "What to
    observe", references that could not be confirmed, check results, commit
    hashes.
