@@ -81,6 +81,12 @@ afterwards: no difference).
    answers that differ, self-check numbers, the numbers behind each "What to
    observe", references that could not be confirmed, check results, commit
    hashes.
+6. The prompts are in `prompts.local/` (git-ignored by the rule `*.local`:
+   never commit it, never edit it). The spec of a module in progress is
+   `prompts.local/network-lab-NN.md`.
+7. The reports are read from `docs/reports/`, and this file from where it is:
+   Adriano's assistant reads both straight from the folder, so anything that
+   must be known has to be written in one of them.
 
 ## Modules
 
@@ -90,8 +96,8 @@ afterwards: no difference).
 | 02 | `what-are-we-measuring` | done | the commit "Network Lab 02: What are we measuring?" | A The observer; B Compared to what?; C Your friends have more friends | `threshold`, `thinning` |
 | 03 | `centrality` | done | the commit "Network Lab 03: Centrality" | A Rankings compared; B The random surfer; C How fragile is a ranking? | `scores`, `kite` |
 | 04 | `triangles-weak-ties-motifs` | done | the commit "Network Lab 04: Triangles, weak ties and motifs" | A Close the triangle; B Weak ties hold it together; C Motif counter | `overlap`, `patterns` |
-| 05 | `heavy-tails-done-right` | next | – | – | – |
-| 06 | `growth-mechanisms` | planned | – | – | – |
+| 05 | `heavy-tails-done-right` | done | the commit "Network Lab 05: Heavy tails, done right" | A A dial for the exponent; B The giant component, by bookkeeping; C Is it a power law? | `hub`, `follow` |
+| 06 | `growth-mechanisms` | next | – | – | – |
 | 07 | `fitness-and-competition` | planned | – | – | – |
 | 08 | `who-connects-to-whom` | planned | – | – | – |
 | 09 | `communities` | planned | – | – | – |
@@ -113,8 +119,7 @@ swings; Barabási reference).
 - **02 What are we measuring?:** done.
 - **03 Centrality:** done.
 - **04 Triangles, weak ties and motifs:** done.
-- **05 Heavy tails, done right:** natural cutoff, ultra-small worlds,
-  generating functions, honest power-law testing.
+- **05 Heavy tails, done right:** done.
 - **06 Growth mechanisms:** Price model, nonlinear preferential attachment,
   copying, optimisation; rerun history 20 times.
 - **07 Fitness and competition:** fitness model, condensation, ageing,
@@ -138,7 +143,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 05, `heavy-tails-done-right`.
+Nothing in progress. Next: module 06, `growth-mechanisms`.
 
 ## Decisions
 
@@ -162,7 +167,7 @@ Nothing in progress. Next: module 05, `heavy-tails-done-right`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03 and 04 carry the DRAFT marker: to be
+- Lectures of modules 01, 02, 03, 04 and 05 carry the DRAFT marker: to be
   reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -220,3 +225,44 @@ Nothing in progress. Next: module 05, `heavy-tails-done-right`.
 - Module 04 texts quote numbers produced with fixed seeds, pinned by the
   "quoted on the page" checks in `scripts/lab/check-network-04.mjs` and by
   `scripts/lab/browser-checks/modules/network-triangles-weak-ties-motifs.mjs`.
+- Module 05, things a later module may reuse, all in
+  `heavy-tails-done-right/`: `zeta.js` (Hurwitz zeta, exact discrete power
+  law and its sampler, polylogarithm, natural cutoff), `configmodel.js`
+  (configuration model with any degree sequence, cleaning of self-links and
+  repeated links, `networkStats`), `genfun.js` (u = G1(u), S = 1 − G0(u) for a
+  family of distributions; module 11 can add an occupation probability to it),
+  `fit.js` (the whole Clauset–Shalizi–Newman recipe for whole numbers: KS scan
+  of k_min, exact maximum likelihood, bootstrap as a job, Vuong test against a
+  lognormal, an exponential and a power law with cut-off, Hill plot),
+  `sources.js` (seven samplers). Module 06 can run its degree sequences
+  through `fit.js`.
+- Module 05, precomputed: `src/data/lab/precomputed/network-05-giant.json`
+  (curves and dots of Panel B) is written by
+  `node scripts/lab/precompute-network-05.mjs`; `check-network-05.mjs` fails if
+  the file is not what the code gives. The check takes about a minute and a
+  half; `node scripts/lab/check-network-05.mjs <section>` runs one section
+  (`zeta`, `cutoff`, `config`, `genfun`, `fit`, `page`).
+- Module 05, a formula that differs from the prompt: the expected number of
+  repeated links in the configuration model is ((⟨k²⟩ − ⟨k⟩)/⟨k⟩)²/4, not /2
+  (Poisson ⟨k⟩ = 4: 4, not 8; measured 3.85 over 200 networks). Lecture, panel
+  and check use /4. To be confirmed by Adriano.
+- Module 05, choices to review: the verdict of Panel C also refuses when the
+  tail covers less than a factor of ten in k (not only below 50 values); the
+  bootstrap runs on a button; the experiment of Panel A takes the median of 10
+  networks per size (about 8 s in the browser) and keeps N = 10⁵; candidate
+  k_min need at least 10 values above them; lognormal source μ = 1, σ = 1.2;
+  the lognormal candidate is not allowed to start more than 8σ above μ. Seeds
+  were chosen so that the default samples are typical ones (`DIAL_SEED` 2600,
+  `SAMPLE_SEED` 1900), and the natural-cutoff check does not hold for any seed: at
+  γ = 2.5 two of the nine seeds tried gave a slope more than 0.05 from 2/3
+  (200 samples give the slope to about ±0.024).
+- Module 05, Italian terms: cutoff naturale, mondi ultra-piccoli
+  (*ultra-small worlds*), modello di configurazione, cappio, collegamento
+  ripetuto, funzione generatrice, componente gigante, bontà dell'adattamento,
+  rapporto di verosimiglianza, coda pesante; mezzo collegamento for half-link,
+  taglio for cut-off, classi for bins.
+- Module 05 texts quote numbers produced with fixed seeds, pinned by the
+  "quoted on the page" checks in `scripts/lab/check-network-05.mjs` and by
+  `scripts/lab/browser-checks/modules/network-heavy-tails-done-right.mjs`.
+  The page formats numbers with `toLocaleString`, which rounds 0.855 to 0.86
+  where `toFixed` gives 0.85: the checks format the same way as the page.

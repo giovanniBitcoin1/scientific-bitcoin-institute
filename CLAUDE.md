@@ -323,7 +323,9 @@ texts outside the lecture (observe lists, exercises) live in the folder's
 `texts.js`. Pure logic goes in plain `.js` files so Node can check it, one
 script per module: `node scripts/lab/check-network-01.mjs`,
 `check-network-02.mjs`, … (rerun when the logic, presets, seeds or stored
-networks change). Where the texts quote numbers the page computes, the script
+networks change). Module 05 also has a precomputed file,
+`src/data/lab/precomputed/network-05-giant.json`, rewritten by
+`node scripts/lab/precompute-network-05.mjs`. Where the texts quote numbers the page computes, the script
 pins them ("quoted on the page" checks), so a changed preset cannot leave the
 text behind. Shared helpers: `network/ui.jsx`, `network/charts.jsx` (SVG
 line chart) and `network/NetCanvas.jsx` (static network drawing); reuse
