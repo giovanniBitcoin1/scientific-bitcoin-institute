@@ -10,7 +10,7 @@ every commit; no new runtime dependency; nothing bash-only.
 
 ## Phase
 
-Phase 3 (static HTML, previews, feed, sitemap) — done.
+Phase 4 (email hand-off to Buttondown) — done.
 
 ## Done
 
@@ -39,9 +39,14 @@ Phase 3 (static HTML, previews, feed, sitemap) — done.
   Dispatch and Lens files now reach the app through `virtual:newsroom-content`
   (published files only), not `import.meta.glob`.
 
+- Phase 4: `scripts/newsroom/build-email.mjs`, `send-email.mjs`,
+  `test-email.mjs` (`npm run test:email`, fake API, fixture in
+  `fixtures/email/`), `.github/workflows/dispatch-email.yml`. The real API was
+  never called.
+
 ## Next
 
-- Phase 4: email hand-off. Phase 5: data collector. Phase 6: docs and report.
+- Phase 5: data collector. Phase 6: docs and report.
 
 ## Open questions
 
@@ -75,3 +80,9 @@ None yet. Notes for the final report are collected in the section below.
   `InsightArticle.jsx`: `break-words` on links (page scrolled sideways at 375 px).
 - Explainer `og:image` width/height are in the static HTML only (unknown at runtime).
 - deploy.yml not changed; suggest adding `npm run check:dist` after the build.
+- Buttondown API (read 2026-11-20, docs + OpenAPI spec github.com/buttondown/openapi):
+  POST https://api.buttondown.com/v1/emails, "Authorization: Token", header
+  X-API-Version: 2026-04-01; fields subject, body, status, publish_date,
+  canonical_url, slug, secondary_id, description, image, metadata. Default
+  status is about_to_send, so the script always sets draft or scheduled.
+  Idempotency by GET /emails?subject= (contains) + exact match, plus X-Idempotency-Key.

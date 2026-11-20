@@ -1,0 +1,12 @@
+{
+  "subject": "SBI Dispatch No. 7 · NEWSROOM-FIXTURE email issue",
+  "body": "<!-- buttondown-editor-mode: plaintext -->\n\n[Read this issue on the web](https://scientificbitcoininstitute.org/insights/dispatch/007-fixture-email-issue/?utm_source=dispatch&utm_medium=email&utm_campaign=007)\n\nNEWSROOM-FIXTURE opening line with an [internal link](https://scientificbitcoininstitute.org/insights/lens/2026-03-01-some-piece?utm_source=dispatch&utm_medium=email&utm_campaign=007) and an [outside link](https://example.org/report?id=3).\n\n## A section\n\nThe [dashboard](https://app.scientificbitcoininstitute.org/sign-up?utm_source=dispatch&utm_medium=email&utm_campaign=007) is ours, so is <https://scientificbitcoininstitute.org/manifesto?utm_source=dispatch&utm_medium=email&utm_campaign=007#mission>; [this one](https://scientificbitcoininstitute.org/news/journal?utm_source=other&utm_medium=email&utm_campaign=007) is already tagged at source, and <https://example.org/plain> is not ours.\n\n![NEWSROOM-FIXTURE chart](https://scientificbitcoininstitute.org/insights-media/dispatch/007-fixture-email-issue/chart.png \"NEWSROOM-FIXTURE caption\")\n\n```\nP(t) = A · t^β\n```\n\nInline code keeps its text: `[not a link](/insights)`.\n\n```\n[also not a link](/insights) inside a plain fence\n```\n\n> A callout with a [link](https://scientificbitcoininstitute.org/subscribe?utm_source=dispatch&utm_medium=email&utm_campaign=007).\n\n---\n\nYou are receiving this because you subscribed at scientificbitcoininstitute.org.\n\n[Archive](https://scientificbitcoininstitute.org/insights/dispatch/?utm_source=dispatch&utm_medium=email&utm_campaign=007) · [Was this forwarded to you? Subscribe](https://scientificbitcoininstitute.org/subscribe/?utm_source=dispatch&utm_medium=email&utm_campaign=007) · [Become a member](https://scientificbitcoininstitute.org/support/membership?utm_source=dispatch&utm_medium=email&utm_campaign=007)\n",
+  "webUrl": "https://scientificbitcoininstitute.org/insights/dispatch/007-fixture-email-issue/",
+  "slug": "007-fixture-email-issue",
+  "number": 7,
+  "summary": "NEWSROOM-FIXTURE summary of the email test issue.",
+  "image": "https://scientificbitcoininstitute.org/insights-media/dispatch/007-fixture-email-issue/share.png",
+  "status": "published",
+  "email": "scheduled",
+  "sendAt": "2026-03-05T08:30:00+01:00"
+}
