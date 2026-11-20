@@ -52,7 +52,9 @@ function buildArticle(path, raw) {
   // local (not UTC) to avoid off-by-one day shifts.
   let date
   if (data.date instanceof Date) {
-    date = data.date
+    // YAML reads an unquoted 2026-06-16 as midnight UTC. Rebuild it as a local
+    // date from its UTC parts, or readers west of Greenwich see the day before.
+    date = new Date(data.date.getUTCFullYear(), data.date.getUTCMonth(), data.date.getUTCDate())
   } else if (typeof data.date === 'string') {
     const [y, m, d] = data.date.split('-').map(Number)
     date = new Date(y, (m || 1) - 1, d || 1)

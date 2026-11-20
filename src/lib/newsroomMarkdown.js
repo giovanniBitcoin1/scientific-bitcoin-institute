@@ -147,14 +147,16 @@ function components(resolveImage) {
  * - `series`, `slug`: where the piece's media live.
  * - `origin`: when given ("https://example.org"), image and internal link URLs
  *   are made absolute (static fallback, feed).
+ * - `resolveImage`: replaces the default mapping of "images/x.png" to a URL.
  * - `linkAs`: a component (react-router's Link) used for links that start
  *   with "/", so they navigate inside the app instead of reloading the page.
  * - `onRaw`, `onImage`: collectors used by the validator (with `onImage` the
  *   images are reported instead of rendered).
  * A single "~" is kept as written ("~100"); only "~~text~~" strikes through.
  */
-export function renderNewsroomMarkdown({ body, series, slug, origin = '', linkAs, onRaw, onImage }) {
+export function renderNewsroomMarkdown({ body, series, slug, origin = '', linkAs, resolveImage: custom, onRaw, onImage }) {
   const resolveImage = (src) => {
+    if (custom) return custom(src)
     if (/^[a-z][a-z0-9+.-]*:/i.test(src)) return src
     return origin + mediaUrl(series, slug, src)
   }

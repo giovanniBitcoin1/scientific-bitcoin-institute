@@ -162,7 +162,7 @@ function makeMarkdownComponents(slug) {
       return (
         <a
           href={href}
-          className="text-orange-600 hover:text-orange-700 underline"
+          className="text-orange-600 hover:text-orange-700 underline break-words"
           {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >
           {children}

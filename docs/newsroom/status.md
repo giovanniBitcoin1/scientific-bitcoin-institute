@@ -10,7 +10,7 @@ every commit; no new runtime dependency; nothing bash-only.
 
 ## Phase
 
-Phase 2 (pages, routes, migration) — done.
+Phase 3 (static HTML, previews, feed, sitemap) — done.
 
 ## Done
 
@@ -30,9 +30,17 @@ Phase 2 (pages, routes, migration) — done.
   Issue 1 migrated from the JSX page; issue 2 imported from the Buttondown
   archive (fetched on 2026-11-20) with its chart. Old newsletter pages removed.
 
+- Phase 3: `scripts/newsroom/postbuild.mjs` (static page per route, head tags,
+  readable fallback from `src/lib/staticFallback.js`, redirect stubs, Atom feed,
+  sitemap), `scripts/newsroom/check-dist.mjs` (+ `--self-test`),
+  `scripts/newsroom/browser-checks/` (`check-routes.mjs`, own `package.json`),
+  `public/og/default.png` + `make-og-default.mjs`, `public/robots.txt`, default
+  OG tags in `index.html`. `npm run build` = validate, vite build, postbuild.
+  Dispatch and Lens files now reach the app through `virtual:newsroom-content`
+  (published files only), not `import.meta.glob`.
+
 ## Next
 
-- Phase 3: `postbuild.mjs`, `check-dist.mjs`, browser checks, default share image.
 - Phase 4: email hand-off. Phase 5: data collector. Phase 6: docs and report.
 
 ## Open questions
@@ -60,3 +68,10 @@ None yet. Notes for the final report are collected in the section below.
   `Membership.jsx`, `InsightArticle.jsx`, `NewsletterSignup.jsx`.
 - `/news`: eyebrow "Dispatches" -> "Institute", heading -> "Announcements"; the
   section id `dispatches` is unchanged.
+- Drafts: proven with three temporary draft files (build + check:dist pass;
+  with the plugin disabled check:dist fails). A draft Explainer's text is
+  excluded but its file name stays a glob key in the bundle (`insights.js`).
+- `insights.js`: YAML dates rebuilt from UTC parts (day shift west of UTC);
+  `InsightArticle.jsx`: `break-words` on links (page scrolled sideways at 375 px).
+- Explainer `og:image` width/height are in the static HTML only (unknown at runtime).
+- deploy.yml not changed; suggest adding `npm run check:dist` after the build.

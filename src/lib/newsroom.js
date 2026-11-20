@@ -2,18 +2,18 @@
 // src/lib/insights.js; the parsing itself lives in newsroom-core.js, which the
 // Node scripts share.
 //
-// Drafts never reach this file in a production build: the `newsroom-drafts`
-// plugin in vite.config.js replaces every file that is not `status: published`
-// with an empty string before it is bundled. They are let through only by
-// `npm run dev:drafts`, which also sets __NEWSROOM_DRAFTS__.
+// The files come from "virtual:newsroom-content", a module the
+// `newsroom-content` plugin in vite.config.js builds from src/content/dispatch
+// and src/content/lens. It holds published files only, so neither the text nor
+// the file name of a draft is ever in a production bundle. Drafts are let
+// through only by `npm run dev:drafts`, which also sets __NEWSROOM_DRAFTS__.
+import { dispatch as dispatchFiles, lens as lensFiles } from 'virtual:newsroom-content'
 import explainerArticles from './insights.js'
 import {
   DISPATCH, LENS, EXPLAINER, buildDispatch, buildLens, byNumberDesc, byDateDesc, latestOf, collectClaims,
   isIgnoredFile, modifiedOf, ymdFromLocalDate, piecePath, formatDate,
 } from './newsroom-core.js'
 
-const dispatchFiles = import.meta.glob('../content/dispatch/*.md', { eager: true, query: '?raw', import: 'default' })
-const lensFiles = import.meta.glob('../content/lens/*.md', { eager: true, query: '?raw', import: 'default' })
 
 export const DRAFTS_VISIBLE = typeof __NEWSROOM_DRAFTS__ !== 'undefined' && __NEWSROOM_DRAFTS__ === true
 
