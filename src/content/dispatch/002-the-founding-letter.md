@@ -44,9 +44,9 @@ That's what the Institute publishes: not price predictions, but calibrated dista
 
 **What we're building.**
 
-**The Journal.** . The Journal chronicles our work outside the dashboard — the conferences we attend, the talks we give, and the ways we spread scientific Bitcoin knowledge to a wider audience.[scientificbitcoininstitute.org/news/journal](https://scientificbitcoininstitute.org/news/journal)).
+**The Journal.** The Journal chronicles our work outside the dashboard — the conferences we attend, the talks we give, and the ways we spread scientific Bitcoin knowledge to a wider audience. [scientificbitcoininstitute.org/news/journal](https://scientificbitcoininstitute.org/news/journal).
 
-**The Manifesto.** Our stated positions on Bitcoin's role in the monetary and technological landscape. Read it at [scientificbitcoininstitute.org/manifesto#mission](https://scientificbitcoininstitute.org/manifesto#mission)).
+**The Manifesto.** Our stated positions on Bitcoin's role in the monetary and technological landscape. Read it at [scientificbitcoininstitute.org/manifesto#mission](https://scientificbitcoininstitute.org/manifesto#mission).
 
 **The Reader Dashboard.** Free for every signed-up member, this is our public research artifact: the Bitcoin Power-Law Corridor with 16 currencies (including gold and silver), a historical cycle-lows table, and a preview of what's coming for supporter tiers. Available at [app.scientificbitcoininstitute.org](https://app.scientificbitcoininstitute.org) after you sign in.
 

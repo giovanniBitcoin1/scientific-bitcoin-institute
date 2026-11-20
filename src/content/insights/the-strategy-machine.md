@@ -233,7 +233,7 @@ To think about where this leads over decades, we need a model of
 Bitcoin's long-run price. The most rigorously tested one is the
 **Bitcoin power law**, which holds that price grows as a power of time,
 P(t) ∝ t^β. This is not a casual chart-fitting exercise: in a Scientific
-Bitcoin Institute preprint ([Santostasi & Perrenod, 2026](https://doi.org/10.5281/zenodo.19386895),
+Bitcoin Institute preprint ([Santostasi & Perrenod, 2026](https://doi.org/10.5281/zenodo.19387099),
 available on Zenodo), the exponent β = 5.69 ± 0.05 is measured across 5,696 daily
 observations spanning 2010–2026, with the log-residuals stationary and
 showing no secular drift over fifteen years.
@@ -401,7 +401,7 @@ peer-reviewed research, cited first.*
 1.  Santostasi, G. & Perrenod, S. — "A Mechanistic Derivation of the
     Bitcoin Price Power Law: Network Adoption Dynamics and Generalised
     Metcalfe Scaling," preprint, Zenodo (2026). DOI
-    10.5281/zenodo.19386895 — <https://doi.org/10.5281/zenodo.19386895>
+    10.5281/zenodo.19387099 — <https://doi.org/10.5281/zenodo.19387099>
 
 2.  The Block — "What are Strategy's products? From STRK to STRC
     explained" —

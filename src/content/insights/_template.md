@@ -22,7 +22,7 @@ For tables, use standard markdown table syntax (GFM).
 
 For external links, use [Link Text](https://example.com).
 
-When citing the Institute's preprint, use this exact URL: https://doi.org/10.5281/zenodo.19386895
+When citing the Institute's preprint, use this exact URL: https://doi.org/10.5281/zenodo.19387099
 
 ## References
 
