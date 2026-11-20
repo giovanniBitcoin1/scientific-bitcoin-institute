@@ -10,6 +10,7 @@
     "build": "npm run validate && vite build && node scripts/newsroom/postbuild.mjs",
     "check:dist": "node scripts/newsroom/check-dist.mjs",
     "test:email": "node scripts/newsroom/test-email.mjs",
+    "test:data": "node scripts/data/collect.mjs --self-test",
     "preview": "vite preview",
     "fetch:newhedge": "node scripts/fetch-newhedge.js"
   },

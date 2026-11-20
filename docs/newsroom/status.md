@@ -10,7 +10,7 @@ every commit; no new runtime dependency; nothing bash-only.
 
 ## Phase
 
-Phase 4 (email hand-off to Buttondown) — done.
+Phase 5 (public data collector) — done.
 
 ## Done
 
@@ -44,9 +44,15 @@ Phase 4 (email hand-off to Buttondown) — done.
   `fixtures/email/`), `.github/workflows/dispatch-email.yml`. The real API was
   never called.
 
+- Phase 5: `scripts/data/collect.mjs` (+ `self-test.mjs`, `fixtures/`,
+  `README.md` copied onto the data branch), `.github/workflows/data-collector.yml`,
+  `npm run test:data`. Live run on 2026-11-20 into a temporary folder: all
+  seven series collected (GDELT only on the third try: it rate-limits hard).
+
 ## Next
 
-- Phase 5: data collector. Phase 6: docs and report.
+- Phase 6: `docs/newsroom/authoring.md`, CLAUDE.md, README.md, final report
+  `docs/reports/newsroom-01.md` (own commit).
 
 ## Open questions
 
@@ -86,3 +92,10 @@ None yet. Notes for the final report are collected in the section below.
   canonical_url, slug, secondary_id, description, image, metadata. Default
   status is about_to_send, so the script always sets draft or scheduled.
   Idempotency by GET /emails?subject= (contains) + exact match, plus X-Idempotency-Key.
+- Data sources chosen: Bitstamp (prices, from 2011-08-18) with Kraken as
+  cross-check (last ~720 days, then accumulating); alternative.me; Wikimedia
+  pageviews API; GDELT DOC API `timelinevol` (share of coverage, ~12 months);
+  mempool.space (difficulty, hash rate, mempool, fees); blockchain.info charts
+  (tx count). Exchanges, mempool.space and Blockchain.com state no open
+  licence: a person should confirm redistribution on a public branch is fine.
+  Wikimedia CC0 statement not re-verified live.
