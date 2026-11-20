@@ -326,8 +326,8 @@ export default function InsightArticle() {
             <SectionDivider />
             <div className="max-w-2xl mx-auto bg-slate-50 rounded-lg p-6 mt-12 text-center">
               <p className="text-slate-700">
-                Get new Insights articles in your inbox. The Institute's monthly dispatch covers
-                research, events, and analyses.
+                Get new Insights articles in your inbox. SBI Dispatch, sent every other
+                Thursday, covers research, events, and analyses.
               </p>
             </div>
             <NewsletterSignup />

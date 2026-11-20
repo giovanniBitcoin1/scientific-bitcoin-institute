@@ -1,118 +1,148 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../components/Header.jsx'
-import Footer from '../components/Footer.jsx'
 import ScrollToHash from '../components/ScrollToHash.jsx'
 import SectionDivider from '../components/SectionDivider.jsx'
-import articles, { getAllTags } from '../lib/insights.js'
-import { resolveInsightImage } from '../lib/insightImages.js'
+import NewsletterSignup from '../components/NewsletterSignup.jsx'
+import { CardGrid, PageShell, PieceCard, eyebrowClass, orangeLink } from '../components/newsroom/parts.jsx'
+import { getClaims, getDispatches, getExplainers, getLatest, getLensPieces } from '../lib/newsroom.js'
+import { COPY, PAGES } from '../lib/site.js'
+import { usePageSEO } from '../lib/seo.js'
 
-function ArticleCard({ article }) {
-  const heroUrl = resolveInsightImage(article.slug, article.heroImage)
+function SectionHeading({ eyebrow, title, allTo, allLabel }) {
   return (
-    <Link
-      to={`/insights/${article.slug}`}
-      className="group bg-white border border-slate-200 rounded-lg overflow-hidden hover:border-orange-300 hover:shadow-md transition flex flex-col"
-    >
-      <div className="aspect-[16/9] bg-slate-100 overflow-hidden">
-        {heroUrl ? (
-          <img
-            src={heroUrl}
-            alt={article.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        ) : null}
+    <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+      <div>
+        <p className={eyebrowClass}>{eyebrow}</p>
+        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-slate-900 leading-tight mt-2">{title}</h2>
       </div>
-      <div className="p-6 flex-1 flex flex-col">
-        <span className="inline-block self-start bg-slate-100 text-slate-600 text-xs font-medium uppercase tracking-wider px-3 py-1 rounded-full">
-          Explainer
-        </span>
-        <h3 className="font-serif text-xl mt-3 text-slate-900 leading-snug">{article.title}</h3>
-        <p className="text-slate-600 text-sm mt-2 line-clamp-3">
-          {article.subtitle || article.summary}
-        </p>
-        {article.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-4">
-            {article.tags.map((tag) => (
-              <span
-                key={tag}
-                className="bg-slate-100 text-slate-600 text-xs px-2.5 py-1 rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-        <p className="text-slate-500 text-xs mt-auto pt-4">
-          {article.formattedDate} · {article.readingTime}
-        </p>
-      </div>
-    </Link>
+      {allTo ? (
+        <Link to={allTo} className="text-sm font-semibold text-orange-600 hover:text-orange-700 whitespace-nowrap">
+          {allLabel} →
+        </Link>
+      ) : null}
+    </div>
+  )
+}
+
+// The hub has no separate Explainers archive: this section is the archive.
+// It shows the three latest and, on request, all of them in place.
+function ExplainersSection({ explainers }) {
+  const [all, setAll] = useState(false)
+  const shown = all ? explainers : explainers.slice(0, 3)
+  return (
+    <section id="explainers" className="max-w-6xl mx-auto px-6 scroll-mt-28">
+      <SectionHeading eyebrow="Insights" title="Explainers" />
+      <CardGrid>
+        {shown.map((piece) => (
+          <PieceCard key={piece.slug} piece={piece} image />
+        ))}
+      </CardGrid>
+      {explainers.length > 3 && !all ? (
+        <div className="mt-8 text-center">
+          <button
+            type="button"
+            onClick={() => setAll(true)}
+            className="text-sm font-semibold text-orange-600 hover:text-orange-700"
+          >
+            All Explainers ({explainers.length}) →
+          </button>
+        </div>
+      ) : null}
+    </section>
   )
 }
 
 export default function Insights() {
-  useEffect(() => {
-    document.title = 'Insights — Scientific Bitcoin Institute'
-    const meta = document.querySelector('meta[name="description"]')
-    if (meta) {
-      meta.setAttribute(
-        'content',
-        "Accessible explainers from the Scientific Bitcoin Institute on Bitcoin, complex systems, and the wider mathematical-financial landscape.",
-      )
-    }
-  }, [])
+  usePageSEO('/insights')
 
-  // Tag filters: data ready, UI to be added later.
-  const allTags = getAllTags()
+  const latest = getLatest(6)
+  const dispatches = getDispatches()
+  const lensPieces = getLensPieces()
+  const explainers = getExplainers()
+  const hasClaims = getClaims().length > 0
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Header />
+    <PageShell>
       <ScrollToHash />
 
       <main className="pt-28 pb-24">
         {/* Page header */}
         <section className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold font-mono">
-            Scientific Bitcoin Institute · Insights
-          </p>
+          <p className={eyebrowClass}>Scientific Bitcoin Institute · Insights</p>
           <h1 className="font-serif text-5xl md:text-6xl font-semibold text-slate-900 leading-tight mt-4">
-            Insights
+            {PAGES['/insights'].heading}
           </h1>
           <p className="text-slate-700 text-base leading-relaxed mt-6 max-w-2xl mx-auto">
-            Accessible explainers from the Scientific Bitcoin Institute on Bitcoin, complex systems,
-            and the wider mathematical-financial landscape. Insights articles synthesize current
-            developments through the lens of the Institute's research, written for a general
-            audience. They are educational analysis, distinct from the Institute's peer-reviewed
-            publications.
-          </p>
-          <p className="text-slate-600 text-sm mt-4 max-w-2xl mx-auto">
-            For the Institute's peer-reviewed research, see{' '}
-            <Link to="/research/publications" className="text-orange-600 hover:text-orange-700 underline">
-              Publications
+            {COPY.hubIntroLead}
+            <Link to="/research/publications" className={orangeLink}>
+              {COPY.hubIntroLink}
             </Link>
-            .
+            {COPY.hubIntroTail}
           </p>
+          {hasClaims ? (
+            <p className="text-slate-600 text-sm mt-4">
+              <Link to="/insights/on-the-record" className={orangeLink}>
+                On the record
+              </Link>
+              : the checkable statements we have made, and how they stand.
+            </p>
+          ) : null}
         </section>
+
+        {/* Latest across the three series */}
+        {latest.length > 0 ? (
+          <>
+            <SectionDivider />
+            <section id="latest" className="max-w-6xl mx-auto px-6 scroll-mt-28">
+              <SectionHeading eyebrow="Insights" title="Latest" />
+              <CardGrid>
+                {latest.map((piece) => (
+                  <PieceCard key={piece.path} piece={piece} />
+                ))}
+              </CardGrid>
+            </section>
+          </>
+        ) : null}
+
+        {/* One section per series; a series with nothing published is not shown. */}
+        {dispatches.length > 0 ? (
+          <>
+            <SectionDivider />
+            <section id="dispatch" className="max-w-6xl mx-auto px-6 scroll-mt-28">
+              <SectionHeading eyebrow="Newsletter" title="SBI Dispatch" allTo="/insights/dispatch" allLabel="All issues" />
+              <CardGrid>
+                {dispatches.slice(0, 3).map((piece) => (
+                  <PieceCard key={piece.slug} piece={piece} />
+                ))}
+              </CardGrid>
+            </section>
+          </>
+        ) : null}
+
+        {lensPieces.length > 0 ? (
+          <>
+            <SectionDivider />
+            <section id="lens" className="max-w-6xl mx-auto px-6 scroll-mt-28">
+              <SectionHeading eyebrow="News analysis" title="The Lens" allTo="/insights/lens" allLabel="All pieces" />
+              <CardGrid>
+                {lensPieces.slice(0, 3).map((piece) => (
+                  <PieceCard key={piece.slug} piece={piece} />
+                ))}
+              </CardGrid>
+            </section>
+          </>
+        ) : null}
+
+        {explainers.length > 0 ? (
+          <>
+            <SectionDivider />
+            <ExplainersSection explainers={explainers} />
+          </>
+        ) : null}
 
         <SectionDivider />
-
-        {/* Articles grid */}
-        <section className="max-w-6xl mx-auto px-6">
-          {articles.length === 0 ? (
-            <p className="text-slate-600 text-center">Insights coming soon.</p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.map((article) => (
-                <ArticleCard key={article.slug} article={article} />
-              ))}
-            </div>
-          )}
-        </section>
+        <NewsletterSignup />
       </main>
-
-      <Footer />
-    </div>
+    </PageShell>
   )
 }

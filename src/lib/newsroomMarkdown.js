@@ -52,6 +52,8 @@ function nodeToText(children) {
   return ''
 }
 
+const LINK_CLASS = 'text-orange-600 hover:text-orange-700 underline break-words'
+
 const isMath = (className) => typeof className === 'string' && /\blanguage-math\b/.test(className)
 
 // `resolveImage(src)` maps "images/x.png" to the URL to load.
@@ -80,7 +82,7 @@ function components(resolveImage) {
         'a',
         {
           href,
-          className: 'text-orange-600 hover:text-orange-700 underline break-words',
+          className: LINK_CLASS,
           ...(/^https?:/i.test(href) ? { target: '_blank', rel: 'noopener noreferrer' } : {}),
         },
         children,
@@ -145,11 +147,13 @@ function components(resolveImage) {
  * - `series`, `slug`: where the piece's media live.
  * - `origin`: when given ("https://example.org"), image and internal link URLs
  *   are made absolute (static fallback, feed).
+ * - `linkAs`: a component (react-router's Link) used for links that start
+ *   with "/", so they navigate inside the app instead of reloading the page.
  * - `onRaw`, `onImage`: collectors used by the validator (with `onImage` the
  *   images are reported instead of rendered).
  * A single "~" is kept as written ("~100"); only "~~text~~" strikes through.
  */
-export function renderNewsroomMarkdown({ body, series, slug, origin = '', onRaw, onImage }) {
+export function renderNewsroomMarkdown({ body, series, slug, origin = '', linkAs, onRaw, onImage }) {
   const resolveImage = (src) => {
     if (/^[a-z][a-z0-9+.-]*:/i.test(src)) return src
     return origin + mediaUrl(series, slug, src)
@@ -161,6 +165,13 @@ export function renderNewsroomMarkdown({ body, series, slug, origin = '', onRaw,
       onImage({ src, alt, title: title || '' })
       return null
     }
+  }
+  if (linkAs) {
+    const link = map.a
+    map.a = (props) =>
+      props.href && props.href.startsWith('/') && !props.href.startsWith('//')
+        ? h(linkAs, { to: props.href, className: LINK_CLASS }, props.children)
+        : link(props)
   }
   if (origin) {
     const link = map.a

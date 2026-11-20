@@ -182,7 +182,7 @@ export const PAGES = {
     description: COPY.onTheRecordIntro,
   },
   '/subscribe': {
-    heading: 'Subscribe to SBI Dispatch',
+    heading: COPY.signupHeading,
     title: 'Subscribe to SBI Dispatch',
     description:
       "Rigorous analysis of Bitcoin in your inbox, every other Thursday. Subscribe to SBI Dispatch, the Scientific Bitcoin Institute's newsletter.",

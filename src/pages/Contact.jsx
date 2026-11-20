@@ -205,8 +205,8 @@ export default function Contact() {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-orange-500 mt-1" aria-hidden="true">→</span>
-              <Link to="/news/newsletter" className={externalLink}>
-                Newsletter — Dispatches from the Institute
+              <Link to="/insights/dispatch" className={externalLink}>
+                Newsletter — SBI Dispatch
               </Link>
             </li>
           </ul>

@@ -160,14 +160,14 @@ export default function News() {
 
         <SectionDivider />
 
-        {/* Dispatches */}
+        {/* Announcements (data in dispatches.json; not the SBI Dispatch newsletter) */}
         <section id="dispatches" className="scroll-mt-28">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-orange-600 font-semibold mb-3 font-mono">
-              Dispatches
+              Institute
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-slate-900 leading-tight">
-              Institute Dispatches
+              Announcements
             </h2>
           </div>
 

@@ -10,7 +10,7 @@ every commit; no new runtime dependency; nothing bash-only.
 
 ## Phase
 
-Phase 1 (content model, loader, validator) — done.
+Phase 2 (pages, routes, migration) — done.
 
 ## Done
 
@@ -23,9 +23,15 @@ Phase 1 (content model, loader, validator) — done.
   `npm run dev:drafts`, draft exclusion in `vite.config.js`.
   `npm run build` = validate, then `vite build`.
 
+- Phase 2: hub `/insights`, `/insights/dispatch[/:slug]`, `/insights/lens[/:slug]`,
+  `/insights/on-the-record` (route only while a claim exists), `/subscribe`,
+  router redirects for the old newsletter URLs, `LatestInsights` on the home
+  page, runtime SEO from `src/lib/site.js` (`RouteCanonical` in `App.jsx`).
+  Issue 1 migrated from the JSX page; issue 2 imported from the Buttondown
+  archive (fetched on 2026-11-20) with its chart. Old newsletter pages removed.
+
 ## Next
 
-- Phase 2: pages, routes, redirects, migration of the two issues, copy changes.
 - Phase 3: `postbuild.mjs`, `check-dist.mjs`, browser checks, default share image.
 - Phase 4: email hand-off. Phase 5: data collector. Phase 6: docs and report.
 
@@ -42,3 +48,15 @@ None yet. Notes for the final report are collected in the section below.
   (error), unknown header field (warning), a published piece may not
   cross-reference a draft (error).
 - Browser checks: own folder with `puppeteer-core`, as on `network-lab`.
+- "No tracking" removed from the signup block: not verifiable.
+- Issue 1 summary shortened to fit 200 characters (last sentence dropped).
+- Issue 2: Buttondown's own utm parameters stripped from links; the title "The
+  founding letter" is taken from the letter's first line; the chart shows
+  $64,814 / −1.06σ while the text says ~$63,000 / −1.09σ; stray ". " and
+  unbalanced ")" in "What we're building" kept as sent; "(coming soon)" and
+  "(opening soon)" are the letter's own words.
+- Old name "Dispatches" still in `History.jsx` (prose) — not a "monthly" claim, left.
+- "monthly" replaced in: 11 education/event pages (same sentence), `FAQs.jsx`,
+  `Membership.jsx`, `InsightArticle.jsx`, `NewsletterSignup.jsx`.
+- `/news`: eyebrow "Dispatches" -> "Institute", heading -> "Announcements"; the
+  section id `dispatches` is unchanged.

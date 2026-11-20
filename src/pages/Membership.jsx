@@ -109,8 +109,8 @@ export default function Membership() {
             <div className="mt-6 max-w-2xl mx-auto text-center">
               <p className="text-slate-700 leading-relaxed">
                 Sign up free to unlock the full view &mdash; all 15 currencies including gold and
-                silver, the cycle-lows table, and research context &mdash; plus the monthly
-                Dispatches newsletter. Account and newsletter are created in one step.
+                silver, the cycle-lows table, and research context &mdash; plus the
+                SBI Dispatch newsletter, sent every other Thursday. Account and newsletter are created in one step.
               </p>
               <div className="mt-5">
                 <a
