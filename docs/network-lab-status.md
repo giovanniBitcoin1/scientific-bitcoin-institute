@@ -89,8 +89,8 @@ afterwards: no difference).
 | 01 | `reading-a-network` | done | 9267674 | A The bridges of Königsberg; B Network microscope; C One system, two projections | `three-ways`, `sparse` |
 | 02 | `what-are-we-measuring` | done | the commit "Network Lab 02: What are we measuring?" | A The observer; B Compared to what?; C Your friends have more friends | `threshold`, `thinning` |
 | 03 | `centrality` | done | the commit "Network Lab 03: Centrality" | A Rankings compared; B The random surfer; C How fragile is a ranking? | `scores`, `kite` |
-| 04 | `triangles-weak-ties-motifs` | next | – | – | – |
-| 05 | `heavy-tails-done-right` | planned | – | – | – |
+| 04 | `triangles-weak-ties-motifs` | done | the commit "Network Lab 04: Triangles, weak ties and motifs" | A Close the triangle; B Weak ties hold it together; C Motif counter | `overlap`, `patterns` |
+| 05 | `heavy-tails-done-right` | next | – | – | – |
 | 06 | `growth-mechanisms` | planned | – | – | – |
 | 07 | `fitness-and-competition` | planned | – | – | – |
 | 08 | `who-connects-to-whom` | planned | – | – | – |
@@ -112,8 +112,7 @@ swings; Barabási reference).
 - **01 Reading a network:** done.
 - **02 What are we measuring?:** done.
 - **03 Centrality:** done.
-- **04 Triangles, weak ties and motifs:** triadic closure, strength of weak
-  ties, motifs against a null model.
+- **04 Triangles, weak ties and motifs:** done.
 - **05 Heavy tails, done right:** natural cutoff, ultra-small worlds,
   generating functions, honest power-law testing.
 - **06 Growth mechanisms:** Price model, nonlinear preferential attachment,
@@ -139,7 +138,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 04, `triangles-weak-ties-motifs`.
+Nothing in progress. Next: module 05, `heavy-tails-done-right`.
 
 ## Decisions
 
@@ -163,8 +162,8 @@ Nothing in progress. Next: module 04, `triangles-weak-ties-motifs`.
 
 ## Open items
 
-- Lectures of modules 01, 02 and 03 carry the DRAFT marker: to be reviewed by
-  Adriano.
+- Lectures of modules 01, 02, 03 and 04 carry the DRAFT marker: to be
+  reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
   `fitUnit`), moved out of the module 02 folder.
@@ -193,3 +192,31 @@ Nothing in progress. Next: module 04, `triangles-weak-ties-motifs`.
 - Module 03 texts quote numbers produced with fixed seeds, pinned by the
   "quoted on the page" checks in `scripts/lab/check-network-03.mjs` (it takes
   about half a minute: it runs the six fragility experiments).
+- Prompt 4, stage 0 (fixes to module 03): the two English sentences already
+  said what the Italian says, so nothing was changed and there is no
+  "Network Lab 03: fixes" commit. `check-links.mjs` did not crash again.
+- Module 04, things a later module may reuse:
+  `triangles-weak-ties-motifs/overlap.js` (neighbourhood overlap, bridges,
+  local bridges, transitivity and distances on adjacency sets), `weakties.js`
+  (`removalCurve`: the largest piece for every number of links removed, in one
+  backward pass; module 11 can start from it), `motifs.js` (the thirteen
+  patterns, a count checked against brute force, and a randomiser that keeps
+  incoming, outgoing and mutual links), `PatternIcon.jsx`.
+- Module 04, choices to review: Italian terms chiusura triadica, ponte locale,
+  sovrapposizione (dei vicinati), legame debole, motivo; "feed-forward loop"
+  stays in English, and the lecture calls the thirteen patterns "schemi".
+  Panel A has no drawing of the network (readouts and four charts). Panel B:
+  strength = overlap + a random number between 0 and 0.1; "average size of the
+  other pieces" is the plain mean of their sizes. Panel C draws the networks
+  without arrowheads. The lecture gives the count "40 against 7 ± 3" as it is
+  in Milo et al. (2002), Table 1; Shen-Orr et al. (2002) list 34 coherent and
+  6 incoherent loops separately.
+- Module 04, Panel B, switch off: with 30 networks the gap between "weakest
+  first" and "strongest first" is chance, and it is largest where the network
+  collapses (f ≈ 0.85). `WEAK_SEED` = 2026 gives 0.03; ten other seeds give
+  0.04 to 0.11, so the prompt's limit of 0.05 holds for this seed, not for any
+  seed. With 120 networks the gap is 0.04 (checked). To make it hold for any
+  seed, raise `WEAK_RUNS`.
+- Module 04 texts quote numbers produced with fixed seeds, pinned by the
+  "quoted on the page" checks in `scripts/lab/check-network-04.mjs` and by
+  `scripts/lab/browser-checks/modules/network-triangles-weak-ties-motifs.mjs`.

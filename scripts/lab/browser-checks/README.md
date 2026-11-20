@@ -36,9 +36,11 @@ node check-links.mjs
 node check-module.mjs network reading-a-network
 node check-module.mjs network what-are-we-measuring
 node check-module.mjs network centrality
+node check-module.mjs network triangles-weak-ties-motifs
 node modules/network-reading-a-network.mjs
 node modules/network-what-are-we-measuring.mjs
 node modules/network-centrality.mjs
+node modules/network-triangles-weak-ties-motifs.mjs
 ```
 
 Every script prints one `PASS`/`FAIL` line per check, then

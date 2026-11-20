@@ -1,5 +1,6 @@
 {
   "network/reading-a-network": { "figures": 2, "panels": 3, "exercises": 6 },
   "network/what-are-we-measuring": { "figures": 2, "panels": 3, "exercises": 6 },
-  "network/centrality": { "figures": 2, "panels": 3, "exercises": 6 }
+  "network/centrality": { "figures": 2, "panels": 3, "exercises": 6 },
+  "network/triangles-weak-ties-motifs": { "figures": 2, "panels": 3, "exercises": 6 }
 }
