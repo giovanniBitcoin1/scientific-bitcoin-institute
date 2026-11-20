@@ -19,6 +19,102 @@ the `submenuHrefs` map in `src/components/Header.jsx`.
 
 Fonts are loaded in `index.html` and mapped in `tailwind.config.js`.
 
+## Build
+
+`npm run build` is the whole pipeline, and what the deploy workflow runs:
+
+1. `npm run validate` — content check; any error stops the build;
+2. `vite build`;
+3. `node scripts/newsroom/postbuild.mjs` — static HTML per Insights route,
+   redirect stubs, feed, sitemap.
+
+`npx vite build` alone still produces a working single-page site, but without
+the static pages. After a build: `npm run check:dist`, and the browser checks
+in `scripts/newsroom/browser-checks/`. Everything must run on Windows and on
+the Linux runner (Node 20): small Node scripts, nothing bash-only.
+
+## Insights (`/insights`)
+
+Three editorial series, one markdown file per piece. Author's guide:
+`docs/newsroom/authoring.md`.
+
+| Series | Files | Route |
+|---|---|---|
+| SBI Dispatch (the newsletter, every other Thursday) | `src/content/dispatch/NNN-slug.md` | `/insights/dispatch/:slug` |
+| The Lens (sourced news analysis, updated) | `src/content/lens/YYYY-MM-DD-slug.md` | `/insights/lens/:slug` |
+| Explainers | `src/content/insights/slug.md` | `/insights/:slug` |
+
+Other routes: `/insights` (hub), `/insights/dispatch`, `/insights/lens`
+(archives), `/insights/on-the-record` (claims; the route exists only while a
+claim does), `/subscribe`. `/news/newsletter`, `/news/newsletter/issue-01` and
+`/newsletter` redirect, in the router and as static stubs.
+
+- **A series with nothing published is not shown anywhere**: no empty heading,
+  no "coming soon". No placeholder content in the built site.
+- **The newsletter is "SBI Dispatch", "every other Thursday"** — never
+  "monthly", never "Dispatches". The block called "Announcements" on `/news`
+  (data in `src/data/dispatches.json`) is unrelated.
+- The Lens is never emailed and its pages carry no membership promotion.
+- Do not call the Institute's publications "peer-reviewed" in Insights copy.
+- Media of a Dispatch issue or Lens piece: `public/insights-media/<series>/<slug>/`,
+  unhashed on purpose (emails link to them). Explainer images stay next to the
+  file and are hashed by Vite.
+
+### Code map
+
+- `src/lib/newsroom-core.js` — the content model, **pure** (no Vite API, no
+  DOM): frontmatter, dates, builders, ordering. Imported by the site and by the
+  Node scripts, so both read a file the same way. Frontmatter is parsed with
+  js-yaml's `JSON_SCHEMA`: dates stay the strings written in the file (no day
+  shift, the UTC offset is kept and shown as written — never convert zones).
+- `src/lib/newsroom.js` — loader used by the pages (`getDispatches`,
+  `getLensPieces`, `getLatest(n)`, `getClaims`…). It imports
+  `virtual:newsroom-content`, built by the `newsroom-content` plugin in
+  `vite.config.js` from **published files only**. Do not replace it with
+  `import.meta.glob`: glob keys would put draft file names in the bundle.
+- `src/lib/newsroomMarkdown.js` — the markdown renderer, written with
+  `createElement` (no JSX) because Node imports it too. ```` ```math ```` fences,
+  blockquote as callout, `<sub>`/`<sup>` only. Does not import Lab code.
+- `src/lib/site.js` — `canonicalUrl()` (origin from `public/CNAME`, trailing
+  slash), `buildSeo()`, the verbatim page copy (`COPY`, `PAGES`).
+  `src/lib/seo.js` applies it in the browser (`usePageSEO`, `usePieceSEO`,
+  `useArticleSEO`, `RouteCanonical`); `postbuild.mjs` prints the same model
+  into HTML. Never build a canonical link from `window.location`.
+- `src/lib/staticFallback.js` — the readable copy placed in `<div id="root">`.
+  Not imported by the app; it lives in `src/` so Tailwind keeps its classes.
+- Pages: `Insights.jsx` (hub), `DispatchArchive.jsx`, `DispatchIssue.jsx`,
+  `LensArchive.jsx`, `LensArticle.jsx`, `OnTheRecord.jsx`, `Subscribe.jsx`;
+  shared pieces in `src/components/newsroom/parts.jsx`;
+  `src/components/LatestInsights.jsx` on the home page.
+- `scripts/newsroom/` — `validate.mjs`, `postbuild.mjs`, `check-dist.mjs`,
+  `build-email.mjs`, `send-email.mjs`, `test-email.mjs`, `lib/routes.mjs` (the
+  one list of static routes), `fixtures/`, `browser-checks/` (own
+  `package.json`, `puppeteer-core`; not a site dependency).
+
+### Rules that keep it safe
+
+- **Drafts** (`status: draft`) are in no build. They show only in
+  `npm run dev:drafts`, with a DRAFT ribbon.
+- **Every check must be able to fail.** Each validator rule has a case in
+  `scripts/newsroom/fixtures/cases.json` (`npm run validate -- --self-test`
+  fails while a rule has none); `check-dist.mjs --self-test`,
+  `npm run test:email` and `npm run test:data` do the same for their checks.
+  Fixture text carries the marker `NEWSROOM-FIXTURE` and must never reach
+  `dist/`.
+- **A new static route** goes in `scripts/newsroom/lib/routes.mjs` and
+  `PAGES` in `src/lib/site.js`; every folder the post-build creates in `dist/`
+  needs an `index.html`. Leave `public/404.html` and the redirect script in
+  `index.html` alone: every other route depends on them.
+- **Email** (`.github/workflows/dispatch-email.yml`): only for a Dispatch file
+  *added* by a push, published, `email` not `none`. Draft unless both the
+  repository variable `DISPATCH_EMAIL_MODE` and the file say `scheduled`.
+  Buttondown's default status is "send now": the script always sets `draft` or
+  `scheduled`. Never call the real API while developing.
+- **Data collector** (`scripts/data/collect.mjs`,
+  `.github/workflows/data-collector.yml`): public series published as a single
+  force-pushed commit on the orphan branch `data`. Not used by the site. No
+  Coin Metrics data (non-commercial licence).
+
 ## Event Journal (`/news/journal`)
 
 The Event Journal is a **visual diary of the Institute's conferences and

@@ -10,7 +10,7 @@ every commit; no new runtime dependency; nothing bash-only.
 
 ## Phase
 
-Phase 5 (public data collector) — done.
+Phase 6 (documentation and report) — done. All phases complete; nothing pushed.
 
 ## Done
 
@@ -49,14 +49,18 @@ Phase 5 (public data collector) — done.
   `npm run test:data`. Live run on 2026-11-20 into a temporary folder: all
   seven series collected (GDELT only on the third try: it rate-limits hard).
 
+- Phase 6: `docs/newsroom/authoring.md`, the "Build" and "Insights" sections of
+  `CLAUDE.md`, `README.md`, the report `docs/reports/newsroom-01.md`.
+
 ## Next
 
-- Phase 6: `docs/newsroom/authoring.md`, CLAUDE.md, README.md, final report
-  `docs/reports/newsroom-01.md` (own commit).
+Nothing is pending on this branch. For a person: read the open items in
+`docs/reports/newsroom-01.md` (section 5), then merge and configure GitHub
+(`BUTTONDOWN_API_KEY`, `DISPATCH_EMAIL_MODE`).
 
 ## Open questions
 
-None yet. Notes for the final report are collected in the section below.
+See section 5 of `docs/reports/newsroom-01.md`.
 
 ## Notes for the report
 
