@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import Slider from '../../Slider.jsx'
 import { ORANGE_DARK, INK, Pill, fmt } from '../ui.jsx'
-import Chart, { Legend } from './charts.jsx'
+import Chart, { Legend } from '../charts.jsx'
 import { poisson, powerLaw, thin, mean } from './thinning.js'
 
 // Live figure F2, "Thinning": every node keeps each of its links with

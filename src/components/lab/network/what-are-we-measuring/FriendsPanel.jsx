@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import useExperiment from '../../useExperiment.js'
 import { ORANGE_DARK, INK, MUTED, Pill, Eyebrow, Stat, fmt } from '../ui.jsx'
-import Chart, { Legend, ccdfPoints } from './charts.jsx'
+import Chart, { Legend, ccdfPoints } from '../charts.jsx'
 import { FRIEND_NETWORKS, BETA, SENSOR_RUNS, SENSOR_SEED, friendStats, sensorJob, crossing } from './friends.js'
 import { fromData } from './nullmodels.js'
 import karateData from '../../../../data/lab/networks/karate-club.json'

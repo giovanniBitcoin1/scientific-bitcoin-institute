@@ -88,8 +88,8 @@ afterwards: no difference).
 |---|---|---|---|---|---|
 | 01 | `reading-a-network` | done | 9267674 | A The bridges of Königsberg; B Network microscope; C One system, two projections | `three-ways`, `sparse` |
 | 02 | `what-are-we-measuring` | done | the commit "Network Lab 02: What are we measuring?" | A The observer; B Compared to what?; C Your friends have more friends | `threshold`, `thinning` |
-| 03 | `centrality` | next | – | – | – |
-| 04 | `triangles-weak-ties-motifs` | planned | – | – | – |
+| 03 | `centrality` | done | the commit "Network Lab 03: Centrality" | A Rankings compared; B The random surfer; C How fragile is a ranking? | `scores`, `kite` |
+| 04 | `triangles-weak-ties-motifs` | next | – | – | – |
 | 05 | `heavy-tails-done-right` | planned | – | – | – |
 | 06 | `growth-mechanisms` | planned | – | – | – |
 | 07 | `fitness-and-competition` | planned | – | – | – |
@@ -103,15 +103,15 @@ afterwards: no difference).
 
 Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
 (status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
-page).
+page); c3cf222 (Network Lab 02: fixes — Panel A and Exercise 4 now both quote
+the 30-sample averages of the largest component and say how far one sample
+swings; Barabási reference).
 
 ## Planned content (may change)
 
 - **01 Reading a network:** done.
 - **02 What are we measuring?:** done.
-- **03 Centrality:** degree, closeness, betweenness, eigenvector, Katz,
-  PageRank, hubs and authorities. Rankings compared on the Florentine
-  families; random surfer.
+- **03 Centrality:** done.
 - **04 Triangles, weak ties and motifs:** triadic closure, strength of weak
   ties, motifs against a null model.
 - **05 Heavy tails, done right:** natural cutoff, ultra-small worlds,
@@ -139,7 +139,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 03, `centrality`.
+Nothing in progress. Next: module 04, `triangles-weak-ties-motifs`.
 
 ## Decisions
 
@@ -163,13 +163,12 @@ Nothing in progress. Next: module 03, `centrality`.
 
 ## Open items
 
-- Lectures of modules 01 and 02 carry the DRAFT marker: to be reviewed by
+- Lectures of modules 01, 02 and 03 carry the DRAFT marker: to be reviewed by
   Adriano.
-- Module 02, things a later module may reuse: `charts.jsx` (SVG line chart
-  with linear or log axes) and `NetCanvas.jsx` (static network drawing) live
-  in the module 02 folder; move them to `src/components/lab/network/` when a
-  second module needs them (a shared file ends up in a shared chunk).
-  `nullmodels.js` has the degree-preserving swap that module 04 needs for
+- Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
+  chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
+  `fitUnit`), moved out of the module 02 folder.
+- Module 02, things a later module may reuse: `nullmodels.js` has the degree-preserving swap that module 04 needs for
   motifs, and `friends.js` an SI spread that module 12 can start from.
 - Module 02 texts quote numbers produced with fixed seeds. They are pinned
   by the "quoted on the page" checks in `scripts/lab/check-network-02.mjs`:
@@ -178,3 +177,19 @@ Nothing in progress. Next: module 03, `centrality`.
 - Module 02, choices to review: Panel A draws a 150-node network of the same
   kind and computes on the full 600-node one; the Italian lecture is about
   1,730 words counting markup (the target was 1,400–1,700).
+- Module 03, things a later module may reuse: `centrality/centrality.js` has
+  every measure as a plain function (Brandes betweenness, eigenvector by
+  shifted power iteration, exact Katz, PageRank with dangling nodes, HITS,
+  Spearman with ties, `places`, `pieces`) on `{ n, out, inn }` lists, for
+  directed and undirected networks; `networks.js` has Krackhardt's kite and
+  the 12-page web; `fragility.js` has `dropLinks` / `addLinks`. Module 11
+  (attacks by degree or betweenness) can start from these.
+- Module 03, choices to review: Panel A draws with SVG and listens to clicks
+  only (no canvas, no Draw toggle); closeness in a network in several pieces
+  uses the Wasserman–Faust scaling; ties in a top ten are broken at random in
+  Panel C; the claim that the Strozzi had more wealth and council seats than
+  the Medici was not confirmed against Padgett and Ansell and is worded
+  cautiously in the lecture.
+- Module 03 texts quote numbers produced with fixed seeds, pinned by the
+  "quoted on the page" checks in `scripts/lab/check-network-03.mjs` (it takes
+  about half a minute: it runs the six fragility experiments).

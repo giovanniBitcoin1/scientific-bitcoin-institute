@@ -4,8 +4,8 @@ import useExperiment from '../../useExperiment.js'
 import { mulberry32 } from '../../rng.js'
 import { forceLayout } from '../../graphUtils.js'
 import { ORANGE_DARK, INK, SLATE, Pill, Eyebrow, fmt } from '../ui.jsx'
-import Chart, { Legend, ccdfPoints } from './charts.jsx'
-import NetCanvas, { fitUnit } from './NetCanvas.jsx'
+import Chart, { Legend, ccdfPoints } from '../charts.jsx'
+import NetCanvas, { fitUnit } from '../NetCanvas.jsx'
 import {
   TRUTHS, TRUTH_N, TRUTH_SEED, TRUTH_IDS, METHOD_IDS, METHODS, BIAS_RUNS, BIAS_SEED, csr, fullStats, moments, biasJob, sampleSeed,
 } from './sampling.js'

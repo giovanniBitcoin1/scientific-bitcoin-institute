@@ -1,6 +1,6 @@
-import { GRID, SLATE, MONO, sup } from '../ui.jsx'
+import { GRID, SLATE, MONO, sup } from './ui.jsx'
 
-// A small SVG line chart for the panels and figures of this module: linear or
+// A small SVG line chart for the panels and figures of the Network Lab: linear or
 // logarithmic axes, a few series drawn as lines, dots or steps. Plain SVG, so
 // it scales with its container and never captures a swipe.
 //

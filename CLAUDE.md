@@ -325,7 +325,8 @@ script per module: `node scripts/lab/check-network-01.mjs`,
 `check-network-02.mjs`, … (rerun when the logic, presets, seeds or stored
 networks change). Where the texts quote numbers the page computes, the script
 pins them ("quoted on the page" checks), so a changed preset cannot leave the
-text behind. Shared helpers: `network/ui.jsx`; reuse
+text behind. Shared helpers: `network/ui.jsx`, `network/charts.jsx` (SVG
+line chart) and `network/NetCanvas.jsx` (static network drawing); reuse
 `graphUtils.js` (including `forceLayout`), `Slider`, `DrawToggle`, `rng.js`.
 Network Lab code must not use recharts or anything else that would pull it
 into, or out of, the Complexity Lab chunk.

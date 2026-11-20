@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useElementWidth } from '../ui.jsx'
+import { useElementWidth } from './ui.jsx'
 
 // A static drawing of a network on a canvas. It has no pointer handlers and
 // never takes touch-action: none, so a swipe over it always scrolls the page.
