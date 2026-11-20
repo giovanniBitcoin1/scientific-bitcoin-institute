@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "dev:drafts": "node scripts/newsroom/dev-drafts.mjs",
+    "validate": "node scripts/newsroom/validate.mjs",
+    "build": "npm run validate && vite build",
     "preview": "vite preview",
     "fetch:newhedge": "node scripts/fetch-newhedge.js"
   },

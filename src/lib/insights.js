@@ -78,6 +78,9 @@ function buildArticle(path, raw) {
 const articles = Object.entries(rawFiles)
   // Exclude any file whose name starts with an underscore (e.g. _template.md)
   .filter(([path]) => !slugFromPath(path).startsWith('_'))
+  // A file marked `status: draft` reaches the bundle as an empty string (see
+  // the newsroom-drafts plugin in vite.config.js): skip it.
+  .filter(([, raw]) => typeof raw === 'string' && raw.trim() !== '')
   .map(([path, raw]) => buildArticle(path, raw))
   // Reverse-chronological by date frontmatter (newest first)
   .sort((a, b) => b.date.getTime() - a.date.getTime())
