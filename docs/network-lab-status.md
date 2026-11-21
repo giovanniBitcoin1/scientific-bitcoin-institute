@@ -102,8 +102,8 @@ afterwards: no difference).
 | 03 | `centrality` | done | the commit "Network Lab 03: Centrality" | A Rankings compared; B The random surfer; C How fragile is a ranking? | `scores`, `kite` |
 | 04 | `triangles-weak-ties-motifs` | done | the commit "Network Lab 04: Triangles, weak ties and motifs" | A Close the triangle; B Weak ties hold it together; C Motif counter | `overlap`, `patterns` |
 | 05 | `heavy-tails-done-right` | done | the commit "Network Lab 05: Heavy tails, done right" | A A dial for the exponent; B The giant component, by bookkeeping; C Is it a power law? | `hub`, `follow` |
-| 06 | `growth-mechanisms` | next | – | – | – |
-| 07 | `fitness-and-competition` | planned | – | – | – |
+| 06 | `growth-mechanisms` | done | the commit "Network Lab 06: Growth mechanisms" | A Rerun history; B Who needs to know the degrees?; C Measure the attachment rule | `rich`, `snapshots` |
+| 07 | `fitness-and-competition` | next | – | – | – |
 | 08 | `who-connects-to-whom` | planned | – | – | – |
 | 09 | `communities` | planned | – | – | – |
 | 10 | `weights-flows-navigation` | planned | – | – | – |
@@ -125,8 +125,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **03 Centrality:** done.
 - **04 Triangles, weak ties and motifs:** done.
 - **05 Heavy tails, done right:** done.
-- **06 Growth mechanisms:** Price model, nonlinear preferential attachment,
-  copying, optimisation; rerun history 20 times.
+- **06 Growth mechanisms:** done.
 - **07 Fitness and competition:** fitness model, condensation, ageing,
   densification.
 - **08 Who connects to whom:** assortativity, homophily, structural cutoff,
@@ -148,7 +147,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 06, `growth-mechanisms`.
+Nothing in progress. Next: module 07, `fitness-and-competition`.
 
 ## Decisions
 
@@ -172,7 +171,7 @@ Nothing in progress. Next: module 06, `growth-mechanisms`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04 and 05 carry the DRAFT marker: to be
+- Lectures of modules 01, 02, 03, 04, 05 and 06 carry the DRAFT marker: to be
   reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -280,3 +279,35 @@ Nothing in progress. Next: module 06, `growth-mechanisms`.
   `scripts/lab/browser-checks/modules/network-heavy-tails-done-right.mjs`.
   The page formats numbers with `toLocaleString`, which rounds 0.855 to 0.86
   where `toFixed` gives 0.85: the checks format the same way as the page.
+- Module 06, things a later module may reuse, all in `growth-mechanisms/`:
+  `growth.js` (a Fenwick tree for drawing ∝ weights in O(log N); growth with
+  kernel (k + A)^α and leader tracking; link selection; copying, directed;
+  random walk; FKP optimisation; exact distributions of the offset, uniform
+  and Price models), `kernel.js` (two snapshots, Π(k), cumulative fit,
+  conditional maximum likelihood of the kernel exponent), `experiments.js`.
+  Module 07 (fitness) can add a fitness factor to the weights of
+  `growKernel`. Module 06 imports module 05's `fit.js` (the tail of the
+  copying model); Vite puts the shared code in a chunk of its own, loaded
+  only when unlocked.
+- Module 06, choices to review: the FKP root sits at the centre of the square
+  (so the star lasts up to δ ≈ √2, not only 1/√2: the lecture says so); the
+  random walk restarts from a random node for every link (simplest version;
+  Saramäki–Kaski keep walking until m endpoints are marked, Vázquez links to
+  the nodes along the walk); Panel C shows two cumulative fits (up to the
+  largest degree held by 10 nodes, and every class) beside maximum
+  likelihood; for copying the kernel is measured on total degree q + m, and
+  "share linked" counts distinct nodes; F2 groups the degree classes 2, 3,
+  4–5, 6–9, 10+; Panel A's mean-field line is (m + A)(t/t_i)^(1/(2 + A/m)) − A
+  (the prompt's m (t/t_i)^β when A = 0).
+- Module 06, Italian terms: aggancio preferenziale, attrattività iniziale,
+  kernel di aggancio, campo medio, vantaggio del primo arrivato, il vincitore
+  prende tutto, esponenziale stirata, selezione di un collegamento, modello di
+  copia (copia), passeggiata aleatoria, istantanea.
+- Module 06 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-06.mjs`
+  (`node scripts/lab/check-network-06.mjs page` runs that section; the whole
+  check takes about 10 s) and by
+  `scripts/lab/browser-checks/modules/network-growth-mechanisms.mjs`.
+- Module 06 lecture: the DRAFT marker is on; the measured kernels of Jeong et
+  al. (2003) and Newman (2001), Newman (2009), FKP and Berger et al. (2003),
+  and MusicLab were checked against the papers (prompt 6 report).

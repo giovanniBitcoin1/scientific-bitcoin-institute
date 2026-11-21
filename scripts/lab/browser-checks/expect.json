@@ -3,5 +3,6 @@
   "network/what-are-we-measuring": { "figures": 2, "panels": 3, "exercises": 6 },
   "network/centrality": { "figures": 2, "panels": 3, "exercises": 6 },
   "network/triangles-weak-ties-motifs": { "figures": 2, "panels": 3, "exercises": 6 },
-  "network/heavy-tails-done-right": { "figures": 2, "panels": 3, "exercises": 6 }
+  "network/heavy-tails-done-right": { "figures": 2, "panels": 3, "exercises": 6 },
+  "network/growth-mechanisms": { "figures": 2, "panels": 3, "exercises": 6 }
 }
