@@ -103,8 +103,8 @@ afterwards: no difference).
 | 04 | `triangles-weak-ties-motifs` | done | the commit "Network Lab 04: Triangles, weak ties and motifs" | A Close the triangle; B Weak ties hold it together; C Motif counter | `overlap`, `patterns` |
 | 05 | `heavy-tails-done-right` | done | the commit "Network Lab 05: Heavy tails, done right" | A A dial for the exponent; B The giant component, by bookkeeping; C Is it a power law? | `hub`, `follow` |
 | 06 | `growth-mechanisms` | done | the commit "Network Lab 06: Growth mechanisms" | A Rerun history; B Who needs to know the degrees?; C Measure the attachment rule | `rich`, `snapshots` |
-| 07 | `fitness-and-competition` | next | – | – | – |
-| 08 | `who-connects-to-whom` | planned | – | – | – |
+| 07 | `fitness-and-competition` | done | the commit "Network Lab 07: Fitness and competition" | A The fit get rich; B One node above the rest; C Age and density | `race`, `energy` |
+| 08 | `who-connects-to-whom` | next | – | – | – |
 | 09 | `communities` | planned | – | – | – |
 | 10 | `weights-flows-navigation` | planned | – | – | – |
 | 11 | `robustness-and-cascades` | planned | – | – | – |
@@ -126,8 +126,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **04 Triangles, weak ties and motifs:** done.
 - **05 Heavy tails, done right:** done.
 - **06 Growth mechanisms:** done.
-- **07 Fitness and competition:** fitness model, condensation, ageing,
-  densification.
+- **07 Fitness and competition:** done.
 - **08 Who connects to whom:** assortativity, homophily, structural cutoff,
   rich club.
 - **09 Communities:** modularity, Louvain, resolution limit, detectability
@@ -147,7 +146,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 07, `fitness-and-competition`.
+Nothing in progress. Next: module 08, `who-connects-to-whom`.
 
 ## Decisions
 
@@ -171,8 +170,8 @@ Nothing in progress. Next: module 07, `fitness-and-competition`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05 and 06 carry the DRAFT marker: to be
-  reviewed by Adriano.
+- Lectures of modules 01, 02, 03, 04, 05, 06 and 07 carry the DRAFT marker:
+  to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
   `fitUnit`), moved out of the module 02 folder.
@@ -311,3 +310,40 @@ Nothing in progress. Next: module 07, `fitness-and-competition`.
 - Module 06 lecture: the DRAFT marker is on; the measured kernels of Jeong et
   al. (2003) and Newman (2001), Newman (2009), FKP and Berger et al. (2003),
   and MusicLab were checked against the papers (prompt 6 report).
+- Module 07, things a later module may reuse, all in
+  `fitness-and-competition/`: `fitness.js` (fitness distributions and their
+  samplers; C from ∫ρη/(C − η) = 1 by bisection, closed forms where they
+  exist; growth with attachment ∝ η k on module 06's Fenwick sampler, with
+  tracked-node histories, lead changes and the second-half slopes; one node
+  above the rest; ageing; accelerating growth; adjacency in birth order and
+  average distance of the network at any earlier size), `experiments.js`,
+  `figures.js`. It imports module 06's `growth.js` (the Fenwick sampler) and
+  module 05's `fit.js` without changing them; Vite puts `growth.js` in a chunk
+  of its own, loaded only when unlocked. No shared code changed.
+- Module 07, choices to review: the six tracked nodes of Panel A are the three
+  oldest, the fittest, and the fittest born in steps 10–99 and 100–999; the
+  slopes use nine sizes from N/2 to N, for nodes born in the first half with
+  degree ≥ 2m at N/2 (the prompt's "at least doubled"); "the leader has the
+  highest fitness" counts runs where no node is fitter (with two values, any
+  node of fitness 1); F2 boosts the 4th node (fitness 1, the others halved,
+  same draws), grows 12 → 30 nodes and shows one particle per link on the
+  level of its older end, as Bianconi–Barabási's own diagrams do (their
+  mapping puts a second particle on the newcomer's level, and the lecture
+  says so); ageing is exact, every weight recomputed at every step from a
+  table of τ^(−ν), O(N²), up to 20,000 nodes (0.5–0.6 s in headless Chrome);
+  Panel C draws a 300-node network of the same ν beside the numbers.
+- Module 07, findings the texts state: the leader of Panel A is never the
+  fittest node (0 of 20); Panel B converges slowly, from above, and b = 0.9
+  still shows 0.135 at 20,000 nodes; distances in the accelerating model do
+  not shrink (they grow more slowly); the recipe's γ falls short of the
+  predicted exponents in ageing and accelerating growth.
+- Module 07, Italian terms: fitness (la fitness), i più adatti si
+  arricchiscono, condensazione, livello di energia, cambio di leader,
+  invecchiamento, densificazione, crescita accelerata; latecomer = ultimo
+  arrivato, incumbent = veterano.
+- Module 07 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-07.mjs`
+  (about 15 s; sections C, equal, slopes, leader, condensation, ageing,
+  accel, exercises, figures, page — run it whole, since page uses the numbers
+  of slopes and condensation) and by
+  `scripts/lab/browser-checks/modules/network-fitness-and-competition.mjs`.
