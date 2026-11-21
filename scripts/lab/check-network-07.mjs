@@ -381,14 +381,15 @@ if (section('page')) {
   const C = results.C
   const g = (s) => en(s.fit.gamma, 2)
   quoted('Panel C, ageing', [
-    `The recipe gives γ = ${g(C.nu0)}`, `the largest degree is ${C.nu0.max}.`,
+    `The recipe gives γ = ${g(C.nu0)}, short of the 3 of the theory`, `the largest degree is ${C.nu0.max}. The recipe reads low at every ν`,
     `At ν = −1 the recipe gives ${g(C['nu-1'])} and the ${C['nu-1'].hub + 1}nd node collects ${C['nu-1'].max} links, ${en(100 * C['nu-1'].share, 1)}% of the network`,
     `at ν = −2 it gives ${g(C['nu-2'])} and the hub, again the ${C['nu-2'].hub + 1}nd node, is linked to ${en(100 * C['nu-2'].share, 1)}%`,
     `At ν = 0.5 the recipe gives ${g(C['nu0.5'])} ± ${en(C['nu0.5'].fit.se, 2)} from k = ${C['nu0.5'].fit.kMin} and the largest degree is ${C['nu0.5'].max}; at ν = 0.8, ${g(C['nu0.8'])} and ${C['nu0.8'].max}`,
     `At ν = 1 the largest degree is ${C.nu1.max}, and at ν = 2 it is ${C.nu2.max}`,
   ])
   check('Panel C: the small-ν formula 3 + 4(1 − ln 2)ν gives 1.23ν and 3.61 at ν = 0.5', en(4 * (1 - Math.LN2), 2) === '1.23' && en(3 + 4 * (1 - Math.LN2) * 0.5, 2) === '3.61')
-  quoted('lecture, ageing', [`gives ${g(C['nu-1'])} at ν = −1, ${g(C['nu0.5'])} at ν = 0.5 and ${g(C['nu0.8'])} at ν = 0.8, against ${g(C.nu0)} at ν = 0`], lectureEn)
+  quoted('lecture, ageing', [`gives ${g(C['nu-1'])} at ν = −1, ${g(C['nu0.5'])} at ν = 0.5 and ${g(C['nu0.8'])} at ν = 0.8, against ${g(C.nu0)} at ν = 0, where the theory gives exactly 3. At this size the recipe reads low`], lectureEn)
+  quoted('lecture, ageing (IT)', [`contro ${g(C.nu0).replace('.', ',')} con ν = 0, dove la teoria dà esattamente 3. A questa dimensione la ricetta legge basso`], lectureIt)
   const th = (x) => C[`th${x}`]
   const d = (x) => th(x).dist
   quoted('Panel C, accelerating', [

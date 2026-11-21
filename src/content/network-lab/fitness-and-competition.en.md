@@ -60,9 +60,9 @@ The equation for C is the condition that the particles fit in the levels. If
 ∫ ρ(η) η / (η_max − η) dη < 1
 ```
 
-it has no solution, and the leftover particles pile up on the lowest level, as in a Bose–Einstein condensate: the fittest node keeps a finite share of all the links, however large the network grows. The network becomes a hub with spokes instead of a hierarchy of hubs. Bianconi and Barabási offered the persistence of Microsoft in the market for operating systems as a possible example.
+it has no solution, and the leftover particles pile up on the lowest level, as in a Bose–Einstein condensate: the fittest node keeps a finite share of all the links, however large the network grows. The network becomes a hub with spokes instead of a hierarchy of hubs. Bianconi and Barabási offered Microsoft's lasting hold on operating systems as a possible example.
 
-A clean case: one node of fitness 1 and all the others uniform between 0 and b. The integral is I(b) = −1 − ln(1 − b)/b. Below b ≈ 0.797 it is less than 1, and the fittest node keeps a share 1 − I of the links: 0.614 for b = 0.5 (exercise 3). In the second simulation, with b = 0.5 and 20,000 nodes, the mean over ten runs is 0.622. With b = 0.9 there should be no condensate at all, yet the share is still 0.135 at 20,000 nodes and falls only slowly. Finite networks remember their beginning for a long time.
+A clean case: one node of fitness 1 and all the others uniform between 0 and b. The integral is I(b) = −1 − ln(1 − b)/b. Below b ≈ 0.797 it is less than 1, and the fittest node keeps a share 1 − I of the links: 0.614 for b = 0.5 (exercise 3). In the second simulation, with b = 0.5 and 20,000 nodes, the mean over ten runs is 0.622. With b = 0.9 there should be no condensate at all, yet the share is still 0.135 at 20,000 nodes. Finite networks remember their beginning for a long time.
 
 Unlike the winner of module 06's superlinear kernel, this winner is chosen by quality, not by age. The rigorous work adds a caution. Borgs, Chayes, Daskalakis and Roch (2007) proved that the model has three phases, a first-mover advantage, a phase where the fit get richer, and one where innovation pays off, and that in the condensation phase a constant fraction of the links keeps moving to ever higher fitness. Dereich, Mailler and Mörters (2017) showed, for trees with one link per newcomer and fitness spread continuously up to its maximum, that no single node keeps a positive fraction of the links: the condensate exists, but it is a collective effort of ever fitter nodes, none of which holds it alone. One node keeping a fixed share is what happens when it stands apart from all the others, as in the clean case.
 
@@ -74,7 +74,7 @@ Nodes fade. Actors retire, papers are superseded, pages go stale. Dorogovtsev an
 Π ∝ k τ^(−ν)
 ```
 
-A negative ν favours the old and lowers γ, towards 2 as ν goes to −∞. A positive ν raises it; γ grows without bound as ν approaches 1, and above 1 the power law is gone. In the third simulation, with 10,000 nodes, the recipe of [module 05](/network-lab/heavy-tails-done-right) gives 2.42 at ν = −1, 3.98 at ν = 0.5 and 4.60 at ν = 0.8, against 2.73 at ν = 0. Capacity and cost cut the tail as well: Amaral and colleagues (2000) found networks such as the world's airports whose degrees stop short, because a node cannot take links beyond what it can carry.
+A negative ν favours the old and lowers γ, towards 2 as ν goes to −∞. A positive ν raises it; γ grows without bound as ν approaches 1, and above 1 the power law is gone. In the third simulation, with 10,000 nodes, the recipe of [module 05](/network-lab/heavy-tails-done-right) gives 2.42 at ν = −1, 3.98 at ν = 0.5 and 4.60 at ν = 0.8, against 2.73 at ν = 0, where the theory gives exactly 3. At this size the recipe reads low, so the four are best compared with one another. Capacity and cost cut the tail as well: Amaral and colleagues (2000) found networks such as the world's airports whose degrees stop short, because a node cannot take links beyond what it can carry.
 
 ## Networks get denser
 
@@ -86,7 +86,7 @@ If the n-th newcomer brings m₀ n^θ links, the links add up to E ∝ N^(1+θ),
 γ = 3 + 2θ / (1 − θ)
 ```
 
-as in Barabási's textbook (exercise 4). In the third simulation, at θ = 0.3, the links grow with slope 1.301 against N, and the recipe gives γ = 3.60, short of the predicted 3.86, for the reason of module 05: the tail is cut before it settles. Distances do not shrink, though. The average distance creeps up from 2.48 at 100 nodes to 3.03 at 10,000; densification only slows its growth. To make distances shrink, Leskovec and colleagues needed another mechanism, their "forest fire" model, in which a newcomer links to one node and then, like a fire spreading, to some of its neighbours, and to some of theirs.
+as in Barabási's textbook (exercise 4). In the third simulation, at θ = 0.3, the links grow with slope 1.301 against N, and the recipe gives γ = 3.60, short of the predicted 3.86, for the reason of module 05. Distances do not shrink, though. The average distance creeps up from 2.48 at 100 nodes to 3.03 at 10,000; densification only slows its growth. To make distances shrink, Leskovec and colleagues needed another mechanism, their "forest fire" model, in which a newcomer links to one node and then, like a fire spreading, to some of its neighbours, and to some of theirs.
 
 ## What a snapshot cannot tell
 

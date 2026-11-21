@@ -48,7 +48,7 @@ export const observe = {
   },
   age: {
     en: `
-1. **Ageing**, ν = 0, 10,000 nodes: module 06 with m = 1. The recipe gives γ = 2.73, short of 3 for the reason of module 05, and the largest degree is 114.
+1. **Ageing**, ν = 0, 10,000 nodes: module 06 with m = 1. The recipe gives γ = 2.73, short of the 3 of the theory for the reason of module 05, and the largest degree is 114. The recipe reads low at every ν, so compare the values of γ below with this one rather than with the theory.
 2. Make ν negative: the old are favoured. At ν = −1 the recipe gives 2.42 and the 2nd node collects 861 links, 8.6% of the network; at ν = −2 it gives 2.37 and the hub, again the 2nd node, is linked to 20.4%. Not a star: τ² hardly tells the oldest nodes apart, so the oldest group shares the links. Dorogovtsev and Mendes found γ falling towards 2 as ν goes to −∞.
 3. Make ν positive: the young are favoured. At ν = 0.5 the recipe gives 3.98 ± 0.26 from k = 10 and the largest degree is 36; at ν = 0.8, 4.60 and 17. Near ν = 0 the paper gives γ ≈ 3 + 1.23ν, which is 3.61 at ν = 0.5; the measured change from ν = 0 is larger, but the tails are short and the errors large.
 4. At ν = 1 the largest degree is 14, and at ν = 2 it is 8: no hubs, since each newcomer links mostly to one of the last few nodes.
@@ -56,7 +56,7 @@ export const observe = {
 6. Distances do not shrink. Without acceleration (θ = 0, a tree) the average distance grows from 4.53 at 100 nodes to 9.04 at 10,000; at θ = 0.2 from 3.14 to 3.71; at θ = 0.3 from 2.48 to 3.03; at θ = 0.6 from 1.79 to 1.97. Densification slows the growth of distances almost to a stop, but the shrinking that Leskovec and colleagues measured needs another mechanism.
 `,
     it: `
-1. **Invecchiamento**, ν = 0, 10.000 nodi: il modulo 06 con m = 1. La ricetta dà γ = 2,73, sotto 3 per la ragione del modulo 05, e il grado massimo è 114.
+1. **Invecchiamento**, ν = 0, 10.000 nodi: il modulo 06 con m = 1. La ricetta dà γ = 2,73, sotto il 3 della teoria per la ragione del modulo 05, e il grado massimo è 114. La ricetta legge basso con ogni ν, quindi confronta i valori di γ che seguono con questo più che con la teoria.
 2. Rendi ν negativo: i vecchi sono favoriti. Con ν = −1 la ricetta dà 2,42 e il 2º nodo raccoglie 861 collegamenti, l'8,6% della rete; con ν = −2 dà 2,37 e l'hub, di nuovo il 2º nodo, è collegato al 20,4%. Non è una stella: τ² distingue appena i nodi più vecchi tra loro, quindi il gruppo dei più vecchi si divide i collegamenti. Dorogovtsev e Mendes hanno trovato γ che scende verso 2 quando ν va a −∞.
 3. Rendi ν positivo: i giovani sono favoriti. Con ν = 0,5 la ricetta dà 3,98 ± 0,26 da k = 10 e il grado massimo è 36; con ν = 0,8, 4,60 e 17. Vicino a ν = 0 l'articolo dà γ ≈ 3 + 1,23ν, cioè 3,61 con ν = 0,5; la variazione misurata rispetto a ν = 0 è più grande, ma le code sono corte e gli errori grandi.
 4. Con ν = 1 il grado massimo è 14, e con ν = 2 è 8: niente hub, perché ogni nodo nuovo si collega per lo più a uno degli ultimi arrivati.
