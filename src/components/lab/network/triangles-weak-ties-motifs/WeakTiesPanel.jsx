@@ -8,7 +8,7 @@ import { weakJob, piecesAfter, overlapByStrength, groupLayout, ORDER_IDS, STEPS,
 
 // Panel B, "Weak ties hold it together": eight groups of 25, a strength on
 // every link, and the network that is left when links are removed in a chosen
-// order. The curves are averages over 30 networks; the drawing is the first.
+// order. The curves are averages over WEAK_RUNS (300) networks; the drawing is the first.
 
 const COLORS = { weakest: ORANGE_DARK, strongest: INK, lowOverlap: '#0284c7', highOverlap: '#16a34a', random: '#94a3b8' }
 

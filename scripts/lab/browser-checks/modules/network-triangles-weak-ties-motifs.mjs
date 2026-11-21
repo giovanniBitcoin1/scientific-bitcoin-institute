@@ -134,34 +134,78 @@ await click(A, 'Reset')
 ok('closure: Reset goes back to 200 links', (await readout(0, 'closure')).includes('Links 200'))
 
 // ---- Panel B: weak ties hold it together
-ok('weak ties: the experiment finishes', await done(B, 'weak'))
+// How long the run of 300 networks takes, from the first curves to the end.
+const doneNow = (sel) => p.evaluate((x) => document.querySelector(`${x} [data-readout="weak"]`)?.dataset.done === '1', sel)
+// Times are performance.now() in the page: milliseconds from the start of navigation.
+const now = () => p.evaluate(() => performance.now())
+const timeRun = async () => {
+  let firstCurves = null
+  for (let i = 0; i < 1200; i++) {
+    if (firstCurves === null && (await p.evaluate((x) => document.querySelectorAll(`${x} svg[role=img]`)[0]?.querySelectorAll('polyline').length === 5, B))) firstCurves = await now()
+    if (await doneNow(B)) return { total: await now(), firstCurves }
+    await sleep(50)
+  }
+  return null
+}
+// The page reloads Panel B from scratch so that the timing starts at the beginning of the run.
+await p.goto(`${site.url}${lab.basePath}/triangles-weak-ties-motifs`, { waitUntil: 'domcontentloaded' })
+const timing = await timeRun()
+ok('weak ties: the experiment of 300 networks finishes', !!timing, JSON.stringify(timing))
+if (timing) console.log(`NOTE  weak ties, switch on: 300 networks in ${(timing.total / 1000).toFixed(1)} s (from the start of navigation; first curves after ${((timing.firstCurves ?? 0) / 1000).toFixed(1)} s)`)
 t = await text(B)
+ok('weak ties: the table says "average of 300 networks"', t.toLowerCase().includes('average of 300 networks'), t.slice(0, 300))
 ok('weak ties: the drawn network has 1,264 links and is in one piece', t.includes('0 OF 1,264 LINKS REMOVED') || t.toLowerCase().includes('0 of 1,264 links removed'), t.slice(0, 300))
 ok('weak ties: at f = 0 the drawing is one piece of 200', (await readout(1, 'drawn')).includes('Largest piece: 200 of 200 nodes · pieces: 1'))
+await setRange(B, 0, 0.04)
+t = await readout(1, 'weak')
+ok('weak ties, on, f = 0.04: weakest first 0.974', t.includes('Weakest first 0.974'), t)
 await setRange(B, 0, 0.06)
 t = await readout(1, 'weak')
-ok('weak ties, on, f = 0.06: weakest first 0.442, strongest first 1.000, lowest overlap first 0.217', t.includes('Weakest first 0.442') && t.includes('Strongest first 1.000') && t.includes('Lowest overlap first 0.217'), t)
+ok('weak ties, on, f = 0.06: weakest first 0.413, strongest first 1.000, lowest overlap first 0.229', t.includes('Weakest first 0.413') && t.includes('Strongest first 1.000') && t.includes('Lowest overlap first 0.229'), t)
 const drawn = await readout(1, 'drawn')
 ok('weak ties: the drawing has lost links and is no longer one piece', /pieces: ([2-9]|\d\d)/.test(drawn), drawn)
 await setRange(B, 0, 0.1)
 t = await readout(1, 'weak')
-ok('weak ties, on, f = 0.10: weakest first 0.125, strongest first 1.000', t.includes('Weakest first 0.125') && t.includes('Strongest first 1.000'), t)
+ok('weak ties, on, f = 0.10: weakest first 0.129, strongest first 1.000', t.includes('Weakest first 0.129') && t.includes('Strongest first 1.000'), t)
 await setRange(B, 0, 0.9)
 t = await readout(1, 'weak')
-ok('weak ties, on, f = 0.90: strongest first 0.459, at random 0.141', t.includes('Strongest first 0.459') && t.includes('At random 0.141'), t)
+ok('weak ties, on, f = 0.90: strongest first 0.455, at random 0.160', t.includes('Strongest first 0.455') && t.includes('At random 0.160'), t)
+await setRange(B, 0, 0.8)
+t = await readout(1, 'weak')
+ok('weak ties, on, f = 0.80: strongest first 0.848, at random 0.822', t.includes('Strongest first 0.848') && t.includes('At random 0.822'), t)
+// The three orders that ignore strength, read off the table at a few fractions, switch on.
+const UNMOVED = ['At random', 'Lowest overlap first', 'Highest overlap first']
+const FS = [0.05, 0.06, 0.5, 0.8, 0.86, 0.9]
+const rowsAt = async () => {
+  const out = []
+  for (const f of FS) {
+    await setRange(B, 0, f)
+    const r = await readout(1, 'weak')
+    out.push(UNMOVED.map((label) => (r.match(new RegExp(`${label} ([0-9.]+) ([0-9.]+)`)) || []).slice(1).join(' ')).join(' | '))
+  }
+  return out
+}
+const unmovedOn = await rowsAt()
 await click(B, 'Strongest first')
 ok('weak ties: two charts of five curves and one of one', await p.$$eval(`${B} svg[role=img]`, (s) => s.length === 3 && s[0].querySelectorAll('polyline').length === 5 && s[1].querySelectorAll('polyline').length === 5 && s[2].querySelectorAll('polyline').length === 1))
 let tenths = await p.$eval(`${B} [data-readout="tenths"]`, (e) => e.dataset.values)
 ok('weak ties, on: overlap by tenth of strength rises from 0.05 to 0.48', tenths.startsWith('0.05 ') && tenths.endsWith(' 0.48'), tenths)
 await tap(`${B} button[data-switch="follow"]`)
 await sleep(400)
+const tOff = Date.now()
 ok('weak ties, switch off: the experiment finishes', await done(B, 'weak'))
+console.log(`NOTE  weak ties, switch off: 300 networks in about ${((Date.now() - tOff + 400) / 1000).toFixed(1)} s after the click`)
 await setRange(B, 0, 0.8)
 t = await readout(1, 'weak')
-ok('weak ties, off, f = 0.80: weakest first 0.804, strongest first 0.822', t.includes('Weakest first 0.804') && t.includes('Strongest first 0.822'), t)
+ok('weak ties, off, f = 0.80: weakest first 0.812, strongest first 0.823, at random 0.822', t.includes('Weakest first 0.812') && t.includes('Strongest first 0.823') && t.includes('At random 0.822'), t)
+await setRange(B, 0, 0.85)
+t = await readout(1, 'weak')
+ok('weak ties, off, f = 0.85: weakest first 0.486, strongest first 0.508', t.includes('Weakest first 0.486') && t.includes('Strongest first 0.508'), t)
 await setRange(B, 0, 0.06)
 t = await readout(1, 'weak')
-ok('weak ties, off, f = 0.06: weakest and strongest first 1.000, lowest overlap first still 0.217', t.includes('Weakest first 1.000') && t.includes('Strongest first 1.000') && t.includes('Lowest overlap first 0.217'), t)
+ok('weak ties, off, f = 0.06: weakest and strongest first 1.000, lowest overlap first still 0.229', t.includes('Weakest first 1.000') && t.includes('Strongest first 1.000') && t.includes('Lowest overlap first 0.229'), t)
+const unmovedOff = await rowsAt()
+ok('weak ties: at random, lowest and highest overlap first read the same with the switch on and off', unmovedOn.every((r, i) => r === unmovedOff[i] && r.split(' | ').every((x) => /^[0-9.]+ [0-9.]+$/.test(x))), `${unmovedOn.join(' / ')} || ${unmovedOff.join(' / ')}`)
 tenths = await p.$eval(`${B} [data-readout="tenths"]`, (e) => e.dataset.values)
 ok('weak ties, off: overlap by tenth of strength stays between 0.26 and 0.29', tenths.split(' ').every((v) => Number(v) >= 0.26 && Number(v) <= 0.29), tenths)
 ok('weak ties: the drawing is a canvas that does not capture touch', await p.$$eval(`${B} canvas`, (c) => c.length === 1 && getComputedStyle(c[0]).touchAction !== 'none'))

@@ -256,19 +256,45 @@ const P = (id) => indexOfPattern(id)
   const on = weakExperiment(true)
   const off = weakExperiment(false)
   const first = on.first
-  check('Panel B: eight groups of 25; every network of the 30 starts in one piece', GROUPS === 8 && GROUP_SIZE === 25 && ORDER_IDS.every((id) => near(on.mean[id].giant[0], 1, 1e-12)) && WEAK_RUNS === 30)
+  check('Panel B: eight groups of 25; every network of the 300 starts in one piece', GROUPS === 8 && GROUP_SIZE === 25 && ORDER_IDS.every((id) => near(on.mean[id].giant[0], 1, 1e-12)) && WEAK_RUNS === 300 && on.runs === 300)
   const weak = giantAtBetweenShare(true, 'weakest')
   const strong = giantAtBetweenShare(true, 'strongest')
   const low = giantAtBetweenShare(true, 'lowOverlap')
   check('Panel B, switch on: with a fraction removed equal to the share of between-group links, weakest first and strongest first differ clearly', strong - weak > 0.3, `largest piece ${f3(weak)} weakest first, ${f3(strong)} strongest first, ${f3(low)} lowest overlap first; average share ${f3(on.betweenShare)}`)
-  let gap = 0
-  let gapOn = 0
-  for (let i = 0; i <= STEPS; i++) {
-    gap = Math.max(gap, Math.abs(off.mean.weakest.giant[i] - off.mean.strongest.giant[i]))
-    gapOn = Math.max(gapOn, Math.abs(on.mean.weakest.giant[i] - on.mean.strongest.giant[i]))
+  // The orders that ignore strength have a generator of their own: the switch
+  // must not move them at all, point by point, in either quantity.
+  const unmoved = ['random', 'lowOverlap', 'highOverlap'].filter((id) => ['giant', 'others'].every((key) => on.mean[id][key].every((v, i) => v === off.mean[id][key][i])))
+  check('Panel B: at random, lowest overlap first and highest overlap first are the same, point by point, with the switch on and off', unmoved.length === 3, unmoved.join(', '))
+  const sameOrders = ['random', 'lowOverlap', 'highOverlap'].every((id) => on.first.orders[id].every((e, i) => e === off.first.orders[id][i]))
+  check('Panel B: in the drawn network those three removal orders are the same link for link', sameOrders)
+  // Switch off: weakest first, strongest first and at random, largest gap
+  // among the three at any fraction, for the panel's seed and ten others.
+  const gap3 = (ex) => {
+    let m = 0
+    let at = 0
+    for (let i = 0; i <= STEPS; i++) {
+      const v = ['weakest', 'strongest', 'random'].map((id) => ex.mean[id].giant[i])
+      if (Math.max(...v) - Math.min(...v) > m) {
+        m = Math.max(...v) - Math.min(...v)
+        at = i / STEPS
+      }
+    }
+    return { m, at }
   }
-  check('Panel B, switch off: the two curves stay within 0.05 of each other at every fraction', gap <= 0.05, `largest gap ${f3(gap)} (switch on: ${f3(gapOn)})`)
-  const c = removalCurve(first.net, first.orders.lowOverlap)
+  const gap2 = (ex) => {
+    let m = 0
+    for (let i = 0; i <= STEPS; i++) m = Math.max(m, Math.abs(ex.mean.weakest.giant[i] - ex.mean.strongest.giant[i]))
+    return m
+  }
+  const gap = gap2(off)
+  const seedGaps = [{ seed: WEAK_SEED, three: gap3(off), two: gap }]
+  for (let s = 1; s <= 10; s++) {
+    const ex = weakExperiment(false, WEAK_SEED + s)
+    seedGaps.push({ seed: WEAK_SEED + s, three: gap3(ex), two: gap2(ex) })
+  }
+  for (const r of seedGaps) info(`Panel B, switch off, seed ${r.seed}, ${WEAK_RUNS} networks: largest gap among weakest first, strongest first and at random ${f3(r.three.m)} (at f = ${f2(r.three.at)}); between weakest and strongest first ${f3(r.two)}`)
+  check('Panel B, switch off, the panel\'s seed and WEAK_SEED + 1 to + 10: weakest first, strongest first and at random stay within 0.05 of one another at every fraction', seedGaps.every((r) => r.three.m <= 0.05), seedGaps.map((r) => f3(r.three.m)).join(' '))
+  const c =removalCurve(first.net, first.orders.lowOverlap)
   const k = Math.round(0.5 * first.net.A.length)
   check('Panel B: the curve and the drawing agree on the largest piece', near(c.giant[k], piecesAfter(first.net, first.orders.lowOverlap, k).largest / first.net.n, 1e-12))
   check('Panel B, switch off: the same strengths, dealt out again', Array.from(off.first.strength).sort().join() === Array.from(on.first.strength).sort().join() && off.first.net.A.length === first.net.A.length)
@@ -294,29 +320,28 @@ const P = (id) => indexOfPattern(id)
   }
   const tenthsOn = overlapByStrength(first.strength, first.overlap)
   const tenthsOff = overlapByStrength(off.first.strength, off.first.overlap)
-  // How much of the gap between the two curves, switch off, is chance.
-  const gapOf = (ex) => {
-    let m = 0
-    for (let i = 0; i <= STEPS; i++) m = Math.max(m, Math.abs(ex.mean.weakest.giant[i] - ex.mean.strongest.giant[i]))
-    return m
-  }
-  const gaps = []
-  for (let s = 1; s <= 10; s++) gaps.push(gapOf(weakExperiment(false, WEAK_SEED + s)))
-  const gap120 = gapOf(weakExperiment(false, WEAK_SEED, 120))
-  info(`Panel B, switch off: with ten other seeds the largest gap between the two curves of 30 networks is ${gaps.map(f3).join(', ')}; with 120 networks instead of 30 it is ${f3(gap120)}`)
-  check('Panel B, switch off: averaged over 120 networks the two curves stay within 0.05 of each other', gap120 <= 0.05, f3(gap120))
-
+  // Where strongest first and at random cross (switch on).
+  const diff = (i) => on.mean.strongest.giant[i] - on.mean.random.giant[i]
+  let cross = -1
+  for (let i = 1; i <= STEPS; i++) if (diff(i - 1) <= 0 && diff(i) > 0) cross = i
+  info(`Panel B, on: strongest first minus at random, ${[0.5, 0.6, 0.7, 0.71, 0.75, 0.78, 0.79, 0.8, 0.85, 0.88, 0.9].map((f) => `${f}: ${f3(diff(Math.round(f * STEPS)))}`).join(', ')}; first above at f = ${f2(cross / STEPS)}`)
+  const lowest = Math.min(...Array.from({ length: STEPS + 1 }, (_, i) => diff(i)))
   q('Panel B: the drawn network has 1,264 links, 73 of them between groups (6%)', first.net.A.length === 1264 && first.betweenLinks === 73 && f2(first.betweenShare) === '0.06')
-  q('Panel B, on: weakest first 1.00 at f = 0.04, 0.81 at 0.05, 0.44 at 0.06, 0.14 at 0.08; below one half from f = 0.06', f2(g(on, 'weakest', 0.04)) === '1.00' && f2(g(on, 'weakest', 0.05)) === '0.81' && f2(g(on, 'weakest', 0.06)) === '0.44' && f2(g(on, 'weakest', 0.08)) === '0.14' && half(on, 'weakest') === 0.06)
-  q('Panel B, on: strongest first 0.99 at f = 0.5, 0.84 at 0.8, 0.46 at 0.9; below one half from f = 0.90', f2(g(on, 'strongest', 0.5)) === '0.99' && f2(g(on, 'strongest', 0.8)) === '0.84' && f2(g(on, 'strongest', 0.9)) === '0.46' && half(on, 'strongest') === 0.9)
-  q('Panel B, on: at random 0.88 at f = 0.8, below one half from f = 0.86', f2(g(on, 'random', 0.8)) === '0.88' && half(on, 'random') === 0.86)
-  q('Panel B, on: at the share of between-group links, 0.64 weakest first against 1.00 strongest first', f2(weak) === '0.64' && f2(strong) === '1.00')
-  q('Panel B, on: lowest overlap first 0.58 at f = 0.05 and 0.22 at 0.06; highest overlap first 0.83 at 0.8', f2(g(on, 'lowOverlap', 0.05)) === '0.58' && f2(g(on, 'lowOverlap', 0.06)) === '0.22' && f2(g(on, 'highOverlap', 0.8)) === '0.83')
+  q('Panel B, on: weakest first 0.998 at f = 0.03, 0.974 at 0.04, 0.779 at 0.05, 0.413 at 0.06, 0.145 at 0.08, 0.129 at 0.1; below one half from f = 0.06', f3(g(on, 'weakest', 0.03)) === '0.998' && f3(g(on, 'weakest', 0.04)) === '0.974' && f3(g(on, 'weakest', 0.05)) === '0.779' && f3(g(on, 'weakest', 0.06)) === '0.413' && f3(g(on, 'weakest', 0.08)) === '0.145' && f3(g(on, 'weakest', 0.1)) === '0.129' && half(on, 'weakest') === 0.06)
+  q('Panel B, on: strongest first 0.996 at f = 0.5, 0.848 at 0.8, 0.455 at 0.9; below one half from f = 0.90', f3(g(on, 'strongest', 0.5)) === '0.996' && f3(g(on, 'strongest', 0.8)) === '0.848' && f3(g(on, 'strongest', 0.9)) === '0.455' && half(on, 'strongest') === 0.9)
+  q('Panel B, on: at random 0.822 at f = 0.8, below one half from f = 0.86; strongest first 0.948 against 0.975 at f = 0.7', f3(g(on, 'random', 0.8)) === '0.822' && half(on, 'random') === 0.86 && f3(g(on, 'strongest', 0.7)) === '0.948' && f3(g(on, 'random', 0.7)) === '0.975')
+  // (At f = 0.28 strongest first is ahead by 1/60,000, one node in one of the
+  // 300 networks; at f = 0.99, with a handful of nodes left, at random is ahead
+  // again by less than 0.001. The text, like the table, reads three decimals.)
+  q('Panel B, on: strongest first stays below at random (to three decimals) up to f = 0.78, and above it from 0.79 to 0.95', cross === 79 && Array.from({ length: 79 }, (_, i) => diff(i)).every((d) => d < 1e-4) && Array.from({ length: 17 }, (_, j) => diff(79 + j)).every((d) => d > 0), `first above at ${cross / STEPS}; lowest difference ${f3(lowest)}`)
+  q('Panel B, on: at the share of between-group links, 0.600 weakest first against 1.000 strongest first', f3(weak) === '0.600' && f3(strong) === '1.000')
+  q('Panel B, on: lowest overlap first 0.578 at f = 0.05 and 0.229 at 0.06', f3(g(on, 'lowOverlap', 0.05)) === '0.578' && f3(g(on, 'lowOverlap', 0.06)) === '0.229')
   q('Panel B, on: the other pieces average about 26 nodes at their peak, weakest first (f = 0.07) and lowest overlap first (f = 0.06)', Math.round(peak(on, 'weakest').value) === 26 && near(peak(on, 'weakest').f, 0.07, 1e-9) && Math.round(peak(on, 'lowOverlap').value) === 26 && near(peak(on, 'lowOverlap').f, 0.06, 1e-9), `${f2(peak(on, 'weakest').value)} at ${peak(on, 'weakest').f}; ${f2(peak(on, 'lowOverlap').value)} at ${peak(on, 'lowOverlap').f}`)
   q('Panel B, on: strongest first, the other pieces never average 2 nodes; at random never 3', Math.max(...on.mean.strongest.others) < 2 && Math.max(...on.mean.random.others) < 3, `${f2(Math.max(...on.mean.strongest.others))}, random ${f2(Math.max(...on.mean.random.others))}`)
-  q('Panel B, on, at f = 0.1: 0.125 weakest first, 1.000 strongest first', f3(g(on, 'weakest', 0.1)) === '0.125' && f3(g(on, 'strongest', 0.1)) === '1.000')
-  q('Panel B, off: weakest first and strongest first 1.00 at f = 0.5, 0.80 and 0.82 at 0.8, 0.14 at 0.9; below one half from f = 0.86 and 0.85; largest gap 0.03', f2(g(off, 'weakest', 0.5)) === '1.00' && f2(g(off, 'strongest', 0.5)) === '1.00' && f2(g(off, 'weakest', 0.8)) === '0.80' && f2(g(off, 'strongest', 0.8)) === '0.82' && f2(g(off, 'weakest', 0.9)) === '0.14' && f2(g(off, 'strongest', 0.9)) === '0.14' && half(off, 'weakest') === 0.86 && half(off, 'strongest') === 0.85 && f2(gap) === '0.03')
-  q('Panel B, off: lowest overlap first still 0.22 at f = 0.06', f2(g(off, 'lowOverlap', 0.06)) === '0.22')
+  q('Panel B, on, at f = 0.1: 0.129 weakest first, 1.000 strongest first', f3(g(on, 'weakest', 0.1)) === '0.129' && f3(g(on, 'strongest', 0.1)) === '1.000')
+  q('Panel B, off: weakest first and strongest first 0.999 at f = 0.5; 0.812, 0.486, 0.148 and 0.823, 0.508, 0.151 at f = 0.8, 0.85, 0.9; below one half from f = 0.85 and 0.86; largest gap between the two 0.026', f3(g(off, 'weakest', 0.5)) === '0.999' && f3(g(off, 'strongest', 0.5)) === '0.999' && f3(g(off, 'weakest', 0.8)) === '0.812' && f3(g(off, 'weakest', 0.85)) === '0.486' && f3(g(off, 'weakest', 0.9)) === '0.148' && f3(g(off, 'strongest', 0.8)) === '0.823' && f3(g(off, 'strongest', 0.85)) === '0.508' && f3(g(off, 'strongest', 0.9)) === '0.151' && half(off, 'weakest') === 0.85 && half(off, 'strongest') === 0.86 && f3(gap) === '0.026')
+  q('Panel B, off: at random 0.822 at f = 0.8; the three curves never more than 0.035 apart; ten other seeds give a gap between weakest and strongest first of 0.010 to 0.022', f3(g(off, 'random', 0.8)) === '0.822' && f3(seedGaps[0].three.m) === '0.035' && f3(Math.min(...seedGaps.slice(1).map((r) => r.two))) === '0.010' && f3(Math.max(...seedGaps.slice(1).map((r) => r.two))) === '0.022')
+  q('Panel B, off: lowest overlap first still 0.229 at f = 0.06', f3(g(off, 'lowOverlap', 0.06)) === '0.229')
   q('Panel B: overlap by tenth of strength runs from 0.05 to 0.48 on, and stays between 0.26 and 0.29 off; correlation 0.97 on', f2(tenthsOn[0].overlap) === '0.05' && f2(tenthsOn[9].overlap) === '0.48' && tenthsOff.every((x) => x.overlap >= 0.255 && x.overlap < 0.295) && f2(correlation(first.strength, first.overlap)) === '0.97', `${f3(tenthsOn[0].overlap)} … ${f3(tenthsOn[9].overlap)}; off ${tenthsOff.map((x) => f3(x.overlap)).join(' ')}`)
 }
 
@@ -348,15 +373,22 @@ const P = (id) => indexOfPattern(id)
     }
     return true
   })())
-  let seedsOk = 0
+  let above3 = 0
+  let zMax = 0
+  let zMaxAt = 0
   let fflMin = Infinity
   for (let seed = 1; seed <= 20; seed++) {
     const r = drain(motifJob(MOTIF_NETWORKS.random(seed), NULL_DEFAULT))
-    if (big(r) <= 1) seedsOk++
+    above3 += big(r)
+    const m = Math.max(...r.z.filter(Number.isFinite).map(Math.abs))
+    if (m > zMax) {
+      zMax = m
+      zMaxAt = seed
+    }
     fflMin = Math.min(fflMin, drain(motifJob(MOTIF_NETWORKS.regulation(seed), NULL_DEFAULT)).z[ffl])
   }
-  info(`Panel C, networks 1 to 20 ("New network"): ${seedsOk} of 20 random networks have at most one |z| above 3; the smallest z of the feed-forward loop among the regulation-like ones is ${f1(fflMin)}`)
-  q('Panel C: among networks 1 to 20, no random network has more than one |z| above 3, and every regulation-like one has z above 5 for the feed-forward loop', seedsOk === 20 && fflMin > 5, `${seedsOk} of 20; smallest z ${f1(fflMin)}`)
+  info(`Panel C, networks 1 to 20 ("New network"): ${above3} |z| above 3 among the random networks, the largest |z| ${f2(zMax)} (network ${zMaxAt}); the smallest z of the feed-forward loop among the regulation-like ones is ${f1(fflMin)}`)
+  q('Panel C: among networks 1 to 20, no random network has any |z| above 3 (the largest is 2.3, in network 7), and every regulation-like one has z above 5 for the feed-forward loop', above3 === 0 && f1(zMax) === '2.3' && zMaxAt === 7 && fflMin > 5, `${above3} above 3; largest ${f2(zMax)} in network ${zMaxAt}; smallest z ${f1(fflMin)}`)
   q('Panel C: 23 more feed-forward loops than the null mean; in the random network the patterns with a mutual pair and a third link have null means of 0.1 or less', Math.round(reg.observed[ffl] - reg.mean[ffl]) === 23 && ['pairOut', 'pairIn', 'cycleMutual'].every((id) => rnd.mean[P(id)] < 0.15 && rnd.observed[P(id)] === 0))
   for (const [id, s] of [['regulation', reg], ['foodWeb', web], ['random', rnd]]) {
     info(`Panel C, ${id}: ${s.net.n} nodes, ${s.net.links.length} links, ${mutualLinks(s.net)} mutual; ${s.samples} randomisations, ${f2(s.accepted / s.attempted)} of the swaps accepted`)
@@ -371,6 +403,11 @@ const P = (id) => indexOfPattern(id)
   q('Panel C, regulation-like: fan-out 401 against 424.2, fan-in 72 against 95.2, chain 72 against 94.6; z −7.0, −7.0, −6.5; no cycle', row(reg, 'fanOut') === '401 424.2 3.3 -7.0' && row(reg, 'fanIn') === '72 95.2 3.3 -7.0' && row(reg, 'chain') === '72 94.6 3.5 -6.5' && reg.observed[P('cycle')] === 0, `${row(reg, 'fanOut')} | ${row(reg, 'fanIn')} | ${row(reg, 'chain')}`)
   q('Panel C, regulation-like, 1,000 randomisations: feed-forward loop 39 against 15.7 ± 3.5, z = 6.7', row(reg1000, 'feedForward') === '39 15.7 3.5 6.7', `${row(reg1000, 'feedForward')}`)
   q('Panel C, food web: feed-forward loop 0 against 14.8 ± 3.9, z = −3.8; chain 461 against 439.2, z = 3.7; cycle 0 against 2.3', row(web, 'feedForward') === '0 14.8 3.9 -3.8' && row(web, 'chain') === '461 439.2 5.8 3.7' && f1(web.mean[P('cycle')]) === '2.3', `${row(web, 'feedForward')} | ${row(web, 'chain')}`)
+  // Point 4: the excess of chains in the food web is the missing loops and cycles.
+  const chainExcess = web.observed[P('chain')] - web.mean[P('chain')]
+  const fromMissing = web.mean[ffl] - web.observed[ffl] + 3 * (web.mean[P('cycle')] - web.observed[P('cycle')])
+  info(`Panel C, food web: excess of chains ${f2(chainExcess)}; missing feed-forward loops + 3 × missing cycles ${f2(fromMissing)}`)
+  q('Panel C, food web: 461 − 439.2 equals 14.8 + 3 × 2.3 ≈ 21.8 (the same fact as the missing loops and cycles)', f1(chainExcess) === '21.8' && near(chainExcess, fromMissing, 1e-9), `${f2(chainExcess)} and ${f2(fromMissing)}`)
   q('Panel C, random: feed-forward loop 6 against 4.1 ± 2.1, z = 0.9; no |z| above 1', row(rnd, 'feedForward') === '6 4.1 2.1 0.9' && rnd.z.filter(Number.isFinite).every((z) => Math.abs(z) < 1), `${row(rnd, 'feedForward')}; largest ${f2(Math.max(...rnd.z.filter(Number.isFinite).map(Math.abs)))}`)
 }
 

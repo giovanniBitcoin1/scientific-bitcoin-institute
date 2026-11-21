@@ -36,6 +36,11 @@ checkpoint and in every module commit. How the labs engine works is in
   the course free. Italian terms as listed in `CLAUDE.md`.
 - **Bitcoin:** this is a general course on network science. Short optional
   Bitcoin or power-law boxes only in modules 01, 05, 10, 11, 12, 13 and 14.
+- **A check that fails is information.** Never choose a seed or a preset in
+  order to make a check pass. If a limit given in a prompt turns out to be
+  too tight, first make sure that the code is right; then set the limit from
+  what ten or more seeds show, and say so in the report, with the numbers.
+  (Adriano, prompt 5b.)
 
 ### Checks to run before a module commit
 
@@ -111,7 +116,7 @@ Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
 (status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
 page); c3cf222 (Network Lab 02: fixes — Panel A and Exercise 4 now both quote
 the 30-sample averages of the largest component and say how far one sample
-swings; Barabási reference).
+swings; Barabási reference); the commit "Network Lab 04: fixes" (prompt 5b).
 
 ## Planned content (may change)
 
@@ -216,12 +221,12 @@ Nothing in progress. Next: module 06, `growth-mechanisms`.
   without arrowheads. The lecture gives the count "40 against 7 ± 3" as it is
   in Milo et al. (2002), Table 1; Shen-Orr et al. (2002) list 34 coherent and
   6 incoherent loops separately.
-- Module 04, Panel B, switch off: with 30 networks the gap between "weakest
-  first" and "strongest first" is chance, and it is largest where the network
-  collapses (f ≈ 0.85). `WEAK_SEED` = 2026 gives 0.03; ten other seeds give
-  0.04 to 0.11, so the prompt's limit of 0.05 holds for this seed, not for any
-  seed. With 120 networks the gap is 0.04 (checked). To make it hold for any
-  seed, raise `WEAK_RUNS`.
+- Module 04, Panel B (prompt 5b, "Network Lab 04: fixes"): the removal orders
+  draw from a generator of their own (`orderRandom`), so at random, lowest and
+  highest overlap first are identical with the switch on and off;
+  `WEAK_RUNS` = 300 (2.1 s in the headless browser), and switched off the three
+  curves weakest, strongest, random stay within 0.05 for `WEAK_SEED` and ten
+  other seeds (0.011 to 0.035).
 - Module 04 texts quote numbers produced with fixed seeds, pinned by the
   "quoted on the page" checks in `scripts/lab/check-network-04.mjs` and by
   `scripts/lab/browser-checks/modules/network-triangles-weak-ties-motifs.mjs`.

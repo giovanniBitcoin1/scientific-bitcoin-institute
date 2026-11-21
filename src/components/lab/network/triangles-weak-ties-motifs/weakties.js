@@ -11,7 +11,7 @@ export const GROUP_SIZE = 25
 export const P_INSIDE = 0.5 // chance of a link between two members of a group
 export const P_BETWEEN = 0.004 // chance of a link between members of two groups
 export const NOISE = 0.1 // strength = overlap + a random number between 0 and NOISE
-export const WEAK_RUNS = 30
+export const WEAK_RUNS = 300
 export const WEAK_SEED = 2026
 export const ORDER_IDS = ['weakest', 'strongest', 'lowOverlap', 'highOverlap', 'random']
 export const STEPS = 100 // the curves have a point every 1/STEPS of the links
@@ -143,6 +143,12 @@ export function piecesAfter(net, order, k) {
   return { label, big, largest, pieces: count.size }
 }
 
+// The generator that breaks ties in removal order `orderId`, seeded from the
+// network's seed and the order alone. It is not the generator of the
+// strengths, so the orders that ignore strength (at random, lowest and
+// highest overlap first) are the same with the switch on and off.
+export const orderRandom = (seed, orderId) => mulberry32(seedOf((seed ^ 0x2545f491) >>> 0, ORDER_IDS.indexOf(orderId)))
+
 // One network with everything the panel shows about it.
 export function weakSample(seed, follow, { pInside = P_INSIDE, pBetween = P_BETWEEN, noise = NOISE } = {}) {
   const net = groupNetwork(seed, pInside, pBetween)
@@ -150,7 +156,7 @@ export function weakSample(seed, follow, { pInside = P_INSIDE, pBetween = P_BETW
   const random = mulberry32((seed ^ 0x7f4a7c15) >>> 0)
   const strength = strengths(overlap, follow, random, noise)
   const orders = {}
-  for (const id of ORDER_IDS) orders[id] = removalOrder(id, strength, overlap, random)
+  for (const id of ORDER_IDS) orders[id] = removalOrder(id, strength, overlap, orderRandom(seed, id))
   let betweenLinks = 0
   for (const b of net.between) betweenLinks += b
   return { net, overlap, strength, orders, betweenLinks, betweenShare: betweenLinks / net.A.length }
