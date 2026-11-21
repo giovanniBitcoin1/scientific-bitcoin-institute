@@ -116,7 +116,7 @@ Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
 (status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
 page); c3cf222 (Network Lab 02: fixes — Panel A and Exercise 4 now both quote
 the 30-sample averages of the largest component and say how far one sample
-swings; Barabási reference); the commit "Network Lab 04: fixes" (prompt 5b).
+swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network Lab 05: fixes" (prompt 5b).
 
 ## Planned content (may change)
 
@@ -250,17 +250,26 @@ Nothing in progress. Next: module 06, `growth-mechanisms`.
 - Module 05, a formula that differs from the prompt: the expected number of
   repeated links in the configuration model is ((⟨k²⟩ − ⟨k⟩)/⟨k⟩)²/4, not /2
   (Poisson ⟨k⟩ = 4: 4, not 8; measured 3.85 over 200 networks). Lecture, panel
-  and check use /4. To be confirmed by Adriano.
-- Module 05, choices to review: the verdict of Panel C also refuses when the
-  tail covers less than a factor of ten in k (not only below 50 values); the
+  and check use /4. Confirmed by Adriano (prompt 5b): self-links are close to
+  a Poisson variable with mean λ/2 and double links to one with mean λ²/4,
+  λ = (⟨k²⟩ − ⟨k⟩)/⟨k⟩.
+- Module 05, kept after review (prompt 5b): the verdict rule "less than a
+  factor of ten in k", and Exercise 6 with no clean answer for the lognormal.
+- Module 05, choices to review: the
   bootstrap runs on a button; the experiment of Panel A takes the median of 10
   networks per size (about 8 s in the browser) and keeps N = 10⁵; candidate
   k_min need at least 10 values above them; lognormal source μ = 1, σ = 1.2;
   the lognormal candidate is not allowed to start more than 8σ above μ. Seeds
   were chosen so that the default samples are typical ones (`DIAL_SEED` 2600,
-  `SAMPLE_SEED` 1900), and the natural-cutoff check does not hold for any seed: at
-  γ = 2.5 two of the nine seeds tried gave a slope more than 0.05 from 2/3
-  (200 samples give the slope to about ±0.024).
+  `SAMPLE_SEED` 1900).
+- Module 05 fixes (prompt 5b, "Network Lab 05: fixes"): the box "Two things
+  called a power law" points to "Further reading" and to the Publications
+  page; Exercise 6 states the range of sample 1's tail (10 to 8,713, an
+  outlier; next 3,275 and 2,276); a bootstrap with no synthetic set worse shows
+  p < 1/sets (and the verdict says so), a small non-zero p three decimals, and
+  a likelihood-ratio p below 0.005 "< 0.01"; the natural-cutoff check uses
+  1,000 maxima drawn directly from F(k)^N and holds for the default seed and
+  ten others at γ = 2.5 and 3 (largest gaps 0.025 and 0.024).
 - Module 05, Italian terms: cutoff naturale, mondi ultra-piccoli
   (*ultra-small worlds*), modello di configurazione, cappio, collegamento
   ripetuto, funzione generatrice, componente gigante, bontà dell'adattamento,

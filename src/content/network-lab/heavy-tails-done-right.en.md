@@ -94,7 +94,7 @@ So the useful question is seldom "is it exactly a power law?" but "how heavy is 
 Two things called a power law
 A **distribution** says how often values of each size occur: degrees, city sizes, the balances held by Bitcoin addresses, the degrees of Lightning nodes. The recipe of this module is for distributions.
 
-A **scaling relation** says that one quantity is a power of another, `y ∝ x^β`: metabolic rate against body mass, Bitcoin's price against the time since the genesis block ([Complexity Lab module 13](/lab/bitcoin-complex-system)). There the data are one curve, ordered and correlated in time, and the recipe does not carry over as it stands. A test in the same spirit has been built for a power law in time (Santostasi and Perrenod 2026), and the precision of a fitted exponent depends on how the fluctuations around the trend are modelled (Pecere 2026). Both are on our [Publications page](/research/publications).
+A **scaling relation** says that one quantity is a power of another, `y ∝ x^β`: metabolic rate against body mass, Bitcoin's price against the time since the genesis block ([Complexity Lab module 13](/lab/bitcoin-complex-system)). There the data are one curve, ordered and correlated in time, and the recipe does not carry over as it stands. A test in the same spirit has been built for a power law in time (Santostasi and Perrenod 2026), and the precision of a fitted exponent depends on how the fluctuations around the trend are modelled (Pecere 2026). Both papers are listed under "Further reading" below, and more of the institute's work is on our [Publications page](/research/publications).
 ```
 
 ## What comes next

@@ -64,6 +64,10 @@ const T = {
     notRun: 'not run yet',
     progress: (d, s) => `${d} of ${s} sets`,
     pNote: `Share of the synthetic sets that fit worse than the data. At ${P_LIMIT} or below the power law is ruled out.`,
+    // No synthetic set fitted worse: p is below 1/(number of sets), not zero.
+    pNone: (lim, sets) => `< ${lim} (none of the ${sets} synthetic sets fitted worse)`,
+    pVerdict: (p) => `p = ${p}`,
+    pVerdictNone: (lim, sets) => `p < ${lim}: none of the ${sets} synthetic sets fitted worse than the data`,
     cmpCol: ['Power law against', 'Log-likelihood ratio', 'p'],
     cmpNames: { lognormal: 'Lognormal', exponential: 'Exponential', cutoff: 'Power law with cut-off' },
     reading: { power: 'power law favoured', other: 'the other is favoured', none: 'no decision' },
@@ -73,10 +77,10 @@ const T = {
       small: (f) => `Nothing can be concluded: the tail holds only ${f.nTail} values.`,
       narrow: (f, kMax) => `Nothing can be concluded: the tail runs from ${f.kMin} to ${kMax}, less than a factor of ten.`,
       untested: () => 'Run the test of step 3 first.',
-      ruledOut: (f, kMax, p) => `Power law ruled out (p = ${p}).`,
-      alternative: (f, kMax, p, better) => `Not ruled out by the test (p = ${p}), but a better candidate exists: ${better}.`,
+      ruledOut: (f, kMax, p) => `Power law ruled out (${p}).`,
+      alternative: (f, kMax, p, better) => `Not ruled out by the test (${p}), but a better candidate exists: ${better}.`,
       plausible: (f, kMax, p, open) =>
-        open ? `Power law not ruled out (p = ${p}). Not confirmed either: it cannot be told apart from ${open}.` : `Power law not ruled out (p = ${p}), and favoured over all three alternatives. Still not a proof.`,
+        open ? `Power law not ruled out (${p}). Not confirmed either: it cannot be told apart from ${open}.` : `Power law not ruled out (${p}), and favoured over all three alternatives. Still not a proof.`,
     },
     joinNames: { lognormal: 'a lognormal', exponential: 'an exponential', cutoff: 'a power law with a cut-off' },
     and: ' and ',
@@ -147,6 +151,9 @@ const T = {
     notRun: 'non ancora eseguito',
     progress: (d, s) => `${d} insiemi su ${s}`,
     pNote: `Quota degli insiemi sintetici che si adattano peggio dei dati. Se è ${String(P_LIMIT).replace('.', ',')} o meno, la legge di potenza è esclusa.`,
+    pNone: (lim, sets) => `< ${lim} (nessuno dei ${sets} insiemi sintetici si adatta peggio)`,
+    pVerdict: (p) => `p = ${p}`,
+    pVerdictNone: (lim, sets) => `p < ${lim}: nessuno dei ${sets} insiemi sintetici si adatta peggio dei dati`,
     cmpCol: ['Legge di potenza contro', 'Rapporto di log-verosim.', 'p'],
     cmpNames: { lognormal: 'Lognormale', exponential: 'Esponenziale', cutoff: 'Legge di potenza con taglio' },
     reading: { power: 'favorita la legge di potenza', other: "favorita l'altra", none: 'nessuna decisione' },
@@ -156,10 +163,10 @@ const T = {
       small: (f) => `Non si può concludere nulla: la coda contiene solo ${f.nTail} valori.`,
       narrow: (f, kMax) => `Non si può concludere nulla: la coda va da ${f.kMin} a ${kMax}, meno di un fattore dieci.`,
       untested: () => 'Esegui prima il test del passo 3.',
-      ruledOut: (f, kMax, p) => `Legge di potenza esclusa (p = ${p}).`,
-      alternative: (f, kMax, p, better) => `Non esclusa dal test (p = ${p}), ma c'è un candidato migliore: ${better}.`,
+      ruledOut: (f, kMax, p) => `Legge di potenza esclusa (${p}).`,
+      alternative: (f, kMax, p, better) => `Non esclusa dal test (${p}), ma c'è un candidato migliore: ${better}.`,
       plausible: (f, kMax, p, open) =>
-        open ? `Legge di potenza non esclusa (p = ${p}). Nemmeno confermata: non si distingue da ${open}.` : `Legge di potenza non esclusa (p = ${p}), e favorita rispetto a tutte e tre le alternative. Non è comunque una prova.`,
+        open ? `Legge di potenza non esclusa (${p}). Nemmeno confermata: non si distingue da ${open}.` : `Legge di potenza non esclusa (${p}), e favorita rispetto a tutte e tre le alternative. Non è comunque una prova.`,
     },
     joinNames: { lognormal: 'una lognormale', exponential: "un'esponenziale", cutoff: 'una legge di potenza con taglio' },
     and: ' e ',
@@ -228,7 +235,13 @@ export default function RecipePanel({ lang = 'en' }) {
   const p = test && test.finished && !exp.running ? test.p : null
   const v = verdict(fit, p, cmp, kMax)
   const names = (list) => list.map((id) => t.joinNames[id]).join(t.and)
-  const verdictText = t.verdict[v.kind](fit, int(kMax), p == null ? '' : dec(p, 2), names(v.kind === 'alternative' ? v.better : v.open || []))
+  // A p-value from `sets` synthetic sets is a count out of `sets`: when none
+  // fitted worse it is below 1/sets, not 0; a small non-zero one keeps three
+  // decimals so that it never reads 0.00.
+  const pLim = (sets) => (1 / sets).toLocaleString(t.locale, { maximumSignificantDigits: 2 })
+  const pDec = (v) => dec(v, v > 0 && v < 0.01 ? 3 : 2)
+  const pVerdictText = p == null ? '' : test.worse === 0 ? t.pVerdictNone(pLim(test.sets), int(test.sets)) : t.pVerdict(pDec(p))
+  const verdictText = t.verdict[v.kind](fit, int(kMax), pVerdictText, names(v.kind === 'alternative' ? v.better : v.open || []))
   const truth = mystery && !revealed ? t.hidden : source.truth(mystery ? mystery.params : { gamma }) == null ? t.noTruth : dec(source.truth(mystery ? mystery.params : { gamma }), 2)
 
   const xMax = 10 ** Math.max(1, Math.ceil(Math.log10(kMax)))
@@ -414,7 +427,7 @@ export default function RecipePanel({ lang = 'en' }) {
             <div className="h-full bg-orange-500" style={{ width: `${test ? (100 * test.done) / test.sets : 0}%` }} />
           </div>
           <p className="mt-3 font-mono text-sm text-slate-900 tabular-nums" data-readout="p" data-done={p == null ? '0' : '1'}>
-            {t.p}: {p == null ? (test && test.done ? `${dec(test.p, 2)} …` : t.notRun) : dec(p, 2)}
+            {t.p}: {p == null ? (test && test.done ? `${pDec(test.p)} …` : t.notRun) : test.worse === 0 ? t.pNone(pLim(test.sets), int(test.sets)) : pDec(p)}
           </p>
           <p className="mt-1 text-xs text-slate-500 leading-snug">{t.pNote}</p>
         </div>
@@ -438,7 +451,7 @@ export default function RecipePanel({ lang = 'en' }) {
                     <span className="block text-xs text-slate-500">{reading(cmp[id])}</span>
                   </th>
                   <td className={td}>{dec(cmp[id].R + 0, 1).replace(/^-0([.,]0)$/, '0$1')}</td>
-                  <td className={td}>{dec(cmp[id].p, 2)}</td>
+                  <td className={td}>{cmp[id].p < 0.005 ? `< ${dec(0.01, 2)}` : dec(cmp[id].p, 2)}</td>
                 </tr>
               ))}
             </tbody>

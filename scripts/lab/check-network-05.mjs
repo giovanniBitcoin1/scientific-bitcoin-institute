@@ -23,7 +23,7 @@ import {
   theoryCurve, followDistributions, FAMILY_IDS,
 } from '../../src/components/lab/network/heavy-tails-done-right/genfun.js'
 import {
-  tabulate, mleAt, mleGamma, shortcutGamma, fitRecipe, bootstrapP, compare, verdict, wrongWays, hill, hillPlot, vuong,
+  tabulate, mleAt, mleGamma, shortcutGamma, fitRecipe, bootstrapP, bootstrapJob, compare, verdict, wrongWays, hill, hillPlot, vuong,
   powerCandidate, exponentialCandidate, lognormalCandidate, cutoffNorm, erfc, BOOT_DEFAULT, BOOT_SEED,
 } from '../../src/components/lab/network/heavy-tails-done-right/fit.js'
 import {
@@ -120,23 +120,69 @@ if (section('cutoff')) {
   check('three decades of k need N = 10^(3(γ−1)): 10⁶ at γ = 3, 10⁹ at γ = 4', near(Math.log10(1000 ** (3 - 1)), 6, 1e-9) && near(Math.log10(1000 ** (4 - 1)), 9, 1e-9))
   const N = 1e9
   q('distances for N = 10⁹: ln N = 20.7, ln N / ln ln N = 6.8, ln ln N = 3.0', f2(distanceScale.above3(N)).startsWith('20.7') && distanceScale.at3(N).toFixed(1) === '6.8' && distanceScale.below3(N).toFixed(1) === '3.0', `${f2(distanceScale.above3(N))} ${f2(distanceScale.at3(N))} ${f2(distanceScale.below3(N))}`)
-  for (const [g, want] of [[2.5, 2 / 3], [3, 0.5]]) {
-    const random = mulberry32(101 + g * 10)
-    const draw = powerLawSampler(g, 1)
-    const xs = []
-    const ys = []
-    for (const n of [1e3, 1e4, 1e5]) {
-      const maxes = []
-      for (let s = 0; s < 200; s++) {
+  // The largest of N values, drawn directly. The sampler inverts the
+  // distribution function, k = F⁻¹(r), and P(max ≤ k) = F(k)^N, so the largest
+  // of N draws is F⁻¹(u^(1/N)) for a single uniform u.
+  const largestOf = (draw, N) => (random) => {
+    const u = random()
+    const r = 1 + Math.expm1(Math.log(u) / N) // u^(1/N), accurate near 1
+    return draw(() => r)
+  }
+  {
+    // The direct draw against N draws by brute force, N = 1,000, 1,000 samples
+    // each: two-sample Kolmogorov–Smirnov distance below its 1% critical value.
+    for (const g of [2.5, 3]) {
+      const draw = powerLawSampler(g, 1)
+      const r1 = mulberry32(7001)
+      const r2 = mulberry32(7002)
+      const big = largestOf(draw, 1000)
+      const brute = []
+      const direct = []
+      for (let s = 0; s < 1000; s++) {
         let mx = 0
-        for (let i = 0; i < n; i++) mx = Math.max(mx, draw(random))
-        maxes.push(mx)
+        for (let i = 0; i < 1000; i++) mx = Math.max(mx, draw(r1))
+        brute.push(mx)
+        direct.push(big(r2))
       }
-      xs.push(Math.log(n))
-      ys.push(Math.log(median(maxes)))
+      brute.sort((a, b) => a - b)
+      direct.sort((a, b) => a - b)
+      let D = 0
+      for (const k of new Set([...brute, ...direct])) {
+        const below = (a) => {
+          let lo = 0
+          let hi = a.length
+          while (lo < hi) {
+            const mid = (lo + hi) >> 1
+            if (a[mid] <= k) lo = mid + 1
+            else hi = mid
+          }
+          return lo / a.length
+        }
+        D = Math.max(D, Math.abs(below(brute) - below(direct)))
+      }
+      const crit = 1.628 * Math.sqrt(2 / 1000)
+      check(`the largest of N = 1,000 values, γ = ${g}: drawn directly and by brute force, 1,000 samples each, the two distributions agree (KS distance below ${f3(crit)}, the 1% level)`, D < crit, `D = ${f3(D)}; medians ${median(brute)} and ${median(direct)}`)
     }
-    const sl = (ys[2] - ys[0]) / (xs[2] - xs[0])
-    check(`median largest degree over 200 samples, N = 10³, 10⁴, 10⁵, γ = ${g}: slope within 0.05 of 1/(γ − 1) = ${f3(want)}`, near(sl, want, 0.05), `slope ${f3(sl)}; medians ${ys.map((y) => Math.round(Math.exp(y))).join(', ')}; N^(1/(γ−1)) = ${[1e3, 1e4, 1e5].map((n) => Math.round(naturalCutoff(n, g))).join(', ')}`)
+  }
+  for (const [g, want] of [[2.5, 2 / 3], [3, 0.5]]) {
+    const draw = powerLawSampler(g, 1)
+    const base = 101 + g * 10 // the default seed; then ten others
+    const slopes = []
+    for (let j = 0; j <= 10; j++) {
+      const random = mulberry32(base + j)
+      const xs = []
+      const ys = []
+      for (const n of [1e3, 1e4, 1e5]) {
+        const big = largestOf(draw, n)
+        const maxes = Array.from({ length: 1000 }, () => big(random))
+        xs.push(Math.log(n))
+        ys.push(Math.log(median(maxes)))
+      }
+      slopes.push({ seed: base + j, sl: (ys[2] - ys[0]) / (xs[2] - xs[0]), medians: ys.map((y) => Math.round(Math.exp(y))) })
+    }
+    for (const r of slopes) info(`natural cutoff, γ = ${g}, seed ${r.seed}: slope ${f3(r.sl)} (medians ${r.medians.join(', ')})`)
+    const worst = Math.max(...slopes.map((r) => Math.abs(r.sl - want)))
+    check(`median largest degree over 1,000 samples, N = 10³, 10⁴, 10⁵, γ = ${g}: slope within 0.05 of 1/(γ − 1) = ${f3(want)}, for the default seed and ten others`, worst <= 0.05, `slopes ${slopes.map((r) => f3(r.sl)).join(' ')}; largest gap ${f3(worst)}; N^(1/(γ−1)) = ${[1e3, 1e4, 1e5].map((n) => Math.round(naturalCutoff(n, g))).join(', ')}`)
   }
   // Exercises 1 and 2
   check('exercise 1: k_min = 2, N = 10⁶ → 20,000, 2,000, 200; three decades need 10⁶ nodes at γ = 3 and about 32,000 at γ = 2.5', near(c(2.5, 2), 20000, 1e-6) && near(c(3, 2), 2000, 1e-6) && near(c(4, 2), 200, 1e-6) && Math.round(1000 ** 1.5) === 31623)
@@ -491,10 +537,15 @@ if (section('page')) {
   const recipe = (id, n, params = {}) => {
     const tab = tabulate(drawSample(id, n, params))
     const fit = fitRecipe(tab)
-    const p = bootstrapP(tab, fit, BOOT_DEFAULT, BOOT_SEED)
+    const boot = bootstrapJob(tab, fit, BOOT_DEFAULT, BOOT_SEED)
+    for (const _ of boot.iter);
+    const { p, worse } = boot.snapshot()
     const cmp = compare(tab, fit)
     const kMax = tab.ks.at(-1)
-    return { tab, fit, p, cmp, kMax, v: verdict(fit, p, cmp, kMax), w: wrongWays(tab), g: `${en(fit.gamma, 2)} ± ${en(fit.se, 2)}`, ps: en(p, 2), R: (c) => en(cmp[c].R, 1).replace('-', '−') }
+    // As the panel shows it: below 1/sets when no synthetic set fitted worse,
+    // three decimals below 0.01, so that it never reads 0.00.
+    const ps = worse === 0 ? `< ${1 / BOOT_DEFAULT}` : en(p, p < 0.01 ? 3 : 2)
+    return { tab, fit, p, worse, cmp, kMax, v: verdict(fit, p, cmp, kMax), w: wrongWays(tab), g: `${en(fit.gamma, 2)} ± ${en(fit.se, 2)}`, ps, R: (c) => en(cmp[c].R, 1).replace('-', '−') }
   }
   const show = (name, r) => info(`Panel C, ${name}: k_min ${r.fit.kMin}, γ ${r.g}, n_tail ${r.fit.nTail} of ${r.tab.n}, k up to ${r.kMax}, p ${r.ps}; lognormal ${r.R('lognormal')} (p ${en(r.cmp.lognormal.p, 2)}), exponential ${r.R('exponential')} (p ${en(r.cmp.exponential.p, 2)}), cut-off ${r.R('cutoff')} (p ${en(r.cmp.cutoff.p, 2)}); verdict ${r.v.kind}; wrong ways ${en(r.w.equalBins, 2)} ${en(r.w.logBins, 2)} ${en(r.w.ccdf, 2)} ${en(r.w.mleSmallest, 2)}`)
   const pl = recipe('power', DEFAULT_N)
@@ -540,10 +591,22 @@ if (section('page')) {
     `Sample 1: k_min = ${m[0].fit.kMin}, γ = ${m[0].g} on ${int(m[0].fit.nTail)} values of 5,000, p = ${m[0].ps}`,
     `Sample 2: k_min = ${m[1].fit.kMin}, γ = ${m[1].g} on ${m[1].fit.nTail} values of 3,000, p = ${m[1].ps}`,
     `(ratio ${m[1].R('lognormal')})`,
-    `Sample 3: γ = ${m[2].g} from k_min = ${m[2].fit.kMin} and p = ${m[2].ps}`,
+    `Sample 3: γ = ${m[2].g} from k_min = ${m[2].fit.kMin} and p ${m[2].ps}: none of the ${BOOT_DEFAULT} synthetic sets fitted worse than the data`,
     `ratio of ${m[2].R('cutoff')} in favour of the cut-off law`,
   ])
-  check('exercise 6: verdicts plausible, plausible (lognormal open), ruled out; sample 1 spans nearly three decades; sample 2 keeps 8% of the data', m[0].v.kind === 'plausible' && m[1].v.kind === 'plausible' && m[1].v.open.includes('lognormal') && m[2].v.kind === 'ruledOut' && Math.log10(m[0].kMax / m[0].fit.kMin) > 2.9 && Math.round((100 * m[1].fit.nTail) / 3000) === 8)
+  check('exercise 6: verdicts plausible, plausible (lognormal open), ruled out; sample 2 keeps 8% of the data; sample 3: no synthetic set fitted worse', m[0].v.kind === 'plausible' && m[1].v.kind === 'plausible' && m[1].v.open.includes('lognormal') && m[2].v.kind === 'ruledOut' && Math.round((100 * m[1].fit.nTail) / 3000) === 8 && m[2].worse === 0 && m[2].ps === '< 0.005')
+  {
+    // Exercise 6, sample 1: the range of its tail. The largest value is an
+    // outlier; the natural cutoff of 1,968 values from k = 10 at γ = 2.6 is
+    // 10 × 1,968^(1/1.6) ≈ 1,100, two decades.
+    const t1 = m[0].tab
+    const tail = t1.ks.filter((k) => k >= m[0].fit.kMin)
+    const top = tail.slice(-3).reverse()
+    const nc = naturalCutoff(m[0].fit.nTail, 2.6, m[0].fit.kMin)
+    info(`exercise 6, sample 1: the tail runs from ${tail[0]} to ${top[0]} (${f2(Math.log10(top[0] / tail[0]))} decades); next largest ${top[1]}, ${top[2]}; 10 × ${m[0].fit.nTail}^(1/1.6) = ${nc.toFixed(0)}`)
+    quoted('exercise 6, sample 1: the range of the tail', [`from ${tail[0]} to ${int(top[0])}`, `the next are ${int(top[1])} and ${int(top[2])}`, `10 × ${int(m[0].fit.nTail)}^(1/1.6) ≈ ${int(Math.round(nc / 100) * 100)}`])
+    check('exercise 6, sample 1: 2.9 decades with its largest value, under 2.6 without it, and the natural cutoff near 1,100', Math.log10(top[0] / tail[0]) > 2.9 && Math.log10(top[1] / tail[0]) < 2.6 && Math.round(nc / 100) === 11, `${f3(Math.log10(top[0] / tail[0]))}, ${f3(Math.log10(top[1] / tail[0]))}, ${nc.toFixed(0)}`)
+  }
   check('the mysteries are what Reveal says: tail with γ = 2.6, lognormal, cut-off', MYSTERIES.map((x) => x.source).join() === 'tailBody,lognormal,cutoff' && MYSTERIES[0].params.gamma === 2.6)
   const l300 = recipe('lognormal', 300)
   const l30k = recipe('lognormal', 30000)
