@@ -104,8 +104,8 @@ afterwards: no difference).
 | 05 | `heavy-tails-done-right` | done | the commit "Network Lab 05: Heavy tails, done right" | A A dial for the exponent; B The giant component, by bookkeeping; C Is it a power law? | `hub`, `follow` |
 | 06 | `growth-mechanisms` | done | the commit "Network Lab 06: Growth mechanisms" | A Rerun history; B Who needs to know the degrees?; C Measure the attachment rule | `rich`, `snapshots` |
 | 07 | `fitness-and-competition` | done | the commit "Network Lab 07: Fitness and competition" | A The fit get rich; B One node above the rest; C Age and density | `race`, `energy` |
-| 08 | `who-connects-to-whom` | next | – | – | – |
-| 09 | `communities` | planned | – | – | – |
+| 08 | `who-connects-to-whom` | done | the commit "Network Lab 08: Who connects to whom" | A Do hubs link to hubs?; B Mixing and robustness; C Birds of a feather | `wirings`, `illusion` |
+| 09 | `communities` | next | – | – | – |
 | 10 | `weights-flows-navigation` | planned | – | – | – |
 | 11 | `robustness-and-cascades` | planned | – | – | – |
 | 12 | `epidemics-on-networks` | planned | – | – | – |
@@ -116,7 +116,7 @@ Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
 (status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
 page); c3cf222 (Network Lab 02: fixes — Panel A and Exercise 4 now both quote
 the 30-sample averages of the largest component and say how far one sample
-swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network Lab 05: fixes" (prompt 5b).
+swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network Lab 05: fixes" (prompt 5b); "Network Lab 07: fixes" (prompt 8, stage 0: "Age and cost" now says the theory gives 3 at ν = 0 and that the recipe reads low, so the four values are compared with one another; same remark in Panel C's observe list).
 
 ## Planned content (may change)
 
@@ -127,8 +127,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **05 Heavy tails, done right:** done.
 - **06 Growth mechanisms:** done.
 - **07 Fitness and competition:** done.
-- **08 Who connects to whom:** assortativity, homophily, structural cutoff,
-  rich club.
+- **08 Who connects to whom:** done.
 - **09 Communities:** modularity, Louvain, resolution limit, detectability
   threshold; karate club; planted communities.
 - **10 Weights, flows and navigation:** Dijkstra, maximum flow and minimum
@@ -146,7 +145,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 08, `who-connects-to-whom`.
+Nothing in progress. Next: module 09, `communities`.
 
 ## Decisions
 
@@ -170,7 +169,7 @@ Nothing in progress. Next: module 08, `who-connects-to-whom`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05, 06 and 07 carry the DRAFT marker:
+- Lectures of modules 01, 02, 03, 04, 05, 06, 07 and 08 carry the DRAFT marker:
   to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -347,3 +346,47 @@ Nothing in progress. Next: module 08, `who-connects-to-whom`.
   accel, exercises, figures, page — run it whole, since page uses the numbers
   of slopes and condensation) and by
   `scripts/lab/browser-checks/modules/network-fitness-and-competition.mjs`.
+- Module 08, things a later module may reuse, all in `who-connects-to-whom/`:
+  `mixing.js` (Newman's r and Spearman's ρ over link ends with average ranks
+  for ties; k_nn(k) in classes and its slope; structural cutoff; rich club
+  φ(k) and its normalised version as a job against module 02's swap chain;
+  the Xulvi-Brunet–Sokolov rewirer towards assortative or disassortative,
+  refusing self-links and repeated links; `giantCurve`, the largest component
+  after every number of removed nodes in one union–find pass, with random and
+  attack orders; growth with two groups and a homophily h; the mixing matrix,
+  attribute assortativity and Coleman's index; the majority illusion),
+  `experiments.js`, `figures.js` (Havel–Hakimi). Module 11 (robustness) can
+  start from `giantCurve`, and module 09 from the two-group growth. It imports
+  module 02's `nullmodels.js` (the swap) and module 05's `configmodel.js` and
+  `zeta.js` without changing them; Vite now puts `nullmodels.js` and
+  `configmodel.js` in small chunks of their own, loaded only when unlocked.
+  Module 03's fragility code is about rankings and did not fit Panel B.
+- Module 08, choices to review: Panel B removes nodes by the degrees of the
+  intact network (not recomputed), mean of 20 orders, and the power-law
+  source of Panel B is fixed at γ = 2.5; Coleman's index is (H − w)/(1 − w)
+  when H ≥ w and (H − w)/w otherwise, so it runs from −1 to 1; Panel C's
+  majority illusion uses the panel's two-group network (2,000 nodes), whatever
+  the groups; the two-group growth starts from m + 1 linked nodes and picks a
+  node of the chosen group ∝ degree (uniformly while the group has no links);
+  F1 builds each degree sequence with Havel–Hakimi and rewires it 60 times per
+  link with p = 1; F2 has a fixed degree sequence (8, 7, 6, 3 and sixteen 2s);
+  rich-club randomisations are 20 states of one swap chain, 10 attempts per
+  link apart; k_nn is exact up to k = 10, then in classes of a tenth of a
+  decade, and its slope is fitted from k = 3.
+- Module 08, findings the texts state: r shrinks with N on preferential
+  attachment while ρ stays at −0.31; maximal assortative rewiring reaches
+  ρ = 0.96 but r only 0.36, and on a γ = 2.5 sequence r stays at −0.01; the
+  erased configuration model with γ = 2.5 is not the swap null (its top hubs
+  are linked up to 1.2 times as densely); against attack the assortative
+  wiring is by far the most robust, under random removal the weakest until
+  78% of the nodes are gone; with the same h, a minority keeps a smaller
+  share of its links inside.
+- Module 08, Italian terms: assortativa / disassortativa, grado medio dei
+  vicini, cutoff strutturale, rich club (coefficiente di rich club), omofilia,
+  matrice di mescolamento, illusione della maggioranza, assortatività per
+  attributo, ricablatura, cablaggio.
+- Module 08 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-08.mjs`
+  (about a minute; run it whole, since "page" uses the numbers of the other
+  sections) and by
+  `scripts/lab/browser-checks/modules/network-who-connects-to-whom.mjs`.
