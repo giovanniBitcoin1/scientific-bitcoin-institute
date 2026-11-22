@@ -105,7 +105,7 @@ afterwards: no difference).
 | 06 | `growth-mechanisms` | done | the commit "Network Lab 06: Growth mechanisms" | A Rerun history; B Who needs to know the degrees?; C Measure the attachment rule | `rich`, `snapshots` |
 | 07 | `fitness-and-competition` | done | the commit "Network Lab 07: Fitness and competition" | A The fit get rich; B One node above the rest; C Age and density | `race`, `energy` |
 | 08 | `who-connects-to-whom` | done | the commit "Network Lab 08: Who connects to whom" | A Do hubs link to hubs?; B Mixing and robustness; C Birds of a feather | `wirings`, `illusion` |
-| 09 | `communities` | next | – | – | – |
+| 09 | `communities` | done | the commit "Network Lab 09: Communities" | A Find the groups; B The resolution limit; C Can they be found at all? | `split`, `ring` |
 | 10 | `weights-flows-navigation` | planned | – | – | – |
 | 11 | `robustness-and-cascades` | planned | – | – | – |
 | 12 | `epidemics-on-networks` | planned | – | – | – |
@@ -128,8 +128,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **06 Growth mechanisms:** done.
 - **07 Fitness and competition:** done.
 - **08 Who connects to whom:** done.
-- **09 Communities:** modularity, Louvain, resolution limit, detectability
-  threshold; karate club; planted communities.
+- **09 Communities:** done.
 - **10 Weights, flows and navigation:** Dijkstra, maximum flow and minimum
   cut, decentralised search on a Kleinberg lattice.
 - **11 Robustness and cascades:** percolation on networks, attacks, overload
@@ -145,7 +144,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 09, `communities`.
+Nothing in progress. Next: module 10, `weights-flows-navigation`.
 
 ## Decisions
 
@@ -169,7 +168,7 @@ Nothing in progress. Next: module 09, `communities`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05, 06, 07 and 08 carry the DRAFT marker:
+- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08 and 09 carry the DRAFT marker:
   to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -390,3 +389,43 @@ Nothing in progress. Next: module 09, `communities`.
   (about a minute; run it whole, since "page" uses the numbers of the other
   sections) and by
   `scripts/lab/browser-checks/modules/network-who-connects-to-whom.mjs`.
+- Module 09, things a later module may reuse, all in `communities/`:
+  `community.js` (modularity and Q_γ with its two terms, the direct sum over
+  pairs; Louvain with a resolution and a per-move hook; label propagation;
+  NMI after Danon et al.; the Girvan–Newman benchmark and any dense block
+  model; G(n, M); a sparse two-group block model in time proportional to the
+  links; overlap; the ring of cliques with closed forms, the γ range and a
+  clique report; spectral bisection of the modularity matrix by power
+  iteration as a job), `experiments.js`, `figures.js` (exhaustive best
+  two-group split). It imports only shared lab code and the karate data of
+  module 03, which Vite now puts in a small chunk of its own
+  (`karate-club-*.js`), loaded only when unlocked. No shared code changed.
+- Module 09, choices to review: the karate club is the repository's NetworkX
+  version (78 links, unweighted, "club" labels, 17 and 17) and its factions
+  give Q = 0.3582; the best Q, 0.4198, is said to be "the best partition
+  known" and "reported in the literature as the maximum" (the optimality proof
+  of Brandes et al. 2008 could not be confirmed against the paper); Panel C
+  uses Decelle's convention c_in = N p_in, so a node has c_in/2 links inside
+  (the prompt's "c_in links per node inside" was corrected in the texts); the
+  multiple of the threshold is clamped at √c̄ where c_out = 0; spectral
+  bisection stops after 4,000 power iterations (below the threshold it rarely
+  settles; the panel says "not settled"); ring sizes are even only (n step 2);
+  F1 starts with two nodes on the wrong side; γ is on a log slider 0.1–100.
+- Module 09, findings the texts state: on 1 of 20 random networks label
+  propagation scores higher than Louvain (0.492 against 0.490: reported, the
+  check asks only that Louvain is never more than 0.01 below); Louvain on the
+  ring n = 30, s = 5 stops at 0.8871 with 14 pairs and 2 single cliques, just
+  below the pairing's 0.8879; at 1.2 times the threshold the spectral overlap
+  is 0.46 here against 0.18 in Adriano's scipy runs (a sweep of 3 networks;
+  near the threshold it swings).
+- Module 09, Italian terms: comunità, modularità, limite di risoluzione,
+  modello a blocchi stocastico, soglia di rilevabilità, benchmark, propagazione
+  delle etichette, informazione mutua normalizzata (NMI), cricca,
+  sovrapposizione (overlap), partizione, gruppi impiantati.
+- Module 09 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-09.mjs`
+  (about a minute; run it whole) and by
+  `scripts/lab/browser-checks/modules/network-communities.mjs`.
+- Browser checks on this PC: several `check-module.mjs` runs chained in one
+  shell crashed Node from module 05 on (low memory); each passes when run on
+  its own. Run them one per command.

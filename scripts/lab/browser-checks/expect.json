@@ -6,5 +6,6 @@
   "network/heavy-tails-done-right": { "figures": 2, "panels": 3, "exercises": 6 },
   "network/growth-mechanisms": { "figures": 2, "panels": 3, "exercises": 6 },
   "network/fitness-and-competition": { "figures": 2, "panels": 3, "exercises": 6 },
-  "network/who-connects-to-whom": { "figures": 2, "panels": 3, "exercises": 6 }
+  "network/who-connects-to-whom": { "figures": 2, "panels": 3, "exercises": 6 },
+  "network/communities": { "figures": 2, "panels": 3, "exercises": 6 }
 }
