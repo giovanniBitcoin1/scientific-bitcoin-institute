@@ -107,7 +107,7 @@ afterwards: no difference).
 | 08 | `who-connects-to-whom` | done | the commit "Network Lab 08: Who connects to whom" | A Do hubs link to hubs?; B Mixing and robustness; C Birds of a feather | `wirings`, `illusion` |
 | 09 | `communities` | done | the commit "Network Lab 09: Communities" | A Find the groups; B The resolution limit; C Can they be found at all? | `split`, `ring` |
 | 10 | `weights-flows-navigation` | done | the commit "Network Lab 10: Weights, flows and navigation" | A Weights matter; B How much can flow?; C Find your way | `strength`, `flow` |
-| 11 | `robustness-and-cascades` | planned | – | – | – |
+| 11 | `robustness-and-cascades` | done | the commit "Network Lab 11: Robustness and cascades" | A Failures, attacks and onions; B Overload; C Coupled networks | `fail`, `cascade` |
 | 12 | `epidemics-on-networks` | planned | – | – | – |
 | 13 | `social-contagion-network-effects` | planned | – | – | – |
 | 14 | `capstone-a-real-network` | planned | – | – | – |
@@ -130,8 +130,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **08 Who connects to whom:** done.
 - **09 Communities:** done.
 - **10 Weights, flows and navigation:** done.
-- **11 Robustness and cascades:** percolation on networks, attacks, overload
-  cascades, interdependent networks.
+- **11 Robustness and cascades:** done.
 - **12 Epidemics on networks:** branching processes, SI/SIS/SIR, vanishing
   threshold, immunisation, exponential versus power-law growth.
 - **13 Social contagion and network effects:** information cascades, critical
@@ -143,7 +142,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 11, `robustness-and-cascades`.
+Nothing in progress. Next: module 12, `epidemics-on-networks`.
 
 ## Decisions
 
@@ -167,7 +166,7 @@ Nothing in progress. Next: module 11, `robustness-and-cascades`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09 and 10 carry the DRAFT marker:
+- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09, 10 and 11 carry the DRAFT marker:
   to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -480,3 +479,75 @@ Nothing in progress. Next: module 11, `robustness-and-cascades`.
   (about 15 s; run it whole, since "page" uses the numbers of the other
   sections) and by
   `scripts/lab/browser-checks/modules/network-weights-flows-navigation.mjs`.
+- Module 11, things a later module may reuse, all in
+  `robustness-and-cascades/`: `robust.js` (critical fraction from the degree
+  moments; removal by recomputed degree in O(N + L); Brandes loads by plain
+  breadth-first search with a mask of working nodes, with or without the paths
+  that end at the node, and a brute count for checks; removal by betweenness,
+  intact or recomputed, as a job; the robustness R and the collapse point;
+  the swap optimiser of Schneider et al. as a job; a table of who links to
+  whom by degree class; Motter–Lai cascades as a generator; `largestComponent`
+  with a mask; the cascade between two coupled networks; the theory curves
+  x = p(1 − e^(−kx))² and x = p(1 − e^(−kx)) and the constant 2.4554),
+  `experiments.js`, `figures.js`. Module 12 (epidemics, immunisation) can
+  start from the removal orders and from `largestComponent`. It imports
+  module 08's `mixing.js` (`giantCurve`, `randomOrder`, `attackOrder`,
+  `makeSource`, `pearsonR`, `spearmanRho`) without changing it, and through it
+  modules 05 and 02; no shared code changed, so no regression compare was run.
+  Module 10's Brandes (Dijkstra with a heap, no mask) did not fit: module 11
+  has its own breadth-first version, checked against module 10's.
+- Module 11, choices to review: Panel A defaults to 1,000 nodes (so that the
+  optimisation is at hand; exercise 5 asks for 10,000); sizes are 200, 500,
+  1,000, 2,000, 5,000, 10,000; the power-law source has k_min = 2 and its mean
+  degree follows from γ (no mean-degree slider for it); preferential
+  attachment takes even mean degrees only; "falls below 1% of N" is the first
+  fraction at which the largest component has fewer than N/100 nodes, and for
+  random removal it is the mean of the 20 orders; ties in the attack by
+  recomputed degree are broken by a fixed rule (the node whose degree changed
+  last), so the same network always gives the same R; the attack by
+  betweenness and "Make it robust" run on buttons (about 8 s and 7 s in
+  headless Chrome at 1,000 nodes); beyond 1,000 nodes betweenness is that of
+  the intact network; the optimiser tries 20,000 swaps and stops (it has not
+  converged: R is still rising); instead of a drawing of the network before
+  and after, the panel shows two tables of who links to whom by degree class
+  (a node-link drawing of 1,000 nodes showed nothing). Panel B: load = shortest
+  paths through the node plus the paths that end at it (so that no node has
+  capacity 0), mean degree 4, sizes 200–1,000, default 400, α in steps of
+  0.05, the sweep uses α = 0, 0.1, …, 1 and 20 random triggers (about 5 s at
+  400 nodes, half a minute at 1,000). Panel C: node i of A depends on node i
+  of B (the two networks are wired independently, so this is a random
+  matching); one random order of the nodes, p in steps of 0.01, the whole
+  sweep runs when the page loads (0.3 s at 10,000 nodes, across frames);
+  "steps" count the turns of A or B that removed something; the power-law
+  pair has γ = 2.5, k_min = 2 and is compared with the theory of two random
+  networks of its mean degree. F1: 60 nodes, preferential attachment m = 2,
+  the attack takes the highest current degree. F2: two hand-picked networks of
+  15 nodes and 18 links each, start node A4 (7 rounds, 7 pairs left); any node
+  can be clicked. Both figures are about 360 px tall at 1280 px, and F1 630 px
+  at 375 px.
+- Module 11, findings the texts state: on the default network the swaps raise
+  R under attack from 0.097 to 0.221 but lower R under random removal from
+  0.416 to 0.386; recomputed betweenness is the most damaging order (R 0.082);
+  with 400 nodes and α = 0.2 removing the most loaded node leaves 0.070 and a
+  random node 0.996; the coupled pair jumps between p = 0.61 (nothing, after
+  31 steps) and 0.62 (0.365); two power-law networks need p = 0.68 where two
+  random networks of the same mean degree would need 0.558.
+- Module 11, sources (checked in November 2026, details in
+  `docs/reports/network-lab-11.md`): Bitcoin Core's default limit of
+  connections went from 125 to 200 in version 32.0, so the box quotes only the
+  8 + 2 outbound connections; feeler connections shipped in 0.13.1 and
+  test-before-evict in 0.17.0; Rohrer et al. (2019) give no "a few nodes
+  fragment the graph" figure and the sentence was softened; no chapter number
+  is given for Latora, Nicosia and Russo.
+- Module 11, Italian terms: robustezza, guasto casuale, attacco mirato,
+  frazione critica, struttura a cipolla, sovraccarico, tolleranza, carico,
+  cascata, turno (round), reti interdipendenti / accoppiate, componente
+  gigante mutua, attacco di eclissi (eclissi, *eclipse attack*), innesco
+  (trigger).
+- Module 11 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-11.mjs`
+  (about two minutes; run it whole, since "page" uses the numbers of the other
+  sections) and by
+  `scripts/lab/browser-checks/modules/network-robustness-and-cascades.mjs`.
+  The page formats with `toLocaleString` (0.0075 shows as 0.008): the checks
+  format the same way.
