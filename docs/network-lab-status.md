@@ -108,7 +108,7 @@ afterwards: no difference).
 | 09 | `communities` | done | the commit "Network Lab 09: Communities" | A Find the groups; B The resolution limit; C Can they be found at all? | `split`, `ring` |
 | 10 | `weights-flows-navigation` | done | the commit "Network Lab 10: Weights, flows and navigation" | A Weights matter; B How much can flow?; C Find your way | `strength`, `flow` |
 | 11 | `robustness-and-cascades` | done | the commit "Network Lab 11: Robustness and cascades" | A Failures, attacks and onions; B Overload; C Coupled networks | `fail`, `cascade` |
-| 12 | `epidemics-on-networks` | planned | – | – | – |
+| 12 | `epidemics-on-networks` | done | the commit "Network Lab 12: Epidemics on networks" | A Threshold or no threshold; B Hubs first; C Whom to vaccinate | `seed`, `growth` |
 | 13 | `social-contagion-network-effects` | planned | – | – | – |
 | 14 | `capstone-a-real-network` | planned | – | – | – |
 
@@ -116,7 +116,7 @@ Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
 (status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
 page); c3cf222 (Network Lab 02: fixes — Panel A and Exercise 4 now both quote
 the 30-sample averages of the largest component and say how far one sample
-swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network Lab 05: fixes" (prompt 5b); "Network Lab 07: fixes" (prompt 8, stage 0: "Age and cost" now says the theory gives 3 at ν = 0 and that the recipe reads low, so the four values are compared with one another; same remark in Panel C's observe list); "Network Lab 10: fixes" (prompt 11, stage 0: the Lightning box now says that max-flow min-cut shows what several routes can carry together but that splitting blindly adds at most 1.4 percentage points of success, and that Core Lightning first shipped the plugin in 23.08; both pinned in `check-network-10.mjs`).
+swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network Lab 05: fixes" (prompt 5b); "Network Lab 07: fixes" (prompt 8, stage 0: "Age and cost" now says the theory gives 3 at ν = 0 and that the recipe reads low, so the four values are compared with one another; same remark in Panel C's observe list); "Network Lab 10: fixes" (prompt 11, stage 0: the Lightning box now says that max-flow min-cut shows what several routes can carry together but that splitting blindly adds at most 1.4 percentage points of success, and that Core Lightning first shipped the plugin in 23.08; both pinned in `check-network-10.mjs`); "Complexity Lab 04: default connection limit" (prompt 12, stage 0: the one authorised change to a Complexity Lab lecture — `scale-free.en.md` / `.it.md` now say that Bitcoin Core's default limit of connections is 200 since version 32.0 and was 125 before; confirmed in the 32.0 release notes, PR #28463).
 
 ## Planned content (may change)
 
@@ -131,8 +131,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **09 Communities:** done.
 - **10 Weights, flows and navigation:** done.
 - **11 Robustness and cascades:** done.
-- **12 Epidemics on networks:** branching processes, SI/SIS/SIR, vanishing
-  threshold, immunisation, exponential versus power-law growth.
+- **12 Epidemics on networks:** done.
 - **13 Social contagion and network effects:** information cascades, critical
   mass, thresholds, complex contagion, Bass model.
 - **14 Capstone:** the whole toolkit on one real network.
@@ -142,7 +141,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 12, `epidemics-on-networks`.
+Nothing in progress. Next: module 13, `social-contagion-network-effects`.
 
 ## Decisions
 
@@ -166,7 +165,7 @@ Nothing in progress. Next: module 12, `epidemics-on-networks`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09, 10 and 11 carry the DRAFT marker:
+- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11 and 12 carry the DRAFT marker:
   to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -426,7 +425,10 @@ Nothing in progress. Next: module 12, `epidemics-on-networks`.
   `scripts/lab/browser-checks/modules/network-communities.mjs`.
 - Browser checks on this PC: several `check-module.mjs` runs chained in one
   shell crashed Node from module 05 on (low memory); each passes when run on
-  its own. Run them one per command.
+  its own. Run them one per command, in the foreground (the README of the
+  browser checks now lists every command and says so). Even alone, a run can
+  crash once: `modules/network-robustness-and-cascades.mjs` did during the
+  checks of module 12 and passed when repeated.
 - Module 10, things a later module may reuse, all in
   `weights-flows-navigation/`: `weights.js` (a CSR with link ids; strength,
   disparity and the disparity filter with its backbone; a binary heap;
@@ -550,4 +552,77 @@ Nothing in progress. Next: module 12, `epidemics-on-networks`.
   sections) and by
   `scripts/lab/browser-checks/modules/network-robustness-and-cascades.mjs`.
   The page formats with `toLocaleString` (0.0075 shows as 0.008): the checks
+  format the same way.
+- Module 12, things a later module may reuse, all in `epidemics-on-networks/`:
+  `epidemic.js` (T_c, R0 and g_c from the degree moments; S = 1 − e^(−RS);
+  the generating functions of any list of degrees as a family for module 05's
+  solver; u, w and 1 − G0(w) at a transmissibility T; bond percolation by
+  union–find with an optional mask of immune nodes; one SIR outbreak from a
+  seed; SI/SIR in discrete steps with d infectious steps; SIS in discrete
+  steps as a generator; a square lattice with open edges; log-log slope;
+  acquaintance immunisation), `experiments.js`, `figures.js` (the ladder of
+  groups). Module 13 (thresholds, complex contagion) can start from `spread`
+  and from `outbreakFrom`. It imports module 05's `genfun.js` (`solveU`),
+  module 08's `mixing.js` (`makeSource`, `randomOrder`, `attackOrder`,
+  `degreesOf`), module 11's `robust.js` (`seedOf`, `moments`,
+  `largestComponent`, `drain`) and module 02's `friends.js` (`spreadSI`)
+  without changing them; Vite now puts `genfun.js`, `friends.js`, `robust.js`
+  and `mixing.js` in small chunks of their own, loaded only when unlocked. No
+  shared code changed, so no regression compare was run. Module 08's
+  `giantCurve` removes nodes, not links, and did not fit the percolation of
+  links: module 12 has its own union–find over the links.
+- Module 12, choices to review: the power-law network of Panel A is the
+  configuration model with k_min = 2, so its mean degree follows from γ and
+  from the network drawn (4.35 at γ = 2.5 and 10,000 nodes), not 4 like the
+  other two; the theory curve is drawn for the random network and the power
+  law (configuration models), from the generating functions of the network's
+  own degrees, and not for preferential attachment; an outbreak is "large"
+  above 1% of N; the 1,000 seeds are drawn at random, so degrees with few
+  seeds are noisy (a degree is shown from 10 seeds, up to k = 20); SIS has
+  μ = 0.2, everyone infected at the start, 400 steps with the last 150
+  averaged, β/μ from 0 to 0.5 in steps of 0.02, and runs on a button (3 to 5 s
+  at 10,000 nodes); Panel B has β from 0.05 to 0.5 and d from 1 to 10, default
+  β = 0.2 and d = 4, the lattice has open edges and starts from its centre,
+  seeds on the two networks are random nodes of the largest component, and for
+  SIR only the runs above 1% of N are averaged; the mean degree of the newly
+  infected is shown for steps with at least 20 nodes over the 20 runs; Panel C
+  uses 5 runs per point (the prompt's numbers were means of 3), g up to 0.9 in
+  steps of 0.01, and "below 1% of N from g =" for each strategy. F1: 80 nodes
+  grown with one or two links per newcomer (126 links, 14 nodes with one
+  link, a hub of 19), T = 0.5, classes of 8 nodes; it is 380 px tall at
+  1280 px and about 600 px at 375 px. F2: the groups of the ladder fill as
+  S-curves in the logarithm of time, m/(1 + (t_k/t)^12) (a logistic in plain
+  time leaves a tail that the later, larger groups turn into the whole sum);
+  sliders a 2–10, b 1.5–4.
+- Module 12, findings the texts state: at T = 0.5 the heavy-tailed network
+  has a slightly smaller large outbreak than the random one (0.776 against
+  0.796): hubs lower the threshold, not the size; T_c of one heavy-tailed
+  network per size does not fall in order (0.026, 0.035, 0.011 for the power
+  law at 1,000, 10,000 and 20,000 nodes), the mean of 20 networks does; with
+  T = 0.344 preferential attachment has fewer large runs than the random
+  network (7 against 13 of 20) although its threshold is lower, because most
+  seeds have two links; one lattice run on 100 × 100 has log-log slope 1.99
+  to 2.24 (the prompt asked 2.0 ± 0.15: kept for the mean of 20 runs and for
+  300 × 300, ±0.25 for one run on 100 × 100).
+- Module 12, sources (checked in November 2026, details in
+  `docs/reports/network-lab-12.md`): read in the papers or their abstracts —
+  Pastor-Satorras and Vespignani (2001), Castellano and Pastor-Satorras
+  (2010, abstract: the largest hub, not "a hub and its neighbours"),
+  Lloyd-Smith et al. (2005), Barthélemy et al. (2004, the formula of τ),
+  Viboud et al. (2016), Newman's chapter 16, the two Zenodo preprints
+  (including the four sub-period exponents in section S2 of the supplement).
+  Colgate et al. (1989) could not be opened: the sentence rests on its title
+  and on the account of it in the Institute's preprint, and says "proposed a
+  model". No chapter number is given for Latora, Nicosia and Russo.
+- Module 12, Italian terms: focolaio (outbreak; grande focolaio), epidemia,
+  soglia, trasmissibilità, superdiffusore, dimensione finale, prevalenza,
+  immunizzazione, immunizzazione dei conoscenti (label "Conoscenti"), seme,
+  onda di saturazione, crescita più lenta dell'esponenziale (sub-esponenziale),
+  scala di gruppi, semilogaritmico.
+- Module 12 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-12.mjs`
+  (about a minute and a half; run it whole, since "page" uses the numbers of
+  the other sections) and by
+  `scripts/lab/browser-checks/modules/network-epidemics-on-networks.mjs`.
+  The page formats with `toLocaleString` (12.95 shows as 13.0): the checks
   format the same way.

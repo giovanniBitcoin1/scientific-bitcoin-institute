@@ -9,5 +9,6 @@
   "network/who-connects-to-whom": { "figures": 2, "panels": 3, "exercises": 6 },
   "network/communities": { "figures": 2, "panels": 3, "exercises": 6 },
   "network/weights-flows-navigation": { "figures": 2, "panels": 3, "exercises": 6 },
-  "network/robustness-and-cascades": { "figures": 2, "panels": 3, "exercises": 6 }
+  "network/robustness-and-cascades": { "figures": 2, "panels": 3, "exercises": 6 },
+  "network/epidemics-on-networks": { "figures": 2, "panels": 3, "exercises": 6 }
 }

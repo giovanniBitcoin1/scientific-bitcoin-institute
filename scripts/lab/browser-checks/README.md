@@ -27,12 +27,25 @@ npm install
 
 ## Run
 
-From this folder, after `npx vite build` in the repo root:
+From this folder, after `npx vite build` in the repo root.
+
+**One command at a time, in the foreground.** Do not chain them (`&&`, `;`, a
+loop) and do not start them as background jobs: each one launches a browser,
+and on a PC with little free memory several in one shell have crashed Node
+(from module 05 on). Each passes when run on its own. If one would take more
+than ten minutes, split it.
+
+The index pages and the "Labs" section:
 
 ```
 node check-index.mjs network
 node check-index.mjs complexity
 node check-links.mjs
+```
+
+Every ready module of the Network Lab, locked and in the admin preview:
+
+```
 node check-module.mjs network reading-a-network
 node check-module.mjs network what-are-we-measuring
 node check-module.mjs network centrality
@@ -40,6 +53,16 @@ node check-module.mjs network triangles-weak-ties-motifs
 node check-module.mjs network heavy-tails-done-right
 node check-module.mjs network growth-mechanisms
 node check-module.mjs network fitness-and-competition
+node check-module.mjs network who-connects-to-whom
+node check-module.mjs network communities
+node check-module.mjs network weights-flows-navigation
+node check-module.mjs network robustness-and-cascades
+node check-module.mjs network epidemics-on-networks
+```
+
+The functional checks, one per module:
+
+```
 node modules/network-reading-a-network.mjs
 node modules/network-what-are-we-measuring.mjs
 node modules/network-centrality.mjs
@@ -47,7 +70,22 @@ node modules/network-triangles-weak-ties-motifs.mjs
 node modules/network-heavy-tails-done-right.mjs
 node modules/network-growth-mechanisms.mjs
 node modules/network-fitness-and-competition.mjs
+node modules/network-who-connects-to-whom.mjs
+node modules/network-communities.mjs
+node modules/network-weights-flows-navigation.mjs
+node modules/network-robustness-and-cascades.mjs
+node modules/network-epidemics-on-networks.mjs
 ```
+
+A Complexity Lab page is checked in the same way, for instance
+`node check-module.mjs complexity scale-free`.
+
+The Node self-checks of the modules' logic are separate and need no browser:
+`node scripts/lab/check-network-01.mjs` … `check-network-12.mjs`, from the
+repo root, again one at a time.
+
+When a module is added: one more line in each of the two lists above, and its
+expected counts in `expect.json`.
 
 Every script prints one `PASS`/`FAIL` line per check, then
 `N failures of M checks`, and exits with code 1 if anything failed.
