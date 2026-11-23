@@ -106,7 +106,7 @@ afterwards: no difference).
 | 07 | `fitness-and-competition` | done | the commit "Network Lab 07: Fitness and competition" | A The fit get rich; B One node above the rest; C Age and density | `race`, `energy` |
 | 08 | `who-connects-to-whom` | done | the commit "Network Lab 08: Who connects to whom" | A Do hubs link to hubs?; B Mixing and robustness; C Birds of a feather | `wirings`, `illusion` |
 | 09 | `communities` | done | the commit "Network Lab 09: Communities" | A Find the groups; B The resolution limit; C Can they be found at all? | `split`, `ring` |
-| 10 | `weights-flows-navigation` | planned | – | – | – |
+| 10 | `weights-flows-navigation` | done | the commit "Network Lab 10: Weights, flows and navigation" | A Weights matter; B How much can flow?; C Find your way | `strength`, `flow` |
 | 11 | `robustness-and-cascades` | planned | – | – | – |
 | 12 | `epidemics-on-networks` | planned | – | – | – |
 | 13 | `social-contagion-network-effects` | planned | – | – | – |
@@ -129,8 +129,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **07 Fitness and competition:** done.
 - **08 Who connects to whom:** done.
 - **09 Communities:** done.
-- **10 Weights, flows and navigation:** Dijkstra, maximum flow and minimum
-  cut, decentralised search on a Kleinberg lattice.
+- **10 Weights, flows and navigation:** done.
 - **11 Robustness and cascades:** percolation on networks, attacks, overload
   cascades, interdependent networks.
 - **12 Epidemics on networks:** branching processes, SI/SIS/SIR, vanishing
@@ -144,7 +143,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 10, `weights-flows-navigation`.
+Nothing in progress. Next: module 11, `robustness-and-cascades`.
 
 ## Decisions
 
@@ -168,7 +167,7 @@ Nothing in progress. Next: module 10, `weights-flows-navigation`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08 and 09 carry the DRAFT marker:
+- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09 and 10 carry the DRAFT marker:
   to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -429,3 +428,55 @@ Nothing in progress. Next: module 10, `weights-flows-navigation`.
 - Browser checks on this PC: several `check-module.mjs` runs chained in one
   shell crashed Node from module 05 on (low memory); each passes when run on
   its own. Run them one per command.
+- Module 10, things a later module may reuse, all in
+  `weights-flows-navigation/`: `weights.js` (a CSR with link ids; strength,
+  disparity and the disparity filter with its backbone; a binary heap;
+  Dijkstra; Floyd–Warshall for checks; Brandes betweenness with costs, one
+  source at a time, with the fewest links among the cheapest routes; Spearman
+  with ties; degree classes and a power-law fit), `flow.js` (flow networks as
+  pairs of arcs, Dinic's maximum flow with the minimum cut and the source
+  side, flow decomposition into routes, widest route = largest bottleneck then
+  fewest arcs, brute-force versions for checks; the synthetic payment network,
+  disjoint routes, the uncertainty model), `kleinberg.js` (offset table,
+  lattice, greedy routing), `experiments.js`, `figures.js`. Module 11 can
+  start from `maxFlow`/`widestRoute` for overload cascades and from the
+  weighted betweenness for attacks. It imports only shared lab code
+  (`graphUtils.js` for preferential attachment, `rng.js`, `Slider`,
+  `useExperiment`, `ui.jsx`, `charts.jsx`): no code of another module, no
+  shared code changed, no canvas (everything is SVG).
+- Module 10, choices to review: Panel A uses m = 3 links per new node, fits β
+  on the means of degree classes (every degree up to 10, then a tenth of a
+  decade), and takes routes and both betweenness rankings from the same 200
+  random sources (one random target each), not from all pairs; a pair
+  "differs" when its cheapest route (cost 1/w) has more links than its
+  shortest one. Panel B: m = 3 channels, capacities lognormal with median
+  1,000,000 and σ = 1, whole numbers, balance uniform on 0…c; "the widest
+  single route" in the pair readout is by the balances (what one route can
+  really carry), while the blind strategies use the public capacity; the
+  blind single route is the widest by capacity and, among those, the one
+  with the fewest channels; "up to four routes" are found one after the other
+  sharing no channel, and the number of parts (1–4) is the one the
+  uncertainty model rates most likely; the amount is a fraction of the
+  sender's outgoing balance, at least 1. Panel C: α in steps of 0.25, the
+  readout uses 200 pairs and the sweeps 2,000 pairs on one lattice per
+  (L, α); "Sweep L" uses L = 25 … 400. F1 weights are whole numbers 1–20;
+  F2's second network has its minimum cut in the middle. The offsets check
+  uses a chi-square test and 4 standard errors on r = 1, 2, 3 (the prompt's
+  "within 1%" is tighter than the sampling error at α = 0 with 400,000
+  draws). F1 is about 630–660 px tall at 375 px (six sliders).
+- Module 10, findings the texts state: blind splitting into equal parts adds
+  at most 0.014 to the success of one blind route, while knowing every balance
+  moves the half-success point from 7% to 71% of the sender's balance; the
+  best α for greedy routing is 1, 1.25, 1.5, 1.5 at L = 50, 100, 200, 400 and
+  α = 1.5 still beats 2 at L = 800; with the weights shuffled the backbone at
+  0.05 falls apart (largest component 1.3% of the nodes).
+- Module 10, Italian terms: peso, forza, disparità, dorsale (*backbone*),
+  filtro di disparità, flusso massimo, taglio minimo, cammino più largo
+  (percorso for "route"), capacità, strozzatura, canale di pagamento,
+  pagamento in più parti (*multi-part payment*), saldo, instradamento greedy,
+  navigabile / navigabilità, contatto a lungo raggio, reticolo, toro.
+- Module 10 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-10.mjs`
+  (about 15 s; run it whole, since "page" uses the numbers of the other
+  sections) and by
+  `scripts/lab/browser-checks/modules/network-weights-flows-navigation.mjs`.

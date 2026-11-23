@@ -93,7 +93,7 @@
     "slug": "weights-flows-navigation",
     "number": "10",
     "part": "III",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Weights, flows and navigation",
     "title_it": "Pesi, flussi e navigazione",
     "summary_en": "Shortest paths, maximum flow, and finding your way with local information.",
