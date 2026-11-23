@@ -544,6 +544,10 @@ if (section('page')) {
     quoted('Exercise 4, the limit', [`e^(−1.5) = ${enOf(Math.exp(-1.5), 3)}`])
     // lecture
     quoted('lecture, weights', [`give β = ${enOf(d.beta, 2)}`, `back to ${enOf(A.shuffled.beta, 2)}`, `in ${Math.round(100 * d.paths.differ)}% of the pairs`, `Spearman correlation of ${enOf(d.paths.rho, 2)}`], lectureEn)
+    const maxGain = Math.max(...B.rows.map((r) => r.split - r.single))
+    info(`Panel B: largest gain of blind splitting over one blind route ${maxGain.toFixed(4)} (at ${B.rows.find((r) => r.split - r.single === maxGain).fraction} of the balance)`)
+    quoted('lecture, box: the largest gain of blind splitting', [`splitting blind adds at most ${enOf(100 * maxGain, 1)} percentage points of success`, 'splitting blindly gains little', 'first shipped an experimental plugin built on their method in version 23.08 (August 2023)'], lectureEn)
+    quoted('lecture, box (IT): the largest gain of blind splitting', [`aggiunge al massimo ${enOf(100 * maxGain, 1).replace('.', ',')} punti percentuali di successo`, 'ha distribuito per la prima volta un plugin sperimentale'], lectureIt)
     quoted('lecture, box', [`at ${Math.round(100 * B.half.single)}% of the sender's balance`, `still succeed at ${Math.round(100 * B.half.full)}%`, 'a synthetic network, not Lightning data'], lectureEn)
     quoted(
       'lecture, navigation',

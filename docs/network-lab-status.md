@@ -116,7 +116,7 @@ Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
 (status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
 page); c3cf222 (Network Lab 02: fixes — Panel A and Exercise 4 now both quote
 the 30-sample averages of the largest component and say how far one sample
-swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network Lab 05: fixes" (prompt 5b); "Network Lab 07: fixes" (prompt 8, stage 0: "Age and cost" now says the theory gives 3 at ν = 0 and that the recipe reads low, so the four values are compared with one another; same remark in Panel C's observe list).
+swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network Lab 05: fixes" (prompt 5b); "Network Lab 07: fixes" (prompt 8, stage 0: "Age and cost" now says the theory gives 3 at ν = 0 and that the recipe reads low, so the four values are compared with one another; same remark in Panel C's observe list); "Network Lab 10: fixes" (prompt 11, stage 0: the Lightning box now says that max-flow min-cut shows what several routes can carry together but that splitting blindly adds at most 1.4 percentage points of success, and that Core Lightning first shipped the plugin in 23.08; both pinned in `check-network-10.mjs`).
 
 ## Planned content (may change)
 
