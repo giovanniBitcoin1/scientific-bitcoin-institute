@@ -64,7 +64,7 @@ Enthusiasm was followed by re-examination. In 2019 Anna Broido and Aaron Clauset
 
 ## A Bitcoin connection
 
-Bitcoin meets these ideas twice. The first is a design choice. Hubs give an attacker obvious targets, so the Bitcoin peer network avoids them on purpose: Bitcoin Core caps the number of connections a node keeps (125 by default) and picks its outbound peers at random among the addresses it knows. No node gathers a share of the links whose loss, or capture, would split the network.
+Bitcoin meets these ideas twice. The first is a design choice. Hubs give an attacker obvious targets, so the Bitcoin peer network avoids them on purpose: Bitcoin Core caps the number of connections a node keeps (200 by default since version 32.0; 125 before) and picks its outbound peers at random among the addresses it knows. No node gathers a share of the links whose loss, or capture, would split the network.
 
 The second is research. Bitcoin's price, as a function of the time elapsed since the genesis block, follows a power law with exponent β = 5.69 ± 0.05 (R² = 0.961 over 5,696 daily observations). This is a power-law relation between two quantities rather than a distribution, but the same discipline applies: a straight line on log–log axes is where the argument starts, not where it ends. The Institute's preprint takes the next step and derives the law mechanistically, from the dynamics of network adoption and a generalised Metcalfe scaling of network value. Read it on our [Publications page](/research/publications#preprint).
 

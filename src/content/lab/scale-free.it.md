@@ -64,7 +64,7 @@ All'entusiasmo seguì una verifica. Nel 2019 Anna Broido e Aaron Clauset applica
 
 ## Un collegamento con Bitcoin
 
-Bitcoin incontra queste idee due volte. La prima è una scelta di progetto. Gli hub offrono a un attaccante bersagli ovvi, quindi la rete dei peer di Bitcoin li evita di proposito: Bitcoin Core limita il numero di connessioni che un nodo mantiene (125 per impostazione predefinita) e sceglie i peer in uscita a caso tra gli indirizzi che conosce. Nessun nodo raccoglie una quota di collegamenti la cui perdita, o cattura, spezzerebbe la rete.
+Bitcoin incontra queste idee due volte. La prima è una scelta di progetto. Gli hub offrono a un attaccante bersagli ovvi, quindi la rete dei peer di Bitcoin li evita di proposito: Bitcoin Core limita il numero di connessioni che un nodo mantiene (200 per impostazione predefinita dalla versione 32.0; prima 125) e sceglie i peer in uscita a caso tra gli indirizzi che conosce. Nessun nodo raccoglie una quota di collegamenti la cui perdita, o cattura, spezzerebbe la rete.
 
 La seconda è la ricerca. Il prezzo di Bitcoin, in funzione del tempo trascorso dal blocco genesi, segue una legge di potenza con esponente β = 5,69 ± 0,05 (R² = 0,961 su 5.696 osservazioni giornaliere). Si tratta di una relazione a legge di potenza tra due grandezze e non di una distribuzione, ma vale la stessa disciplina: una retta su assi log–log è il punto in cui l'argomento comincia, non quello in cui finisce. Il preprint dell'Istituto fa il passo successivo e ricava la legge in modo meccanicistico, dalla dinamica di adozione della rete e da una legge di Metcalfe generalizzata per il valore della rete. Leggilo sulla nostra [pagina delle Pubblicazioni](/research/publications#preprint).
 
