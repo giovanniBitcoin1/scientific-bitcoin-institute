@@ -58,6 +58,7 @@ node check-module.mjs network communities
 node check-module.mjs network weights-flows-navigation
 node check-module.mjs network robustness-and-cascades
 node check-module.mjs network epidemics-on-networks
+node check-module.mjs network social-contagion-network-effects
 ```
 
 The functional checks, one per module:
@@ -75,13 +76,14 @@ node modules/network-communities.mjs
 node modules/network-weights-flows-navigation.mjs
 node modules/network-robustness-and-cascades.mjs
 node modules/network-epidemics-on-networks.mjs
+node modules/network-social-contagion-network-effects.mjs
 ```
 
 A Complexity Lab page is checked in the same way, for instance
 `node check-module.mjs complexity scale-free`.
 
 The Node self-checks of the modules' logic are separate and need no browser:
-`node scripts/lab/check-network-01.mjs` … `check-network-12.mjs`, from the
+`node scripts/lab/check-network-01.mjs` … `check-network-13.mjs`, from the
 repo root, again one at a time.
 
 When a module is added: one more line in each of the two lists above, and its

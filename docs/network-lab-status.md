@@ -109,7 +109,7 @@ afterwards: no difference).
 | 10 | `weights-flows-navigation` | done | the commit "Network Lab 10: Weights, flows and navigation" | A Weights matter; B How much can flow?; C Find your way | `strength`, `flow` |
 | 11 | `robustness-and-cascades` | done | the commit "Network Lab 11: Robustness and cascades" | A Failures, attacks and onions; B Overload; C Coupled networks | `fail`, `cascade` |
 | 12 | `epidemics-on-networks` | done | the commit "Network Lab 12: Epidemics on networks" | A Threshold or no threshold; B Hubs first; C Whom to vaccinate | `seed`, `growth` |
-| 13 | `social-contagion-network-effects` | planned | – | – | – |
+| 13 | `social-contagion-network-effects` | done | the commit "Network Lab 13: Social contagion and network effects" | A Tipping points; B The cascade window; C Clusters and long ties | `cascade`, `riot` |
 | 14 | `capstone-a-real-network` | planned | – | – | – |
 
 Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
@@ -132,8 +132,7 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **10 Weights, flows and navigation:** done.
 - **11 Robustness and cascades:** done.
 - **12 Epidemics on networks:** done.
-- **13 Social contagion and network effects:** information cascades, critical
-  mass, thresholds, complex contagion, Bass model.
+- **13 Social contagion and network effects:** done.
 - **14 Capstone:** the whole toolkit on one real network.
 
 Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
@@ -141,7 +140,7 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. Next: module 13, `social-contagion-network-effects`.
+Nothing in progress. Next: module 14, `capstone-a-real-network`.
 
 ## Decisions
 
@@ -165,7 +164,7 @@ Nothing in progress. Next: module 13, `social-contagion-network-effects`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11 and 12 carry the DRAFT marker:
+- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12 and 13 carry the DRAFT marker:
   to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -626,3 +625,83 @@ Nothing in progress. Next: module 13, `social-contagion-network-effects`.
   `scripts/lab/browser-checks/modules/network-epidemics-on-networks.mjs`.
   The page formats with `toLocaleString` (12.95 shows as 13.0): the checks
   format the same way.
+- Module 12, review by Adriano (prompt 13): no fixes needed. The mean degree
+  4.35 of the power-law network, the lattice limit and the height of F1 stay
+  as they are, and the sentence on Colgate et al. (1989) is right: Adriano
+  read the abstract (cumulative cases grew as the cube of time, not
+  exponentially, in a risk-behaviour model with biased mixing that gives a
+  saturation wave from high- to low-risk groups). That check is done.
+- Module 13, things a later module may reuse, all in
+  `social-contagion-network-effects/`: `contagion.js` (information cascades
+  as sequences and as batches; Granovetter's outcome three ways, the normal
+  distribution function, the smooth fixed point and the standard deviation at
+  which it jumps; the market p = z(1 − z) and its path; the Bass closed form,
+  peak and a Runge–Kutta check; `cascade`, a threshold cascade with a counter
+  per node and a queue that also gives the synchronous step of every adoption,
+  with `needByShare` and `needByCount`; a brute-force version; the density
+  of a cluster; Watts's cascade condition and window), `experiments.js`,
+  `figures.js`. It imports module 08's `mixing.js` (`makeSource`,
+  `degreesOf`), module 09's `community.js` (`twoGroupSBM`), module 11's
+  `robust.js` (`seedOf`, `moments`, `drain`) and `wattsStrogatz` from the
+  shared `graphUtils.js` (the Complexity Lab's small-world generator, not
+  moved) without changing them; Vite now puts `community.js` in a small chunk
+  of its own, loaded only when unlocked. No shared code changed, so no
+  regression compare was run. Module 12's `spread` takes one seed and module
+  05's generating functions were not needed (the cascade condition is a short
+  sum): the self-check uses `spread` with β = 1 to confirm the cascade code.
+- Module 13, a quirk of Node 24.22 met while writing the self-check: once
+  `cascadeStats` had been optimised, an object it had returned earlier had
+  its two decimal fields overwritten by the next call (the whole-number
+  fields were not). The function now returns whole numbers only
+  (`majority2`), with `wrongShareOf` and `majorityOf` for the shares, and a
+  check pins that an earlier batch is unchanged. Not seen anywhere else; worth
+  remembering if a quoted number ever changes for no reason.
+- Module 13, choices to review: F2 comes first in the lecture (section 2) and
+  F1 second; in F2 an even split of the thirty signals counts as half; the
+  slider of the standard deviation moves in steps of 0.1 and the sweep in
+  steps of 1; the crowd on show is not one of the 200 of the histogram; a
+  threshold is a real number and a person joins when the count reaches it;
+  Panel B's mean degree moves in steps of 0.05 (so that exercise 6 can ask
+  for 5.8 and 6.2) and its sweep in steps of 0.25; under preferential
+  attachment the mean degree is the nearest even number and the sweep has
+  z = 2, 4, 6, 8; the panel at one z and the long-ties and cluster sweeps run
+  when the page loads (1.6 s to 3.1 s in headless Chrome for the whole page),
+  the two heavier sweeps on buttons; long ties use the points p = 0, 0.001,
+  0.003, 0.01, 0.03, 0.1, 0.2, 0.3, 0.5, 1 and one random start node per
+  network; the cluster panel has q from 0.1 to 0.6 in steps of 0.05 and counts
+  a network as "fallen" when more than half of the second group adopts. F1 is
+  376 px tall at 1280 px and 499 px at 375 px.
+- Module 13, findings the texts state: both of Adriano's unexpected findings
+  hold. At p = 0.01 simple contagion is 29 times faster and complex contagion
+  saves 8% of its steps (1.11 to 1.32 times faster over eleven sets of 20
+  networks); at p = 0.5 complex contagion almost never spreads (4 networks of
+  220), at p = 1 never. With q = 0.5 the second group falls in 15 networks of
+  20 at k_out = 4, where the average outside share is 0.286; the nodes that
+  let the cascade in have 6.81 outside links against 4.01 on average. A
+  hundred people blur Granovetter's jump: the share of crowds ending above 50
+  climbs from 0.04 to 0.85 between standard deviations 11 and 15.
+- Module 13, sources (checked in November 2026, details in
+  `docs/reports/network-lab-13.md`): read in the papers — Salganik et al.
+  (2006), Granovetter (1978, both examples), Easley and Kleinberg ch. 19 (the
+  cluster claim, "density greater than 1 − q"), Morris (2000, who states it as
+  p-cohesive groups: the lecture attributes the form to Easley and Kleinberg),
+  Watts (2002), Watts and Dodds (2007), Centola (2010), Centola and Macy
+  (2007, manuscript), Ugander et al. (2012, abstract), Peterson (2018),
+  Wheatley et al. (2019, β = 1.69), the Zenodo supplement (section S2: 1.59,
+  2.64, 3.28, 6.83), Barabási ch. 10. Only through secondary sources: the
+  averages p = 0.03 and q = 0.38 of Sultan et al. (1990) (the lecture says
+  "is usually quoted for") and what Alabi (2017) fitted (the box says only
+  "Metcalfe-type laws"). Newman's chapter 16 has sections on complex
+  contagion (publisher's chapter page; the text was not read).
+- Module 13, Italian terms: cascata informativa (information cascade), effetto
+  gregge (herding), soglia, punto di svolta (tipping point), massa critica,
+  effetto di rete, lock-in (kept), cascata globale, nodo vulnerabile, finestra
+  delle cascate, contagio complesso / semplice, legame lungo, gli influenti
+  (influentials), bene di rete, gruppo coeso / gruppo (cluster), ricablatura.
+- Module 13 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-13.mjs`
+  (about a minute; run it whole, since "page" uses the numbers of the other
+  sections) and by
+  `scripts/lab/browser-checks/modules/network-social-contagion-network-effects.mjs`.
+  The page formats with `toLocaleString` (0.365 shows as 0.37, 0.355 as
+  0.36): the texts follow the page.
