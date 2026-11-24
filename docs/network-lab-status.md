@@ -110,7 +110,7 @@ afterwards: no difference).
 | 11 | `robustness-and-cascades` | done | the commit "Network Lab 11: Robustness and cascades" | A Failures, attacks and onions; B Overload; C Coupled networks | `fail`, `cascade` |
 | 12 | `epidemics-on-networks` | done | the commit "Network Lab 12: Epidemics on networks" | A Threshold or no threshold; B Hubs first; C Whom to vaccinate | `seed`, `growth` |
 | 13 | `social-contagion-network-effects` | done | the commit "Network Lab 13: Social contagion and network effects" | A Tipping points; B The cascade window; C Clusters and long ties | `cascade`, `riot` |
-| 14 | `capstone-a-real-network` | planned | – | – | – |
+| 14 | `capstone-a-real-network` | done | the commit "Network Lab 14: Capstone, a real network" | A The workbench; B Stress tests; C The map and the spread | `map`, `outliers` |
 
 Other commits: 84e4f41 (multi-lab engine, Network Lab skeleton); 9efa518
 (status file, browser checks, regression); e2ad0e3 (Labs: nav section and hub
@@ -133,14 +133,19 @@ swings; Barabási reference); the commits "Network Lab 04: fixes" and "Network L
 - **11 Robustness and cascades:** done.
 - **12 Epidemics on networks:** done.
 - **13 Social contagion and network effects:** done.
-- **14 Capstone:** the whole toolkit on one real network.
+- **14 Capstone:** done.
 
 Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 14.
 
 ## Work in progress
 
-Nothing in progress. Next: module 14, `capstone-a-real-network`.
+Nothing in progress. The fourteen modules are done.
+
+## Next
+
+The Network Lab is complete and waits for Adriano's review. Nothing is to be
+pushed or merged: the branch `network-lab` stays local until he says so.
 
 ## Decisions
 
@@ -164,7 +169,7 @@ Nothing in progress. Next: module 14, `capstone-a-real-network`.
 
 ## Open items
 
-- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12 and 13 carry the DRAFT marker:
+- Lectures of modules 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13 and 14 carry the DRAFT marker:
   to be reviewed by Adriano.
 - Shared since module 03: `src/components/lab/network/charts.jsx` (SVG line
   chart with linear or log axes) and `NetCanvas.jsx` (static network drawing,
@@ -705,3 +710,65 @@ Nothing in progress. Next: module 14, `capstone-a-real-network`.
   `scripts/lab/browser-checks/modules/network-social-contagion-network-effects.mjs`.
   The page formats with `toLocaleString` (0.365 shows as 0.37, 0.355 as
   0.36): the texts follow the page.
+- Module 14, data: `src/data/lab/networks/airports-2014.json` (419 kB) is
+  built from the OpenFlights files airports.dat and routes.dat (Open Database
+  License 1.0, checked on openflights.org/data and in the LICENSE file beside
+  the data; hashes as in prompt 14) by `node scripts/lab/build-network-14.mjs`,
+  which keeps the raw files in the git-ignored
+  `scripts/lab/network-14-cache.local/` and also writes
+  `src/data/lab/precomputed/network-14-airports.json` (129 kB). Notice in
+  `airports-2014.NOTICE.txt`, entry in `networks.meta.json`, credit line under
+  Figure F1. The data are not corrected (airport id 5613, code KSLI, is wrong
+  on purpose). `check-network-14.mjs` repeats the build from the cache when
+  the raw files are there, and always recomputes the precomputed file.
+- Module 14, code, all in `capstone-a-real-network/`: `capstone.js` (the six
+  cards as jobs, the stress tests, the spread, the closures, great-circle
+  distances; imports of modules 02, 03, 05, 08, 09, 10, 11, 12 and 13, none of
+  them changed, so no regression compare was run), `loader.js` (edge lists
+  and the JSON of `lncli describegraph`), `precompute.js`, `store.js` (the
+  networks and the choice shared by the three panels), `MapCanvas.jsx`,
+  `NetworkPicker.jsx`, `useBetweenness.js`. Module 01's `netstats.js` is
+  written for networks of up to 60 nodes with their own format and was not
+  used: components and distances come from `graphUtils.js`, which module 01
+  itself uses. Vite now puts `centrality.js`, `fit.js`, `weights.js`,
+  `epidemic.js` and `contagion.js` in small chunks of their own, loaded only
+  when unlocked. The module's chunk is 651 kB (220 kB gzipped), of which
+  548 kB are the two JSON files.
+- Module 14, choices to review: the title already in `network-modules.json`
+  was kept ("Capstone: a real network from start to finish" / "Capstone: una
+  rete reale dall'inizio alla fine"); the data file also holds each airport's
+  name and OpenFlights id (the tap in F1 shows the name), which brings it to
+  419 kB; a tap on the map takes the largest airport within 7 px, otherwise the
+  nearest within 18 px, and a box finds an airport by code or city; F2 labels
+  the airports among the 60 of highest betweenness with fewer than 40 routes
+  (Anchorage, Papeete, Port Moresby, Bethel and Winnipeg); F1 is coloured by
+  the best of ten runs of Louvain, while card 5 runs Louvain itself (run 1,
+  2, …); cards 5 and 6 and the cascades are computed when the page loads
+  (1.8 s to the last panel in headless Chrome), cards 1 to 4 show the
+  precomputed values with "Compute again" (3.8 s for centrality, 11 s for the
+  ten rewirings); above 5,000 nodes the cascades start from the 300 sampled
+  nodes; a network without coordinates is drawn up to 1,500 nodes; the
+  figures are 472 and 395 px tall at 1280 px.
+- Module 14, findings the texts state: Louvain makes Alaska one group of 131
+  airports in nine runs of ten, and in the first run splits it and puts
+  Anchorage with Atlanta; betweenness is the most damaging order of removal up
+  to 5% and plain degree from 10%; z of r against the rewirings is 18.7 here
+  and 10.7 to 29.8 over ten other seeds, so the lecture says "more than ten";
+  the rich-club ratio is 1.20 above 100 routes and 1.35 among the eight
+  largest airports with the page's seed, 1.18 to 1.20 and 1.24 to 1.34 over ten
+  other seeds, so the lecture says "about 1.2" and "about 1.3".
+- Module 14, sources (checked in November 2026, details in
+  `docs/reports/network-lab-14.md`): the licence on openflights.org; Guimerà
+  et al. (2005: truncated power law, a network of cities, Anchorage named);
+  Barrat et al. (2004: seats, β = 1.5 ± 0.1); Colizza et al. (2006: a "mild"
+  rich club); Peel et al. (2017); LND's ChannelGraph fields. Brockmann and
+  Helbing (2013) only through the abstract: the lecture gives no formula.
+- Module 14, Italian terms: banco di lavoro (workbench), prova di carico
+  (stress test), dati grezzi (raw data), istantanea (snapshot), scheda (card,
+  and the record of an airport), ammasso (cluster of percolation), porta
+  d'accesso (gateway); "Capstone" stays in the title.
+- Module 14 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in `scripts/lab/check-network-14.mjs`
+  (about a minute and a half; run it whole, since "page" uses the numbers of
+  the other sections) and by
+  `scripts/lab/browser-checks/modules/network-capstone-a-real-network.mjs`.

@@ -59,6 +59,7 @@ node check-module.mjs network weights-flows-navigation
 node check-module.mjs network robustness-and-cascades
 node check-module.mjs network epidemics-on-networks
 node check-module.mjs network social-contagion-network-effects
+node check-module.mjs network capstone-a-real-network
 ```
 
 The functional checks, one per module:
@@ -77,6 +78,7 @@ node modules/network-weights-flows-navigation.mjs
 node modules/network-robustness-and-cascades.mjs
 node modules/network-epidemics-on-networks.mjs
 node modules/network-social-contagion-network-effects.mjs
+node modules/network-capstone-a-real-network.mjs
 ```
 
 A Complexity Lab page is checked in the same way, for instance

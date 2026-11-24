@@ -14,6 +14,22 @@
     "florentine-families.json": {
       "description": "Marriage ties among 15 Florentine families: 20 links. Edges use 0-based positions in `nodes` (alphabetical).",
       "citation": "Padgett, J. F. and Ansell, C. K. (1993). Robust action and the rise of the Medici, 1400-1434. American Journal of Sociology 98, 1259-1319. Edge list as in Breiger, R. L. and Pattison, P. E. (1986). Cumulated social roles: the duality of persons and their algebras. Social Networks 8, 215-256."
+    },
+    "airports-2014.json": {
+      "description": "The world's airports and the routes between them: 3,214 airports, 18,858 undirected links in 7 components (the largest has 3,188 airports and 18,833 links). Routes as of June 2014.",
+      "source": "OpenFlights Airports and Routes Databases (airports.dat, routes.dat)",
+      "url": "https://openflights.org/data",
+      "files_url": "https://raw.githubusercontent.com/jpatokal/openflights/master/data/",
+      "retrieved": "2026-11-24",
+      "sha256": {
+        "airports.dat": "9387cdb38df5bd664da823f8ccb69fdd9b33a1888f5b7cca09c34a3cd9ff59f9",
+        "routes.dat": "bd373706238134f619c624c606dccc74c05c2582a977c489c81de501735f2390"
+      },
+      "licence": "Open Database License (ODbL) v1.0; individual contents under the Database Contents License (DbCL) v1.0. This derived file is made available under the same licence (see airports-2014.NOTICE.txt).",
+      "licence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "notice": "Contains information from the OpenFlights Airports and Routes Databases, which are made available under the Open Database License (ODbL) v1.0 (https://opendatacommons.org/licenses/odbl/1-0/). This derived file is made available under the same licence.",
+      "build": "Written by scripts/lab/build-network-14.mjs. A route row is kept only if both airport ids are numbers found in airports.dat (892 of 67,663 rows dropped); the one row from an airport to itself is dropped. One undirected link per pair of airports with at least one row in either direction (810 links are flown in one direction only); its weight is the number of different airline codes (first field) on the pair, both directions together. A node per airport with at least one link: OpenFlights id, code (IATA, or ICAO where the IATA code is missing: 19 airports), name, city, country (an index into `countries`), latitude and longitude rounded to two decimals, and region (an index into `regions`: the first part of the tz database name; -1 where it is missing, 29 airports). `links` is a flat list a, b, weight with a and b positions in the node arrays. Every component is kept. Nothing in the data is corrected: airport id 5613 has the name, ICAO code, coordinates and time zone of Los Alamitos Army Air Field, California, with the city and country of Solwezi ('Solwesi'), Zambia, and the lecture uses it; Istanbul's old airport appears with the code ISL. The only decoding is of the file's escapes (doubled quotes, ' for an apostrophe, N for a missing value).",
+      "citation": "OpenFlights. Airport and route databases. https://openflights.org/data"
     }
   }
 }

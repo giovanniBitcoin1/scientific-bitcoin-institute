@@ -325,7 +325,9 @@ script per module: `node scripts/lab/check-network-01.mjs`,
 `check-network-02.mjs`, … (rerun when the logic, presets, seeds or stored
 networks change). Module 05 also has a precomputed file,
 `src/data/lab/precomputed/network-05-giant.json`, rewritten by
-`node scripts/lab/precompute-network-05.mjs`. Where the texts quote numbers the page computes, the script
+`node scripts/lab/precompute-network-05.mjs`. Module 14 has a data file and a
+precomputed file, both written by `node scripts/lab/build-network-14.mjs`
+(see below). Where the texts quote numbers the page computes, the script
 pins them ("quoted on the page" checks), so a changed preset cannot leave the
 text behind. Shared helpers: `network/ui.jsx`, `network/charts.jsx` (SVG
 line chart) and `network/NetCanvas.jsx` (static network drawing); reuse
@@ -342,6 +344,18 @@ compare against a build of main. Run them on `dist/` after `npx vite build`.
 Real network data sit in `src/data/lab/networks/` with `networks.meta.json`
 (source, licence, citation): Zachary's karate club and the Florentine
 families, taken from NetworkX (BSD-3-Clause).
+
+Module 14 (the capstone) runs on `airports-2014.json`: the airports and
+routes of the OpenFlights databases (Open Database License 1.0; the notice is
+in `airports-2014.NOTICE.txt` and shown under the module's first figure — keep
+both). `node scripts/lab/build-network-14.mjs` downloads the two raw files
+into the git-ignored `scripts/lab/network-14-cache.local/` (never commit
+them), rewrites the data file and
+`src/data/lab/precomputed/network-14-airports.json`;
+`check-network-14.mjs` fails if either is not what the code gives. The data
+are not corrected (one airport record is wrong on purpose: the lecture uses
+it). The module's code is mostly imports of modules 02–13, in
+`capstone-a-real-network/capstone.js`.
 
 Italian terms, as in Complexity Lab modules 02–04: link = collegamento,
 degree = grado, path = cammino, shortest path = cammino minimo, component =
