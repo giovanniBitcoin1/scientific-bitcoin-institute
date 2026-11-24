@@ -146,21 +146,42 @@ review file" and "Network Lab 15: report".
 
 ## Next
 
-The Lab is complete, checked and waiting for Adriano's review. Nothing is to
-be pushed or merged: the branch `network-lab` stays local until he says so.
+The Lab is complete. `origin/main` is merged into the branch, the checks
+pass on the merged site, and **the branch waits for Adriano to push** (prompt
+16, 24 November 2026). Nobody else pushes, and the local `main` has not been
+touched.
 
+- The merge is commit 0e246f5, "Merge origin/main into network-lab": the ten
+  commits of `origin/main` up to a93d2d0 (the Newsroom, and a new Research
+  Fellow), no conflicts. The tip before it carries the local tag
+  `pre-merge-16` (never push it; `git reset --hard pre-merge-16` would undo
+  the merge).
+- Release decisions (Adriano, prompt 16): the Lab goes online locked
+  (`src/data/lab/config.json` unchanged), the DRAFT markers stay, `docs/` goes
+  to main as it is.
+- What was checked, with every result, and the push commands:
+  `docs/reports/network-lab-16.md`.
+- Main changed how the site is built. `npm run build` is now the whole
+  pipeline (content check, `vite build`, static pages, feed, sitemap) and the
+  deploy runs `npm run check:dist` after it: both pass on the merged branch.
+  The lab checks still run on `dist/` after either `npx vite build` or
+  `npm run build` (same bundles). Main's own browser check is
+  `scripts/newsroom/browser-checks/check-routes.mjs` (its own `npm ci` first).
+- The regression compare, built from `origin/main`
+  (`node build-main.mjs --ref origin/main`), reports the same 7 differences as
+  before, all on `/lab/scale-free`, all from the authorised sentence of commit
+  dcc8949.
+- On this PC `npm ci` fails while an old `vite preview` is running (it keeps
+  `esbuild.exe` locked) and leaves `node_modules` half deleted: stop the old
+  servers, then run it again. And a Node self-check can print its result and
+  then not exit (seen twice with `check-network-07.mjs`, which passed in full
+  each time): run it again with a time limit.
 - What he reads: `docs/network-lab-review.it.md` (in Italian, stands on its
   own): the modules, the softened sentences, the Bitcoin boxes with their
   sources, data and licences, what changes outside the Network Lab, the
   inconsistencies found and not corrected, the pending decisions, and the
   steps before publishing.
 - The numbers of the last verification are in `docs/reports/network-lab-15.md`.
-- `origin/main` moved on after the branch started (10 commits: the Newsroom).
-  The branch merges into it without conflicts (`git merge-tree`), but the
-  merged site has not been built or checked. The regression compare builds
-  the local `main` (c63d572, the branch's starting point) and now reports 7
-  differences, all on `/lab/scale-free`, all from the authorised sentence of
-  commit dcc8949.
 - After any change to a text: the module's self-check and its two browser
   checks, one command at a time.
 
