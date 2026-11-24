@@ -140,22 +140,29 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-The fourteen modules are done. Prompt 15 (closing pass, no new content) is in
-progress, three stages and three commits:
-
-- Stage 1, consistency: done, commit "Network Lab: closing pass" (reading
-  lists, three Italian terms, one sentence that now names its module, small
-  typography; every self-check and browser check rerun, 0 failures).
-- Stage 2, verification against main: done, nothing changed (results in the
-  report).
-- Stage 3: done, `docs/network-lab-review.it.md`, commit "Network Lab: review
-  file".
-- Remains: the report `docs/reports/network-lab-15.md` in its own commit.
+Nothing in progress. The fourteen modules are done and the closing pass
+(prompt 15) is finished: commits "Network Lab: closing pass", "Network Lab:
+review file" and "Network Lab 15: report".
 
 ## Next
 
-The Network Lab is complete and waits for Adriano's review. Nothing is to be
-pushed or merged: the branch `network-lab` stays local until he says so.
+The Lab is complete, checked and waiting for Adriano's review. Nothing is to
+be pushed or merged: the branch `network-lab` stays local until he says so.
+
+- What he reads: `docs/network-lab-review.it.md` (in Italian, stands on its
+  own): the modules, the softened sentences, the Bitcoin boxes with their
+  sources, data and licences, what changes outside the Network Lab, the
+  inconsistencies found and not corrected, the pending decisions, and the
+  steps before publishing.
+- The numbers of the last verification are in `docs/reports/network-lab-15.md`.
+- `origin/main` moved on after the branch started (10 commits: the Newsroom).
+  The branch merges into it without conflicts (`git merge-tree`), but the
+  merged site has not been built or checked. The regression compare builds
+  the local `main` (c63d572, the branch's starting point) and now reports 7
+  differences, all on `/lab/scale-free`, all from the authorised sentence of
+  commit dcc8949.
+- After any change to a text: the module's self-check and its two browser
+  checks, one command at a time.
 
 ## Decisions
 
