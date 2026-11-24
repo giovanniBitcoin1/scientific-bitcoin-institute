@@ -89,7 +89,7 @@ Il club di karate ha transitività 0,26. È tanto? Un numero significa qualcosa 
 
 **Modello nullo 1: stessi N e L.** I collegamenti vengono disposti su coppie a caso. La sua transitività è circa la densità, 0,14 per il club di karate: il valore reale è quasi il doppio.
 
-**Modello nullo 2: stessi gradi.** Ogni nodo conserva il suo grado e si randomizza solo il modo in cui i collegamenti sono disposti. Si prendono due collegamenti, a–b e c–d, e se ne scambiano gli estremi per ottenere a–d e c–b; si rifiuta lo scambio se creerebbe un auto-collegamento o un collegamento doppio; si ripete molte volte (Maslov e Sneppen 2002). Un parente stretto, il **modello di configurazione**, taglia in due ogni collegamento e ne ricongiunge gli estremi a caso, ammettendo auto-collegamenti e collegamenti ripetuti (Molloy e Reed 1995).
+**Modello nullo 2: stessi gradi.** Ogni nodo conserva il suo grado e si randomizza solo il modo in cui i collegamenti sono disposti. Si prendono due collegamenti, a–b e c–d, e se ne scambiano gli estremi per ottenere a–d e c–b; si rifiuta lo scambio se creerebbe un auto-collegamento o un collegamento ripetuto; si ripete molte volte (Maslov e Sneppen 2002). Un parente stretto, il **modello di configurazione**, taglia in due ogni collegamento e ne ricongiunge gli estremi a caso, ammettendo auto-collegamenti e collegamenti ripetuti (Molloy e Reed 1995).
 
 La distanza tra osservazione e termine di paragone si misura in deviazioni standard del modello nullo:
 
@@ -119,7 +119,7 @@ Con numeri di cui ci si può fidare, si può porre la prima vera domanda su una 
 ## Letture consigliate
 
 - Newman, M. E. J. (2018). *Networks*, 2ª ed. Oxford University Press. Cap. 9 e 12.
-- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Cap. 4, sezione 4.8.
+- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Cap. 4 (sezione 4.8).
 - Latora, V., Nicosia, V. e Russo, G. (2017). *Complex Networks: Principles, Methods and Applications*. Cambridge University Press. Cap. 5.
 - Faloutsos, M., Faloutsos, P. e Faloutsos, C. (1999). On power-law relationships of the Internet topology. *Computer Communication Review* 29(4), 251–262.
 - Lakhina, A., Byers, J. W., Crovella, M. e Xie, P. (2003). Sampling biases in IP topology measurements. *IEEE INFOCOM 2003*, 332–341.
@@ -127,7 +127,7 @@ Con numeri di cui ci si può fidare, si può porre la prima vera domanda su una 
 - Stumpf, M. P. H., Wiuf, C. e May, R. M. (2005). Subnets of scale-free networks are not scale-free. *PNAS* 102, 4221–4224.
 - Feld, S. L. (1991). Why your friends have more friends than you do. *American Journal of Sociology* 96, 1464–1477.
 - Heckathorn, D. D. (1997). Respondent-driven sampling. *Social Problems* 44, 174–199.
-- Christakis, N. A. e Fowler, J. H. (2010). Social network sensors for early detection of contagious outbreaks. *PLoS ONE* 5(9), e12948.
+- Christakis, N. A. e Fowler, J. H. (2010). Social network sensors for early detection of contagious outbreaks. *PLoS ONE* 5, e12948.
 - Cohen, R., Havlin, S. e ben-Avraham, D. (2003). Efficient immunization strategies for computer networks and populations. *Physical Review Letters* 91, 247901.
 - Maslov, S. e Sneppen, K. (2002). Specificity and stability in topology of protein networks. *Science* 296, 910–913.
 - Molloy, M. e Reed, B. (1995). A critical point for random graphs with a given degree sequence. *Random Structures and Algorithms* 6, 161–180.

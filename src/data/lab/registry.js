@@ -65,11 +65,11 @@ export const labs = [
     intro: {
       en: [
         'An advanced course on network science: how networks are described, how they grow, how they organise themselves, and how things spread on them.',
-        'Designed for readers comfortable with some mathematics. It builds on Complexity Lab modules 02-04 but can be followed on its own.',
+        'Designed for readers comfortable with some mathematics. It builds on Complexity Lab modules 02–04 but can be followed on its own.',
       ],
       it: [
         'Un corso avanzato di scienza delle reti: come si descrivono, come crescono, come si organizzano e come vi si diffondono le cose.',
-        "Pensato per chi ha familiarità con un po' di matematica. Parte dai moduli 02-04 del Complexity Lab, ma si può seguire anche da solo.",
+        "Pensato per chi ha familiarità con un po' di matematica. Parte dai moduli 02–04 del Complexity Lab, ma si può seguire anche da solo.",
       ],
     },
     description:

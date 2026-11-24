@@ -140,7 +140,15 @@ Short optional Bitcoin or power-law boxes only in 01, 05, 10, 11, 12, 13 and
 
 ## Work in progress
 
-Nothing in progress. The fourteen modules are done.
+The fourteen modules are done. Prompt 15 (closing pass, no new content) is in
+progress, three stages and three commits:
+
+- Stage 1, consistency: done, commit "Network Lab: closing pass" (reading
+  lists, three Italian terms, one sentence that now names its module, small
+  typography; every self-check and browser check rerun, 0 failures).
+- Remains: Stage 2 (verification against main: changes nothing), Stage 3
+  (`docs/network-lab-review.it.md`, commit "Network Lab: review file"), then
+  the report `docs/reports/network-lab-15.md` in its own commit.
 
 ## Next
 

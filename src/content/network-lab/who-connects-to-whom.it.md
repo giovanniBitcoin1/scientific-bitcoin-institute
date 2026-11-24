@@ -77,7 +77,7 @@ Assortatività e omofilia sono mescolamento per tratto. Il [modulo 09](/network-
 ## Letture consigliate
 
 - Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Cap. 7.
-- Newman, M. E. J. (2018). *Networks*, 2ª ed. Oxford University Press. Capp. 7 e 10.
+- Newman, M. E. J. (2018). *Networks*, 2ª ed. Oxford University Press. Cap. 7 e 10.
 - Latora, V., Nicosia, V. e Russo, G. (2017). *Complex Networks: Principles, Methods and Applications*. Cambridge University Press. Cap. 7.
 - Easley, D. e Kleinberg, J. (2010). *Networks, Crowds, and Markets*. Cambridge University Press. Cap. 4.
 - Maslov, S. e Sneppen, K. (2002). Specificity and stability in topology of protein networks. *Science* 296, 910–913.
@@ -88,7 +88,7 @@ Assortatività e omofilia sono mescolamento per tratto. Il [modulo 09](/network-
 - Litvak, N. e van der Hofstad, R. (2013). Uncovering disassortativity in large scale-free networks. *Physical Review E* 87, 022801.
 - Xulvi-Brunet, R. e Sokolov, I. M. (2004). Reshuffling scale-free networks: from random to assortative. *Physical Review E* 70, 066102.
 - Zhou, S. e Mondragón, R. J. (2004). The rich-club phenomenon in the Internet topology. *IEEE Communications Letters* 8, 180–182.
-- Colizza, V., Flammini, A., Serrano, M. A. e Vespignani, A. (2006). Detecting rich-club ordering in complex networks. *Nature Physics* 2, 110–115.
+- Colizza, V., Flammini, A., Serrano, M. Á. e Vespignani, A. (2006). Detecting rich-club ordering in complex networks. *Nature Physics* 2, 110–115.
 - McPherson, M., Smith-Lovin, L. e Cook, J. M. (2001). Birds of a feather: homophily in social networks. *Annual Review of Sociology* 27, 415–444.
 - Shalizi, C. R. e Thomas, A. C. (2011). Homophily and contagion are generically confounded in observational social network studies. *Sociological Methods and Research* 40, 211–239.
 - Aral, S., Muchnik, L. e Sundararajan, A. (2009). Distinguishing influence-based contagion from homophily-driven diffusion in dynamic networks. *PNAS* 106, 21544–21549.

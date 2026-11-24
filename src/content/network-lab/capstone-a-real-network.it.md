@@ -95,10 +95,10 @@ Il corso finisce qui. I quattordici moduli sono nell'[indice del Network Lab](/n
 ## Letture consigliate
 
 - OpenFlights. Airport and route databases. https://openflights.org/data (rotte al giugno 2014; Open Database License).
-- Guimerà, R., Mossa, S., Turtschi, A. e Amaral, L. A. N. (2005). The worldwide air transportation network: anomalous centrality, community structure, and cities' global roles. *Proceedings of the National Academy of Sciences* 102, 7794–7799.
-- Barrat, A., Barthélemy, M., Pastor-Satorras, R. e Vespignani, A. (2004). The architecture of complex weighted networks. *Proceedings of the National Academy of Sciences* 101, 3747–3752.
+- Guimerà, R., Mossa, S., Turtschi, A. e Amaral, L. A. N. (2005). The worldwide air transportation network: anomalous centrality, community structure, and cities' global roles. *PNAS* 102, 7794–7799.
+- Barrat, A., Barthélemy, M., Pastor-Satorras, R. e Vespignani, A. (2004). The architecture of complex weighted networks. *PNAS* 101, 3747–3752.
 - Colizza, V., Flammini, A., Serrano, M. Á. e Vespignani, A. (2006). Detecting rich-club ordering in complex networks. *Nature Physics* 2, 110–115.
-- Colizza, V., Barrat, A., Barthélemy, M. e Vespignani, A. (2006). The role of the airline transportation network in the prediction and predictability of global epidemics. *Proceedings of the National Academy of Sciences* 103, 2015–2020.
+- Colizza, V., Barrat, A., Barthélemy, M. e Vespignani, A. (2006). The role of the airline transportation network in the prediction and predictability of global epidemics. *PNAS* 103, 2015–2020.
 - Brockmann, D. e Helbing, D. (2013). The hidden geometry of complex, network-driven contagion phenomena. *Science* 342, 1337–1342.
 - Peel, L., Larremore, D. B. e Clauset, A. (2017). The ground truth about metadata and community detection in networks. *Science Advances* 3, e1602548.
 - Barabási, A.-L. (2016). *Network Science*. Cambridge University Press.

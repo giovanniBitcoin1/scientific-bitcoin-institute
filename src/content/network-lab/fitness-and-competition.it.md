@@ -106,7 +106,7 @@ Finora ci siamo chiesti quanti collegamenti riceve un nodo. Il modulo 08 chiede 
 - Bianconi, G. e Barabási, A.-L. (2001). Competition and multiscaling in evolving networks. *Europhysics Letters* 54, 436–442.
 - Bianconi, G. e Barabási, A.-L. (2001). Bose-Einstein condensation in complex networks. *Physical Review Letters* 86, 5632–5635.
 - Krapivsky, P. L. e Redner, S. (2002). Statistics of changes in lead node in connectivity-driven networks. *Physical Review Letters* 89, 258703.
-- Borgs, C., Chayes, J., Daskalakis, C. e Roch, S. (2007). First to market is not everything: an analysis of preferential attachment with fitness. *Proceedings of the 39th ACM Symposium on Theory of Computing (STOC 2007)*, 135–144.
+- Borgs, C., Chayes, J., Daskalakis, C. e Roch, S. (2007). First to market is not everything: an analysis of preferential attachment with fitness. *Proceedings of the 39th ACM Symposium on Theory of Computing*, 135–144.
 - Dereich, S., Mailler, C. e Mörters, P. (2017). Nonextensive condensation in reinforced branching processes. *Annals of Applied Probability* 27, 2539–2568.
 - Kong, J. S., Sarshar, N. e Roychowdhury, V. P. (2008). Experience versus talent shapes the structure of the Web. *PNAS* 105, 13724–13729.
 - Wang, D., Song, C. e Barabási, A.-L. (2013). Quantifying long-term scientific impact. *Science* 342, 127–132.

@@ -119,7 +119,7 @@ With numbers we can trust, we can ask the first real question about a network: w
 ## Further reading
 
 - Newman, M. E. J. (2018). *Networks*, 2nd ed. Oxford University Press. Ch. 9 and 12.
-- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Ch. 4, section 4.8.
+- Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Ch. 4 (section 4.8).
 - Latora, V., Nicosia, V. and Russo, G. (2017). *Complex Networks: Principles, Methods and Applications*. Cambridge University Press. Ch. 5.
 - Faloutsos, M., Faloutsos, P. and Faloutsos, C. (1999). On power-law relationships of the Internet topology. *Computer Communication Review* 29(4), 251–262.
 - Lakhina, A., Byers, J. W., Crovella, M. and Xie, P. (2003). Sampling biases in IP topology measurements. *IEEE INFOCOM 2003*, 332–341.
@@ -127,7 +127,7 @@ With numbers we can trust, we can ask the first real question about a network: w
 - Stumpf, M. P. H., Wiuf, C. and May, R. M. (2005). Subnets of scale-free networks are not scale-free. *PNAS* 102, 4221–4224.
 - Feld, S. L. (1991). Why your friends have more friends than you do. *American Journal of Sociology* 96, 1464–1477.
 - Heckathorn, D. D. (1997). Respondent-driven sampling. *Social Problems* 44, 174–199.
-- Christakis, N. A. and Fowler, J. H. (2010). Social network sensors for early detection of contagious outbreaks. *PLoS ONE* 5(9), e12948.
+- Christakis, N. A. and Fowler, J. H. (2010). Social network sensors for early detection of contagious outbreaks. *PLoS ONE* 5, e12948.
 - Cohen, R., Havlin, S. and ben-Avraham, D. (2003). Efficient immunization strategies for computer networks and populations. *Physical Review Letters* 91, 247901.
 - Maslov, S. and Sneppen, K. (2002). Specificity and stability in topology of protein networks. *Science* 296, 910–913.
 - Molloy, M. and Reed, B. (1995). A critical point for random graphs with a given degree sequence. *Random Structures and Algorithms* 6, 161–180.

@@ -88,13 +88,13 @@ p_k = 2m(m + 1) / (k (k + 1)(k + 2))
 
 (Dorogovtsev, Mendes e Samukhin 2000): una legge di potenza con γ = 3 solo per k grandi. Ecco perché, in quella pagina, la stima con k_min = m risulta ben sotto 3. Le reti reali hanno tagli: i nodi invecchiano, i collegamenti costano, la capacità si esaurisce (Amaral et al. 2000). E i campioni piegano i gradi piccoli (modulo 02).
 
-Perciò la domanda utile è di rado «è esattamente una legge di potenza?», ma «quanto è pesante la coda, e su quale intervallo?». Ciò che una coda pesante fa (hub, distanze brevi, una componente gigante che non se ne va, e più avanti le epidemie) dipende da ⟨k²⟩ / ⟨k⟩ all'N effettivo: un numero che non richiede alcun adattamento. Riportalo, insieme all'intervallo di k.
+Perciò la domanda utile è di rado «è esattamente una legge di potenza?», ma «quanto è pesante la coda, e su quale intervallo?». Ciò che una coda pesante fa (hub, distanze brevi, una componente gigante che non se ne va, e nel [modulo 12](/network-lab/epidemics-on-networks) le epidemie) dipende da ⟨k²⟩ / ⟨k⟩ all'N effettivo: un numero che non richiede alcun adattamento. Riportalo, insieme all'intervallo di k.
 
 ```box
 Due cose chiamate legge di potenza
 Una **distribuzione** dice quanto spesso compaiono valori di ciascuna grandezza: i gradi, le dimensioni delle città, i saldi degli indirizzi Bitcoin, i gradi dei nodi Lightning. La ricetta di questo modulo vale per le distribuzioni.
 
-Una **relazione di scala** dice che una quantità è una potenza di un'altra, `y ∝ x^β`: il metabolismo rispetto alla massa corporea, il prezzo di Bitcoin rispetto al tempo trascorso dal blocco genesi ([modulo 13 del Complexity Lab](/lab/bitcoin-complex-system)). Lì i dati sono un'unica curva, ordinata e correlata nel tempo, e la ricetta non si trasferisce così com'è. Un test nello stesso spirito è stato costruito per una legge di potenza nel tempo (Santostasi e Perrenod 2026), e la precisione di un esponente stimato dipende da come si modellano le fluttuazioni attorno alla tendenza (Pecere 2026). Entrambi gli articoli sono elencati più sotto, in «Letture consigliate», e altri lavori dell'istituto sono nella nostra [pagina delle pubblicazioni](/research/publications).
+Una **relazione di scala** dice che una quantità è una potenza di un'altra, `y ∝ x^β`: il metabolismo rispetto alla massa corporea, il prezzo di Bitcoin rispetto al tempo trascorso dal blocco genesi ([modulo 13 del Complexity Lab](/lab/bitcoin-complex-system)). Lì i dati sono un'unica curva, ordinata e correlata nel tempo, e la ricetta non si trasferisce così com'è. Un test nello stesso spirito è stato costruito per una legge di potenza nel tempo (Santostasi e Perrenod 2026), e la precisione di un esponente stimato dipende da come si modellano le fluttuazioni attorno alla tendenza (Pecere 2026). Entrambi gli articoli sono elencati più sotto, in «Letture consigliate», e altri lavori dell'Istituto sono nella nostra [pagina delle pubblicazioni](/research/publications).
 ```
 
 ## Che cosa viene dopo
@@ -106,7 +106,7 @@ Il modulo 06 chiede da dove vengono le code pesanti.
 ## Letture consigliate
 
 - Barabási, A.-L. (2016). *Network Science*. Cambridge University Press. Cap. 4.
-- Newman, M. E. J. (2018). *Networks*, 2ª ed. Oxford University Press. Cap. 10 (sezione 10.4) e cap. 12.
+- Newman, M. E. J. (2018). *Networks*, 2ª ed. Oxford University Press. Cap. 10 (sezione 10.4) e 12.
 - Latora, V., Nicosia, V. e Russo, G. (2017). *Complex Networks: Principles, Methods and Applications*. Cambridge University Press. Cap. 5.
 - Clauset, A., Shalizi, C. R. e Newman, M. E. J. (2009). Power-law distributions in empirical data. *SIAM Review* 51, 661–703.
 - Broido, A. D. e Clauset, A. (2019). Scale-free networks are rare. *Nature Communications* 10, 1017.

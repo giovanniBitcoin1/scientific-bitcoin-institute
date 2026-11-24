@@ -88,7 +88,7 @@ Assortativity and homophily are mixing by trait. [Module 09](/network-lab/commun
 - Litvak, N. and van der Hofstad, R. (2013). Uncovering disassortativity in large scale-free networks. *Physical Review E* 87, 022801.
 - Xulvi-Brunet, R. and Sokolov, I. M. (2004). Reshuffling scale-free networks: from random to assortative. *Physical Review E* 70, 066102.
 - Zhou, S. and Mondragón, R. J. (2004). The rich-club phenomenon in the Internet topology. *IEEE Communications Letters* 8, 180–182.
-- Colizza, V., Flammini, A., Serrano, M. A. and Vespignani, A. (2006). Detecting rich-club ordering in complex networks. *Nature Physics* 2, 110–115.
+- Colizza, V., Flammini, A., Serrano, M. Á. and Vespignani, A. (2006). Detecting rich-club ordering in complex networks. *Nature Physics* 2, 110–115.
 - McPherson, M., Smith-Lovin, L. and Cook, J. M. (2001). Birds of a feather: homophily in social networks. *Annual Review of Sociology* 27, 415–444.
 - Shalizi, C. R. and Thomas, A. C. (2011). Homophily and contagion are generically confounded in observational social network studies. *Sociological Methods and Research* 40, 211–239.
 - Aral, S., Muchnik, L. and Sundararajan, A. (2009). Distinguishing influence-based contagion from homophily-driven diffusion in dynamic networks. *PNAS* 106, 21544–21549.

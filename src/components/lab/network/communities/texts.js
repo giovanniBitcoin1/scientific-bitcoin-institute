@@ -18,7 +18,7 @@ export const observe = {
     it: `
 1. **Valori iniziali**, il benchmark con k_out = 6 e Louvain, seme 1: la partizione impiantata dà Q = 0,389, e Louvain trova 4 gruppi con Q = 0,391 e NMI 0,925. La risposta ha un punteggio un po' più alto della verità e ne differisce comunque: qualche nodo con molti collegamenti verso fuori sta meglio, per Q, in un altro gruppo.
 2. Premi **Scorri k_out** (20 reti per valore). Louvain resta sopra 0,95 fino a k_out = 6 (0,996 e 0,975 a 5 e 6), poi cade: 0,793, 0,448, 0,217 a k_out = 7, 8, 9. A k_out = 12, μ = 0,75, tre quarti dei collegamenti di ogni nodo vanno ad altri gruppi e non resta nulla da trovare. La propagazione delle etichette cede prima: 0,920, 0,768, 0,427, 0,000 a k_out = 4, 5, 6, 7. Da k_out = 7 in poi una sola etichetta si prende tutta la rete.
-3. Premi **Reti a caso**. Su reti a caso di 1.000 nodi Louvain trova Q = 0,522, 0,325, 0,226 con grado medio 4, 8 e 16, con 39, 15, 9 gruppi: punteggi alti, e nessun gruppo. Sulla rete a caso del pannello Louvain trova Q = 0,204 in 7 gruppi, contro −0,011 dei quattro blocchi di 32; la propagazione delle etichette lascia tutto in un gruppo, Q = 0.
+3. Premi **Reti casuali**. Su reti casuali di 1.000 nodi Louvain trova Q = 0,522, 0,325, 0,226 con grado medio 4, 8 e 16, con 39, 15, 9 gruppi: punteggi alti, e nessun gruppo. Sulla rete casuale del pannello Louvain trova Q = 0,204 in 7 gruppi, contro −0,011 dei quattro blocchi di 32; la propagazione delle etichette lascia tutto in un gruppo, Q = 0.
 4. **Club di karate**: le fazioni danno Q = 0,358. Louvain con seme 1 trova 4 gruppi e Q = 0,419; la NMI con le fazioni è 0,490, perché ogni fazione viene tagliata in due. Passa da un seme all'altro: i gruppi si spostano, il punteggio quasi non cambia.
 `,
   },
@@ -101,11 +101,11 @@ export const exercises = [
     type: 'sim',
     statement: {
       en: 'In "Find the groups", press Sweep k_out: at what μ = k_out/16 does the NMI of each method fall below 0.5? Then press Random networks.',
-      it: 'In «Trova i gruppi», premi Scorri k_out: a quale μ = k_out/16 la NMI di ciascun metodo scende sotto 0,5? Poi premi Reti a caso.',
+      it: 'In «Trova i gruppi», premi Scorri k_out: a quale μ = k_out/16 la NMI di ciascun metodo scende sotto 0,5? Poi premi Reti casuali.',
     },
     solution: {
       en: 'Louvain, mean of 20 networks: 0.98, 0.79, 0.45, 0.22 at k_out = 6, 7, 8, 9. It falls below 0.5 at k_out = 8, μ = 0.5, when half of every node\'s links leave its group. Label propagation falls below 0.5 already at k_out = 6, μ = 0.375 (0.43), and from k_out = 7 it returns a single group. Random networks of 1,000 nodes: Louvain finds Q = 0.52, 0.32, 0.23 at mean degree 4, 8, 16, and at mean degree 16 the 0.23 is close to the 0.25 that the planted groups of the benchmark, with the same mean degree, score at k_out = 8. The score alone cannot tell the two cases apart.',
-      it: "Louvain, media di 20 reti: 0,98, 0,79, 0,45, 0,22 a k_out = 6, 7, 8, 9. Scende sotto 0,5 a k_out = 8, μ = 0,5, quando metà dei collegamenti di ogni nodo esce dal suo gruppo. La propagazione delle etichette scende sotto 0,5 già a k_out = 6, μ = 0,375 (0,43), e da k_out = 7 restituisce un solo gruppo. Reti a caso di 1.000 nodi: Louvain trova Q = 0,52, 0,32, 0,23 con grado medio 4, 8, 16, e con grado medio 16 lo 0,23 è vicino allo 0,25 che i gruppi impiantati del benchmark, con lo stesso grado medio, ottengono a k_out = 8. Il punteggio da solo non distingue i due casi.",
+      it: "Louvain, media di 20 reti: 0,98, 0,79, 0,45, 0,22 a k_out = 6, 7, 8, 9. Scende sotto 0,5 a k_out = 8, μ = 0,5, quando metà dei collegamenti di ogni nodo esce dal suo gruppo. La propagazione delle etichette scende sotto 0,5 già a k_out = 6, μ = 0,375 (0,43), e da k_out = 7 restituisce un solo gruppo. Reti casuali di 1.000 nodi: Louvain trova Q = 0,52, 0,32, 0,23 con grado medio 4, 8, 16, e con grado medio 16 lo 0,23 è vicino allo 0,25 che i gruppi impiantati del benchmark, con lo stesso grado medio, ottengono a k_out = 8. Il punteggio da solo non distingue i due casi.",
     },
   },
   {
