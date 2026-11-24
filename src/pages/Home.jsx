@@ -7,6 +7,7 @@ import BitcoinPriceChart from '../components/charts/BitcoinPriceChart.jsx'
 import FeaturedResearch from '../components/FeaturedResearch.jsx'
 import CTA from '../components/CTA.jsx'
 import NewsletterSignup from '../components/NewsletterSignup.jsx'
+import LatestInsights from '../components/LatestInsights.jsx'
 import Footer from '../components/Footer.jsx'
 
 function AcademicDayBanner() {
@@ -128,6 +129,7 @@ export default function Home() {
     <div className="min-h-screen bg-slate-50">
       <Header />
       <Hero />
+      <LatestInsights />
       <AcademicDayBanner />
       <ManifestoVideoSection />
       <CTA />

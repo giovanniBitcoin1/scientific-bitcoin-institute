@@ -162,7 +162,7 @@ function makeMarkdownComponents(slug) {
       return (
         <a
           href={href}
-          className="text-orange-600 hover:text-orange-700 underline"
+          className="text-orange-600 hover:text-orange-700 underline break-words"
           {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >
           {children}
@@ -326,8 +326,8 @@ export default function InsightArticle() {
             <SectionDivider />
             <div className="max-w-2xl mx-auto bg-slate-50 rounded-lg p-6 mt-12 text-center">
               <p className="text-slate-700">
-                Get new Insights articles in your inbox. The Institute's monthly dispatch covers
-                research, events, and analyses.
+                Get new Insights articles in your inbox. SBI Dispatch, sent every other
+                Thursday, covers research, events, and analyses.
               </p>
             </div>
             <NewsletterSignup />

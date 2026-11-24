@@ -1,0 +1,37 @@
+{
+ "query_details": {
+  "title": "bitcoin",
+  "date_resolution": "day"
+ },
+ "timeline": [
+  {
+   "series": "Volume Intensity",
+   "data": [
+    {
+     "date": "20251126T000000Z",
+     "value": 0.1483
+    },
+    {
+     "date": "20251127T000000Z",
+     "value": 0.1527
+    },
+    {
+     "date": "20251128T000000Z",
+     "value": 0.1545
+    },
+    {
+     "date": "20261118T000000Z",
+     "value": 0.0649
+    },
+    {
+     "date": "20261119T000000Z",
+     "value": 0.0503
+    },
+    {
+     "date": "20261120T000000Z",
+     "value": 0.2679
+    }
+   ]
+  }
+ ]
+}

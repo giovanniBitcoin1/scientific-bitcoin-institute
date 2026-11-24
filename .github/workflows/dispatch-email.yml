@@ -1,0 +1,78 @@
+name: SBI Dispatch email
+
+# Hands a newly ADDED issue of SBI Dispatch to Buttondown as an email.
+# It creates a DRAFT, or a SCHEDULED email for the issue's `send_at`.
+# It never sends immediately, and never acts on The Lens or on Explainers.
+# How it works and what to configure: docs/newsroom/authoring.md
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/dispatch/*.md'
+  workflow_dispatch:
+    inputs:
+      file:
+        description: 'Issue file, e.g. src/content/dispatch/003-short-title.md'
+        required: true
+        type: string
+      mode:
+        description: 'draft, or scheduled (scheduled also needs DISPATCH_EMAIL_MODE=scheduled and "email: scheduled" in the file)'
+        required: true
+        default: draft
+        type: choice
+        options: [draft, scheduled]
+      dry_run:
+        description: 'Print the request body without calling Buttondown'
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+# One at a time, so two pushes cannot create the same email twice.
+concurrency:
+  group: dispatch-email
+  cancel-in-progress: false
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the push range is compared to find the files it added
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # A file that does not pass the content check is never emailed.
+      - name: Validate content
+        run: npm run validate
+
+      - name: Hand new issues to Buttondown (push)
+        if: github.event_name == 'push'
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          DISPATCH_EMAIL_MODE: ${{ vars.DISPATCH_EMAIL_MODE }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: node scripts/newsroom/send-email.mjs --added "$BEFORE" "$AFTER"
+
+      - name: Hand one issue to Buttondown (manual run)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          DISPATCH_EMAIL_MODE: ${{ vars.DISPATCH_EMAIL_MODE }}
+          FILE: ${{ inputs.file }}
+          MODE: ${{ inputs.mode }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: node scripts/newsroom/send-email.mjs --file "$FILE" --mode "$MODE" --dry-run "$DRY_RUN"

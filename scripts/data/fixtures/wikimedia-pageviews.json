@@ -1,0 +1,58 @@
+{
+ "items": [
+  {
+   "project": "en.wikipedia",
+   "article": "Bitcoin",
+   "granularity": "daily",
+   "timestamp": "2015070100",
+   "access": "all-access",
+   "agent": "user",
+   "views": 12957
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bitcoin",
+   "granularity": "daily",
+   "timestamp": "2015070200",
+   "access": "all-access",
+   "agent": "user",
+   "views": 9802
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bitcoin",
+   "granularity": "daily",
+   "timestamp": "2015070300",
+   "access": "all-access",
+   "agent": "user",
+   "views": 8307
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bitcoin",
+   "granularity": "daily",
+   "timestamp": "2026111600",
+   "access": "all-access",
+   "agent": "user",
+   "views": 4096
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bitcoin",
+   "granularity": "daily",
+   "timestamp": "2026111700",
+   "access": "all-access",
+   "agent": "user",
+   "views": 3969
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bitcoin",
+   "granularity": "daily",
+   "timestamp": "2026111800",
+   "access": "all-access",
+   "agent": "user",
+   "views": 4450
+  }
+ ]
+}

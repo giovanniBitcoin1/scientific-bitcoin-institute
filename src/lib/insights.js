@@ -52,7 +52,9 @@ function buildArticle(path, raw) {
   // local (not UTC) to avoid off-by-one day shifts.
   let date
   if (data.date instanceof Date) {
-    date = data.date
+    // YAML reads an unquoted 2026-06-16 as midnight UTC. Rebuild it as a local
+    // date from its UTC parts, or readers west of Greenwich see the day before.
+    date = new Date(data.date.getUTCFullYear(), data.date.getUTCMonth(), data.date.getUTCDate())
   } else if (typeof data.date === 'string') {
     const [y, m, d] = data.date.split('-').map(Number)
     date = new Date(y, (m || 1) - 1, d || 1)
@@ -78,6 +80,9 @@ function buildArticle(path, raw) {
 const articles = Object.entries(rawFiles)
   // Exclude any file whose name starts with an underscore (e.g. _template.md)
   .filter(([path]) => !slugFromPath(path).startsWith('_'))
+  // A file marked `status: draft` reaches the bundle as an empty string (see
+  // the newsroom-drafts plugin in vite.config.js): skip it.
+  .filter(([, raw]) => typeof raw === 'string' && raw.trim() !== '')
   .map(([path, raw]) => buildArticle(path, raw))
   // Reverse-chronological by date frontmatter (newest first)
   .sort((a, b) => b.date.getTime() - a.date.getTime())

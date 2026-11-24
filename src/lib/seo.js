@@ -1,128 +1,103 @@
+// Runtime side of the SEO model: writes the tags built by src/lib/site.js into
+// <head>. The same model is printed into the static HTML by
+// scripts/newsroom/postbuild.mjs, so on a page that has a static file the tags
+// are already there and are simply confirmed.
+//
+// No react-helmet: plain DOM calls inside effects.
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { resolveInsightImage } from './insightImages.js'
+import { mediaUrl, ymdFromLocalDate } from './newsroom-core.js'
+import { MANAGED_META, articleSeo, canonicalUrl, defaultSeo, pageSeo } from './site.js'
 
-const SITE_NAME = 'Scientific Bitcoin Institute'
-const ORG_LOGO = '/assets/logo.jpg'
+// The site's origin comes from public/CNAME (see vite.config.js), never from
+// window.location: a preview host or a "www." alias must not become canonical.
+export const SITE_ORIGIN = __SITE_ORIGIN__
 
-// Ensure a <meta> tag exists for the given key/value attribute, set its content,
-// and return it. Tags created here are tagged with data-managed so we can clean
-// them up on unmount.
 function setMeta(attr, key, content) {
   let el = document.head.querySelector(`meta[${attr}="${key}"]`)
-  let created = false
   if (!el) {
     el = document.createElement('meta')
     el.setAttribute(attr, key)
-    el.setAttribute('data-managed-seo', 'true')
     document.head.appendChild(el)
-    created = true
   }
-  el.setAttribute('content', content || '')
-  return { el, created }
+  el.setAttribute('content', content)
 }
 
-function setLink(rel, href) {
-  let el = document.head.querySelector(`link[rel="${rel}"][data-managed-seo="true"]`)
-  let created = false
+function setCanonical(href) {
+  let el = document.head.querySelector('link[rel="canonical"]')
   if (!el) {
     el = document.createElement('link')
-    el.setAttribute('rel', rel)
-    el.setAttribute('data-managed-seo', 'true')
+    el.setAttribute('rel', 'canonical')
     document.head.appendChild(el)
-    created = true
   }
-  el.setAttribute('href', href || '')
-  return { el, created }
+  el.setAttribute('href', href)
 }
 
-/**
- * Sets document title, meta description, Open Graph + Twitter card tags,
- * a canonical link, and JSON-LD structured data for an Insights article.
- * Cleans up the tags it created on unmount.
- */
-export function useArticleSEO(article) {
+function applySeo(seo) {
+  document.title = seo.title
+  for (const [attr, key] of MANAGED_META) {
+    const tag = seo.meta.find((m) => m.attr === attr && m.key === key)
+    if (tag) setMeta(attr, key, tag.content)
+    else document.head.querySelector(`meta[${attr}="${key}"]`)?.remove()
+  }
+  setCanonical(seo.canonical)
+  document.head.querySelectorAll('script[type="application/ld+json"]').forEach((el) => el.remove())
+  if (seo.jsonLd) {
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.textContent = JSON.stringify(seo.jsonLd)
+    document.head.appendChild(script)
+  }
+}
+
+function useSeo(seo, key) {
   useEffect(() => {
-    if (!article) return
+    if (!seo) return undefined
+    applySeo(seo)
+    // Leaving the page: back to the site defaults, so a page without its own
+    // tags does not keep the previous article's.
+    return () => applySeo(defaultSeo(SITE_ORIGIN, window.location.pathname))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key])
+}
 
-    const prevTitle = document.title
-    document.title = `${article.title} | ${SITE_NAME}`
+// A page listed in PAGES (src/lib/site.js): hub, archives, subscribe…
+export function usePageSEO(path) {
+  useSeo(pageSeo(SITE_ORIGIN, path), path)
+}
 
-    const url = window.location.href
-    const origin = window.location.origin
-    const heroUrl = resolveInsightImage(article.slug, article.heroImage)
-    const absoluteImage = heroUrl
-      ? heroUrl.startsWith('http')
-        ? heroUrl
-        : origin + heroUrl
-      : ''
+// A Dispatch issue or a Lens piece.
+export function usePieceSEO(piece) {
+  const image = piece && piece.shareImage ? { url: mediaUrl(piece.series, piece.slug, piece.shareImage), width: 1200, height: 630 } : null
+  useSeo(piece ? articleSeo(SITE_ORIGIN, piece, image) : null, piece ? piece.path : '')
+}
 
-    // Track elements we create so we can remove only those on cleanup.
-    const created = []
-    const track = (result) => {
-      if (result.created) created.push(result.el)
-      return result.el
-    }
+// An Explainer (article object from src/lib/insights.js).
+export function useArticleSEO(article) {
+  let seo = null
+  if (article) {
+    const hero = resolveInsightImage(article.slug, article.heroImage)
+    const date = ymdFromLocalDate(article.date)
+    seo = articleSeo(
+      SITE_ORIGIN,
+      { path: `/insights/${article.slug}`, title: article.title, summary: article.summary, date, author: article.author },
+      hero ? { url: hero } : null,
+    )
+  }
+  useSeo(seo, article ? article.slug : '')
+}
 
-    // Standard description (reuse existing tag if present, don't delete it).
-    const descRes = setMeta('name', 'description', article.summary)
-    track(descRes)
-
-    // Open Graph
-    track(setMeta('property', 'og:title', article.title))
-    track(setMeta('property', 'og:description', article.summary))
-    track(setMeta('property', 'og:type', 'article'))
-    track(setMeta('property', 'og:url', url))
-    track(setMeta('property', 'og:site_name', SITE_NAME))
-    if (absoluteImage) track(setMeta('property', 'og:image', absoluteImage))
-
-    // Twitter card
-    track(setMeta('name', 'twitter:card', 'summary_large_image'))
-    track(setMeta('name', 'twitter:title', article.title))
-    track(setMeta('name', 'twitter:description', article.summary))
-    if (absoluteImage) track(setMeta('name', 'twitter:image', absoluteImage))
-
-    // Canonical URL
-    track(setLink('canonical', url))
-
-    // JSON-LD structured data (schema.org Article)
-    const ld = {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: article.title,
-      description: article.summary,
-      datePublished: article.date instanceof Date ? article.date.toISOString() : undefined,
-      author: {
-        '@type': 'Person',
-        name: article.author,
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: SITE_NAME,
-        logo: {
-          '@type': 'ImageObject',
-          url: origin + ORG_LOGO,
-        },
-      },
-      image: absoluteImage || undefined,
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': url,
-      },
-    }
-    const ldScript = document.createElement('script')
-    ldScript.type = 'application/ld+json'
-    ldScript.setAttribute('data-managed-seo', 'true')
-    ldScript.textContent = JSON.stringify(ld)
-    document.head.appendChild(ldScript)
-
-    return () => {
-      document.title = prevTitle
-      // Remove only tags we created; a pre-existing site description tag is
-      // left in place (it was reused, not created).
-      created.forEach((el) => el.remove())
-      ldScript.remove()
-    }
-  }, [article])
+// Mounted once inside the router: every route, with or without tags of its
+// own, gets the canonical link and og:url of its own address.
+export function RouteCanonical() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    const url = canonicalUrl(SITE_ORIGIN, pathname)
+    setCanonical(url)
+    setMeta('property', 'og:url', url)
+  }, [pathname])
+  return null
 }
 
 export default useArticleSEO

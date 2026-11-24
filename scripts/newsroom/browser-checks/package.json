@@ -1,0 +1,14 @@
+{
+  "name": "sbi-newsroom-browser-checks",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Headless browser checks for the Insights pages. Self-contained: not part of the site's dependencies.",
+  "scripts": {
+    "check": "node check-routes.mjs",
+    "og": "node make-og-default.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}

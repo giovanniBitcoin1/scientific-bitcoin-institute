@@ -1,0 +1,33 @@
+{
+ "status": "ok",
+ "name": "Confirmed Transactions Per Day",
+ "unit": "Transactions",
+ "period": "day",
+ "description": "The number of daily confirmed Bitcoin transactions.",
+ "values": [
+  {
+   "x": 1232150400,
+   "y": 109
+  },
+  {
+   "x": 1232236800,
+   "y": 108
+  },
+  {
+   "x": 1232323200,
+   "y": 117
+  },
+  {
+   "x": 1794787200,
+   "y": 810857
+  },
+  {
+   "x": 1794873600,
+   "y": 652280
+  },
+  {
+   "x": 1794960000,
+   "y": 674354
+  }
+ ]
+}

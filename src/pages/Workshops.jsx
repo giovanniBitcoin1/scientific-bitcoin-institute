@@ -63,7 +63,7 @@ export default function Workshops() {
         {/* Newsletter intro + signup */}
         <section className="max-w-2xl mx-auto px-6 text-center">
           <p className="text-slate-700 text-base leading-relaxed mt-12">
-            Subscribe to the Institute's monthly dispatch to be notified when workshops are announced.
+            Subscribe to SBI Dispatch, sent every other Thursday, to be notified when workshops are announced.
           </p>
         </section>
 

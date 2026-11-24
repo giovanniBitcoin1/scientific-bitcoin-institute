@@ -19,8 +19,14 @@ import Conferences from './pages/Conferences.jsx'
 import Seminars from './pages/Seminars.jsx'
 import Workshops from './pages/Workshops.jsx'
 import CommunityEvents from './pages/CommunityEvents.jsx'
-import NewsletterIndex from './pages/NewsletterIndex.jsx'
-import NewsletterIssue01 from './pages/NewsletterIssue01.jsx'
+import DispatchArchive from './pages/DispatchArchive.jsx'
+import DispatchIssue from './pages/DispatchIssue.jsx'
+import LensArchive from './pages/LensArchive.jsx'
+import LensArticle from './pages/LensArticle.jsx'
+import OnTheRecord from './pages/OnTheRecord.jsx'
+import Subscribe from './pages/Subscribe.jsx'
+import { RouteCanonical } from './lib/seo.js'
+import { getClaims } from './lib/newsroom.js'
 import JournalIndex from './pages/JournalIndex.jsx'
 import JournalPost from './pages/JournalPost.jsx'
 import Education from './pages/Education.jsx'
@@ -68,6 +74,7 @@ function LabFallback() {
 export default function App() {
   return (
     <BrowserRouter>
+      <RouteCanonical />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/manifesto" element={<Manifesto />} />
@@ -82,14 +89,22 @@ export default function App() {
         <Route path="/research/sponsored-research" element={<SponsoredResearch />} />
         <Route path="/research/open-problems" element={<OpenProblems />} />
         <Route path="/insights" element={<Insights />} />
+        <Route path="/insights/dispatch" element={<DispatchArchive />} />
+        <Route path="/insights/dispatch/:slug" element={<DispatchIssue />} />
+        <Route path="/insights/lens" element={<LensArchive />} />
+        <Route path="/insights/lens/:slug" element={<LensArticle />} />
+        {/* On the record exists only while at least one claim does. */}
+        {getClaims().length > 0 && <Route path="/insights/on-the-record" element={<OnTheRecord />} />}
         <Route path="/insights/:slug" element={<InsightArticle />} />
+        <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/conferences" element={<Conferences />} />
         <Route path="/news/seminars" element={<Seminars />} />
         <Route path="/news/workshops" element={<Workshops />} />
         <Route path="/news/community-events" element={<CommunityEvents />} />
-        <Route path="/news/newsletter" element={<NewsletterIndex />} />
-        <Route path="/news/newsletter/issue-01" element={<NewsletterIssue01 />} />
+        <Route path="/news/newsletter" element={<Navigate to="/insights/dispatch" replace />} />
+        <Route path="/news/newsletter/issue-01" element={<Navigate to="/insights/dispatch/001-the-power-law-lands" replace />} />
+        <Route path="/newsletter" element={<Navigate to="/insights/dispatch" replace />} />
         <Route path="/news/journal" element={<JournalIndex />} />
         <Route path="/news/journal/:slug" element={<JournalPost />} />
         <Route path="/education" element={<Education />} />

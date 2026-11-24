@@ -130,7 +130,7 @@ const faqs = [
     question: "Where can I follow the Institute's work?",
     answer: (
       <>
-        The Institute publishes a monthly newsletter — <em>Dispatches from the Scientific Bitcoin Institute</em> —
+        The Institute publishes a newsletter every other Thursday — <em>SBI Dispatch</em> —
         covering new research, publications, and developments. The Institute also maintains a{' '}
         <a
           href="https://www.youtube.com/@Scientific_Bitcoin_Institute"

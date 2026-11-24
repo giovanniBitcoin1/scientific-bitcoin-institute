@@ -31,6 +31,38 @@ const outlineButton =
 
 const fellows = [
   {
+    id: 'gianluca-fioravanti',
+    name: 'Gianluca Fioravanti',
+    photo: '/assets/team/gianluca.jpg',
+    alt: 'Gianluca Fioravanti',
+    bio: [
+      <>
+        Gianluca Fioravanti is an adult-learning specialist, entrepreneur, innovation consultant and Bitcoin educator,
+        with a degree in Work and Organizational Psychology. His work centers on education, technological change and
+        critical thinking. He approaches Bitcoin as a cultural and social phenomenon as much as a protocol or a
+        monetary innovation: one that raises questions about trust, freedom, personal responsibility and the
+        relationship between individuals and power.
+      </>,
+      <>
+        He is the founder of CryptoAgile, through which he runs a YouTube channel, courses, conferences and cultural
+        initiatives on Bitcoin, privacy and individual sovereignty, and he curates the crypto program of YouFinance in
+        Rimini. He is the author of{' '}
+        <em>
+          Bitcoin, l'alba del disordine. Il protocollo che sfida il potere, riscrive il denaro e ridà senso alla
+          libertà
+        </em>{' '}
+        (Trading Library, 2025), which reads Bitcoin through the history of money, philosophy and the dynamics of
+        power.
+      </>,
+      <>
+        With the Italian Bitcoin community he organizes public events that take the subject outside the lecture hall,
+        among them Bitcoin Pizza Day Rimini and a Bitcoin flash mob. Projects in development include an Italian
+        Bitcoin national football team that plays charity matches, a Bitcoin commemorative postmark and a Museum of
+        Digital Money, an educational space for schools on what money is, where it came from and how it is changing.
+      </>,
+    ],
+  },
+  {
     id: 'adriano-pecere',
     name: 'Adriano Pecere',
     photo: '/assets/team/adriano.png',

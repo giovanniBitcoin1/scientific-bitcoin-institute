@@ -1,0 +1,28 @@
+{
+ "query_details": {
+  "title": "bitcoin",
+  "date_resolution": "15m"
+ },
+ "timeline": [
+  {
+   "series": "Article Count",
+   "data": [
+    {
+     "date": "20261119T233000Z",
+     "value": 0,
+     "norm": 1876
+    },
+    {
+     "date": "20261119T234500Z",
+     "value": 1,
+     "norm": 849
+    },
+    {
+     "date": "20261120T001500Z",
+     "value": 4,
+     "norm": 2613
+    }
+   ]
+  }
+ ]
+}

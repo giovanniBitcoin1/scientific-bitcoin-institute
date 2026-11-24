@@ -1,0 +1,241 @@
+[
+  {
+    "name": "no frontmatter block",
+    "errors": ["E_FRONTMATTER"],
+    "ops": [{ "write": "src/content/dispatch/004-fixture-no-header.md", "content": "NEWSROOM-FIXTURE a file without the --- header.\n" }]
+  },
+  {
+    "name": "frontmatter is not valid YAML",
+    "errors": ["E_FRONTMATTER"],
+    "ops": [{ "edit": "src/content/dispatch/003-fixture-draft.md", "find": "status: draft", "replace": "status: [draft" }]
+  },
+  {
+    "name": "file name not usable as an address",
+    "errors": ["E_FILENAME"],
+    "ops": [{ "rename": "src/content/dispatch/003-fixture-draft.md", "to": "src/content/dispatch/003-Fixture Draft.md" }]
+  },
+  {
+    "name": "required field missing (summary)",
+    "errors": ["E_REQUIRED"],
+    "ops": [{ "edit": "src/content/dispatch/002-fixture-second-issue.md", "find": "summary: \"NEWSROOM-FIXTURE summary of the second test issue.\"\n", "replace": "" }]
+  },
+  {
+    "name": "required field missing in a Lens piece (instrument)",
+    "errors": ["E_REQUIRED"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "instrument: \"NEWSROOM-FIXTURE instrument\"", "replace": "instrument: \"\"" }]
+  },
+  {
+    "name": "claim without text",
+    "errors": ["E_REQUIRED"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "  text: \"NEWSROOM-FIXTURE claim: the test tree stays valid.\"\n", "replace": "" }]
+  },
+  {
+    "name": "wrong type (tags is not a list)",
+    "errors": ["E_TYPE"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "tags: [fixture]", "replace": "tags: fixture" }]
+  },
+  {
+    "name": "wrong type (number is not a whole number)",
+    "errors": ["E_TYPE"],
+    "ops": [{ "edit": "src/content/dispatch/003-fixture-draft.md", "find": "number: 3", "replace": "number: \"three\"" }]
+  },
+  {
+    "name": "value not allowed (status)",
+    "errors": ["E_VALUE"],
+    "ops": [{ "edit": "src/content/dispatch/003-fixture-draft.md", "find": "status: draft", "replace": "status: ready" }]
+  },
+  {
+    "name": "value not allowed (email)",
+    "errors": ["E_VALUE"],
+    "ops": [{ "edit": "src/content/dispatch/003-fixture-draft.md", "find": "email: draft", "replace": "email: send" }]
+  },
+  {
+    "name": "value not allowed (claim status)",
+    "errors": ["E_VALUE"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "  status: open", "replace": "  status: true-ish" }]
+  },
+  {
+    "name": "title longer than 90 characters",
+    "errors": ["E_TITLE_LENGTH"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "title: \"NEWSROOM-FIXTURE first issue\"", "replace": "title: \"NEWSROOM-FIXTURE first issue with a title that goes on and on well past the ninety characters allowed\"" }]
+  },
+  {
+    "name": "summary longer than 200 characters",
+    "errors": ["E_SUMMARY_LENGTH"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "summary: \"NEWSROOM-FIXTURE summary of the test Lens piece.\"", "replace": "summary: \"NEWSROOM-FIXTURE summary of the test Lens piece, padded with words until it is longer than the two hundred characters that a summary may have, which takes a surprising number of words to reach in practice.\"" }]
+  },
+  {
+    "name": "date is not a real day",
+    "errors": ["E_DATE"],
+    "ops": [{ "edit": "src/content/dispatch/003-fixture-draft.md", "find": "date: 2026-02-05", "replace": "date: 2026-02-30" }]
+  },
+  {
+    "name": "time given without an offset (facts_as_of)",
+    "errors": ["E_DATE"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "facts_as_of: 2026-01-10T12:00:00+01:00", "replace": "facts_as_of: 2026-01-10T12:00:00" }]
+  },
+  {
+    "name": "time given without an offset (update)",
+    "errors": ["E_DATE"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "at: 2026-01-11T09:00:00+01:00", "replace": "at: 2026-01-11 09:00" }]
+  },
+  {
+    "name": "Dispatch file name disagrees with number",
+    "errors": ["E_FILENAME_NUMBER"],
+    "ops": [{ "edit": "src/content/dispatch/003-fixture-draft.md", "find": "number: 3", "replace": "number: 4" }],
+    "warnings": ["W_NUMBER_GAP"]
+  },
+  {
+    "name": "Lens file name disagrees with date",
+    "errors": ["E_FILENAME_DATE"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "date: 2026-01-10", "replace": "date: 2026-01-11" }]
+  },
+  {
+    "name": "two Explainers at the same address",
+    "errors": ["E_DUPLICATE_SLUG"],
+    "ops": [{ "copy": "src/content/insights/fixture-explainer.md", "to": "src/content/insights/fixture-explainer-copy.md" }]
+  },
+  {
+    "name": "two issues with the same number",
+    "errors": ["E_DUPLICATE_NUMBER"],
+    "ops": [{ "copy": "src/content/dispatch/003-fixture-draft.md", "to": "src/content/dispatch/003-fixture-draft-again.md" }]
+  },
+  {
+    "name": "gap in the numbering is only a warning",
+    "warnings": ["W_NUMBER_GAP"],
+    "ops": [
+      { "rename": "src/content/dispatch/003-fixture-draft.md", "to": "src/content/dispatch/005-fixture-draft.md" },
+      { "edit": "src/content/dispatch/005-fixture-draft.md", "find": "number: 3", "replace": "number: 5" }
+    ]
+  },
+  {
+    "name": "unknown field is only a warning",
+    "warnings": ["W_UNKNOWN_FIELD"],
+    "ops": [{ "edit": "src/content/dispatch/003-fixture-draft.md", "find": "email: draft", "replace": "email: draft\nshare_img: share.png" }]
+  },
+  {
+    "name": "Explainer with a reserved name (lens)",
+    "errors": ["E_RESERVED_SLUG"],
+    "ops": [{ "write": "src/content/insights/lens.md", "content": "---\ntitle: \"NEWSROOM-FIXTURE reserved\"\ndate: 2026-01-05\nsummary: \"NEWSROOM-FIXTURE\"\n---\n\nNEWSROOM-FIXTURE body.\n" }]
+  },
+  {
+    "name": "Explainer with a reserved slug in its header (on-the-record)",
+    "errors": ["E_RESERVED_SLUG"],
+    "ops": [{ "edit": "src/content/insights/fixture-explainer.md", "find": "slug: \"fixture-explainer\"", "replace": "slug: \"on-the-record\"" }, { "rename": "src/content/insights/fixture-explainer", "to": "src/content/insights/on-the-record" }]
+  },
+  {
+    "name": "image file missing",
+    "errors": ["E_IMAGE_MISSING"],
+    "ops": [{ "delete": "public/insights-media/dispatch/002-fixture-second-issue/chart.png" }]
+  },
+  {
+    "name": "Explainer image file missing",
+    "errors": ["E_IMAGE_MISSING"],
+    "ops": [{ "delete": "src/content/insights/fixture-explainer/hero.png" }]
+  },
+  {
+    "name": "image without alt text",
+    "errors": ["E_IMAGE_ALT"],
+    "ops": [{ "edit": "src/content/dispatch/002-fixture-second-issue.md", "find": "![NEWSROOM-FIXTURE chart of nothing]", "replace": "![]" }]
+  },
+  {
+    "name": "image not written as images/<file>",
+    "errors": ["E_IMAGE_REF"],
+    "ops": [{ "edit": "src/content/dispatch/002-fixture-second-issue.md", "find": "(images/chart.png ", "replace": "(https://example.org/chart.png " }]
+  },
+  {
+    "name": "share image missing",
+    "errors": ["E_SHARE_IMAGE_MISSING"],
+    "ops": [{ "delete": "public/insights-media/dispatch/001-fixture-first-issue/share.png" }]
+  },
+  {
+    "name": "share image of the wrong size (PNG 600x315)",
+    "errors": ["E_SHARE_IMAGE_SIZE"],
+    "ops": [{ "copy": "assets/wrong-size.png", "to": "public/insights-media/dispatch/001-fixture-first-issue/share.png" }]
+  },
+  {
+    "name": "share image of the wrong size (JPEG 600x315)",
+    "errors": ["E_SHARE_IMAGE_SIZE"],
+    "ops": [{ "copy": "assets/wrong-size.jpg", "to": "public/insights-media/lens/2026-01-10-fixture-lens-piece/share.jpg" }]
+  },
+  {
+    "name": "share image that is not an image",
+    "errors": ["E_SHARE_IMAGE_SIZE"],
+    "ops": [{ "write": "public/insights-media/dispatch/001-fixture-first-issue/share.png", "content": "NEWSROOM-FIXTURE not a picture" }]
+  },
+  {
+    "name": "published Lens piece with one source",
+    "errors": ["E_SOURCES_COUNT"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "  - title: \"NEWSROOM-FIXTURE secondary source\"\n    url: https://example.org/secondary\n    kind: secondary\n", "replace": "" }]
+  },
+  {
+    "name": "published Lens piece without a primary source",
+    "errors": ["E_SOURCES_PRIMARY"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "kind: primary", "replace": "kind: secondary" }]
+  },
+  {
+    "name": "source address is not https",
+    "errors": ["E_SOURCE_URL"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "url: https://example.org/primary", "replace": "url: http://example.org/primary" }]
+  },
+  {
+    "name": "source address is not absolute",
+    "errors": ["E_SOURCE_URL"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "url: https://example.org/primary", "replace": "url: example.org/primary" }]
+  },
+  {
+    "name": "email scheduled without send_at",
+    "errors": ["E_SEND_AT"],
+    "ops": [{ "edit": "src/content/dispatch/002-fixture-second-issue.md", "find": "send_at: 2026-01-22T08:30:00+01:00\n", "replace": "" }]
+  },
+  {
+    "name": "leftover marker TODO in a published file",
+    "errors": ["E_LEFTOVER"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "A second sentence follows.", "replace": "TODO write the second sentence." }]
+  },
+  {
+    "name": "leftover marker TK in a published file",
+    "errors": ["E_LEFTOVER"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "A second sentence follows.", "replace": "The figure was TK percent." }]
+  },
+  {
+    "name": "leftover marker [CHECK] in a published file",
+    "errors": ["E_LEFTOVER"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "Nothing here is real.", "replace": "Nothing here is real [CHECK]." }]
+  },
+  {
+    "name": "leftover marker lorem in a published file",
+    "errors": ["E_LEFTOVER"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "Nothing here is real.", "replace": "Lorem ipsum dolor sit amet." }]
+  },
+  {
+    "name": "leftover marker XXX in a published file's header",
+    "errors": ["E_LEFTOVER"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "note: \"\"", "replace": "note: \"XXX\"" }]
+  },
+  {
+    "name": "leftover marker in a published Explainer",
+    "errors": ["E_LEFTOVER"],
+    "ops": [{ "edit": "src/content/insights/fixture-explainer.md", "find": "opening sentence of the explainer.", "replace": "opening sentence. TODO the rest." }]
+  },
+  {
+    "name": "lens cross-reference to a piece that does not exist",
+    "errors": ["E_XREF_LENS"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "lens: 2026-01-10-fixture-lens-piece", "replace": "lens: 2026-01-10-no-such-piece" }]
+  },
+  {
+    "name": "dispatch cross-reference to an issue that does not exist",
+    "errors": ["E_XREF_DISPATCH"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "dispatch: 1", "replace": "dispatch: 9" }]
+  },
+  {
+    "name": "published Lens piece naming a draft issue",
+    "errors": ["E_XREF_DISPATCH"],
+    "ops": [{ "edit": "src/content/lens/2026-01-10-fixture-lens-piece.md", "find": "dispatch: 1", "replace": "dispatch: 3" }]
+  },
+  {
+    "name": "raw HTML in the text",
+    "errors": ["E_RAW_HTML"],
+    "ops": [{ "edit": "src/content/dispatch/001-fixture-first-issue.md", "find": "> A callout box.", "replace": "<div class=\"box\">A callout box.</div>" }]
+  }
+]
