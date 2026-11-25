@@ -133,7 +133,7 @@ uses it and the regression compare.
 
 | No. | Part | Slug | Status | Commit | Panels | Live figures |
 |---|---|---|---|---|---|---|
-| 01 | I | `what-is-a-game` | planned | | | |
+| 01 | I | `what-is-a-game` | done | the commit "Game Theory Lab 01: What is a game?" | A Game explorer; B Guess two thirds of the average; C How far does dominance go? | `eliminate`, `atlas` |
 | 02 | I | `nash-equilibrium` | planned | | | |
 | 03 | I | `mixed-strategies-zero-sum` | planned | | | |
 | 04 | I | `sequential-games-commitment` | planned | | | |
@@ -151,7 +151,7 @@ uses it and the regression compare.
 Parts: I Reasoning / Ragionare; II Learning / Imparare; III Living together /
 Convivere; IV Designing / Progettare.
 
-Other commits: "Game Theory Lab: skeleton" (prompt 1, stage 1: registry entry,
+Other commits: 479e821, "Game Theory Lab: skeleton" (prompt 1, stage 1: registry entry,
 path, module list, loader, browser checks, this file, the subsection in
 `CLAUDE.md`).
 
@@ -209,16 +209,113 @@ path, module list, loader, browser checks, this file, the subsection in
 
 ## Italian terms
 
-Decided with module 01 (see "Work in progress" until then).
+Chosen in module 01; keep them in the later modules.
+
+| English | Italian |
+|---|---|
+| game | gioco |
+| player | giocatore (giocatore di riga, giocatore di colonna) |
+| strategy | strategia |
+| payoff | payoff (kept; plural "i payoff") |
+| normal form | forma normale |
+| strictly dominated | strettamente dominata |
+| weak dominance | dominanza debole |
+| dominant strategy | strategia dominante |
+| iterated elimination | eliminazione iterata |
+| best response | risposta migliore |
+| common knowledge (of rationality) | conoscenza comune (della razionalità) |
+| level of reasoning | livello di ragionamento (livello 0, livello 1…) |
+| stable cell | cella stabile |
+| Prisoner's Dilemma | dilemma del prigioniero |
+| stag hunt | caccia al cervo |
+| chicken | gioco del pollo |
+| snowdrift | *snowdrift* (kept in English) |
+| hawk–dove | falco–colomba |
+| harmony | armonia |
+| battle of the sexes | battaglia dei sessi |
+| matching pennies | *matching pennies* (kept in English) |
+| pure coordination | coordinamento puro |
+| zero-sum | a somma zero |
+| temptation, sucker's payoff | tentazione, payoff dell'ingenuo |
+| to cooperate, to defect | cooperare, defezionare |
+| target (of the guessing game) | bersaglio |
+| round | turno |
+| beauty contest | concorso di bellezza (*beauty contest*) |
+| Nash equilibrium | equilibrio di Nash |
 
 ## Work in progress
 
-Stage 1 of prompt 1 (the skeleton) is done. Module 01 has not been started.
+Nothing in progress. Prompt 1 is finished: the skeleton and module 01, with
+the report in `docs/reports/game-theory-lab-01.md`.
 
 ## Next
 
-Module 01, `what-is-a-game` (prompt 1, stage 2).
+Module 02, `nash-equilibrium`, when its prompt
+(`prompts.local/game-theory-lab-02.md`) is there. Module 01 ends by naming
+the stable cell "Nash equilibrium" and promising what it means, why a game
+can have several and which one gets played.
 
 ## Open items
 
-None yet.
+- The lecture of module 01 carries the DRAFT marker: to be reviewed by
+  Adriano.
+- Shared by the lab since module 01: `src/components/lab/game-theory/PayoffTable.jsx`
+  (the payoff table of a two-player game of any size: marks for best
+  responses, greyed strategies, ringed stable cells, a compact mode, optional
+  − / + steppers; also `TableLegend`). The modules import the Network Lab's
+  `network/ui.jsx` and `network/charts.jsx` without changing them; Vite keeps
+  each in a small chunk of its own (2.3 kB and 3.1 kB), loaded only when
+  unlocked.
+- Module 01, things a later module may reuse, all in `what-is-a-game/`:
+  `games.js` (games as `{ rows, cols, a, b }`; best responses with ties,
+  stable cells, strict dominance by one strategy, iterated elimination with a
+  choice of order, dominant strategies, cells not beaten for both; the 576
+  ordinal tables and their classes under renaming and swapping; the (T, S)
+  map), `guessing.js` (the level-k crowd, one round, sequences, the
+  1,000-play job, the whole-number variant), `randomgames.js` (random m × m
+  games and their survey as a job), `EliminationSteps.jsx` (a game with its
+  elimination, one step per press). Module 02 can start from `stableCells`
+  and from `classifyTS`.
+- Module 01, choices to review: "cells that no other cell beats for both
+  players" means no other cell is strictly better for both; elimination
+  deletes one strategy per step, rows before columns; the strategy names of
+  Panel A change with the preset (C/D, Stag/Hare, Swerve/Straight,
+  Concert/Match, Heads/Tails, Left/Right) and stay when a payoff is edited;
+  the reader's own guess in Panel B is ranked among the others but does not
+  move the mean; the slider of p moves through 0.10, 0.15, …, 0.95 and 2/3;
+  shares move in steps of 0.05 and are normalised; any change of setting
+  goes back to the first round of the page's seed; besides "Play again"
+  there is "10 more rounds"; Panel C opens on 3 × 3 and surveys the chosen
+  size again at every change (through `useExperiment`); its sample game
+  shows payoffs in hundredths while the logic uses the full numbers;
+  exercises 3 and 4 end with a check in the page ("on paper, then in the
+  simulation"). F1 is 371 px tall at 1280 px in English (409 px in Italian,
+  where the explanation takes one more line) and F2 367 px; at 375 px they
+  are 401 and 604 px.
+- Module 01, findings the texts state: with noise σ = 2 the mean of "Play
+  again" never falls below 1 (it stalls between 1.06 and 1.34: a guess cannot
+  go below 0, so the noise only pushes up); with σ = 0 it does so in round 8,
+  as 50 f^t says (22 with p = 0.9, 6 with p = 1/2, 4 for the deep thinkers).
+  In "Half at equilibrium" level 0 wins 615 times of 1,000 (565 to 616 over
+  ten other seeds). With p = 0.9 levels 2 and 3 share the wins almost evenly
+  (468 and 474; over ten other seeds 455–502 and 439–484).
+- Module 01, sources (checked in November 2026, details in
+  `docs/reports/game-theory-lab-01.md`): read in the papers — Nagel (1995:
+  first-period mean 36.73 and median 33 at p = 2/3; numbers above 100p are
+  weakly dominated) and Bosch-Domènech et al. (working-paper version: 7,900
+  participants, means 18.91, 22.08 and 25.47, peaks at the steps of
+  reasoning). From news reports and reference pages: the badminton
+  disqualifications of 1 August 2012, von Neumann (1928), von Neumann and
+  Morgenstern (1944), Keynes (1936, ch. 12), Rapoport and Guyer (1966: 78
+  games).
+- Module 01 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in
+  `scripts/lab/check-game-theory-01.mjs` (about 15 s; run it whole) and by
+  `scripts/lab/browser-checks/modules/game-theory-what-is-a-game.mjs`. The
+  page formats with `toFixed`: the checks format the same way.
+- Found while checking the skeleton: the site does not reset the scroll
+  position when the route changes. With three cards the hub has a second
+  row; opening the third card at 1280 × 900 lands on the lab index 94 px
+  down, with "All labs" under the fixed header. `check-links.mjs` now scrolls
+  to the top before clicking that link. Not fixed in the site: it is not lab
+  code and it changes every page. For Adriano to decide.

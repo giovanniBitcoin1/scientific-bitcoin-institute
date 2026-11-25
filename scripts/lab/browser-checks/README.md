@@ -64,6 +64,12 @@ node check-module.mjs network social-contagion-network-effects
 node check-module.mjs network capstone-a-real-network
 ```
 
+Every ready module of the Game Theory Lab:
+
+```
+node check-module.mjs game-theory what-is-a-game
+```
+
 The functional checks, one per module:
 
 ```
@@ -81,6 +87,7 @@ node modules/network-robustness-and-cascades.mjs
 node modules/network-epidemics-on-networks.mjs
 node modules/network-social-contagion-network-effects.mjs
 node modules/network-capstone-a-real-network.mjs
+node modules/game-theory-what-is-a-game.mjs
 ```
 
 A Complexity Lab page is checked in the same way, for instance
