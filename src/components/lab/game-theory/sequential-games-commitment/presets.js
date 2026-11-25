@@ -17,12 +17,12 @@ export const NAMES = {
     commit: ['Impegnati', 'I'], free: ['Aspetta', 'A'],
     concert: ['Concerto', 'C'], match: ['Partita', 'P'], heads: ['Testa', 'T'], tails: ['Croce', 'C'],
     take: ['Prendi', 'P'], pass: ['Lascia', 'L'],
-    U: ['Su', 'S'], D: ['GiÃƒÂ¹', 'G'], L: ['Sinistra', 'S'], R: ['Destra', 'D'],
+    U: ['Su', 'S'], D: ['Giù', 'G'], L: ['Sinistra', 'S'], R: ['Destra', 'D'],
   },
 }
 
 // The entry game of Figure F1, payoffs (newcomer, firm): stay out (0, 4);
-// enter and share (2, 2); enter and fight (Ã¢Ë†â€™1, f). With `commit`, the firm
+// enter and share (2, 2); enter and fight (−1, f). With `commit`, the firm
 // moves first: committing removes "share" and costs k on every payoff of the
 // firm below it. Player 0 is the newcomer, player 1 the firm.
 export const ENTRY = { out: [0, 4], share: [2, 2], fight: [-1, 0] }
@@ -77,22 +77,14 @@ function centipede(n) {
   return prepare(tail)
 }
 
-// In every Panel A tree player 0 moves first and payoffs are (first, second).
+// Payoffs are always (player 0, player 1). Player 0 moves first in every
+// Panel A tree except the entry game with commitment: there, as everywhere in
+// the entry game, the newcomer is player 0 (its payoff first, in the first
+// player's colour) and the firm, player 1, moves at the root.
 export function presetTree(id, lang = 'en', cells = null) {
   const n = NAMES[lang] || NAMES.en
   if (id === 'entry') return entryTree({ f: 0 }, lang)
-  if (id === 'commit') {
-    // The firm moves first here, so it is player 0: payoffs (firm, newcomer).
-    const plain = node(1, [
-      [...n.out, leaf(4, 0)],
-      [...n.in, node(0, [[...n.share, leaf(2, 2)], [...n.fight, leaf(0, -1)]])],
-    ])
-    const committed = node(1, [
-      [...n.out, leaf(3, 0)],
-      [...n.in, node(0, [[...n.fight, leaf(-1, -1)]])],
-    ])
-    return prepare(node(0, [[...n.free, plain], [...n.commit, committed]]))
-  }
+  if (id === 'commit') return entryTree({ f: 0, k: 1, commit: true }, lang)
   if (id === 'battle' || id === 'pennies') {
     const [x, y] = id === 'battle' ? [n.concert, n.match] : [n.heads, n.tails]
     return twoStage(CLASSICS[id], { U: x, D: y, L: x, R: y })
@@ -104,11 +96,11 @@ export function presetTree(id, lang = 'en', cells = null) {
 // Who the two players are in each preset (for the page).
 export const PLAYERS = {
   en: {
-    entry: ['Newcomer', 'Firm'], commit: ['Firm', 'Newcomer'], battle: ['Row player', 'Column player'],
+    entry: ['Newcomer', 'Firm'], commit: ['Newcomer', 'Firm'], battle: ['Row player', 'Column player'],
     pennies: ['Row player', 'Column player'], centipede: ['First player', 'Second player'], random: ['First player', 'Second player'],
   },
   it: {
-    entry: ['Nuovo arrivato', 'Impresa'], commit: ['Impresa', 'Nuovo arrivato'], battle: ['Giocatore di riga', 'Giocatore di colonna'],
+    entry: ['Nuovo arrivato', 'Impresa'], commit: ['Nuovo arrivato', 'Impresa'], battle: ['Giocatore di riga', 'Giocatore di colonna'],
     pennies: ['Giocatore di riga', 'Giocatore di colonna'], centipede: ['Primo giocatore', 'Secondo giocatore'], random: ['Primo giocatore', 'Secondo giocatore'],
   },
 }

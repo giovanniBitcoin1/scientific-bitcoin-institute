@@ -5,21 +5,21 @@ import { mulberry32 } from '../../rng.js'
 
 // ------------------------------------------------------------------ The Bitcoin box
 
-// A miner with a share Î± of the hash rate tries to orphan a block holding a
+// A miner with a share α of the hash rate tries to orphan a block holding a
 // transaction it dislikes, and gives up once that block has one
 // confirmation (feather forking). It succeeds only by finding the next two
-// blocks: chance Î±Â². Another miner who includes the transaction keeps its
-// fee with chance 1 âˆ’ Î±Â² and loses its whole block with chance Î±Â²: it pays
-// only if fee > Î±Â²/(1 âˆ’ Î±Â²) of the block's value. Over the next two blocks
-// the attacker expects Î±(1 + Î±) blocks instead of 2Î±: one attempt costs it
-// Î±(1 âˆ’ Î±) of a block.
+// blocks: chance α². Another miner who includes the transaction keeps its
+// fee with chance 1 − α² and loses its whole block with chance α²: it pays
+// only if fee > α²/(1 − α²) of the block's value. Over the next two blocks
+// the attacker expects α(1 + α) blocks instead of 2α: one attempt costs it
+// α(1 − α) of a block.
 export const featherChance = (a) => a * a
 export const feeThreshold = (a) => (a * a) / (1 - a * a)
 export const attemptCost = (a) => a * (1 - a)
 
-// n two-block races by simulation: { success, blocks } â€” the share of races
+// n two-block races by simulation: { success, blocks } — the share of races
 // the attacker wins and its mean number of blocks kept among the next two
-// (an honest miner of the same size keeps 2Î± on average).
+// (an honest miner of the same size keeps 2α on average).
 export function races(a, n = 200000, seed = 6100) {
   const random = mulberry32(seed)
   let wins = 0

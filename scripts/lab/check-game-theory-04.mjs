@@ -96,7 +96,17 @@ const story = (cfg) => entryStory(cfg)
   check('F1 with commitment, f > 2: the firm never needs to commit (it keeps 4 without)', [2.5, 3].every((f) => ks.every((k) => !story({ f, k, commit: true }).commits || k === 0)) && same(story({ f: 3, k: 1, commit: true }).outcome, [0, 4]))
   check('F1 defaults: f = 0, k = 1: without commitment (2, 2); with commitment the firm commits and gets 3', same(story({}).outcome, [2, 2]) && same(story({ commit: true }).outcome, [0, 3]))
   const c = analyse(presetTree('commit'))
-  check('entry with commitment (k = 1) in Panel A: the firm commits, the newcomer stays out, (3, 0) as (firm, newcomer); one subgame perfect equilibrium among the Nash ones', same(c.bi.outcome.payoffs, [3, 0]) && c.eq.filter((e) => e.spe).length === 1, `${c.eq.length} Nash equilibria`)
+  check('entry with commitment (k = 1) in Panel A: the firm commits, the newcomer stays out, (0, 3) as (newcomer, firm); one subgame perfect equilibrium among the Nash ones', same(c.bi.outcome.payoffs, [0, 3]) && c.eq.filter((e) => e.spe).length === 1, `${c.eq.length} Nash equilibria`)
+  {
+    // Stage 0 of prompt 5: one payoff order for the entry game everywhere.
+    const cp = presetTree('commit')
+    const plans = (k) => c.table.plans[k].length
+    check('entry with commitment in Panel A: newcomer is player 0 (rows, payoff first), the firm player 1 moves at the root; the tree is F1\'s with f = 0, k = 1', cp.root.player === 1 && cp.decision[0].length === 2 && cp.decision[1].length === 3 && plans(0) === 4 && plans(1) === 4 && JSON.stringify(cp.leaves.map((l) => l.payoffs)) === JSON.stringify(entryTree({ f: 0, k: 1, commit: true }).leaves.map((l) => l.payoffs)))
+    check('entry with commitment, k = 1: when the firm commits the outcome is (0, 3) as (newcomer, firm); the firm\'s root move is "Commit"', same(c.bi.outcome.payoffs, [0, 3]) && c.bi.choice.get(cp.root.id) === 1 && cp.root.moves[1].name === 'Commit')
+    const bad = c.eq.filter((e) => !e.spe)
+    check('entry with commitment: every equilibrium that is not subgame perfect has an empty threat, and the perfect one is the backward-induction cell', bad.length === 4 && bad.every((e) => e.threat) && same(c.eq.find((e) => e.spe).leaf, c.bi.outcome.id))
+    console.log(`    threats: ${bad.map((e) => `${['newcomer', 'firm'][e.threat.player]} at [${e.threat.node.path.join(' > ') || 'root'}] ${e.threat.got} → ${e.threat.could}`).join('; ')}`)
+  }
   const b = analyse(presetTree('battle'))
   check('battle of the sexes in turn: (2, 1); four plans for the second player; three Nash equilibria, one subgame perfect', same(b.bi.outcome.payoffs, [2, 1]) && b.table.cols.length === 4 && b.eq.length === 3 && b.eq.filter((e) => e.spe).length === 1)
   const bNames = b.eq.map((e) => `${b.table.rows[e.cell[0]]}/${b.table.cols[e.cell[1]]}${e.spe ? '*' : ''}`).sort()
@@ -304,7 +314,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   const entry = analyse(presetTree('entry'))
   const commit = analyse(presetTree('commit'))
   const cent = analyse(presetTree('centipede'))
-  check('observe, Panel A: entry game solved firm first, then newcomer; commitment preset 5 equilibria, 1 perfect; centipede 4, all at the first move; pennies: tie at the root, two perfect', entry.bi.order[0].player === 1 && commit.eq.length === 5 && commit.eq.filter((e) => e.spe).length === 1 && same(commit.bi.outcome.payoffs, [3, 0]) && cent.eq.length === 4 && (() => {
+  check('observe, Panel A: entry game solved firm first, then newcomer; commitment preset 5 equilibria, 1 perfect; centipede 4, all at the first move; pennies: tie at the root, two perfect', entry.bi.order[0].player === 1 && commit.eq.length === 5 && commit.eq.filter((e) => e.spe).length === 1 && same(commit.bi.outcome.payoffs, [0, 3]) && cent.eq.length === 4 && (() => {
     const p = analyse(presetTree('pennies'))
     return p.bi.tie.get(p.bi.order.at(-1).id) && p.eq.filter((e) => e.spe).length === 2
   })())
@@ -314,7 +324,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   })())
   const sv3 = (k) => f3(sv[k])
   quoted('observe, Panel A', observe.tree, [
-    ['5 Nash equilibria', '5 equilibri di Nash'], ['4 Nash equilibria', '4 equilibri di Nash'], '(3, 0)', '(1, 0)', '(5, 3)', ['G to 20,000', 'G a 20.000'],
+    ['5 Nash equilibria', '5 equilibri di Nash'], ['4 Nash equilibria', '4 equilibri di Nash'], '(0, 3)', ['(newcomer, firm)', '(nuovo arrivato, impresa)'], '(1, 0)', '(5, 3)', ['G to 20,000', 'G a 20.000'],
     [`${sv3('nash1')}, ${sv3('nash2')} and ${sv3('nash3')}`, `${it(sv3('nash1'))}, ${it(sv3('nash2'))} e ${it(sv3('nash3'))}`],
     sv3('notSpe'), sv3('differs'), sv3('secondBetter'), sv3('better'), sv3('worse'), sv3('same'), sv3('noPure'), sv3('noPureBothSecond'), sv3('leaderAbove'),
   ])

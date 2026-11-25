@@ -19,6 +19,12 @@ import { num } from './FigureEntry.jsx'
 
 const STEP_MS = 550
 
+// "of the …" in Italian: "del nuovo arrivato", "dell’impresa".
+const di = (p) => {
+  const s = p.toLowerCase()
+  return /^[aeiou]/.test(s) ? `dell’${s}` : `del ${s}`
+}
+
 const T = {
   en: {
     presets: { entry: 'Entry game', commit: 'Entry with commitment (k = 1)', battle: 'Battle of the sexes in turn', pennies: 'Matching pennies in turn', centipede: 'Centipede', random: 'Random tree' },
@@ -27,7 +33,8 @@ const T = {
     reset: 'Clear',
     tree: (n) => `Random tree no. ${n}`,
     preset: 'A preset',
-    plansNote: (p0, p1) => `Rows: the plans of the first player (${p0}), columns: those of the second (${p1}). A plan lists a move for every point where that player might choose, in the order the tree is read (left to right, top to bottom). Ringed: the pure Nash equilibria; framed: backward induction.`,
+    plansNote: (p0, p1) => `Rows: the plans of the ${p0.toLowerCase()}, whose payoff is written first; columns: those of the ${p1.toLowerCase()}. A plan lists a move for every point where that player might choose, in the order the tree is read (left to right, top to bottom). Ringed: the pure Nash equilibria; framed: backward induction.`,
+    order: (p0, p1) => `payoffs (${p0.toLowerCase()}, ${p1.toLowerCase()}), the first on top`,
     nash: (n) => (n === 1 ? 'One Nash equilibrium in pure strategies' : `${n} Nash equilibria in pure strategies`),
     spe: 'subgame perfect',
     notSpe: 'not subgame perfect',
@@ -65,7 +72,8 @@ const T = {
     reset: 'Cancella',
     tree: (n) => `Albero casuale n. ${n}`,
     preset: 'Un gioco preimpostato',
-    plansNote: (p0, p1) => `Righe: i piani del primo giocatore (${p0}), colonne: quelli del secondo (${p1}). Un piano indica una mossa per ogni punto in cui quel giocatore potrebbe scegliere, nell’ordine in cui si legge l’albero (da sinistra a destra, dall’alto in basso). Cerchiati: gli equilibri di Nash puri; riquadrato: l’induzione a ritroso.`,
+    plansNote: (p0, p1) => `Righe: i piani ${di(p0)}, il cui payoff è scritto per primo; colonne: quelli ${di(p1)}. Un piano indica una mossa per ogni punto in cui quel giocatore potrebbe scegliere, nell’ordine in cui si legge l’albero (da sinistra a destra, dall’alto in basso). Cerchiati: gli equilibri di Nash puri; riquadrato: l’induzione a ritroso.`,
+    order: (p0, p1) => `payoff (${p0.toLowerCase()}, ${p1.toLowerCase()}), il primo in alto`,
     nash: (n) => (n === 1 ? 'Un equilibrio di Nash in strategie pure' : `${n} equilibri di Nash in strategie pure`),
     spe: 'perfetto nei sottogiochi',
     notSpe: 'non perfetto nei sottogiochi',
@@ -178,6 +186,8 @@ export default function TreePanel({ lang = 'en' }) {
             <span className="font-semibold" style={{ color: COL_COLOR }}>
               {initials[1]} {players[1]}
             </span>
+            {' · '}
+            {t.order(players[0], players[1])}
           </p>
           <p className="mt-2 text-sm text-slate-700 leading-snug" data-role="tree-status">
             {steps == null ? '' : finished ? t.done(n(a.bi.outcome.payoffs[0]), n(a.bi.outcome.payoffs[1])) : t.steps(steps, total)}

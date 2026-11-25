@@ -22,7 +22,7 @@ export function population(N = DEFAULT_N, m = DEFAULT_M, seed = POP_SEED) {
   return t.sort((x, y) => x - y)
 }
 
-// Share of the population that accepts x (threshold â‰¤ x).
+// Share of the population that accepts x (threshold ≤ x).
 export function acceptShare(pop, x) {
   let lo = 0
   let hi = pop.length
@@ -36,9 +36,9 @@ export function acceptShare(pop, x) {
 
 export const expectedMoney = (pop, x) => (1 - x) * acceptShare(pop, x)
 
-// The closed form for thresholds uniform on 0â€“m: accepted with chance
-// min(1, x/m), so the proposer expects (1 âˆ’ x) min(1, x/m); the best offer
-// is m when m â‰¤ 1/2 (and 1/2 otherwise), worth 1 âˆ’ m.
+// The closed form for thresholds uniform on 0–m: accepted with chance
+// min(1, x/m), so the proposer expects (1 − x) min(1, x/m); the best offer
+// is m when m ≤ 1/2 (and 1/2 otherwise), worth 1 − m.
 export const closedMoney = (x, m) => (m <= 0 ? 1 - x : (1 - x) * Math.min(1, x / m))
 export const closedBest = (m) => (m <= 0.5 ? { offer: m, money: 1 - m } : { offer: 0.5, money: 0.25 / m })
 

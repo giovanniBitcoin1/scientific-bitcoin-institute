@@ -120,8 +120,16 @@ await click(PANEL, 0, 'Entry with commitment (k = 1)')
 await sleep(150)
 t = await nash()
 ok('Panel A entry with commitment: 5 equilibria, one subgame perfect', t.includes('5 NASH EQUILIBRIA') && t.split('NOT SUBGAME PERFECT').length - 1 === 4, t)
+// Stage 0 of prompt 5: (newcomer, firm) everywhere in the entry game.
+ok('Panel A entry with commitment: the empty threats are named for the right player (three of the firm after Wait, Enter; one of the newcomer after Commit)', t.split('Firm: the plan says “Fight” after Wait, Enter, where it would get 0; “Share” would give 2.').length - 1 === 3 && t.includes('Newcomer: the plan says “Enter” after Commit, where it would get −1; “Stay out” would give 0.'), t)
+{
+  const legend = await p.evaluate((s) => document.querySelectorAll(s)[0].querySelector('[data-role="tree"]').parentElement.nextElementSibling.innerText, PANEL)
+  const root = await p.evaluate((s) => document.querySelectorAll(s)[0].querySelector('[data-role="tree"] g[data-node="0"] text').textContent, PANEL)
+  const note = await text(PANEL, 0)
+  ok('Panel A entry with commitment: legend N Newcomer · F Firm · payoffs (newcomer, firm); the firm (F) at the root; rows are the newcomer\'s plans', flat(legend).includes('N Newcomer · F Firm · payoffs (newcomer, firm), the first on top') && root === 'F' && note.includes('Rows: the plans of the newcomer, whose payoff is written first; columns: those of the firm.'), `${flat(legend)} | root ${root}`)
+}
 await solve()
-ok('Panel A entry with commitment solved: (3, 0)', (await role('tree-status')).includes('payoffs 3 and 0'))
+ok('Panel A entry with commitment solved: (0, 3) as (newcomer, firm)', (await role('tree-status')).includes('payoffs 0 and 3'), await role('tree-status'))
 await click(PANEL, 0, 'Battle of the sexes in turn')
 await sleep(150)
 t = await nash()
