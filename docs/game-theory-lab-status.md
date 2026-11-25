@@ -56,6 +56,15 @@ model for this one and holds the history of the engine.
   order to make a check pass. If a limit given in a prompt turns out to be
   too tight, first make sure that the code is right; then set the limit from
   what ten or more seeds show, and say so in the report, with the numbers.
+- **The status file says only what is true now.** Write "done" for a step
+  after its commit exists, and "prompt finished" only after the report is
+  committed (added in prompt 3: prompt 2 stopped half-way with this file
+  saying "finished").
+- **Keep a working log**, `docs/reports/game-theory-lab-NN-log.md`, from the
+  first step of every prompt: one line per check run to its end (command,
+  result) and one line per source looked up (what, where, what it says).
+  Commit it with the WIP commits and leave it in the repo next to the
+  report. A session that picks up a prompt reads the log first.
 - **This PC has little free memory.** Builds and checks run in the
   foreground, one at a time, as separate commands; no background shells. An
   old `vite preview` server that locks files may be stopped.
@@ -275,14 +284,15 @@ Added in module 02:
 
 ## Work in progress
 
-Nothing in progress. Prompt 2 is finished: the two fixes of stage 0 and
-module 02 (three WIP commits squashed into "Game Theory Lab 02: Nash
-equilibrium"). Its report is `docs/reports/game-theory-lab-02.md`, in the
-commit "Game Theory Lab 02: report" that follows the module commit: if that
-file is missing, the report is still to be written. The whole list of
-checks was run again from the first line, one at a time, on the final
-state, before the squash: 0 failures everywhere (numbers in the report).
+Prompt 3 (`prompts.local/game-theory-lab-03.md`), in progress. Working log:
+`docs/reports/game-theory-lab-03-log.md` (read it first).
 
+- Stage 0 (module 02 fixes: rounder wording in "Safe or sorry", source
+  pass): in the commit "Game Theory Lab 02: fixes".
+- Module 03 `mixed-strategies-zero-sum`: not started.
+
+Remains: module 03 in the order of "How to resume", the checks, the squash,
+the report.
 ## Next
 
 Module 03, `mixed-strategies-zero-sum`, when its prompt

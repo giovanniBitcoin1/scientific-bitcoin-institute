@@ -20,7 +20,7 @@ La Simulazione A misura quanto la definizione lascia aperto. In un gioco casuale
 
 Da che lato della strada si guida? Tutti a sinistra è un equilibrio, e lo è anche tutti a destra. La tabella non può scegliere: sono la stessa cella sotto nomi diversi.
 
-In *The Strategy of Conflict* (1960) Thomas Schelling pose alle persone domande di questo tipo. Domani devi incontrare uno sconosciuto a New York; non avete concordato né luogo né ora, e non potete parlarvi. Dove vai, e quando? Più della metà dei suoi intervistati scelse il banco informazioni della Grand Central Station, e quasi tutti mezzogiorno. Invitati a dire testa o croce per coincidere con un compagno invisibile, in larga maggioranza dissero testa. Schelling chiamò risposte come queste **punti focali**. Ciò che risolve il problema non sta nella tabella: è l'evidenza, la storia, l'usanza.
+In *The Strategy of Conflict* (1960) Thomas Schelling pose alle persone domande di questo tipo. Domani devi incontrare uno sconosciuto a New York; non avete concordato né luogo né ora, e non potete parlarvi. Dove vai, e quando? Più della metà dei suoi intervistati scelse la Grand Central Station, e quasi tutti mezzogiorno. Invitati a dire testa o croce per coincidere con un compagno invisibile, 36 su 42 dissero testa. Schelling chiamò risposte come queste **punti focali**. Ciò che risolve il problema non sta nella tabella: è l'evidenza, la storia, l'usanza.
 
 ## Meglio o più sicuro
 
@@ -38,7 +38,7 @@ staghunt
 
 Con a = 4, b = 0, c = 3 e d = 2 si ottiene q* = 2/3: bisogna essere piuttosto sicuri dell'altro. L'equilibrio del cervo è **dominante nei payoff**, migliore per entrambi. L'equilibrio della lepre è **dominante nel rischio**: è quello che richiede meno fiducia nell'altro giocatore (i termini sono di Harsanyi e Selten 1988). Quando i due criteri non sono d'accordo, gli esperimenti tendono a dare ragione alla sicurezza. In uno di essi (Van Huyck, Battalio e Beil, 1990), gruppi da 14 a 16 persone sceglievano ciascuno uno sforzo da 1 a 7 ed erano pagati in base allo sforzo più basso del gruppo. Tutti a 7 era l'equilibrio migliore; dal quarto turno in poi, lo sforzo più basso fu 1 in ogni gruppo.
 
-Nella Simulazione B un giocatore alla volta guarda altri dieci e caccia il cervo solo se abbastanza di loro lo fanno. La convenzione migliore prende il sopravvento solo dove è già seguita da abbastanza persone. Il punto di svolta è a circa 0,73 della popolazione, poco sopra q*, perché un campione di dieci deve mostrarne sette per superare i due terzi. Partendo dal 70% di cacciatori di cervo, tutti finiscono al cervo 14 volte su 100; partendo dal 75%, 83 volte su 100.
+Nella Simulazione B un giocatore alla volta guarda altri dieci e caccia il cervo solo se abbastanza di loro lo fanno. La convenzione migliore prende il sopravvento solo dove è già seguita da abbastanza persone. Il punto di svolta è a circa 0,73 della popolazione, poco sopra q*, perché un campione di dieci deve mostrarne sette per superare i due terzi. Partendo dal 70% di cacciatori di cervo, tutti finiscono al cervo circa una volta su sette; partendo dal 75%, circa quattro volte su cinque.
 
 ## Quando le strategie sono numeri
 
@@ -101,7 +101,7 @@ Non tutti i giochi hanno un equilibrio da trovare. Un gioco due per due su otto 
 - Harsanyi, J. C. e Selten, R. (1988). *A General Theory of Equilibrium Selection in Games*. MIT Press.
 - Van Huyck, J. B., Battalio, R. C. e Beil, R. O. (1990). Tacit coordination games, strategic uncertainty, and coordination failure. *American Economic Review* 80, 234–248.
 - Cournot, A. (1838). *Recherches sur les principes mathématiques de la théorie des richesses*. Hachette.
-- Bertrand, J. (1883). Recensione delle *Recherches* di Cournot e della *Théorie mathématique de la richesse sociale* di Walras. *Journal des Savants*, 499–508.
+- Bertrand, J. (1883). Recensione delle *Recherches* di Cournot e della *Théorie mathématique de la richesse sociale* di Walras. *Journal des Savants*, settembre, 499–508.
 - Tullock, G. (1980). Efficient rent seeking. In Buchanan, J. M., Tollison, R. D. e Tullock, G. (a cura di), *Toward a Theory of the Rent-Seeking Society*. Texas A&M University Press.
 - Theocharis, R. D. (1960). On the stability of the Cournot solution on the oligopoly problem. *Review of Economic Studies* 27, 133–134.
 - Goldberg, K., Goldman, A. J. e Newman, M. (1968). The probability of an equilibrium point. *Journal of Research of the National Bureau of Standards* 72B, 93–101.

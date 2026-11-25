@@ -20,7 +20,7 @@ Simulation A measures how much the definition leaves open. In a random game with
 
 On which side of the road should you drive? Everyone on the left is an equilibrium, and so is everyone on the right. The table cannot choose: the two are the same cell under different names.
 
-In *The Strategy of Conflict* (1960) Thomas Schelling put questions of this kind to people. You have to meet a stranger in New York tomorrow; no place and no time have been agreed, and you cannot talk to each other. Where do you go, and when? More than half of his respondents chose the information booth of Grand Central Station, and nearly all of them noon. Asked to say heads or tails so as to match a partner they could not see, a large majority said heads. Schelling called such answers **focal points**. What solves the problem is nowhere in the table: it is salience, history, custom.
+In *The Strategy of Conflict* (1960) Thomas Schelling put questions of this kind to people. You have to meet a stranger in New York tomorrow; no place and no time have been agreed, and you cannot talk to each other. Where do you go, and when? More than half of his respondents chose Grand Central Station, and nearly all of them noon. Asked to say heads or tails so as to match a partner they could not see, 36 of 42 said heads. Schelling called such answers **focal points**. What solves the problem is nowhere in the table: it is salience, history, custom.
 
 ## Safe or sorry
 
@@ -38,7 +38,7 @@ staghunt
 
 With a = 4, b = 0, c = 3 and d = 2 we get q* = 2/3: you must be quite sure of the other. The stag equilibrium is **payoff dominant**, better for both. The hare equilibrium is **risk dominant**: it is the one that needs less confidence in the other player (the terms are from Harsanyi and Selten 1988). When the two criteria disagree, experiments tend to side with safety. In a well-known one (Van Huyck, Battalio and Beil, 1990), groups of 14 to 16 people each chose an effort from 1 to 7 and were paid according to the lowest effort in their group. Everyone choosing 7 was the best equilibrium; from the fourth round on, the lowest effort was 1 in every group.
 
-In Simulation B one player at a time looks at ten others and hunts the stag only if enough of them do. The better convention takes over only where enough people follow it already. The tipping point is at about 0.73 of the population, a little above q*, because a sample of ten must show seven to exceed two thirds. Starting from 70% of stag hunters, everyone ends up hunting the stag 14 times in 100; starting from 75%, 83 times in 100.
+In Simulation B one player at a time looks at ten others and hunts the stag only if enough of them do. The better convention takes over only where enough people follow it already. The tipping point is at about 0.73 of the population, a little above q*, because a sample of ten must show seven to exceed two thirds. Starting from 70% of stag hunters, everyone ends up hunting the stag about one time in seven; starting from 75%, about four times in five.
 
 ## When strategies are numbers
 
@@ -101,7 +101,7 @@ Not every game has an equilibrium to find. One two-by-two game in eight has no s
 - Harsanyi, J. C. and Selten, R. (1988). *A General Theory of Equilibrium Selection in Games*. MIT Press.
 - Van Huyck, J. B., Battalio, R. C. and Beil, R. O. (1990). Tacit coordination games, strategic uncertainty, and coordination failure. *American Economic Review* 80, 234–248.
 - Cournot, A. (1838). *Recherches sur les principes mathématiques de la théorie des richesses*. Hachette.
-- Bertrand, J. (1883). Review of Cournot's *Recherches* and of Walras's *Théorie mathématique de la richesse sociale*. *Journal des Savants*, 499–508.
+- Bertrand, J. (1883). Review of Cournot's *Recherches* and of Walras's *Théorie mathématique de la richesse sociale*. *Journal des Savants*, September, 499–508.
 - Tullock, G. (1980). Efficient rent seeking. In Buchanan, J. M., Tollison, R. D. and Tullock, G. (eds), *Toward a Theory of the Rent-Seeking Society*. Texas A&M University Press.
 - Theocharis, R. D. (1960). On the stability of the Cournot solution on the oligopoly problem. *Review of Economic Studies* 27, 133–134.
 - Goldberg, K., Goldman, A. J. and Newman, M. (1968). The probability of an equilibrium point. *Journal of Research of the National Bureau of Standards* 72B, 93–101.

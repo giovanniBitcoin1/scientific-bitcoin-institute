@@ -457,9 +457,15 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   quoted('lecture: the stag hunt', lecture, [
     'q* = 2/3',
     [`about ${f2(tip(4, 10))}`, `circa ${it(f2(tip(4, 10)))}`],
-    [`${Math.round(at(scan200, 0.7).stag * 100)} times in 100`, `${Math.round(at(scan200, 0.7).stag * 100)} volte su 100`],
-    [`${Math.round(at(scan200, 0.75).stag * 100)} times in 100`, `${Math.round(at(scan200, 0.75).stag * 100)} volte su 100`],
+    ['about one time in seven', 'circa una volta su sette'],
+    ['about four times in five', 'circa quattro volte su cinque'],
   ])
+  {
+    // The words are pinned to the 400-run numbers of the check (0.125 and 0.785), not to the page's 200-run scan.
+    const p70 = chanceAt(base, 0.7, 400).stag
+    const p75 = chanceAt(base, 0.75, 400).stag
+    check('lecture: "about one time in seven" and "about four times in five" are the 400-run chances from 0.70 and 0.75, within 0.03 of 1/7 and 4/5', close(p70, 1 / 7, 0.03) && close(p75, 4 / 5, 0.03), `${f3(p70)} and ${f3(p75)} (1/7 = 0.143, 4/5 = 0.800)`)
+  }
   quoted('lecture: Cournot', lecture, [
     ['5.5 for a monopoly, 4 with two firms, 2.5 with five and 1.82 with ten', '5,5 per un monopolio, 4 con due imprese, 2,5 con cinque e 1,82 con dieci'],
   ])
