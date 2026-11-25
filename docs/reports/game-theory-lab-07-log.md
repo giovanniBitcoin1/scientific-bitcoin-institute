@@ -143,3 +143,8 @@ Crossref API unless noted.
 - `npm run build`: validate, vite build, post-build (9 static pages, 3
   stubs, feed, sitemap); exit 0. `npm run check:dist`: 0/108.
 - Module 07 chunk 87.9 kB (32.1 kB gzip).
+
+## Commits
+
+- b3b686f "Game Theory Lab 07: Evolution and learning" (2cc7991, 25b26c9 and the final state squashed with `git reset --soft 08e9469`).
+- "Game Theory Lab 07: report": the report, this log, the status file (prompt finished).

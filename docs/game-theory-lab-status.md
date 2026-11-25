@@ -414,13 +414,12 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Prompt 7. Module 07 and stage 0 are in the commit "Game Theory Lab 07:
-Evolution and learning" (three WIP commits squashed). The whole CHECKS
-list ran on the final code before the squash: 0 failures everywhere (see
-the log `docs/reports/game-theory-lab-07-log.md`).
-
-Remains: the report `docs/reports/game-theory-lab-07.md`, committed with the
-log as "Game Theory Lab 07: report".
+Nothing in progress. Prompt 7 is finished: stage 0 and module 07 in
+b3b686f "Game Theory Lab 07: Evolution and learning" (three WIP commits
+squashed), the report `docs/reports/game-theory-lab-07.md` and the working
+log `docs/reports/game-theory-lab-07-log.md` in "Game Theory Lab 07:
+report". The whole CHECKS list ran on the final code before the squash: 0
+failures everywhere.
 
 ## Next
 
