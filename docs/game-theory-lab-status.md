@@ -78,6 +78,10 @@ model for this one and holds the history of the engine.
 - **This PC has little free memory.** Builds and checks run in the
   foreground, one at a time, as separate commands; no background shells. An
   old `vite preview` server that locks files may be stopped.
+- **Long checks:** a check that may pass the tool's time limit is run with a
+  longer timeout (up to 600 s), never moved to the background; if even that
+  is not enough, stop and say so. Added in prompt 10 (check-game-theory-03
+  took 437 s in prompt 9; now about 80 s).
 
 ### Checks to run before a module commit
 
@@ -162,7 +166,7 @@ uses it and the regression compare.
 | 07 | II | `evolution-and-learning` | done | the commit "Game Theory Lab 07: Evolution and learning" | A Rock, paper, scissors in a population; B One mutant; C Learning by regret | `fates`, `traffic` |
 | 08 | III | `congestion-price-of-anarchy` | done | the commit "Game Theory Lab 08: Congestion and the price of anarchy" | A How bad can it get?; B Drivers who count; C Sharing the cost of a road | `tworoads`, `braess` |
 | 09 | III | `games-on-networks` | done | the commit "Game Theory Lab 09: Games on networks" | A Who does the work?; B The key player; C Building the network | `star`, `formation` |
-| 10 | III | `coalitions-sharing` | planned | | | |
+| 10 | III | `coalitions-sharing` | done | the commit "Game Theory Lab 10: Coalitions and sharing" | A Who gets what?; B Who decides?; C An estate that cannot pay | `core`, `votes` |
 | 11 | IV | `auctions` | planned | | | |
 | 12 | IV | `mechanism-design` | planned | | | |
 | 13 | IV | `mining-as-a-game` | planned | | | |
@@ -451,21 +455,89 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | betweenness centrality | centralità di intermediazione (*betweenness*) | 09 |
 | core–periphery | centro–periferia | 09 |
 | run (of best responses, of the dynamics); turn; step | prova; giro; passo | 09 |
+| coalitional game | gioco cooperativo (in forma coalizionale at first use) | 10 |
+| characteristic function; worth v(S) | funzione caratteristica; valore (della coalizione) | 10 |
+| transferable utility (TU game) | utilità trasferibile (gioco TU) | 10 |
+| coalition | coalizione | 10 |
+| superadditive; convex (game) | (gioco) superadditivo; convesso | 10 |
+| core | nucleo (*core* at first use) | 10 |
+| Shapley value; marginal contribution | valore di Shapley; contributo marginale | 10 |
+| null player | giocatore nullo | 10 |
+| balanced (game); balancedness | (gioco) bilanciato; bilanciamento ("collezione bilanciata" in Fragnelli; "famiglia bilanciata" not found) | 10 |
+| Bondareva–Shapley theorem | teorema di Bondareva–Shapley | 10 |
+| nucleolus | nucleolo | 10 |
+| least core | *least core* (kept: no Italian term found) | 10 |
+| weighted voting game; quota | gioco a maggioranza pesata; quota | 10 |
+| Shapley–Shubik index, Banzhaf index | indice (di potere) di Shapley–Shubik, indice di Banzhaf | 10 |
+| pivot (Shapley–Shubik); decisive (Banzhaf) | pivotale (il *pivot*); cruciale (Bernardi, Pavia 2019) | 10 |
+| minimal winning coalition | coalizione vincente minimale | 10 |
+| bankruptcy problem | problema di bancarotta (Fragnelli; "fallimento" not found) | 10 |
+| proportional rule; constrained equal awards, losses | regola proporzionale; CEA, CEL (English kept, as Fragnelli; "somme uguali", "perdite uguali" as glosses) | 10 |
+| airport game; glove market | gioco dell'aeroporto; gioco dei guanti ("mercato dei guanti" not found) | 10 |
+| contested garment | il mantello conteso | 10 |
+| share (of a pool) | *share* (kept, feminine: "le share") | 10 |
+| swing | *swing* (kept) | 10 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 9 is finished: stage 0 and module 09 in
-d34fc3e "Game Theory Lab 09: Games on networks" (five WIP commits squashed),
-the report `docs/reports/game-theory-lab-09.md` and the working log
-`docs/reports/game-theory-lab-09-log.md` in "Game Theory Lab 09: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere.
+Prompt 10 (module 10, `coalitions-sharing`), started after 3ce4dfe. Log:
+`docs/reports/game-theory-lab-10-log.md`.
+
+- Done: stage 0 and module 10 in the commit "Game Theory Lab 10: Coalitions
+  and sharing" (WIP commits squashed). The whole CHECKS list ran on the final
+  code before the squash: 0 failures everywhere.
+- Remains: the report `docs/reports/game-theory-lab-10.md`, committed with the
+  log as "Game Theory Lab 10: report".
 
 ## Next
 
-Module 10, `coalitions-sharing`, when its prompt is there.
+Module 11, `auctions`, when its prompt is there.
 
 ## Open items
+
+- Module 10, things a later module may reuse, all in `coalitions-sharing/`:
+  `simplex.js` (a dense two-phase simplex on exact fractions with Bland's
+  rule: free or nonnegative variables, ≥ ≤ = rows, infeasible and unbounded,
+  redundant rows dropped), `coalitions.js` (TU games by bitmask; the Shapley
+  value by formula and by all n! orders; superadditive, convex; the core test
+  LP; the least core; objections; savings games of cost games; three-player
+  core corners in exact fractions; the nucleolus by sequential LPs over the
+  imputations; the presets), `voting.js` (Shapley–Shubik and Banzhaf by
+  dynamic programming over integer weights, exact up to 30 players;
+  enumeration; "split the largest"; the 1958 Council and the illustrative
+  pools), `bankruptcy.js` (proportional, CEA, CEL, Talmud, Shapley of the
+  estate game, random arrival, the award curves), `CoreTriangle.jsx`,
+  `PowerBars.jsx`. Modules 12 and 13 can start from `simplex.js` and
+  `voting.js`.
+- Module 10, choices to review: F1's division moves in whole numbers; → and ←
+  move 1 between A and B, ↑ moves 1 to C from the larger of A and B (ties A),
+  ↓ 1 from C to the smaller (ties B); a pair objects only if it would get
+  strictly more. Panel A's "core point" is the least-core LP's solution (a
+  vertex chosen by Bland's rule), not the nucleolus; cells take whole numbers
+  from −999 to 9999; a cost game's tests run on its savings game and the core
+  point is also shown as costs. Panel B's weights sit behind a closed
+  "Weights" list; its table hides the share column below 640 px and shortens
+  its headers (S–S, abs.); bars are unlabelled above 8 players; "Split the
+  largest" splits the first of the largest. Panel C's chart steps E by 5; the
+  Talmud's three estates are dashed marks. F1 407 px at 1280 (guide about
+  380), F2 346 (382 IT); at 375 IT 836 and 624.
+- Module 10, findings and sources (November 2026, details in the log): every
+  number of the prompt agrees with the code; the nucleolus equals the Talmud
+  on 411 problems. The core credited to Gillies and Shapley (1952–53),
+  published by Gillies 1959; Shapley's four properties "in modern form" (the
+  1953 paper has three axioms); the 1958 quota of 12 applies to acts on a
+  Commission proposal (with the other rule Luxembourg could be pivotal, Mayer
+  2018); "Ketubot" as Sefaria spells it (the prompt had "Kethubot"); the hash
+  rate quoted is Hashrate Index's 30-day average of 1,019 EH/s on 23 November
+  2026; the three-player core condition has no citable source (derived;
+  checked on 1,731 games). Bondareva and O'Neill from secondary sources.
+- Module 10 texts quote numbers pinned by `check-game-theory-10.mjs` (under
+  1 s) and by `browser-checks/modules/game-theory-coalitions-sharing.mjs`.
+  Module chunk 83.8 kB (30.4 kB gzip); module 08's `frac.js` is now a 0.8 kB
+  chunk shared by modules 08 and 10.
+- check-game-theory-03 since prompt 10 (stage 0): the zero-sum grid is walked
+  with loops instead of arrays (identical values on 124 games); 437 s → about
+  80 s.
 
 - Module 09, things a later module may reuse, all in `games-on-networks/`:
   `netgames.js` (small networks from link lists, the presets with fixed

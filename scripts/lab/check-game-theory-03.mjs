@@ -129,10 +129,62 @@ console.log('— Zero-sum games: the equilibrium payoff is the best worst case')
 {
   // Best worst case of the row player on a grid of mixes, and best worst case
   // of the column player (the lowest of the highest), computed directly.
-  const grid2 = (k) => range(k + 1).map((i) => [i / k, 1 - i / k])
-  const grid3 = (k) => range(k + 1).flatMap((i) => range(k + 1 - i).map((j) => [i / k, j / k, (k - i - j) / k]))
-  const maxmin = (a, xs) => xs.reduce((best, x) => Math.max(best, Math.min(...a[0].map((_, j) => x.reduce((s, xi, i) => s + xi * a[i][j], 0)))), -Infinity)
-  const minmax = (a, ys) => ys.reduce((best, y) => Math.min(best, Math.max(...a.map((row) => row.reduce((s, v, j) => s + v * y[j], 0)))), Infinity)
+  // The grid of mixes with step 1/K: (i/K, 1 − i/K) for two strategies,
+  // (i/K, j/K, (K − i − j)/K) for three. Walked point by point with plain
+  // loops (prompt 10, stage 0): building it as arrays for every game took
+  // 340 s, since the 3-strategy grid at K = 4000 has 8,006,001 points. The
+  // points, the order of the sums and so the values are the same as before.
+  const eachMix = (dim, K, visit) => {
+    const x = new Array(dim)
+    if (dim === 2) {
+      for (let i = 0; i <= K; i++) {
+        x[0] = i / K
+        x[1] = 1 - i / K
+        visit(x)
+      }
+    } else {
+      for (let i = 0; i <= K; i++) {
+        for (let j = 0; j <= K - i; j++) {
+          x[0] = i / K
+          x[1] = j / K
+          x[2] = (K - i - j) / K
+          visit(x)
+        }
+      }
+    }
+  }
+  // Row player's best worst case: the largest over x of the smallest column payoff.
+  const maxmin = (a, K) => {
+    const m = a.length
+    const n = a[0].length
+    let best = -Infinity
+    eachMix(m, K, (x) => {
+      let worst = Infinity
+      for (let j = 0; j < n; j++) {
+        let s = 0
+        for (let i = 0; i < m; i++) s += x[i] * a[i][j]
+        if (s < worst) worst = s
+      }
+      if (worst > best) best = worst
+    })
+    return best
+  }
+  // Column player's: the smallest over y of the largest row payoff.
+  const minmax = (a, K) => {
+    const m = a.length
+    const n = a[0].length
+    let best = Infinity
+    eachMix(n, K, (y) => {
+      let top = -Infinity
+      for (let i = 0; i < m; i++) {
+        let s = 0
+        for (let j = 0; j < n; j++) s += a[i][j] * y[j]
+        if (s > top) top = s
+      }
+      if (top < best) best = top
+    })
+    return best
+  }
   let ok = 0
   let total = 0
   let worst = 0
@@ -142,10 +194,8 @@ console.log('— Zero-sum games: the equilibrium payoff is the best worst case')
       const a = range(m).map(() => range(n).map(() => random()))
       const g = { rows: range(m).map(String), cols: range(n).map(String), a, b: a.map((r) => r.map((v) => -v)) }
       const list = equilibria(g)
-      const xs = m === 2 ? grid2(K) : grid3(K)
-      const ys = n === 2 ? grid2(K) : grid3(K)
-      const lo = maxmin(a, xs)
-      const hi = minmax(a, ys)
+      const lo = maxmin(a, K)
+      const hi = minmax(a, K)
       total++
       const good = list.length >= 1 && list.every((e) => e.u <= hi + 1e-12 && e.u >= lo - 1e-12 && hi - lo <= tol && close(e.u, -e.v, 1e-12))
       if (good) ok++
