@@ -18,5 +18,6 @@
   "game-theory/mixed-strategies-zero-sum": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/sequential-games-commitment": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/incomplete-information-signalling": { "figures": 2, "panels": 3, "exercises": 6 },
-  "game-theory/repeated-games-reputation": { "figures": 2, "panels": 3, "exercises": 6 }
+  "game-theory/repeated-games-reputation": { "figures": 2, "panels": 3, "exercises": 6 },
+  "game-theory/evolution-and-learning": { "figures": 2, "panels": 3, "exercises": 6 }
 }

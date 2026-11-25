@@ -159,7 +159,7 @@ uses it and the regression compare.
 | 04 | I | `sequential-games-commitment` | done | the commit "Game Theory Lab 04: Games in time and credible commitment" | A Solve the tree; B Leader and follower; C Dividing a pie | `entry`, `pie` |
 | 05 | II | `incomplete-information-signalling` | done | the commit "Game Theory Lab 05: Incomplete information and signals" | A The market that empties; B Separate or pool?; C Words that cost nothing | `types`, `doubt` |
 | 06 | II | `repeated-games-reputation` | done | the commit "Game Theory Lab 06: Repeated games and reputation" | A Can the cartel hold?; B Price wars without cheating; C A reputation for toughness | `patience`, `folk` |
-| 07 | II | `evolution-and-learning` | planned | | | |
+| 07 | II | `evolution-and-learning` | done | the commit "Game Theory Lab 07: Evolution and learning" | A Rock, paper, scissors in a population; B One mutant; C Learning by regret | `fates`, `traffic` |
 | 08 | III | `congestion-price-of-anarchy` | planned | | | |
 | 09 | III | `games-on-networks` | planned | | | |
 | 10 | III | `coalitions-sharing` | planned | | | |
@@ -389,24 +389,98 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | block withholding | *block withholding* (kept); infiltrazione | 06 |
 | the miner's dilemma | il dilemma dei miner | 06 |
 | to cheat (in a cartel), a cheat | imbrogliare, chi imbroglia | 06 |
+| evolutionary game theory | teoria evolutiva dei giochi | 07 |
+| evolutionarily stable strategy (ESS) | strategia evolutivamente stabile (una ESS) | 07 |
+| replicator equation, replicator dynamics | equazione del replicatore, dinamica del replicatore | 07 |
+| rest point | punto di equilibrio (not "punto di riposo": no source) | 07 |
+| asymptotically stable | asintoticamente stabile | 07 |
+| coexistence, bistability | coesistenza, bistabilità | 07 |
+| phase line | retta delle fasi | 07 |
+| Moran process | processo di Moran | 07 |
+| fixation, fixation probability | fissazione, probabilità di fissazione | 07 |
+| neutral drift | deriva neutrale | 07 |
+| intensity of selection | intensità della selezione | 07 |
+| mutant, resident | mutante, residente | 07 |
+| the one-third rule | la regola di un terzo (*one-third rule*) | 07 |
+| regret, no-regret | *regret* (gloss: il rimpianto), apprendimento *no-regret* | 07 |
+| multiplicative weights (Hedge) | pesi moltiplicativi (*Hedge*) | 07 |
+| learning rate | tasso di apprendimento | 07 |
+| correlated equilibrium | equilibrio correlato | 07 |
+| coarse correlated equilibrium | equilibrio correlato *coarse* | 07 |
+| swap regret, regret matching | *swap regret*, *regret matching* (kept) | 07 |
+| the traffic light (F2) | il semaforo | 07 |
+| swerve, go (chicken) | sterza, dritto | 07 |
+| side-blotched lizard | la lucertola *Uta stansburiana* (no Italian common name found) | 07 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 6 is finished: stage 0 in 8601885 "Game
-Theory Lab: Italian terms", module 06 in 8b2f491 "Game Theory Lab 06:
-Repeated games and reputation" (three WIP commits squashed), the report
-`docs/reports/game-theory-lab-06.md` and the working log
-`docs/reports/game-theory-lab-06-log.md` in "Game Theory Lab 06: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere.
+Prompt 7. Module 07 and stage 0 are in the commit "Game Theory Lab 07:
+Evolution and learning" (three WIP commits squashed). The whole CHECKS
+list ran on the final code before the squash: 0 failures everywhere (see
+the log `docs/reports/game-theory-lab-07-log.md`).
+
+Remains: the report `docs/reports/game-theory-lab-07.md`, committed with the
+log as "Game Theory Lab 07: report".
 
 ## Next
 
-Module 07, `evolution-and-learning`, when its prompt is there.
+Module 08, `congestion-price-of-anarchy`, when its prompt is there.
+
 ## Open items
 
-- The lectures of modules 01 to 06 carry the DRAFT marker: to be reviewed
+- The lectures of modules 01 to 07 carry the DRAFT marker: to be reviewed
   by Adriano (the markers stay until then).
+- Module 07, things a later module may reuse, all in
+  `evolution-and-learning/`: `ess.js` (exact ESS of symmetric 2 × 2 games,
+  symmetric Nash equilibria, a numerical ESS test by random mutants for any
+  n), `replicator.js` (the (T, S) phase line, rest points and fates, RK4 for
+  numbers or vectors, the three-strategy replicator, RPS, module 06's
+  repeated-dilemma matrix played out and its two thresholds, eigenvalues at
+  the centre by formula and numerical Jacobian, period and time average,
+  simplex coordinates), `moran.js` (fitness with a game, ρ_A and ρ_B,
+  constant fitness and its closed form, x* and the one-third test, N·ρ
+  curves, the jump chain and the full Moran step), `correlated.js`
+  (obedience constraints of any 2 × 2 game, vertex enumeration with a small
+  Gaussian solver, convex hull and area, chicken with a crash payoff d, the
+  violation of a frequency table), `hedge.js` (two Hedge learners on module
+  01's classics with scaled payoffs, the bound with any start, tuned η, the
+  equilibria of the square). Module 08 can start from `replicator.js`
+  (best-response and potential dynamics) and module 12 from
+  `correlated.js`.
+- Module 07, choices to review: Panel C's bound is ln(1/min(π, 1 − π))/(ηt)
+  + η/8 for a start (π, 1 − π), the prompt's ln 2/(ηt) + η/8 at the default
+  start (ln 2 holds only for the uniform start); the panel title in Italian
+  is "Imparare dal regret" (not "dal rimpianto": Italian sources keep
+  *regret*); English "matching pennies" (as modules 01–03), Italian "pari o
+  dispari"; chicken's moves are "swerve, go" in English (module 01 says
+  "Straight") and "sterza, dritto" in Italian; F1's point snaps to 0.01;
+  Panel A's trajectories are computed at once and drawn 0.8 time units per
+  frame; a preset goes back to the start (0.5, 0.3, 0.2); Panel B's w is a
+  log slider rounded to two significant digits; "Run 10,000 mutants" n uses
+  seed n, "Watch one" seed 1001 + the runs so far, one event per frame;
+  Panel C's game pills go back to run no. 1 and the start (0.5, 0.5); the
+  first heading is "A population of strategies" (the prompt's "Strategies
+  that spread" is also the module summary, which the locked page shows, so
+  check-module could not tell them apart). Figure heights: F1 384 px at
+  1280 EN (400 IT), F2 403; at 375 671/705 and 716 px.
+- Module 07, findings the texts state: everything as the prompt expected,
+  except the "expected" ranges of the runs (seeds 1–10: neutral
+  0.0969–0.1029, r = 1.1 0.1434–0.1504, hare 0.0162–0.0199; all within 4
+  standard errors, largest |z| 1.65), the largest regret ratio (0.971 over
+  all t, 0.917 at the last round; prompt 0.898) and pari o dispari's mean
+  distances over seeds 1–50 (0.569 and 0.323; prompt 0.590 and 0.332).
+- Module 07, sources (November 2026, details in the log): all citations
+  confirmed through Crossref; Young's end page and his risk-dominant result
+  from secondary sources; the lizards' period softened to "a few years" (the
+  abstract's six years of observation, later estimates 4–5); the one-third
+  rule and its risk-dominance part credited to Nowak et al. 2004 by Ohtsuki,
+  Bordalo and Nowak 2007; Roughgarden's lecture 13 is "Equilibria:
+  Definitions, Examples, and Existence"; Nowak 2006 ch. 6 "Finite
+  Populations", ch. 7 "Games in Finite Populations"; Selten's 20 towns still
+  from secondary sources only.
+- Module 07 texts quote numbers pinned by `check-game-theory-07.mjs` (about
+  2 s) and by `browser-checks/modules/game-theory-evolution-and-learning.mjs`.
+  Module chunk 87.9 kB (32.1 kB gzip).
 - The entry game has one payoff order everywhere: (newcomer, incumbent),
   the newcomer as player 0 in the first player's colour, even when the
   firm moves first (stage 0 of prompt 5). Module 06 keeps it.

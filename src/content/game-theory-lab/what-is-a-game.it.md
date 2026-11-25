@@ -80,7 +80,7 @@ Segna in ogni colonna la miglior risposta del giocatore di riga, e in ogni riga 
 
 ## Un piccolo atlante
 
-Prendi un gioco in cui i due giocatori sono nella stessa posizione. Ognuno può cooperare (C) o defezionare (D). Fissa il payoff della cooperazione reciproca a R = 1 e quello della defezione reciproca a P = 0, con le lettere del modulo 11 del Complexity Lab. Restano due numeri: la tentazione T, per chi defeziona contro un cooperatore, e il payoff del babbeo S, per chi coopera contro un defezionatore.
+Prendi un gioco in cui i due giocatori sono nella stessa posizione. Ognuno può cooperare (C) o defezionare (D). Fissa il payoff della cooperazione reciproca a R = 1 e quello della defezione reciproca a P = 0, con le lettere del modulo 11 del Complexity Lab. Restano due numeri: la tentazione T, per chi defeziona contro un cooperatore, e il payoff del babbeo S, per chi coopera contro chi defeziona.
 
 ```figure
 atlas
