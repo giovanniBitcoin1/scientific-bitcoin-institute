@@ -44,7 +44,7 @@ model for this one and holds the history of the engine.
   the page" checks in `scripts/lab/check-game-theory-NN.mjs`).
 - **Bitcoin rule:** this is a general course on game theory and incentives.
   Short optional Bitcoin boxes only in modules 02, 04, 06, 09, 10, 11 and 12
-  (05 to be decided). Modules 13 and 14 are entirely about Bitcoin. A thesis
+  (none in 05, decided in prompt 5). Modules 13 and 14 are entirely about Bitcoin. A thesis
   about Bitcoin is always presented as a hypothesis with its limits, never as
   advertising.
 - **Do not repeat the Complexity Lab's module 11**
@@ -147,7 +147,7 @@ uses it and the regression compare.
 | 02 | I | `nash-equilibrium` | done | the commit "Game Theory Lab 02: Nash equilibrium" | A Find the equilibria; B Which convention?; C A contest for a prize | `staghunt`, `cournot` |
 | 03 | I | `mixed-strategies-zero-sum` | done | the commit "Game Theory Lab 03: Mixed strategies and zero-sum games" | A All the equilibria; B Learning to mix; C Can you be read? | `square`, `minimax` |
 | 04 | I | `sequential-games-commitment` | done | the commit "Game Theory Lab 04: Games in time and credible commitment" | A Solve the tree; B Leader and follower; C Dividing a pie | `entry`, `pie` |
-| 05 | II | `incomplete-information-signalling` | planned | | | |
+| 05 | II | `incomplete-information-signalling` | done | the commit "Game Theory Lab 05: Incomplete information and signals" | A The market that empties; B Separate or pool?; C Words that cost nothing | `types`, `doubt` |
 | 06 | II | `repeated-games-reputation` | planned | | | |
 | 07 | II | `evolution-and-learning` | planned | | | |
 | 08 | III | `congestion-price-of-anarchy` | planned | | | |
@@ -343,21 +343,64 @@ Added in module 04:
 | orphaned block, to orphan | blocco orfano, rendere orfano |
 | confirmation | conferma |
 
+Added in module 05:
+
+| English | Italian |
+|---|---|
+| type | tipo |
+| chance move (Nature) | mossa del caso (la Natura) |
+| common prior | distribuzione a priori comune |
+| belief | credenza |
+| Bayesian game | gioco bayesiano |
+| Bayesian Nash equilibrium | equilibrio di Nash bayesiano |
+| information set | insieme di informazione |
+| asymmetric information | informazione asimmetrica |
+| adverse selection | selezione avversa |
+| lemon | bidone |
+| signal | segnale |
+| signalling game | gioco di segnalazione |
+| separating equilibrium | equilibrio separante |
+| pooling equilibrium | equilibrio di confusione (*pooling*) |
+| off the equilibrium path | fuori dal cammino di equilibrio |
+| single crossing | singolo incrocio (*single crossing*) |
+| the Cho–Kreps test (intuitive criterion) | test di Cho e Kreps (criterio intuitivo) |
+| handicap principle | principio dell'handicap |
+| cheap talk | *cheap talk* (kept; "parole che non costano nulla") |
+| expert | esperto |
+| decision maker | chi decide |
+| bias | distorsione |
+| partition | partizione |
+| delegation | delega |
+| global game | gioco globale |
+| private signal | segnale privato |
+| noise | rumore |
+| tough, weak (incumbent) | duro, debole (impresa dura, debole) |
+| incumbent | impresa che c'è già |
+| no talk | senza parole |
+
 ## Work in progress
 
-Nothing in progress. Prompt 4 is finished: module 04 in "Game Theory Lab 04:
-Games in time and credible commitment" (e4af701, three WIP commits
-squashed), the report `docs/reports/game-theory-lab-04.md` and the working
-log `docs/reports/game-theory-lab-04-log.md` in "Game Theory Lab 04:
-report". The whole CHECKS list ran on the final code before the squash: 0
-failures everywhere (numbers in the log and the report).
+Prompt 5. Stage 0 done (1fa2004 "Game Theory Lab 04: fixes"). Module 05
+done in the commit "Game Theory Lab 05: Incomplete information and
+signals" (two WIP commits squashed). The whole CHECKS list ran on the final
+code before the squash: 0 failures everywhere (numbers in the working log
+`docs/reports/game-theory-lab-05-log.md`).
+
+Remains: the report `docs/reports/game-theory-lab-05.md`, committed with
+the log as "Game Theory Lab 05: report". Prompt 5 is not finished until
+that commit exists.
 ## Next
 
-Module 05, `incomplete-information-signalling`, when its prompt is there.
+Module 06, `repeated-games-reputation`, when its prompt is there.
 ## Open items
 
-- The lectures of modules 01 and 02 carry the DRAFT marker: to be reviewed
-  by Adriano.
+- The lectures of modules 01 to 05 carry the DRAFT marker: to be reviewed
+  by Adriano (the markers stay until then).
+- "Chi guida" and "chi segue" (leader, follower; module 04) stay for now:
+  Adriano decides when he reviews the Italian.
+- The entry game has one payoff order everywhere: (newcomer, incumbent),
+  the newcomer as player 0 in the first player's colour, even when the
+  firm moves first (stage 0 of prompt 5). Module 06 keeps it.
 - Shared by the lab since module 01: `src/components/lab/game-theory/PayoffTable.jsx`
   (the payoff table of a two-player game of any size: marks for best
   responses, greyed strategies, ringed stable cells, a compact mode, optional
@@ -580,3 +623,57 @@ Module 05, `incomplete-information-signalling`, when its prompt is there.
 - Module 04 texts quote numbers pinned by `check-game-theory-04.mjs` (about
   10 s; run it whole) and by
   `browser-checks/modules/game-theory-sequential-games-commitment.mjs`.
+- Module 04 since prompt 5 (stage 0): Panel A's commitment preset is F1's
+  tree (`entryTree({ f: 0, k: 1, commit: true })`), so its outcome is
+  (0, 3) as (newcomer, firm); the note under the table names the players
+  ("Rows: the plans of the newcomer, whose payoff is written first") and
+  the legend says the payoff order. The garbled Italian "Giù" in
+  `presets.js` (shown on the page) and garbled comments were fixed.
+
+- `GameTree.jsx` since module 05: optional chance nodes (`chance: true`,
+  moves with `prob`; grey circle marked `chanceLabel`, default N; move
+  labels with name and probability, `probFormat`) and `infoSets` (lists of
+  node ids joined by a dashed line). Module 04 passes neither and sees no
+  change (its checks pass unchanged). Module 06 can start from it.
+- Module 05, things a later module may reuse, all in
+  `incomplete-information-signalling/`: `types.js` (the entry game with a
+  tough or weak incumbent, each type solved with module 04's
+  `backwardInduction` on its own branch; the F1 tree with a chance node and
+  an information set; Cournot with a hidden cost), `lemons.js` (the exact
+  price path and end point, samples, the rounds, the survey as a job),
+  `signalling.js` (separating and pooling ranges, a candidate with its
+  deviations, the Cho–Kreps interval, a brute force on a grid),
+  `cheaptalk.js` (largest N, partitions, losses, indifference, simulation,
+  survey), `globalgame.js` (Φ from erf: Taylor series below 3, Laplace's
+  continued fraction of erfc above, error below 1e-14; the cutoffs by
+  bisection; steps and "To the end"). Module 06 can start from `types.js`;
+  modules 11 and 12 from `signalling.js` and `cheaptalk.js`.
+- Module 05, choices to review: the newcomer's initial in F1 is E
+  ("entrant"; IT "chi entra"), the incumbent's I, because N marks Nature;
+  at t = t* the newcomer stays out (ties to staying out); "separating at 0"
+  is shown as pooling at 0; levels nobody chooses are read as low; Panel A
+  shows sample no. 1 at once and "Run" replays the rounds (70 ms each);
+  "New sample" n uses seed n; the survey uses its own seeds (5100 + 100 i
+  + j); Panel C caps the buttons at 12 when b = 0 and its "Survey" is
+  computed at once (0.3 ms, no job); F2's "To the end" runs until both
+  cutoffs are within 1e-6 of 1/2. Figure heights: F1 423 px at 1280 EN
+  (404 IT), 622/638 at 375; F2 310/330 at 1280, 340/414 at 375.
+- Module 05, findings the texts state: the lemons sample (10,000 cars,
+  0.2, 1.5) ends at 0.576–0.617 over seeds 1–10 (prompt expected
+  0.579–0.619) in 24–27 rounds (prompt 21–25; 18–41 over seeds 1–40);
+  1,000 cars 0.529–0.667; at q_min = 0, b = 2 the exact model is a knife
+  edge and a sample ends anywhere between 0.366 and 1 (left out of the
+  survey's check, reported in the observe list). Everything else as the
+  prompt expected.
+- Module 05, sources (November 2026, details in the log): all citations
+  confirmed through Crossref, IDEAS or nobelprize.org; Akerlof's three
+  rejections (AER, RES, JPE) from his own essay on nobelprize.org; the name
+  "intuitive criterion" from secondary sources; Grafen's footing softened
+  ("widely taken to … a reading since debated"); Dessein's general result
+  from his abstract, the threshold 0.29 presented as computed in this
+  model.
+- Module 05 texts quote numbers pinned by `check-game-theory-05.mjs` (about
+  5 s) and by
+  `browser-checks/modules/game-theory-incomplete-information-signalling.mjs`.
+  Module chunk 76.1 kB (28.3 kB gzip); module 04's `trees.js` with module
+  01's `games.js` now sit in a shared chunk `trees-….js`, 9.5 kB.

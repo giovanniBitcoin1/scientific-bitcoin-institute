@@ -17,8 +17,19 @@ import { ROW_COLOR, COL_COLOR } from './PayoffTable.jsx'
 //   values    Map node id → payoffs, written beside solved nodes
 //   format    how a payoff is written
 //   short     true: edges carry the short labels (auto when leaves are many)
+//
+// Optional, since module 05 (module 04 passes none of them and sees no change):
+//   chance nodes  a node with `chance: true` and moves { name, prob, child }:
+//             a move of Nature, drawn as a grey circle marked `chanceLabel`,
+//             its moves labelled with their names and probabilities (full
+//             names always)
+//   chanceLabel   the letter in a chance node (default 'N')
+//   probFormat    how a probability is written (default: format)
+//   infoSets  [[node ids]]: nodes the mover cannot tell apart, joined by a
+//             dashed line (their moves carry the same labels)
 
 const PATH = '#f97316' // orange-500
+const NATURE = '#64748b' // slate-500, neutral
 const ROW_H = 64
 const TOP = 26
 const minus = (v) => String(v).replace('-', '−')
@@ -33,6 +44,9 @@ export default function GameTree({
   values = new Map(),
   format = minus,
   short = null,
+  chanceLabel = 'N',
+  probFormat = null,
+  infoSets = [],
   aria,
 }) {
   const leaves = tree.leaves.length
@@ -106,14 +120,30 @@ export default function GameTree({
           fill={off && !chosen ? MUTED : INK}
           fontWeight={chosen || onPath ? 600 : 400}
         >
-          {useShort ? m.short : m.name}
+          {n.chance ? `${m.name} ${(probFormat || format)(m.prob)}` : useShort ? m.short : m.name}
         </text>,
       )
     })
   }
+  // Information sets: a dashed line through their nodes, left to right.
+  const sets = infoSets.map((ids, s) => {
+    const ps = ids.map((id) => pos.get(id)).sort((a, b) => a.x - b.x)
+    return (
+      <polyline
+        key={`i${s}`}
+        points={ps.map((p) => `${p.x},${p.y}`).join(' ')}
+        fill="none"
+        stroke={SLATE}
+        strokeWidth="1.5"
+        strokeDasharray="5 4"
+        data-infoset={s}
+      />
+    )
+  })
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={aria} data-role="tree">
+      {sets}
       {edges}
       {labels}
       {tree.nodes.map((n) => {
@@ -128,6 +158,16 @@ export default function GameTree({
               </text>
               <text x={p.x} y={p.y + 28} textAnchor="middle" fontSize="11" fontFamily={MONO} fill={colors[1]} fontWeight="600">
                 {format(n.payoffs[1])}
+              </text>
+            </g>
+          )
+        }
+        if (n.chance) {
+          return (
+            <g key={n.id} data-node={n.id} data-chance="true">
+              <circle cx={p.x} cy={p.y} r="11" fill="#f1f5f9" stroke={NATURE} strokeWidth="2" />
+              <text x={p.x} y={p.y + 4} textAnchor="middle" fontSize="11" fontFamily={MONO} fill={NATURE} fontWeight="700">
+                {chanceLabel}
               </text>
             </g>
           )
