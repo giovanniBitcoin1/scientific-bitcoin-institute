@@ -454,11 +454,13 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Nothing in progress. Prompt 9: stage 0 and module 09 are in the commit
-"Game Theory Lab 09: Games on networks" (WIP commits squashed); the report
-`docs/reports/game-theory-lab-09.md` and the working log follow in their own
-commit, "Game Theory Lab 09: report". The whole CHECKS list ran on the final
-code before the squash: 0 failures everywhere.
+Nothing in progress. Prompt 9 is finished: stage 0 and module 09 in
+d34fc3e "Game Theory Lab 09: Games on networks" (five WIP commits squashed),
+the report `docs/reports/game-theory-lab-09.md` and the working log
+`docs/reports/game-theory-lab-09-log.md` in "Game Theory Lab 09: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere.
+
 ## Next
 
 Module 10, `coalitions-sharing`, when its prompt is there.
