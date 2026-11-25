@@ -10,6 +10,8 @@
 // - "Labs" is marked as the current section on /labs and on every lab page,
 //   and nowhere else.
 // - Every lab index links back to /labs.
+// - Lab index and module pages open at the top, and the language toggle
+//   leaves the page where it is.
 import {
   allLabIds, loadLab, parseArgs, siteFromArgs, launch, newPage, go, bodyText, has, noHScroll, reporter, shotPath,
   sleep, COPY, WIDTHS, LANGS,
@@ -65,11 +67,9 @@ for (const width of WIDTHS) {
       ok(`${tag} the ${lab.name} card opens ${lab.basePath}`, (await pathOf(p)) === lab.basePath)
       const back = await p.$$eval(`main a[href="${LABS_HUB}"]`, (as) => as.map((a) => a.innerText))
       ok(`${tag} ${lab.basePath} has an "${TEXT[lang].allLabs}" link to ${LABS_HUB}`, back.some((b) => b.includes(TEXT[lang].allLabs)), back.join(' | '))
-      // The site keeps the scroll position across routes: a card on the
-      // hub's second row opens its lab a little way down, with this link
-      // under the fixed header. Back to the top before clicking it.
-      await p.evaluate(() => window.scrollTo(0, 0))
-      await sleep(150)
+      // A lab index opens at the top, even from a card on the hub's second
+      // row (the router keeps the scroll position; LabIndex resets it).
+      ok(`${tag} ${lab.basePath} opens at the top`, (await p.evaluate(() => window.scrollY)) === 0, `scrollY ${await p.evaluate(() => window.scrollY)}`)
       await p.click(`main a[href="${LABS_HUB}"]`)
       await sleep(800)
       ok(`${tag} … and it leads back to the hub`, (await pathOf(p)) === LABS_HUB)
@@ -156,6 +156,59 @@ for (const width of WIDTHS) {
     ok(`mobile menu: the link to ${target} works and the menu closes`, (await pathOf(p)) === target && !(await p.$(MENU)))
   }
   ok('mobile: no console errors', p.errors.length === 0, p.errors.join(' | '))
+  await ctx.close()
+}
+
+// ---- Lab pages open at the top (admin preview, so that modules are links)
+{
+  const ctx = await browser.createBrowserContext()
+  const p = await newPage(ctx, { width: 1280, lang: 'en', admin: true })
+  const y = () => p.evaluate(() => window.scrollY)
+  const down = async () => {
+    await p.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
+    await sleep(200)
+  }
+  for (const lab of labs) {
+    if (lab.ready.length < 1) continue
+    const tag = `[top ${lab.id}]`
+    const last = lab.ready[lab.ready.length - 1]
+    await go(p, site.url + lab.basePath, 800)
+    // From the bottom of the index, the last ready module's card.
+    await down()
+    ok(`${tag} control: the index can be scrolled`, (await y()) > 200, `scrollY ${await y()}`)
+    await p.$eval(`main a[href="${lab.basePath}/${last.slug}"]`, (a) => a.click())
+    await sleep(1500)
+    ok(`${tag} a module opened from the bottom of the index starts at the top`, (await pathOf(p)) === `${lab.basePath}/${last.slug}` && (await y()) === 0, `scrollY ${await y()}`)
+    // The language toggle must leave the page where it is.
+    await p.evaluate(() => window.scrollTo(0, 300))
+    await sleep(150)
+    await p.$eval('main [aria-label="Language"] button:not([aria-pressed="true"])', (b) => b.click())
+    await sleep(400)
+    ok(`${tag} the language toggle does not move the module page`, (await y()) === 300, `scrollY ${await y()}`)
+    await p.$eval('main [aria-label="Language"] button:not([aria-pressed="true"])', (b) => b.click())
+    await sleep(300)
+    // Back to the index from the bottom of the module.
+    await down()
+    const before = await y()
+    await p.$$eval(`main a[href="${lab.basePath}"]`, (as) => as[as.length - 1].click())
+    await sleep(1200)
+    ok(`${tag} the index opened from the bottom of a module (scrollY ${before}) starts at the top`, (await pathOf(p)) === lab.basePath && (await y()) === 0, `scrollY ${await y()}`)
+    await p.evaluate(() => window.scrollTo(0, 300))
+    await sleep(150)
+    await p.$eval('main [aria-label="Language"] button:not([aria-pressed="true"])', (b) => b.click())
+    await sleep(400)
+    ok(`${tag} the language toggle does not move the index`, (await y()) === 300, `scrollY ${await y()}`)
+    await p.$eval('main [aria-label="Language"] button:not([aria-pressed="true"])', (b) => b.click())
+    // From one module to the next (same component, the slug changes).
+    if (lab.ready.length > 1) {
+      await go(p, `${site.url}${lab.basePath}/${lab.ready[0].slug}`, 1500)
+      await down()
+      await p.$$eval(`main a[href="${lab.basePath}/${lab.ready[1].slug}"]`, (as) => as[as.length - 1].click())
+      await sleep(1500)
+      ok(`${tag} "Next module" from the bottom of a module opens the next one at the top`, (await pathOf(p)) === `${lab.basePath}/${lab.ready[1].slug}` && (await y()) === 0, `scrollY ${await y()}`)
+    }
+  }
+  ok('top: no console errors', p.errors.length === 0, p.errors.join(' | '))
   await ctx.close()
 }
 

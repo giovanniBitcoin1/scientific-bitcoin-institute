@@ -146,6 +146,13 @@ export default function LabChapter({ labId = 'complexity' }) {
   const mod = index >= 0 && lab.modules[index].status === 'ready' ? lab.modules[index] : null
   const loaded = useUnlockedContent(lab, mod, unlocked)
 
+  // A module page opens at the top (the router keeps the scroll position of
+  // the page before): when it mounts and when the lab or the module changes,
+  // as with "Next module". Not when the language or the content changes.
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [labId, slug])
+
   useEffect(() => {
     document.title = mod
       ? `${mod.number} · ${mod.title_en} — ${lab.name} — Scientific Bitcoin Institute`

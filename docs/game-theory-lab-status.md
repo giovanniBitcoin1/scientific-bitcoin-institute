@@ -315,9 +315,12 @@ can have several and which one gets played.
   `scripts/lab/check-game-theory-01.mjs` (about 15 s; run it whole) and by
   `scripts/lab/browser-checks/modules/game-theory-what-is-a-game.mjs`. The
   page formats with `toFixed`: the checks format the same way.
-- Found while checking the skeleton: the site does not reset the scroll
-  position when the route changes. With three cards the hub has a second
-  row; opening the third card at 1280 × 900 lands on the lab index 94 px
-  down, with "All labs" under the fixed header. `check-links.mjs` now scrolls
-  to the top before clicking that link. Not fixed in the site: it is not lab
-  code and it changes every page. For Adriano to decide.
+- Scroll position (prompt 2, the commit "Labs: open lab pages at the top"):
+  the site does not reset the scroll position when the route changes. The
+  lab pages now do it themselves: `LabIndex.jsx` scrolls to the top when it
+  mounts or its lab changes, `LabChapter.jsx` when it mounts or its lab or
+  slug changes; the language toggle and everything else inside the page
+  leave it where it is. `check-links.mjs` checks all of this for every lab
+  (block "Lab pages open at the top") and no longer scrolls by itself. The
+  hub `/labs` and the pages outside the labs are as they were: still for
+  Adriano to decide.

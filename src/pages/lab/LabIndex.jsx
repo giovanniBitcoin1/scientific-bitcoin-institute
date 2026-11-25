@@ -26,6 +26,13 @@ export default function LabIndex({ labId = 'complexity' }) {
   // ?admin shows the passphrase form; nothing links to it.
   const showAdminForm = new URLSearchParams(useLocation().search).has('admin') && !admin
 
+  // A lab page opens at the top: the router keeps the scroll position of the
+  // page the visitor came from. Only when the page mounts or the lab changes,
+  // not when the language or anything else inside the page does.
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [labId])
+
   useEffect(() => {
     document.title = `${lab.name} — Scientific Bitcoin Institute`
     const meta = document.querySelector('meta[name="description"]')
