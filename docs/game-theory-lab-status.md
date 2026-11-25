@@ -480,14 +480,12 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Prompt 10 (module 10, `coalitions-sharing`), started after 3ce4dfe. Log:
-`docs/reports/game-theory-lab-10-log.md`.
-
-- Done: stage 0 and module 10 in the commit "Game Theory Lab 10: Coalitions
-  and sharing" (WIP commits squashed). The whole CHECKS list ran on the final
-  code before the squash: 0 failures everywhere.
-- Remains: the report `docs/reports/game-theory-lab-10.md`, committed with the
-  log as "Game Theory Lab 10: report".
+Nothing in progress. Prompt 10 is finished: stage 0 and module 10 in
+054b3b8 "Game Theory Lab 10: Coalitions and sharing" (four WIP commits
+squashed), the report `docs/reports/game-theory-lab-10.md` and the working
+log `docs/reports/game-theory-lab-10-log.md` in "Game Theory Lab 10: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere.
 
 ## Next
 

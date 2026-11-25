@@ -150,3 +150,10 @@ IDEAS pages, arXiv, Sefaria, authors' PDFs, Italian course notes).
 - `npm run build`: passed. `npm run check:dist`: 0/108.
 - Module chunk 83.8 kB (30.4 kB gzip); frac.js is now a 0.8 kB chunk shared by
   modules 08 and 10.
+
+## Commits
+
+- 054b3b8 "Game Theory Lab 10: Coalitions and sharing" (four WIP commits
+  squashed with `git reset --soft 3ce4dfe`).
+- "Game Theory Lab 10: report": the report, this log, the status file's
+  "Work in progress".
