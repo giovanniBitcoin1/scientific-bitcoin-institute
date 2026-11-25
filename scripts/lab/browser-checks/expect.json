@@ -15,5 +15,6 @@
   "network/capstone-a-real-network": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/what-is-a-game": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/nash-equilibrium": { "figures": 2, "panels": 3, "exercises": 6 },
-  "game-theory/mixed-strategies-zero-sum": { "figures": 2, "panels": 3, "exercises": 6 }
+  "game-theory/mixed-strategies-zero-sum": { "figures": 2, "panels": 3, "exercises": 6 },
+  "game-theory/sequential-games-commitment": { "figures": 2, "panels": 3, "exercises": 6 }
 }

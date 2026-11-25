@@ -146,7 +146,7 @@ uses it and the regression compare.
 | 01 | I | `what-is-a-game` | done | the commit "Game Theory Lab 01: What is a game?" | A Game explorer; B Guess two thirds of the average; C How far does dominance go? | `eliminate`, `atlas` |
 | 02 | I | `nash-equilibrium` | done | the commit "Game Theory Lab 02: Nash equilibrium" | A Find the equilibria; B Which convention?; C A contest for a prize | `staghunt`, `cournot` |
 | 03 | I | `mixed-strategies-zero-sum` | done | the commit "Game Theory Lab 03: Mixed strategies and zero-sum games" | A All the equilibria; B Learning to mix; C Can you be read? | `square`, `minimax` |
-| 04 | I | `sequential-games-commitment` | planned | | | |
+| 04 | I | `sequential-games-commitment` | done | the commit "Game Theory Lab 04: Games in time and credible commitment" | A Solve the tree; B Leader and follower; C Dividing a pie | `entry`, `pie` |
 | 05 | II | `incomplete-information-signalling` | planned | | | |
 | 06 | II | `repeated-games-reputation` | planned | | | |
 | 07 | II | `evolution-and-learning` | planned | | | |
@@ -309,18 +309,51 @@ Added in module 03:
 | win rate (of the machine) | quota di vittorie |
 | spread (standard deviation) | dispersione (deviazione standard) |
 
+Added in module 04:
+
+| English | Italian |
+|---|---|
+| game tree | albero (del gioco) |
+| node | nodo |
+| move | mossa |
+| plan (strategy as a complete plan) | piano |
+| backward induction | induzione a ritroso |
+| subgame | sottogioco |
+| subgame perfect equilibrium | equilibrio perfetto nei sottogiochi |
+| empty threat | minaccia vuota |
+| credible | credibile |
+| commitment, to commit | impegno, impegnarsi |
+| leader, follower | chi guida, chi segue |
+| first-mover advantage | vantaggio di chi muove per primo |
+| entry (game) | ingresso (gioco dell'ingresso) |
+| incumbent (firm) | impresa (già sul mercato) |
+| newcomer | nuovo arrivato |
+| fixed cost | costo fisso |
+| limit quantity | quantità limite |
+| ultimatum game | gioco dell'ultimatum |
+| centipede game | gioco del millepiedi |
+| proposer, responder | proponente, rispondente |
+| offer | offerta |
+| threshold | soglia |
+| discount factor | fattore di sconto |
+| patience | pazienza |
+| bargaining power | potere contrattuale |
+| punitive forking | fork punitivo |
+| feather forking | *feather fork* (kept in English) |
+| orphaned block, to orphan | blocco orfano, rendere orfano |
+| confirmation | conferma |
+
 ## Work in progress
 
-Nothing in progress. Prompt 3 is finished: stage 0 in "Game Theory Lab 02:
-fixes", module 03 in "Game Theory Lab 03: Mixed strategies and zero-sum
-games" (three WIP commits squashed), the report
-`docs/reports/game-theory-lab-03.md` and the working log
-`docs/reports/game-theory-lab-03-log.md` in "Game Theory Lab 03: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere (numbers in the log and the report).
+Prompt 4 (module 04, no stage 0): the module is in the commit "Game Theory
+Lab 04: Games in time and credible commitment" (WIP commits squashed). Not
+yet done: the report `docs/reports/game-theory-lab-04.md`, committed with
+the working log `docs/reports/game-theory-lab-04-log.md` as "Game Theory Lab
+04: report". A session that finds this paragraph reads the log, writes the
+report from it and commits both.
 ## Next
 
-Module 04, `sequential-games-commitment`, when its prompt is there.
+Module 05, `incomplete-information-signalling`, when its prompt is there.
 ## Open items
 
 - The lectures of modules 01 and 02 carry the DRAFT marker: to be reviewed
@@ -494,3 +527,56 @@ Module 04, `sequential-games-commitment`, when its prompt is there.
   (about 30 s; run it whole) and by
   `browser-checks/modules/game-theory-mixed-strategies-zero-sum.mjs`.
   Module chunk 72.3 kB (26.2 gzip); it shares the `randomgames-…` chunk.
+
+- Shared by the lab since module 04: `src/components/lab/game-theory/GameTree.jsx`
+  (a game tree with perfect information in SVG: nodes with the mover's
+  initial, labelled moves, payoffs at the leaves, solved nodes with their
+  chosen move dark and the others grey and dashed, a highlighted path, values
+  beside solved nodes; short move labels when the leaves are many; fits
+  375 px). Modules 05 and 06 can start from it.
+- Module 04, things a later module may reuse, all in
+  `sequential-games-commitment/`: `trees.js` (trees as nodes and leaves,
+  `prepare`, backward induction with ties to the first move and a solving
+  order, plans and the table of plans, pure Nash equilibria, subgame
+  perfection by brute force, the deepest profitable one-move deviation of a
+  profile (`emptyThreat`), two- and three-stage random trees, the survey as a
+  job), `presets.js` (the entry game with f, k and commitment; the centipede),
+  `stackelberg.js` (leader and follower with two costs and a fixed cost,
+  imports module 02's `cournot.js`), `bargaining.js` (alternating offers with
+  one or two discount factors, Rubinstein's limit), `ultimatum.js` (a
+  population of thresholds, the closed form, "Play" as a job), `forks.js` (the
+  box: α², α²/(1 − α²), α(1 − α), two-block races). Module 06 can start from
+  `bargaining.js` and `trees.js`; module 13 from `forks.js`.
+- Module 04, choices to review: "Wait" is listed before "Commit" in both
+  commitment trees, so that an indifferent firm (k = 2) does not commit; ties
+  in backward induction go to the first move and the page says so (f = 2 in
+  F1, the first mover of matching pennies in turn); an indifferent follower
+  stays out (so the limit quantity a − c2 − 2√F keeps it out); in Panel A
+  every tree has player 0 at the root and payoffs (first, second), so in the
+  commitment preset they are (firm, newcomer), while F1 keeps (newcomer,
+  firm); a plan is written as the short labels of its moves in depth-first
+  order; "Solve" solves one node every 0.55 s, deepest first; the "same time"
+  column of Panel B has no fixed cost; Panel C draws the thresholds at random
+  (seed per N) and shows the closed form as a dashed line beside the
+  population's curve, plus an offer slider the prompt did not ask for; "Play"
+  is 1,000 proposers × 100 random offers on the 0.05 grid, each against a
+  random responder, and also counts how many proposers find the best offer
+  from their own tries; F2 opens on T = 10.
+- Module 04, findings the texts state: in the random two-move trees the table
+  of plans has 1, 2, 3 Nash equilibria with chances exactly 1/4, 1/2, 1/4,
+  one not subgame perfect 3/4, one with a different outcome 1/3, the second
+  player better off in it 1/2 (proof in report 04); moving first is better
+  for the first player in 0.145 of 20,000 games, worse in 0.123 (4,000,000
+  games: 0.146, 0.125); with no pure equilibrium both prefer second in 0.651
+  on the page's seed (4,000,000 games: 0.666; ten seeds 0.643–0.683); in
+  "Play" only 144 of 1,000 proposers find 0.40 by themselves (628 at m = 0.2).
+- Module 04, sources (November 2026, details in the log
+  `docs/reports/game-theory-lab-04-log.md` and in report 04): Zermelo softened
+  after Schwalbe and Walker (not backward induction); Selten 1965, the name
+  "subgame perfect" from 1975; McKelvey and Palfrey 7% read in the paper;
+  the ultimatum figures from Henrich et al. 2001 (added to the reading);
+  Narayanan et al. §5.5 read in the free draft, and the box does not call
+  the forks "theoretical" (the book says that of selfish mining).
+- Module 04 texts quote numbers pinned by `check-game-theory-04.mjs` (about
+  10 s; run it whole) and by
+  `browser-checks/modules/game-theory-sequential-games-commitment.mjs`.
