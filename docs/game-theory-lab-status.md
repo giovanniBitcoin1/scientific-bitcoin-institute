@@ -434,13 +434,12 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Module 08 is in the commit "Game Theory Lab 08: Congestion and the price of
-anarchy" (two WIP commits and stage 0 squashed). The whole CHECKS list ran
-on its code before the squash: 0 failures everywhere (details in
-`docs/reports/game-theory-lab-08-log.md`). Remains: the report
-`docs/reports/game-theory-lab-08.md`, committed with the log as "Game
-Theory Lab 08: report".
-
+Nothing in progress. Prompt 8 is finished: stage 0 and module 08 in
+6af4fff "Game Theory Lab 08: Congestion and the price of anarchy" (two WIP
+commits squashed), the report `docs/reports/game-theory-lab-08.md` and the
+working log `docs/reports/game-theory-lab-08-log.md` in "Game Theory Lab
+08: report". The whole CHECKS list ran on the final code before the
+squash: 0 failures everywhere.
 ## Next
 
 Module 09, `games-on-networks`, when its prompt is there.

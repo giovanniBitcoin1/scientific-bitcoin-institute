@@ -142,3 +142,9 @@ externalities):
   standard); kept as in module 02.
 - pedaggio: ordinary usage, no game-theory source specifically.
 - hub: kept in Italian, as in the Network Lab's Italian lectures.
+
+## End
+
+- Module commit 6af4fff (WIP eadf849 and ecbbb61 squashed). Report written to
+  `docs/reports/game-theory-lab-08.md`, committed with this log and the
+  status file as "Game Theory Lab 08: report".
