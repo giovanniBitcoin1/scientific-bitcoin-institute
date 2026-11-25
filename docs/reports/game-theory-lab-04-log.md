@@ -149,3 +149,4 @@ reachable; Crossref for volumes and pages):
 - Dixit 1980 — EJ 90 (357), 95–106 (Crossref). Confirmed.
 - Rosenthal 1981 — JET 25 (1), 92–100 (Crossref); McKelvey and Palfrey
   credit him with the centipede (cited there as 1982). Confirmed.
+- Squash: ba8855a, fe4cb1e, ec583cc -> e4af701 "Game Theory Lab 04: Games in time and credible commitment". Report written; committed with this log and the status file ("prompt finished").

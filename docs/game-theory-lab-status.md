@@ -345,12 +345,12 @@ Added in module 04:
 
 ## Work in progress
 
-Prompt 4 (module 04, no stage 0): the module is in the commit "Game Theory
-Lab 04: Games in time and credible commitment" (WIP commits squashed). Not
-yet done: the report `docs/reports/game-theory-lab-04.md`, committed with
-the working log `docs/reports/game-theory-lab-04-log.md` as "Game Theory Lab
-04: report". A session that finds this paragraph reads the log, writes the
-report from it and commits both.
+Nothing in progress. Prompt 4 is finished: module 04 in "Game Theory Lab 04:
+Games in time and credible commitment" (e4af701, three WIP commits
+squashed), the report `docs/reports/game-theory-lab-04.md` and the working
+log `docs/reports/game-theory-lab-04-log.md` in "Game Theory Lab 04:
+report". The whole CHECKS list ran on the final code before the squash: 0
+failures everywhere (numbers in the log and the report).
 ## Next
 
 Module 05, `incomplete-information-signalling`, when its prompt is there.
