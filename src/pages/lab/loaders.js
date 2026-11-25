@@ -14,11 +14,18 @@
 // whose index.js default-exports the content object. One chunk per module.
 const networkModules = import.meta.glob('../../components/lab/network/*/index.js')
 
+// Game Theory Lab: the same layout, src/components/lab/game-theory/<slug>/.
+const gameTheoryModules = import.meta.glob('../../components/lab/game-theory/*/index.js')
+
 export const loaders = {
   // The Complexity Lab ships all its lectures and sims as one chunk.
   complexity: (slug) => import('./content/complexity.js').then((m) => m.default(slug)),
   network: (slug) => {
     const load = networkModules[`../../components/lab/network/${slug}/index.js`]
+    return load ? load().then((m) => m.default) : Promise.resolve(null)
+  },
+  'game-theory': (slug) => {
+    const load = gameTheoryModules[`../../components/lab/game-theory/${slug}/index.js`]
     return load ? load().then((m) => m.default) : Promise.resolve(null)
   },
 }

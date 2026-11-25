@@ -1,6 +1,7 @@
 # Lab browser checks
 
-Headless-Chrome checks for the labs (`/lab`, `/network-lab`). They open the
+Headless-Chrome checks for the labs (`/lab`, `/network-lab`,
+`/game-theory-lab`). They open the
 built site like a visitor would, locked and in the admin preview, in English
 and Italian, at 1280 and 375 px, and report what is wrong.
 
@@ -40,6 +41,7 @@ The index pages and the "Labs" section:
 ```
 node check-index.mjs network
 node check-index.mjs complexity
+node check-index.mjs game-theory
 node check-links.mjs
 ```
 
@@ -85,8 +87,9 @@ A Complexity Lab page is checked in the same way, for instance
 `node check-module.mjs complexity scale-free`.
 
 The Node self-checks of the modules' logic are separate and need no browser:
-`node scripts/lab/check-network-01.mjs` … `check-network-13.mjs`, from the
-repo root, again one at a time.
+`node scripts/lab/check-network-01.mjs` … `check-network-14.mjs` and
+`node scripts/lab/check-game-theory-01.mjs` …, from the repo root, again one
+at a time.
 
 When a module is added: one more line in each of the two lists above, and its
 expected counts in `expect.json`.
@@ -105,7 +108,8 @@ Options common to all scripts:
 
 ### `check-index.mjs <labId>`
 
-`labId` is a key of `src/data/lab/paths.js` (`complexity`, `network`).
+`labId` is a key of `src/data/lab/paths.js` (`complexity`, `network`,
+`game-theory`).
 Locked: the lock overlay names the lab, all module cards are under it, no
 module links, no admin bar; a module that is not ready and an unknown slug
 show "Module not available"; `?admin` shows the form and a wrong passphrase

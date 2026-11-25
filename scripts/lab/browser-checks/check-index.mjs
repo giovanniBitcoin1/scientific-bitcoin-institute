@@ -3,7 +3,7 @@
 //
 //   node check-index.mjs <labId> [--dist <dir> | --base <url>] [--chrome <path>] [--quiet]
 //
-// labId is a key of src/data/lab/paths.js (complexity, network).
+// labId is a key of src/data/lab/paths.js (complexity, network, game-theory).
 import {
   parseArgs, loadLab, allLabIds, labsLocked, siteFromArgs, launch, newPage, setAdminOnce, go, bodyText, has,
   occurrences, noHScroll, count, reporter, shotPath, sleep, COPY, WIDTHS, LANGS,

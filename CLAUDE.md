@@ -458,3 +458,19 @@ degree = grado, path = cammino, shortest path = cammino minimo, component =
 componente, clustering = clustering, transitivity = transitività, adjacency
 matrix = matrice di adiacenza, bipartite = bipartita, projection =
 proiezione; "small-world" stays in English.
+
+### Game Theory Lab (`/game-theory-lab`)
+
+The third lab on the engine, built the same way as the Network Lab: id
+`game-theory`, provisional path `/game-theory-lab` (`paths.js`), module list
+`src/data/lab/game-theory-modules.json` (four parts, 14 modules), one folder
+per module in `src/components/lab/game-theory/<slug>/` (one chunk each, own
+glob in `loaders.js`), lectures in `src/content/game-theory-lab/<slug>.en.md`
+/ `.it.md`, self-checks `scripts/lab/check-game-theory-NN.mjs`, reports
+`docs/reports/game-theory-lab-NN.md`. Where the work stands, the working
+rules and the Italian terms are in `docs/game-theory-lab-status.md`: read it
+before working on the lab and update it in every module commit. It is a
+general course on game theory and incentives: short optional Bitcoin boxes
+only in the modules that file lists, modules 13 and 14 are entirely about
+Bitcoin, and a thesis about Bitcoin is always presented as a hypothesis with
+its limits, never as advertising.

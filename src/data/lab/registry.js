@@ -1,6 +1,7 @@
 import { LAB_PATHS } from './paths.js'
 import complexityModules from './modules.json'
 import networkModules from './network-modules.json'
+import gameTheoryModules from './game-theory-modules.json'
 
 // The one place that describes every lab. LabIndex and LabChapter render any
 // entry of this list; the hub page (/labs, LabsHub.jsx) and the "Labs"
@@ -82,6 +83,37 @@ export const labs = [
       { id: 'IV', title: { en: 'Spreading', it: 'Diffondere' } },
     ],
     modules: networkModules,
+  },
+  {
+    id: 'game-theory',
+    basePath: LAB_PATHS['game-theory'],
+    name: 'Game Theory Lab',
+    tagline: {
+      en: 'An advanced course on game theory and incentives',
+      it: 'Un corso avanzato di teoria dei giochi e incentivi',
+    },
+    eyebrow: { en: 'Advanced course', it: 'Corso avanzato' },
+    title: { en: 'Game Theory Lab', it: 'Game Theory Lab' },
+    intro: {
+      en: [
+        'An advanced course on game theory and incentives: how to reason when the outcome depends on what others choose, how players learn and adapt, what happens when many of them share a system, and how to design the rules.',
+        'Designed for readers comfortable with some mathematics. It can be followed on its own; the last two modules apply the course to the incentives of Bitcoin.',
+      ],
+      it: [
+        'Un corso avanzato di teoria dei giochi e incentivi: come ragionare quando il risultato dipende dalle scelte degli altri, come i giocatori imparano e si adattano, che cosa succede quando in molti condividono un sistema, e come si progettano le regole.',
+        "Pensato per chi ha familiarità con un po' di matematica. Si può seguire da solo; gli ultimi due moduli applicano il corso agli incentivi di Bitcoin.",
+      ],
+    },
+    description:
+      'An advanced course on game theory and incentives by the Scientific Bitcoin Institute: 14 modules on strategic reasoning, learning, many-player systems and the design of rules, ending with the incentives of Bitcoin.',
+    pending: { en: 'In preparation', it: 'In preparazione' },
+    parts: [
+      { id: 'I', title: { en: 'Reasoning', it: 'Ragionare' } },
+      { id: 'II', title: { en: 'Learning', it: 'Imparare' } },
+      { id: 'III', title: { en: 'Living together', it: 'Convivere' } },
+      { id: 'IV', title: { en: 'Designing', it: 'Progettare' } },
+    ],
+    modules: gameTheoryModules,
   },
 ]
 

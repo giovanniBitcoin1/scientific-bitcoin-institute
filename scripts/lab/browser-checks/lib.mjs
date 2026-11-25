@@ -39,6 +39,7 @@ export function parseArgs(argv = process.argv.slice(2)) {
 const LAB_FILES = {
   complexity: { modules: 'src/data/lab/modules.json', content: 'src/content/lab' },
   network: { modules: 'src/data/lab/network-modules.json', content: 'src/content/network-lab' },
+  'game-theory': { modules: 'src/data/lab/game-theory-modules.json', content: 'src/content/game-theory-lab' },
 }
 
 const readJson = (rel) => JSON.parse(readFileSync(path.join(REPO, rel), 'utf8'))

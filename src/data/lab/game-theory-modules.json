@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "what-is-a-game",
+    "number": "01",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "What is a game?",
+    "title_it": "Che cos'è un gioco?",
+    "summary_en": "Players, strategies and payoffs; dominated strategies, best responses and the classic two-by-two games.",
+    "summary_it": "Giocatori, strategie e payoff; strategie dominate, risposte migliori e i classici giochi due per due."
+  },
+  {
+    "slug": "nash-equilibrium",
+    "number": "02",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "Nash equilibrium",
+    "title_it": "L'equilibrio di Nash",
+    "summary_en": "What an equilibrium is, why there can be several, and which one gets played.",
+    "summary_it": "Che cos'è un equilibrio, perché possono essercene diversi e quale si gioca davvero."
+  },
+  {
+    "slug": "mixed-strategies-zero-sum",
+    "number": "03",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "Mixed strategies and zero-sum games",
+    "title_it": "Strategie miste e giochi a somma zero",
+    "summary_en": "When it pays to be unpredictable, and what the minimax theorem guarantees.",
+    "summary_it": "Quando conviene essere imprevedibili, e che cosa garantisce il teorema del minimax."
+  },
+  {
+    "slug": "sequential-games-commitment",
+    "number": "04",
+    "part": "I",
+    "status": "coming-soon",
+    "title_en": "Games in time and credible commitment",
+    "title_it": "Giochi nel tempo e impegno credibile",
+    "summary_en": "Backward induction, threats nobody believes, and the value of tying your own hands.",
+    "summary_it": "Induzione a ritroso, minacce a cui nessuno crede e il valore di legarsi le mani."
+  },
+  {
+    "slug": "incomplete-information-signalling",
+    "number": "05",
+    "part": "II",
+    "status": "coming-soon",
+    "title_en": "Incomplete information and signals",
+    "title_it": "Informazione incompleta e segnali",
+    "summary_en": "Playing without knowing who the others are: hidden types, costly signals and cheap talk.",
+    "summary_it": "Giocare senza sapere chi sono gli altri: tipi nascosti, segnali costosi e parole che non costano nulla."
+  },
+  {
+    "slug": "repeated-games-reputation",
+    "number": "06",
+    "part": "II",
+    "status": "coming-soon",
+    "title_en": "Repeated games and reputation",
+    "title_it": "Giochi ripetuti e reputazione",
+    "summary_en": "How much patience cooperation needs, and what a reputation is worth.",
+    "summary_it": "Quanta pazienza serve alla cooperazione, e quanto vale una reputazione."
+  },
+  {
+    "slug": "evolution-and-learning",
+    "number": "07",
+    "part": "II",
+    "status": "coming-soon",
+    "title_en": "Evolution and learning",
+    "title_it": "Evoluzione e apprendimento",
+    "summary_en": "Strategies that spread by selection or imitation, and players who learn the game as they play.",
+    "summary_it": "Strategie che si diffondono per selezione o imitazione, e giocatori che imparano il gioco giocando."
+  },
+  {
+    "slug": "congestion-price-of-anarchy",
+    "number": "08",
+    "part": "III",
+    "status": "coming-soon",
+    "title_en": "Congestion and the price of anarchy",
+    "title_it": "Congestione e prezzo dell'anarchia",
+    "summary_en": "Braess's paradox, and how much selfish choices cost everyone.",
+    "summary_it": "Il paradosso di Braess, e quanto costano a tutti le scelte egoiste."
+  },
+  {
+    "slug": "games-on-networks",
+    "number": "09",
+    "part": "III",
+    "status": "coming-soon",
+    "title_en": "Games on networks",
+    "title_it": "Giochi su reti",
+    "summary_en": "When your best move depends on your neighbours, and how the links themselves are chosen.",
+    "summary_it": "Quando la mossa migliore dipende dai vicini, e come si scelgono i collegamenti stessi."
+  },
+  {
+    "slug": "coalitions-sharing",
+    "number": "10",
+    "part": "III",
+    "status": "coming-soon",
+    "title_en": "Coalitions: how to share the pie",
+    "title_it": "Coalizioni: come dividere la torta",
+    "summary_en": "The core, the Shapley value, and why voting power is not proportional to votes.",
+    "summary_it": "Il nucleo, il valore di Shapley e perché il potere di voto non è proporzionale ai voti."
+  },
+  {
+    "slug": "auctions",
+    "number": "11",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Auctions",
+    "title_it": "Aste",
+    "summary_en": "First price, second price, revenue equivalence and the winner's curse.",
+    "summary_it": "Primo prezzo, secondo prezzo, equivalenza del ricavo e maledizione del vincitore."
+  },
+  {
+    "slug": "mechanism-design",
+    "number": "12",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Designing the rules",
+    "title_it": "Progettare le regole",
+    "summary_en": "Rules that make telling the truth the best strategy, and the limits of what rules can achieve.",
+    "summary_it": "Regole che rendono la verità la strategia migliore, e i limiti di ciò che le regole possono ottenere."
+  },
+  {
+    "slug": "mining-as-a-game",
+    "number": "13",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Mining as a game",
+    "title_it": "Il mining come gioco",
+    "summary_en": "A miner's choices, and when following the protocol is not the best strategy.",
+    "summary_it": "Le scelte di un miner, e quando seguire il protocollo non è la strategia migliore."
+  },
+  {
+    "slug": "capstone-the-price-of-security",
+    "number": "14",
+    "part": "IV",
+    "status": "coming-soon",
+    "title_en": "Capstone: the price of security",
+    "title_it": "Capstone: quanto costa la sicurezza",
+    "summary_en": "The whole toolkit applied to one question: what it costs to keep Bitcoin secure.",
+    "summary_it": "Tutti gli strumenti del corso applicati a una domanda: quanto costa tenere sicuro Bitcoin."
+  }
+]

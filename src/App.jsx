@@ -59,7 +59,7 @@ import SeedTool from './pages/SeedTool.jsx'
 import SeedToolGuide from './pages/SeedToolGuide.jsx'
 import { LAB_PATHS, LABS_HUB } from './data/lab/paths.js'
 
-// The labs (Complexity Lab, Network Lab…) are lazy-loaded so their pages, sims
+// The labs (Complexity Lab, Network Lab, Game Theory Lab…) are lazy-loaded so their pages, sims
 // and lecture text ship in their own chunks instead of the main bundle. One
 // index route and one module route are registered per entry of LAB_PATHS,
 // plus the hub page that lists the labs (LABS_HUB).

@@ -65,6 +65,11 @@ for (const width of WIDTHS) {
       ok(`${tag} the ${lab.name} card opens ${lab.basePath}`, (await pathOf(p)) === lab.basePath)
       const back = await p.$$eval(`main a[href="${LABS_HUB}"]`, (as) => as.map((a) => a.innerText))
       ok(`${tag} ${lab.basePath} has an "${TEXT[lang].allLabs}" link to ${LABS_HUB}`, back.some((b) => b.includes(TEXT[lang].allLabs)), back.join(' | '))
+      // The site keeps the scroll position across routes: a card on the
+      // hub's second row opens its lab a little way down, with this link
+      // under the fixed header. Back to the top before clicking it.
+      await p.evaluate(() => window.scrollTo(0, 0))
+      await sleep(150)
       await p.click(`main a[href="${LABS_HUB}"]`)
       await sleep(800)
       ok(`${tag} … and it leads back to the hub`, (await pathOf(p)) === LABS_HUB)
