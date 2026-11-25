@@ -10,6 +10,9 @@
 //   compact   payoffs one above the other, small type: for large tables
 //   onStep    (player, i, j, delta) => void: shows − and + beside each payoff
 //   corner    text of the top-left corner (optional)
+//   onCell    (i, j) => void: makes every cell a button (click, Enter, Space)
+//   selected  [i, j]: the cell framed in dark (the chosen cell)
+//   trail     [[i, j]] cells tinted blue (a path through the table)
 //
 // Plain HTML and buttons, so it never captures a swipe.
 
@@ -53,6 +56,9 @@ export default function PayoffTable({
   compact = false,
   onStep = null,
   corner = '',
+  onCell = null,
+  selected = null,
+  trail = [],
   aria,
 }) {
   const { rows, cols, a, b } = game
@@ -95,19 +101,40 @@ export default function PayoffTable({
           {cols.map((_, j) => {
             const gone = goneR.has(i) || goneC.has(j)
             const ring = !gone && isStable(i, j)
+            const chosen = !!selected && selected[0] === i && selected[1] === j
+            const onTrail = !ring && trail.some(([x, y]) => x === i && y === j)
+            const press = onCell
+              ? {
+                  tabIndex: 0,
+                  onClick: () => onCell(i, j),
+                  onKeyDown: (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      onCell(i, j)
+                    }
+                  },
+                }
+              : null
             return (
               <div
                 key={j}
                 role="cell"
                 data-stable={ring || undefined}
                 data-gone={gone || undefined}
+                data-selected={chosen || undefined}
+                data-trail={onTrail || undefined}
+                {...press}
                 className={`min-w-0 rounded-md border text-center ${pad} ${
                   gone
                     ? 'border-slate-200 bg-slate-100 opacity-30'
                     : ring
                       ? 'border-orange-500 bg-orange-50 ring-2 ring-orange-400'
-                      : 'border-slate-200 bg-white'
-                } ${stacked ? 'flex flex-col items-center gap-1' : ''}`}
+                      : onTrail
+                        ? 'border-sky-300 bg-sky-50'
+                        : 'border-slate-200 bg-white'
+                } ${chosen ? 'outline outline-2 outline-offset-1 outline-slate-900' : ''} ${onCell ? 'cursor-pointer' : ''} ${
+                  stacked ? 'flex flex-col items-center gap-1' : ''
+                }`}
               >
                 <Payoff
                   value={format(a[i][j])}

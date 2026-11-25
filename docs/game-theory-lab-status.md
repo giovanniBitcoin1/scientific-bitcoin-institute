@@ -64,7 +64,8 @@ model for this one and holds the history of the engine.
 
 ```
 npx vite build
-node scripts/lab/check-game-theory-01.mjs      # and check-game-theory-02.mjs, …
+node scripts/lab/check-game-theory-01.mjs
+node scripts/lab/check-game-theory-02.mjs      # one per module
 cd scripts/lab/browser-checks                  # see its README; npm install once
 node check-index.mjs game-theory
 node check-index.mjs network
@@ -134,7 +135,7 @@ uses it and the regression compare.
 | No. | Part | Slug | Status | Commit | Panels | Live figures |
 |---|---|---|---|---|---|---|
 | 01 | I | `what-is-a-game` | done | the commit "Game Theory Lab 01: What is a game?" | A Game explorer; B Guess two thirds of the average; C How far does dominance go? | `eliminate`, `atlas` |
-| 02 | I | `nash-equilibrium` | planned | | | |
+| 02 | I | `nash-equilibrium` | done | the commit "Game Theory Lab 02: Nash equilibrium" | A Find the equilibria; B Which convention?; C A contest for a prize | `staghunt`, `cournot` |
 | 03 | I | `mixed-strategies-zero-sum` | planned | | | |
 | 04 | I | `sequential-games-commitment` | planned | | | |
 | 05 | II | `incomplete-information-signalling` | planned | | | |
@@ -153,7 +154,9 @@ Convivere; IV Designing / Progettare.
 
 Other commits: 479e821, "Game Theory Lab: skeleton" (prompt 1, stage 1: registry entry,
 path, module list, loader, browser checks, this file, the subsection in
-`CLAUDE.md`).
+`CLAUDE.md`). From prompt 2, stage 0: "Game Theory Lab 01: fixes" (the noise
+of "Play again" in module 01) and "Labs: open lab pages at the top" (shared
+lab pages).
 
 ## Planned content (may change; each module gets its own prompt)
 
@@ -243,26 +246,61 @@ Chosen in module 01; keep them in the later modules.
 | beauty contest | concorso di bellezza (*beauty contest*) |
 | Nash equilibrium | equilibrio di Nash |
 
+Added in module 02:
+
+| English | Italian |
+|---|---|
+| focal point | punto focale |
+| convention | convenzione |
+| coordination game | gioco di coordinamento |
+| payoff dominant | dominante nei payoff |
+| risk dominant | dominante nel rischio |
+| tipping point | punto di svolta |
+| best-response curve (line) | curva (retta) di risposta migliore |
+| quantity competition | concorrenza sulle quantità |
+| price competition | concorrenza sui prezzi |
+| cartel | cartello |
+| contest | gara |
+| prize | premio |
+| effort | sforzo |
+| share (of the chances, of the hash rate) | quota |
+| hash rate | hash rate (kept; masculine, "l'hash rate") |
+| block reward | ricompensa del blocco |
+| miner, mining, pool | miner, mining, pool (kept) |
+| difficulty adjustment | aggiustamento della difficoltà |
+| free entry | libero ingresso |
+| walk (of best responses), cycle | cammino, ciclo |
+| sweep, run, sample | passata, prova, campione |
+| to settle, to swing | assestarsi, oscillare |
+
 ## Work in progress
 
-Nothing in progress. Prompt 1 is finished: the skeleton and module 01, with
-the report in `docs/reports/game-theory-lab-01.md`.
+Nothing in progress. Prompt 2 is finished: the two fixes of stage 0 and
+module 02 (three WIP commits squashed into "Game Theory Lab 02: Nash
+equilibrium"). Its report is `docs/reports/game-theory-lab-02.md`, in the
+commit "Game Theory Lab 02: report" that follows the module commit: if that
+file is missing, the report is still to be written. The whole list of
+checks was run again from the first line, one at a time, on the final
+state, before the squash: 0 failures everywhere (numbers in the report).
 
 ## Next
 
-Module 02, `nash-equilibrium`, when its prompt
-(`prompts.local/game-theory-lab-02.md`) is there. Module 01 ends by naming
-the stable cell "Nash equilibrium" and promising what it means, why a game
-can have several and which one gets played.
+Module 03, `mixed-strategies-zero-sum`, when its prompt
+(`prompts.local/game-theory-lab-03.md`) is there. Module 02 ends on the
+games with no equilibrium in pure strategies (one two-by-two game in eight,
+about a third of the large random ones, matching pennies the smallest) and
+promises that they have one once the players may mix. Module 01's Panel C
+already says that module 03 will add dominance by mixtures.
 
 ## Open items
 
-- The lecture of module 01 carries the DRAFT marker: to be reviewed by
-  Adriano.
+- The lectures of modules 01 and 02 carry the DRAFT marker: to be reviewed
+  by Adriano.
 - Shared by the lab since module 01: `src/components/lab/game-theory/PayoffTable.jsx`
   (the payoff table of a two-player game of any size: marks for best
   responses, greyed strategies, ringed stable cells, a compact mode, optional
-  − / + steppers; also `TableLegend`). The modules import the Network Lab's
+  − / + steppers; also `TableLegend`; since module 02 also `onCell`, for
+  cells that can be clicked, `selected` and `trail`). The modules import the Network Lab's
   `network/ui.jsx` and `network/charts.jsx` without changing them; Vite keeps
   each in a small chunk of its own (2.3 kB and 3.1 kB), loaded only when
   unlocked.
@@ -324,3 +362,68 @@ can have several and which one gets played.
   (block "Lab pages open at the top") and no longer scrolls by itself. The
   hub `/labs` and the pages outside the labs are as they were: still for
   Adriano to decide.
+- Module 02, things a later module may reuse, all in `nash-equilibrium/`:
+  `equilibria.js` (the walk of alternating best responses with its end,
+  equilibrium or cycle; random tables with whole payoffs and no ties that
+  matter; the survey of random games with equilibria counted 0/1/2/3+ and
+  the share of walks that reach one — it draws the same games as module
+  01's `randomgames.js`, same seeds, so the two pages agree to the last
+  digit), `conventions.js` (q* of the stag hunt, risk dominance, the
+  population with the sampled rule, its tipping point, the scan as a job),
+  `cournot.js` (best responses, equilibrium with two costs, n equal firms,
+  the cartel, the path of alternating answers), `contest.js` (the Tullock
+  contest in closed form with unequal costs, who stays in, best responses
+  one at a time and all at once, `percent`). Module 03 can start from
+  `walk` (matching pennies cycles) and from `analyzeWalks`; modules 13 and
+  14 from `contest.js`.
+- Where Vite puts the code the two modules share: `games.js`,
+  `randomgames.js` and `PayoffTable.jsx` go into one chunk of their own
+  (`randomgames-….js`, 9.8 kB, 4.0 kB gzip), loaded by both module chunks
+  (module 01 72.7 kB, module 02 82.7 kB) and only when unlocked.
+- Module 02, choices to review: the survey of Panel A uses module 01's games
+  (so the share with no equilibrium at m = 8 is the 0.322 that module 01
+  quotes; ten other seeds give 0.314–0.321); the survey gets its walks from
+  the starting column only, since the row player moves first (checked
+  against the walk itself); in the walk a player who is already at a best
+  response stays, and otherwise goes to the first best response; Panel A
+  opens on random table no. 1 of size 3, which has no equilibrium; "New
+  game" after a classic goes back to the random table; Panel B samples the
+  k others without repeats (k is cut to N − 1 when N is small) and shows
+  the run of the page's seed at once, "Run" draws the next one; any change
+  of setting goes back to run 1; the scan uses its own seed per starting
+  share; Panel C has a slider for the prize (50 to 200), which the prompt
+  did not ask for, so that exercise 5 can be checked on the page; players
+  with the same cost share one line of its table; when every other player
+  is out, the best response of the panel is 0 (the formula of the prompt),
+  although any tiny effort would win: with "All at once" and n ≥ 6 everyone
+  leaves by the fifth round and never comes back, and the observe list says
+  so; Figure F2 starts from the point (1, 8) and draws one move every 0.38
+  s. F1 is 323 px tall at 1280 px and F2 363 px (383 px in Italian); at
+  375 px they are 535 and 616 px (555 and 633 in Italian).
+- Module 02, findings the texts state: at two by two exactly 1/8 of the
+  games have no equilibrium, 1/8 have two and 7/8 of the walks end at one;
+  at eight by eight 32% have none, 26% two or more, and 52% of the walks
+  end at one (77% in the games that have one). Tipping point of the sampled
+  rule 0.732 with the default payoffs and k = 10 (0.869, 0.734, 0.704 for
+  k = 5, 20, 50), 0.361 with a = 6. With 200 runs the chance of ending on
+  the stag is 0.140 from x0 = 0.70 and 0.830 from 0.75 (N = 200); 0.005
+  and 0.920 with N = 1,000. "All at once" settles for n = 2 and 3, swings
+  between about 82 and 67 at n = 4 and blows up from n = 5; with the
+  miners' costs it settles, but only in 165 rounds, against 8 for "One at a
+  time".
+- Module 02, sources (checked in November 2026, details in
+  `docs/reports/game-theory-lab-02.md`): Nash's thesis has 27 pages
+  according to Princeton (Wikipedia says 28); Schelling's New York question
+  (the information booth of Grand Central Station, noon) is confirmed, the
+  counts of his heads-or-tails question are not, so the text says "a large
+  majority"; Van Huyck, Battalio and Beil's groups of 14 to 16, the choices
+  1 to 7 and the minimum at 1 in every group after the third period come
+  from Weber (2006), not from the 1990 paper itself; the pages of Tullock's
+  chapter are given as 97–112 by most and 91–112 by one source, so the
+  citation has no pages.
+- Module 02 texts and lecture quote numbers produced with fixed seeds, pinned
+  by the "quoted on the page" checks in
+  `scripts/lab/check-game-theory-02.mjs` (about 20 s; run it whole) and by
+  `scripts/lab/browser-checks/modules/game-theory-nash-equilibrium.mjs`.
+  Shares in per cent are written by `percent` in `contest.js` (the page and
+  the check use the same function).

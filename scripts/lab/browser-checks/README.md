@@ -68,6 +68,7 @@ Every ready module of the Game Theory Lab:
 
 ```
 node check-module.mjs game-theory what-is-a-game
+node check-module.mjs game-theory nash-equilibrium
 ```
 
 The functional checks, one per module:
@@ -88,6 +89,7 @@ node modules/network-epidemics-on-networks.mjs
 node modules/network-social-contagion-network-effects.mjs
 node modules/network-capstone-a-real-network.mjs
 node modules/game-theory-what-is-a-game.mjs
+node modules/game-theory-nash-equilibrium.mjs
 ```
 
 A Complexity Lab page is checked in the same way, for instance
