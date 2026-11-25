@@ -311,18 +311,13 @@ Added in module 03:
 
 ## Work in progress
 
-Prompt 3 (`prompts.local/game-theory-lab-03.md`). Working log:
-`docs/reports/game-theory-lab-03-log.md` (read it first).
-
-- Stage 0: done, the commit "Game Theory Lab 02: fixes".
-- Module 03: done, the commit "Game Theory Lab 03: Mixed strategies and
-  zero-sum games" (four WIP commits squashed). The whole CHECKS list was
-  run on the final code before the squash: 0 failures everywhere (log).
-
-Remains: the report, `docs/reports/game-theory-lab-03.md`, in its own
-commit "Game Theory Lab 03: report" with the log. Until that commit
-exists the prompt is not finished.
-
+Nothing in progress. Prompt 3 is finished: stage 0 in "Game Theory Lab 02:
+fixes", module 03 in "Game Theory Lab 03: Mixed strategies and zero-sum
+games" (three WIP commits squashed), the report
+`docs/reports/game-theory-lab-03.md` and the working log
+`docs/reports/game-theory-lab-03-log.md` in "Game Theory Lab 03: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere (numbers in the log and the report).
 ## Next
 
 Module 04, `sequential-games-commitment`, when its prompt is there.

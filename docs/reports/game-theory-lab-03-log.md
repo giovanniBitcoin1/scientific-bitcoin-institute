@@ -80,6 +80,9 @@ check", one command at a time in the foreground, each to its last line:
 - `npm run check:dist`: 0 failures of 108.
 - Chunks: module 03 72.34 kB (26.17 gzip); module 01 73.03 (26.26);
   module 02 83.36 (29.56); shared `randomgames-…` 9.86 (4.01).
+- Squash: c8b323a, 529957e, 4d76354 → 8af0dc4 "Game Theory Lab 03: Mixed
+  strategies and zero-sum games". Report written; committed with this log.
+
 ### Sources
 
 Stage 0b, the sources of module 02 (one pass, web, 25 November 2026):
