@@ -380,15 +380,13 @@ Added in module 05:
 
 ## Work in progress
 
-Prompt 5. Stage 0 done (1fa2004 "Game Theory Lab 04: fixes"). Module 05
-done in the commit "Game Theory Lab 05: Incomplete information and
-signals" (two WIP commits squashed). The whole CHECKS list ran on the final
-code before the squash: 0 failures everywhere (numbers in the working log
-`docs/reports/game-theory-lab-05-log.md`).
-
-Remains: the report `docs/reports/game-theory-lab-05.md`, committed with
-the log as "Game Theory Lab 05: report". Prompt 5 is not finished until
-that commit exists.
+Nothing in progress. Prompt 5 is finished: stage 0 in 1fa2004 "Game
+Theory Lab 04: fixes", module 05 in e0c460e "Game Theory Lab 05:
+Incomplete information and signals" (two WIP commits squashed), the report
+`docs/reports/game-theory-lab-05.md` and the working log
+`docs/reports/game-theory-lab-05-log.md` in "Game Theory Lab 05: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere.
 ## Next
 
 Module 06, `repeated-games-reputation`, when its prompt is there.

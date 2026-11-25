@@ -164,4 +164,8 @@ session that picks up this prompt reads this file first.
 - `npm run check:dist`: 0 failures of 108.
 - Chunks: module 05 76.1 kB (28.3 kB gzip); shared `trees-….js` 9.5 kB
   (4.0 kB gzip).
+- Squash: `git reset --soft 1fa2004`, one commit e0c460e "Game Theory Lab
+  05: Incomplete information and signals".
+- Report written to `docs/reports/game-theory-lab-05.md`; status file set
+  to "prompt finished" in the same commit as the report.
 
