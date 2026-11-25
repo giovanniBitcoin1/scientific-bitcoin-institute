@@ -20,7 +20,7 @@ const PAD = 26
 const T_ = {
   en: {
     games: { chicken: 'Chicken', pennies: 'Matching pennies', pd: 'Dilemma', stag: 'Stag hunt', battle: 'Battle of the sexes' },
-    names: { chicken: ['Swerve', 'Go'], pennies: ['Heads', 'Tails'], pd: ['C', 'D'], stag: ['Stag', 'Hare'], battle: ['Concert', 'Match'] },
+    names: { chicken: ['Swerve', 'Straight'], pennies: ['Heads', 'Tails'], pd: ['C', 'D'], stag: ['Stag', 'Hare'], battle: ['Concert', 'Match'] },
     eta: 'η, the learning rate',
     T: 'T, the rounds',
     tune: 'η for this T',

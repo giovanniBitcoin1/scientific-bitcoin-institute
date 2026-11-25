@@ -160,7 +160,7 @@ uses it and the regression compare.
 | 05 | II | `incomplete-information-signalling` | done | the commit "Game Theory Lab 05: Incomplete information and signals" | A The market that empties; B Separate or pool?; C Words that cost nothing | `types`, `doubt` |
 | 06 | II | `repeated-games-reputation` | done | the commit "Game Theory Lab 06: Repeated games and reputation" | A Can the cartel hold?; B Price wars without cheating; C A reputation for toughness | `patience`, `folk` |
 | 07 | II | `evolution-and-learning` | done | the commit "Game Theory Lab 07: Evolution and learning" | A Rock, paper, scissors in a population; B One mutant; C Learning by regret | `fates`, `traffic` |
-| 08 | III | `congestion-price-of-anarchy` | planned | | | |
+| 08 | III | `congestion-price-of-anarchy` | done | the commit "Game Theory Lab 08: Congestion and the price of anarchy" | A How bad can it get?; B Drivers who count; C Sharing the cost of a road | `tworoads`, `braess` |
 | 09 | III | `games-on-networks` | planned | | | |
 | 10 | III | `coalitions-sharing` | planned | | | |
 | 11 | IV | `auctions` | planned | | | |
@@ -409,23 +409,88 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | coarse correlated equilibrium | equilibrio correlato *coarse* | 07 |
 | swap regret, regret matching | *swap regret*, *regret matching* (kept) | 07 |
 | the traffic light (F2) | il semaforo | 07 |
-| swerve, go (chicken) | sterza, dritto | 07 |
+| swerve, straight (chicken; module 07 said "go" until prompt 8) | sterza, dritto | 07 |
 | side-blotched lizard | la lucertola *Uta stansburiana* (no Italian common name found) | 07 |
+| price of anarchy | prezzo dell'anarchia | 08 |
+| price of stability | prezzo della stabilità | 08 |
+| Wardrop equilibrium (Wardrop's principle) | equilibrio di Wardrop ("principio di Wardrop" not found in a source) | 08 |
+| Pigou's example | l'esempio di Pigou | 08 |
+| Braess's paradox | paradosso di Braess | 08 |
+| selfish routing | instradamento egoistico | 08 |
+| flow | flusso | 08 |
+| marginal cost | costo marginale | 08 |
+| toll; Pigouvian tax | pedaggio; imposta pigouviana (it.wikipedia's title; "tassa pigouviana" also found) | 08 |
+| externality | esternalità | 08 |
+| congestion game | gioco di congestione | 08 |
+| potential game | gioco potenziale (giochi potenziali; not "gioco di potenziale") | 08 |
+| potential function | funzione potenziale | 08 |
+| best-response dynamics | dinamica di miglior risposta (as module 02; not found verbatim) | 08 |
+| atomic, nonatomic (game) | (gioco) atomico, non atomico | 08 |
+| cost-sharing game | gioco di condivisione dei costi | 08 |
+| harmonic number | numero armonico | 08 |
+| hub | *hub* (kept, as in the Network Lab; l'hub) | 08 |
+| shortcut; upper, lower, zigzag route | scorciatoia; percorso in alto, in basso, a zigzag | 08 |
+| driver; planner | automobilista; pianificatore | 08 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 7 is finished: stage 0 and module 07 in
-b3b686f "Game Theory Lab 07: Evolution and learning" (three WIP commits
-squashed), the report `docs/reports/game-theory-lab-07.md` and the working
-log `docs/reports/game-theory-lab-07-log.md` in "Game Theory Lab 07:
-report". The whole CHECKS list ran on the final code before the squash: 0
-failures everywhere.
+Module 08 is in the commit "Game Theory Lab 08: Congestion and the price of
+anarchy" (two WIP commits and stage 0 squashed). The whole CHECKS list ran
+on its code before the squash: 0 failures everywhere (details in
+`docs/reports/game-theory-lab-08-log.md`). Remains: the report
+`docs/reports/game-theory-lab-08.md`, committed with the log as "Game
+Theory Lab 08: report".
 
 ## Next
 
-Module 08, `congestion-price-of-anarchy`, when its prompt is there.
+Module 09, `games-on-networks`, when its prompt is there.
 
 ## Open items
+
+- Module 08, things a later module may reuse, all in
+  `congestion-price-of-anarchy/`: `frac.js` (exact fractions on BigInt,
+  slider decimals, H_k), `atomic.js` (any atomic congestion game: loads,
+  player costs, Rosenthal's Φ, the best strictly cheaper switch with ties to
+  the lowest strategy, best-response dynamics with the turn order and the
+  end after a quiet turn, enumeration of profiles; Braess's network with n
+  drivers and its survey by counts; the four drivers), `costsharing.js`
+  (fair cost sharing as cost(k) = C_e/k in the same engine; the hub and two
+  roads; every equilibrium of the hub by the structure of its conditions,
+  checked against brute force), `parallel.js` (parallel roads a x^d + b,
+  equilibrium and optimum by bisection on the level, roads of constant cost,
+  the doubled-demand check, the seeded survey), `pigou.js`, `braess.js`.
+  Module 09 (network formation) can start from `costsharing.js` and
+  `atomic.js`; module 10 from `frac.js`.
+- Module 08, choices to review: F2's chart draws the closed level and the
+  planner's together (both 1.5); Panel A's "New instance" n uses seed n,
+  "Pigou" sets r = 1 and moving n goes back to random instance no. 1;
+  "1,000 instances" uses seed 1 and is hidden when n, d or r change; costs
+  in Panel A are total travel time; Panel B's "half upper, half lower" puts
+  the odd driver on the upper route; "random" draws start no. 1 and
+  choosing it again draws the next; any change of setting goes back to the
+  start; Panel B shows costs per driver for Braess and totals for the four
+  drivers; both logs keep the last 12 switches; Panel C's starts are
+  "everyone on the shared road" (hub or A) and "everyone on the other". The
+  English cells of module 07's F2 are SS, ST, TS, TT ("T = straight", since
+  S is swerve). Figure heights: F1 346 px at 1280 (EN and IT), F2 426 (442
+  IT); at 375 447 and 633 px.
+- Module 08, findings the texts state: everything as the prompt expected,
+  except the survey values of the lab's generator (n = 3, r = 1, seed 1:
+  d = 1 mean 1.036, largest 1.289, above 1.05 0.27; d = 2 1.102, 1.588,
+  0.55; d = 4 1.245, 2.110, 0.72; the prompt's values are inside the ranges
+  of seeds 1–10) and the four drivers' random starts (seeds 1–9 end at all
+  direct, seed 10 draws all detours, an equilibrium, and stays).
+- Module 08, sources (November 2026, details in the log): all citations
+  confirmed through Crossref and the papers' abstracts; Wardrop's pages are
+  325–362 (the prompt's 325–378 includes the discussion); the 1999 term was
+  "coordination ratio", the name "price of anarchy" from Papadimitriou 2001
+  (added to the reading); Beckmann–McGuire–Winsten from secondary sources;
+  no real road case in a peer-reviewed study (Youn, Gastner and Jeong 2008
+  is a simulation), so the lecture gives none.
+- Module 08 texts quote numbers pinned by `check-game-theory-08.mjs` (about
+  3 s) and by `browser-checks/modules/game-theory-congestion-price-of-anarchy.mjs`.
+  Module chunk 86.2 kB (29.1 kB gzip); it shares nothing with the earlier
+  modules of this lab except the Network Lab's `ui.jsx` and `charts.jsx`.
 
 - The lectures of modules 01 to 07 carry the DRAFT marker: to be reviewed
   by Adriano (the markers stay until then).
@@ -451,8 +516,8 @@ Module 08, `congestion-price-of-anarchy`, when its prompt is there.
   start (ln 2 holds only for the uniform start); the panel title in Italian
   is "Imparare dal regret" (not "dal rimpianto": Italian sources keep
   *regret*); English "matching pennies" (as modules 01–03), Italian "pari o
-  dispari"; chicken's moves are "swerve, go" in English (module 01 says
-  "Straight") and "sterza, dritto" in Italian; F1's point snaps to 0.01;
+  dispari"; chicken's moves are "swerve, straight" in English, as in module 01 ("go"
+  until prompt 8), and "sterza, dritto" in Italian; F1's point snaps to 0.01;
   Panel A's trajectories are computed at once and drawn 0.8 time units per
   frame; a preset goes back to the start (0.5, 0.3, 0.2); Panel B's w is a
   log slider rounded to two significant digits; "Run 10,000 mutants" n uses

@@ -408,7 +408,7 @@ console.log('— Panel C: learning by regret (Hedge)')
   }
   const eqP = equilibria('pennies')
   check('pari o dispari has no pure equilibrium and its mixed one is the centre', eqP.pure.length === 0 && same(eqP.mixed, [0.5, 0.5]))
-  check('chicken: two pure equilibria (swerve, go) and (go, swerve), mixed at 1/2', same(equilibria('chicken').pure, [[1, 0], [0, 1]]) && same(equilibria('chicken').mixed, [0.5, 0.5]))
+  check('chicken: two pure equilibria (swerve, straight) and (straight, swerve), mixed at 1/2', same(equilibria('chicken').pure, [[1, 0], [0, 1]]) && same(equilibria('chicken').mixed, [0.5, 0.5]))
   // The violation falls as T grows (in chicken, seeds 1–10).
   const vio = [500, 2000, 10000].map((T) => mean(seeds.map((seed) => run('pennies', { T, eta: tunedEta(T), seed }).violation.max)))
   check('the correlated-equilibrium violation of the table falls as T grows (pari o dispari, tuned η, mean over seeds 1–10)', vio[0] > vio[1] && vio[1] > vio[2], vio.map(f4).join(' '))
@@ -502,7 +502,7 @@ if (existsSync(textsPath) && existsSync(resolve(root, lecturePath('en'))) && exi
     const st8 = run('stag', { ...D, p0: 0.8, q0: 0.8, seed: 1 })
     const bos = run('battle', { ...D, seed: 1 })
     const pair = (x) => [`(${x.map((v) => v.toFixed(4)).join(', ')})`, `(${x.map((v) => itn(v.toFixed(4))).join('; ')})`]
-    check('observe C: chicken run 1 ends at (go, swerve), run 2 at (swerve, go); stag ends at hare from the centre, at stag from (0.8, 0.8); battle at (Concert, Concert)',
+    check('observe C: chicken run 1 ends at (straight, swerve), run 2 at (swerve, straight); stag ends at hare from the centre, at stag from (0.8, 0.8); battle at (Concert, Concert)',
       same(nearestPure('chicken', c1.final).eq, [0, 1]) && same(nearestPure('chicken', c2.final).eq, [1, 0]) && st.final.every((v) => v < 1e-6) && st8.final.every((v) => v > 1 - 1e-6) && same(nearestPure('battle', bos.final).eq, [1, 1]))
     quoted('observe, Panel C', observe.hedge, [
       ['T = 2,000', 'T = 2.000'], 'η = 0.1', pair(c1.final), f3(c1.freq[1][0]), f3(c1.average[0]), f3(c1.average[1]), f4(c1.regR[2000]), f4(bound(2000, 0.1)), pair(c2.final),

@@ -84,7 +84,7 @@ whatever the others do. With η tuned to T it is at most √(ln n/(2T)): 0.0186 
 
 Robert Aumann (1974) defined an equilibrium with a mediator. A mediator draws a cell of the table with known probabilities and tells each player only his own part; it is a **correlated equilibrium** if nobody gains by disobeying.
 
-In module 01's chicken, let the mediator choose (swerve, swerve), (swerve, go) and (go, swerve), each with probability 1/3. Told to swerve, a driver thinks the other swerves with probability 1/2, and is indifferent: 3·½ + 1·½ = 4·½ + 0·½. Told to go, he knows the other swerves, and going is best. Each gets 8/3 ≈ 2.67, more than the mixed equilibrium (2) and more than a coin that only picks who goes (2.5). It is a traffic light that tells each driver something private.
+In module 01's chicken, let the mediator choose (swerve, swerve), (swerve, straight) and (straight, swerve), each with probability 1/3. Told to swerve, a driver thinks the other swerves with probability 1/2, and is indifferent: 3·½ + 1·½ = 4·½ + 0·½. Told to go straight, he knows the other swerves, and going straight is best. Each gets 8/3 ≈ 2.67, more than the mixed equilibrium (2) and more than a coin that only picks who goes straight (2.5). It is a traffic light that tells each driver something private.
 
 ```figure
 traffic

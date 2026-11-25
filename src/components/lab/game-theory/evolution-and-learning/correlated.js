@@ -109,7 +109,7 @@ export const area = (poly) => Math.abs(poly.reduce((s, p, i) => {
 
 // ---------------------------------------------- Module 01's chicken, F2
 
-// C = swerve, D = go. (C, C) = (3, 3), (C, D) = (1, 4), (D, C) = (4, 1),
+// C = swerve, D = straight. (C, C) = (3, 3), (C, D) = (1, 4), (D, C) = (4, 1),
 // (D, D) = (d, d), d the payoff of a crash (0 in module 01).
 export const chicken = (d = 0) => ({
   a: [[3, 1], [4, d]],

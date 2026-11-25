@@ -93,17 +93,17 @@ ok('F1 a mouse click moves the point (near (1.5, −0.5): the dilemma)', /^\(1\.
 // ---- Figure F2: the traffic light
 const tv = (k) => val('traffic-readout', k)
 ok('F2 d = 0: mixed 0.500/2.000; best 1/3, 1/3, 1/3, 0 → 2.667; worst → 1.667; coin 2.5; area 3.0000',
-  (await tv('mixed')) === 'swerve with 0.500, payoff 2.000' && (await tv('best')) === 'SS 0.333, SG 0.333, GS 0.333, GG 0.000; payoff 2.667' && (await tv('worst')) === 'SS 0.000, SG 0.333, GS 0.333, GG 0.333; payoff 1.667'
+  (await tv('mixed')) === 'swerve with 0.500, payoff 2.000' && (await tv('best')) === 'SS 0.333, ST 0.333, TS 0.333, TT 0.000; payoff 2.667' && (await tv('worst')) === 'SS 0.000, ST 0.333, TS 0.333, TT 0.333; payoff 1.667'
   && (await tv('coin')) === 'payoff 2.5 each' && (await tv('area')) === '3.0000', await tv('best'))
 let t0 = Date.now()
-await setSlider('figure', 1, 'd, the payoff of a crash (go, go)', -1)
+await setSlider('figure', 1, 'd, the payoff of a crash (straight, straight)', -1)
 const tF2 = await waitFor(async () => (await tv('area')) === '2.8500', 5000)
-ok('F2 d = −1: best 2.750 (0.5, 0.25, 0.25, 0), worst 1.800, mixed 0.667/2.333, area 2.8500', (await tv('best')) === 'SS 0.500, SG 0.250, GS 0.250, GG 0.000; payoff 2.750' && (await tv('worst')).endsWith('payoff 1.800') && (await tv('mixed')) === 'swerve with 0.667, payoff 2.333')
+ok('F2 d = −1: best 2.750 (0.5, 0.25, 0.25, 0), worst 1.800, mixed 0.667/2.333, area 2.8500', (await tv('best')) === 'SS 0.500, ST 0.250, TS 0.250, TT 0.000; payoff 2.750' && (await tv('worst')).endsWith('payoff 1.800') && (await tv('mixed')) === 'swerve with 0.667, payoff 2.333')
 info(`timing: F2 after a slider move ${tF2} ms (call to readout ${Date.now() - t0} ms)`)
-await setSlider('figure', 1, 'd, the payoff of a crash (go, go)', -2)
+await setSlider('figure', 1, 'd, the payoff of a crash (straight, straight)', -2)
 await sleep(100)
 ok('F2 d = −2: best 2.800, worst 1.857, mixed 2.500, area 2.8286', (await tv('best')).endsWith('payoff 2.800') && (await tv('worst')).endsWith('payoff 1.857') && (await tv('mixed')) === 'swerve with 0.750, payoff 2.500' && (await tv('area')) === '2.8286')
-await setSlider('figure', 1, 'd, the payoff of a crash (go, go)', 0.5)
+await setSlider('figure', 1, 'd, the payoff of a crash (straight, straight)', 0.5)
 await sleep(100)
 ok('F2 d = 0.5: best 2.600, worst 1.500, mixed 1.667, area 3.3000', (await tv('best')).endsWith('payoff 2.600') && (await tv('worst')).endsWith('payoff 1.500') && (await tv('mixed')) === 'swerve with 0.333, payoff 1.667' && (await tv('area')) === '3.3000')
 ok('F2 draws the feasible set, the correlated region, the coins and three Nash points', (await p.$$eval('[data-role="traffic-plane"] [data-nash]', (x) => x.length)) === 3 && !!(await p.$('[data-region="correlated"]')) && !!(await p.$('[data-region="coins"]')))
@@ -205,7 +205,7 @@ ok('Panel B hawk and dove: dove 0.037537, hawk 0.040252 (observe 5)', (await bv(
 // ---- Panel C: learning by regret
 const cv = (k) => val('hedge-readout', k)
 const cell = (ij) => p.$eval(`[data-role="hedge-table"] [data-cell="${ij}"]`, (e) => e.innerText.trim())
-ok('Panel C defaults (chicken, T = 2,000, η = 0.1): final (0.0000, 1.0000), (go, swerve) 0.875, averages 3.674 and 1.147, regret 0.0036 each, bound 0.0160 (observe 1, exercise 6)',
+ok('Panel C defaults (chicken, T = 2,000, η = 0.1): final (0.0000, 1.0000), (straight, swerve) 0.875, averages 3.674 and 1.147, regret 0.0036 each, bound 0.0160 (observe 1, exercise 6)',
   (await cv('final')) === '(0.0000, 1.0000)' && (await cell('10')) === '0.875' && (await cv('avg')) === '3.674, 1.147' && (await cv('regret')) === '0.0036, 0.0036' && (await cv('bound')) === '0.0160',
   `${await cv('final')} ${await cv('regret')} ${await cv('bound')}`)
 await click(PANEL, 2, 'New run')

@@ -5,7 +5,7 @@ import { trafficLight } from './correlated.js'
 import { num } from './FigureFates.jsx'
 
 // Live figure F2, "The traffic light": the payoff plane of module 01's
-// chicken, with d the payoff of a crash (go, go). Drawn: the feasible set,
+// chicken, with d the payoff of a crash (straight, straight). Drawn: the feasible set,
 // the Nash equilibria's payoffs, the coins between the two pure equilibria,
 // and the payoffs of the correlated equilibria (the hull of the payoffs of
 // the vertices of their polytope, enumerated in correlated.js). A slider and
@@ -18,17 +18,17 @@ const SKY = '#0369a1'
 
 const T = {
   en: {
-    d: 'd, the payoff of a crash (go, go)',
+    d: 'd, the payoff of a crash (straight, straight)',
     mixed: 'Mixed equilibrium',
     mixedV: (q, m) => `swerve with ${q}, payoff ${m}`,
     best: 'Best symmetric correlated',
     worst: 'Worst symmetric correlated',
-    lot: (p, v) => `SS ${p[0]}, SG ${p[1]}, GS ${p[2]}, GG ${p[3]}; payoff ${v}`,
-    coin: 'A coin between (go, swerve) and (swerve, go)',
+    lot: (p, v) => `SS ${p[0]}, ST ${p[1]}, TS ${p[2]}, TT ${p[3]}; payoff ${v}`,
+    coin: 'A coin between (straight, swerve) and (swerve, straight)',
     coinV: 'payoff 2.5 each',
     area: 'Area of the correlated region',
     legend: ['feasible', 'correlated equilibria', 'coins', 'Nash'],
-    note: 'S = swerve, G = go. The mediator draws a cell with these probabilities and tells each driver only his own part.',
+    note: 'S = swerve, T = straight. The mediator draws a cell with these probabilities and tells each driver only his own part.',
     aria: 'The payoff plane of chicken: the feasible set, the payoffs of the correlated equilibria, the coins between the two pure equilibria and the Nash equilibria',
   },
   it: {

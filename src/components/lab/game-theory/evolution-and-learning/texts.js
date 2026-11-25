@@ -42,7 +42,7 @@ export const observe = {
   },
   hedge: {
     en: `
-1. The panel opens on chicken, T = 2,000, η = 0.1, start (0.5, 0.5). In run no. 1 the learners end at (0.0000, 1.0000): the row player goes and the column player swerves, a pure equilibrium; that cell was played 0.875 of the time. Their average payoffs are 3.674 and 1.147, and each regret is 0.0036, well under the bound 0.0160. Run no. 2 ends at the other pure equilibrium, (1.0000, 0.0000).
+1. The panel opens on chicken, T = 2,000, η = 0.1, start (0.5, 0.5). In run no. 1 the learners end at (0.0000, 1.0000): the row player goes straight and the column player swerves, a pure equilibrium; that cell was played 0.875 of the time. Their average payoffs are 3.674 and 1.147, and each regret is 0.0036, well under the bound 0.0160. Run no. 2 ends at the other pure equilibrium, (1.0000, 0.0000).
 2. Choose **Matching pennies**: no settling. Run no. 1 ends at (0.0998, 0.0014), far out near a corner, yet each player played his first action 0.516 and 0.494 of the time and the average payoffs are 0.499 and 0.501: the value 1/2.
 3. Set T = **10,000** and press **η for this T** (η = 0.0235): the bound falls to 0.0059 and the regrets are 0.0028 and 0.0026. The gain from switching in the table falls to 0.0031: the frequencies of play approach a correlated equilibrium, here the mixed one.
 4. Set T back to **2,000** and η to **0.1**, and choose the **Dilemma**: (D, D) is played 0.972 of the time. The **Stag hunt** from (0.5, 0.5) ends at (hare, hare); click at (0.8, 0.8), and the learners end at (stag, stag): where learning lands depends on where it starts.
@@ -117,11 +117,11 @@ export const exercises = [
   {
     type: 'both',
     statement: {
-      en: 'Check that the lottery 1/3, 1/3, 1/3 on (swerve, swerve), (swerve, go), (go, swerve) is a correlated equilibrium of module 01\'s chicken; compute its payoff and compare it with the mixed equilibrium. In Panel C, with T = 2,000 and η = 0.1, what bound holds for the average regret? Then check it in Figure F2 and Panel C.',
+      en: 'Check that the lottery 1/3, 1/3, 1/3 on (swerve, swerve), (swerve, straight), (straight, swerve) is a correlated equilibrium of module 01\'s chicken; compute its payoff and compare it with the mixed equilibrium. In Panel C, with T = 2,000 and η = 0.1, what bound holds for the average regret? Then check it in Figure F2 and Panel C.',
       it: 'Verifica che la lotteria 1/3, 1/3, 1/3 su (sterza, sterza), (sterza, dritto), (dritto, sterza) è un equilibrio correlato del gioco del pollo del modulo 01; calcola il suo payoff e confrontalo con l\'equilibrio misto. Nel Pannello C, con T = 2.000 e η = 0,1, quale limite vale per il regret medio? Poi verificalo nella Figura F2 e nel Pannello C.',
     },
     solution: {
-      en: 'Told to swerve, a driver knows the cell is (swerve, swerve) or (swerve, go), each with 1/2: swerving gives 3·½ + 1·½ = 2, going 4·½ + 0·½ = 2, so he obeys. Told to go, the cell is (go, swerve): going gives 4, swerving 3. The same holds for the other driver. The payoff is (3 + 1 + 4)/3 = 8/3 ≈ 2.67 each, against 2 in the mixed equilibrium (swerve with 1/2: 3·½ + 1·½). The bound is ln 2/(0.1 × 2,000) + 0.1/8 = ln 2/200 + 0.0125 = 0.0160.',
+      en: 'Told to swerve, a driver knows the cell is (swerve, swerve) or (swerve, straight), each with 1/2: swerving gives 3·½ + 1·½ = 2, going straight 4·½ + 0·½ = 2, so he obeys. Told to go straight, the cell is (straight, swerve): going straight gives 4, swerving 3. The same holds for the other driver. The payoff is (3 + 1 + 4)/3 = 8/3 ≈ 2.67 each, against 2 in the mixed equilibrium (swerve with 1/2: 3·½ + 1·½). The bound is ln 2/(0.1 × 2,000) + 0.1/8 = ln 2/200 + 0.0125 = 0.0160.',
       it: 'Se gli dice di sterzare, un guidatore sa che la cella è (sterza, sterza) o (sterza, dritto), ciascuna con 1/2: sterzare dà 3·½ + 1·½ = 2, andare dritto 4·½ + 0·½ = 2, quindi obbedisce. Se gli dice di andare dritto, la cella è (dritto, sterza): andare dritto dà 4, sterzare 3. Lo stesso vale per l\'altro guidatore. Il payoff è (3 + 1 + 4)/3 = 8/3 ≈ 2,67 a testa, contro 2 nell\'equilibrio misto (sterza con 1/2: 3·½ + 1·½). Il limite è ln 2/(0,1 × 2.000) + 0,1/8 = ln 2/200 + 0,0125 = 0,0160.',
     },
   },
