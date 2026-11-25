@@ -41,7 +41,7 @@ const T = {
   it: {
     m: 'Dimensione m × m',
     games: 'Giochi G',
-    note: "Una strategia si cancella solo quando un'altra singola strategia la batte ovunque. Il modulo 03 aggiungerà le miscele di strategie, che cancellano un po' di più.",
+    note: "Una strategia si cancella solo quando un'altra singola strategia la batte ovunque. Il modulo 03 aggiungerà le strategie miste, che cancellano un po' di più.",
     forSize: (m, g) => `${g.toLocaleString('it-IT')} giochi casuali ${m} × ${m}`,
     dominated: 'Almeno una strategia dominata',
     solved: "Risolti dall'eliminazione",

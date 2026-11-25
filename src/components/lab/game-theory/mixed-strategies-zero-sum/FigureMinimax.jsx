@@ -50,7 +50,7 @@ const T = {
     pure: (side, v) => `Con questi numeri non c'è un incrocio all'interno: è meglio una strategia pura. Sempre a ${side} garantisce al rigorista il ${v}%, e il portiere può tenerlo a quel valore.`,
     always: (l, r) => `Sempre a S garantisce il ${l}%, sempre a D il ${r}%.`,
     reset: 'Torna ai numeri della lezione',
-    aria: (who) => `Percentuale di realizzazione in funzione della probabilità di andare a sinistra, per il ${who}; la linea spessa è il caso peggiore e il punto segnato il migliore dei casi peggiori`,
+    aria: (who) => `Percentuale di realizzazione in funzione della probabilità di andare a sinistra, per il ${who}; la linea spessa è il caso peggiore e il punto segnato la strategia di maxmin`,
   },
 }
 

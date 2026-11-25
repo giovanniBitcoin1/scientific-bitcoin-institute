@@ -296,7 +296,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   const b = st.best
 
   // ---- The lecture
-  quoted('lecture: the entry game', lecture, [['the firm keeps 4', "l'impresa tiene 4"], '−1', ['2 each', '2 ciascuno'], ['compares 2 with 0', 'confronta 2 con 0'], ['above 2', 'sopra 2'], '4 − k', 'k < 2'])
+  quoted('lecture: the entry game', lecture, [['the firm keeps 4', "l'incumbent tiene 4"], '−1', ['2 each', '2 ciascuno'], ['compares 2 with 0', 'confronta 2 con 0'], ['above 2', 'sopra 2'], '4 − k', 'k < 2'])
   check('lecture: the entry game\'s numbers are the code\'s (stay out (0, 4), share (2, 2), fight (−1, 0))', same(story({ f: 0 }).tree.root.moves[0].child.payoffs, [0, 4]) && same(story({ f: 0 }).outcome, [2, 2]))
   quoted('lecture: the survey (20,000 trees)', lecture, [
     [`${pc0(sv.notSpe)} have a Nash equilibrium that is not subgame perfect, and in ${pc0(sv.differs)}`, `il ${pc0(sv.notSpe)} ha un equilibrio di Nash non perfetto nei sottogiochi, e nel ${pc0(sv.differs)}`],
@@ -324,7 +324,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   })())
   const sv3 = (k) => f3(sv[k])
   quoted('observe, Panel A', observe.tree, [
-    ['5 Nash equilibria', '5 equilibri di Nash'], ['4 Nash equilibria', '4 equilibri di Nash'], '(0, 3)', ['(newcomer, firm)', '(nuovo arrivato, impresa)'], '(1, 0)', '(5, 3)', ['G to 20,000', 'G a 20.000'],
+    ['5 Nash equilibria', '5 equilibri di Nash'], ['4 Nash equilibria', '4 equilibri di Nash'], '(0, 3)', ['(newcomer, firm)', '(entrante, incumbent)'], '(1, 0)', '(5, 3)', ['G to 20,000', 'G a 20.000'],
     [`${sv3('nash1')}, ${sv3('nash2')} and ${sv3('nash3')}`, `${it(sv3('nash1'))}, ${it(sv3('nash2'))} e ${it(sv3('nash3'))}`],
     sv3('notSpe'), sv3('differs'), sv3('secondBetter'), sv3('better'), sv3('worse'), sv3('same'), sv3('noPure'), sv3('noPureBothSecond'), sv3('leaderAbove'),
   ])
@@ -335,7 +335,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
     const cTwo = stackelberg(10, 1, 2.5, 0).best
     check('observe, Panel B: shares up to F = 0.40, limit at 0.45, monopoly from 5.10 on the slider (5.05 still limit)', at(0.4).kind === 'share' && at(0.45).kind === 'limit' && at(5.05).kind === 'limit' && at(5.1).kind === 'monopoly' && f2(at(5.1).profit1) === '20.25')
     quoted('observe, Panel B', observe.leader, [
-      ['3, 3, price 4, profits 9 and 9', '3, 3, prezzo 4, profitti 9 e 9'], f3(at(0.45).q1), f3(at(0.45).profit1), '10.125', f4(deterThreshold().F), '5.0625', '3.375', ['F = 5.10', 'F = 5,10'], '20.25', ['limit quantity is 7 and the leader earns 14', 'quantità limite è 7 e chi guida guadagna 14'],
+      ['3, 3, price 4, profits 9 and 9', '3, 3, prezzo 4, profitti 9 e 9'], f3(at(0.45).q1), f3(at(0.45).profit1), '10.125', f4(deterThreshold().F), '5.0625', '3.375', ['F = 5.10', 'F = 5,10'], '20.25', ['limit quantity is 7 and the leader earns 14', 'quantità limite è 7 e il leader guadagna 14'],
       ['produces 5 and earns 12.5, against 11.11', 'produce 5 e guadagna 12,5, contro 11,11'], ['5.25 and 1.125', '5,25 e 1,125'], f2(cTwo.profit2),
     ])
     check('observe, Panel B: c1 = 0.5 gives 5 and 12.5 (Cournot 11.11); c2 = 2.5 gives 5.25 and 1.125', cOne.best.q1 === 5 && cOne.best.profit1 === 12.5 && f2(cOne.cournot.profit1) === '11.11' && cTwo.q1 === 5.25 && cTwo.q2 === 1.125 && loc(at(1).q1) === '7')

@@ -40,25 +40,25 @@ const T = {
     },
   },
   it: {
-    f: 'f, il payoff dell’impresa se combatte',
+    f: 'f, il payoff dell’incumbent se combatte',
     k: 'k, il costo dell’impegno',
-    commit: 'L’impresa può impegnarsi prima',
-    initials: ['N', 'I'],
-    legend: ['nuovo arrivato', 'impresa'],
+    commit: 'L’incumbent può impegnarsi prima',
+    initials: ['E', 'I'],
+    legend: ['entrante', 'incumbent'],
     path: 'arancione: il cammino dell’induzione a ritroso; tratteggio: mosse non scelte',
-    aria: 'Il gioco dell’ingresso disegnato come un albero, con il cammino dell’induzione a ritroso',
+    aria: 'Il gioco dell’entrata disegnato come un albero, con il cammino dell’induzione a ritroso',
     story(s, f, k, lang) {
       const n = (v) => num(v, lang)
       if (!s.commits && s.credible) {
         return s.tree.root.player === 1
-          ? `La minaccia è credibile senza aiuti: combattere rende all’impresa ${n(f)}, più del 2 della divisione. Quindi l’impresa aspetta, il nuovo arrivato resta fuori e l’impresa tiene 4; impegnarsi le costerebbe soltanto k.`
-          : `Combattere rende all’impresa ${n(f)}, più del 2 della divisione: la minaccia è credibile da sola. Il nuovo arrivato resta fuori e l’impresa tiene 4.`
+          ? `La minaccia è credibile senza aiuti: combattere rende all’incumbent ${n(f)}, più del 2 della divisione. Quindi l’incumbent aspetta, l’entrante resta fuori e l’incumbent tiene 4; impegnarsi gli costerebbe soltanto k.`
+          : `Combattere rende all’incumbent ${n(f)}, più del 2 della divisione: la minaccia è credibile da sola. L’entrante resta fuori e l’incumbent tiene 4.`
       }
-      if (s.commits) return `L’impegno toglie “dividi”: dopo l’ingresso l’impresa potrebbe solo combattere, e quindi il nuovo arrivato resta fuori. L’impresa ottiene 4 − k = ${n(4 - k)} invece del 2 della divisione, e si impegna.`
-      if (s.tieCommit) return 'Impegnarsi lascerebbe all’impresa 4 − k = 2, esattamente quanto rende dividere: l’impresa è indifferente, e qui aspetta. Il nuovo arrivato entra e si divide.'
-      if (s.tree.root.player === 1) return `Impegnarsi lascerebbe all’impresa 4 − k = ${n(4 - k)}, meno del 2 della divisione: aspetta, il nuovo arrivato entra e si divide, 2 ciascuno.`
-      if (s.tieFirm) return 'Dopo l’ingresso l’impresa ottiene 2 sia dividendo sia combattendo: è indifferente, e l’albero da solo non decide (qui divide). Con f appena sopra 2 la minaccia sarebbe credibile.'
-      return `Dopo l’ingresso l’impresa ottiene 2 dividendo e ${n(f)} combattendo, quindi divide: la minaccia è vuota. Il nuovo arrivato entra, ed entrambi ottengono 2.`
+      if (s.commits) return `L’impegno toglie “dividi”: dopo l’entrata l’incumbent potrebbe solo combattere, e quindi l’entrante resta fuori. L’incumbent ottiene 4 − k = ${n(4 - k)} invece del 2 della divisione, e si impegna.`
+      if (s.tieCommit) return 'Impegnarsi lascerebbe all’incumbent 4 − k = 2, esattamente quanto rende dividere: l’incumbent è indifferente, e qui aspetta. L’entrante entra e si divide.'
+      if (s.tree.root.player === 1) return `Impegnarsi lascerebbe all’incumbent 4 − k = ${n(4 - k)}, meno del 2 della divisione: aspetta, l’entrante entra e si divide, 2 ciascuno.`
+      if (s.tieFirm) return 'Dopo l’entrata l’incumbent ottiene 2 sia dividendo sia combattendo: è indifferente, e l’albero da solo non decide (qui divide). Con f appena sopra 2 la minaccia sarebbe credibile.'
+      return `Dopo l’entrata l’incumbent ottiene 2 dividendo e ${n(f)} combattendo, quindi divide: la minaccia non è credibile. L’entrante entra, ed entrambi ottengono 2.`
     },
   },
 }

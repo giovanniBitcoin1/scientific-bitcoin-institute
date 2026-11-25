@@ -66,7 +66,7 @@ const T = {
       stag: 'Caccia al cervo',
       chicken: 'Gioco del pollo',
       battle: 'Battaglia dei sessi',
-      pennies: 'Matching pennies',
+      pennies: 'Pari o dispari',
       coordination: 'Coordinamento puro',
       rps: 'Sasso-carta-forbici',
       rps2: 'Il sasso batte le forbici per 2',

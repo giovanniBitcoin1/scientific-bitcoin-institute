@@ -46,7 +46,7 @@ const T = {
   },
   it: {
     games: {
-      pennies: 'Matching pennies',
+      pennies: 'Pari o dispari',
       penalty: 'Calcio di rigore',
       rps: 'Sasso-carta-forbici',
       rps2: 'Sasso che vale 2',

@@ -28,7 +28,7 @@ const T = {
   },
   it: {
     T: 'Tentazione T',
-    S: "Payoff dell'ingenuo S",
+    S: 'Payoff del babbeo S',
     names: { pd: 'Dilemma del prigioniero', stag: 'Caccia al cervo', chicken: 'Gioco del pollo', harmony: 'Armonia' },
     short: { pd: ['Dilemma del', 'prigioniero'], stag: ['Caccia', 'al cervo'], chicken: ['Gioco', 'del pollo'], harmony: ['Armonia'] },
     border: 'Sul confine',
@@ -36,7 +36,7 @@ const T = {
     dominant: 'Strategia dominante',
     none: 'nessuna',
     stable: 'Celle stabili',
-    aria: "Mappa dei giochi due per due simmetrici: tentazione T sull'asse orizzontale, payoff dell'ingenuo S sull'asse verticale, quattro regioni",
+    aria: "Mappa dei giochi due per due simmetrici: tentazione T sull'asse orizzontale, payoff del babbeo S sull'asse verticale, quattro regioni",
     tableAria: 'Tabella dei payoff del gioco nel punto scelto',
   },
 }

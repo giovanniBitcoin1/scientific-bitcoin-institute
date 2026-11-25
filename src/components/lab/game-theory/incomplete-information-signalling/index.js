@@ -18,7 +18,7 @@ export default {
       Component: FigureTypes,
       caption: {
         en: 'Who is the incumbent? Nature draws its type; the newcomer, who cannot see it, enters only if a tough incumbent is unlikely enough.',
-        it: 'Chi è l’impresa che c’è già? La Natura ne estrae il tipo; il nuovo arrivato, che non lo vede, entra solo se un’impresa dura è abbastanza improbabile.',
+        it: 'Chi è l’incumbent? La Natura ne estrae il tipo; l’entrante, che non lo vede, entra solo se un incumbent duro è abbastanza improbabile.',
       },
     },
     doubt: {

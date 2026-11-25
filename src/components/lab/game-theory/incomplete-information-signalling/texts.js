@@ -29,11 +29,11 @@ export const observe = {
 5. Set **c_H = c_L = 1**: separation is left only at e = 1, where both types are indifferent, and the chart drops the separating lines. Push c_H above c_L: no separation at all, the single-crossing condition fails.
 `,
     it: `
-1. Con i valori iniziali (λ = 0,3, c_L = 1, c_H = 0,5) la separazione funziona per ogni e* da 1 a 2 e la confusione per ogni e da 0 a 0,3. **Separazione a 1** è un equilibrio e supera il test di Cho e Kreps: il tipo alto ottiene 1,5, il tipo basso 1, e il segnale spreca 0,15 per lavoratore.
-2. Porta e a **1,5**: ancora un equilibrio, ma non supera il test: qualunque livello tra 1 e 1,5 lo prenderebbe solo un tipo alto. A **2** il tipo alto ottiene 1, non più che senza istruzione; sopra 2 preferirebbe non istruirsi affatto.
-3. Scegli **Confusione a e** con e = 0: entrambi i tipi ottengono 1,3, non si spreca nulla, eppure il test la rompe con qualunque livello tra 0,7 e 1,4. Con e = 0,3 la confusione regge ancora, ma il tipo basso scende a 1, il tipo alto a 1,15, e si sprecano 0,255 per lavoratore.
-4. Porta **λ** a 0,8: la confusione a 0 pagherebbe tutti 1,8, più dell'1,5 che il tipo alto tiene nella separazione più economica. Il grafico mostra l'incrocio a λ = 1 − c_H/c_L = 0,5. L'equilibrio che supera il test è quello che impoverisce tutti.
-5. Porta **c_H = c_L = 1**: la separazione resta solo a e = 1, dove entrambi i tipi sono indifferenti, e il grafico toglie le linee della separazione. Porta c_H sopra c_L: nessuna separazione, la condizione del singolo incrocio non vale.
+1. Con i valori iniziali (λ = 0,3, c_L = 1, c_H = 0,5) la separazione funziona per ogni e* da 1 a 2 e il pooling per ogni e da 0 a 0,3. **Separazione a 1** è un equilibrio e supera il criterio intuitivo: il tipo alto ottiene 1,5, il tipo basso 1, e il segnale spreca 0,15 per lavoratore.
+2. Porta e a **1,5**: ancora un equilibrio, ma non supera il criterio: qualunque livello tra 1 e 1,5 lo prenderebbe solo un tipo alto. A **2** il tipo alto ottiene 1, non più che senza istruzione; sopra 2 preferirebbe non istruirsi affatto.
+3. Scegli **Pooling a e** con e = 0: entrambi i tipi ottengono 1,3, non si spreca nulla, eppure il criterio lo rompe con qualunque livello tra 0,7 e 1,4. Con e = 0,3 il pooling regge ancora, ma il tipo basso scende a 1, il tipo alto a 1,15, e si sprecano 0,255 per lavoratore.
+4. Porta **λ** a 0,8: il pooling a 0 pagherebbe tutti 1,8, più dell'1,5 che il tipo alto tiene nella separazione più economica. Il grafico mostra l'incrocio a λ = 1 − c_H/c_L = 0,5. L'equilibrio che supera il criterio è quello che impoverisce tutti.
+5. Porta **c_H = c_L = 1**: la separazione resta solo a e = 1, dove entrambi i tipi sono indifferenti, e il grafico toglie le linee della separazione. Porta c_H sopra c_L: nessuna separazione, la condizione di single crossing non vale.
 `,
   },
   talk: {
@@ -45,11 +45,11 @@ export const observe = {
 5. Press **Survey**. The largest N falls from 10 at b = 0.005 to 7, 6, 5, 4 by b = 0.025, to 3 at 0.045, 2 at 0.085 and 1 at 0.25. The decision maker's loss climbs in steps towards 1/12; it stays above b² up to b = 0.285 and falls below it from 0.290, the last three points of the survey.
 `,
     it: `
-1. Con **b = 0,1** al più due intervalli: il confine è a 0,3, le azioni a 0,15 e 0,65. Chi decide perde in media 0,03083, l'esperto 0,04083; senza parole si perderebbe 0,08333, con la delega solo 0,01000. **Simula 10.000 casi** dà 0,03080 e 0,04085.
+1. Con **b = 0,1** al più due intervalli: il confine è a 0,3, le azioni a 0,15 e 0,65. Il decisore perde in media 0,03083, l'esperto 0,04083; senza parole si perderebbe 0,08333, con la delega solo 0,01000. **Simula 10.000 casi** dà 0,03080 e 0,04085.
 2. Premi **1**: un solo intervallo, il messaggio non dice nulla, e la perdita è 1/12. Ogni equilibrio con meno intervalli del massimo è peggiore per entrambi.
 3. Porta b a **0,05**: tre intervalli, confini 0,1333 e 0,4667, ognuno più lungo di 0,2 del precedente; la perdita è 0,01593 (0,02333 con due). A **0,02** sono cinque, lunghi da 0,04 a 0,36.
 4. Porta b a **0,25**: un solo intervallo. La delega costa ancora b², 0,0625, meno di 1/12; sopra circa 0,289 costa di più, e la riga sotto i valori cambia.
-5. Premi **Rassegna**. L'N più grande scende da 10 a b = 0,005 a 7, 6, 5, 4 entro b = 0,025, a 3 a 0,045, 2 a 0,085 e 1 a 0,25. La perdita di chi decide sale a gradini verso 1/12; resta sopra b² fino a b = 0,285 e scende sotto da 0,290, gli ultimi tre punti della rassegna.
+5. Premi **Rassegna**. L'N più grande scende da 10 a b = 0,005 a 7, 6, 5, 4 entro b = 0,025, a 3 a 0,045, 2 a 0,085 e 1 a 0,25. La perdita del decisore sale a gradini verso 1/12; resta sopra b² fino a b = 0,285 e scende sotto da 0,290, gli ultimi tre punti della rassegna.
 `,
   },
 }
@@ -59,11 +59,11 @@ export const exercises = [
     type: 'paper',
     statement: {
       en: 'The entry game of Figure F1 with w = −1. For which t does the newcomer enter? And with w = −2? With t = 0.5 and with t = 0.7, what does the newcomer expect, and what does each type of incumbent get? Why would the weak incumbent like to be taken for tough?',
-      it: "Il gioco dell'ingresso della figura F1 con w = −1. Per quali t entra il nuovo arrivato? E con w = −2? Con t = 0,5 e con t = 0,7, che cosa si aspetta il nuovo arrivato, e che cosa ottiene ciascun tipo di impresa? Perché all'impresa debole piacerebbe essere presa per dura?",
+      it: "Il gioco dell'entrata della figura F1 con w = −1. Per quali t l'entrante entra? E con w = −2? Con t = 0,5 e con t = 0,7, che cosa si aspetta l'entrante, e che cosa ottiene ciascun tipo di incumbent? Perché all'incumbent debole piacerebbe essere preso per duro?",
     },
     solution: {
       en: 'The tough type fights (3 > 2), the weak one shares (2 > 0). The newcomer enters when 2(1 − t) − t > 0, that is t < 2/3; with w = −2, when 2(1 − t) − 2t > 0, t < 1/2. With t = 0.5 it enters and expects 2 − 1.5 = 0.5; the tough incumbent fights and gets 3, the weak one shares and gets 2. With t = 0.7 entering would give −0.1: it stays out, and both types get 4. Being believed tough often enough is worth 4 − 2 = 2 to the weak type, without ever having to fight.',
-      it: "Il tipo duro combatte (3 > 2), quello debole divide (2 > 0). Il nuovo arrivato entra quando 2(1 − t) − t > 0, cioè t < 2/3; con w = −2, quando 2(1 − t) − 2t > 0, t < 1/2. Con t = 0,5 entra e si aspetta 2 − 1,5 = 0,5; l'impresa dura combatte e ottiene 3, quella debole divide e ottiene 2. Con t = 0,7 entrare darebbe −0,1: resta fuori, ed entrambi i tipi ottengono 4. Essere creduta dura abbastanza spesso vale 4 − 2 = 2 per il tipo debole, senza mai dover combattere.",
+      it: "Il tipo duro combatte (3 > 2), quello debole divide (2 > 0). L'entrante entra quando 2(1 − t) − t > 0, cioè t < 2/3; con w = −2, quando 2(1 − t) − 2t > 0, t < 1/2. Con t = 0,5 entra e si aspetta 2 − 1,5 = 0,5; l'incumbent duro combatte e ottiene 3, quello debole divide e ottiene 2. Con t = 0,7 entrare darebbe −0,1: resta fuori, ed entrambi i tipi ottengono 4. Essere creduto duro abbastanza spesso vale 4 − 2 = 2 per il tipo debole, senza mai dover combattere.",
     },
   },
   {
@@ -81,11 +81,11 @@ export const exercises = [
     type: 'paper',
     statement: {
       en: 'Education with c_L = 1, c_H = 1/2, λ = 0.3. Which levels support separation, which pooling? Payoffs in the cheapest of each. Which survive the Cho–Kreps test, and why not pooling at 0? Above which λ would the high type rather nobody signalled?',
-      it: "Istruzione con c_L = 1, c_H = 1/2, λ = 0,3. Quali livelli reggono la separazione, quali la confusione? I payoff nel più economico di ciascuno. Quali superano il test di Cho e Kreps, e perché non la confusione a 0? Sopra quale λ il tipo alto preferirebbe che nessuno segnalasse?",
+      it: "Istruzione con c_L = 1, c_H = 1/2, λ = 0,3. Quali livelli reggono la separazione, quali il pooling? I payoff nel più economico di ciascuno. Quali superano il criterio intuitivo, e perché non il pooling a 0? Sopra quale λ il tipo alto preferirebbe che nessuno segnalasse?",
     },
     solution: {
       en: 'Separation for e* from 1 to 2 (the low type must not copy, 2 − e* ≤ 1; the high type must want to pay, 2 − e*/2 ≥ 1); pooling for e from 0 to 0.3 (1.3 − e ≥ 1). Separation at 1: high 1.5, low 1; pooling at 0: 1.3 each. Only e* = 1 survives. Against pooling at 0, any level between 0.7 and 1.4 is one that a low type would never choose even if paid 2 (2 − e < 1.3) and a high type would choose if paid 2 (2 − e/2 > 1.3); read as high, it lures the high type away. The high type prefers pooling at 0 when 1 + λ > 1.5: λ above 1/2.',
-      it: "Separazione per e* da 1 a 2 (il tipo basso non deve copiare, 2 − e* ≤ 1; il tipo alto deve voler pagare, 2 − e*/2 ≥ 1); confusione per e da 0 a 0,3 (1,3 − e ≥ 1). Separazione a 1: alto 1,5, basso 1; confusione a 0: 1,3 ciascuno. Sopravvive solo e* = 1. Contro la confusione a 0, qualunque livello tra 0,7 e 1,4 è uno che un tipo basso non sceglierebbe mai nemmeno pagato 2 (2 − e < 1,3) e che un tipo alto sceglierebbe se pagato 2 (2 − e/2 > 1,3); letto come alto, attira via il tipo alto. Il tipo alto preferisce la confusione a 0 quando 1 + λ > 1,5: λ sopra 1/2.",
+      it: "Separazione per e* da 1 a 2 (il tipo basso non deve copiare, 2 − e* ≤ 1; il tipo alto deve voler pagare, 2 − e*/2 ≥ 1); pooling per e da 0 a 0,3 (1,3 − e ≥ 1). Separazione a 1: alto 1,5, basso 1; pooling a 0: 1,3 ciascuno. Sopravvive solo e* = 1. Contro il pooling a 0, qualunque livello tra 0,7 e 1,4 è uno che un tipo basso non sceglierebbe mai nemmeno pagato 2 (2 − e < 1,3) e che un tipo alto sceglierebbe se pagato 2 (2 − e/2 > 1,3); letto come alto, attira via il tipo alto. Il tipo alto preferisce il pooling a 0 quando 1 + λ > 1,5: λ sopra 1/2.",
     },
   },
   {
@@ -96,14 +96,14 @@ export const exercises = [
     },
     solution: {
       en: 'Each type answers q1 with (10 − c − q1)/2, so on average firm 1 faces (9 − q1)/2; its best response (9 − E q2)/2 then gives q1 = 3. Firm 2 produces 3.5 (cost 0) or 2.5 (cost 2); prices 3.5 and 4.5. Profits: firm 1 7.5 or 10.5, mean 9; firm 2 12.25 or 6.25. With the cost known (module 02): firm 1 7.11 or 11.11, mean 9.11; firm 2 13.44 or 5.44. The low-cost type loses by being hidden and would like to prove it; the high-cost type gains from the doubt: a reason to signal, and a reason to fake.',
-      it: "Ogni tipo risponde a q1 con (10 − c − q1)/2, quindi in media l'impresa 1 si trova davanti (9 − q1)/2; la sua risposta migliore (9 − E q2)/2 dà allora q1 = 3. L'impresa 2 produce 3,5 (costo 0) o 2,5 (costo 2); prezzi 3,5 e 4,5. Profitti: impresa 1 7,5 o 10,5, media 9; impresa 2 12,25 o 6,25. Con il costo noto (modulo 02): impresa 1 7,11 o 11,11, media 9,11; impresa 2 13,44 o 5,44. Il tipo a basso costo perde a restare nascosto e vorrebbe dimostrarlo; il tipo ad alto costo guadagna dal dubbio: una ragione per segnalare, e una per fingere.",
+      it: "Ogni tipo risponde a q1 con (10 − c − q1)/2, quindi in media l'impresa 1 si trova davanti (9 − q1)/2; la sua miglior risposta (9 − E q2)/2 dà allora q1 = 3. L'impresa 2 produce 3,5 (costo 0) o 2,5 (costo 2); prezzi 3,5 e 4,5. Profitti: impresa 1 7,5 o 10,5, media 9; impresa 2 12,25 o 6,25. Con il costo noto (modulo 02): impresa 1 7,11 o 11,11, media 9,11; impresa 2 13,44 o 5,44. Il tipo a basso costo perde a restare nascosto e vorrebbe dimostrarlo; il tipo ad alto costo guadagna dal dubbio: una ragione per segnalare, e una per fingere.",
     },
   },
   {
     type: 'both',
     statement: {
       en: 'Cheap talk with b = 0.1 and b = 0.05: the most informative partition, the decision maker’s loss, and the comparison with no talk and with letting the expert decide. Why is each interval 4b longer than the one before? Check your numbers in Simulation C.',
-      it: "Cheap talk con b = 0,1 e b = 0,05: la partizione più informativa, la perdita di chi decide, e il confronto con il silenzio e con il lasciar decidere l'esperto. Perché ogni intervallo è più lungo di 4b del precedente? Controlla i numeri nella simulazione C.",
+      it: "Cheap talk con b = 0,1 e b = 0,05: la partizione più informativa, la perdita del decisore, e il confronto con il silenzio e con il lasciar decidere l'esperto. Perché ogni intervallo è più lungo di 4b del precedente? Controlla i numeri nella simulazione C.",
     },
     solution: {
       en: 'b = 0.1: 0–0.3 and 0.3–1; loss (0.3³ + 0.7³)/12 = 0.0308; no talk 0.0833; delegation 0.01. b = 0.05: 0–0.133, 0.133–0.467, 0.467–1; loss 0.0159; delegation 0.0025. An expert who sees exactly a boundary a must be indifferent between the two neighbouring actions, so a + b lies halfway between the two midpoints. If the intervals have lengths L and L′, the midpoints are a − L/2 and a + L′/2, and a + b = a + (L′ − L)/4: L′ = L + 4b.',

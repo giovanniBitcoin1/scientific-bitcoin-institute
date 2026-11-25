@@ -19,7 +19,7 @@ import { num } from './FigureEntry.jsx'
 
 const STEP_MS = 550
 
-// "of the …" in Italian: "del nuovo arrivato", "dell’impresa".
+// "of the …" in Italian: "dell’entrante", "dell’incumbent", "del giocatore di riga".
 const di = (p) => {
   const s = p.toLowerCase()
   return /^[aeiou]/.test(s) ? `dell’${s}` : `del ${s}`
@@ -66,7 +66,7 @@ const T = {
     tableAria: 'The same game as a table of plans',
   },
   it: {
-    presets: { entry: 'Gioco dell’ingresso', commit: 'Ingresso con impegno (k = 1)', battle: 'Battaglia dei sessi a turno', pennies: 'Matching pennies a turno', centipede: 'Millepiedi', random: 'Albero casuale' },
+    presets: { entry: 'Gioco dell’entrata', commit: 'Entrata con impegno (k = 1)', battle: 'Battaglia dei sessi a turno', pennies: 'Pari o dispari a turno', centipede: 'Millepiedi', random: 'Albero casuale' },
     newTree: 'Nuovo albero',
     solve: 'Risolvi',
     reset: 'Cancella',
@@ -98,8 +98,8 @@ const T = {
       bothSecond: 'Entrambi vogliono muovere per secondi',
       noPure: 'Nessun equilibrio puro giocando insieme',
       noPureBothSecond: 'Di questi, entrambi preferiscono muovere per secondi',
-      leaderAbove: 'Con uno, chi guida fa strettamente meglio del miglior equilibrio simultaneo',
-      leaderBelow: 'Giochi in cui chi guida fa peggio',
+      leaderAbove: 'Con uno, il leader fa strettamente meglio del miglior equilibrio simultaneo',
+      leaderBelow: 'Giochi in cui il leader fa peggio',
     },
     aria: 'L’albero del gioco',
     tableAria: 'Lo stesso gioco come tabella dei piani',

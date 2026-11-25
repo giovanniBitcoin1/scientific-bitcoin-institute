@@ -100,7 +100,7 @@ export const PLAYERS = {
     pennies: ['Row player', 'Column player'], centipede: ['First player', 'Second player'], random: ['First player', 'Second player'],
   },
   it: {
-    entry: ['Nuovo arrivato', 'Impresa'], commit: ['Nuovo arrivato', 'Impresa'], battle: ['Giocatore di riga', 'Giocatore di colonna'],
+    entry: ['Entrante', 'Incumbent'], commit: ['Entrante', 'Incumbent'], battle: ['Giocatore di riga', 'Giocatore di colonna'],
     pennies: ['Giocatore di riga', 'Giocatore di colonna'], centipede: ['Primo giocatore', 'Secondo giocatore'], random: ['Primo giocatore', 'Secondo giocatore'],
   },
 }

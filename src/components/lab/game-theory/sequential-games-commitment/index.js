@@ -18,7 +18,7 @@ export default {
       Component: FigureEntry,
       caption: {
         en: 'A threat on a tree: solved from the end, a threat the firm would not carry out does not keep the newcomer away.',
-        it: 'Una minaccia su un albero: risolvendo dalla fine, una minaccia che l’impresa non eseguirebbe non tiene lontano il nuovo arrivato.',
+        it: 'Una minaccia su un albero: risolvendo dalla fine, una minaccia che l’incumbent non eseguirebbe non tiene lontano l’entrante.',
       },
     },
     pie: {
@@ -38,7 +38,7 @@ export default {
     },
     {
       id: 'leader',
-      title: { en: 'Leader and follower', it: 'Chi muove per primo' },
+      title: { en: 'Leader and follower', it: 'Leader e follower' },
       Component: LeaderPanel,
       observe: observe.leader,
     },

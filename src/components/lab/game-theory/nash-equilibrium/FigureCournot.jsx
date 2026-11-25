@@ -37,8 +37,8 @@ const T = {
     c2: "Costo dell'impresa 2: c₂",
     adjust: 'Aggiusta',
     reset: 'Ricomincia',
-    br1: "risposta migliore dell'impresa 1",
-    br2: "risposta migliore dell'impresa 2",
+    br1: "retta di reazione dell'impresa 1",
+    br2: "retta di reazione dell'impresa 2",
     eq: 'equilibrio',
     cartel: 'cartello',
     here: (moves) => (moves === 0 ? 'Punto di partenza' : `Dopo ${moves} ${moves === 1 ? 'mossa' : 'mosse'}`),
@@ -48,7 +48,7 @@ const T = {
     and: 'e',
     eqLine: 'Equilibrio',
     hint: 'Clicca sul piano per scegliere da dove partono le imprese.',
-    aria: "Il piano delle due quantità, da 0 a 10, con la retta di risposta migliore di ciascuna impresa, il loro punto d'incrocio e il percorso dell'aggiustamento",
+    aria: "Il piano delle due quantità, da 0 a 10, con la retta di reazione di ciascuna impresa, il loro punto d'incrocio e il percorso dell'aggiustamento",
   },
 }
 

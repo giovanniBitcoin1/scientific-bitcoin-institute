@@ -65,6 +65,16 @@ model for this one and holds the history of the engine.
   result) and one line per source looked up (what, where, what it says).
   Commit it with the WIP commits and leave it in the repo next to the
   report. A session that picks up a prompt reads the log first.
+- **Italian terms:** the Italian texts use the terms of Italian
+  textbooks and university courses of game theory and economics, not
+  literal translations of the English. Where Italian courses keep the
+  English word (payoff, leader, follower, incumbent, pooling, single
+  crossing, cheap talk, fictitious play, folk theorem, trigger...),
+  keep it, in italics at its first use in each lecture. A plain
+  gloss may follow it once, in parentheses, but never replaces it.
+  When unsure, look the term up in Italian sources (lecture notes on
+  university sites, Italian editions of textbooks, Treccani) and
+  write the source in the working log. Decided by Adriano in prompt 6.
 - **This PC has little free memory.** Builds and checks run in the
   foreground, one at a time, as separate commands; no background shells. An
   old `vite preview` server that locks files may be stopped.
@@ -221,162 +231,144 @@ lab pages).
 
 ## Italian terms
 
-Chosen in module 01; keep them in the later modules.
+Revised in prompt 6 to the textbook terms. English words kept in Italian
+are in italics at their first use in each lecture (working rule above).
+Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
-| English | Italian |
-|---|---|
-| game | gioco |
-| player | giocatore (giocatore di riga, giocatore di colonna) |
-| strategy | strategia |
-| payoff | payoff (kept; plural "i payoff") |
-| normal form | forma normale |
-| strictly dominated | strettamente dominata |
-| weak dominance | dominanza debole |
-| dominant strategy | strategia dominante |
-| iterated elimination | eliminazione iterata |
-| best response | risposta migliore |
-| common knowledge (of rationality) | conoscenza comune (della razionalità) |
-| level of reasoning | livello di ragionamento (livello 0, livello 1…) |
-| stable cell | cella stabile |
-| Prisoner's Dilemma | dilemma del prigioniero |
-| stag hunt | caccia al cervo |
-| chicken | gioco del pollo |
-| snowdrift | *snowdrift* (kept in English) |
-| hawk–dove | falco–colomba |
-| harmony | armonia |
-| battle of the sexes | battaglia dei sessi |
-| matching pennies | *matching pennies* (kept in English) |
-| pure coordination | coordinamento puro |
-| zero-sum | a somma zero |
-| temptation, sucker's payoff | tentazione, payoff dell'ingenuo |
-| to cooperate, to defect | cooperare, defezionare |
-| target (of the guessing game) | bersaglio |
-| round | turno |
-| beauty contest | concorso di bellezza (*beauty contest*) |
-| Nash equilibrium | equilibrio di Nash |
-
-Added in module 02:
-
-| English | Italian |
-|---|---|
-| focal point | punto focale |
-| convention | convenzione |
-| coordination game | gioco di coordinamento |
-| payoff dominant | dominante nei payoff |
-| risk dominant | dominante nel rischio |
-| tipping point | punto di svolta |
-| best-response curve (line) | curva (retta) di risposta migliore |
-| quantity competition | concorrenza sulle quantità |
-| price competition | concorrenza sui prezzi |
-| cartel | cartello |
-| contest | gara |
-| prize | premio |
-| effort | sforzo |
-| share (of the chances, of the hash rate) | quota |
-| hash rate | hash rate (kept; masculine, "l'hash rate") |
-| block reward | ricompensa del blocco |
-| miner, mining, pool | miner, mining, pool (kept) |
-| difficulty adjustment | aggiustamento della difficoltà |
-| free entry | libero ingresso |
-| walk (of best responses), cycle | cammino, ciclo |
-| sweep, run, sample | passata, prova, campione |
-| to settle, to swing | assestarsi, oscillare |
-Added in module 03:
-
-| English | Italian |
-|---|---|
-| mixed strategy | strategia mista |
-| pure strategy | strategia pura |
-| mix (noun) | miscela |
-| expected payoff | payoff atteso |
-| indifference | indifferenza |
-| zero-sum game | gioco a somma zero |
-| constant-sum game | gioco a somma costante |
-| value of the game | valore del gioco |
-| best worst case (maxmin) | miglior caso peggiore (maxmin) |
-| minimax theorem | teorema del minimax |
-| support | supporto |
-| fictitious play | gioco fittizio (*fictitious play*) |
-| run (rounds in the same cell) | sequenza |
-| fixed-point theorem | teorema di punto fisso |
-| penalty kick | calcio di rigore |
-| kicker | rigorista |
-| keeper | portiere |
-| natural side | lato naturale |
-| L, R (sides) | S, D |
-| heads, tails | testa, croce |
-| rock-paper-scissors | sasso-carta-forbici |
-| win rate (of the machine) | quota di vittorie |
-| spread (standard deviation) | dispersione (deviazione standard) |
-
-Added in module 04:
-
-| English | Italian |
-|---|---|
-| game tree | albero (del gioco) |
-| node | nodo |
-| move | mossa |
-| plan (strategy as a complete plan) | piano |
-| backward induction | induzione a ritroso |
-| subgame | sottogioco |
-| subgame perfect equilibrium | equilibrio perfetto nei sottogiochi |
-| empty threat | minaccia vuota |
-| credible | credibile |
-| commitment, to commit | impegno, impegnarsi |
-| leader, follower | chi guida, chi segue |
-| first-mover advantage | vantaggio di chi muove per primo |
-| entry (game) | ingresso (gioco dell'ingresso) |
-| incumbent (firm) | impresa (già sul mercato) |
-| newcomer | nuovo arrivato |
-| fixed cost | costo fisso |
-| limit quantity | quantità limite |
-| ultimatum game | gioco dell'ultimatum |
-| centipede game | gioco del millepiedi |
-| proposer, responder | proponente, rispondente |
-| offer | offerta |
-| threshold | soglia |
-| discount factor | fattore di sconto |
-| patience | pazienza |
-| bargaining power | potere contrattuale |
-| punitive forking | fork punitivo |
-| feather forking | *feather fork* (kept in English) |
-| orphaned block, to orphan | blocco orfano, rendere orfano |
-| confirmation | conferma |
-
-Added in module 05:
-
-| English | Italian |
-|---|---|
-| type | tipo |
-| chance move (Nature) | mossa del caso (la Natura) |
-| common prior | distribuzione a priori comune |
-| belief | credenza |
-| Bayesian game | gioco bayesiano |
-| Bayesian Nash equilibrium | equilibrio di Nash bayesiano |
-| information set | insieme di informazione |
-| asymmetric information | informazione asimmetrica |
-| adverse selection | selezione avversa |
-| lemon | bidone |
-| signal | segnale |
-| signalling game | gioco di segnalazione |
-| separating equilibrium | equilibrio separante |
-| pooling equilibrium | equilibrio di confusione (*pooling*) |
-| off the equilibrium path | fuori dal cammino di equilibrio |
-| single crossing | singolo incrocio (*single crossing*) |
-| the Cho–Kreps test (intuitive criterion) | test di Cho e Kreps (criterio intuitivo) |
-| handicap principle | principio dell'handicap |
-| cheap talk | *cheap talk* (kept; "parole che non costano nulla") |
-| expert | esperto |
-| decision maker | chi decide |
-| bias | distorsione |
-| partition | partizione |
-| delegation | delega |
-| global game | gioco globale |
-| private signal | segnale privato |
-| noise | rumore |
-| tough, weak (incumbent) | duro, debole (impresa dura, debole) |
-| incumbent | impresa che c'è già |
-| no talk | senza parole |
+| English | Italian | Module |
+|---|---|---|
+| game | gioco | 01 |
+| player | giocatore (giocatore di riga, giocatore di colonna) | 01 |
+| strategy | strategia | 01 |
+| payoff | *payoff* (kept; plural "i payoff") | 01 |
+| normal form | forma normale | 01 |
+| strictly dominated | strettamente dominata | 01 |
+| weak dominance | dominanza debole | 01 |
+| dominant strategy | strategia dominante | 01 |
+| iterated elimination | eliminazione iterata | 01 |
+| best response | miglior risposta (le migliori risposte) | 01 |
+| common knowledge (of rationality) | conoscenza comune (della razionalità) | 01 |
+| level of reasoning | livello di ragionamento (livello 0, livello 1…) | 01 |
+| stable cell | cella stabile | 01 |
+| Prisoner's Dilemma | dilemma del prigioniero | 01 |
+| stag hunt | caccia al cervo | 01 |
+| chicken | gioco del pollo | 01 |
+| snowdrift | cumulo di neve (*snowdrift*) | 01 |
+| hawk–dove | falco–colomba | 01 |
+| harmony | armonia | 01 |
+| battle of the sexes | battaglia dei sessi | 01 |
+| matching pennies | pari o dispari | 01 |
+| pure coordination | coordinamento puro | 01 |
+| zero-sum | a somma zero | 01 |
+| temptation, sucker's payoff | tentazione, payoff del babbeo | 01 |
+| to cooperate, to defect | cooperare, defezionare | 01 |
+| target (of the guessing game) | bersaglio | 01 |
+| round | turno | 01 |
+| beauty contest | concorso di bellezza (*beauty contest*) | 01 |
+| Nash equilibrium | equilibrio di Nash | 01 |
+| focal point | punto focale | 02 |
+| convention | convenzione | 02 |
+| coordination game | gioco di coordinamento | 02 |
+| payoff dominant | Pareto-dominante | 02 |
+| risk dominant | rischio-dominante | 02 |
+| tipping point | *tipping point* (kept) | 02 |
+| best-response function, curve (line) (Cournot) | funzione di reazione; curva (retta) di reazione | 02 |
+| quantity competition | concorrenza sulle quantità | 02 |
+| price competition | concorrenza sui prezzi | 02 |
+| cartel | cartello | 02 |
+| contest | gara | 02 |
+| prize | premio | 02 |
+| effort | sforzo | 02 |
+| share (of the chances, of the hash rate) | quota | 02 |
+| hash rate | *hash rate* (kept; masculine, "l'hash rate") | 02 |
+| block reward | ricompensa del blocco | 02 |
+| miner, mining, pool | *miner*, *mining*, *pool* (kept) | 02 |
+| difficulty adjustment | aggiustamento della difficoltà | 02 |
+| free entry | libera entrata | 02 |
+| walk (of best responses), cycle | cammino, ciclo | 02 |
+| sweep, run, sample | passata, prova, campione | 02 |
+| to settle, to swing | assestarsi, oscillare | 02 |
+| mixed strategy | strategia mista | 03 |
+| pure strategy | strategia pura | 03 |
+| mix (noun) | strategia mista; for the weights, "le probabilità della strategia mista" | 03 |
+| expected payoff | payoff atteso | 03 |
+| indifference | indifferenza | 03 |
+| zero-sum game | gioco a somma zero | 03 |
+| constant-sum game | gioco a somma costante | 03 |
+| value of the game | valore del gioco | 03 |
+| best worst case (maxmin) | strategia di maxmin; payoff di sicurezza | 03 |
+| minimax theorem | teorema del minimax | 03 |
+| support | supporto | 03 |
+| fictitious play | *fictitious play* (kept) | 03 |
+| run (rounds in the same cell) | sequenza | 03 |
+| fixed-point theorem | teorema di punto fisso | 03 |
+| penalty kick | calcio di rigore | 03 |
+| kicker | rigorista | 03 |
+| keeper | portiere | 03 |
+| natural side | lato naturale | 03 |
+| L, R (sides) | S, D | 03 |
+| heads, tails | testa, croce | 03 |
+| rock-paper-scissors | sasso-carta-forbici ("la morra cinese" at its first use) | 03 |
+| win rate (of the machine) | quota di vittorie | 03 |
+| spread (standard deviation) | dispersione (deviazione standard) | 03 |
+| game tree | albero (del gioco) | 04 |
+| node | nodo | 04 |
+| move | mossa | 04 |
+| plan (strategy as a complete plan) | piano (at its first use: what the textbooks call a strategy of the extensive form) | 04 |
+| backward induction | induzione a ritroso | 04 |
+| subgame | sottogioco | 04 |
+| subgame perfect equilibrium | equilibrio perfetto nei sottogiochi | 04 |
+| empty threat | minaccia non credibile | 04 |
+| credible | credibile | 04 |
+| commitment, to commit | impegno, impegnarsi | 04 |
+| leader, follower | *leader*, *follower* (l'impresa leader, l'impresa follower) | 04 |
+| first-mover advantage | vantaggio della prima mossa | 04 |
+| entry game; entry deterrence | gioco dell'entrata; deterrenza all'entrata | 04 |
+| incumbent | *incumbent* (l'incumbent, masculine; l'impresa incumbent) | 04 |
+| newcomer | entrante (entrante potenziale) | 04 |
+| fixed cost | costo fisso | 04 |
+| limit quantity | quantità limite | 04 |
+| ultimatum game | gioco dell'ultimatum | 04 |
+| centipede game | gioco del millepiedi | 04 |
+| proposer, responder | proponente, rispondente | 04 |
+| offer | offerta | 04 |
+| threshold | soglia | 04 |
+| discount factor | fattore di sconto | 04 |
+| patience | pazienza | 04 |
+| bargaining power | potere contrattuale | 04 |
+| punitive forking | *punitive forking* (kept) | 04 |
+| feather forking | *feather fork* (kept) | 04 |
+| orphaned block, to orphan | blocco orfano, rendere orfano | 04 |
+| confirmation | conferma | 04 |
+| type | tipo | 05 |
+| chance move (Nature) | mossa del caso (la Natura) | 05 |
+| common prior | distribuzione a priori comune | 05 |
+| belief | credenza | 05 |
+| Bayesian game | gioco bayesiano | 05 |
+| Bayesian Nash equilibrium | equilibrio di Nash bayesiano | 05 |
+| information set | insieme informativo | 05 |
+| asymmetric information | informazione asimmetrica | 05 |
+| adverse selection | selezione avversa | 05 |
+| lemon | bidone | 05 |
+| signal | segnale | 05 |
+| signalling game | gioco di segnalazione | 05 |
+| separating equilibrium | equilibrio separante | 05 |
+| pooling equilibrium | equilibrio *pooling* | 05 |
+| off the equilibrium path | fuori dal sentiero di equilibrio | 05 |
+| single crossing | condizione di *single crossing* | 05 |
+| the Cho–Kreps test | criterio intuitivo (di Cho e Kreps) | 05 |
+| handicap principle | principio dell'handicap | 05 |
+| cheap talk | *cheap talk* (kept; "parole che non costano nulla") | 05 |
+| expert | esperto | 05 |
+| decision maker | decisore | 05 |
+| bias | distorsione | 05 |
+| partition | partizione | 05 |
+| delegation | delega | 05 |
+| global game | gioco globale | 05 |
+| private signal | segnale privato | 05 |
+| noise | rumore | 05 |
+| tough, weak (incumbent) | duro, debole (un incumbent duro, debole) | 05 |
+| no talk | senza parole | 05 |
 
 ## Work in progress
 
@@ -394,8 +386,6 @@ Module 06, `repeated-games-reputation`, when its prompt is there.
 
 - The lectures of modules 01 to 05 carry the DRAFT marker: to be reviewed
   by Adriano (the markers stay until then).
-- "Chi guida" and "chi segue" (leader, follower; module 04) stay for now:
-  Adriano decides when he reviews the Italian.
 - The entry game has one payoff order everywhere: (newcomer, incumbent),
   the newcomer as player 0 in the first player's colour, even when the
   firm moves first (stage 0 of prompt 5). Module 06 keeps it.

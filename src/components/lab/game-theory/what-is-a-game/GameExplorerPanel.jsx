@@ -70,7 +70,7 @@ const T = {
       stag: 'Caccia al cervo',
       chicken: 'Gioco del pollo',
       battle: 'Battaglia dei sessi',
-      pennies: 'Matching pennies',
+      pennies: 'Pari o dispari',
       coordination: 'Coordinamento puro',
     },
     names: {

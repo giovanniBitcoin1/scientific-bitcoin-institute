@@ -7,7 +7,7 @@
     "title_en": "What is a game?",
     "title_it": "Che cos'è un gioco?",
     "summary_en": "Players, strategies and payoffs; dominated strategies, best responses and the classic two-by-two games.",
-    "summary_it": "Giocatori, strategie e payoff; strategie dominate, risposte migliori e i classici giochi due per due."
+    "summary_it": "Giocatori, strategie e payoff; strategie dominate, migliori risposte e i classici giochi due per due."
   },
   {
     "slug": "nash-equilibrium",
@@ -37,7 +37,7 @@
     "title_en": "Games in time and credible commitment",
     "title_it": "Giochi nel tempo e impegno credibile",
     "summary_en": "Backward induction, threats nobody believes, and the value of tying your own hands.",
-    "summary_it": "Induzione a ritroso, minacce a cui nessuno crede e il valore di legarsi le mani."
+    "summary_it": "Induzione a ritroso, minacce non credibili e il valore di legarsi le mani."
   },
   {
     "slug": "incomplete-information-signalling",

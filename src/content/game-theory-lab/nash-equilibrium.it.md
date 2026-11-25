@@ -4,9 +4,9 @@
 
 Il [modulo 01](/game-theory-lab/what-is-a-game) si è chiuso su una cella della tabella che nessuno vuole lasciare da solo. Nel 1950 John Nash, dottorando a Princeton, diede a quell'idea la sua forma generale: prima in una nota di due pagine, poi in una tesi di dottorato di ventisette.
 
-Si prenda un numero qualsiasi di giocatori, e ciascuno scelga una strategia. Le scelte sono un **equilibrio di Nash** se nessun giocatore può ottenere un payoff più alto cambiando strategia da solo, mentre tutti gli altri tengono la propria. La cella stabile del modulo 01 è il caso di due giocatori.
+Si prenda un numero qualsiasi di giocatori, e ciascuno scelga una strategia. Le scelte sono un **equilibrio di Nash** se nessun giocatore può ottenere un *payoff* più alto cambiando strategia da solo, mentre tutti gli altri tengono la propria. La cella stabile del modulo 01 è il caso di due giocatori.
 
-L'eliminazione iterata non cancella mai un equilibrio: una strategia giocata in un equilibrio è una risposta migliore a ciò che fanno gli altri, quindi nessun'altra può batterla ovunque. E se l'eliminazione lascia una sola cella, quella cella è l'unico equilibrio del gioco.
+L'eliminazione iterata non cancella mai un equilibrio: una strategia giocata in un equilibrio è una miglior risposta a ciò che fanno gli altri, quindi nessun'altra può batterla ovunque. E se l'eliminazione lascia una sola cella, quella cella è l'unico equilibrio del gioco.
 
 ## Che cosa un equilibrio non è
 
@@ -36,9 +36,9 @@ q* = (d − b) / ((a − c) + (d − b))
 staghunt
 ```
 
-Con a = 4, b = 0, c = 3 e d = 2 si ottiene q* = 2/3: bisogna essere piuttosto sicuri dell'altro. L'equilibrio del cervo è **dominante nei payoff**, migliore per entrambi. L'equilibrio della lepre è **dominante nel rischio**: è quello che richiede meno fiducia nell'altro giocatore (i termini sono di Harsanyi e Selten 1988). Quando i due criteri non sono d'accordo, gli esperimenti tendono a dare ragione alla sicurezza. In uno di essi (Van Huyck, Battalio e Beil, 1990), gruppi da 14 a 16 persone sceglievano ciascuno uno sforzo da 1 a 7 ed erano pagati in base allo sforzo più basso del gruppo. Tutti a 7 era l'equilibrio migliore; dal quarto turno in poi, lo sforzo più basso fu 1 in ogni gruppo.
+Con a = 4, b = 0, c = 3 e d = 2 si ottiene q* = 2/3: bisogna essere piuttosto sicuri dell'altro. L'equilibrio del cervo è **Pareto-dominante**, migliore per entrambi. L'equilibrio della lepre è **rischio-dominante**: è quello che richiede meno fiducia nell'altro giocatore (i termini sono di Harsanyi e Selten 1988). Quando i due criteri non sono d'accordo, gli esperimenti tendono a dare ragione alla sicurezza. In uno di essi (Van Huyck, Battalio e Beil, 1990), gruppi da 14 a 16 persone sceglievano ciascuno uno sforzo da 1 a 7 ed erano pagati in base allo sforzo più basso del gruppo. Tutti a 7 era l'equilibrio migliore; dal quarto turno in poi, lo sforzo più basso fu 1 in ogni gruppo.
 
-Nella Simulazione B un giocatore alla volta guarda altri dieci e caccia il cervo solo se abbastanza di loro lo fanno. La convenzione migliore prende il sopravvento solo dove è già seguita da abbastanza persone. Il punto di svolta è a circa 0,73 della popolazione, poco sopra q*, perché un campione di dieci deve mostrarne sette per superare i due terzi. Partendo dal 70% di cacciatori di cervo, tutti finiscono al cervo circa una volta su sette; partendo dal 75%, circa quattro volte su cinque.
+Nella Simulazione B un giocatore alla volta guarda altri dieci e caccia il cervo solo se abbastanza di loro lo fanno. La convenzione migliore prende il sopravvento solo dove è già seguita da abbastanza persone. Il *tipping point* è a circa 0,73 della popolazione, poco sopra q*, perché un campione di dieci deve mostrarne sette per superare i due terzi. Partendo dal 70% di cacciatori di cervo, tutti finiscono al cervo circa una volta su sette; partendo dal 75%, circa quattro volte su cinque.
 
 ## Quando le strategie sono numeri
 
@@ -48,13 +48,13 @@ Spesso una strategia è un numero: una quantità, un prezzo, uno sforzo. La tabe
 q₁ = (a − c − q₂) / 2
 ```
 
-Questa è la risposta migliore dell'impresa 1 a ogni q₂, ed è una retta. L'impresa 2 ha la sua. L'equilibrio è il punto in cui le due rette si incrociano: (a − c)/3 ciascuna.
+Questa è la **funzione di reazione** dell'impresa 1, la sua miglior risposta a ogni q₂: una retta. L'impresa 2 ha la sua. L'equilibrio è il punto in cui le due rette di reazione si incrociano: (a − c)/3 ciascuna.
 
 ```figure
 cournot
 ```
 
-Con n imprese ciascuna produce (a − c)/(n + 1). Con a = 10 e c = 1 il prezzo è 5,5 per un monopolio, 4 con due imprese, 2,5 con cinque e 1,82 con dieci, e tende al costo. E le due imprese non possono semplicemente accordarsi per dividersi la produzione di monopolio, perché quel punto non sta su nessuna delle due rette: la risposta migliore di ciascuna al cartello è produrre di più (esercizio 3).
+Con n imprese ciascuna produce (a − c)/(n + 1). Con a = 10 e c = 1 il prezzo è 5,5 per un monopolio, 4 con due imprese, 2,5 con cinque e 1,82 con dieci, e tende al costo. E le due imprese non possono semplicemente accordarsi per dividersi la produzione di monopolio, perché quel punto non sta su nessuna delle due rette: la miglior risposta di ciascuna al cartello è produrre di più (esercizio 3).
 
 ## Stesso mercato, altre regole
 
@@ -76,16 +76,16 @@ La quota del premio che viene spesa è `1 − Σ s_i²`. La Simulazione C lascia
 
 ```box
 Bitcoin: il mining come gara
-Circa ogni dieci minuti un miner vince la ricompensa del blocco, con probabilità pari alla sua quota dell'hash rate totale. Con l'hash rate come sforzo e il valore della ricompensa come premio, è la gara vista sopra (Dimitri 2017).
+Circa ogni dieci minuti un *miner* vince la ricompensa del blocco, con probabilità pari alla sua quota dell'*hash rate* totale. Con l'hash rate come sforzo e il valore della ricompensa come premio, è la gara vista sopra (Dimitri 2017).
 
-**Che cosa dice il modello.** La spesa per il mining segue il valore della ricompensa, non il numero delle transazioni, e con libero ingresso i profitti vanno a zero. L'aggiustamento della difficoltà fissa il numero dei blocchi, quindi più hash rate non produce più monete: tutti i miner guadagnerebbero di più se tutti dimezzassero il proprio, e nessuno può farlo da solo. Piccole differenze di costo diventano grandi differenze di quota: costi di 1,0, 1,1, 1,2, 1,5 e 2,0 danno quote del 37,5%, 31,3%, 25%, 6,3% e nulla (Arnosti e Weinberg 2022).
+**Che cosa dice il modello.** La spesa per il mining segue il valore della ricompensa, non il numero delle transazioni, e con libera entrata i profitti vanno a zero. L'aggiustamento della difficoltà fissa il numero dei blocchi, quindi più hash rate non produce più monete: tutti i miner guadagnerebbero di più se tutti dimezzassero il proprio, e nessuno può farlo da solo. Piccole differenze di costo diventano grandi differenze di quota: costi di 1,0, 1,1, 1,2, 1,5 e 2,0 danno quote del 37,5%, 31,3%, 25%, 6,3% e nulla (Arnosti e Weinberg 2022).
 
-**I limiti.** È un modello a un solo colpo, a costo unitario costante. I miner veri comprano macchine che durano anni e si uniscono in pool (modulo 10), e il valore della ricompensa segue il prezzo. Né dice se la spesa sia troppa: dipende da che cosa compra (modulo 14). Un'ipotesi con i suoi limiti, non una descrizione del settore.
+**I limiti.** È un modello a un solo colpo, a costo unitario costante. I miner veri comprano macchine che durano anni e si uniscono in *pool* (modulo 10), e il valore della ricompensa segue il prezzo. Né dice se la spesa sia troppa: dipende da che cosa compra (modulo 14). Un'ipotesi con i suoi limiti, non una descrizione del settore.
 ```
 
 ## Che cosa viene dopo
 
-Non tutti i giochi hanno un equilibrio da trovare. Un gioco due per due su otto non ha nessuna cella stabile, e nemmeno circa un terzo dei grandi giochi casuali della Simulazione A; matching pennies è il più piccolo. Il modulo 03 mostra che anche questi giochi hanno un equilibrio, non appena ai giocatori è permesso mescolare a caso le proprie strategie.
+Non tutti i giochi hanno un equilibrio da trovare. Un gioco due per due su otto non ha nessuna cella stabile, e nemmeno circa un terzo dei grandi giochi casuali della Simulazione A; il pari o dispari è il più piccolo. Il modulo 03 mostra che anche questi giochi hanno un equilibrio, non appena ai giocatori è permesso mescolare a caso le proprie strategie.
 
 <!-- simulation -->
 

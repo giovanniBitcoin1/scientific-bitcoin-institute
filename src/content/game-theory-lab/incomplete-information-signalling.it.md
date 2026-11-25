@@ -2,23 +2,23 @@
 
 ## Non sapere chi c'è dall'altra parte del tavolo
 
-Finora ogni giocatore conosceva tutti i payoff. Un compratore guarda un'auto usata e non sa se il motore è sano. Un datore di lavoro non vede quanto vale davvero un candidato. Il nuovo arrivato del [modulo 04](/game-theory-lab/sequential-games-commitment) sente la minaccia dell'impresa e non sa se una guerra dei prezzi la danneggerebbe o no. In ogni caso i payoff dipendono da qualcosa che una sola parte conosce.
+Finora ogni giocatore conosceva tutti i *payoff*. Un compratore guarda un'auto usata e non sa se il motore è sano. Un datore di lavoro non vede quanto vale davvero un candidato. L'entrante del [modulo 04](/game-theory-lab/sequential-games-commitment) sente la minaccia dell'*incumbent* e non sa se una guerra dei prezzi lo danneggerebbe o no. In ogni caso i payoff dipendono da qualcosa che una sola parte conosce.
 
 ## La Natura muove per prima
 
 John Harsanyi, in tre articoli del 1967–68, riportò questi giochi agli strumenti che abbiamo. Una mossa del caso, giocata dalla **Natura**, viene per prima ed estrae il **tipo** di ogni giocatore: ciò che dei suoi payoff sa soltanto lui. Ognuno vede il proprio tipo e non quello degli altri. Le probabilità dell'estrazione sono note a tutti: una **distribuzione a priori comune**. L'ignoranza sugli altri diventa incertezza su una mossa del caso, che i payoff attesi sanno trattare.
 
-Cambiano due cose. Una strategia è ora un piano per ogni tipo: che cosa faccio se sono duro e che cosa faccio se sono debole, anche se accadrà una sola delle due cose. E un **equilibrio di Nash bayesiano** chiede a ogni tipo di ogni giocatore di dare la risposta migliore, date le sue **credenze** sui tipi degli altri e sui piani di ogni tipo.
+Cambiano due cose. Una strategia è ora un piano per ogni tipo: che cosa faccio se sono duro e che cosa faccio se sono debole, anche se accadrà una sola delle due cose. E un **equilibrio di Nash bayesiano** chiede a ogni tipo di ogni giocatore di dare la miglior risposta, date le sue **credenze** sui tipi degli altri e sui piani di ogni tipo.
 
-Prendiamo il gioco dell'ingresso del modulo 04 con gli stessi numeri, scritti (nuovo arrivato, impresa): restare fuori dà (0, 4), entrare e dividere (2, 2). Ora l'impresa è **dura** con probabilità t, e un'impresa dura ama la lotta: combattere le rende 3, più del 2 della divisione. Una **debole** ottiene 0 combattendo. Un nuovo arrivato combattuto ottiene −1 in entrambi i casi.
+Prendiamo il gioco dell'entrata del modulo 04 con gli stessi numeri, scritti (entrante, incumbent): restare fuori dà (0, 4), entrare e dividere (2, 2). Ora l'incumbent è **duro** con probabilità t, e un incumbent duro ama la lotta: combattere gli rende 3, più del 2 della divisione. Uno **debole** ottiene 0 combattendo. Un entrante combattuto ottiene −1 in entrambi i casi.
 
 ```figure
 types
 ```
 
-Si risolve ogni ramo dalla fine, come nel modulo 04. Il tipo duro combatte, il tipo debole divide. Il nuovo arrivato non sa su quale ramo si trova: i suoi due nodi sono uniti da una linea tratteggiata, un solo **insieme di informazione**, e deve scegliere la stessa mossa in entrambi. Entrare gli rende 2 con probabilità 1 − t e −1 con probabilità t, in media 2 − 3t, quindi entra solo se t è sotto 2/3. Se un nuovo arrivato combattuto ottiene w, la soglia è 2/(2 − w).
+Si risolve ogni ramo dalla fine, come nel modulo 04. Il tipo duro combatte, il tipo debole divide. L'entrante non sa su quale ramo si trova: i suoi due nodi sono uniti da una linea tratteggiata, un solo **insieme informativo**, e deve scegliere la stessa mossa in entrambi. Entrare gli rende 2 con probabilità 1 − t e −1 con probabilità t, in media 2 − 3t, quindi entra solo se t è sotto 2/3. Se un entrante combattuto ottiene w, la soglia è 2/(2 − w).
 
-Guardiamo l'impresa debole. Quando t è abbastanza alto non viene mai messa alla prova, e tiene 4 invece di 2 solo grazie ai tipi duri che potrebbe essere. Le piacerebbe molto essere presa per dura. Un'impresa debole che continua a combattere, mercato dopo mercato, per sembrare dura si sta costruendo una **reputazione**: è il modulo 06.
+Guardiamo l'incumbent debole. Quando t è abbastanza alto non viene mai messo alla prova, e tiene 4 invece di 2 solo grazie ai tipi duri che potrebbe essere. Gli piacerebbe molto essere preso per duro. Un incumbent debole che continua a combattere, mercato dopo mercato, per sembrare duro si sta costruendo una **reputazione**: è il modulo 06.
 
 ## Quando l'altra parte sa di più
 
@@ -32,21 +32,21 @@ La simulazione A gioca questo mercato con migliaia di auto. Che cosa aiuta: ispe
 
 Spence (1973) si chiese come la parte che sa di più possa dimostrarlo. I lavoratori hanno produttività bassa, 1, o alta, 2; una quota λ è alta. I datori di lavoro, in concorrenza, pagano ciò che si aspettano che un lavoratore produca, dato ciò che vedono: l'istruzione. Supponiamo che l'istruzione non aggiunga nulla alla produttività: costa e basta. Ogni unità costa 1 a un tipo basso e 1/2 a un tipo alto.
 
-In un **equilibrio separante** i tipi alti prendono e* unità e sono pagati 2, i tipi bassi non ne prendono e sono pagati 1. Lo reggono due condizioni. Il tipo basso non deve voler copiare: 2 − e* è al più 1, quindi e* è almeno 1. Il tipo alto deve voler pagare: 2 − e*/2 è almeno 1, quindi e* è al più 2. Funziona ogni e* da 1 a 2. In un **equilibrio di confusione** (*pooling*) tutti prendono lo stesso e e sono pagati la media, 1 + λ; nessuno vuole scendere a 0 se e è al più λ. Funziona ogni e da 0 a λ.
+In un **equilibrio separante** i tipi alti prendono e* unità e sono pagati 2, i tipi bassi non ne prendono e sono pagati 1. Lo reggono due condizioni. Il tipo basso non deve voler copiare: 2 − e* è al più 1, quindi e* è almeno 1. Il tipo alto deve voler pagare: 2 − e*/2 è almeno 1, quindi e* è al più 2. Funziona ogni e* da 1 a 2. In un **equilibrio** ***pooling*** tutti prendono lo stesso e e sono pagati la media, 1 + λ; nessuno vuole scendere a 0 se e è al più λ. Funziona ogni e da 0 a λ.
 
-Entrambi si reggono su ciò che si crede dei livelli che nessuno sceglie, **fuori dal cammino di equilibrio**: qui, che chi li presenta sia basso. Ciò che fa funzionare il segnale è che costa meno al tipo che rivela: il **singolo incrocio** (*single crossing*). Senza, ciò che il tipo alto può permettersi se lo può permettere anche il basso.
+Entrambi si reggono su ciò che si crede dei livelli che nessuno sceglie, **fuori dal sentiero di equilibrio**: qui, che chi li presenta sia basso. Ciò che fa funzionare il segnale è che costa meno al tipo che rivela: la **condizione di** ***single crossing***. Senza, ciò che il tipo alto può permettersi se lo può permettere anche il basso.
 
-Cho e Kreps (1987) proposero un test che elimina gran parte di questi equilibri, spesso chiamato criterio intuitivo. Se un livello è tale che il tipo basso non potrebbe mai guadagnarci, nemmeno pagato 2, mentre il tipo alto sì, allora un datore di lavoro che lo vede dovrebbe concludere che il lavoratore è alto. Applicandolo, sopravvive solo la separazione più economica, e* = 1.
+Cho e Kreps (1987) proposero un test che elimina gran parte di questi equilibri, noto come **criterio intuitivo**. Se un livello è tale che il tipo basso non potrebbe mai guadagnarci, nemmeno pagato 2, mentre il tipo alto sì, allora un datore di lavoro che lo vede dovrebbe concludere che il lavoratore è alto. Applicandolo, sopravvive solo la separazione più economica, e* = 1.
 
 E quanto costa? Con λ = 0,8 il tipo alto ottiene 2 − 1/2 = 1,5 in quell'equilibrio. Se nessuno segnalasse, tutti sarebbero pagati la media, 1,8. Il tipo basso ottiene 1 invece di 1,8. Il segnale impoverisce tutti, eppure nessuno può smettere da solo. La simulazione B prova altri costi e altre quote. In biologia Amotz Zahavi (1975) propose che la coda del pavone funzioni allo stesso modo, un **principio dell'handicap**: un ornamento è creduto perché costa portarlo. Ad Alan Grafen (1990) si attribuisce di solito di avergli dato una base formale, una lettura poi discussa.
 
 ## Parole che non costano nulla
 
-Un segnale senza costo può informare? Crawford e Sobel (1982) studiarono un **esperto** che conosce un numero θ, distribuito uniformemente tra 0 e 1, e manda un messaggio a **chi decide**, che poi sceglie un'azione. Chi decide vuole che l'azione sia uguale a θ. L'esperto vuole θ + b: condivide lo scopo, con una **distorsione** b. Poiché parlare non costa nulla e non si può verificare (*cheap talk*), un messaggio è creduto solo finché l'esperto non ha motivo di mentire.
+Un segnale senza costo può informare? Crawford e Sobel (1982) studiarono un **esperto** che conosce un numero θ, distribuito uniformemente tra 0 e 1, e manda un messaggio a un **decisore**, che poi sceglie un'azione. Il decisore vuole che l'azione sia uguale a θ. L'esperto vuole θ + b: condivide lo scopo, con una **distorsione** b. Poiché parlare non costa nulla e non si può verificare (*cheap talk*), un messaggio è creduto solo finché l'esperto non ha motivo di mentire.
 
-In equilibrio l'esperto può solo nominare un intervallo, di una **partizione** di 0–1, e chi decide agisce nel suo punto medio. Con b = 0,1 si distinguono solo due messaggi, "sotto 0,3" e "sopra 0,3". Con b = 0,05 sono tre. Da b = 1/4 in su, nessuno: nulla di ciò che l'esperto dice può essere creduto. Un esperto il cui valore cade esattamente su un confine deve essere indifferente tra le due azioni vicine, e questo rende ogni intervallo più lungo di 4b del precedente: un esperto che vuole spingere l'azione in alto è preciso sui valori bassi e vago su quelli alti.
+In equilibrio l'esperto può solo nominare un intervallo, di una **partizione** di 0–1, e il decisore agisce nel suo punto medio. Con b = 0,1 si distinguono solo due messaggi, "sotto 0,3" e "sopra 0,3". Con b = 0,05 sono tre. Da b = 1/4 in su, nessuno: nulla di ciò che l'esperto dice può essere creduto. Un esperto il cui valore cade esattamente su un confine deve essere indifferente tra le due azioni vicine, e questo rende ogni intervallo più lungo di 4b del precedente: un esperto che vuole spingere l'azione in alto è preciso sui valori bassi e vago su quelli alti.
 
-La perdita attesa di chi decide, misurata come distanza al quadrato dell'azione da θ, è 1/12 ≈ 0,083 senza parole e 0,031 con b = 0,1. Lasciar decidere l'esperto, la **delega**, costa a chi decide solo b² = 0,01, perché l'esperto sceglie allora θ + b. Wessel Dessein (2002) mostrò che la delega batte il consiglio quando il conflitto non è troppo grande; in questo modello succede quando b è sotto circa 0,29, come mostra la simulazione C.
+La perdita attesa del decisore, misurata come distanza al quadrato dell'azione da θ, è 1/12 ≈ 0,083 senza parole e 0,031 con b = 0,1. Lasciar decidere l'esperto, la **delega**, costa al decisore solo b² = 0,01, perché l'esperto sceglie allora θ + b. Wessel Dessein (2002) mostrò che la delega batte il consiglio quando il conflitto non è troppo grande; in questo modello succede quando b è sotto circa 0,29, come mostra la simulazione C.
 
 ## Un po' di dubbio sceglie un equilibrio
 
@@ -58,7 +58,7 @@ Ora ogni cacciatore vede θ solo con un piccolo errore privato: il suo **segnale
 doubt
 ```
 
-Resta un solo equilibrio: caccia il cervo se il tuo segnale è sopra 1/2. È esattamente il punto in cui il cervo diventa dominante nel rischio. Più piccolo è l'errore, più lunga è la catena di ragionamenti: la fascia aperta diventa più stretta di 0,02 dopo 13 passi con σ = 0,1 e dopo 56 con σ = 0,02. Ma finisce sempre nello stesso punto. Stephen Morris e Hyun Song Shin (1998) usarono lo stesso argomento per gli attacchi speculativi alle valute, e da allora è stato applicato alle corse agli sportelli: con un dubbio privato, sono i fondamentali a decidere se tutti corrono.
+Resta un solo equilibrio: caccia il cervo se il tuo segnale è sopra 1/2. È esattamente il punto in cui il cervo diventa rischio-dominante. Più piccolo è l'errore, più lunga è la catena di ragionamenti: la fascia aperta diventa più stretta di 0,02 dopo 13 passi con σ = 0,1 e dopo 56 con σ = 0,02. Ma finisce sempre nello stesso punto. Stephen Morris e Hyun Song Shin (1998) usarono lo stesso argomento per gli attacchi speculativi alle valute, e da allora è stato applicato alle corse agli sportelli: con un dubbio privato, sono i fondamentali a decidere se tutti corrono.
 
 ## Il prossimo modulo
 

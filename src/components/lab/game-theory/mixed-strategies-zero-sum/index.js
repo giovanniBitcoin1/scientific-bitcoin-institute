@@ -19,14 +19,14 @@ export default {
       Component: FigureSquare,
       caption: {
         en: 'Two best responses in a square: where the two lines cross, neither player wants to change mix.',
-        it: 'Due risposte migliori in un quadrato: dove le due linee si incrociano, nessuno dei due vuole cambiare miscela.',
+        it: 'Due migliori risposte in un quadrato: dove le due linee si incrociano, nessuno dei due vuole cambiare strategia mista.',
       },
     },
     minimax: {
       Component: FigureMinimax,
       caption: {
         en: 'The best worst case: the kicker picks the peak of the lower line, the keeper the bottom of the higher one, and they meet.',
-        it: 'Il miglior caso peggiore: il rigorista sceglie il picco della linea più bassa, il portiere il fondo di quella più alta, e si incontrano.',
+        it: 'La strategia di maxmin: il rigorista sceglie il picco della linea più bassa, il portiere il fondo di quella più alta, e si incontrano.',
       },
     },
   },

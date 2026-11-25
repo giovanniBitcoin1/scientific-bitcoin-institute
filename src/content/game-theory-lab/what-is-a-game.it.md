@@ -10,7 +10,7 @@ Di questo parla il corso. Un **gioco** è qualunque situazione in cui ciò che �
 
 ## Tre ingredienti
 
-Un gioco è descritto da tre cose. I **giocatori**. Le **strategie**: ciò che ogni giocatore può scegliere. I **payoff**: un numero per ogni giocatore, per ogni combinazione di scelte.
+Un gioco è descritto da tre cose. I **giocatori**. Le **strategie**: ciò che ogni giocatore può scegliere. I ***payoff***: un numero per ogni giocatore, per ogni combinazione di scelte.
 
 Con due giocatori e poche strategie ciascuno, tutto questo sta in una tabella, la **forma normale** del gioco. Un giocatore sceglie una riga, l'altro una colonna; ogni cella contiene due numeri, per primo il payoff del giocatore di riga.
 
@@ -74,13 +74,13 @@ John Maynard Keynes disse la stessa cosa nel 1936 a proposito di un concorso su 
 
 ## Quando non c'è nulla da cancellare
 
-La maggior parte dei giochi non ha strategie dominate, e allora l'eliminazione non ha nulla da dire. Un'idea più debole funziona ancora. Una **risposta migliore** a una scelta dell'altro giocatore è una strategia che dà almeno quanto ogni altra contro quella scelta. Una strategia dominante è una risposta migliore a tutto; di solito la risposta migliore cambia con ciò che fa l'altro.
+La maggior parte dei giochi non ha strategie dominate, e allora l'eliminazione non ha nulla da dire. Un'idea più debole funziona ancora. Una **miglior risposta** a una scelta dell'altro giocatore è una strategia che dà almeno quanto ogni altra contro quella scelta. Una strategia dominante è una miglior risposta a tutto; di solito la miglior risposta cambia con ciò che fa l'altro.
 
-Segna in ogni colonna la risposta migliore del giocatore di riga, e in ogni riga quella del giocatore di colonna. Una cella in cui i due segni si incontrano è una **cella stabile**: ciascuno sta facendo il meglio che può data la scelta dell'altro, quindi nessuno vuole spostarsi da solo.
+Segna in ogni colonna la miglior risposta del giocatore di riga, e in ogni riga quella del giocatore di colonna. Una cella in cui i due segni si incontrano è una **cella stabile**: ciascuno sta facendo il meglio che può data la scelta dell'altro, quindi nessuno vuole spostarsi da solo.
 
 ## Un piccolo atlante
 
-Prendi un gioco in cui i due giocatori sono nella stessa posizione. Ognuno può cooperare (C) o defezionare (D). Fissa il payoff della cooperazione reciproca a R = 1 e quello della defezione reciproca a P = 0, con le lettere del modulo 11 del Complexity Lab. Restano due numeri: la tentazione T, per chi defeziona contro un cooperatore, e il payoff dell'ingenuo S, per chi coopera contro un defezionatore.
+Prendi un gioco in cui i due giocatori sono nella stessa posizione. Ognuno può cooperare (C) o defezionare (D). Fissa il payoff della cooperazione reciproca a R = 1 e quello della defezione reciproca a P = 0, con le lettere del modulo 11 del Complexity Lab. Restano due numeri: la tentazione T, per chi defeziona contro un cooperatore, e il payoff del babbeo S, per chi coopera contro un defezionatore.
 
 ```figure
 atlas
@@ -90,10 +90,10 @@ Il piano di T e S ha quattro regioni.
 
 - **Dilemma del prigioniero** (T > 1, S < 0). Defezionare è meglio qualunque cosa faccia l'altro. La tensione è la tentazione.
 - **Caccia al cervo** (T < 1, S < 0). Cooperare è la scelta migliore se l'altro coopera e la peggiore se non lo fa. Due celle stabili, e la tensione è la fiducia.
-- **Gioco del pollo**, detto anche *snowdrift* o falco–colomba (T > 1, S > 0). Ognuno vuole fare il contrario dell'altro. Due celle stabili, e la domanda è chi cede.
+- **Gioco del pollo**, detto anche cumulo di neve (*snowdrift*) o falco–colomba (T > 1, S > 0). Ognuno vuole fare il contrario dell'altro. Due celle stabili, e la domanda è chi cede.
 - **Armonia** (T < 1, S > 0). Cooperare è dominante e nessuno se ne pente.
 
-Due classici non sono su questa mappa. Nella **battaglia dei sessi** i due giocatori vogliono ritrovarsi insieme, ma ciascuno preferisce un posto diverso: coordinamento con dentro un conflitto. In ***matching pennies*** un giocatore vince se due monete mostrano la stessa faccia e l'altro se mostrano facce diverse: conflitto puro, e nessuna cella stabile.
+Due classici non sono su questa mappa. Nella **battaglia dei sessi** i due giocatori vogliono ritrovarsi insieme, ma ciascuno preferisce un posto diverso: coordinamento con dentro un conflitto. Nel **pari o dispari** (*matching pennies*) un giocatore vince se due monete mostrano la stessa faccia e l'altro se mostrano facce diverse: conflitto puro, e nessuna cella stabile.
 
 Il conteggio di 144 risale ad Anatol Rapoport e Melvin Guyer, che nel 1966 elencarono 78 giochi, perché consideravano uguali anche due giochi in cui i giocatori si scambiano i ruoli. Dei 144, tre quarti sono risolti dalla dominanza e hanno una cella stabile; un ottavo ha due celle stabili, e un ottavo non ne ha nessuna.
 

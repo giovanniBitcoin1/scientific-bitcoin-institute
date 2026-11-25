@@ -26,7 +26,7 @@ export default {
       Component: FigureCournot,
       caption: {
         en: 'Where the best responses cross: two firms choose quantities, and the price is 10 minus the total.',
-        it: 'Dove si incrociano le risposte migliori: due imprese scelgono le quantità, e il prezzo è 10 meno il totale.',
+        it: 'Dove si incrociano le rette di reazione: due imprese scelgono le quantità, e il prezzo è 10 meno il totale.',
       },
     },
   },

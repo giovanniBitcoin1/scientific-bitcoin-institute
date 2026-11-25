@@ -14,7 +14,7 @@ export const observe = {
 `,
     it: `
 1. Il pannello si apre sulla tabella casuale n. 1, 3 × 3. Ha due equilibri puri, (1, C) e (3, B), cerchiati nella tabella, e un terzo, misto: il giocatore di riga gioca 1 con probabilità 3/7 e 3 con 4/7, quello di colonna B con 1/8 e C con 7/8. Tre in tutto.
-2. Carica **Sasso-carta-forbici**: un equilibrio, 1/3 ciascuno, valore 0. Poi **Il sasso batte le forbici per 2**: ancora uno, ma ora 1/4, 1/2, 1/4. La mossa che ci ha guadagnato non è la più giocata: lo è la carta.
+2. Carica **Sasso-carta-forbici** (la morra cinese): un equilibrio, 1/3 ciascuno, valore 0. Poi **Il sasso batte le forbici per 2**: ancora uno, ma ora 1/4, 1/2, 1/4. La mossa che ci ha guadagnato non è la più giocata: lo è la carta.
 3. Carica il **calcio di rigore**: un equilibrio, S con 0,385 per il rigorista e 0,420 per il portiere, realizzazione 79,57. Anche **il gioco di Shapley** ne ha uno, un terzo per ogni strategia. Nell'**Esercizio 5** il giocatore di riga mescola U e D metà e metà e non gioca mai M; il valore è 2.
 4. Porta G a 20.000 e premi **Rassegna**. La colonna "Numero pari" è 0 a ogni dimensione. Per m = 2, 0,875 dei giochi hanno un equilibrio e 0,125 tre; per m = 4, 0,536 uno, 0,380 tre, 0,068 cinque e 0,016 sette o più. La media cresce da 1,251 a 2,130.
 5. L'ultima colonna, i giochi senza equilibri puri (0,125, 0,212, 0,253), ripete i numeri del modulo 01 per gli stessi giochi: ognuno di loro ha comunque un equilibrio, misto.
@@ -29,7 +29,7 @@ export const observe = {
 5. **Shapley's game** is different. The runs are 1, 1, 2, 4, 6, 9, 14, 21… and keep growing by about half, so there are 22 runs in 10,000 rounds and 28 in 100,000. The largest gap stays near 0.25 (0.255 at 10,000 rounds), and from round 100 on it never falls below 0.173. The row player's frequencies, 0.274, 0.138 and 0.589, are nowhere near a third each.
 `,
     it: `
-1. Il pannello si apre su *matching pennies* con 10.000 turni. Le prime sequenze sono 1, 2, 3, 4, 5…: ognuna è lunga un turno più della precedente, e quindi le sequenze sono solo 141. Le frequenze si avvicinano comunque a 1/2: lo scarto massimo è 0,0065.
+1. Il pannello si apre sul pari o dispari con 10.000 turni. Le prime sequenze sono 1, 2, 3, 4, 5…: ognuna è lunga un turno più della precedente, e quindi le sequenze sono solo 141. Le frequenze si avvicinano comunque a 1/2: lo scarto massimo è 0,0065.
 2. Porta il cursore a 100.000 turni. Lo scarto massimo era 0,050 dopo 100 turni, 0,017 dopo 1.000, ed è 0,0016 ora. Il gioco non si ferma mai in una cella, ma le frequenze si fermano sull'equilibrio.
 3. In **Sasso-carta-forbici** le sequenze sono 1, 3, 5, 7…, e il payoff medio è il valore, 0. Con **Sasso che vale 2** le frequenze dopo 10.000 turni sono 0,256, 0,496 e 0,248, vicine a 1/4, 1/2, 1/4.
 4. Nel **calcio di rigore** la percentuale media di realizzazione del rigorista è 79,99 dopo 100 turni e 79,51 dopo 10.000, contro un valore di 79,57.
@@ -98,11 +98,11 @@ Mostra che non c'è una cella stabile. Trova l'equilibrio misto e il payoff atte
     type: 'both',
     statement: {
       en: 'The penalty kick with scoring rates 58.30, 94.97 / 92.91, 69.92 (rows: kicker L, R; columns: keeper L, R; R is the kicker\'s natural side). Find both mixes and the value. What do "always L" and "always R" guarantee the kicker? The kicker trains and the R/R rate rises to 80: what changes? Then check it in Figure F2.',
-      it: 'Il calcio di rigore con percentuali di realizzazione 58,30, 94,97 / 92,91, 69,92 (righe: rigorista S, D; colonne: portiere S, D; D è il lato naturale del rigorista). Trova le due miscele e il valore. Che cosa garantiscono al rigorista "sempre a S" e "sempre a D"? Il rigorista si allena e la percentuale D/D sale a 80: che cosa cambia? Poi verificalo nella Figura F2.',
+      it: 'Il calcio di rigore con percentuali di realizzazione 58,30, 94,97 / 92,91, 69,92 (righe: rigorista S, D; colonne: portiere S, D; D è il lato naturale del rigorista). Trova le due strategie miste e il valore. Che cosa garantiscono al rigorista "sempre a S" e "sempre a D"? Il rigorista si allena e la percentuale D/D sale a 80: che cosa cambia? Poi verificalo nella Figura F2.',
     },
     solution: {
       en: 'The keeper\'s mix y (on L) makes the kicker indifferent: 58.30 y + 94.97 (1 − y) = 92.91 y + 69.92 (1 − y), so y = 25.05 / 59.66 = 42.0%. The kicker\'s mix x (on L) makes the keeper indifferent: 58.30 x + 92.91 (1 − x) = 94.97 x + 69.92 (1 − x), so x = 22.99 / 59.66 = 38.5%. The value is 79.57%. Always L guarantees 58.3 (the keeper goes L), always R 69.92. After training: kicker L 26.0%, keeper L 30.2%, value 83.90%. The kicker uses the better side more, the keeper covers it more: in a constant-sum game a change in the kicker\'s payoffs is a change in the keeper\'s too.',
-      it: "La miscela del portiere y (su S) rende indifferente il rigorista: 58,30 y + 94,97 (1 − y) = 92,91 y + 69,92 (1 − y), quindi y = 25,05 / 59,66 = 42,0%. La miscela del rigorista x (su S) rende indifferente il portiere: 58,30 x + 92,91 (1 − x) = 94,97 x + 69,92 (1 − x), quindi x = 22,99 / 59,66 = 38,5%. Il valore è 79,57%. Sempre a S garantisce 58,3 (il portiere va a S), sempre a D 69,92. Dopo l'allenamento: rigorista a S 26,0%, portiere a S 30,2%, valore 83,90%. Il rigorista usa di più il lato migliore, il portiere lo copre di più: in un gioco a somma costante un cambiamento dei payoff del rigorista è anche un cambiamento di quelli del portiere.",
+      it: "Le probabilità della strategia mista del portiere, y (su S), rendono indifferente il rigorista: 58,30 y + 94,97 (1 − y) = 92,91 y + 69,92 (1 − y), quindi y = 25,05 / 59,66 = 42,0%. Quelle del rigorista, x (su S), rendono indifferente il portiere: 58,30 x + 92,91 (1 − x) = 94,97 x + 69,92 (1 − x), quindi x = 22,99 / 59,66 = 38,5%. Il valore è 79,57%. Sempre a S garantisce 58,3 (il portiere va a S), sempre a D 69,92. Dopo l'allenamento: rigorista a S 26,0%, portiere a S 30,2%, valore 83,90%. Il rigorista usa di più il lato migliore, il portiere lo copre di più: in un gioco a somma costante un cambiamento dei payoff del rigorista è anche un cambiamento di quelli del portiere.",
     },
   },
   {
@@ -113,29 +113,29 @@ Mostra che non c'è una cella stabile. Trova l'equilibrio misto e il payoff atte
     },
     solution: {
       en: 'Each plays rock and scissors with probability 1/(2 + a) and paper with a/(2 + a): 1/4, 1/2, 1/4 when a = 2; the value is 0. Each player\'s mix is set by what keeps the other indifferent. Against a mix (r, p, s), rock pays 2s − p and scissors pays p − 2r; for both to pay the same as paper (r − s), which is 0 at the equilibrium, p must be twice s and twice r. Rock gained, so the other player must hold it back: with more paper, which beats rock, and with less scissors, which rock now beats by more.',
-      it: "Ciascuno gioca sasso e forbici con probabilità 1/(2 + a) e carta con a/(2 + a): 1/4, 1/2, 1/4 quando a = 2; il valore è 0. La miscela di ciascun giocatore è quella che tiene indifferente l'altro. Contro una miscela (r, p, s), il sasso rende 2s − p e le forbici p − 2r; perché rendano quanto la carta (r − s), che all'equilibrio è 0, p deve essere il doppio di s e il doppio di r. Il sasso ci ha guadagnato, quindi l'altro giocatore deve tenerlo a freno: con più carta, che batte il sasso, e con meno forbici, che il sasso ora batte di più.",
+      it: "Ciascuno gioca sasso e forbici con probabilità 1/(2 + a) e carta con a/(2 + a): 1/4, 1/2, 1/4 quando a = 2; il valore è 0. La strategia mista di ciascun giocatore è quella che tiene indifferente l'altro. Contro una strategia mista (r, p, s), il sasso rende 2s − p e le forbici p − 2r; perché rendano quanto la carta (r − s), che all'equilibrio è 0, p deve essere il doppio di s e il doppio di r. Il sasso ci ha guadagnato, quindi l'altro giocatore deve tenerlo a freno: con più carta, che batte il sasso, e con meno forbici, che il sasso ora batte di più.",
     },
   },
   {
     type: 'paper',
     statement: {
       en: 'The row player\'s payoffs against the columns L and R are U (4, 0), M (1, 1), D (0, 4). Show that neither U nor D dominates M, and that a mix of U and D does. Which mixes? What if M paid (2, 2)?',
-      it: 'I payoff del giocatore di riga contro le colonne L e R sono U (4, 0), M (1, 1), D (0, 4). Mostra che né U né D domina M, e che una miscela di U e D sì. Quali miscele? E se M rendesse (2, 2)?',
+      it: 'I payoff del giocatore di riga contro le colonne L e R sono U (4, 0), M (1, 1), D (0, 4). Mostra che né U né D domina M, e che una strategia mista fra U e D sì. Quali strategie miste? E se M rendesse (2, 2)?',
     },
     solution: {
       en: 'U loses to M against R (0 < 1), D against L (0 < 1). The mix with weight w on U pays 4w against L and 4(1 − w) against R, both above 1 exactly when 1/4 < w < 3/4. With (2, 2) no mix does it: 4w > 2 and 4(1 − w) > 2 cannot both hold, the half-and-half mix only ties, and M is a best response when the column player mixes half and half.',
-      it: "U perde contro M quando la colonna è R (0 < 1), D quando è L (0 < 1). La miscela con peso w su U rende 4w contro L e 4(1 − w) contro R, entrambi sopra 1 esattamente quando 1/4 < w < 3/4. Con (2, 2) nessuna miscela ci riesce: 4w > 2 e 4(1 − w) > 2 non possono valere insieme, la miscela metà e metà pareggia soltanto, e M è una risposta migliore quando il giocatore di colonna mescola metà e metà.",
+      it: "U perde contro M quando la colonna è R (0 < 1), D quando è L (0 < 1). La strategia mista con probabilità w su U rende 4w contro L e 4(1 − w) contro R, entrambi sopra 1 esattamente quando 1/4 < w < 3/4. Con (2, 2) nessuna strategia mista ci riesce: 4w > 2 e 4(1 − w) > 2 non possono valere insieme, la strategia mista metà e metà pareggia soltanto, e M è una miglior risposta quando il giocatore di colonna mescola metà e metà.",
     },
   },
   {
     type: 'sim',
     statement: {
       en: 'In the simulation. Panel A, "Survey" with G = 20,000: what share of the random games have 1, 3, and 5 or more equilibria at each size; is the number ever even? Panel B: the largest gap after 100, 1,000, 10,000 and 100,000 rounds in matching pennies and in Shapley\'s game. Panel C: the machine\'s win rate against the simulated players with s = 0.6 and with h = 0.6, and against the coin.',
-      it: 'Nella simulazione. Pannello A, "Rassegna" con G = 20.000: che quota dei giochi casuali ha 1, 3, e 5 o più equilibri a ogni dimensione; il numero è mai pari? Pannello B: lo scarto massimo dopo 100, 1.000, 10.000 e 100.000 turni in matching pennies e nel gioco di Shapley. Pannello C: la quota di vittorie della macchina contro i giocatori simulati con s = 0,6 e con h = 0,6, e contro la moneta.',
+      it: 'Nella simulazione. Pannello A, "Rassegna" con G = 20.000: che quota dei giochi casuali ha 1, 3, e 5 o più equilibri a ogni dimensione; il numero è mai pari? Pannello B: lo scarto massimo dopo 100, 1.000, 10.000 e 100.000 turni nel pari o dispari e nel gioco di Shapley. Pannello C: la quota di vittorie della macchina contro i giocatori simulati con s = 0,6 e con h = 0,6, e contro la moneta.',
     },
     solution: {
       en: 'At m = 2: 0.875 and 0.125; at m = 3: 0.707, 0.276 and 0.017; at m = 4: 0.536, 0.380 and 0.084; never even. Matching pennies: 0.050, 0.017, 0.0065, 0.0016. Shapley\'s game: 0.217, 0.255, 0.255, 0.251, about 0.25 from 1,000 rounds on. The machine: 0.595, 0.597 and 0.500.',
-      it: 'Per m = 2: 0,875 e 0,125; per m = 3: 0,707, 0,276 e 0,017; per m = 4: 0,536, 0,380 e 0,084; mai pari. Matching pennies: 0,050, 0,017, 0,0065, 0,0016. Gioco di Shapley: 0,217, 0,255, 0,255, 0,251, circa 0,25 da 1.000 turni in poi. La macchina: 0,595, 0,597 e 0,500.',
+      it: 'Per m = 2: 0,875 e 0,125; per m = 3: 0,707, 0,276 e 0,017; per m = 4: 0,536, 0,380 e 0,084; mai pari. Pari o dispari: 0,050, 0,017, 0,0065, 0,0016. Gioco di Shapley: 0,217, 0,255, 0,255, 0,251, circa 0,25 da 1.000 turni in poi. La macchina: 0,595, 0,597 e 0,500.',
     },
   },
 ]

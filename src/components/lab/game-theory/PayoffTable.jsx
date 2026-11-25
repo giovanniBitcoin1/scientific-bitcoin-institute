@@ -166,7 +166,7 @@ export default function PayoffTable({
 export function TableLegend({ lang = 'en', marks = true }) {
   const t =
     lang === 'it'
-      ? { row: 'giocatore di riga', col: 'giocatore di colonna', best: 'sottolineato: risposta migliore', stable: 'bordo arancione: cella stabile' }
+      ? { row: 'giocatore di riga', col: 'giocatore di colonna', best: 'sottolineato: miglior risposta', stable: 'bordo arancione: cella stabile' }
       : { row: 'row player', col: 'column player', best: 'underlined: best response', stable: 'orange frame: stable cell' }
   return (
     <p className="mt-2 text-xs text-slate-500 leading-snug">
