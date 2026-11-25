@@ -161,7 +161,7 @@ uses it and the regression compare.
 | 06 | II | `repeated-games-reputation` | done | the commit "Game Theory Lab 06: Repeated games and reputation" | A Can the cartel hold?; B Price wars without cheating; C A reputation for toughness | `patience`, `folk` |
 | 07 | II | `evolution-and-learning` | done | the commit "Game Theory Lab 07: Evolution and learning" | A Rock, paper, scissors in a population; B One mutant; C Learning by regret | `fates`, `traffic` |
 | 08 | III | `congestion-price-of-anarchy` | done | the commit "Game Theory Lab 08: Congestion and the price of anarchy" | A How bad can it get?; B Drivers who count; C Sharing the cost of a road | `tworoads`, `braess` |
-| 09 | III | `games-on-networks` | planned | | | |
+| 09 | III | `games-on-networks` | done | the commit "Game Theory Lab 09: Games on networks" | A Who does the work?; B The key player; C Building the network | `star`, `formation` |
 | 10 | III | `coalitions-sharing` | planned | | | |
 | 11 | IV | `auctions` | planned | | | |
 | 12 | IV | `mechanism-design` | planned | | | |
@@ -431,20 +431,89 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | hub | *hub* (kept, as in the Network Lab; l'hub) | 08 |
 | shortcut; upper, lower, zigzag route | scorciatoia; percorso in alto, in basso, a zigzag | 08 |
 | driver; planner | automobilista; pianificatore | 08 |
+| games on networks; graphical games | giochi su reti; giochi grafici | 09 |
+| neighbour | vicino | 09 |
+| strategic complements, substitutes | complementi strategici, sostituti strategici | 09 |
+| local public good | bene pubblico locale (beni pubblici locali, the public-finance term, "lungo i collegamenti della rete" at first use) | 09 |
+| specialized equilibrium | equilibrio specializzato (no Italian source; the calque) | 09 |
+| maximal independent set | insieme indipendente massimale (it.wikipedia) | 09 |
+| key player | giocatore chiave (*key player* at first use; no Italian source) | 09 |
+| intercentrality | intercentralità (no Italian source) | 09 |
+| Katz–Bonacich centrality | centralità di Katz–Bonacich (no Italian source; Italian authors write it in English) | 09 |
+| (strategic) network formation | formazione (strategica) delle reti (Padova theses: "formazione di reti") | 09 |
+| pairwise stable, pairwise stability | stabile a coppie, stabilità a coppie (*pairwise stability* at first use; no Italian source) | 09 |
+| efficient network | rete efficiente (Fagnani, PoliTo) | 09 |
+| connections model | modello delle connessioni (*connections model* at first use; no Italian source) | 09 |
+| star, complete network, empty network | stella, rete completa, rete vuota | 09 |
+| bridge (network); line; ring; grid | rete a ponte ("Ponte" on the pill); linea; anello; griglia | 09 |
+| payment channel | canale di pagamento (PoliTo and UniBo theses) | 09 |
+| routing fee | commissione di instradamento (Italian Lightning explainers) | 09 |
+| betweenness centrality | centralità di intermediazione (*betweenness*) | 09 |
+| core–periphery | centro–periferia | 09 |
+| run (of best responses, of the dynamics); turn; step | prova; giro; passo | 09 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 8 is finished: stage 0 and module 08 in
-6af4fff "Game Theory Lab 08: Congestion and the price of anarchy" (two WIP
-commits squashed), the report `docs/reports/game-theory-lab-08.md` and the
-working log `docs/reports/game-theory-lab-08-log.md` in "Game Theory Lab
-08: report". The whole CHECKS list ran on the final code before the
-squash: 0 failures everywhere.
+Nothing in progress. Prompt 9: stage 0 and module 09 are in the commit
+"Game Theory Lab 09: Games on networks" (WIP commits squashed); the report
+`docs/reports/game-theory-lab-09.md` and the working log follow in their own
+commit, "Game Theory Lab 09: report". The whole CHECKS list ran on the final
+code before the squash: 0 failures everywhere.
 ## Next
 
-Module 09, `games-on-networks`, when its prompt is there.
+Module 10, `coalitions-sharing`, when its prompt is there.
 
 ## Open items
+
+- Module 09, things a later module may reuse, all in `games-on-networks/`:
+  `netgames.js` (small networks from link lists, the presets with fixed
+  layouts, eigenvalues by cyclic Jacobi rotations, inverse by Gauss–Jordan,
+  the linear game x_i = max(0, 1 + δ Σ g x) by best responses in turn, the
+  star's closed form), `publicgoods.js` (maximal independent sets by
+  bitmask, stability of order 2, the seeded runs), `keyplayer.js`
+  (Katz–Bonacich efforts, intercentralities, removal, the slider's end
+  below 1/λ_max, crossings by bisection), `connections.js` (networks of
+  up to 31 players as neighbour bitmasks, the connections model's
+  utilities by BFS, pairwise stability pair by pair, the Jackson–Watts
+  dynamics, brute force over all networks of n ≤ 6), `NetDraw.jsx` (an SVG
+  network with sizes, colours and clickable nodes). Module 10 can start from
+  `connections.js` (the value of links) and module 14 from `keyplayer.js`.
+- Module 09, choices to review: F1 stops at ±0.45 and its chart marks ±0.5
+  as the limits; at δ = −0.25 exactly the regime reads "the hub does
+  nothing"; F2's point snaps to 0.01 within δ 0.01–0.99, c 0.01–2, and the
+  readout explains why the star is not stable (a hub's cut above δ, two
+  leaves' link below δ − δ²); at the two thresholds the star counts as
+  pairwise stable (a gain of exactly 0 is not strict; gains within 1e-12
+  count as 0). Panel A's "Best responses" shows the end at once, with the
+  start and the turns; changing the network goes back to run no. 1. Panel
+  B's ties (the ring) go to the lower number; a removal can also be made
+  from the table. Panel C's run n draws its random start and its pairs from
+  one generator seeded n; the end is checked after every change (and before
+  the first step), so the step count is the number of draws until the
+  network is stable; any change of setting goes back to the start of the
+  same run. Figure heights: F1 443 px at 1280 (EN and IT; the prompt's guide
+  was about 380), F2 445 (462 IT); at 375 px 608 and 746.
+- Module 09, findings the texts state: everything as the prompt expected,
+  except the "expected" values of the lab's generator: Panel A runs 1–20,
+  line {1, 3, 5} 19 and not specialized 1, ring 9 and 11, grid {1, 3, 5, 7,
+  9} 17, not specialized 3, never {2, 4, 6, 8}; Panel C (8, 0.5, 0.4) from
+  empty, runs 1–20: 8–10 links, 9.60–10.50 (9.55 only from the random start;
+  runs 1–200 from empty 7–10 links, 9.55–10.65); F1's leaf at δ = 0.3 is
+  2.03125, shown 2.0313.
+- Module 09, sources (November 2026, details in the log): the author of the
+  two public-goods papers is Rachel Kranton (the prompt had "Kranz");
+  Bramoullé–Kranton's stability theorem (order 2) from secondary sources
+  quoting it; the uniqueness condition |λ_min| δ < 1 is sufficient (the
+  lecture says "unique when"); Ballester et al.'s crime networks are in the
+  working paper's title, not the article's motivation (softened); Jackson
+  2008 ch. 9 is "Decisions, Behavior, and Games on Networks"; Avarikioti
+  2019 has no price-of-anarchy result (the box gives that to 2020 only).
+- Module 09 texts quote numbers pinned by `check-game-theory-09.mjs` (under
+  1 s) and by `browser-checks/modules/game-theory-games-on-networks.mjs`.
+  Module chunk 76.8 kB (27.5 kB gzip).
+- Module 08 since prompt 9 (stage 0): the potential sentence of "Equal
+  costs, and a hidden objective" rewritten; the Italian lecture trimmed by
+  16 words elsewhere in its first section to stay within 1,700 words.
 
 - Module 08, things a later module may reuse, all in
   `congestion-price-of-anarchy/`: `frac.js` (exact fractions on BigInt,

@@ -4,9 +4,9 @@
 
 La Parte III parla di molti giocatori che condividono qualcosa. Qui sono le strade. Ogni automobilista sceglie il percorso più veloce per sé, e il percorso che sceglie rallenta tutti gli altri che lo usano. Nessuno è cattivo né confuso; il guaio è che nessuno paga il ritardo che causa agli altri. Quanto è peggiore il risultato di quello che sceglierebbe un pianificatore?
 
-Arthur Pigou (1920) diede l'esempio che apre ancora oggi l'argomento. Un'unità di traffico va da A a B. La strada in alto è larga e lunga: richiede sempre 1 ora. La strada in basso è corta e stretta: richiede x ore, dove x è la quota degli automobilisti che la percorrono. Per ciascuno la strada in basso non è mai più lenta di 1 ora, quindi gli automobilisti egoisti la prendono tutti, e ognuno di loro impiega 1 ora.
+Arthur Pigou (1920) diede l'esempio che apre ancora l'argomento. Un'unità di traffico va da A a B. La strada in alto è larga e lunga: richiede sempre 1 ora. La strada in basso è corta e stretta: richiede x ore, dove x è la quota degli automobilisti che la percorrono. Per ciascuno la strada in basso non è mai più lenta di 1 ora, quindi gli egoisti la prendono tutti, e ognuno impiega 1 ora.
 
-Un pianificatore che manda metà degli automobilisti da una parte e metà dall'altra fa meglio. Chi è sulla strada in alto impiega 1 ora, chi è su quella in basso mezz'ora, e la media è 3/4. Chi il pianificatore manda in alto sta peggio degli egoisti, ma la media scende di un quarto.
+Un pianificatore che divide gli automobilisti a metà fa meglio. Chi va in alto impiega 1 ora, chi va in basso mezz'ora, e la media è 3/4. Chi il pianificatore manda in alto sta peggio degli egoisti, ma la media scende di un quarto.
 
 Il rapporto tra il costo del risultato egoista e quello migliore, qui 4/3, è il **prezzo dell'anarchia**. Elias Koutsoupias e Christos Papadimitriou (1999) introdussero l'idea di misurare così un equilibrio rispetto all'ottimo, come *coordination ratio*; il nome arrivò poco dopo (Papadimitriou 2001). Se la strada in basso richiede x^p ore, gli egoisti la prendono ancora tutti, mentre il pianificatore ne tiene lontani sempre di più al crescere di p; il rapporto cresce senza limite: 1,626 per p = 2, 2,151 per p = 4, 3,512 per p = 10.
 
@@ -30,7 +30,7 @@ mentre il pianificatore minimizza il costo totale
 C(f) = Σ_e f_e c_e(f_e)
 ```
 
-Φ è un **potenziale**: cambia come cambierebbe il costo di un singolo automobilista. I due problemi hanno la stessa forma. L'ottimo è l'equilibrio per i **costi marginali** c_e(x) + x c_e'(x), perché la derivata di x c_e(x) è il costo che un automobilista incontra più il ritardo che aggiunge a tutti gli altri.
+Φ è un **potenziale**: spostare un po' di traffico da un percorso a un altro cambia Φ di quella quantità moltiplicata per la differenza tra i costi dei due percorsi. I due problemi hanno la stessa forma. L'ottimo è l'equilibrio per i **costi marginali** c_e(x) + x c_e'(x), perché la derivata di x c_e(x) è il costo che un automobilista incontra più il ritardo che aggiunge a tutti gli altri.
 
 Quindi un **pedaggio** uguale a x c_e'(x), il ritardo che un automobilista impone agli altri, porta gli egoisti a scegliere l'ottimo. È l'idea di Pigou di un'imposta su un'**esternalità**, l'**imposta pigouviana**. Nel suo esempio il pedaggio sulla strada in basso è 1/2 nella ripartizione del pianificatore: lì tempo più pedaggio fa 1/2 + 1/2 = 1, come la strada in alto, e gli automobilisti si dividono come vuole il pianificatore. Ognuno paga ancora 1, in tempo o in tempo più pedaggio, e l'1/4 risparmiato va all'incasso del pedaggio.
 
@@ -54,7 +54,7 @@ L'esempio di Pigou con x^p mostra già che in generale il prezzo dell'anarchia n
 
 Roughgarden (2003) mostrò poi che non è un caso. Per una classe di costi, il caso peggiore è sempre una rete alla Pigou di due strade parallele, una con costo costante; la topologia della rete non conta. Quindi il limite per costi di grado p è il rapporto di Pigou della prima sezione: 1,626 per p = 2, 1,896 per p = 3, 2,151 per p = 4.
 
-Senza alcun limite sui costi resta una garanzia di altro tipo (Roughgarden e Tardos 2002): l'equilibrio non costa più di quanto costerebbe l'ottimo con il doppio del traffico. L'egoismo non costa più che raddoppiare la domanda. Le reti casuali di solito vanno molto meglio del caso peggiore: il Pannello A mostra quanto.
+Senza alcun limite sui costi resta una garanzia di altro tipo (Roughgarden e Tardos 2002): l'equilibrio non costa più di quanto costerebbe l'ottimo con il doppio del traffico. L'egoismo non costa più che raddoppiare la domanda. Le reti casuali di solito vanno molto meglio: il Pannello A mostra quanto.
 
 ## Automobilisti che contano
 

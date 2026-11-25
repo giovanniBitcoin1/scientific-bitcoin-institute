@@ -30,7 +30,7 @@ while the planner minimises the total cost
 C(f) = Σ_e f_e c_e(f_e)
 ```
 
-Φ is a **potential**: it changes as a single driver's cost would. The two problems have the same form. The optimum is the equilibrium for the **marginal costs** c_e(x) + x c_e'(x), since the derivative of x c_e(x) is the cost a driver meets plus the delay he adds to all the others.
+Φ is a **potential**: moving a little traffic from one route to another changes Φ by that amount times the difference between the two routes' costs. The two problems have the same form. The optimum is the equilibrium for the **marginal costs** c_e(x) + x c_e'(x), since the derivative of x c_e(x) is the cost a driver meets plus the delay he adds to all the others.
 
 So a toll equal to x c_e'(x), the delay a driver imposes on the others, makes selfish drivers choose the optimum. This is Pigou's idea of a tax on an **externality**. In his example the toll on the lower road is 1/2 at the planner's split: time plus toll is 1/2 + 1/2 = 1 there, the same as the upper road, so drivers split as the planner wishes. Each still pays 1, in time or in time plus toll, and the 1/4 saved goes to the toll revenue.
 
