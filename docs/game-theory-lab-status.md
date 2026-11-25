@@ -145,7 +145,7 @@ uses it and the regression compare.
 |---|---|---|---|---|---|---|
 | 01 | I | `what-is-a-game` | done | the commit "Game Theory Lab 01: What is a game?" | A Game explorer; B Guess two thirds of the average; C How far does dominance go? | `eliminate`, `atlas` |
 | 02 | I | `nash-equilibrium` | done | the commit "Game Theory Lab 02: Nash equilibrium" | A Find the equilibria; B Which convention?; C A contest for a prize | `staghunt`, `cournot` |
-| 03 | I | `mixed-strategies-zero-sum` | planned | | | |
+| 03 | I | `mixed-strategies-zero-sum` | done | the commit "Game Theory Lab 03: Mixed strategies and zero-sum games" | A All the equilibria; B Learning to mix; C Can you be read? | `square`, `minimax` |
 | 04 | I | `sequential-games-commitment` | planned | | | |
 | 05 | II | `incomplete-information-signalling` | planned | | | |
 | 06 | II | `repeated-games-reputation` | planned | | | |
@@ -281,27 +281,51 @@ Added in module 02:
 | walk (of best responses), cycle | cammino, ciclo |
 | sweep, run, sample | passata, prova, campione |
 | to settle, to swing | assestarsi, oscillare |
+Added in module 03:
+
+| English | Italian |
+|---|---|
+| mixed strategy | strategia mista |
+| pure strategy | strategia pura |
+| mix (noun) | miscela |
+| expected payoff | payoff atteso |
+| indifference | indifferenza |
+| zero-sum game | gioco a somma zero |
+| constant-sum game | gioco a somma costante |
+| value of the game | valore del gioco |
+| best worst case (maxmin) | miglior caso peggiore (maxmin) |
+| minimax theorem | teorema del minimax |
+| support | supporto |
+| fictitious play | gioco fittizio (*fictitious play*) |
+| run (rounds in the same cell) | sequenza |
+| fixed-point theorem | teorema di punto fisso |
+| penalty kick | calcio di rigore |
+| kicker | rigorista |
+| keeper | portiere |
+| natural side | lato naturale |
+| L, R (sides) | S, D |
+| heads, tails | testa, croce |
+| rock-paper-scissors | sasso-carta-forbici |
+| win rate (of the machine) | quota di vittorie |
+| spread (standard deviation) | dispersione (deviazione standard) |
 
 ## Work in progress
 
-Prompt 3 (`prompts.local/game-theory-lab-03.md`), in progress. Working log:
+Prompt 3 (`prompts.local/game-theory-lab-03.md`). Working log:
 `docs/reports/game-theory-lab-03-log.md` (read it first).
 
-- Stage 0 (module 02 fixes: rounder wording in "Safe or sorry", source
-  pass): in the commit "Game Theory Lab 02: fixes".
-- Module 03 `mixed-strategies-zero-sum`: not started.
+- Stage 0: done, the commit "Game Theory Lab 02: fixes".
+- Module 03: done, the commit "Game Theory Lab 03: Mixed strategies and
+  zero-sum games" (four WIP commits squashed). The whole CHECKS list was
+  run on the final code before the squash: 0 failures everywhere (log).
 
-Remains: module 03 in the order of "How to resume", the checks, the squash,
-the report.
+Remains: the report, `docs/reports/game-theory-lab-03.md`, in its own
+commit "Game Theory Lab 03: report" with the log. Until that commit
+exists the prompt is not finished.
+
 ## Next
 
-Module 03, `mixed-strategies-zero-sum`, when its prompt
-(`prompts.local/game-theory-lab-03.md`) is there. Module 02 ends on the
-games with no equilibrium in pure strategies (one two-by-two game in eight,
-about a third of the large random ones, matching pennies the smallest) and
-promises that they have one once the players may mix. Module 01's Panel C
-already says that module 03 will add dominance by mixtures.
-
+Module 04, `sequential-games-commitment`, when its prompt is there.
 ## Open items
 
 - The lectures of modules 01 and 02 carry the DRAFT marker: to be reviewed
@@ -437,3 +461,41 @@ already says that module 03 will add dominance by mixtures.
   `scripts/lab/browser-checks/modules/game-theory-nash-equilibrium.mjs`.
   Shares in per cent are written by `percent` in `contest.js` (the page and
   the check use the same function).
+- Module 03, things a later module may reuse, all in
+  `mixed-strategies-zero-sum/`: `support.js` (every equilibrium of a
+  two-player game by support enumeration, with a small linear solver; a
+  degeneracy flag; whole-payoff random tables redrawn until nondegenerate;
+  `showNumber` writes simple fractions; the survey of module 01's games),
+  `mixed.js` (two-by-two indifference formulas, the best-response step
+  lines of the square, the penalty kick and its best worst cases,
+  rock-paper-scissors with a weight, Shapley's game, dominance by a
+  mixture), `fictitious.js` (fictitious play with marks, runs and gaps),
+  `reader.js` (the pattern-reading machine and simulated players). Module
+  07 can start from `fictitious.js`.
+- Module 03, choices to review: the sides of the penalty kick follow
+  Palacios-Huerta (R = the kicker's natural side), not the prompt (which had
+  L = natural); the four rates are presented as "of the size he measured"
+  (one of them, 69.92, differs from a secondary reproduction of his table);
+  F1 has one stag hunt (the classic of module 01 is the game of module 02);
+  F1 uses a select, not pills, to stay short; F2's sliders have two
+  decimals; the lecture's indifference "surprise" uses exercise 1 with
+  (U, L) raised to 5 (only the column player's mix moves), because in the
+  penalty kick both mixes move (constant-sum); exercise 5 in Panel A gives
+  the column player 4 minus the row payoff; the survey uses the same G for
+  all three sizes (the lecture quotes G = 20,000); Panel B rounds snap to
+  two significant digits; Panel C's coin uses its own seed per press; in
+  fictitious play the first run is round 1 alone (so 1, 2, 3… rather than
+  the prompt's 2, 3, 4…). F1 is 310 px tall at 1280 px in English (325 in
+  Italian) and F2 309 px (347 in Italian); at 375 px 599/572 (614/610).
+- Module 03, sources (November 2026, details in the log
+  `docs/reports/game-theory-lab-03-log.md` and in report 03): Palacios-Huerta
+  2003 (1,417 kicks, 1995–2000, equal scoring rates and no serial pattern:
+  from the abstract; the paper itself not reached), Walker and Wooders 2001
+  (author PDF), Brown, Robinson, Shapley, von Neumann, Nash, Wilson,
+  Harsanyi 1973, Chiappori et al. confirmed through publisher, Crossref or
+  scans; Wagenaar 1972 not read, Falk and Konold 1997 added for "alternate
+  too much".
+- Module 03 texts quote numbers pinned by `check-game-theory-03.mjs`
+  (about 30 s; run it whole) and by
+  `browser-checks/modules/game-theory-mixed-strategies-zero-sum.mjs`.
+  Module chunk 72.3 kB (26.2 gzip); it shares the `randomgames-…` chunk.

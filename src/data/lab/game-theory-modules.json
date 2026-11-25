@@ -23,7 +23,7 @@
     "slug": "mixed-strategies-zero-sum",
     "number": "03",
     "part": "I",
-    "status": "coming-soon",
+    "status": "ready",
     "title_en": "Mixed strategies and zero-sum games",
     "title_it": "Strategie miste e giochi a somma zero",
     "summary_en": "When it pays to be unpredictable, and what the minimax theorem guarantees.",
