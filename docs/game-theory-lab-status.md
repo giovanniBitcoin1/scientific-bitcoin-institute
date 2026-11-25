@@ -158,7 +158,7 @@ uses it and the regression compare.
 | 03 | I | `mixed-strategies-zero-sum` | done | the commit "Game Theory Lab 03: Mixed strategies and zero-sum games" | A All the equilibria; B Learning to mix; C Can you be read? | `square`, `minimax` |
 | 04 | I | `sequential-games-commitment` | done | the commit "Game Theory Lab 04: Games in time and credible commitment" | A Solve the tree; B Leader and follower; C Dividing a pie | `entry`, `pie` |
 | 05 | II | `incomplete-information-signalling` | done | the commit "Game Theory Lab 05: Incomplete information and signals" | A The market that empties; B Separate or pool?; C Words that cost nothing | `types`, `doubt` |
-| 06 | II | `repeated-games-reputation` | planned | | | |
+| 06 | II | `repeated-games-reputation` | done | the commit "Game Theory Lab 06: Repeated games and reputation" | A Can the cartel hold?; B Price wars without cheating; C A reputation for toughness | `patience`, `folk` |
 | 07 | II | `evolution-and-learning` | planned | | | |
 | 08 | III | `congestion-price-of-anarchy` | planned | | | |
 | 09 | III | `games-on-networks` | planned | | | |
@@ -369,26 +369,85 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | noise | rumore | 05 |
 | tough, weak (incumbent) | duro, debole (un incumbent duro, debole) | 05 |
 | no talk | senza parole | 05 |
+| repeated game | gioco ripetuto | 06 |
+| stage game | gioco costituente | 06 |
+| average payoff | payoff medio | 06 |
+| grim trigger, trigger strategy | *grim trigger*, strategia *trigger* | 06 |
+| patience threshold | soglia di pazienza | 06 |
+| one-shot deviation principle | *one-shot deviation principle* (kept: no Italian name found) | 06 |
+| folk theorem | *folk theorem* (kept) | 06 |
+| feasible, individually rational | ammissibile, individualmente razionale | 06 |
+| minmax payoff | payoff di minmax | 06 |
+| public lottery | lotteria pubblica | 06 |
+| tacit collusion | collusione tacita | 06 |
+| price war | guerra dei prezzi | 06 |
+| imperfect monitoring | monitoraggio imperfetto | 06 |
+| trigger price | *trigger price* (gloss: il prezzo soglia) | 06 |
+| false alarm | falso allarme | 06 |
+| chain-store paradox | paradosso del *chain store* (gloss: della catena di negozi) | 06 |
+| reputation | reputazione | 06 |
+| block withholding | *block withholding* (kept); infiltrazione | 06 |
+| the miner's dilemma | il dilemma dei miner | 06 |
+| to cheat (in a cartel), a cheat | imbrogliare, chi imbroglia | 06 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 5 is finished: stage 0 in 1fa2004 "Game
-Theory Lab 04: fixes", module 05 in e0c460e "Game Theory Lab 05:
-Incomplete information and signals" (two WIP commits squashed), the report
-`docs/reports/game-theory-lab-05.md` and the working log
-`docs/reports/game-theory-lab-05-log.md` in "Game Theory Lab 05: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere.
+Prompt 6. Stage 0 is done: 8601885 "Game Theory Lab: Italian terms".
+Module 06, `repeated-games-reputation`, is done: "Game Theory Lab 06:
+Repeated games and reputation" (three WIP commits squashed). The whole
+CHECKS list ran on the final code before the squash: 0 failures
+everywhere. Remains: the report `docs/reports/game-theory-lab-06.md`,
+committed with the working log `docs/reports/game-theory-lab-06-log.md` as
+"Game Theory Lab 06: report".
+
 ## Next
 
-Module 06, `repeated-games-reputation`, when its prompt is there.
+Module 07, `evolution-and-learning`, when its prompt is there.
 ## Open items
 
-- The lectures of modules 01 to 05 carry the DRAFT marker: to be reviewed
+- The lectures of modules 01 to 06 carry the DRAFT marker: to be reviewed
   by Adriano (the markers stay until then).
 - The entry game has one payoff order everywhere: (newcomer, incumbent),
   the newcomer as player 0 in the first player's colour, even when the
   firm moves first (stage 0 of prompt 5). Module 06 keeps it.
+- Module 06, things a later module may reuse, all in
+  `repeated-games-reputation/`: `repeated.js` (grim trigger's threshold and
+  averages; the plane of average payoffs: feasible set, individually
+  rational set, lottery weights, the patience a point needs, the sustainable
+  polygons by half-plane clipping), `collusion.js` (the n-firm cartel with
+  Cournot or Bertrand punishment, the closed-form held output and its
+  bisection), `greenporter.js` (Green–Porter with normal noise: alarms,
+  margin, value, best rule, least δ; samples with the lab's Box–Muller; Φ from
+  module 05's `globalgame.js`, now a 0.85 kB shared chunk), `chainstore.js`
+  (Kreps–Wilson: deterred markets, the mixing probability, exact expectations
+  by memoized recursion, histories, simulations), `minersdilemma.js` (Eyal's
+  revenues, best responses by grid and golden section, equilibrium by
+  alternating best responses). Module 07 can start from `repeated.js`; modules
+  10 and 13 from `minersdilemma.js`.
+- Module 06, choices to review: F2's point moves by mouse, by arrow keys
+  (0.05) and by touch only with "Move" on (DrawToggle rule); clicks snap to
+  0.01; check-module.mjs now treats an SVG marked `data-draw-surface` as a
+  canvas (prompt 6). Panel A's y axis spans punishment to cartel with a
+  margin (from 0 with Bertrand); its table of thresholds is n by rows.
+  Panel B's "New sample" n uses seed n; "Best rule" breaks ties to the lowest
+  p̄; chart 2 is computed once when the chunk loads. Panel C opens on a weak
+  incumbent; "New history" n uses seed n (for "drawn" the first draw picks
+  the type); "10,000 chains" uses seed 1 and is hidden when t, N or w
+  change. The Italian keeps *one-shot deviation principle* and *trigger
+  price* in English (no Italian source found). Figure heights: F1 383 px at
+  1280 EN (403 IT), F2 391 (407); at 375 445 and 627 px.
+- Module 06, findings the texts state: everything as the prompt expected;
+  100,000 rounds at Panel B's defaults give quiet shares 0.8943–0.9011 over
+  seeds 1–10; 10,000 chains give 6.1621–6.1856 entries and 0.8144–0.8379
+  fights over seeds 1–10, and the weak payoff 66 in every chain.
+- Module 06, sources (November 2026, details in the log): all citations
+  confirmed; Blackwell (1965) added for the one-shot deviation principle;
+  Selten's 20 towns, KMRW's Tit for Tat type and Porter's Chicago–New York
+  grain from secondary sources; Eyal's reading of the rare attacks quoted
+  from arXiv v2; Tadelis ch. 10 is "Repeated Games".
+- Module 06 texts quote numbers pinned by `check-game-theory-06.mjs` (about
+  2 s) and by `browser-checks/modules/game-theory-repeated-games-reputation.mjs`.
+  Module chunk 78.9 kB.
 - Shared by the lab since module 01: `src/components/lab/game-theory/PayoffTable.jsx`
   (the payoff table of a two-player game of any size: marks for best
   responses, greyed strategies, ringed stable cells, a compact mode, optional

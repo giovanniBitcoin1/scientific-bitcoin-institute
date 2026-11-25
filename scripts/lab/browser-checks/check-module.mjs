@@ -7,7 +7,8 @@
 // (lecture, counts of live figures, panels, exercises and canvases, solutions
 // open, nothing wider than the viewport, no console errors); at 375 px with a
 // touch screen, a swipe over every canvas scrolls the page while Draw is off,
-// and does not when a Draw toggle is on.
+// and does not when a Draw toggle is on. An SVG that a Draw toggle arms is
+// marked data-draw-surface and is tested (and counted) as a canvas.
 //
 // Expected counts come from expect.json ("<labId>/<slug>") or from the flags;
 // without either they are only reported.
@@ -73,7 +74,7 @@ for (const width of WIDTHS) {
     ok(`${tag} admin: lecture shown${locked ? ' with the admin bar' : ''}`, (!heading || has(t, heading)) && (!locked || has(t, COPY.bar[lang])), `heading "${heading}"`)
     const found = await p.evaluate((show) => ({
       figures: document.querySelectorAll('figure').length,
-      canvases: document.querySelectorAll('canvas').length,
+      canvases: document.querySelectorAll('canvas, [data-draw-surface]').length,
       exercises: [...document.querySelectorAll('button')].filter((b) => new RegExp(show, 'i').test(b.innerText)).length,
       panels: document.querySelectorAll('main section .space-y-14 > div').length,
       figureHeights: [...document.querySelectorAll('figure > div')].map((e) => Math.round(e.getBoundingClientRect().height)),
@@ -100,7 +101,7 @@ for (const width of WIDTHS) {
       const swipe = await makeSwipe(p)
       const place = (k) =>
         p.evaluate((i) => {
-          const c = document.querySelectorAll('canvas')[i]
+          const c = document.querySelectorAll('canvas, [data-draw-surface]')[i]
           c.scrollIntoView({ block: 'center', behavior: 'instant' })
           const r = c.getBoundingClientRect()
           return { x: r.left + r.width / 2, y: r.top + r.height / 2, h: r.height, w: r.width, ta: getComputedStyle(c).touchAction }
@@ -119,11 +120,11 @@ for (const width of WIDTHS) {
       const toggles = await p.$$eval('button', (bs) => bs.filter((b) => /^\s*✎/.test(b.innerText)).length)
       for (let k = 0; k < toggles; k++) {
         const armed = await p.evaluate((i) => {
-          const before = [...document.querySelectorAll('canvas')].map((c) => getComputedStyle(c).touchAction)
+          const before = [...document.querySelectorAll('canvas, [data-draw-surface]')].map((c) => getComputedStyle(c).touchAction)
           ;[...document.querySelectorAll('button')].filter((b) => /^\s*✎/.test(b.innerText))[i].click()
           return new Promise((resolve) =>
             setTimeout(() => {
-              const now = [...document.querySelectorAll('canvas')].map((c) => getComputedStyle(c).touchAction)
+              const now = [...document.querySelectorAll('canvas, [data-draw-surface]')].map((c) => getComputedStyle(c).touchAction)
               resolve(now.findIndex((ta, j) => ta === 'none' && before[j] !== 'none'))
             }, 300),
           )
