@@ -26,7 +26,7 @@ export const observe = {
 2. Read the last column. The players who say 0 are on average 19.9 away from the target, further than level 1 (13.5). Only the random guessers do worse (34.1).
 3. Load **Deep thinkers**: the expected mean is 15.56 and the target 10.37. Level 3, which says about 9.9, wins every one of the 1,000 plays.
 4. Load **Half at equilibrium**: the target is about 9.5 and no group stands near it. Level 0 wins 615 times and level 3 385 times.
-5. Back to the default, press **10 more rounds**. The mean falls quickly (29.4, 17.5, 10.5, 6.4…) and then stalls a little above 1: a guess cannot go below 0, so the noise can only push the mean up. Set the noise to 0 and the mean falls below 1 in round 8.
+5. Back to the default, press **10 more rounds**. Every round multiplies the mean by about 0.6 (29.4, 17.5, 10.4, 6.3, 3.7, 2.2, 1.3, 0.8) and it falls below 1 in round 8, with the noise or without it: from the second round the noise shrinks in proportion to the mean, so it never holds the crowd up. With p = 0.90 the same fall takes 22 rounds, with p = 1/2 only 6, and the deep thinkers need 4.
 6. With the default shares, set p to 0.90 and play 1,000 times: the target is close to 37 and levels 2 and 3 share the wins almost evenly, 468 and 474. With p = 1/2 level 2 wins 960 times.
 `,
     it: `
@@ -34,7 +34,7 @@ export const observe = {
 2. Leggi l'ultima colonna. Chi dice 0 è in media a 19,9 dal bersaglio, più lontano del livello 1 (13,5). Fa peggio solo chi sceglie a caso (34,1).
 3. Carica **Pensatori profondi**: la media attesa è 15,56 e il bersaglio 10,37. Il livello 3, che dice circa 9,9, vince tutte le 1.000 partite.
 4. Carica **Metà all'equilibrio**: il bersaglio è circa 9,5 e nessun gruppo gli sta vicino. Il livello 0 vince 615 volte e il livello 3 385 volte.
-5. Torna ai valori predefiniti e premi **Altri 10 turni**. La media scende in fretta (29,4, 17,5, 10,5, 6,4…) e poi si ferma poco sopra 1: un numero non può scendere sotto 0, quindi il rumore può solo spingere la media verso l'alto. Porta il rumore a 0 e la media scende sotto 1 al turno 8.
+5. Torna ai valori predefiniti e premi **Altri 10 turni**. Ogni turno moltiplica la media per circa 0,6 (29,4, 17,5, 10,4, 6,3, 3,7, 2,2, 1,3, 0,8) e la media scende sotto 1 al turno 8, con il rumore o senza: dal secondo turno il rumore si riduce in proporzione alla media, quindi non tiene mai su la folla. Con p = 0,90 la stessa discesa richiede 22 turni, con p = 1/2 solo 6, e ai pensatori profondi ne bastano 4.
 6. Con le quote predefinite, porta p a 0,90 e gioca 1.000 volte: il bersaglio è vicino a 37 e i livelli 2 e 3 si dividono le vittorie quasi alla pari, 468 e 474. Con p = 1/2 il livello 2 vince 960 volte.
 `,
   },

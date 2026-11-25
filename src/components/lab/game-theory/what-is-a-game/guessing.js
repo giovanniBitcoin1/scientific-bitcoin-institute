@@ -85,7 +85,9 @@ const clip = (x) => (x < 0 ? 0 : x > 100 ? 100 : x)
 // One round. `counts` from countsOf; players are stored kind by kind. In the
 // first round level 0 is uniform on 0–100 and the others start from 50; later
 // (`ref` = the mean of the previous round) level 0 says ref plus noise and
-// level k says ref × p^k plus noise. Returns the guesses, their mean, the
+// level k says ref × p^k plus noise. The noise shrinks with the reference
+// point: its standard deviation is σ × ref / 50, so it is σ in the first round
+// and keeps the same proportion to the guesses later. Returns the guesses, their mean, the
 // target p × mean, the winner (the closest guess; the first one in a tie) and
 // each kind's mean distance from the target.
 export function playRound(random, { counts, p, sigma, ref = 50, first = true }) {
@@ -93,13 +95,14 @@ export function playRound(random, { counts, p, sigma, ref = 50, first = true }) 
   const guesses = new Float64Array(N)
   let n = 0
   let sum = 0
+  const sd = (sigma * ref) / 50
   for (let kind = 0; kind < 5; kind++) {
     const centre = kind === 4 ? 0 : ref * p ** kind
     for (let c = 0; c < counts[kind]; c++) {
       let g
       if (kind === 4) g = 0
       else if (kind === 0 && first) g = 100 * random()
-      else g = clip(centre + (sigma > 0 ? sigma * randNormal(random) : 0))
+      else g = clip(centre + (sd > 0 ? sd * randNormal(random) : 0))
       guesses[n++] = g
       sum += g
     }

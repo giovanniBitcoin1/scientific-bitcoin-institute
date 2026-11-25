@@ -160,7 +160,7 @@ ok('Panel B 1,000 plays: wins 57 / 0 / 917 / 26 / 0, distances 34.1 / 13.5 / 2.6
 await click(PANEL, 1, '10 more rounds')
 await sleep(300)
 t = flat(await p.$eval('[data-role="rounds"]', (e) => e.innerText))
-ok('Panel B, 10 more rounds with σ = 2: after 11 rounds the mean has not fallen below 1', t.includes('After 11 rounds the mean has not fallen below 1'), t.slice(-200))
+ok('Panel B, 10 more rounds with σ = 2: the mean falls below 1 in round 8', t.includes('The mean falls below 1 in round 8.') && t.includes('the noise shrinks with the mean'), t.slice(-300))
 await setSlider(1, 'Noise σ', 0)
 await sleep(200)
 await click(PANEL, 1, '10 more rounds')

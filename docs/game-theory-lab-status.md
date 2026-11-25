@@ -292,10 +292,12 @@ can have several and which one gets played.
   simulation"). F1 is 371 px tall at 1280 px in English (409 px in Italian,
   where the explanation takes one more line) and F2 367 px; at 375 px they
   are 401 and 604 px.
-- Module 01, findings the texts state: with noise σ = 2 the mean of "Play
-  again" never falls below 1 (it stalls between 1.06 and 1.34: a guess cannot
-  go below 0, so the noise only pushes up); with σ = 0 it does so in round 8,
-  as 50 f^t says (22 with p = 0.9, 6 with p = 1/2, 4 for the deep thinkers).
+- Module 01, findings the texts state: in "Play again" the noise shrinks with
+  the reference point (standard deviation σ × ref / 50; fixed in prompt 2,
+  the constant noise of the first version put a floor a little above 1 under
+  the mean). With σ = 2 the mean falls below 1 in round 8, as 50 f^t says (22
+  with p = 0.9, 6 with p = 1/2, 4 for the deep thinkers); over 40 other seeds
+  the rounds are the same, except round 21 once with p = 0.9 (50 f^21 = 1.02).
   In "Half at equilibrium" level 0 wins 615 times of 1,000 (565 to 616 over
   ten other seeds). With p = 0.9 levels 2 and 3 share the wins almost evenly
   (468 and 474; over ten other seeds 455–502 and 439–484).

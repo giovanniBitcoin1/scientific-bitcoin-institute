@@ -53,7 +53,8 @@ const T = {
     histX: 'guess',
     rounds: 'Mean and target, round after round',
     below: (k) => `The mean falls below 1 in round ${k}.`,
-    notBelow: (k) => `After ${k} ${k === 1 ? 'round' : 'rounds'} the mean has not fallen below 1.`,
+    notBelow: (k) => `After ${k} ${k === 1 ? 'round' : 'rounds'} the mean is still 1 or more.`,
+    shrink: 'From the second round the noise shrinks with the mean: its standard deviation is σ × (previous mean) / 50.',
     manyTitle: (done, runs) => `${done.toLocaleString('en-US')} of ${runs.toLocaleString('en-US')} independent first rounds`,
     cols: ['Kind', 'Players', 'Wins', 'Mean distance from the target'],
     avg: (m, tg) => `Mean of the means ${m}, of the targets ${tg}.`,
@@ -90,7 +91,8 @@ const T = {
     histX: 'numero',
     rounds: 'Media e bersaglio, turno dopo turno',
     below: (k) => `La media scende sotto 1 al turno ${k}.`,
-    notBelow: (k) => `Dopo ${k} ${k === 1 ? 'turno' : 'turni'} la media non è scesa sotto 1.`,
+    notBelow: (k) => `Dopo ${k} ${k === 1 ? 'turno' : 'turni'} la media è ancora 1 o più.`,
+    shrink: 'Dal secondo turno il rumore si riduce con la media: la sua deviazione standard è σ × (media precedente) / 50.',
     manyTitle: (done, runs) => `${done.toLocaleString('it-IT')} di ${runs.toLocaleString('it-IT')} primi turni indipendenti`,
     cols: ['Tipo', 'Giocatori', 'Vittorie', 'Distanza media dal bersaglio'],
     avg: (m, tg) => `Media delle medie ${m}, dei bersagli ${tg}.`,
@@ -296,6 +298,7 @@ export default function GuessingPanel({ lang = 'en' }) {
             />
             <Legend items={[{ label: t.mean, color: SLATE }, { label: t.target(pText), color: '#16a34a' }]} />
             <p className="mt-1 text-sm text-slate-700">{firstBelow >= 0 ? t.below(firstBelow + 1) : t.notBelow(seq.length)}</p>
+            <p className="mt-1 text-xs text-slate-500 leading-snug">{t.shrink}</p>
           </div>
         )}
 

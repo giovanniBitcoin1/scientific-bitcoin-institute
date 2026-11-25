@@ -246,13 +246,17 @@ const seq = playSequence({ ...base, rounds: 40 })
   check('simulated with σ = 0: the same rounds, 8, 22, 6 and 4', noNoise({}) === 8 && noNoise({ p: 0.9 }) === 22 && noNoise({ p: 0.5 }) === 6 && noNoise({ shares: D.deep }) === 4, `${noNoise({})}, ${noNoise({ p: 0.9 })}, ${noNoise({ p: 0.5 })}, ${noNoise({ shares: D.deep })}`)
   const exact = playSequence({ ...base, sigma: 0, rounds: 8 })
   check('σ = 0: from round 2 on each mean is f times the one before', exact.slice(1).every((r, i) => close(r.mean, fDefault * exact[i].mean, 1e-9)))
-  // With noise the mean cannot follow 50 f^t down to 0: guesses are clipped at 0.
-  const tail = seq.slice(9).map((r) => r.mean)
-  const below = sequenceBelow(base)
-  check('σ = 2, default: the mean does not fall below 1 in 200 rounds; rounds 10 to 40 stay between 1 and 1.5', below === null && Math.min(...tail) > 1 && Math.max(...tail) < 1.5, `rounds 1–10: ${seq.slice(0, 10).map((r) => f2(r.mean)).join(' ')}; rounds 10–40 between ${f2(Math.min(...tail))} and ${f2(Math.max(...tail))}`)
-  const others = range(10).map((s) => sequenceBelow({ ...base, seed: 9001 + s }))
-  info(`σ = 2, default, ten other seeds: round in which the mean falls below 1: ${others.map((x) => x ?? 'never').join(', ')}`)
-  info(`σ = 2: deep thinkers ${sequenceBelow({ ...base, shares: D.deep })}, p = 1/2 ${sequenceBelow({ ...base, p: 0.5 })}, p = 0.9 ${sequenceBelow({ ...base, p: 0.9 }) ?? 'never'}; σ = 1, default: ${sequenceBelow({ ...base, sigma: 1 })}`)
+  // The noise shrinks with the reference point (σ × ref / 50), so with noise
+  // the mean follows 50 f^t as well. Round 1 has ref = 50: nothing changes there.
+  const withNoise = (cfg) => sequenceBelow({ ...base, ...cfg })
+  check('σ = 2, page seed: the mean falls below 1 in round 8 (default), 22 (p = 0.9), 6 (p = 1/2), 4 (deep thinkers)', withNoise({}) === 8 && withNoise({ p: 0.9 }) === 22 && withNoise({ p: 0.5 }) === 6 && withNoise({ shares: D.deep }) === 4, `${withNoise({})}, ${withNoise({ p: 0.9 })}, ${withNoise({ p: 0.5 })}, ${withNoise({ shares: D.deep })}; rounds 1–10: ${seq.slice(0, 10).map((r) => f2(r.mean)).join(' ')}`)
+  check('σ = 2, default: from round 2 on each mean is within 3% of f times the one before, down to round 40', seq.slice(1).every((r, i) => close(r.mean / seq[i].mean, fDefault, 0.03 * fDefault)), `ratios between ${Math.min(...seq.slice(1).map((r, i) => r.mean / seq[i].mean)).toFixed(4)} and ${Math.max(...seq.slice(1).map((r, i) => r.mean / seq[i].mean)).toFixed(4)}; f = ${fDefault.toFixed(4)}`)
+  const seeds40 = (cfg) => range(40).map((s) => sequenceBelow({ ...base, ...cfg, seed: 9001 + s }))
+  const tally = (list) => [...new Set(list)].sort((x, y) => x - y).map((v) => `round ${v}: ${list.filter((x) => x === v).length}`).join(', ')
+  const s40 = { def: seeds40({}), p09: seeds40({ p: 0.9 }), p05: seeds40({ p: 0.5 }), deep: seeds40({ shares: D.deep }) }
+  check('σ = 2, 40 other seeds: round 8 (default), 6 (p = 1/2) and 4 (deep thinkers) in every seed', s40.def.every((x) => x === 8) && s40.p05.every((x) => x === 6) && s40.deep.every((x) => x === 4), `default ${tally(s40.def)}; p = 1/2 ${tally(s40.p05)}; deep ${tally(s40.deep)}`)
+  check('σ = 2, 40 other seeds, p = 0.9: round 22, or 21 in a few seeds (50 f^21 is 1.02)', s40.p09.every((x) => x === 22 || x === 21) && s40.p09.filter((x) => x === 22).length >= 30 && f2(50 * factor(D.default, 0.9) ** 21) === '1.02', tally(s40.p09))
+  info(`other noise levels, page seed, default / p = 0.9: ${[0.5, 1, 3, 5].map((sg) => `σ = ${sg}: ${sequenceBelow({ ...base, sigma: sg })} / ${sequenceBelow({ ...base, sigma: sg, p: 0.9 })}`).join('; ')}`)
 }
 
 console.log('— Guessing game with whole numbers')
@@ -360,11 +364,15 @@ console.log('— Quoted on the page')
     m1(many.default.dist[4]), m1(many.default.dist[1]), m1(many.default.dist[0]),
     f2(expected(D.deep, 2 / 3).mean), f2(expected(D.deep, 2 / 3).target),
     [`Level 0 wins ${many.half.wins[0]} times and level 3 ${many.half.wins[3]} times`, `Il livello 0 vince ${many.half.wins[0]} volte e il livello 3 ${many.half.wins[3]} volte`],
-    seq.slice(0, 4).map((r) => m1(r.mean)).join(', ').replace(/^/, '(').replace(/$/, '…)'),
+    `(${seq.slice(0, 8).map((r) => m1(r.mean)).join(', ')})`,
     [`${many.p09.wins[2]} and ${many.p09.wins[3]}`, `${many.p09.wins[2]} e ${many.p09.wins[3]}`],
     [`level 2 wins ${many.p05.wins[2]} times`, `il livello 2 vince ${many.p05.wins[2]} volte`],
     ['in round 8', 'al turno 8'],
+    [`takes ${sequenceBelow({ ...base, p: 0.9 })} rounds`, `richiede ${sequenceBelow({ ...base, p: 0.9 })} turni`],
+    [`only ${sequenceBelow({ ...base, p: 0.5 })}`, `solo ${sequenceBelow({ ...base, p: 0.5 })}`],
+    [`need ${sequenceBelow({ ...base, shares: D.deep })}`, `ne bastano ${sequenceBelow({ ...base, shares: D.deep })}`],
   ])
+  check('observe, Panel B: "every round multiplies the mean by about 0.6" (f = 0.5963)', factor(D.default, 2 / 3).toFixed(1) === '0.6')
   check('observe, Panel B: level 1 and the equilibrium kind never win; the half-at-equilibrium target is about 9.5; with p = 0.9 it is close to 37', w[1] === 0 && w[4] === 0 && m1(many.half.target) === '9.5' && Math.round(many.p09.target) === 37)
 
   const small = survey({ sizes: [DEFAULT_SIZE], games: DEFAULT_GAMES })[DEFAULT_SIZE]
