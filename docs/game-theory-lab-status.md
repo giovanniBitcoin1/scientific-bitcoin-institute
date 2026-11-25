@@ -392,13 +392,13 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Prompt 6. Stage 0 is done: 8601885 "Game Theory Lab: Italian terms".
-Module 06, `repeated-games-reputation`, is done: "Game Theory Lab 06:
-Repeated games and reputation" (three WIP commits squashed). The whole
-CHECKS list ran on the final code before the squash: 0 failures
-everywhere. Remains: the report `docs/reports/game-theory-lab-06.md`,
-committed with the working log `docs/reports/game-theory-lab-06-log.md` as
-"Game Theory Lab 06: report".
+Nothing in progress. Prompt 6 is finished: stage 0 in 8601885 "Game
+Theory Lab: Italian terms", module 06 in 8b2f491 "Game Theory Lab 06:
+Repeated games and reputation" (three WIP commits squashed), the report
+`docs/reports/game-theory-lab-06.md` and the working log
+`docs/reports/game-theory-lab-06-log.md` in "Game Theory Lab 06: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere.
 
 ## Next
 

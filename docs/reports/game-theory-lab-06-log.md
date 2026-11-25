@@ -210,3 +210,4 @@ says). A session that picks up this prompt reads this file first.
   sitemap. `npm run check:dist`: 0 failures of 108.
 - Squash: `git reset --soft 8601885`, one commit "Game Theory Lab 06:
   Repeated games and reputation".
+- Report written to `docs/reports/game-theory-lab-06.md`; status file set to "prompt finished" in the same commit as the report.
