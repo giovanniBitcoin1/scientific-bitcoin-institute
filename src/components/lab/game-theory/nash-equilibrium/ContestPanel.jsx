@@ -55,7 +55,7 @@ const T = {
     legendEq: 'equilibrio',
     after: (r, total, eq) => `Dopo ${r} turni lo sforzo totale è ${total}; l'equilibrio è ${eq}.`,
     start: "Ogni giocatore parte il 10% sopra lo sforzo di equilibrio.",
-    pick: 'Premi uno dei due pulsanti per lasciare che i giocatori si aggiustino.',
+    pick: 'Premi uno dei due pulsanti per far correggere gli sforzi ai giocatori.',
     aria: "Sforzo totale dopo ogni turno dell'aggiustamento, con l'equilibrio come linea tratteggiata",
   },
 }

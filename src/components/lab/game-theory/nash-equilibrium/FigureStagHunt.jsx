@@ -37,7 +37,7 @@ const T = {
     hare: 'cacciare la lepre: c q + d (1 − q)',
     axis: 'q',
     need: (q) => `Cacciare il cervo è la miglior risposta solo se l'altro lo caccia con probabilità superiore a q* = ${q}.`,
-    payoff: (a, d) => `Dominante nei payoff: entrambi al cervo (${a} ciascuno contro ${d}).`,
+    payoff: (a, d) => `Pareto-dominante: entrambi al cervo (${a} ciascuno contro ${d}).`,
     risk: {
       stag: 'Rischio-dominante: ancora entrambi al cervo, perché q* è sotto 1/2.',
       hare: 'Rischio-dominante: entrambi alla lepre, perché q* è sopra 1/2.',

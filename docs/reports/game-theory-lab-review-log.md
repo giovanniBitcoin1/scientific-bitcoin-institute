@@ -98,4 +98,46 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: built (16 s).
 - `node check-module.mjs game-theory what-is-a-game`: 0 failures of 56 (52 s).
 - `node modules/game-theory-what-is-a-game.mjs`: 0 failures of 32 (14 s).
+- Commit 25b4284 "Game Theory Lab review: module 01".
+
+### Module 02 `nash-equilibrium`
+
+- Files: the two lectures, `texts.js`; UI strings in `FigureStagHunt.jsx`,
+  `EquilibriaPanel.jsx`, `ContestPanel.jsx`. Self-check unchanged.
+- Changes: Italian about 36 (26 lecture, 10 texts.js and UI), English 7,
+  parity 2, facts 1 (a softening), quotations 0 (none in the module),
+  clarity 3, links 1, panel texts 4.
+- Most significant:
+  - Van Huyck: "from the fourth round on, the lowest effort was 1 in every
+    group" → "within a few rounds the lowest effort had fallen to 1 in every
+    group" (IT "in pochi turni…"). Report 02 says the round detail came
+    from Weber (2006), not from the 1990 paper; the new wording is weaker
+    than either source. No pin.
+  - IT stag hunt: "Entrambi al cervo è un equilibrio, e lo è anche entrambi
+    alla lepre" → "Sono equilibri sia la coppia di scelte (cervo, cervo) sia
+    (lepre, lepre)".
+  - EN/IT: "a cell … that nobody wants to leave alone" (misreadable as "not
+    disturb") → "no player wants to leave on their own" / "da cui nessuno
+    vuole spostarsi da solo".
+  - Parity: the EN now names the **reaction function**, as the IT did.
+  - IT UI: FigureStagHunt "Dominante nei payoff" → "Pareto-dominante" (the
+    table's term); IT "evidenza" (salience) → "salienza"; Bertrand "chiedano
+    il costo" → "vendano al costo".
+  - Box: "none can do it alone" → "none gains by doing it alone" (any miner
+    can halve its hash rate; it does not pay).
+  - Links: "the badminton hall of module 01" → "the badminton matches"
+    (module 01 speaks of matches).
+- Facts and pins: no number changed; no pin changed.
+- Words: lecture EN 1,689, IT 1,698 (limits 1,400–1,700); box EN 198,
+  IT 200 (150–200).
+- For Adriano: Van Huyck's "from the fourth round on" can return if the
+  1990 paper confirms it; "salienza" has no row in the terms table; IT
+  ContestPanel headers "Sforzo, ciascuno" etc. are clipped but kept for
+  width; exercise 5 keeps «Miner» as the preset's name.
+- Cross-module: report 02's terms list is stale (the status table rules).
+  Lectures say "Simulation A", several texts.js say "Panel A": stage 2.
+- `node scripts/lab/check-game-theory-02.mjs`: all checks passed (22 s).
+- `npx vite build`: built (16 s).
+- `node check-module.mjs game-theory nash-equilibrium`: 0 failures of 56 (48 s).
+- `node modules/game-theory-nash-equilibrium.mjs`: 0 failures of 49 (33 s).
 

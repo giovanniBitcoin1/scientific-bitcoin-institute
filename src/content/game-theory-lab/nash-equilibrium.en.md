@@ -2,11 +2,11 @@
 
 ## A stable cell with a name
 
-[Module 01](/game-theory-lab/what-is-a-game) ended on a cell of the table that nobody wants to leave alone. In 1950 John Nash, a graduate student at Princeton, gave that idea its general form: first in a note of two pages, then in a doctoral thesis of twenty-seven.
+[Module 01](/game-theory-lab/what-is-a-game) ended on a cell of the table that no player wants to leave on their own. In 1950 John Nash, a graduate student at Princeton, gave that idea its general form: first in a two-page note, then in a doctoral thesis of twenty-seven pages.
 
 Take any number of players and let each choose one strategy. The choices are a **Nash equilibrium** if no player can get a higher payoff by changing strategy alone, while all the others keep theirs. The stable cell of module 01 is the case of two players.
 
-Iterated elimination never deletes an equilibrium: a strategy played in an equilibrium is a best response to what the others do, so nothing can beat it everywhere. And if elimination leaves a single cell, that cell is the only equilibrium of the game.
+Iterated elimination never deletes an equilibrium: a strategy played in an equilibrium is a best response to what the others do, so no other strategy can beat it everywhere. And if elimination leaves a single cell, that cell is the only equilibrium of the game.
 
 ## What an equilibrium is not
 
@@ -36,9 +36,9 @@ q* = (d − b) / ((a − c) + (d − b))
 staghunt
 ```
 
-With a = 4, b = 0, c = 3 and d = 2 we get q* = 2/3: you must be quite sure of the other. The stag equilibrium is **payoff dominant**, better for both. The hare equilibrium is **risk dominant**: it is the one that needs less confidence in the other player (the terms are from Harsanyi and Selten 1988). When the two criteria disagree, experiments tend to side with safety. In a well-known one (Van Huyck, Battalio and Beil, 1990), groups of 14 to 16 people each chose an effort from 1 to 7 and were paid according to the lowest effort in their group. Everyone choosing 7 was the best equilibrium; from the fourth round on, the lowest effort was 1 in every group.
+With a = 4, b = 0, c = 3 and d = 2 we get q* = 2/3: you must be quite sure of the other. The stag equilibrium is **payoff dominant**, better for both. The hare equilibrium is **risk dominant**: it is the one that needs less confidence in the other player (the terms are from Harsanyi and Selten 1988). When the two criteria disagree, experiments tend to side with safety. In a well-known one (Van Huyck, Battalio and Beil, 1990), groups of 14 to 16 people each chose an effort from 1 to 7 and were paid according to the lowest effort in their group. Everyone choosing 7 was the best equilibrium; within a few rounds the lowest effort had fallen to 1 in every group.
 
-In Simulation B one player at a time looks at ten others and hunts the stag only if enough of them do. The better convention takes over only where enough people follow it already. The tipping point is at about 0.73 of the population, a little above q*, because a sample of ten must show seven to exceed two thirds. Starting from 70% of stag hunters, everyone ends up hunting the stag about one time in seven; starting from 75%, about four times in five.
+In Simulation B one player at a time looks at ten others and hunts the stag only if enough of them do. The better convention takes over only if enough people already follow it. The tipping point is at about 0.73 of the population, a little above q*, because a sample of ten must show seven to exceed two thirds. Starting from 70% of stag hunters, everyone ends up hunting the stag about one time in seven; starting from 75%, about four times in five.
 
 ## When strategies are numbers
 
@@ -48,7 +48,7 @@ Often a strategy is a number: a quantity, a price, an effort. A table no longer 
 q₁ = (a − c − q₂) / 2
 ```
 
-This is firm 1's best response to every q₂, and it is a straight line. Firm 2 has its own. The equilibrium is the point where the two lines cross: (a − c)/3 each.
+This is firm 1's **reaction function**, its best response to every q₂: a straight line. Firm 2 has its own. The equilibrium is the point where the two best-response lines cross: (a − c)/3 each.
 
 ```figure
 cournot
@@ -58,9 +58,9 @@ With n firms each one produces (a − c)/(n + 1). Take a = 10 and c = 1: the pri
 
 ## Same market, other rules
 
-In 1883 Joseph Bertrand reviewed Cournot's book and changed one thing. Let the firms name prices, not quantities, and let the buyers go to the cheaper firm. Now a firm that undercuts its rival by a cent takes the whole market, and the only equilibrium is that both charge the cost (exercise 4). Two firms are enough for a result that Cournot reaches only with very many.
+In 1883 Joseph Bertrand reviewed Cournot's book and changed one thing. Let the firms name prices, not quantities, and let the buyers go to the cheaper firm. Now a firm that undercuts its rival by a cent takes the whole market, and the only equilibrium is that both price at cost (exercise 4). Two firms are enough for a result that Cournot reaches only with very many.
 
-Same firms, same buyers, same costs. What changed is what the players choose, and the price moved from 4 to 1. The rules are part of the game, as in the badminton hall of module 01.
+Same firms, same buyers, same costs. What changed is what the players choose, and the price moved from 4 to 1. The rules are part of the game, as in the badminton matches of module 01.
 
 ## Contests
 
@@ -78,7 +78,7 @@ The share of the prize that is spent is `1 − Σ s_i²`. Simulation C lets the 
 Bitcoin: mining as a contest
 About every ten minutes one miner wins the block reward, with a chance equal to its share of the total hash rate. With hash rate as effort and the value of the reward as the prize, this is the contest above (Dimitri 2017).
 
-**What the model says.** Spending on mining follows the value of the reward, not the number of transactions, and with free entry profits go to zero. The difficulty adjustment fixes the number of blocks, so more hash rate makes no more coins: all miners would earn more if all halved theirs, and none can do it alone. Small cost differences become large differences in share: costs of 1.0, 1.1, 1.2, 1.5 and 2.0 give shares of 37.5%, 31.3%, 25%, 6.3% and nothing (Arnosti and Weinberg 2022).
+**What the model says.** Spending on mining follows the value of the reward, not the number of transactions, and with free entry profits go to zero. The difficulty adjustment fixes the number of blocks, so more hash rate makes no more coins: all miners would earn more if all halved theirs, and none gains by doing it alone. Small cost differences become large differences in share: costs of 1.0, 1.1, 1.2, 1.5 and 2.0 give shares of 37.5%, 31.3%, 25%, 6.3% and nothing (Arnosti and Weinberg 2022).
 
 **The limits.** It is a one-shot model with a constant cost per unit. Real miners buy machines that last years, the reward's value moves with the price, and miners join pools (module 10). Nor does the model say whether the spending is too much: that depends on what it buys (module 14). A hypothesis with its limits, not a description of the industry.
 ```
