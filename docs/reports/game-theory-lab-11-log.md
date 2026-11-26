@@ -148,3 +148,10 @@ Core release notes and source, Italian course notes and explainers).
   check:dist`: 0/108.
 - Module chunk 74.0 kB (24.8 kB gzip); it loads the lab's shared Slider,
   DrawToggle, ui, charts and rng chunks, nothing from other modules.
+
+## Commits
+
+- 930565b "Game Theory Lab 11: Auctions" (three WIP commits squashed with
+  `git reset --soft 36eaee7`).
+- "Game Theory Lab 11: report": the report, this log, the status file's
+  "Work in progress".

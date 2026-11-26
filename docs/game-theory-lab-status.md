@@ -498,11 +498,12 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Module 11 is built and committed: "Game Theory Lab 11: Auctions" (three WIP
-commits squashed onto 36eaee7). The whole CHECKS list ran on the final code
-before the squash: 0 failures everywhere. Remains: the report
-`docs/reports/game-theory-lab-11.md`, committed with the working log as "Game
-Theory Lab 11: report"; until that commit exists prompt 11 is not finished.
+Nothing in progress. Prompt 11 is finished: module 11 in 930565b "Game
+Theory Lab 11: Auctions" (three WIP commits squashed), the report
+`docs/reports/game-theory-lab-11.md` and the working log
+`docs/reports/game-theory-lab-11-log.md` in "Game Theory Lab 11: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere.
 
 ## Next
 
