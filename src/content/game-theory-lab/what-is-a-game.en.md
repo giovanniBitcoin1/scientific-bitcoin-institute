@@ -4,7 +4,7 @@
 
 On 31 July 2012, at the London Olympics, spectators booed two women's doubles badminton matches. Serves went into the net and easy shots sailed out, because all four pairs on court were trying to lose. They had already qualified for the knockout round, and a defeat in the last group match would have given them an easier draw. The next day eight players were disqualified: one pair from China, two from South Korea and one from Indonesia.
 
-The players were blamed, but they had done what the rules rewarded. What was best for each pair depended on what the others did, and the organisers had not thought it through.
+The players were blamed, but they had done what the rules rewarded. What was best for each pair depended on what the others did, and the organizers had not thought it through.
 
 That is what this course is about. A **game** is any situation in which what is best for me depends on what you do: a penalty kick, a price war, an auction, an arms race, a queue at a motorway exit.
 
@@ -50,7 +50,7 @@ This is **iterated elimination**: delete what is strictly dominated, look at the
 eliminate
 ```
 
-Each round asks for more. To delete U, the row player only has to be rational. To delete L next, the column player must know that the row player is rational. A third round needs the row player to know that the column player knows it, and so on. The assumption behind the whole procedure is **common knowledge of rationality**: everyone is rational, everyone knows it, everyone knows that everyone knows it, without end.
+Each step asks for more. To delete U, the row player only has to be rational. To delete L next, the column player must know that the row player is rational. A third step needs the row player to know that the column player knows it, and so on. The assumption behind the whole procedure is **common knowledge of rationality**: everyone is rational, everyone knows it, everyone knows that everyone knows it, without end.
 
 One reassuring fact: with strict dominance the order of the deletions does not matter. Whichever dominated strategy goes first, the same strategies are left at the end.
 
@@ -70,7 +70,7 @@ Those two numbers suggest a model with **levels of reasoning**. A level 0 player
 
 Most people stop after one or two steps. In Simulation B a crowd of a thousand, mostly levels 1 and 2, has an average of 29.4 in its first round. The target is 19.6, and a level 2 player wins; over a thousand plays level 2 wins 917 times. The player who says 0 is the furthest ahead and almost the furthest from the prize. The winner is one step ahead of the crowd, not ten.
 
-John Maynard Keynes made the same point in 1936 about a newspaper contest in which readers had to pick the faces that most other readers would pick, and the guessing game is still usually called the beauty contest.
+John Maynard Keynes made the same point in 1936 about a newspaper contest in which readers had to pick the faces that most other readers would pick. That is why the guessing game is still usually called the beauty contest.
 
 ## When nothing can be deleted
 
@@ -80,7 +80,7 @@ Mark in each column the row player's best response, and in each row the column p
 
 ## A small atlas
 
-Take a game in which the two players are in the same position. Each can cooperate (C) or defect (D). Fix the payoff of mutual cooperation at R = 1 and of mutual defection at P = 0, with the letters of Complexity Lab module 11. Two numbers are left: the temptation T, for defecting against a cooperator, and the sucker's payoff S, for cooperating against a defector.
+Take a game in which the two players are in the same position. Each can cooperate (C) or defect (D). Fix the payoff of mutual cooperation at R = 1 and of mutual defection at P = 0, with the letters of Complexity Lab module 11. Two numbers are left: the temptation T, for defecting against a player who cooperates, and the sucker's payoff S, for cooperating against a defector.
 
 ```figure
 atlas

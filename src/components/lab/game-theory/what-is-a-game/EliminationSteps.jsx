@@ -27,7 +27,7 @@ const T = {
   it: {
     next: 'Passo successivo',
     reset: 'Ricomincia',
-    start: "Ancora nulla di cancellato. C'è una riga o una colonna peggiore di un'altra qualunque cosa faccia l'altro giocatore?",
+    start: "Non è ancora stato cancellato nulla. C'è una riga o una colonna peggiore di un'altra qualunque cosa faccia l'altro giocatore?",
     row: 'riga',
     col: 'colonna',
     step: (n, name, by, who) =>

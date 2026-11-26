@@ -552,6 +552,11 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
+**The review of the lectures** (`prompts.local/game-theory-lab-review.md`,
+log `docs/reports/game-theory-lab-review-log.md`): stage 0 committed;
+stage 1 modules reviewed and committed: 01. To resume: read the log, then
+review the next module.
+
 Nothing in progress. All fourteen modules are "ready" and done (table
 above); the lab was closed in the commit "Game Theory Lab: close" (prompt
 14, stage 2). Prompt 14 is finished: its report
