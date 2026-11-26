@@ -22,14 +22,14 @@ export const observe = {
   keyplayer: {
     en: `
 1. The panel opens on the bridge network at δ = 0.3: λ_max is 2.3475, so δ must stay below 0.4260. Total effort is 26.8779. Player 1 is the most active (4.1655), player 4 the key player (11.3988); by effort the order is 1, 4, 5, 2, 3, 6, 7, 8, 9, by intercentrality 4, 1, 5, 2, 3, 6, 7, 8, 9.
-2. Click player 4: the total falls to 15.4791, a drop of 11.3988, exactly her intercentrality. Restore and click player 1: 15.9616, a drop of 10.9163. The more active player is the smaller loss.
+2. Click player 4: the total falls to 15.4791, a drop of 11.3988, exactly her intercentrality. Restore and click player 1: 15.9616, a drop of 10.9163. Removing the more active player costs less.
 3. Move δ to **0.1**: player 4 is now both the most active (1.4013) and the key player (1.9038). The most active changes from player 4 to player 1 between 0.26 and 0.27 (at δ = 0.2696); the key player stays player 4 along the whole slider.
 4. Move δ to the top, **0.42**: total effort is 517.6051. Close to 1/λ_max the efforts grow without limit.
 5. On the **line of 5** at δ = 0.3 the middle player 3 is the key player (4.2994); on the **star of 6** the hub, with 4.5455 against 2.3636 for each leaf and an intercentrality of 11.3636; on the **ring of 6** all six are alike: 2.5 each and 4.9863.
 `,
     it: `
 1. Il pannello si apre sulla rete a ponte con δ = 0,3: λ_max vale 2,3475, quindi δ deve restare sotto 0,4260. Lo sforzo totale è 26,8779. Il giocatore 1 è il più attivo (4,1655), il 4 il giocatore chiave (11,3988); per sforzo l'ordine è 1, 4, 5, 2, 3, 6, 7, 8, 9, per intercentralità 4, 1, 5, 2, 3, 6, 7, 8, 9.
-2. Clicca sul giocatore 4: il totale scende a 15,4791, un calo di 11,3988, esattamente la sua intercentralità. Ripristina e clicca sul giocatore 1: 15,9616, un calo di 10,9163. Il giocatore più attivo è la perdita minore.
+2. Clicca sul giocatore 4: il totale scende a 15,4791, un calo di 11,3988, esattamente la sua intercentralità. Ripristina e clicca sul giocatore 1: 15,9616, un calo di 10,9163. Togliere il giocatore più attivo costa meno.
 3. Porta δ a **0,1**: ora il giocatore 4 è sia il più attivo (1,4013) sia il giocatore chiave (1,9038). Il più attivo passa dal giocatore 4 al giocatore 1 tra 0,26 e 0,27 (in δ = 0,2696); il giocatore chiave resta il 4 su tutto il cursore.
 4. Porta δ in cima, a **0,42**: lo sforzo totale è 517,6051. Vicino a 1/λ_max gli sforzi crescono senza limite.
 5. Sulla **linea di 5** con δ = 0,3 il giocatore chiave è il 3, quello in mezzo (4,2994); sulla **stella di 6** l'hub, con 4,5455 contro 2,3636 per ogni foglia e un'intercentralità di 11,3636; sull'**anello di 6** i sei sono uguali: 2,5 ciascuno e 4,9863.
@@ -59,12 +59,12 @@ export const exercises = [
   {
     type: 'both',
     statement: {
-      en: 'The star with four leaves and best replies x_i = max(0, 1 + δ Σ_j g_ij x_j). Write the hub\'s and a leaf\'s best replies, solve them, and give the efforts at δ = 0.25 and δ = −0.25. Then check them in Figure F1.',
-      it: 'La stella con quattro foglie e migliori risposte x_i = max(0, 1 + δ Σ_j g_ij x_j). Scrivi le migliori risposte dell\'hub e di una foglia, risolvile, e dai gli sforzi con δ = 0,25 e δ = −0,25. Poi verificali nella Figura F1.',
+      en: 'The star with four leaves and best responses x_i = max(0, 1 + δ Σ_j g_ij x_j). Write the hub\'s and a leaf\'s best responses, solve them, and give the efforts at δ = 0.25 and δ = −0.25. Then check them in Figure F1.',
+      it: 'La stella con quattro foglie e migliori risposte x_i = max(0, 1 + δ Σ_j g_ij x_j). Scrivi le migliori risposte dell\'hub e di una foglia, risolvile e ricava gli sforzi con δ = 0,25 e δ = −0,25. Poi verificali nella Figura F1.',
     },
     solution: {
-      en: 'The hub: h = max(0, 1 + 4δl); a leaf: l = max(0, 1 + δh). If both work, h = 1 + 4δ(1 + δh), so h = (1 + 4δ)/(1 − 4δ²) and l = 1 + δh = (1 + δ)/(1 − 4δ²). At δ = 0.25: h = 2/0.75 = 8/3 and l = 1.25/0.75 = 5/3. At δ = −0.25 the hub\'s formula gives 0: h = 0, and then each leaf works l = 1 + δ × 0 = 1; the hub\'s reply to four leaves at 1 is max(0, 1 − 4 × 0.25) = 0, so this is the equilibrium.',
-      it: 'L\'hub: h = max(0, 1 + 4δl); una foglia: l = max(0, 1 + δh). Se lavorano entrambi, h = 1 + 4δ(1 + δh), quindi h = (1 + 4δ)/(1 − 4δ²) e l = 1 + δh = (1 + δ)/(1 − 4δ²). Con δ = 0,25: h = 2/0,75 = 8/3 e l = 1,25/0,75 = 5/3. Con δ = −0,25 la formula dell\'hub dà 0: h = 0, e allora ogni foglia lavora l = 1 + δ × 0 = 1; la risposta dell\'hub a quattro foglie a 1 è max(0, 1 − 4 × 0,25) = 0, quindi questo è l\'equilibrio.',
+      en: 'The hub: h = max(0, 1 + 4δl); a leaf: l = max(0, 1 + δh). If both work, h = 1 + 4δ(1 + δh), so h = (1 + 4δ)/(1 − 4δ²) and l = 1 + δh = (1 + δ)/(1 − 4δ²). At δ = 0.25: h = 2/0.75 = 8/3 and l = 1.25/0.75 = 5/3. At δ = −0.25 the hub\'s formula gives 0: h = 0, and then each leaf works l = 1 + δ × 0 = 1; the hub\'s best response to four leaves at 1 is max(0, 1 − 4 × 0.25) = 0, so this is the equilibrium.',
+      it: 'L\'hub: h = max(0, 1 + 4δl); una foglia: l = max(0, 1 + δh). Se lavorano entrambi, h = 1 + 4δ(1 + δh), quindi h = (1 + 4δ)/(1 − 4δ²) e l = 1 + δh = (1 + δ)/(1 − 4δ²). Con δ = 0,25: h = 2/0,75 = 8/3 e l = 1,25/0,75 = 5/3. Con δ = −0,25 la formula dell\'hub dà 0: h = 0, e allora ogni foglia lavora l = 1 + δ × 0 = 1; la miglior risposta dell\'hub a quattro foglie a 1 è max(0, 1 − 4 × 0,25) = 0, quindi questo è l\'equilibrio.',
     },
   },
   {
@@ -82,7 +82,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'The ring of 6, players 1 to 6 in order. Which specialized equilibria are there, and which are stable? Then check them in Panel A.',
-      it: 'L\'anello di 6, giocatori da 1 a 6 in ordine. Quali equilibri specializzati ci sono, e quali sono stabili? Poi verificali nel Pannello A.',
+      it: 'L\'anello di 6, giocatori da 1 a 6 in ordine. Quali equilibri specializzati ci sono e quali sono stabili? Poi verificali nel Pannello A.',
     },
     solution: {
       en: 'The maximal independent sets are {1, 3, 5}, {2, 4, 6} and the three pairs of opposite players {1, 4}, {2, 5}, {3, 6}. In {1, 3, 5} every other player sits between two workers, and likewise in {2, 4, 6}: both are stable. In {1, 4} player 2 has only player 1 working next to her (her other neighbour, 3, does not work), and the same holds for every non-worker: the pairs are equilibria but not stable.',
@@ -97,7 +97,7 @@ export const exercises = [
     },
     solution: {
       en: 'At δ = 0.1 player 4 is both: the most active (1.4013) and the key player (her removal lowers total effort by 1.9038, against 1.8784 for player 1). At δ = 0.3 player 1 is the most active (4.1655 against 4.1241), but removing player 4 lowers total effort by 11.3988, against 10.9163 for player 1. The most active player changes at δ ≈ 0.2696, between the slider\'s 0.26 and 0.27; the key player stays player 4.',
-      it: 'Con δ = 0,1 il giocatore 4 è entrambi: il più attivo (1,4013) e il giocatore chiave (toglierlo fa calare lo sforzo totale di 1,9038, contro 1,8784 per il giocatore 1). Con δ = 0,3 il più attivo è il giocatore 1 (4,1655 contro 4,1241), ma togliere il giocatore 4 fa calare lo sforzo totale di 11,3988, contro 10,9163 per il giocatore 1. Il giocatore più attivo cambia in δ ≈ 0,2696, tra lo 0,26 e lo 0,27 del cursore; il giocatore chiave resta il 4.',
+      it: 'Con δ = 0,1 il giocatore 4 è l\'uno e l\'altro: il più attivo (1,4013) e il giocatore chiave (toglierlo fa calare lo sforzo totale di 1,9038, contro 1,8784 per il giocatore 1). Con δ = 0,3 il più attivo è il giocatore 1 (4,1655 contro 4,1241), ma togliere il giocatore 4 fa calare lo sforzo totale di 11,3988, contro 10,9163 per il giocatore 1. Il giocatore più attivo cambia in δ ≈ 0,2696, tra lo 0,26 e lo 0,27 del cursore; il giocatore chiave resta il 4.',
     },
   },
   {
@@ -119,7 +119,7 @@ export const exercises = [
     },
     solution: {
       en: 'Let i have one link, to j. Everyone i reaches, she reaches through j, so the link gives j only i herself, at distance 1: a gain of δ for a cost of c > δ. So j gains strictly by cutting it, and the network is not pairwise stable. From the empty network, two isolated players who link would each gain δ − c < 0: no pair wants to add a link, and nothing ever happens.',
-      it: 'Sia i con un solo collegamento, verso j. Tutti quelli che i raggiunge, li raggiunge attraverso j, quindi il collegamento dà a j solo i stesso, a distanza 1: un guadagno di δ per un costo c > δ. Quindi j guadagna strettamente tagliandolo, e la rete non è stabile a coppie. Dalla rete vuota, due giocatori isolati che si collegano guadagnerebbero ciascuno δ − c < 0: nessuna coppia vuole aggiungere un collegamento, e non succede mai nulla.',
+      it: 'Sia i un giocatore con un solo collegamento, verso j. Tutti quelli che i raggiunge, li raggiunge attraverso j, quindi il collegamento dà a j solo i stesso, a distanza 1: un guadagno di δ per un costo c > δ. Quindi j guadagna strettamente tagliandolo, e la rete non è stabile a coppie. Dalla rete vuota, due giocatori isolati che si collegano guadagnerebbero ciascuno δ − c < 0: nessuna coppia vuole aggiungere un collegamento, e non succede mai nulla.',
     },
   },
 ]

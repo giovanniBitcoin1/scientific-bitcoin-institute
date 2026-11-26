@@ -52,7 +52,7 @@ const T = {
     again: 'Nuova prova',
     run: (k) => `Prova n. ${k} (seme ${k}).`,
     steps: (s, ch, a, cut) => `${s} passi, ${ch} cambi (${a} collegamenti aggiunti, ${cut} tagliati).`,
-    last: (i, j, w) => `Ultimo passo: la coppia ${i}–${j} ${w === 'add' ? 'ha aggiunto il suo collegamento' : w === 'cut' ? 'ha tagliato il suo collegamento' : 'non è cambiata'}.`,
+    last: (i, j, w) => `Ultimo passo: la coppia ${i}–${j} ${w === 'add' ? 'ha aggiunto il collegamento' : w === 'cut' ? 'ha tagliato il collegamento' : 'non è cambiata'}.`,
     stable: 'Finito: nessuna coppia vuole cambiare. La rete è stabile a coppie.',
     capped: `Fermato dopo ${MAX_STEPS.toLocaleString('it-IT')} passi: la rete non è ancora stabile a coppie.`,
     total: 'Utilità totale',

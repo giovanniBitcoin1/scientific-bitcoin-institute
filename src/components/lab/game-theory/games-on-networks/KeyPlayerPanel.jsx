@@ -46,7 +46,7 @@ const T = {
     lambda: 'λ_max e 1/λ_max',
     total: 'Sforzo totale',
     byEffort: 'Prima il più attivo',
-    byInter: 'Prima la più alta intercentralità',
+    byInter: 'Prima l’intercentralità più alta',
     head: ['giocatore', 'sforzo b_i', 'b_i²/m_ii'],
     most: 'il più attivo',
     key: 'giocatore chiave',

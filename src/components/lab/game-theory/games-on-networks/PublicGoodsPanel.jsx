@@ -42,7 +42,7 @@ const T = {
     br: 'Migliori risposte',
     list: 'Equilibri specializzati',
     hide: 'Nascondi l’elenco',
-    nothing: 'Premi un tasto: “Migliori risposte” per una prova da una partenza casuale, o “Equilibri specializzati” per l’elenco.',
+    nothing: 'Premi un pulsante: «Migliori risposte» per una prova da una partenza casuale, o «Equilibri specializzati» per l’elenco.',
     run: (k, turns) => `Prova n. ${k}: da una partenza casuale (seme ${k}), ${turns} giri di migliori risposte.`,
     shown: (s) => `Mostrato: il profilo specializzato ${s}.`,
     start: 'Partenza',

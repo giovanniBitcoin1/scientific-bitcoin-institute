@@ -498,7 +498,7 @@ if (existsSync(textsPath) && existsSync(resolve(root, lecturePath('en'))) && exi
     const afterFormation = body[l].indexOf('```box') > body[l].indexOf('```figure\nformation')
     return boxes === 1 && afterFormation && (noBox[l].match(/bitcoin/gi) || []).length === 1
   }))
-  check('the lecture links to the Network Lab\'s modules 03, 05 and 13', ['en', 'it'].every((l) => ['/network-lab/centrality', '/network-lab/growth-mechanisms', '/network-lab/social-contagion-network-effects'].every((u) => lecture[l].includes(`(${u})`))))
+  check('the lecture links to the Network Lab\'s modules 03, 06 and 13', ['en', 'it'].every((l) => ['/network-lab/centrality', '/network-lab/growth-mechanisms', '/network-lab/social-contagion-network-effects'].every((u) => lecture[l].includes(`(${u})`))))
   check('the authors are spelled as the papers print them: Kranton (not "Kranz"), never peer-reviewed', ['en', 'it'].every((l) => !/Kranz\b/.test(lecture[l]) && lecture[l].includes('Kranton') && !/peer.reviewed/i.test(allText(l))))
 } else {
   info('texts.js or the lecture is not there yet: the "quoted on the page" checks are skipped')

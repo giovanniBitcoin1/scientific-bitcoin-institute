@@ -421,3 +421,47 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: the build made for module 05 (after module 08's edits).
 - `node check-module.mjs game-theory congestion-price-of-anarchy`: 0 failures of 56 (50 s).
 - `node modules/game-theory-congestion-price-of-anarchy.mjs`: 0 failures of 43 (12 s).
+- Commit 6d21f47 "Game Theory Lab review: module 08".
+
+### Module 09 `games-on-networks`
+
+- Files: the two lectures, `texts.js`; UI strings in `FigureStar.jsx`,
+  `PublicGoodsPanel.jsx`, `KeyPlayerPanel.jsx`, `FormationPanel.jsx`;
+  `scripts/lab/check-game-theory-09.mjs` (the name of one check, by the
+  lead, see below).
+- Changes: Italian about 22, English 4, parity 4, facts 1 (a softening),
+  quotations 0, clarity 2, links 3 per language, panel texts 10.
+- Most significant:
+  - Links: the Network Lab's `/network-lab/growth-mechanisms` was called
+    "module 05"; `network-modules.json` numbers it 06 (05 is
+    heavy-tails-done-right). Fixed in four places (lecture and reading
+    list, EN and IT); the URL was right. The lead renamed the self-check's
+    link check accordingly ("modules 03, 05 and 13" → "03, 06 and 13"; a
+    name, not a pin).
+  - Fact (softening): «il primo modello di formazione strategica delle
+    reti» (no source for "first" in report 09) → «uno dei modelli fondativi
+    della formazione strategica delle reti», EN likewise.
+  - IT pairwise stability: «nessuna coppia di giocatori guadagnerebbe,
+    entrambi e almeno uno strettamente, aggiungendo…» → «se nessuna coppia
+    di giocatori ha interesse ad aggiungerne uno tra loro, cioè a farlo
+    senza che nessuno dei due ci perda e con almeno uno che guadagna
+    strettamente».
+  - EN "best reply/replies" → "best response(s)" in the lecture and
+    exercise 1 (the module's and the table's term).
+  - IT calques: «guarda i negozi» → «tiene d'occhio»; «le formule
+    esplodono» → «divergono»; possessives dropped («nel suo modulo 03»);
+    «λ_max l'autovalore» → «dove λ_max è».
+  - Parity: the EN now names **games on networks**, **strategic network
+    formation**, "payment channels" and bold "routing fees", as the IT.
+  - texts.js: "The more active player is the smaller loss." → "Removing
+    the more active player costs less." (IT likewise).
+- Facts and pins: no number changed; no pin changed.
+- Words (box not counted): EN 1,551, IT 1,621 (limits 1,400–1,700).
+- For Adriano: «uno dei modelli fondativi» is our wording; «partner» in
+  roman in the IT.
+- Cross-module: grep other modules for Network Lab numbers; «Il prossimo
+  modulo» against "Next"; curly “ ” in IT UI strings elsewhere.
+- `node scripts/lab/check-game-theory-09.mjs`: all checks passed (1 s).
+- `npx vite build`: built (15 s).
+- `node check-module.mjs game-theory games-on-networks`: 0 failures of 60 (55 s).
+- `node modules/game-theory-games-on-networks.mjs`: 0 failures of 42 (17 s).

@@ -4,7 +4,7 @@
 
 In the games of modules 01 to 08 everyone met everyone, or at least shared the same roads. Most people do not live like that. A researcher works with a handful of coauthors, a farmer borrows tools from the farms next door, a shop watches the shops on its own street. Each player meets only her **neighbours**, and the shape of the network decides much of what happens.
 
-Michael Kearns, Michael Littman and Satinder Singh (2001) proposed the model now called **graphical games**: the players sit on the nodes of a network and each one's payoff depends only on her own choice and on her neighbours' choices. The network is not decoration. It says who can affect whom.
+Michael Kearns, Michael Littman and Satinder Singh (2001) proposed the model now called **graphical games**: the players sit on the nodes of a network and each one's payoff depends only on her own choice and on her neighbours' choices. These are **games on networks**, and the network is not decoration: it says who can affect whom.
 
 Here is the simplest version, which this module uses throughout. Each player i chooses an effort x_i ≥ 0. Write g_ij = 1 if i and j are neighbours and 0 otherwise. Her payoff is
 
@@ -12,7 +12,7 @@ Here is the simplest version, which this module uses throughout. Each player i c
 u_i = x_i − x_i²/2 + δ x_i Σ_j g_ij x_j
 ```
 
-The first two terms are what she gets from her own effort: a return of 1 per unit, at a cost that grows with the square. The last term is the interaction. Setting the derivative to zero, and remembering that effort cannot be negative, gives her best reply:
+The first two terms are what she gets from her own effort: a return of 1 per unit, at a cost that grows with the square. The last term is the interaction. Setting the derivative to zero, and remembering that effort cannot be negative, gives her best response:
 
 ```math
 x_i = max(0, 1 + δ Σ_j g_ij x_j)
@@ -20,7 +20,7 @@ x_i = max(0, 1 + δ Σ_j g_ij x_j)
 
 With δ > 0 efforts are **strategic complements**: the more my neighbours do, the more I want to do, as when studying with friends who study. With δ < 0 they are **strategic substitutes**: the more my neighbours do, the less I need to, as when a neighbour's dog already guards the street.
 
-Take a star: a hub with four leaves. With complements, the hub has four neighbours pushing her up and each leaf only one, so the hub works most. Solving the two best replies, the hub works (1 + 4δ)/(1 − 4δ²) and each leaf (1 + δ)/(1 − 4δ²): at δ = 0.25, 8/3 against 5/3. With substitutes the order flips. The hub feels four neighbours' efforts and cuts back the most; from δ = −0.25 down she does nothing at all, and each leaf, with no help from her, works 1. Position alone, not talent or taste, decides who works. Figure F1 lets you move δ and watch the efforts change; near δ = ±0.5 the formulas blow up, and the figure stops just before.
+Take a star: a hub with four leaves. With complements, the hub has four neighbours pushing her up and each leaf only one, so the hub works most. Solving the two best responses together, the hub works (1 + 4δ)/(1 − 4δ²) and each leaf (1 + δ)/(1 − 4δ²): at δ = 0.25, 8/3 against 5/3. With substitutes the order flips. The hub feels four neighbours' efforts and cuts back the most; from δ = −0.25 down she does nothing at all, and each leaf, with no help from her, works 1. Position alone, not talent or taste, decides who works. Figure F1 lets you move δ and watch the efforts change; near δ = ±0.5 the formulas blow up, and the figure stops just before.
 
 ```figure
 star
@@ -28,7 +28,7 @@ star
 
 ## Who does the work?
 
-Push substitutes to the limit, δ = −1, and own effort and the neighbours' are perfect substitutes:
+Push substitutes to the limit, δ = −1, and a player's own effort and her neighbours' become perfect substitutes:
 
 ```math
 x_i = max(0, 1 − Σ_j g_ij x_j)
@@ -38,7 +38,7 @@ This is a model of **local public goods** (Yann Bramoullé and Rachel Kranton 20
 
 Among the equilibria, the simplest are **specialized**: some players work 1 and the others nothing. For this to be an equilibrium, no two workers can be neighbours (each would then want to stop), and every non-worker must have a working neighbour (otherwise she would want to start). In the language of graph theory, the workers form a **maximal independent set**: no two of them linked, and no one else can join without breaking that. A network usually has many such sets, and so many equilibria, with very different totals.
 
-Not all of them survive a small shock. Bramoullé and Kranton show that a specialized equilibrium is stable when every non-worker has at least two working neighbours. The reason is simple: if a worker's effort slips a little, a non-worker with only that one working neighbour has a reason to start, and the profile drifts away; with two, the other one still covers her. On a star of six the hub alone working, a total of 1, is an equilibrium, but each leaf relies on her alone. The stable one has the five leaves working and the hub riding on them: a total of 5. Panel A lists every specialized equilibrium of four small networks and runs best responses from random starts.
+Not all of them survive a small shock. Bramoullé and Kranton show that a specialized equilibrium is stable when every non-worker has at least two working neighbours. The reason is simple. If a worker's effort slips a little, a non-worker with only that one working neighbour has a reason to start, and the profile drifts away from the equilibrium. With two working neighbours, the other one still covers her. On a star of six nodes, the hub working alone, a total of 1, is an equilibrium, but each leaf relies on her alone. The stable one has the five leaves working and the hub relying on them: a total of 5. Panel A lists every specialized equilibrium of four small networks and runs best responses from random starts.
 
 With weaker substitutes there may be just one equilibrium. Bramoullé, Kranton and Martin D'Amours (2014) showed that it is unique when |δ| is below 1/|λ_min|, where λ_min is the lowest eigenvalue of the network's adjacency matrix. F1's star has λ_min = −2: that is why its equilibrium is unique on the whole slider.
 
@@ -66,9 +66,9 @@ When each link is a coordination game, the question changes: not how much to do,
 
 ## Building the network
 
-So far the network was given. Who would build it? Matthew Jackson and Asher Wolinsky (1996) proposed the **connections model**. Each link costs c to each of its two ends. A player gets δ^d from every other player at distance d, with 0 < δ < 1: friends are worth δ, friends of friends δ², and so on. The network is **pairwise stable** if no player gains by cutting one of her links, and no two players would both gain, one of them strictly, by adding a link between them.
+So far the network was given. Who would build it? Matthew Jackson and Asher Wolinsky (1996) proposed the **connections model**, one of the founding models of **strategic network formation**. Each link costs c to each of its two ends. A player gets δ^d from every other player at distance d, with 0 < δ < 1: friends are worth δ, friends of friends δ², and so on. The network is **pairwise stable** if no player gains by cutting one of her links, and no two players would both gain, one of them strictly, by adding a link between them.
 
-Which network has the largest total? The **efficient network** is the complete one when c < δ − δ²: a direct link beats the distance of 2 it replaces. It is the star when δ − δ² < c < δ + (n − 2)δ²/2: the star connects everyone at distance at most 2 with the fewest links. Above, it is the empty one.
+Which network has the largest total? The **efficient network** is the complete one when c < δ − δ²: a direct link beats the distance of 2 it replaces. It is the star when δ − δ² < c < δ + (n − 2)δ²/2: the star connects everyone at distance at most 2 with the fewest links. Above that threshold, it is the empty one.
 
 Which networks are pairwise stable? When c < δ − δ² the complete network is the only one: any two players not linked would gain by linking. When δ − δ² < c < δ the star is stable, but not the only stable network. When c > δ no stable network has a player with a single link: her partner gets only δ from that link and pays c. The empty network is then stable.
 
@@ -78,13 +78,13 @@ So between δ and δ + (n − 2)δ²/2 the efficient network, the star, is not s
 formation
 ```
 
-Jackson and Alison Watts (2002) let pairs of players add and cut links one at a time, chosen at random, and asked where the process ends: Panel C runs it. Venkatesh Bala and Sanjeev Goyal (2000) let a single player pay for a link on her own, as in a phone call that one side pays for; in their model a star, with the hub paying for every link, comes back as an equilibrium. The Network Lab's [module 05](/network-lab/growth-mechanisms) showed another way hubs arise: by growth.
+Jackson and Alison Watts (2002) let pairs of players add and cut links one at a time, chosen at random, and asked where the process ends: Panel C runs it. Venkatesh Bala and Sanjeev Goyal (2000) let a single player pay for a link on her own, as in a phone call that one side pays for; in their model a star, with the hub paying for every link, comes back as an equilibrium. The Network Lab's [module 06](/network-lab/growth-mechanisms) showed another way hubs arise: by growth.
 
 ```box
 Lightning: who opens the channels?
-A Lightning channel is a link between two nodes. Opening one locks funds and costs an on-chain fee; it brings reachability, and to the nodes in the middle of many routes it brings routing fees.
+A Lightning channel is a link between two nodes. Opening one locks funds and costs an on-chain fee; it brings reachability, and to the nodes in the middle of many routes it brings **routing fees**.
 
-**Models.** Georgia Avarikioti, Rolf Scheuner and Roger Wattenhofer (2019) modelled channel networks as network creation games and found that the star is a Nash equilibrium when the owners of each channel may set its fee as they wish. Zeta Avarikioti, Lioba Heimbach, Yuyi Wang and Wattenhofer (2020) used betweenness centrality as a measure of the fees a node can expect and gave bounds on the price of anarchy and of stability.
+**Models.** Georgia Avarikioti, Rolf Scheuner and Roger Wattenhofer (2019) modelled networks of **payment channels** as network creation games and found that the star is a Nash equilibrium when the owners of each channel may set its fee as they wish. Zeta Avarikioti, Lioba Heimbach, Yuyi Wang and Wattenhofer (2020) used betweenness centrality as a measure of the fees a node can expect and gave bounds on the price of anarchy and of stability.
 
 **The data.** Jian-Hong Lin, Kevin Primicerio, Tiziano Squartini, Christian Decker and Claudio Tessone (2020) followed the network for 18 months, from January 2018 to July 2019, when it had 8,216 users and 122,517 active channels. On average over the period, 10% of the nodes held 80% of the bitcoins at stake, the structure became more and more core–periphery, and removing its hubs split it into many pieces.
 
@@ -112,4 +112,4 @@ A Lightning channel is a link between two nodes. Opening one locks funds and cos
 - Avarikioti, G., Scheuner, R. and Wattenhofer, R. (2019). Payment networks as creation games. *CBT 2019* (arXiv:1908.00436).
 - Avarikioti, Z., Heimbach, L., Wang, Y. and Wattenhofer, R. (2020). Ride the Lightning: the game theory of payment channels. *Financial Cryptography 2020*, 264–283 (arXiv:1912.04797).
 - Lin, J.-H., Primicerio, K., Squartini, T., Decker, C. and Tessone, C. J. (2020). Lightning Network: a second path towards centralisation of the Bitcoin economy. *New Journal of Physics* 22, 083022.
-- The Network Lab, [module 03](/network-lab/centrality), [module 05](/network-lab/growth-mechanisms) and [module 13](/network-lab/social-contagion-network-effects).
+- The Network Lab, [module 03](/network-lab/centrality), [module 06](/network-lab/growth-mechanisms) and [module 13](/network-lab/social-contagion-network-effects).
