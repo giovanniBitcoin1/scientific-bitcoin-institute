@@ -81,7 +81,7 @@ x = 1 / (1 + δ)
 
 Con δ = 0,9 fa 0,526, poco più della metà. L'offerta viene accettata subito, quindi nulla va sprecato, eppure la divisione è decisa da turni che non si giocano mai. Quando i due giocatori hanno fattori di sconto diversi δ₁ e δ₂, il primo proponente ottiene (1 − δ₂)/(1 − δ₁δ₂): 0,714 se è il più paziente, con 0,9 contro 0,8, e 0,357 se è il meno paziente. La pazienza è potere contrattuale.
 
-Qui i giocatori sapevano sempre con chi avevano a che fare. Nel modulo 05 un giocatore non conosce i payoff dell'altro e deve leggerli in ciò che l'altro fa.
+Qui i giocatori sapevano sempre con chi avevano a che fare. Nel [modulo 05](/game-theory-lab/incomplete-information-signalling) un giocatore non conosce i payoff dell'altro e deve leggerli in ciò che l'altro fa.
 
 <!-- simulation -->
 

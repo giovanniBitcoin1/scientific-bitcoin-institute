@@ -85,7 +85,7 @@ About every ten minutes one miner wins the block reward, with a chance equal to 
 
 ## What comes next
 
-Not every game has an equilibrium to find. One two-by-two game in eight has no stable cell at all, and neither has about a third of the large random games of Simulation A; matching pennies is the smallest of them. Module 03 shows that these games have an equilibrium too, once the players are allowed to mix their strategies at random.
+Not every game has an equilibrium to find. One two-by-two game in eight has no stable cell at all, and neither has about a third of the large random games of Simulation A; matching pennies is the smallest of them. [Module 03](/game-theory-lab/mixed-strategies-zero-sum) shows that these games have an equilibrium too, once the players are allowed to mix their strategies at random.
 
 <!-- simulation -->
 

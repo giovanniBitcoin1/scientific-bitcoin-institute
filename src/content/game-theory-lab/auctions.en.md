@@ -71,7 +71,7 @@ Block space: an auction every ten minutes
 
 ## Next
 
-Module 12: designing the rules, from the revelation principle to Myerson's lemma and the VCG mechanism, and whether an auctioneer who runs the auction for herself, a miner for instance, can be trusted.
+[Module 12](/game-theory-lab/mechanism-design): designing the rules, from the revelation principle to Myerson's lemma and the VCG mechanism, and whether an auctioneer who runs the auction for herself, a miner for instance, can be trusted.
 
 <!-- simulation -->
 

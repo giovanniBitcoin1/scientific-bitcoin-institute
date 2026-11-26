@@ -62,7 +62,7 @@ One equilibrium is left: hunt the stag if your signal is above 1/2. That is exac
 
 ## Next
 
-In module 06 the same game is played many times. A reputation is then a type that the others learn about from what you do.
+In [module 06](/game-theory-lab/repeated-games-reputation) the same game is played many times. A reputation is then a type that the others learn about from what you do.
 
 <!-- simulation -->
 

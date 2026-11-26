@@ -174,7 +174,7 @@ uses it and the regression compare.
 | 11 | IV | `auctions` | done | the commit "Game Theory Lab 11: Auctions" | A Same revenue, different risk; B The winner's curse; C A block for sale | `truth`, `shading` |
 | 12 | IV | `mechanism-design` | done | the commit "Game Theory Lab 12: Designing the rules" | A Lying does not pay; B Pay for the harm you do; C Who runs the auction? | `area`, `trade` |
 | 13 | IV | `mining-as-a-game` | done | the commit "Game Theory Lab 13: Mining as a game" | A Race the network; B The difficulty catches up; C The best deviation | `chain`, `threshold` |
-| 14 | IV | `capstone-the-price-of-security` | planned | | | |
+| 14 | IV | `capstone-the-price-of-security` | done | the commit "Game Theory Lab 14: The price of security" | A The cost of an attack; B When only fees pay; C Your own estimate | `flow`, `clock` |
 
 Parts: I Reasoning / Ragionare; II Learning / Imparare; III Living together /
 Convivere; IV Designing / Progettare.
@@ -533,21 +533,71 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | adopt, override, match, wait; irrelevant, relevant, active | kept in English, in italics, with glosses (no Italian source) | 13 |
 | fair-weather mining | *fair-weather mining* (kept) | 13 |
 | miner (gender) | masculine, as modules 02–12 ("il miner", "un pool") | 13 |
+| zero-profit condition | condizione di profitti nulli ("profitti economici nulli", Unife; "condizione di profitto nullo" not found) | 14 |
+| incentive compatibility constraint | vincolo di compatibilità degli incentivi (Unife) | 14 |
+| flow and stock | flusso e stock (grandezze di flusso, di stock: Teramo) | 14 |
+| majority (51%) attack | attacco del 51% (Bitcoin.com IT, UniBo thesis); "attacco di maggioranza" as a gloss | 14 |
+| double spend | doppia spesa (ethereum.org IT) | 14 |
+| escrow | *escrow* (kept, as in legal Italian; gloss "deposito in garanzia") | 14 |
+| specialized capital | capitale specifico (transaction-cost literature; "capitale specializzato" not found) | 14 |
+| renting hash rate | noleggio di potenza di calcolo (Bitpanda "noleggiare") | 14 |
+| sabotage; counterattack; Goldfinger attack | sabotaggio; contrattacco; attacco *Goldfinger* (no Italian source: plain forms) | 14 |
+| bribery | corruzione (*bribery*) (no source; ethereum.org IT "tangenti") | 14 |
+| war of attrition | guerra di logoramento (UniBo thesis; "guerra d'attrito" also found) | 14 |
+| block subsidy | sussidio del blocco (only a search summary; distinct from "ricompensa del blocco", subsidy plus fees) | 14 |
+| halving | *halving* (kept, masculine; gloss dimezzamento: Sky TG24) | 14 |
+| undercutting; mining gap | *undercutting*, *mining gap* (kept: no Italian source) | 14 |
+| free rider; confirmation | *free rider* (kept, it.wikipedia); conferme | 14 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 13 is finished: module 13 in 23b9018 "Game
-Theory Lab 13: Mining as a game" (three WIP commits squashed), the report
-`docs/reports/game-theory-lab-13.md` and the working log
-`docs/reports/game-theory-lab-13-log.md` in "Game Theory Lab 13: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere.
+Prompt 14. Module 14 is in the commit "Game Theory Lab 14: The price of
+security" (three WIP commits squashed, with stage 0: the successor named at
+the end of every lecture of modules 01–13 is now a link, EN and IT). The
+whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere. Remains: stage 2, the close of the lab (its own commit "Game
+Theory Lab: close"), then the report `docs/reports/game-theory-lab-14.md`
+with the working log `docs/reports/game-theory-lab-14-log.md` ("Game
+Theory Lab 14: report").
 
 ## Next
 
-Module 14, `capstone-the-price-of-security`, when its prompt is there.
+Stage 2 of prompt 14 (the close of the lab), then its report.
 
 ## Open items
+
+- Module 14, things to know, all in `capstone-the-price-of-security/`:
+  `budish.js` (t(A) as Budish's Proposition 3 with log-binomials, A* by a
+  scan and golden section, the payment per block, day and year, Panel A's
+  outputs), `schedule.js` (the subsidy in integer satoshis, the real dates of
+  halvings 1–4, then ten minutes a block), `fees.js` (Panel B, exact and
+  seeded), `defaults.js` (Panel A's dated defaults with their sources, and
+  the test values), `money.js`, `attack.jsx` (inputs and outputs shared by
+  Panels A and C). Module chunk 68.0 kB (24.8 kB gzip).
+- Module 14, choices to review: Panel A's dated defaults (26 November 2026,
+  no Coin Metrics): price $60,374 (CoinGecko, close of 25 November), fees
+  0.0201 BTC (Hashrate Index, week to 23 November), 1,019 EH/s (Hashrate
+  Index, 30-day), $18.28 per TH/s (Luxor index under 14 J/TH, 24 November;
+  unchanged since August, possibly stale), 13.5 J/TH (S21 XP spec; the
+  network's average is higher), $0.05 per kWh (assumption), 0.87% for rent
+  (NiceHash 8.85 EH/s), V $1 billion and 50% collapse loss (assumptions).
+  One efficiency serves the attack and the zero-profit check. k + e stops at
+  1,008 in F1 and in Panel A's field (10,000 took 348 ms). Panel B has three
+  presets (f's log slider cannot land on 0.5). F1 starts at A* exactly; the
+  A slider moves by 0.01. Figure heights 408 and 408 px at 1280 (EN; IT 408
+  and 388); at 375 IT 763 and 552.
+- Module 14, findings and sources (November 2026, details in the log): every
+  number of the prompt agrees with the code, including all six exercises.
+  Budish's QJE wording is "trust support" and his equations (2) and (3) use
+  A*; k is "the number of blocks in which the attacker places transactions";
+  Theorem 2 makes the net cost exactly zero; the stock argument and sabotage
+  are Section V. The double spend is in Narayanan et al. 2.3, Goldfinger and
+  bribery in 5.5. Kroll et al.'s PDF could not be opened (the Goldfinger
+  name confirmed by a snippet and by Narayanan 5.5). Moroz et al. appeared at
+  Cryptoeconomic Systems 2020. Auer says "free-ride", not "public good".
+- Module 14 texts quote numbers pinned by `check-game-theory-14.mjs` (about
+  1 s) and by
+  `browser-checks/modules/game-theory-capstone-the-price-of-security.mjs`.
 
 - Module 13, things module 14 may reuse, all in `mining-as-a-game/`:
   `selfish.js` (SM1's chain: R in closed form, the stationary distribution in

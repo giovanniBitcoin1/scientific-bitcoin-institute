@@ -73,7 +73,7 @@ Mining pools: who gets the reward?
 
 ## Next
 
-Part IV turns from playing games to designing them. Module 11: auctions, with a Bitcoin box on the fee market.
+Part IV turns from playing games to designing them. [Module 11](/game-theory-lab/auctions): auctions, with a Bitcoin box on the fee market.
 
 <!-- simulation -->
 

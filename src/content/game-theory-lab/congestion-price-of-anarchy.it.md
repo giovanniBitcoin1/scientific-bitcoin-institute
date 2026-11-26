@@ -86,7 +86,7 @@ Il limite viene raggiunto. Nell'*hub* del Pannello C, il giocatore i può prende
 
 ## Il prossimo modulo
 
-Modulo 09: giochi giocati su una rete, dove ogni giocatore guarda solo ai suoi vicini, e reti che i giocatori costruiscono da sé; con un riquadro su Bitcoin dedicato alla Lightning Network. Per i cammini minimi e i flussi in sé, si veda il [modulo 10](/network-lab/weights-flows-navigation) del Network Lab.
+[Modulo 09](/game-theory-lab/games-on-networks): giochi giocati su una rete, dove ogni giocatore guarda solo ai suoi vicini, e reti che i giocatori costruiscono da sé; con un riquadro su Bitcoin dedicato alla Lightning Network. Per i cammini minimi e i flussi in sé, si veda il [modulo 10](/network-lab/weights-flows-navigation) del Network Lab.
 
 <!-- simulation -->
 

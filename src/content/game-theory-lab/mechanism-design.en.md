@@ -73,7 +73,7 @@ Who runs the auction?
 
 ## Next
 
-Module 13 treats the protocol itself as a mechanism, and asks whether following it is an equilibrium for a miner.
+[Module 13](/game-theory-lab/mining-as-a-game) treats the protocol itself as a mechanism, and asks whether following it is an equilibrium for a miner.
 
 <!-- simulation -->
 

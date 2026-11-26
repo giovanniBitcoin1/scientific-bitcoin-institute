@@ -81,7 +81,7 @@ x = 1 / (1 + δ)
 
 With δ = 0.9 this is 0.526, a little more than half. The offer is accepted at once, so nothing is wasted, yet the split is decided by rounds that are never played. When the two players have different discount factors δ₁ and δ₂, the first proposer gets (1 − δ₂)/(1 − δ₁δ₂): 0.714 if it is the more patient one, with 0.9 against 0.8, and 0.357 if it is the less patient. Patience is bargaining power.
 
-Here the players always knew whom they faced. In module 05 a player does not know the other's payoffs and must read them from what the other does.
+Here the players always knew whom they faced. In [module 05](/game-theory-lab/incomplete-information-signalling) a player does not know the other's payoffs and must read them from what the other does.
 
 <!-- simulation -->
 

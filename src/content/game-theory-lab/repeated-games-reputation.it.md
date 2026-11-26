@@ -103,7 +103,7 @@ Il modulo 05 si era chiuso con la promessa che una reputazione è un tipo che gl
 
 ## Il prossimo modulo
 
-Nel modulo 07 i giocatori smettono di calcolare. Le strategie si diffondono perché funzionano, e i giocatori imparano il gioco giocandolo.
+Nel [modulo 07](/game-theory-lab/evolution-and-learning) i giocatori smettono di calcolare. Le strategie si diffondono perché funzionano, e i giocatori imparano il gioco giocandolo.
 
 <!-- simulation -->
 

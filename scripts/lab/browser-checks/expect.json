@@ -25,5 +25,6 @@
   "game-theory/coalitions-sharing": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/auctions": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/mechanism-design": { "figures": 2, "panels": 3, "exercises": 7 },
-  "game-theory/mining-as-a-game": { "figures": 2, "panels": 3, "exercises": 6 }
+  "game-theory/mining-as-a-game": { "figures": 2, "panels": 3, "exercises": 6 },
+  "game-theory/capstone-the-price-of-security": { "figures": 2, "panels": 3, "exercises": 6 }
 }

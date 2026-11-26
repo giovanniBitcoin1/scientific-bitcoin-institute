@@ -79,7 +79,7 @@ John Nash showed in 1950 that once mixing is allowed, every game with finitely m
 
 How would players find the mix without solving equations? George Brown proposed **fictitious play** in 1951: each player looks at how often the other has played each strategy so far and plays the best response to those frequencies. Julia Robinson proved in the same year that in games of pure conflict this works in the long run: what the frequencies guarantee approaches the value. Yet the play itself never settles; it keeps switching from cell to cell in longer and longer **runs**. In Simulation B, the largest gap between the frequencies and the equilibrium of matching pennies is 0.05 after 100 rounds and 0.0016 after 100,000.
 
-Outside pure conflict there is no such promise. Lloyd Shapley (1964) built a three-by-three game whose only equilibrium is a third for each strategy, but where fictitious play goes round and round: each run is about one and a half times as long as the last, there are only 28 runs in 100,000 rounds, and the gap stays near 0.25 forever. Module 07 comes back to learning. Module 04 lets the players move one after the other.
+Outside pure conflict there is no such promise. Lloyd Shapley (1964) built a three-by-three game whose only equilibrium is a third for each strategy, but where fictitious play goes round and round: each run is about one and a half times as long as the last, there are only 28 runs in 100,000 rounds, and the gap stays near 0.25 forever. Module 07 comes back to learning. [Module 04](/game-theory-lab/sequential-games-commitment) lets the players move one after the other.
 
 <!-- simulation -->
 

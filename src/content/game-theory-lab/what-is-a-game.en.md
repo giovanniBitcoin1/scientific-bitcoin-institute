@@ -101,7 +101,7 @@ The count of 144 goes back to Anatol Rapoport and Melvin Guyer, who in 1966 list
 
 Two-by-two games flatter dominance. Simulation C draws games at random, with every payoff an independent number between 0 and 1, and deletes all it can. Of 20,000 games of each size, elimination solves 75% of the two-by-two games, 44% of the three-by-three, 8% of the five-by-five and about one in a thousand of the eight-by-eight. The stable cells do not disappear with it: two games in three still have at least one at eight by eight.
 
-So we need an idea that still works when nothing can be deleted. We have already met it. It is the stable cell, and it has a name: **Nash equilibrium**. Module 02 is about what it means, why a game can have several, and which one gets played.
+So we need an idea that still works when nothing can be deleted. We have already met it. It is the stable cell, and it has a name: **Nash equilibrium**. [Module 02](/game-theory-lab/nash-equilibrium) is about what it means, why a game can have several, and which one gets played.
 
 <!-- simulation -->
 

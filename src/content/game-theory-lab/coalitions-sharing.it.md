@@ -73,7 +73,7 @@ I mining pool: a chi va la ricompensa?
 
 ## Il prossimo modulo
 
-La Parte IV passa dal giocare i giochi al progettarli. Modulo 11: le aste, con un riquadro su Bitcoin e il mercato delle commissioni.
+La Parte IV passa dal giocare i giochi al progettarli. [Modulo 11](/game-theory-lab/auctions): le aste, con un riquadro su Bitcoin e il mercato delle commissioni.
 
 <!-- simulation -->
 

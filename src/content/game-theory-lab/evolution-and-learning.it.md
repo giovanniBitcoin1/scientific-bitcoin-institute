@@ -96,7 +96,7 @@ Il Pannello C mette due giocatori Hedge sui giochi del modulo 01. Nel gioco del 
 
 ## Il prossimo modulo
 
-Parte III, convivere. Nel modulo 08 molti automobilisti condividono una rete stradale, ciascuno sceglie il percorso per sé, e ci chiediamo quanto costa il loro egoismo: il prezzo dell'anarchia.
+Parte III, convivere. Nel [modulo 08](/game-theory-lab/congestion-price-of-anarchy) molti automobilisti condividono una rete stradale, ciascuno sceglie il percorso per sé, e ci chiediamo quanto costa il loro egoismo: il prezzo dell'anarchia.
 
 <!-- simulation -->
 

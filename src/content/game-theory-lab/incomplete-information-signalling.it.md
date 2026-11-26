@@ -62,7 +62,7 @@ Resta un solo equilibrio: caccia il cervo se il tuo segnale è sopra 1/2. È esa
 
 ## Il prossimo modulo
 
-Nel modulo 06 lo stesso gioco si gioca molte volte. Una reputazione è allora un tipo che gli altri imparano a conoscere da ciò che fai.
+Nel [modulo 06](/game-theory-lab/repeated-games-reputation) lo stesso gioco si gioca molte volte. Una reputazione è allora un tipo che gli altri imparano a conoscere da ciò che fai.
 
 <!-- simulation -->
 

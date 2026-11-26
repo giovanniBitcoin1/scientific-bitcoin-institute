@@ -85,7 +85,7 @@ Circa ogni dieci minuti un *miner* vince la ricompensa del blocco, con probabili
 
 ## Che cosa viene dopo
 
-Non tutti i giochi hanno un equilibrio da trovare. Un gioco due per due su otto non ha nessuna cella stabile, e nemmeno circa un terzo dei grandi giochi casuali della Simulazione A; il pari o dispari è il più piccolo. Il modulo 03 mostra che anche questi giochi hanno un equilibrio, non appena ai giocatori è permesso mescolare a caso le proprie strategie.
+Non tutti i giochi hanno un equilibrio da trovare. Un gioco due per due su otto non ha nessuna cella stabile, e nemmeno circa un terzo dei grandi giochi casuali della Simulazione A; il pari o dispari è il più piccolo. Il [modulo 03](/game-theory-lab/mixed-strategies-zero-sum) mostra che anche questi giochi hanno un equilibrio, non appena ai giocatori è permesso mescolare a caso le proprie strategie.
 
 <!-- simulation -->
 

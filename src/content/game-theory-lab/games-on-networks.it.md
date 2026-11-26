@@ -93,7 +93,7 @@ Un canale Lightning è un collegamento tra due nodi. Aprirne uno blocca dei fond
 
 ## Il prossimo modulo
 
-Modulo 10: quando i giocatori possono firmare accordi vincolanti, quali coalizioni si formano e come dividono ciò che producono insieme; con un riquadro Bitcoin sui *pool* di *mining*.
+[Modulo 10](/game-theory-lab/coalitions-sharing): quando i giocatori possono firmare accordi vincolanti, quali coalizioni si formano e come dividono ciò che producono insieme; con un riquadro Bitcoin sui *pool* di *mining*.
 
 <!-- simulation -->
 

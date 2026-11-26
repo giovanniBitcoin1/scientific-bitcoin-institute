@@ -79,7 +79,7 @@ John Nash dimostrò nel 1950 che, quando si può mescolare, ogni gioco con un nu
 
 Come troverebbero la strategia mista dei giocatori che non risolvono equazioni? George Brown propose nel 1951 il ***fictitious play***: ogni giocatore guarda quanto spesso l'altro ha giocato finora ciascuna strategia e gioca la miglior risposta a quelle frequenze. Julia Robinson dimostrò lo stesso anno che nei giochi di puro conflitto alla lunga funziona: ciò che le frequenze garantiscono si avvicina al valore. Eppure il gioco in sé non si assesta mai; continua a passare da una cella all'altra in **sequenze** sempre più lunghe. Nella Simulazione B lo scarto massimo fra le frequenze e l'equilibrio del pari o dispari è 0,05 dopo 100 turni e 0,0016 dopo 100.000.
 
-Fuori dal puro conflitto non c'è una promessa simile. Lloyd Shapley (1964) costruì un gioco tre per tre il cui unico equilibrio è un terzo per ogni strategia, ma in cui il fictitious play gira in tondo: ogni sequenza è lunga circa una volta e mezza la precedente, ci sono solo 28 sequenze in 100.000 turni, e lo scarto resta vicino a 0,25 per sempre. Il modulo 07 tornerà sull'apprendimento. Il modulo 04 fa muovere i giocatori uno dopo l'altro.
+Fuori dal puro conflitto non c'è una promessa simile. Lloyd Shapley (1964) costruì un gioco tre per tre il cui unico equilibrio è un terzo per ogni strategia, ma in cui il fictitious play gira in tondo: ogni sequenza è lunga circa una volta e mezza la precedente, ci sono solo 28 sequenze in 100.000 turni, e lo scarto resta vicino a 0,25 per sempre. Il modulo 07 tornerà sull'apprendimento. Il [modulo 04](/game-theory-lab/sequential-games-commitment) fa muovere i giocatori uno dopo l'altro.
 
 <!-- simulation -->
 

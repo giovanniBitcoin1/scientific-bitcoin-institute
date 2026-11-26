@@ -73,7 +73,7 @@ Chi gestisce l'asta?
 
 ## Il prossimo modulo
 
-Il modulo 13 tratta il protocollo stesso come un meccanismo, e si chiede se seguirlo sia un equilibrio per un miner.
+Il [modulo 13](/game-theory-lab/mining-as-a-game) tratta il protocollo stesso come un meccanismo, e si chiede se seguirlo sia un equilibrio per un miner.
 
 <!-- simulation -->
 

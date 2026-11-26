@@ -86,7 +86,7 @@ The bound is reached. In the hub of Panel C, player i can take his own road to t
 
 ## Next
 
-Module 09: games played on a network, where each player cares only about her neighbours, and networks that players build for themselves; with a Bitcoin box on the Lightning Network. For shortest paths and flows themselves, see the Network Lab's [module 10](/network-lab/weights-flows-navigation).
+[Module 09](/game-theory-lab/games-on-networks): games played on a network, where each player cares only about her neighbours, and networks that players build for themselves; with a Bitcoin box on the Lightning Network. For shortest paths and flows themselves, see the Network Lab's [module 10](/network-lab/weights-flows-navigation).
 
 <!-- simulation -->
 

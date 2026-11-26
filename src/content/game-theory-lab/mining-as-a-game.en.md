@@ -85,7 +85,7 @@ None of these settles the question; each says only that the payoffs in the model
 
 ## Next
 
-Module 14, the capstone: how much security costs, and who pays for it when the block reward falls.
+[Module 14](/game-theory-lab/capstone-the-price-of-security), the capstone: how much security costs, and who pays for it when the block reward falls.
 
 <!-- simulation -->
 

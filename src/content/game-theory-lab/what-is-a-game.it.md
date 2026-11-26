@@ -101,7 +101,7 @@ Il conteggio di 144 risale ad Anatol Rapoport e Melvin Guyer, che nel 1966 elenc
 
 I giochi due per due lusingano la dominanza. La Simulazione C estrae giochi a caso, con ogni payoff un numero indipendente tra 0 e 1, e cancella tutto ciò che può. Su 20.000 giochi per dimensione, l'eliminazione risolve il 75% dei giochi due per due, il 44% dei tre per tre, l'8% dei cinque per cinque e circa uno su mille degli otto per otto. Le celle stabili non scompaiono con lei: a otto per otto due giochi su tre ne hanno ancora almeno una.
 
-Ci serve dunque un'idea che funzioni anche quando non c'è nulla da cancellare. L'abbiamo già incontrata. È la cella stabile, e ha un nome: **equilibrio di Nash**. Il modulo 02 spiega che cosa significa, perché un gioco può averne diversi e quale si gioca davvero.
+Ci serve dunque un'idea che funzioni anche quando non c'è nulla da cancellare. L'abbiamo già incontrata. È la cella stabile, e ha un nome: **equilibrio di Nash**. Il [modulo 02](/game-theory-lab/nash-equilibrium) spiega che cosa significa, perché un gioco può averne diversi e quale si gioca davvero.
 
 <!-- simulation -->
 

@@ -96,7 +96,7 @@ Panel C lets two Hedge learners loose on module 01's games. In chicken they sett
 
 ## Next
 
-Part III, living together. In module 08 many drivers share one road network, each choosing a route for himself, and we ask how much their selfishness costs: the price of anarchy.
+Part III, living together. In [module 08](/game-theory-lab/congestion-price-of-anarchy) many drivers share one road network, each choosing a route for himself, and we ask how much their selfishness costs: the price of anarchy.
 
 <!-- simulation -->
 

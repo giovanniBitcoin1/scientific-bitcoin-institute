@@ -103,7 +103,7 @@ Module 05 ended on the promise that a reputation is a type that the others learn
 
 ## Next
 
-In module 07 the players stop calculating. Strategies spread because they do well, and players learn the game by playing it.
+In [module 07](/game-theory-lab/evolution-and-learning) the players stop calculating. Strategies spread because they do well, and players learn the game by playing it.
 
 <!-- simulation -->
 

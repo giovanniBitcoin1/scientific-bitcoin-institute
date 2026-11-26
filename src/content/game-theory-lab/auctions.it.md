@@ -71,7 +71,7 @@ Lo spazio nel blocco: un'asta ogni dieci minuti
 
 ## Il prossimo modulo
 
-Modulo 12: progettare le regole, dal principio di rivelazione al lemma di Myerson e al meccanismo VCG, e se ci si possa fidare di un banditore che conduce l'asta per sé stesso, un miner per esempio.
+[Modulo 12](/game-theory-lab/mechanism-design): progettare le regole, dal principio di rivelazione al lemma di Myerson e al meccanismo VCG, e se ci si possa fidare di un banditore che conduce l'asta per sé stesso, un miner per esempio.
 
 <!-- simulation -->
 

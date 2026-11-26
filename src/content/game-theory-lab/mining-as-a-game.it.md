@@ -85,7 +85,7 @@ Nessuna di queste chiude la questione; ciascuna dice solo che i payoff del model
 
 ## Prossimo modulo
 
-Modulo 14, il progetto finale: quanto costa la sicurezza, e chi la paga quando la ricompensa del blocco scende.
+[Modulo 14](/game-theory-lab/capstone-the-price-of-security), il progetto finale: quanto costa la sicurezza, e chi la paga quando la ricompensa del blocco scende.
 
 <!-- simulation -->
 

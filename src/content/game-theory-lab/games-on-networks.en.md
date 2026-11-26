@@ -93,7 +93,7 @@ A Lightning channel is a link between two nodes. Opening one locks funds and cos
 
 ## Next
 
-Module 10: when players can sign binding agreements, which coalitions form and how they share what they make together; with a Bitcoin box on mining pools.
+[Module 10](/game-theory-lab/coalitions-sharing): when players can sign binding agreements, which coalitions form and how they share what they make together; with a Bitcoin box on mining pools.
 
 <!-- simulation -->
 
