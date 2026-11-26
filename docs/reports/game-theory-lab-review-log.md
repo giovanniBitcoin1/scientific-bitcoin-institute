@@ -656,3 +656,61 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: the build made for module 12 (after module 13's edits).
 - `node check-module.mjs game-theory mining-as-a-game`: 0 failures of 56 (48 s).
 - `node modules/game-theory-mining-as-a-game.mjs`: 0 failures of 32 (10 s).
+- Commit 65bc2e3 "Game Theory Lab review: module 13".
+
+### Module 14 `capstone-the-price-of-security`
+
+- Files: the two lectures, `texts.js`; UI strings in `attack.jsx`,
+  `FigureFlow.jsx`, `FigureClock.jsx`, `FeesPanel.jsx`, `defaults.js`.
+  Stage 0's k + e line and Auer sentence kept (the latter split in two).
+  Self-check unchanged.
+- Changes: Italian 24, English 7, parity 8, facts 1 (a wording fix, no
+  number), quotations 1, clarity 8, links 0 (seven slugs, pinned), panel
+  texts 12.
+- Most significant:
+  - Parity, section 3: IT «La Figura F1 ricalcola la sua tabella di t(A).»
+    → «…ricalcola la tabella di t(A) di Budish e disegna il costo in
+    funzione di A.», as the EN; the ambiguous «Il suo caso base» → «Il caso
+    base di Budish» (EN "His" → "Budish's").
+  - Parity, sentences one language lacked: now in IT «Rivuole i suoi
+    soldi», Bonneau's question («perché comprare, se si può noleggiare?»),
+    «sotto il campo», what F2 shows, the list of assumptions in "Fai il
+    conto tu"; now in EN the "specific capital" sentence ("must own the
+    machines: **specific capital**, worth almost nothing outside mining",
+    Budish's term, his Section V).
+  - The attack race, both languages: "the attacker's private chain has m
+    blocks with a negative binomial probability; if she is short, her lead
+    grows…" → "the number m of blocks on her private chain follows a
+    negative binomial distribution. If she is behind, she gains on average
+    A − 1 blocks for each honest block…"; «catena segreta» → «catena
+    privata» (module 13's term).
+  - IT: «Sia N* …, c …, e p_block» → «Siano …»; «fa attendere al
+    commerciante e blocchi» → «fa attendere il commerciante per e
+    blocchi»; «round» → «turno» (table); «Un blocco per caso ricco conviene
+    biforcarlo» → «Se un blocco è per caso ricco, conviene biforcare la
+    catena…»; italics only at first use.
+  - Fact (wording): IT «senza crollo del prezzo» → «senza un calo del
+    prezzo», as the EN "no fall in the price" and Budish's Theorem 2.
+  - Quotation: Budish's 14-word sentence in the EN now ends ", he writes"
+    (attributed); the IT keeps its paraphrase.
+  - Panels: the IT rent verdict printed «il 0,87%» and «le serve» (the IT
+    attacker is masculine) → «la quota della rete a noleggio, 0,87%, è
+    inferiore al 143% che gli serve»; the IT energy verdict's article
+    fixed; IT decimal lists with semicolons (preset «2028: S 1,5625; f
+    0,5», observe A1, B1); «Verifica del profitto nullo» → «dei profitti
+    nulli» (table); sources «on sale» → «on offer», «media di 30 giorni» →
+    «media a 30 giorni».
+- Pins: none changed.
+- Words: EN 1,741, IT 1,795 (limits 1,500–1,800); the IT additions paid by
+  short cuts, no sentence or name dropped.
+- For Adriano: «un guadagno *una tantum*»; the translated Bonneau title;
+  the IT keeps *free rider* (Auer's term; the check allows it);
+  `money.js` prints «1,00 miliardi di $» (plural with 1,00; code, pinned
+  by both checks, left); "an hour each" in the k + e label.
+- Cross-module: the IT reading list writes "and" between authors here;
+  «dollari» in the lectures against «… $» in the panels; the IT attacker's
+  gender in other panels.
+- `node scripts/lab/check-game-theory-14.mjs`: all checks passed (1 s).
+- `npx vite build`: built (17 s).
+- `node check-module.mjs game-theory capstone-the-price-of-security`: 0 failures of 56 (49 s).
+- `node modules/game-theory-capstone-the-price-of-security.mjs`: 0 failures of 39 (11 s).

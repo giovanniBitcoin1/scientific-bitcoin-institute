@@ -5,7 +5,7 @@
 export const observe = {
   attack: {
     en: `
-1. The panel opens on the dated defaults of November 2026: p_block = $189,882, A* = 1.43 (58.8% of all computing power), t(A*) = 13.99 blocks. The flow deters attacks up to $3.80 million; the $1 billion attack of the default is not deterred.
+1. The panel opens on the dated defaults of November 2026: p_block = $189,882, A* = 1.43 (58.8% of all computing power), t(A*) = 13.99 blocks. The flow deters attacks up to $3.80 million; the default attack, worth $1 billion, is not deterred.
 2. Read the rent line: 0.87% of the network is for rent, against the 143% she needs. Even September 2026's peak, about 3%, would not change the verdict: she must own the hardware, $26.62 billion of it.
 3. The energy of the attack, 45.85 GWh or $2.29 million, is 60.4% of the flow cost, the same share as the honest network's energy in p_block: the flow cost is the honest cost of A*·t(A*) blocks.
 4. Tick **Collapse** with the default 50%: she loses $13.31 billion of hardware, flow plus stock $13.32 billion, and the attack is deterred. Set the loss to **1%**: $266.24 million, $270.04 million in all, not deterred.
@@ -14,12 +14,12 @@ export const observe = {
 7. Press **Test values**: p_block $204,425 and the flow deters up to $4.09 million (exercise 2).
 `,
     it: `
-1. Il pannello si apre sui valori datati del novembre 2026: p_block = 189.882 $, A* = 1,43 (il 58,8% di tutta la potenza di calcolo), t(A*) = 13,99 blocchi. Il flusso scoraggia attacchi fino a 3,80 milioni di $; l'attacco da 1 miliardo di dollari del valore predefinito non è scoraggiato.
+1. Il pannello si apre sui valori datati del novembre 2026: p_block = 189.882 $; A* = 1,43 (il 58,8% di tutta la potenza di calcolo); t(A*) = 13,99 blocchi. Il flusso scoraggia attacchi fino a 3,80 milioni di $; l'attacco predefinito, da 1 miliardo di dollari, non è scoraggiato.
 2. Leggi la riga del noleggio: è a noleggio lo 0,87% della rete, contro il 143% che serve all'attaccante. Nemmeno il picco del settembre 2026, circa il 3%, cambierebbe il verdetto: l'hardware deve possederlo, per 26,62 miliardi di $.
 3. L'energia dell'attacco, 45,85 GWh ovvero 2,29 milioni di $, è il 60,4% del costo di flusso, la stessa quota dell'energia della rete onesta in p_block: il costo di flusso è il costo onesto di A*·t(A*) blocchi.
 4. Spunta **Crollo** con il 50% predefinito: l'attaccante perde 13,31 miliardi di $ di hardware, flusso più stock 13,32 miliardi di $, e l'attacco è scoraggiato. Porta la perdita all'**1%**: 266,24 milioni di $, 270,04 milioni di $ in tutto, non scoraggiato.
 5. Porta k + e a **1.008** (una settimana): A* scende a 1,07 e il flusso scoraggia attacchi fino a 208,68 milioni di $, ancora molto sotto il miliardo.
-6. La verifica del profitto nullo: la rete onesta consuma 114.638 $ di elettricità per blocco, il 60,4% di p_block, e restano 75.245 $ per blocco, 3,95 miliardi di $ all'anno, il 21,2% annuo su 18,63 miliardi di $ di hardware. Con i **Valori di prova**, 69,3% e 22,0%.
+6. La verifica dei profitti nulli: la rete onesta consuma 114.638 $ di elettricità per blocco, il 60,4% di p_block, e restano 75.245 $ per blocco, 3,95 miliardi di $ all'anno, il 21,2% annuo su 18,63 miliardi di $ di hardware. Con i **Valori di prova**, 69,3% e 22,0%.
 7. Premi **Valori di prova**: p_block 204.425 $ e il flusso scoraggia fino a 4,09 milioni di $ (esercizio 2).
 `,
   },
@@ -28,15 +28,15 @@ export const observe = {
 1. The panel opens on today: S = 3.125, f = 0.02, 100,000 blocks. The coefficient of variation is 0.00636 and no block is worth twice the average (exact 1.9 × 10^-69): the bars barely move.
 2. Press **Fees only**: CV 1, and 13.53% of blocks are worth more than twice the average, 4.98% more than three times. Run no. 1 shows 13.42% ± 0.11% and 4.91% ± 0.07%.
 3. Move f: with S = 0 the shares do not change at all, since every reward is f times a gap. Only the scale of the bars moves.
-4. Choose **1,000** blocks: 13.30% ± 1.07% and 5.70% ± 0.73%, ten times the error of 100,000.
+4. Choose **1,000** blocks: 13.30% ± 1.07% and 5.70% ± 0.73%, ten times the error with 100,000 blocks.
 5. Press **2028: S 1.5625, f 0.5**: CV 0.24242, and 0.59% of blocks are worth more than twice the average (run no. 1: 0.58% ± 0.02%).
 `,
     it: `
-1. Il pannello si apre su oggi: S = 3,125, f = 0,02, 100.000 blocchi. Il coefficiente di variazione è 0,00636 e nessun blocco vale il doppio della media (esatto 1,9 × 10^-69): le barre quasi non si muovono.
+1. Il pannello si apre su oggi: S = 3,125; f = 0,02; 100.000 blocchi. Il coefficiente di variazione è 0,00636 e nessun blocco vale il doppio della media (esatto 1,9 × 10^-69): le barre quasi non si muovono.
 2. Premi **Solo commissioni**: CV 1, e il 13,53% dei blocchi vale più del doppio della media, il 4,98% più del triplo. La prova n. 1 mostra 13,42% ± 0,11% e 4,91% ± 0,07%.
 3. Sposta f: con S = 0 le quote non cambiano affatto, perché ogni ricompensa è f volte un intervallo. Cambia solo la scala delle barre.
-4. Scegli **1.000** blocchi: 13,30% ± 1,07% e 5,70% ± 0,73%, dieci volte l'errore di 100.000.
-5. Premi **2028: S 1,5625, f 0,5**: CV 0,24242, e lo 0,59% dei blocchi vale più del doppio della media (prova n. 1: 0,58% ± 0,02%).
+4. Scegli **1.000** blocchi: 13,30% ± 1,07% e 5,70% ± 0,73%, dieci volte l'errore con 100.000 blocchi.
+5. Premi **2028: S 1,5625; f 0,5**: CV 0,24242, e lo 0,59% dei blocchi vale più del doppio della media (prova n. 1: 0,58% ± 0,02%).
 `,
   },
   estimate: {

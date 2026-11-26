@@ -50,7 +50,7 @@ export const SOURCES = {
   },
   hashrate: {
     en: 'Hashrate Index, 30-day average, 23 November 2026',
-    it: 'Hashrate Index, media di 30 giorni, 23 novembre 2026',
+    it: 'Hashrate Index, media a 30 giorni, 23 novembre 2026',
   },
   hwPrice: {
     en: 'Luxor ASIC price index, machines under 14 J per TH, 24 November 2026 (The Block)',
@@ -73,8 +73,8 @@ export const SOURCES = {
     it: 'ipotesi: il valore in gioco nell’attacco',
   },
   rentShare: {
-    en: 'NiceHash, 8.85 EH/s on sale, 25–26 November 2026, against 1,019 EH/s',
-    it: 'NiceHash, 8,85 EH/s in vendita, 25–26 novembre 2026, contro 1.019 EH/s',
+    en: 'NiceHash, 8.85 EH/s on offer, 25–26 November 2026, against 1,019 EH/s',
+    it: 'NiceHash, 8,85 EH/s in offerta, 25–26 novembre 2026, contro 1.019 EH/s',
   },
   loss: {
     en: 'assumption: the share of the hardware’s value she loses if the attack makes Bitcoin collapse',

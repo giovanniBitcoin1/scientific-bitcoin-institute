@@ -28,7 +28,7 @@ const T = {
     xl: 'anno',
     yl: 'BTC per blocco',
     legend: ['sussidio', 'commissioni oggi (0,02 BTC)', 'sussidio + commissioni in crescita', '3,145 BTC'],
-    head: ['dopo l’halving del', 'sussidio', 'commissioni necessarie', '× oggi', 'bilancio con questa crescita'],
+    head: ['dopo l’halving del', 'sussidio', 'commissioni necessarie', '× oggi', 'totale con questa crescita'],
     note: 'Dieci minuti a blocco dall’halving dell’aprile 2024; gli halving precedenti alle loro date reali.',
     aria: 'Il sussidio del blocco dal 2009 al 2140, in scala logaritmica',
   },
