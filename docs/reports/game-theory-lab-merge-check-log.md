@@ -74,3 +74,56 @@ Checks (stage 0):
 - `check-module.mjs game-theory mining-as-a-game`: 0 failures of 56.
 - `modules/game-theory-mining-as-a-game.mjs`: 0 failures of 32.
 - `check-links.mjs`: 0 failures of 131.
+- Commit 772f0d4 "Game Theory Lab: final touches".
+
+## Stage 1 — merge check
+
+- `git fetch origin` (with `GIT_TERMINAL_PROMPT=0`, no credential asked):
+  exit 0; only `origin/data` moved (forced update 733ebe1...22cbd04, the data
+  collector's orphan branch). Git configuration not touched.
+- `git rev-parse main origin/main`: both ddfed85b06c58b04af8ca951ff17e73b0adf37b7.
+- `git merge-base --is-ancestor main game-theory-lab`: yes.
+- `git merge-base --is-ancestor origin/main game-theory-lab`: yes.
+- `git log --oneline main..origin/main`: empty. Nothing to merge; no merge
+  commit.
+- `git rev-list --count origin/main..game-theory-lab`: 55 (at 772f0d4).
+- `git diff ddfed85 HEAD --stat` on `src/data/lab/config.json`,
+  `package.json`, `src/data/nav.json`, `src/components/Header.jsx`,
+  `public/accademia`: empty (unchanged).
+
+Checks on the branch tip 772f0d4, one command each:
+
+- `npx vite build`: built in 17.69 s.
+- `check-game-theory-01.mjs` … `check-game-theory-14.mjs`, fourteen
+  commands: all checks passed, each.
+- `check-index.mjs game-theory`: 0 failures of 76.
+- `check-index.mjs network`: 0 failures of 76.
+- `check-index.mjs complexity`: 0 failures of 72.
+- `check-links.mjs`: 0 failures of 131.
+- `check-module.mjs game-theory <slug>` and `modules/game-theory-<slug>.mjs`:
+  01 what-is-a-game 0/56, 0/32; 02 nash-equilibrium 0/56, 0/49;
+  03 mixed-strategies-zero-sum 0/56, 0/39; 04 sequential-games-commitment
+  0/56, 0/45; 05 incomplete-information-signalling 0/56, 0/39;
+  06 repeated-games-reputation 0/60, 0/41; 07 evolution-and-learning 0/68,
+  0/41; 08 congestion-price-of-anarchy 0/56, 0/43; 09 games-on-networks 0/60,
+  0/42; 10 coalitions-sharing 0/60, 0/36; 11 auctions 0/60, 0/29;
+  12 mechanism-design 0/56, 0/29; 13 mining-as-a-game 0/56, 0/32;
+  14 capstone-the-price-of-security 0/56, 0/39 (failures/checks).
+- `build-main.mjs`: main built in 12.13 s into `.main-dist` (temporary
+  worktree, removed; `git worktree list` afterwards shows no `.main-wt`).
+- `compare-main.mjs`: 0 failures of 144.
+- `npm run build`: the first run's last lines shown were only npm's
+  "new version" notice, so it was run again with the output saved: exit 0;
+  "Content check passed: 3 files, 0 warnings"; built in 14.23 s; "Post-build:
+  9 static pages, 3 redirect stubs, feed (3 entries) and sitemap written to
+  dist."
+- `npm run check:dist`: 0 failures of 108, exit 0.
+- `git merge-base --is-ancestor origin/main HEAD`: yes; main can be
+  fast-forwarded to the branch tip.
+- main not checked out, nothing merged into main, nothing pushed.
+
+## Close
+
+- Report `docs/reports/game-theory-lab-merge-check.md` written; status file
+  updated (ready to merge). Committed with this log as "Game Theory Lab:
+  merge check and report" (56 commits over origin/main with it).

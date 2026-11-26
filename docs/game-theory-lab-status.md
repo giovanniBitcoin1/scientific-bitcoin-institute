@@ -554,6 +554,15 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
+**The merge check** (`prompts.local/game-theory-lab-merge-check.md`) is
+finished: the final touches are in "Game Theory Lab: final touches"; the
+report `docs/reports/game-theory-lab-merge-check.md` and the log
+`docs/reports/game-theory-lab-merge-check-log.md` are in "Game Theory Lab:
+merge check and report". **The branch is ready to merge**: `origin/main` is
+ddfed85, equal to `main` and an ancestor of the branch, so `main` can be
+fast-forwarded; the whole check suite passed on the branch tip on 26
+November 2026. The commands are in the report.
+
 **The review of the lectures** (`prompts.local/game-theory-lab-review.md`)
 is finished: the 28 lectures, the 14 `texts.js` and the index were
 reviewed on 26 November 2026 (by Claude, at Adriano's request), and the
@@ -572,8 +581,8 @@ report".
 
 ## Next
 
-The lab is complete. What is left is under "Open items": decisions and
-rereading for Adriano, nothing to build. A later prompt that changes a
+The lab is complete and ready to merge. What is left is under "Open items":
+the merge and push, and decisions for Adriano; nothing to build. A later prompt that changes a
 module follows the working rules above (WIP commits, log, checks, report).
 
 ## Open items
@@ -599,9 +608,12 @@ has the last full version).
   labels (13), specialized capital, sabotage,
   counterattack, Goldfinger attack, bribery, block subsidy, undercutting,
   mining gap (14); and the one-shot deviation principle (06).
-- **The push.** Nothing has been pushed. The branch `game-theory-lab` is
-  ahead of `main` (ddfed85, unchanged since 25 November 2026), with no
-  commit of `main` missing; merging and pushing are Adriano's decisions.
+- **The merge and the push.** Nothing has been pushed. The branch
+  `game-theory-lab` is 56 commits ahead of `main` and `origin/main` (both
+  ddfed85 at the fetch of 26 November 2026), with no commit of theirs
+  missing: ready to merge with `--ff-only`. Merging and pushing are
+  Adriano's; the commands are in `docs/reports/game-theory-lab-merge-check.md`.
+  If `origin/main` moves before then, the merge check must be repeated.
 - **Module 14's dated defaults age.** Panel A's defaults and the numbers
   of the lecture's sections 3 and 4 are those of 23–26 November 2026
   (sources in `capstone-the-price-of-security/defaults.js` and in
