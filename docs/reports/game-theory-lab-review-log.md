@@ -230,4 +230,54 @@ lab; Italian terms; DRAFT markers off).
   failures of 56 (50 s).
 - `node modules/game-theory-sequential-games-commitment.mjs`: 0 failures
   of 45 (19 s).
+- Commit 9b01df1 "Game Theory Lab review: module 04".
+
+### Module 05 `incomplete-information-signalling`
+
+- Files: the two lectures, `texts.js`; UI strings in `LemonsPanel.jsx` and
+  `SignalPanel.jsx`; `scripts/lab/check-game-theory-05.mjs` (one pin).
+- Changes: Italian about 53 (38 lecture, 15 texts.js and UI), English 10
+  (4 × "realised" → "realized"), parity 3, facts 1 (a softening),
+  quotations 0 (Akerlof and Dessein are paraphrased), clarity 4, links 0,
+  panel texts about 12 (within the counts above).
+- Most significant:
+  - Cho–Kreps, IT: «Se un livello è tale che il tipo basso non potrebbe
+    mai guadagnarci, nemmeno pagato 2…» → «Se da un certo livello il tipo
+    basso non può mai guadagnare, nemmeno se pagato 2, mentre il tipo alto
+    sì, …»; «noto come» → «spesso chiamato **criterio intuitivo**» (report
+    05's softening); EN's misplaced "these equilibria, often called the
+    intuitive criterion" → "a test, often called the **intuitive
+    criterion**, that removes…".
+  - Single crossing, IT (lecture and `SignalPanel.jsx`): «Senza, ciò che
+    il tipo alto può permettersi se lo può permettere anche il basso.» →
+    «Altrimenti, tutto ciò che il tipo alto può permettersi può
+    permetterselo anche il tipo basso.»
+  - Parity: the IT had lost "to make the point sharp" («Supponiamo, per
+    estremizzare, che…»); «chi li presenta sia basso» (can read "short") →
+    «sia di tipo basso».
+  - Grafen, IT: «si attribuisce di solito di avergli dato una base
+    formale» → «Alan Grafen (1990) gli avrebbe dato una base formale: una
+    lettura diffusa, ma poi discussa» (softening kept).
+  - Fact (softening): Dessein, EN "delegation beats advice whenever the
+    conflict is not too large" → "as long as the conflict is not too
+    large", his abstract's wording as recorded in report 05; IT «purché».
+  - IT: «cammino esatto» (price path) → «traiettoria esatta» («cammino» is
+    the network term); «figura F1» → «Figura F1»; «il confronto con il
+    silenzio» → «con il caso senza parole» (table).
+- Pin changed: check "lecture: cheap talk", IT `"sotto 0,3" e "sopra 0,3"`
+  → `«sotto 0,3» e «sopra 0,3»` (the « » convention).
+- Words: EN 1,695, IT 1,697 (limits 1,400–1,700).
+- For Adriano: «per estremizzare»; Panel B's IT title «Separarsi o
+  confondersi?» echoes the old «equilibrio di confusione» (table now
+  «equilibrio *pooling*»), kept for width; exercise 6 keeps the pinned
+  «Simulazione A, esatto».
+- Cross-module: the IT heading «Il prossimo modulo» against EN "Next"; EN
+  running text uses straight quotes (pinned); comments in `lemons.js`,
+  `types.js` say "realised" (comments, left).
+- `node scripts/lab/check-game-theory-05.mjs`: all checks passed (2 s).
+- `npx vite build`: built (15 s).
+- `node check-module.mjs game-theory incomplete-information-signalling`: 0
+  failures of 56 (48 s).
+- `node modules/game-theory-incomplete-information-signalling.mjs`: 0
+  failures of 39 (9 s).
 

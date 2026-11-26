@@ -9,15 +9,15 @@ export const observe = {
 1. Press **Run** at the defaults (q_min = 0.2, b = 1.5, 10,000 cars, sample no. 1). The price falls from 0.898 (0.9 in the exact model) round after round and stops at 0.594 after 27 rounds; 0.493 of the cars are traded and 0.326 of the gains are made, against 0.6, 1/2 and 1/3 in the exact model. The sample keeps going after the exact path is within 0.001 of its end (round 20): it stops only when not a single car leaves.
 2. Set **q_min = 0**: the price slides down to 0.001 and only 8 of the 10,000 cars are sold, although every one of them is worth half as much again to a buyer. Set **q_min = 0.4**: now the first price, 1.048, is above every quality, nobody withdraws, and the whole market trades in one round.
 3. Back at q_min = 0.2, move **b** up: at 1.65 the price still unravels, slowly (32 rounds, 0.904 of the cars); at 1.70, above 5/3, the whole market trades at once.
-4. With **N = 1,000** the end of a sample is much less certain: sample no. 1 stops at 0.580 after 16 rounds. Over seeds 1 to 10, 10,000 cars end between 0.576 and 0.617, 1,000 cars between 0.529 and 0.667.
-5. Press **Survey**. The exact curves of cars traded and gains realised jump to 1 where b(1 + q_min)/2 reaches 1, and the gains curve always lies below the cars curve: the cars that stay unsold are the best. The dots of the samples sit on the curves, except near b = 2 with q_min = 0: at b = 1.9 the sample stops with 0.040 of the cars where the exact model sells none, because the price falls by only 5% per round and a sample soon finds a round where no car leaves. At b = 2 itself the exact model is on a knife edge (any price below 1 would stay where it is); on this seed the dot is 1.000, on other seeds it ends anywhere from 0.366 to 1.
+4. With **N = 1,000** the end of a sample is much less certain: sample no. 1 stops at 0.580 after 16 rounds. Over seeds 1 to 10, samples of 10,000 cars end between 0.576 and 0.617, samples of 1,000 between 0.529 and 0.667.
+5. Press **Survey**. The exact curves of cars traded and gains realized jump to 1 where b(1 + q_min)/2 reaches 1, and the gains curve always lies below the cars curve: the cars that stay unsold are the best. The dots of the samples sit on the curves, except near b = 2 with q_min = 0: at b = 1.9 the sample stops with 0.040 of the cars where the exact model sells none, because the price falls by only 5% per round and a sample soon finds a round where no car leaves. At b = 2 itself the exact model is on a knife edge (any price below 1 would stay where it is); on this seed the dot is 1.000, on other seeds it ends anywhere from 0.366 to 1.
 `,
     it: `
-1. Premi **Avvia** con i valori iniziali (q_min = 0,2, b = 1,5, 10.000 auto, campione n. 1). Il prezzo scende da 0,898 (0,9 nel modello esatto) turno dopo turno e si ferma a 0,594 dopo 27 turni; passa di mano lo 0,493 delle auto e si realizza lo 0,326 dei guadagni, contro 0,6, 1/2 e 1/3 nel modello esatto. Il campione va avanti anche dopo che il cammino esatto è a meno di 0,001 dalla fine (turno 20): si ferma solo quando non esce nemmeno un'auto.
-2. Porta **q_min = 0**: il prezzo scivola fino a 0,001 e si vendono solo 8 delle 10.000 auto, anche se ciascuna vale per un compratore la metà in più. Porta **q_min = 0,4**: ora il primo prezzo, 1,048, è sopra ogni qualità, nessuno si ritira e passa di mano tutto il mercato in un turno.
-3. Di nuovo con q_min = 0,2, alza **b**: a 1,65 il prezzo crolla ancora, lentamente (32 turni, lo 0,904 delle auto); a 1,70, sopra 5/3, passa di mano subito tutto il mercato.
-4. Con **N = 1.000** la fine di un campione è molto meno certa: il campione n. 1 si ferma a 0,580 dopo 16 turni. Sui semi da 1 a 10, 10.000 auto finiscono tra 0,576 e 0,617, 1.000 auto tra 0,529 e 0,667.
-5. Premi **Rassegna**. Le curve esatte delle auto vendute e dei guadagni realizzati saltano a 1 dove b(1 + q_min)/2 arriva a 1, e la curva dei guadagni sta sempre sotto quella delle auto: le auto che restano invendute sono le migliori. I punti dei campioni stanno sulle curve, tranne vicino a b = 2 con q_min = 0: a b = 1,9 il campione si ferma con lo 0,040 delle auto dove il modello esatto non ne vende nessuna, perché il prezzo scende solo del 5% a turno e un campione trova presto un turno in cui non esce nessuna auto. A b = 2 il modello esatto è in bilico (qualunque prezzo sotto 1 resterebbe dov'è); con questo seme il punto è 1,000, con altri semi finisce ovunque tra 0,366 e 1.
+1. Premi **Avvia** con i valori iniziali (q_min = 0,2, b = 1,5, 10.000 auto, campione n. 1). Il prezzo scende da 0,898 (0,9 nel modello esatto) turno dopo turno e si ferma a 0,594 dopo 27 turni; passa di mano lo 0,493 delle auto e si realizza lo 0,326 dei guadagni, contro 0,6, 1/2 e 1/3 nel modello esatto. Il campione va avanti anche dopo che la traiettoria esatta è a meno di 0,001 dalla fine (turno 20): si ferma solo quando non esce nemmeno un'auto.
+2. Porta **q_min a 0**: il prezzo scivola fino a 0,001 e si vendono solo 8 delle 10.000 auto, anche se ciascuna vale per un compratore la metà in più. Porta **q_min a 0,4**: ora il primo prezzo, 1,048, è sopra ogni qualità, nessuno si ritira e passa di mano tutto il mercato in un turno.
+3. Di nuovo con q_min = 0,2, alza **b**: a 1,65 il prezzo continua a scendere, ma lentamente (32 turni, lo 0,904 delle auto); a 1,70, sopra 5/3, passa di mano subito tutto il mercato.
+4. Con **N = 1.000** la fine di un campione è molto meno certa: il campione n. 1 si ferma a 0,580 dopo 16 turni. Con i semi da 1 a 10, i campioni di 10.000 auto finiscono tra 0,576 e 0,617, quelli di 1.000 tra 0,529 e 0,667.
+5. Premi **Rassegna**. Le curve esatte delle auto vendute e dei guadagni realizzati saltano a 1 dove b(1 + q_min)/2 arriva a 1, e la curva dei guadagni sta sempre sotto quella delle auto: le auto che restano invendute sono le migliori. I punti dei campioni stanno sulle curve, tranne vicino a b = 2 con q_min = 0: a b = 1,9 il campione si ferma con lo 0,040 delle auto dove il modello esatto non ne vende nessuna, perché il prezzo scende solo del 5% a turno e un campione trova presto un turno in cui non esce nessuna auto. A b = 2 il modello esatto è in bilico (qualunque prezzo sotto 1 resterebbe dov'è); con questo seme il punto è 1,000, con altri semi finisce in un punto qualsiasi tra 0,366 e 1.
 `,
   },
   signal: {
@@ -30,10 +30,10 @@ export const observe = {
 `,
     it: `
 1. Con i valori iniziali (λ = 0,3, c_L = 1, c_H = 0,5) la separazione funziona per ogni e* da 1 a 2 e il pooling per ogni e da 0 a 0,3. **Separazione a 1** è un equilibrio e supera il criterio intuitivo: il tipo alto ottiene 1,5, il tipo basso 1, e il segnale spreca 0,15 per lavoratore.
-2. Porta e a **1,5**: ancora un equilibrio, ma non supera il criterio: qualunque livello tra 1 e 1,5 lo prenderebbe solo un tipo alto. A **2** il tipo alto ottiene 1, non più che senza istruzione; sopra 2 preferirebbe non istruirsi affatto.
-3. Scegli **Pooling a e** con e = 0: entrambi i tipi ottengono 1,3, non si spreca nulla, eppure il criterio lo rompe con qualunque livello tra 0,7 e 1,4. Con e = 0,3 il pooling regge ancora, ma il tipo basso scende a 1, il tipo alto a 1,15, e si sprecano 0,255 per lavoratore.
+2. Porta e a **1,5**: ancora un equilibrio, ma non supera il criterio: qualunque livello tra 1 e 1,5 sarebbe scelto solo da un tipo alto. A **2** il tipo alto ottiene 1, non più che senza istruzione; sopra 2 preferirebbe non istruirsi affatto.
+3. Scegli **Pooling a e** con e = 0: entrambi i tipi ottengono 1,3, non si spreca nulla, eppure il criterio lo esclude: basta un qualunque livello tra 0,7 e 1,4. Con e = 0,3 il pooling regge ancora, ma il tipo basso scende a 1, il tipo alto a 1,15, e si sprecano 0,255 per lavoratore.
 4. Porta **λ** a 0,8: il pooling a 0 pagherebbe tutti 1,8, più dell'1,5 che il tipo alto tiene nella separazione più economica. Il grafico mostra l'incrocio a λ = 1 − c_H/c_L = 0,5. L'equilibrio che supera il criterio è quello che impoverisce tutti.
-5. Porta **c_H = c_L = 1**: la separazione resta solo a e = 1, dove entrambi i tipi sono indifferenti, e il grafico toglie le linee della separazione. Porta c_H sopra c_L: nessuna separazione, la condizione di single crossing non vale.
+5. Porta **c_H = c_L = 1**: la separazione resta solo a e = 1, dove entrambi i tipi sono indifferenti, e il grafico toglie le linee della separazione. Porta c_H sopra c_L: nessuna separazione, la condizione di single crossing non è soddisfatta.
 `,
   },
   talk: {
@@ -59,7 +59,7 @@ export const exercises = [
     type: 'paper',
     statement: {
       en: 'The entry game of Figure F1 with w = −1. For which t does the newcomer enter? And with w = −2? With t = 0.5 and with t = 0.7, what does the newcomer expect, and what does each type of incumbent get? Why would the weak incumbent like to be taken for tough?',
-      it: "Il gioco dell'entrata della figura F1 con w = −1. Per quali t l'entrante entra? E con w = −2? Con t = 0,5 e con t = 0,7, che cosa si aspetta l'entrante, e che cosa ottiene ciascun tipo di incumbent? Perché all'incumbent debole piacerebbe essere preso per duro?",
+      it: "Il gioco dell'entrata della Figura F1 con w = −1. Per quali t l'entrante entra? E con w = −2? Con t = 0,5 e con t = 0,7, che cosa si aspetta l'entrante, e che cosa ottiene ciascun tipo di incumbent? Perché all'incumbent debole piacerebbe essere preso per duro?",
     },
     solution: {
       en: 'The tough type fights (3 > 2), the weak one shares (2 > 0). The newcomer enters when 2(1 − t) − t > 0, that is t < 2/3; with w = −2, when 2(1 − t) − 2t > 0, t < 1/2. With t = 0.5 it enters and expects 2 − 1.5 = 0.5; the tough incumbent fights and gets 3, the weak one shares and gets 2. With t = 0.7 entering would give −0.1: it stays out, and both types get 4. Being believed tough often enough is worth 4 − 2 = 2 to the weak type, without ever having to fight.',
@@ -70,7 +70,7 @@ export const exercises = [
     type: 'paper',
     statement: {
       en: 'Cars with qualities spread evenly on 0–1, b = 1.5. Show that no price above 0 can last. Then q_min = 0.2: the first three prices, the end point, the share of cars traded and of the gains. From which b does the whole market trade when q_min = 0.2?',
-      it: "Auto con qualità uniformi su 0–1, b = 1,5. Mostra che nessun prezzo sopra 0 può durare. Poi q_min = 0,2: i primi tre prezzi, il punto d'arrivo, la quota di auto vendute e dei guadagni. Da quale b passa di mano tutto il mercato quando q_min = 0,2?",
+      it: "Auto con qualità distribuite uniformemente su 0–1, b = 1,5. Mostra che nessun prezzo sopra 0 può durare. Poi q_min = 0,2: i primi tre prezzi, il punto d'arrivo, la quota di auto vendute e quella dei guadagni. Da quale b passa di mano tutto il mercato quando q_min = 0,2?",
     },
     solution: {
       en: 'At price p the cars up to p are offered; their average is p/2, worth 0.75p to a buyer, less than p: the price must fall, whatever it is. With q_min = 0.2: 1.5 × 0.6 = 0.9, then 1.5 × (0.2 + 0.9)/2 = 0.825, then 0.769. The end point solves p = 1.5(0.2 + p)/2: p = 0.6. Cars (0.6 − 0.2)/0.8 = 1/2; gains (0.36 − 0.04)/(1 − 0.04) = 1/3. The whole market trades when the first price reaches the best car, b(1 + 0.2)/2 ≥ 1: b ≥ 5/3.',
@@ -81,11 +81,11 @@ export const exercises = [
     type: 'paper',
     statement: {
       en: 'Education with c_L = 1, c_H = 1/2, λ = 0.3. Which levels support separation, which pooling? Payoffs in the cheapest of each. Which survive the Cho–Kreps test, and why not pooling at 0? Above which λ would the high type rather nobody signalled?',
-      it: "Istruzione con c_L = 1, c_H = 1/2, λ = 0,3. Quali livelli reggono la separazione, quali il pooling? I payoff nel più economico di ciascuno. Quali superano il criterio intuitivo, e perché non il pooling a 0? Sopra quale λ il tipo alto preferirebbe che nessuno segnalasse?",
+      it: "Istruzione con c_L = 1, c_H = 1/2, λ = 0,3. Quali livelli reggono la separazione, quali il pooling? I payoff nell'equilibrio più economico di ciascun tipo. Quali superano il criterio intuitivo, e perché non il pooling a 0? Sopra quale λ il tipo alto preferirebbe che nessuno segnalasse?",
     },
     solution: {
       en: 'Separation for e* from 1 to 2 (the low type must not copy, 2 − e* ≤ 1; the high type must want to pay, 2 − e*/2 ≥ 1); pooling for e from 0 to 0.3 (1.3 − e ≥ 1). Separation at 1: high 1.5, low 1; pooling at 0: 1.3 each. Only e* = 1 survives. Against pooling at 0, any level between 0.7 and 1.4 is one that a low type would never choose even if paid 2 (2 − e < 1.3) and a high type would choose if paid 2 (2 − e/2 > 1.3); read as high, it lures the high type away. The high type prefers pooling at 0 when 1 + λ > 1.5: λ above 1/2.',
-      it: "Separazione per e* da 1 a 2 (il tipo basso non deve copiare, 2 − e* ≤ 1; il tipo alto deve voler pagare, 2 − e*/2 ≥ 1); pooling per e da 0 a 0,3 (1,3 − e ≥ 1). Separazione a 1: alto 1,5, basso 1; pooling a 0: 1,3 ciascuno. Sopravvive solo e* = 1. Contro il pooling a 0, qualunque livello tra 0,7 e 1,4 è uno che un tipo basso non sceglierebbe mai nemmeno pagato 2 (2 − e < 1,3) e che un tipo alto sceglierebbe se pagato 2 (2 − e/2 > 1,3); letto come alto, attira via il tipo alto. Il tipo alto preferisce il pooling a 0 quando 1 + λ > 1,5: λ sopra 1/2.",
+      it: "Separazione per e* da 1 a 2 (il tipo basso non deve voler imitare, 2 − e* ≤ 1; il tipo alto deve voler pagare, 2 − e*/2 ≥ 1); pooling per e da 0 a 0,3 (1,3 − e ≥ 1). Separazione a 1: alto 1,5, basso 1; pooling a 0: 1,3 ciascuno. Sopravvive solo e* = 1. Contro il pooling a 0, qualunque livello tra 0,7 e 1,4 non sarebbe mai scelto da un tipo basso, nemmeno se pagato 2 (2 − e < 1,3), mentre un tipo alto lo sceglierebbe se pagato 2 (2 − e/2 > 1,3); letto come segnale di un tipo alto, attira via il tipo alto. Il tipo alto preferisce il pooling a 0 quando 1 + λ > 1,5: λ sopra 1/2.",
     },
   },
   {
@@ -103,7 +103,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'Cheap talk with b = 0.1 and b = 0.05: the most informative partition, the decision maker’s loss, and the comparison with no talk and with letting the expert decide. Why is each interval 4b longer than the one before? Check your numbers in Simulation C.',
-      it: "Cheap talk con b = 0,1 e b = 0,05: la partizione più informativa, la perdita del decisore, e il confronto con il silenzio e con il lasciar decidere l'esperto. Perché ogni intervallo è più lungo di 4b del precedente? Controlla i numeri nella simulazione C.",
+      it: "Cheap talk con b = 0,1 e b = 0,05: la partizione più informativa, la perdita del decisore, e il confronto con il caso senza parole e con la delega all'esperto. Perché ogni intervallo è più lungo di 4b del precedente? Controlla i numeri nella simulazione C.",
     },
     solution: {
       en: 'b = 0.1: 0–0.3 and 0.3–1; loss (0.3³ + 0.7³)/12 = 0.0308; no talk 0.0833; delegation 0.01. b = 0.05: 0–0.133, 0.133–0.467, 0.467–1; loss 0.0159; delegation 0.0025. An expert who sees exactly a boundary a must be indifferent between the two neighbouring actions, so a + b lies halfway between the two midpoints. If the intervals have lengths L and L′, the midpoints are a − L/2 and a + L′/2, and a + b = a + (L′ − L)/4: L′ = L + 4b.',
@@ -114,7 +114,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'On paper, then in the simulation. Show that 1/2 is the threshold of the global game: what does a hunter with signal 1/2 believe about the other’s signal? Then: in F2, the steps until the open band is narrower than 0.02 for σ = 0.2, 0.1, 0.05 and 0.02; in Simulation A, the share of cars traded with b = 1.5 for q_min = 0, 0.1, 0.2 and 0.4, and the end price of a sample of 10,000 cars; in Simulation C, the largest N for b = 0.2, 0.1, 0.05 and 0.02.',
-      it: "Su carta, poi nella simulazione. Mostra che 1/2 è la soglia del gioco globale: che cosa crede un cacciatore con segnale 1/2 sul segnale dell'altro? Poi: in F2, i passi finché la fascia aperta è più stretta di 0,02 per σ = 0,2, 0,1, 0,05 e 0,02; nella simulazione A, la quota di auto vendute con b = 1,5 per q_min = 0, 0,1, 0,2 e 0,4, e il prezzo finale di un campione di 10.000 auto; nella simulazione C, l'N più grande per b = 0,2, 0,1, 0,05 e 0,02.",
+      it: "Su carta, poi nella simulazione. Mostra che 1/2 è la soglia del gioco globale: che cosa crede un cacciatore con segnale 1/2 sul segnale dell'altro? Poi: in F2, i passi necessari perché la fascia aperta diventi più stretta di 0,02 per σ = 0,2, 0,1, 0,05 e 0,02; nella simulazione A, la quota di auto vendute con b = 1,5 per q_min = 0, 0,1, 0,2 e 0,4, e il prezzo finale di un campione di 10.000 auto; nella simulazione C, l'N più grande per b = 0,2, 0,1, 0,05 e 0,02.",
     },
     solution: {
       en: 'Given its signal, a hunter believes the other’s signal is centred on its own: with signal 1/2 it is above or below 1/2 with equal chances. If the other hunts the stag above 1/2, the stag pays 1/2 − 1 × 1/2 = 0, the same as the hare: indifference, so 1/2 is the cutoff. F2: 8, 13, 24 and 56 steps. Simulation A, exact: 0, 0.222, 1/2 and 1; sample no. 1 of 10,000 cars: 0.001, 0.228, 0.493 and 1.000, end price 0.594 at q_min = 0.2. Simulation C: 2, 2, 3, 5.',

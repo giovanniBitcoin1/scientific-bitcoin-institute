@@ -8,7 +8,7 @@ import { market, pricePath, endPoint, exactCurves, surveyJob, SURVEY_QMIN, DEFAU
 // Panel A, "The market that empties": N cars with qualities uniform on
 // q_min–1; buyers pay b × the average quality on offer; owners of better cars
 // withdraw. "Run" shows the rounds of one sample against the exact path of the
-// continuous model; "Survey" the share of cars traded and of gains realised
+// continuous model; "Survey" the share of cars traded and of gains realized
 // against b, exact curves and one sample of 10,000 cars per dot.
 
 const SKY = '#0369a1'
@@ -39,13 +39,13 @@ const T = {
     replay: (k, p) => `Round ${k - 1}: price ${p}…`,
     surveyTitle: 'Against b: exact curves, and one sample of 10,000 cars per dot',
     cars: 'share of cars traded',
-    gains: 'share of gains realised',
+    gains: 'share of gains realized',
     bAxis: 'b →',
     q: (v) => `q_min = ${v}`,
     aria1: 'The price of each round for this sample, with the exact path',
     aria2: 'The share of cars still on offer in each round',
     aria3: 'Share of cars traded against b',
-    aria4: 'Share of gains realised against b',
+    aria4: 'Share of gains realized against b',
   },
   it: {
     qmin: 'q_min, la qualità peggiore',
@@ -64,8 +64,8 @@ const T = {
     exactLine: 'modello continuo, esatto',
     endLine: 'il suo punto d’arrivo',
     result: (r, end) =>
-      `${r.rounds === 1 ? '1 turno' : `${r.rounds} turni`} (prezzi calcolati, compreso il turno 0). Il prezzo finisce a ${end.price}; passa di mano ${end.cars} delle auto e si realizza ${end.gains} dei guadagni possibili.`,
-    exact: (e) => (e.whole ? `Modello esatto: passa di mano tutto il mercato, a ${e.price}.` : `Modello esatto: il prezzo finisce a ${e.price}, con ${e.cars} delle auto e ${e.gains} dei guadagni.`),
+      `${r.rounds === 1 ? '1 turno' : `${r.rounds} turni`} (prezzi calcolati, compreso il turno 0). Il prezzo si ferma a ${end.price}; passa di mano ${end.cars} delle auto e si realizza ${end.gains} dei guadagni possibili.`,
+    exact: (e) => (e.whole ? `Modello esatto: passa di mano tutto il mercato, a ${e.price}.` : `Modello esatto: il prezzo si ferma a ${e.price}, con ${e.cars} delle auto e ${e.gains} dei guadagni.`),
     closed: 'A questo prezzo nessuno venderebbe: il mercato chiude.',
     replay: (k, p) => `Turno ${k - 1}: prezzo ${p}…`,
     surveyTitle: 'In funzione di b: curve esatte, e un campione di 10.000 auto per punto',
@@ -73,7 +73,7 @@ const T = {
     gains: 'quota di guadagni realizzati',
     bAxis: 'b →',
     q: (v) => `q_min = ${v}`,
-    aria1: 'Il prezzo di ogni turno per questo campione, con il cammino esatto',
+    aria1: 'Il prezzo di ogni turno per questo campione, con la traiettoria esatta',
     aria2: 'La quota di auto ancora in vendita in ogni turno',
     aria3: 'Quota di auto vendute in funzione di b',
     aria4: 'Quota di guadagni realizzati in funzione di b',
