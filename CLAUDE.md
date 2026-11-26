@@ -462,7 +462,8 @@ proiezione; "small-world" stays in English.
 ### Game Theory Lab (`/game-theory-lab`)
 
 The third lab on the engine, built the same way as the Network Lab: id
-`game-theory`, provisional path `/game-theory-lab` (`paths.js`), module list
+`game-theory`, path `/game-theory-lab` (`paths.js`; confirmed by Adriano on 26
+November 2026), module list
 `src/data/lab/game-theory-modules.json` (four parts, 14 modules), one folder
 per module in `src/components/lab/game-theory/<slug>/` (one chunk each, own
 glob in `loaders.js`), lectures in `src/content/game-theory-lab/<slug>.en.md`

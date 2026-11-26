@@ -268,7 +268,7 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | hawk–dove | falco–colomba | 01 |
 | harmony | armonia | 01 |
 | battle of the sexes | battaglia dei sessi | 01 |
-| matching pennies | pari o dispari | 01 |
+| matching pennies | pari o dispari (the finger game: one or two fingers, even or odd sum; the payoffs of the two coins) | 01 |
 | pure coordination | coordinamento puro | 01 |
 | zero-sum | a somma zero | 01 |
 | temptation, sucker's payoff | tentazione, payoff del babbeo | 01 |
@@ -318,7 +318,7 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | keeper | portiere | 03 |
 | natural side | lato naturale | 03 |
 | L, R (sides) | S, D | 03 |
-| heads, tails | testa, croce | 03 |
+| heads, tails (matching pennies) | un dito, due dita (the English keeps the coins) | 03 |
 | rock-paper-scissors | sasso-carta-forbici ("la morra cinese" at its first use) | 03 |
 | win rate (of the machine) | quota di vittorie | 03 |
 | spread (standard deviation) | dispersione (deviazione standard) | 03 |

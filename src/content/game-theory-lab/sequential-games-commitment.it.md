@@ -54,7 +54,7 @@ Nel modello di Heinrich von Stackelberg (1934) un'impresa del mercato di Cournot
 
 Il 4,5 del leader non è una miglior risposta al 2,25 del follower: lo sarebbe 3,375. Una volta che il follower ha prodotto, il leader vorrebbe produrre meno. La sua quantità conviene solo perché non si può più cambiare. Muovere per primi è una forma di impegno.
 
-Il vantaggio della prima mossa non è garantito. Nel pari o dispari chi muove per secondo vede la moneta e vince sempre. La Simulazione A gioca giochi casuali due per due in entrambi gli ordini: il primo giocatore fa meglio muovendo per primo che per secondo nel 15% dei casi, peggio nel 12%, e lo stesso negli altri. E quando il gioco simultaneo ha equilibri puri, il leader non fa mai peggio che in quello che preferisce: può sempre scegliere quella riga e lasciare che il follower risponda.
+Il vantaggio della prima mossa non è garantito. Nel pari o dispari chi muove per secondo vede le dita dell'altro e vince sempre. La Simulazione A gioca giochi casuali due per due in entrambi gli ordini: il primo giocatore fa meglio muovendo per primo che per secondo nel 15% dei casi, peggio nel 12%, e lo stesso negli altri. E quando il gioco simultaneo ha equilibri puri, il leader non fa mai peggio che in quello che preferisce: può sempre scegliere quella riga e lasciare che il follower risponda.
 
 ## Le persone ragionano a ritroso?
 

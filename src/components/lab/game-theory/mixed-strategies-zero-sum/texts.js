@@ -47,7 +47,7 @@ export const observe = {
 1. Gioca 40 turni cercando di essere imprevedibile, poi guarda la quota di vittorie della macchina. Se è ben sopra 0,5, le tue scelte seguono uno schema: la maggior parte delle persone cambia troppo spesso.
 2. Premi **Fai giocare 100 turni a una moneta per me**. Le prime tre volte la macchina vince 55, 60 e 51 turni su 100: intorno alla metà, con il rumore proprio di 100 turni.
 3. In **Giocatori simulati**, premi **Gioca** con «Cambia troppo spesso» e s = 0,6: su 2.000 turni la macchina vince in media 0,595, con una dispersione di 0,012 da un giocatore all'altro. Con s = 0,7 vince 0,698, con s = 0,5 vince 0,500.
-4. «Preferisce testa» con h = 0,6 dà alla macchina 0,597; «Una moneta onesta», 0,500. Contro questi giocatori la macchina arriva vicino al meglio possibile, s o h: le basta contare che cosa è seguito a ogni coppia di mosse.
+4. «Preferisce un dito» con h = 0,6 dà alla macchina 0,597; «Una moneta onesta», 0,500. Contro questi giocatori la macchina arriva vicino al meglio possibile, s o h: le basta contare che cosa è seguito a ogni coppia di mosse.
 `,
   },
 }

@@ -1,4 +1,4 @@
-// F2, "Two out of three": a buyer with value v and a seller with cost c, both
+// F2, "Three out of four": a buyer with value v and a seller with cost c, both
 // private and uniform between 0 and 100. Three rules (plain JS):
 //   vcg     trade whenever v ≥ c; the buyer pays c, the seller receives v
 //   posted  a posted price p: trade when c ≤ p ≤ v, at p

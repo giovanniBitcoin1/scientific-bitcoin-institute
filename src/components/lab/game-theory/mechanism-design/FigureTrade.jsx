@@ -4,7 +4,7 @@ import { Pill, INK, SLATE, MONO, GRID } from '../../network/ui.jsx'
 import { stats, MARKS, PROPS } from './bilateral.js'
 import { num } from '../auctions/fmt.js'
 
-// Live figure F2, "Two out of three": the square of the seller's cost c
+// Live figure F2, "Three out of four": the square of the seller's cost c
 // (horizontal) and the buyer's value v (vertical), both uniform 0–100, with
 // the region where each rule trades shaded. Readouts: the chance of trade,
 // the expected gains, the designer's average budget, and the four marks.

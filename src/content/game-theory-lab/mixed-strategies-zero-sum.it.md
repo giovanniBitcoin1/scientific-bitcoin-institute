@@ -1,7 +1,7 @@
 
 ## Un gioco senza cella stabile
 
-Nel **pari o dispari** (*matching pennies*) ogni giocatore mostra una moneta. Il giocatore di riga vince se le due facce coincidono, quello di colonna se sono diverse. Prendete una cella qualsiasi della tabella: uno dei due giocatori preferirebbe trovarsi altrove. Il [modulo 02](/game-theory-lab/nash-equilibrium) si è chiuso su questo gioco, il più piccolo senza cella stabile.
+Nel **pari o dispari** (*matching pennies*) ogni giocatore mostra uno o due dita. Il giocatore di riga vince se la somma è pari, cioè se i due mostrano lo stesso numero, quello di colonna se è dispari. Prendete una cella qualsiasi della tabella: uno dei due giocatori preferirebbe trovarsi altrove. Il [modulo 02](/game-theory-lab/nash-equilibrium) si è chiuso su questo gioco, il più piccolo senza cella stabile.
 
 Un calcio di rigore ha la stessa forma. Il rigorista tira da una parte, il portiere si tuffa da una parte, e il pallone è troppo veloce perché il portiere possa aspettare di vederlo partire. Se il rigorista scegliesse sempre lo stesso lato, il portiere andrebbe lì; se il portiere si tuffasse sempre dalla stessa parte, il rigorista mirerebbe all'altra. Qualunque scelta fissa faccia uno dei due, l'altro ha una risposta pronta. In un gioco così l'errore non è la scelta sbagliata, ma quella prevedibile.
 
@@ -15,7 +15,7 @@ Una cosa cambia. Nel [modulo 01](/game-theory-lab/what-is-a-game) contava solo l
 
 Supponete che in un equilibrio io mescoli fra due strategie. Allora entrambe devono rendermi lo stesso contro ciò che fate voi. Se una rendesse di più, la giocherei ogni volta e abbandonerei l'altra. Un equilibrio misto si regge quindi sull'**indifferenza**: la vostra strategia mista è quella che mi lascia indifferente fra le mie strategie, e la mia è quella che lascia voi indifferenti fra le vostre.
 
-Ne segue un fatto curioso. Le mie probabilità sono fissate dai vostri payoff, non dai miei. Nel pari o dispari la risposta è facile: il giocatore di riga è indifferente solo se quello di colonna mostra testa metà delle volte, e viceversa. Ciascuno gioca 1/2.
+Ne segue un fatto curioso. Le mie probabilità sono fissate dai vostri payoff, non dai miei. Nel pari o dispari la risposta è facile: il giocatore di riga è indifferente solo se quello di colonna mostra un dito metà delle volte, e viceversa. Ciascuno gioca 1/2.
 
 Nel gioco dell'esercizio 1 il giocatore di riga mescola 3/4 e 1/4, quello di colonna 1/2 e 1/2. Ora alzate da 3 a 5 il payoff del giocatore di riga nella cella in alto a sinistra. La strategia mista del giocatore di riga non si muove: resta 3/4, perché la fissano i payoff del giocatore di colonna. È il giocatore di colonna a cambiare: scende a 1/3 sulla prima colonna, per tenere indifferente quello di riga.
 
@@ -50,7 +50,7 @@ Tirare sempre a S garantisce al rigorista il 58,3%, sempre a D il 69,9%, la stra
 
 I professionisti ci vanno sorprendentemente vicino. Nei dati di Palacios-Huerta le percentuali di realizzazione dei tiri ai due lati sono statisticamente uguali, come richiede l'indifferenza, e le scelte non mostrano alcuno schema da un rigore al successivo. Mark Walker e John Wooders (2001) hanno esaminato i servizi dei grandi tennisti a Wimbledon: i punti vinti servendo a sinistra e a destra erano uguali anche lì, ma i giocatori cambiavano lato un po' troppo spesso per essere davvero casuali.
 
-Le persone comuni, invitate a scrivere una sequenza casuale, fanno molto peggio. Evitano le serie lunghe e alternano più di quanto faccia il caso (Wagenaar 1972 ha passato in rassegna i primi studi; Falk e Konold 1997). A un programma semplice basta uno schema prevedibile. La macchina della Simulazione C ricorda che cosa avete fatto dopo ogni coppia di mosse e scommette che lo rifarete. Contro un giocatore che cambia lato il 60% delle volte vince il 59,5% di 2.000 turni; contro uno che sceglie testa il 60% delle volte, il 59,7%; contro una moneta onesta, il 50,0%. Una moneta non si lascia leggere.
+Le persone comuni, invitate a scrivere una sequenza casuale, fanno molto peggio. Evitano le serie lunghe e alternano più di quanto faccia il caso (Wagenaar 1972 ha passato in rassegna i primi studi; Falk e Konold 1997). A un programma semplice basta uno schema prevedibile. La macchina della Simulazione C ricorda che cosa avete fatto dopo ogni coppia di mosse e scommette che lo rifarete. Contro un giocatore che cambia mossa il 60% delle volte vince il 59,5% di 2.000 turni; contro uno che mostra un dito il 60% delle volte, il 59,7%; contro chi lascia decidere a una moneta onesta, il 50,0%. Una moneta non si lascia leggere.
 
 ## Mescolare fuori dal puro conflitto
 

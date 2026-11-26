@@ -63,7 +63,7 @@ const T = {
       stag: ['Cervo', 'Lepre'],
       chicken: ['Sterza', 'Dritto'],
       battle: ['Concerto', 'Partita'],
-      pennies: ['Testa', 'Croce'],
+      pennies: ['Un dito', 'Due dita'],
       coordination: ['Sinistra', 'Destra'],
       penalty: ['S', 'D'],
     },

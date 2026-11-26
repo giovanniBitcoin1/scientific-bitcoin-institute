@@ -22,8 +22,8 @@ export default {
     trade: {
       Component: FigureTrade,
       caption: {
-        en: 'Two out of three: the seller’s cost c and the buyer’s value v, uniform on 0–100, and where each rule trades.',
-        it: 'Due su tre: il costo c del venditore e il valore v del compratore, uniformi tra 0 e 100, e dove scambia ogni regola.',
+        en: 'Three out of four: the seller’s cost c and the buyer’s value v, uniform on 0–100, and where each rule trades.',
+        it: 'Tre su quattro: il costo c del venditore e il valore v del compratore, uniformi tra 0 e 100, e dove scambia ogni regola.',
       },
     },
   },

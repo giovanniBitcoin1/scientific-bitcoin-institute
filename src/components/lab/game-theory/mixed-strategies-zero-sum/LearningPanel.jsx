@@ -53,7 +53,7 @@ const T = {
       shapley: 'Il gioco di Shapley',
     },
     names: {
-      pennies: ['Testa', 'Croce'],
+      pennies: ['Un dito', 'Due dita'],
       penalty: ['S', 'D'],
       rps: ['Sasso', 'Carta', 'Forbici'],
       rps2: ['Sasso', 'Carta', 'Forbici'],

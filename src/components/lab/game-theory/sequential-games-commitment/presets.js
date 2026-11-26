@@ -15,7 +15,7 @@ export const NAMES = {
   it: {
     out: ['Resta fuori', 'F'], in: ['Entra', 'E'], share: ['Dividi', 'D'], fight: ['Combatti', 'C'],
     commit: ['Impegnati', 'I'], free: ['Aspetta', 'A'],
-    concert: ['Concerto', 'C'], match: ['Partita', 'P'], heads: ['Testa', 'T'], tails: ['Croce', 'C'],
+    concert: ['Concerto', 'C'], match: ['Partita', 'P'], heads: ['Un dito', '1'], tails: ['Due dita', '2'],
     take: ['Prendi', 'P'], pass: ['Lascia', 'L'],
     U: ['Su', 'S'], D: ['Giù', 'G'], L: ['Sinistra', 'S'], R: ['Destra', 'D'],
   },

@@ -61,7 +61,7 @@ Block space: an auction every ten minutes
 
 **Fees as a queue.** Gur Huberman, Jacob Leshno and Ciamac Moallemi (2021) model fees as the price of priority in a queue: users who mind waiting pay more. When blocks have room, fees fall towards the minimum that nodes relay. A miner who asked for more would lose the transactions to the others, and entry is open, so fees come from congestion, not from any one miner's choice.
 
-**Another rule.** Ron Lavi, Or Sattath and Aviv Zohar (2019) show that under pay-your-bid a bigger block can lower the miners' revenue. They propose the monopolistic price: every included transaction pays the lowest included fee, and the miner chooses how many transactions to include. This rule keeps the revenue as the block grows, resists manipulation by the miner, and makes shading less useful as the number of users grows (Andrew Chi-Chih Yao 2020).
+**Another rule.** Ron Lavi, Or Sattath and Aviv Zohar (2019) show that under pay-your-bid a bigger block can lower the miners' revenue. They propose the monopolistic price, which they show resists manipulation by the miner: every included transaction pays the lowest included fee, and the miner chooses how many transactions to include. This rule keeps the revenue as the block grows and makes shading less useful as the number of users grows (Andrew Chi-Chih Yao 2020).
 
 **In Simulation C.** With 20 users and 10 slots, pay-your-bid and the uniform price both raise 476.19 on average; with room for all 20, nothing. The monopolistic price raises about 547 with 10 slots and about 579 with 20, serving about 11 users and leaving 9 out.
 

@@ -92,7 +92,7 @@ Il piano di T e S ha quattro regioni.
 - **Gioco del pollo**, detto anche cumulo di neve (*snowdrift*) o falco–colomba (T > 1, S > 0). Ognuno vuole fare il contrario dell'altro. Due celle stabili, e la domanda è chi cede.
 - **Armonia** (T < 1, S > 0). Cooperare è dominante e nessuno se ne pente.
 
-Due classici non compaiono su questa mappa. Nella **battaglia dei sessi** i due giocatori vogliono ritrovarsi insieme, ma ciascuno preferisce un posto diverso: coordinamento e conflitto insieme. Nel **pari o dispari** (*matching pennies*) un giocatore vince se due monete mostrano la stessa faccia e l'altro se mostrano facce diverse: conflitto puro, e nessuna cella stabile.
+Due classici non compaiono su questa mappa. Nella **battaglia dei sessi** i due giocatori vogliono ritrovarsi insieme, ma ciascuno preferisce un posto diverso: coordinamento e conflitto insieme. Nel **pari o dispari** (*matching pennies*) ogni giocatore mostra uno o due dita: uno vince se la somma è pari, l'altro se è dispari. Conflitto puro, e nessuna cella stabile.
 
 Il conteggio di 144 risale ad Anatol Rapoport e Melvin Guyer, che nel 1966 elencarono 78 giochi, perché consideravano uguali anche due giochi in cui i giocatori si scambiano i ruoli. Dei 144, tre quarti sono risolti dalla dominanza e hanno una cella stabile; un ottavo ha due celle stabili, e un ottavo non ne ha nessuna.
 

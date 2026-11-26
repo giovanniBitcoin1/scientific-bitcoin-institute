@@ -45,7 +45,7 @@ const T_ = {
   },
   it: {
     games: { chicken: 'Gioco del pollo', pennies: 'Pari o dispari', pd: 'Dilemma', stag: 'Caccia al cervo', battle: 'Battaglia dei sessi' },
-    names: { chicken: ['Sterza', 'Dritto'], pennies: ['Testa', 'Croce'], pd: ['C', 'D'], stag: ['Cervo', 'Lepre'], battle: ['Concerto', 'Partita'] },
+    names: { chicken: ['Sterza', 'Dritto'], pennies: ['Un dito', 'Due dita'], pd: ['C', 'D'], stag: ['Cervo', 'Lepre'], battle: ['Concerto', 'Partita'] },
     eta: 'η, il tasso di apprendimento',
     T: 'T, i turni',
     tune: 'η per questo T',

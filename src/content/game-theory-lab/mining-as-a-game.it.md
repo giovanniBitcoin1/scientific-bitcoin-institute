@@ -5,10 +5,10 @@ Il [modulo 12](/game-theory-lab/mechanism-design) chiedeva come scrivere regole 
 
 Narayanan e coautori (2016, sezione 5.5) elencano le quattro decisioni che ogni miner prende e, per ciascuna, la scelta predefinita dell'**implementazione di riferimento**:
 
-1. **Quali transazioni includere.** Di default, ogni transazione che paga una commissione sopra un minimo.
-2. **Su quale blocco costruire.** Di default, sull'ultimo blocco della **catena più lunga** tra quelle valide.
-3. **Quale seguire tra due blocchi della stessa altezza.** Di default, quello ricevuto per primo.
-4. **Quando annunciare un blocco trovato.** Di default, subito.
+1. **Quali transazioni includere.** Per impostazione predefinita, ogni transazione che paga una commissione sopra un minimo.
+2. **Su quale blocco costruire.** Per impostazione predefinita, sull'ultimo blocco della **catena più lunga** tra quelle valide.
+3. **Quale seguire tra due blocchi della stessa altezza.** Per impostazione predefinita, quello ricevuto per primo.
+4. **Quando annunciare un blocco trovato.** Per impostazione predefinita, subito.
 
 Ogni scelta predefinita si cambia con poche righe di codice, e ogni cambiamento è un'altra strategia. La prima decisione è il mercato delle commissioni del [modulo 11](/game-theory-lab/auctions) e del riquadro del modulo 12. Nella seconda entrano il *punitive forking* e il *feather fork*: minacce di rifiutare una catena che contiene certe transazioni, esaminate nel riquadro del [modulo 04](/game-theory-lab/sequential-games-commitment). Questo modulo riguarda la terza e la quarta: che cosa succede quando un miner tiene un blocco per sé.
 
