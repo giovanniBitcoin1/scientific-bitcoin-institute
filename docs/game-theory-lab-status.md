@@ -520,12 +520,12 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Module 12, `mechanism-design` (prompt 12): built and committed as "Game
-Theory Lab 12: Designing the rules" (two WIP commits squashed). The whole
-CHECKS list ran on the final code before the squash: 0 failures everywhere.
-Remains: the report `docs/reports/game-theory-lab-12.md`, committed with the
-working log `docs/reports/game-theory-lab-12-log.md` as "Game Theory Lab 12:
-report".
+Nothing in progress. Prompt 12 is finished: module 12 in 34a9392 "Game
+Theory Lab 12: Designing the rules" (two WIP commits squashed), the report
+`docs/reports/game-theory-lab-12.md` and the working log
+`docs/reports/game-theory-lab-12-log.md` in "Game Theory Lab 12: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere.
 
 ## Next
 
