@@ -536,13 +536,12 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-Prompt 13: module 13 is done in the commit "Game Theory Lab 13: Mining as a
-game" (three WIP commits squashed). The whole CHECKS list ran on the final
-code before the squash: 0 failures everywhere (details in the log
-`docs/reports/game-theory-lab-13-log.md`).
-
-Remains: the report `docs/reports/game-theory-lab-13.md`, committed with the
-log as "Game Theory Lab 13: report".
+Nothing in progress. Prompt 13 is finished: module 13 in 23b9018 "Game
+Theory Lab 13: Mining as a game" (three WIP commits squashed), the report
+`docs/reports/game-theory-lab-13.md` and the working log
+`docs/reports/game-theory-lab-13-log.md` in "Game Theory Lab 13: report".
+The whole CHECKS list ran on the final code before the squash: 0 failures
+everywhere.
 
 ## Next
 
