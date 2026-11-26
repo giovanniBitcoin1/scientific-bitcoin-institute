@@ -6,14 +6,14 @@
 export const observe = {
   cartel: {
     en: `
-1. The panel opens with two firms at δ = 0.5, just below the threshold 9/17 = 0.5294. The cartel's 2.25 each cannot hold, but 2.2941 can, with a profit of 10.1211: 0.997 of the cartel's extra profit over Cournot. From δ = 0.53 the whole cartel holds, 2.25 and 10.125.
+1. The simulation opens with two firms at δ = 0.5, just below the threshold 9/17 = 0.5294. The cartel's 2.25 each cannot hold, but 2.2941 can, with a profit of 10.1211: 0.997 of the cartel's extra profit over Cournot. From δ = 0.53 the whole cartel holds, 2.25 and 10.125.
 2. Lower δ to **0.3**: the most that holds is 2.5862, profit 9.8989, 0.799 of the extra profit. At δ = 0 only Cournot is left, 3 and 9. The curve on the chart falls smoothly towards the punishment line.
 3. Switch to **prices**: with two firms the cartel price 5.5 holds from δ = 0.5 on, profit 10.125; at 0.49 nothing holds and the profit is 0. All or nothing: the curve is a step.
 4. Set n = **10** with quantities, δ = 0.5: the threshold is 0.7516, and the most that holds is 0.6352 each, profit 1.6819, 0.747 of the extra profit. With prices at δ = 0.75 ten firms hold nothing: they need 0.9.
 5. Read the table: the thresholds rise with n in both columns. With two firms prices need a little less patience than quantities (0.500 against 0.529); from three firms on they need more (0.667 against 0.571, and 0.900 against 0.752 at n = 10).
 `,
     it: `
-1. Il pannello si apre con due imprese e δ = 0,5, appena sotto la soglia 9/17 = 0,5294. Il 2,25 a testa del cartello non regge, ma 2,2941 sì, con un profitto di 10,1211: lo 0,997 del profitto in più del cartello rispetto a Cournot. Da δ = 0,53 regge tutto il cartello, 2,25 e 10,125.
+1. La simulazione si apre con due imprese e δ = 0,5, appena sotto la soglia 9/17 = 0,5294. Il 2,25 a testa del cartello non regge, ma 2,2941 sì, con un profitto di 10,1211: lo 0,997 del profitto in più del cartello rispetto a Cournot. Da δ = 0,53 regge tutto il cartello, 2,25 e 10,125.
 2. Abbassa δ a **0,3**: il massimo che regge è 2,5862, profitto 9,8989, lo 0,799 del profitto in più. Con δ = 0 resta solo Cournot, 3 e 9. Nel grafico la curva scende dolcemente verso la linea della punizione.
 3. Passa ai **prezzi**: con due imprese il prezzo di cartello 5,5 regge da δ = 0,5 in su, profitto 10,125; a 0,49 non regge nulla e il profitto è 0. Tutto o niente: la curva è un gradino.
 4. Porta n a **10** con le quantità, δ = 0,5: la soglia è 0,7516, e il massimo che regge è 0,6352 a testa, profitto 1,6819, lo 0,747 del profitto in più. Con i prezzi e δ = 0,75 dieci imprese non sostengono nulla: servirebbe 0,9.
@@ -71,8 +71,8 @@ export const exercises = [
   {
     type: 'both',
     statement: {
-      en: 'Module 02\'s cartel. Show that two firms can hold it with a return to Cournot when δ ≥ 9/17, three when δ ≥ 4/7; with prices, 1/2 and 2/3. With two firms and δ = 0.3, what is the most restrictive output that holds, and its profit? Then check it in Panel A.',
-      it: 'Il cartello del modulo 02. Mostra che due imprese lo sostengono con il ritorno a Cournot quando δ ≥ 9/17, tre quando δ ≥ 4/7; con i prezzi, 1/2 e 2/3. Con due imprese e δ = 0,3, qual è la quantità più bassa che regge, e il suo profitto? Poi verificalo nel Pannello A.',
+      en: 'Module 02\'s cartel. Show that two firms can hold it with a return to Cournot when δ ≥ 9/17, three when δ ≥ 4/7; with prices, 1/2 and 2/3. With two firms and δ = 0.3, what is the most restrictive output that holds, and its profit? Then check it in Simulation A.',
+      it: 'Il cartello del modulo 02. Mostra che due imprese lo sostengono con il ritorno a Cournot quando δ ≥ 9/17, tre quando δ ≥ 4/7; con i prezzi, 1/2 e 2/3. Con due imprese e δ = 0,3, qual è la quantità più bassa che regge, e il suo profitto? Poi verificalo nella Simulazione A.',
     },
     solution: {
       en: 'Two firms: cartel 10.125, cheat 3.375 earning 11.390625, Cournot 9; δ* = (11.390625 − 10.125)/(11.390625 − 9) = 1.265625/2.390625 = 9/17. Three firms: cartel 1.5 each earning 6.75, a cheat (9 − 3)/2 = 3 earning 9, Cournot 5.0625; δ* = 2.25/3.9375 = 4/7. Prices: (1 − δ)·20.25 ≤ 20.25/n, so δ ≥ (n − 1)/n: 1/2 and 2/3. At δ = 0.3 an output q holds when (9 − 2q)q ≥ 0.7((9 − q)/2)² + 0.3·9; the smallest such q is (27 − 4.5)/(9 − 0.3) = 22.5/8.7 = 2.586, with profit (9 − 5.172)·2.586 = 9.899.',
@@ -83,18 +83,18 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'Which average payoffs are feasible and individually rational in module 01\'s dilemma? With the public lottery and grim trigger, how much patience do (3, 3), (2.5, 2.5) and (2, 2) need, and with which lotteries? Why does (2.5, 2.5) need less than (3, 3)? Then check it in Figure F2.',
-      it: 'Quali payoff medi sono ammissibili e individualmente razionali nel dilemma del modulo 01? Con la lotteria pubblica e la strategia grim trigger, quanta pazienza serve a (3, 3), (2,5, 2,5) e (2, 2), e con quali lotterie? Perché (2,5, 2,5) richiede meno di (3, 3)? Poi verificalo nella Figura F2.',
+      it: 'Quali payoff medi sono ammissibili e individualmente razionali nel dilemma del modulo 01? Con la lotteria pubblica e la strategia grim trigger, quanta pazienza serve a (3, 3), (2,5; 2,5) e (2, 2), e con quali lotterie? Perché (2,5; 2,5) richiede meno di (3, 3)? Poi verificalo nella Figura F2.',
     },
     solution: {
       en: 'Feasible: the quadrilateral with corners DD (1, 1), DC (5, 0), CC (3, 3) and CD (0, 5). Individually rational (both at least the minmax 1): the quadrilateral (1, 1), (1, 13/3), (3, 3), (13/3, 1), of area 20/3. (3, 3) is CC always: the constraint 3 ≥ (1 − δ)5 + δ gives 0.5. (2.5, 2.5) is CD and DC, half each: the player exploited this round obeys when (1 − δ)·0 + δ·2.5 ≥ (1 − δ)·1 + δ·1, so δ ≥ 0.4. (2, 2) is CD, DC and DD, a third each: δ·2 ≥ 1, 0.5. The exploited player gives up 1 by obeying, a cooperator facing a cooperator gives up 2.',
-      it: 'Ammissibili: il quadrilatero con vertici DD (1, 1), DC (5, 0), CC (3, 3) e CD (0, 5). Individualmente razionali (entrambi almeno il minmax 1): il quadrilatero (1, 1), (1, 13/3), (3, 3), (13/3, 1), di area 20/3. (3, 3) è sempre CC: il vincolo 3 ≥ (1 − δ)5 + δ dà 0,5. (2,5, 2,5) è CD e DC, metà ciascuna: chi è sfruttato in questo turno obbedisce quando (1 − δ)·0 + δ·2,5 ≥ (1 − δ)·1 + δ·1, quindi δ ≥ 0,4. (2, 2) è CD, DC e DD, un terzo ciascuna: δ·2 ≥ 1, 0,5. Chi è sfruttato rinuncia a 1 obbedendo, un cooperatore davanti a un cooperatore rinuncia a 2.',
+      it: 'Ammissibili: il quadrilatero con vertici DD (1, 1), DC (5, 0), CC (3, 3) e CD (0, 5). Individualmente razionali (entrambi almeno il minmax 1): il quadrilatero (1, 1), (1, 13/3), (3, 3), (13/3, 1), di area 20/3. (3, 3) è sempre CC: il vincolo 3 ≥ (1 − δ)5 + δ dà 0,5. (2,5; 2,5) è CD e DC, metà ciascuna: chi è sfruttato in questo turno obbedisce quando (1 − δ)·0 + δ·2,5 ≥ (1 − δ)·1 + δ·1, quindi δ ≥ 0,4. (2, 2) è CD, DC e DD, un terzo ciascuna: δ·2 ≥ 1, 0,5. Chi è sfruttato rinuncia a 1 obbedendo, un cooperatore davanti a un cooperatore rinuncia a 2.',
     },
   },
   {
     type: 'both',
     statement: {
-      en: 'Panel B with σ = 0.5, p̄ = 4.5, δ = 0.9. What are the chances of a false alarm and of catching a cheat? With L = 5, does cheating pay? Which share of the rounds are wars in the long run? What is the shortest war that stops cheating? Then check it in Panel B.',
-      it: 'Il Pannello B con σ = 0,5, p̄ = 4,5, δ = 0,9. Quali sono le probabilità di un falso allarme e di scoprire un imbroglio? Con L = 5, imbrogliare conviene? Quale quota dei turni è di guerra nel lungo periodo? Qual è la guerra più corta che ferma gli imbrogli? Poi verificalo nel Pannello B.',
+      en: 'Simulation B with σ = 0.5, p̄ = 4.5, δ = 0.9. What are the chances of a false alarm and of catching a cheat? With L = 5, does cheating pay? Which share of the rounds are wars in the long run? What is the shortest war that stops cheating? Then check it in Simulation B.',
+      it: 'La Simulazione B con σ = 0,5, p̄ = 4,5, δ = 0,9. Quali sono le probabilità di un falso allarme e di scoprire un imbroglio? Con L = 5, imbrogliare conviene? Quale quota dei turni è di guerra nel lungo periodo? Qual è la guerra più corta che ferma gli imbrogli? Poi verificalo nella Simulazione B.',
     },
     solution: {
       en: 'p0 = Φ((4.5 − 5.5)/0.5) = Φ(−2) = 0.0228 and p1 = Φ((4.5 − 4.375)/0.5) = Φ(0.25) = 0.5987. With L = 5, x = 1.125/(0.1 + 0.9·0.0228·(1 − 0.9⁵)) and the margin is 0.938: cheating does not pay. Peace 1/(1 + 0.0228·5) = 0.898, so 0.102 of the rounds are wars. L = 3 is the shortest (margin 0.232; L = 2 gives −0.199).',
@@ -115,8 +115,8 @@ export const exercises = [
   {
     type: 'both',
     statement: {
-      en: 'The same exercise with 5 markets, then with 50. Why does a reputation need a long horizon? Then check it in Panel C.',
-      it: 'Lo stesso esercizio con 5 mercati, poi con 50. Perché una reputazione ha bisogno di un orizzonte lungo? Poi verificalo nel Pannello C.',
+      en: 'The same exercise with 5 markets, then with 50. Why does a reputation need a long horizon? Then check it in Simulation C.',
+      it: 'Lo stesso esercizio con 5 mercati, poi con 50. Perché una reputazione ha bisogno di un orizzonte lungo? Poi verificalo nella Simulazione C.',
     },
     solution: {
       en: 'With 5 markets nobody is deterred from the start, since (2/3)^5 = 0.132 > 0.05, and the weak incumbent earns 10, as without the doubt. With 50, the 43 newcomers with k ≥ 8 are deterred and it earns 43 × 4 + 7 × 2 = 186, against 100. The expected entries against a weak incumbent are 6.17 whenever N ≥ 7: the last 7 markets are the same game whatever comes before. A reputation is worth something only if there are many markets left to protect.',

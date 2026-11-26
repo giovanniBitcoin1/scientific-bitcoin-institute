@@ -38,7 +38,7 @@ const T = {
     quota: 'Quota',
     of: (W) => `su ${W}`,
     poolQuotas: 'Quota:',
-    poolNote: 'Venticinque pool con il 26, 19, 19, 8 e 8 per cento dell’hash rate e venti con l’1 per cento ciascuno: numeri inventati, non una fotografia. Le quote sono più di un quarto, di un terzo, della metà e dei due terzi di 100: la metà per un attacco di maggioranza, un quarto e un terzo per le soglie del selfish mining (modulo 13).',
+    poolNote: 'Venticinque pool con il 26, 19, 19, 8 e 8 per cento dell’hash rate e venti con l’1 per cento ciascuno: numeri inventati, non una fotografia. Le quote sono più di un quarto, di un terzo, della metà e dei due terzi di 100: la metà per un attacco del 51%, un quarto e un terzo per le soglie del selfish mining (modulo 13).',
     weights: 'Pesi (da 0 a 100)',
     addPlayer: 'Aggiungi un giocatore',
     removePlayer: 'Togli l’ultimo',

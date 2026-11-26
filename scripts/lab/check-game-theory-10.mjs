@@ -449,9 +449,11 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
   check('lecture: with every pair 100 the pairs ask for 150 and the core is empty', !coreTest(P(100, 100, 100)).nonempty && (100 + 100 + 100) / 2 === 150)
   // "a, b and c" in English, "a, b e c" in Italian.
   const and3 = (xs) => [`${xs[0]}, ${xs[1]} and ${xs[2]}`, `${itn(xs[0])}, ${itn(xs[1])} e ${itn(xs[2])}`]
+  // Italian lists of decimals are separated by semicolons
+  const and3d = (xs) => [`${xs[0]}, ${xs[1]} and ${xs[2]}`, `${itn(xs[0])}; ${itn(xs[1])} e ${itn(xs[2])}`]
   quoted('lecture: C\'s arrivals and the Shapley value', lecture, [
     ['after A alone she adds 60; after B alone, 40; last, 100 − 70 = 30', 'dopo il solo A aggiunge 60; dopo il solo B, 40; per ultimo, 100 − 70 = 30'],
-    and3(sh.map(show)), and3(sh.map(f2)), and3(shapley3(90, 60, 40).map(show)),
+    and3(sh.map(show)), and3d(sh.map(f2)), and3(shapley3(90, 60, 40).map(show)),
     ['A and B would get 80, and they could make 90', 'A e B riceverebbero 80, e da soli potrebbero fare 90'],
   ])
   check('lecture: C adds 0, 60, 40 and 30 in the partners\' orders', [partners.v[4], sub(partners.v[5], partners.v[1]), sub(partners.v[6], partners.v[2]), sub(partners.v[7], partners.v[3])].map(show).join() === '0,60,40,30')
@@ -467,8 +469,8 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
   quoted('lecture: the estate', lecture, [
     ['100, 200 and 300', '100, 200 e 300'], ['an estate of 200 as 50, 75 and 75', 'una di 200 come 50, 75 e 75'], ['300 as 50, 100 and 150', 'una di 300 come 50, 100 e 150'],
     ['the shares are 3/4 and 1/4', 'le quote sono 3/4 e 1/4'],
-    [`proportional division gives ${d2(proportional(D3, 200)).replace('100.00', '100').replace(/, (?=[^,]*$)/, ' and ')}`, `la divisione proporzionale dà ${itn(d2(proportional(D3, 200))).replace('100,00', '100').replace(/, (?=[^,]*$)/, ' e ')}`],
-    ((p) => [`gives ${p[0]}`, `dà ${p[1]}`])(and3(shapleyRule(D3, 200).map(f2))),
+    [`proportional division gives ${d2(proportional(D3, 200)).replace('100.00', '100').replace(/, (?=[^,]*$)/, ' and ')}`, `la divisione proporzionale dà ${itn(d2(proportional(D3, 200))).replace('100,00', '100').replace(/, (?=[^,]*$)/, ' e ').replace(/, /g, '; ')}`],
+    ((p) => [`gives ${p[0]}`, `dà ${p[1]}`])(and3d(shapleyRule(D3, 200).map(f2))),
     ['Ketubot 93a', 'Ketubot 93a'], ['Bava Metzia 2a', 'Bava Metzia 2a'],
   ])
   check('lecture: the three estates are the code\'s Talmud', sameFr(talmud(D3, 100), ['100/3', '100/3', '100/3']) && sameFr(t2, [50, 75, 75]) && sameFr(talmud(D3, 300), [50, 100, 150]))
@@ -514,7 +516,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
       n4(c.ss[0]), n4(c.ss[3]), n4(c.ss[5]), n4(c.banzhaf[0]), n4(c.banzhaf[3]), n4(c.absolute[0]), n4(c.absolute[3]), [`${c.totalSwings} swings`, `${c.totalSwings} in tutto`],
       n4(powerIndices([49, 49, 2], 51).ss[0]),
       ...[0, 1, 3, 5].flatMap((i) => [n4(p.ss[i]), n4(p.banzhaf[i])]),
-      n4(pools(26).ss[0]), [0, 1, 3, 5].map((i) => n4(pools(34).ss[i])).join(', '),
+      n4(pools(26).ss[0]), ((s) => [s, itn(s).replace(/, /g, '; ')])([0, 1, 3, 5].map((i) => n4(pools(34).ss[i])).join(', ')),
       ['1, 2, 3 and 4', '1, 2, 3 e 4'], n4(s51.ss[0]), toNumber(add(s51.ss[0], s51.ss[1])).toFixed(4), n4(s51.ss[2]),
     ])
     check('observe, Panel B: three of the largest at the Council\'s 12 and at the pools\' 51; 34 and 67 dual', c.needed === 3 && p.needed === 3 && sameFr(pools(34).ss, pools(67).ss))
@@ -529,19 +531,19 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
       '50, 75, 75', row(r.proportional), row(r.cea).split(', ')[0], row(r.cel), row(r.shapley),
       d2(talmud(D3, 100)).split(', ')[0], ['E = 150 to E = 450', 'E = 150 a E = 450'], ['to 100 at 600', 'fino a 100 con 600'],
       d2(r450.talmud).replace(/\.00/g, ''), row(r450.shapley),
-    ].map((p) => (Array.isArray(p) ? p : [p.trim(), itn(p.trim())])))
+    ].map((p) => (Array.isArray(p) ? p : [p.trim(), /\d\.\d/.test(p) ? itn(p.trim()).replace(/, /g, '; ') : itn(p.trim())])))
     check('observe, Panel C: the first creditor is at 50 exactly from E = 150 to 450, Talmud = CEA at 100, = proportional = Shapley at 300, = CEL at 450; all claims paid at 600', c1[0] === 150 && c1.at(-1) === 450 && c1.length === 61 && sameFr(talmud(D3, 100), cea(D3, 100)) && sameFr(talmud(D3, 300), proportional(D3, 300)) && sameFr(talmud(D3, 300), shapleyRule(D3, 300)) && sameFr(r450.talmud, r450.cel) && sameFr(talmud(D3, 600), D3))
   }
   // ---- Exercises
   const sol = (i) => ({ en: exercises[i].solution.en, it: exercises[i].solution.it })
-  quoted('exercise 1', sol(0), [...coreCorners3(partners).map(tup), '125/3', '95/3', '80/3', ['41.67, 31.67, 26.67', '41,67, 31,67, 26,67']])
+  quoted('exercise 1', sol(0), [...coreCorners3(partners).map(tup), '125/3', '95/3', '80/3', ['41.67, 31.67, 26.67', '41,67; 31,67; 26,67']])
   quoted('exercise 2', sol(1), [...coreCorners3(P(90, 60, 40)).map(tup), ['45, 35 and 20', '45, 35 e 20'], ['get 80 and could make 90', 'ricevono 80 e da soli potrebbero fare 90']])
   quoted('exercise 3', sol(2), ['200 ≥ 300', '200 ≥ 240', '200 ≥ 180', ...coreCorners3(P(60, 60, 60)).map(tup)])
   check('exercise 3: pairs 100 and 80 empty, 60 the triangle', !coreTest(P(100, 100, 100)).nonempty && !coreTest(P(80, 80, 80)).nonempty && coreCorners3(P(60, 60, 60)).length === 3)
   quoted('exercise 4', sol(3), ['2/3', '1/6', tup(A.gloves3.least.x), ['4 of the 6 orders', '4 dei 6 ordini']])
   quoted('exercise 5', sol(4), ['7/30', '3/20', '13/60', '7/60'])
   check('exercise 5: the fractions are the code\'s', sameFr(council(12).ss, ['7/30', '7/30', '7/30', '3/20', '3/20', 0]) && sameFr(council(13).ss, ['13/60', '13/60', '13/60', '7/60', '7/60', '7/60']))
-  quoted('exercise 6', sol(5), ['50, 75, 75', ['33.33, 66.67, 100', '33,33, 66,67, 100'], ['66.67 each', '66,67 ciascuno'], ['33.33, 83.33, 83.33', '33,33, 83,33, 83,33'], ['200, 200, 100, 0, 0, 0', '200, 200, 100, 0, 0, 0']])
+  quoted('exercise 6', sol(5), ['50, 75, 75', ['33.33, 66.67, 100', '33,33; 66,67; 100'], ['66.67 each', '66,67 ciascuno'], ['33.33, 83.33, 83.33', '33,33; 83,33; 83,33'], ['200, 200, 100, 0, 0, 0', '200, 200, 100, 0, 0, 0']])
   check('exercise 6: the numbers are the code\'s', sameFr(talmud(D3, 200), [50, 75, 75]) && d2(proportional(D3, 200)) === '33.33, 66.67, 100.00' && d2(cea(D3, 200)) === '66.67, 66.67, 66.67' && d2(shapleyRule(D3, 200)) === '33.33, 83.33, 83.33')
   check('six exercises, each with a statement and a solution in both languages', exercises.length === 6 && exercises.every((x) => x.statement.en && x.statement.it && x.solution.en && x.solution.it && ['paper', 'sim', 'both'].includes(x.type)))
 

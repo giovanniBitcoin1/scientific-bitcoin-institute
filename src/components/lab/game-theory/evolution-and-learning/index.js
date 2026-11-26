@@ -31,7 +31,7 @@ export default {
   panels: [
     {
       id: 'rps',
-      title: { en: 'Rock, paper, scissors in a population', it: 'Sasso, carta, forbici in una popolazione' },
+      title: { en: 'Rock-paper-scissors in a population', it: 'Sasso-carta-forbici in una popolazione' },
       Component: SimplexPanel,
       observe: observe.rps,
     },

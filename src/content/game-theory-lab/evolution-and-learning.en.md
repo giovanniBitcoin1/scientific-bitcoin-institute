@@ -38,7 +38,7 @@ fates
 
 Every ESS is an asymptotically stable rest point of the replicator equation (Taylor and Jonker 1978; Hofbauer, Schuster and Sigmund 1979). With two strategies the converse holds too, as the figure shows; with three or more it can fail: a rest point can attract the population without being an ESS.
 
-## Rock, paper, scissors
+## Rock-paper-scissors
 
 With three strategies, let each beat the next in a ring, as in [module 03](/game-theory-lab/mixed-strategies-zero-sum): a win pays a, a loss costs b, a tie pays 0. The only rest point inside the triangle is the centre (1/3, 1/3, 1/3), and the product V = x_R x_P x_S tells where the population goes:
 
@@ -50,7 +50,7 @@ The bracket is never negative, and zero only at the centre. When a > b, V rises:
 
 Barry Sinervo and Curtis Lively (1996) described the males of the side-blotched lizard (*Uta stansburiana*): three throat colours, three mating tactics, each beating one of the others. The frequencies of the three colours cycle over a few years.
 
-Panel A's last preset brings back module 06. The three strategies are always cooperate, always defect and Tit for Tat, playing 10 rounds of module 01's dilemma. On the edge between always defect and Tit for Tat, Tit for Tat takes over once it is above 1/17 ≈ 0.059. On the edge between always cooperate and Tit for Tat nothing moves. But where always cooperate is more than 4/9 of the population, always defect can invade. Drifting towards naive cooperation opens the door to defectors.
+Simulation A's last preset brings back module 06. The three strategies are always cooperate, always defect and Tit for Tat, playing 10 rounds of module 01's dilemma. On the edge between always defect and Tit for Tat, Tit for Tat takes over once it is above 1/17 ≈ 0.059. On the edge between always cooperate and Tit for Tat nothing moves. But where always cooperate is more than 4/9 of the population, always defect can invade. Drifting towards naive cooperation opens the door to defectors.
 
 ## One mutant in a finite population
 
@@ -92,7 +92,7 @@ traffic
 
 When every player's regret goes to zero, the frequencies of play approach the set of **coarse correlated equilibria**, where nobody would rather have committed in advance to a single action. A stronger notion, **swap regret**, asks whether replacing each action by another every time it was played would have paid. When that goes to zero too, as in the regret matching of Hart and Mas-Colell (2000), play approaches the correlated equilibria. Every Nash equilibrium is correlated, and every correlated one is coarse correlated (Roughgarden, lecture 13); with two actions each the last two sets coincide.
 
-Panel C lets two Hedge learners loose on module 01's games. In chicken they settle on one of the two pure equilibria. In matching pennies they never settle: their mixed strategies spiral out towards the corners (Bailey and Piliouras 2018), yet on average they play 1/2 and 1/2 and earn the value.
+Simulation C lets two Hedge learners loose on module 01's games. In chicken they settle on one of the two pure equilibria. In matching pennies they never settle: their mixed strategies spiral out towards the corners (Bailey and Piliouras 2018), yet on average they play 1/2 and 1/2 and earn the value.
 
 ## Next
 
@@ -117,7 +117,7 @@ Part III, living together. In [module 08](/game-theory-lab/congestion-price-of-a
 - Nowak, M. A., Sasaki, A., Taylor, C. and Fudenberg, D. (2004). Emergence of cooperation and evolutionary stability in finite populations. *Nature* 428, 646–650.
 - Kandori, M., Mailath, G. J. and Rob, R. (1993). Learning, mutation, and long run equilibria in games. *Econometrica* 61, 29–56.
 - Young, H. P. (1993). The evolution of conventions. *Econometrica* 61, 57–84.
-- Hannan, J. (1957). Approximation to Bayes risk in repeated play. *Contributions to the Theory of Games III*, 97–139.
+- Hannan, J. (1957). Approximation to Bayes risk in repeated play. In *Contributions to the Theory of Games III*, 97–139.
 - Littlestone, N. and Warmuth, M. K. (1994). The weighted majority algorithm. *Information and Computation* 108, 212–261.
 - Freund, Y. and Schapire, R. E. (1997). A decision-theoretic generalization of on-line learning and an application to boosting. *Journal of Computer and System Sciences* 55, 119–139.
 - Freund, Y. and Schapire, R. E. (1999). Adaptive game playing using multiplicative weights. *Games and Economic Behavior* 29, 79–103.

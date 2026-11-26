@@ -402,7 +402,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
       [`gives ${f5(sim.dm)} and ${f5(sim.expert)}`, `dà ${it(f5(sim.dm))} e ${it(f5(sim.expert))}`],
       [`boundaries ${f4(a5[1])} and ${f4(a5[2])}`, `confini ${it(f4(a5[1]))} e ${it(f4(a5[2]))}`], [`each ${g(4 * 0.05)} longer`, `più lungo di ${it(g(4 * 0.05))}`], f5(losses(a5, 0.05).dm), f5(losses(partition(0.05, 2), 0.05).dm),
       [`from ${g(L2[0])} to ${g(L2.at(-1))} long`, `lunghi da ${it(g(L2[0]))} a ${it(g(L2.at(-1)))}`], [`b², ${g(delegationLoss(0.25))}`, `b², ${it(g(delegationLoss(0.25)))}`], f3(Math.sqrt(1 / 12)),
-      [`from 10 at b = 0.005 to 7, 6, 5, 4 by b = 0.025, to 3 at 0.045, 2 at 0.085 and 1 at 0.25`, `da 10 a b = 0,005 a 7, 6, 5, 4 entro b = 0,025, a 3 a 0,045, 2 a 0,085 e 1 a 0,25`],
+      [`from 10 at b = 0.005 to 7, 6, 5, 4 by b = 0.025, to 3 at 0.045, 2 at 0.085 and 1 at 0.25`, `da 10 a b = 0,005 a 7, 6, 5, 4 entro b = 0,025; a 3 a 0,045; 2 a 0,085 e 1 a 0,25`],
       [`up to b = 0.285 and falls below it from 0.290`, `fino a b = 0,285 e scende sotto da 0,290`],
     ])
   }
@@ -444,8 +444,8 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
     check('exercise 6: a hunter at 1/2 is indifferent (1/2 − 1/2 = 0)', Math.abs(stagAtHalf(0.1)) < 1e-15)
     quoted('exercise 6', sol(5), [
       [`F2: ${steps.slice(0, 3).join(', ')} and ${steps[3]} steps`, `F2: ${steps.slice(0, 3).join(', ')} e ${steps[3]} passi`],
-      [`exact: 0, ${f3(exact[1])}, 1/2 and 1`, `esatto: 0, ${it(f3(exact[1]))}, 1/2 e 1`],
-      [`${ex.slice(0, 3).map((r) => f3(r.cars)).join(', ')} and ${f3(ex[3].cars)}, end price ${f3(ex[2].price)}`, `${ex.slice(0, 3).map((r) => it(f3(r.cars))).join(', ')} e ${it(f3(ex[3].cars))}, prezzo finale ${it(f3(ex[2].price))}`],
+      [`exact: 0, ${f3(exact[1])}, 1/2 and 1`, `esatto: 0; ${it(f3(exact[1]))}; 1/2 e 1`],
+      [`${ex.slice(0, 3).map((r) => f3(r.cars)).join(', ')} and ${f3(ex[3].cars)}, end price ${f3(ex[2].price)}`, `${ex.slice(0, 3).map((r) => it(f3(r.cars))).join('; ')} e ${it(f3(ex[3].cars))}, prezzo finale ${it(f3(ex[2].price))}`],
       [`Simulation C: ${Ns.join(', ')}`, `Simulazione C: ${Ns.join(', ')}`], '1/2 − 1 × 1/2 = 0',
     ])
   }

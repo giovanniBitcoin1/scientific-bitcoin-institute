@@ -54,7 +54,7 @@ const T = {
           ? `La minaccia è credibile anche senza impegno: combattere rende all’incumbent ${n(f)}, più del 2 della divisione. Quindi l’incumbent aspetta, l’entrante resta fuori e l’incumbent tiene 4; impegnarsi gli costerebbe soltanto k.`
           : `Combattere rende all’incumbent ${n(f)}, più del 2 della divisione: la minaccia è credibile da sola. L’entrante resta fuori e l’incumbent tiene 4.`
       }
-      if (s.commits) return `L’impegno toglie “dividi”: dopo l’entrata l’incumbent potrebbe solo combattere, e quindi l’entrante resta fuori. L’incumbent ottiene 4 − k = ${n(4 - k)} invece del 2 della divisione, e si impegna.`
+      if (s.commits) return `L’impegno toglie «dividi»: dopo l’entrata l’incumbent potrebbe solo combattere, e quindi l’entrante resta fuori. L’incumbent ottiene 4 − k = ${n(4 - k)} invece del 2 della divisione, e si impegna.`
       if (s.tieCommit) return 'Impegnarsi lascerebbe all’incumbent 4 − k = 2, esattamente quanto rende dividere: l’incumbent è indifferente, e qui aspetta. L’entrante entra e i due si dividono il mercato.'
       if (s.tree.root.player === 1) return `Impegnarsi lascerebbe all’incumbent 4 − k = ${n(4 - k)}, meno del 2 della divisione: aspetta, l’entrante entra e i due si dividono il mercato, 2 ciascuno.`
       if (s.tieFirm) return 'Dopo l’entrata l’incumbent ottiene 2 sia dividendo sia combattendo: è indifferente, e l’albero da solo non decide (qui divide). Con f appena sopra 2 la minaccia sarebbe credibile.'

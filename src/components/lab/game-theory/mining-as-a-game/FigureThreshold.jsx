@@ -17,7 +17,7 @@ const FIXED = [0, 0.5, 1]
 const T = {
   en: {
     gamma: 'γ, the others who build on her block in a race',
-    best: 'Add the best deviation (Panel C)',
+    best: 'Add the best deviation (Simulation C)',
     xl: 'α',
     yl: 'her share of the chain',
     line: 'R = α (honest mining)',
@@ -29,7 +29,7 @@ const T = {
   },
   it: {
     gamma: 'γ, gli altri che costruiscono sul suo blocco in una gara',
-    best: 'Aggiungi la deviazione migliore (Pannello C)',
+    best: 'Aggiungi la deviazione migliore (Simulazione C)',
     xl: 'α',
     yl: 'la sua quota della catena',
     line: 'R = α (mining onesto)',

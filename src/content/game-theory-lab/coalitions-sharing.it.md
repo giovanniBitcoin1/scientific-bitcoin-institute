@@ -36,9 +36,9 @@ Nella forma moderna, il risultato di Shapley afferma che il valore è l'unica re
 φ_A = (2v(N) + v(AB) + v(AC) − 2v(BC)) / 6
 ```
 
-I soci ricevono 125/3, 95/3 e 80/3, cioè 41,67, 31,67 e 26,67: un punto dentro il nucleo. Ma equità e stabilità possono entrare in conflitto. Se A e B potessero fare 90, il valore di Shapley diventerebbe 45, 35 e 20, fuori dal nucleo: insieme A e B riceverebbero 80, e da soli potrebbero fare 90. Nei giochi **convessi**, dove un giocatore aggiunge di più a un gruppo più grande, le due cose non entrano mai in conflitto: il valore di Shapley sta sempre nel nucleo (Shapley 1971).
+I soci ricevono 125/3, 95/3 e 80/3, cioè 41,67; 31,67 e 26,67: un punto dentro il nucleo. Ma equità e stabilità possono entrare in conflitto. Se A e B potessero fare 90, il valore di Shapley diventerebbe 45, 35 e 20, fuori dal nucleo: insieme A e B riceverebbero 80, e da soli potrebbero fare 90. Nei giochi **convessi**, dove un giocatore aggiunge di più a un gruppo più grande, le due cose non entrano mai in conflitto: il valore di Shapley sta sempre nel nucleo (Shapley 1971).
 
-Il Pannello A calcola il valore di Shapley da tutti gli ordini e verifica il nucleo con un programma lineare. Contiene due classici. Nel **gioco dei guanti** due giocatori hanno un guanto sinistro e uno un guanto destro, e si vende solo un paio completo, a 1. Il valore di Shapley dà 1/6 a ogni guanto sinistro e 2/3 al destro. Il nucleo è più severo: la sua unica divisione è (0, 0, 1), tutto al guanto destro, perché ogni guanto sinistro può essere sostituito dall'altro. Nel **gioco dell'aeroporto** (Stephen Littlechild e Guillermo Owen 1973) aerei di dimensioni diverse condividono una pista, e una coalizione paga la pista più lunga che le serve. Il suo valore di Shapley ha una forma semplice: ogni tratto della pista è pagato in parti uguali dagli aerei che ne hanno bisogno.
+La Simulazione A calcola il valore di Shapley da tutti gli ordini e verifica il nucleo con un programma lineare. Contiene due classici. Nel **gioco dei guanti** due giocatori hanno un guanto sinistro e uno un guanto destro, e si vende solo un paio completo, a 1. Il valore di Shapley dà 1/6 a ogni guanto sinistro e 2/3 al destro. Il nucleo è più severo: la sua unica divisione è (0, 0, 1), tutto al guanto destro, perché ogni guanto sinistro può essere sostituito dall'altro. Nel **gioco dell'aeroporto** (Stephen Littlechild e Guillermo Owen 1973) aerei di dimensioni diverse condividono una pista, e una coalizione paga la pista più lunga che le serve. Il suo valore di Shapley ha una forma semplice: ogni tratto della pista è pagato in parti uguali dagli aerei che ne hanno bisogno.
 
 ## Il potere non è il peso
 
@@ -50,7 +50,7 @@ Il Consiglio delle prime Comunità europee, dal 1958, è il caso di scuola. Fran
 votes
 ```
 
-Il peso può ingannare anche nell'altro senso. Si prendano tre partiti con 49, 49 e 2 seggi e una maggioranza di 51: due qualsiasi vincono e nessuno vince da solo, quindi tutti e tre hanno lo stesso potere, 1/3 ciascuno. Il Pannello B calcola i due indici fino a 30 giocatori.
+Il peso può ingannare anche nell'altro senso. Si prendano tre partiti con 49, 49 e 2 seggi e una maggioranza di 51: due qualsiasi vincono e nessuno vince da solo, quindi tutti e tre hanno lo stesso potere, 1/3 ciascuno. La Simulazione B calcola i due indici fino a 30 giocatori.
 
 ## Un'eredità che non basta
 
@@ -58,17 +58,17 @@ Un uomo muore lasciando tre mogli, alle quali deve per contratto di matrimonio 1
 
 Robert Aumann e Michael Maschler (1985) risolsero l'enigma, leggendolo come un **problema di bancarotta**: la somma dei crediti supera l'eredità. Si prenda il gioco in cui una coalizione vale ciò che le resta dopo che tutti quelli che ne sono fuori sono stati pagati per intero, o 0 se non resta nulla. Le tre divisioni sono il **nucleolo** di questo gioco (David Schmeidler 1969): la divisione che migliora il più possibile la coalizione più svantaggiata, poi la seconda più svantaggiata, e così via. Mostrarono anche che la stessa regola discende da un altro passo del Talmud (Bava Metzia 2a), su due persone che tengono un mantello. Una lo reclama tutto, l'altra la metà; la seconda concede alla prima la metà che non reclama, la metà contesa si divide in parti uguali, e le quote sono 3/4 e 1/4. Le divisioni del Talmud sono le sole che ripartiscono in questo modo ciò che due creditori qualsiasi ricevono insieme.
 
-Altre regole danno altre risposte. Con 200 la divisione proporzionale dà 33,33, 66,67 e 100. Il valore di Shapley dello stesso gioco dà 33,33, 83,33 e 83,33: è la media sugli ordini di arrivo casuali, con ogni creditore pagato per intero finché il denaro basta (Barry O'Neill 1982). Il Pannello C confronta cinque regole per qualsiasi eredità.
+Altre regole danno altre risposte. Con 200 la divisione proporzionale dà 33,33; 66,67 e 100. Il valore di Shapley dello stesso gioco dà 33,33; 83,33 e 83,33: è la media sugli ordini di arrivo casuali, con ogni creditore pagato per intero finché il denaro basta (Barry O'Neill 1982). La Simulazione C confronta cinque regole per qualsiasi eredità.
 
 ```box
 I mining pool: a chi va la ricompensa?
-**Perché esistono i pool: la varianza.** Un *miner* con una quota h dell'*hash rate* trova in media una frazione h dei blocchi. A fine novembre 2026 la potenza della rete era di circa 1 ZH/s, 10²¹ hash al secondo (una media a 30 giorni di 1.019 EH/s il 23 novembre, secondo Hashrate Index). A 1 ZH/s, un miner da 1 PH/s ha una quota di uno su un milione: con 52.560 blocchi all'anno (uno ogni dieci minuti), ne trova uno ogni 19 anni in media, e può non trovarne nessuno per molto più tempo. Un *pool* paga i suoi membri per prove di lavoro parziali, le *share*, molto più facili da trovare, e trasforma una lotteria in un reddito regolare.
+**Perché esistono i *pool*: la varianza.** Un *miner* con una quota α dell'*hash rate* trova in media una frazione α dei blocchi. A fine novembre 2026 la potenza della rete era di circa 1 ZH/s, 10²¹ hash al secondo (una media a 30 giorni di 1.019 EH/s il 23 novembre, secondo Hashrate Index). A 1 ZH/s, un miner da 1 PH/s ha una quota di uno su un milione: con 52.560 blocchi all'anno (uno ogni dieci minuti), ne trova uno ogni 19 anni in media, e può non trovarne nessuno per molto più tempo. Un *pool* paga i suoi membri per prove di lavoro parziali, le *share*, molto più facili da trovare, e trasforma una lotteria in un reddito regolare.
 
 **Come dividono i pool.** In proporzione alle share del turno; per share, a un prezzo fisso (il rischio è del pool); oppure sulle ultime N share. Meni Rosenfeld (2011) descrisse questi schemi e mostrò perché un pool proporzionale si può sfruttare saltando da un pool all'altro: una share all'inizio di un turno vale più di una alla fine. Bahar Can, Jens Leth Hougaard e Mohsen Pourpouneh (2022) studiano la divisione come un problema di allocazione con proprietà di equità, e caratterizzano lo schema proporzionale.
 
 **Il punto di vista cooperativo.** Yoad Lewenberg, Yoram Bachrach, Yonatan Sompolinsky, Aviv Zohar e Jeffrey Rosenschein (2015) modellarono i pool come un gioco cooperativo. Per alcuni parametri della rete, in particolare quando i blocchi contengono molte transazioni, una divisione stabile delle ricompense può non esistere, e alcuni miner guadagnano sempre passando a un altro pool.
 
-**Il potere.** Nei pool illustrativi del Pannello B, un pool con il 26% dell'hash rate ha circa il 30% del potere di formare una maggioranza, e dividerlo in due pool del 13% abbassa il loro potere complessivo a circa il 26%. Le quote reali cambiano di settimana in settimana, e un pool non coincide con i suoi miner: possono lasciarlo, e un attacco non è una votazione. Leggere i pool come elettori è un'ipotesi, non una descrizione.
+**Il potere.** Nei pool illustrativi della Simulazione B, un pool con il 26% dell'hash rate ha circa il 30% del potere di formare una maggioranza, e dividerlo in due pool del 13% abbassa il loro potere complessivo a circa il 26%. Le quote reali cambiano di settimana in settimana, e un pool non coincide con i suoi miner: possono lasciarlo, e un attacco non è una votazione. Leggere i pool come elettori è un'ipotesi, non una descrizione.
 ```
 
 ## Il prossimo modulo

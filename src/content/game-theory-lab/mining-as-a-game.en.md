@@ -64,7 +64,7 @@ R is a share, not an income. Selfish mining orphans blocks, so the chain grows b
 T_even = T₁ · (R − r_A) / (R − α)
 ```
 
-Cyril Grunspan and Ricardo Pérez-Marco (2018) showed more: no strategy is more profitable than honest mining before a difficulty adjustment, so selfish mining is an attack on the adjustment rule, and the gain comes only after it. Panel B draws both expected rewards and one simulated path.
+Cyril Grunspan and Ricardo Pérez-Marco (2018) showed more: no strategy is more profitable than honest mining before a difficulty adjustment, so selfish mining is an attack on the adjustment rule, and the gain comes only after it. Simulation B draws both expected rewards and one simulated path.
 
 ## The best deviation
 

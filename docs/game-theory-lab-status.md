@@ -167,7 +167,7 @@ uses it and the regression compare.
 | 04 | I | `sequential-games-commitment` | done | the commit "Game Theory Lab 04: Games in time and credible commitment" | A Solve the tree; B Leader and follower; C Dividing a pie | `entry`, `pie` |
 | 05 | II | `incomplete-information-signalling` | done | the commit "Game Theory Lab 05: Incomplete information and signals" | A The market that empties; B Separate or pool?; C Words that cost nothing | `types`, `doubt` |
 | 06 | II | `repeated-games-reputation` | done | the commit "Game Theory Lab 06: Repeated games and reputation" | A Can the cartel hold?; B Price wars without cheating; C A reputation for toughness | `patience`, `folk` |
-| 07 | II | `evolution-and-learning` | done | the commit "Game Theory Lab 07: Evolution and learning" | A Rock, paper, scissors in a population; B One mutant; C Learning by regret | `fates`, `traffic` |
+| 07 | II | `evolution-and-learning` | done | the commit "Game Theory Lab 07: Evolution and learning" | A Rock-paper-scissors in a population; B One mutant; C Learning by regret | `fates`, `traffic` |
 | 08 | III | `congestion-price-of-anarchy` | done | the commit "Game Theory Lab 08: Congestion and the price of anarchy" | A How bad can it get?; B Drivers who count; C Sharing the cost of a road | `tworoads`, `braess` |
 | 09 | III | `games-on-networks` | done | the commit "Game Theory Lab 09: Games on networks" | A Who does the work?; B The key player; C Building the network | `star`, `formation` |
 | 10 | III | `coalitions-sharing` | done | the commit "Game Theory Lab 10: Coalitions and sharing" | A Who gets what?; B Who decides?; C An estate that cannot pay | `core`, `votes` |
@@ -554,8 +554,8 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 **The review of the lectures** (`prompts.local/game-theory-lab-review.md`,
 log `docs/reports/game-theory-lab-review-log.md`): stage 0 committed;
-stage 1 modules reviewed and committed: 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14. To resume: read the log, then
-review the next module.
+stage 1 (the 14 modules) and stage 2 (across modules) committed. To
+resume: read the log, then do stage 3 (Italian terms).
 
 Nothing in progress. All fourteen modules are "ready" and done (table
 above); the lab was closed in the commit "Game Theory Lab: close" (prompt

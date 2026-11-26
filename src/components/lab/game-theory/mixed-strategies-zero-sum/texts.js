@@ -6,34 +6,34 @@
 export const observe = {
   all: {
     en: `
-1. The panel opens on random table no. 1, 3 × 3. It has two pure equilibria, (1, C) and (3, B), ringed in the table, and a third, mixed one: the row player plays 1 with probability 3/7 and 3 with 4/7, the column player B with 1/8 and C with 7/8. Three in all.
+1. The simulation opens on random table no. 1, 3 × 3. It has two pure equilibria, (1, C) and (3, B), ringed in the table, and a third, mixed one: the row player plays 1 with probability 3/7 and 3 with 4/7, the column player B with 1/8 and C with 7/8. Three in all.
 2. Load **Rock-paper-scissors**: one equilibrium, 1/3 each, value 0. Then **Rock beats scissors by 2**: still one, but now 1/4, 1/2, 1/4. The move that gained is not the one played most: paper is.
 3. Load the **penalty kick**: one equilibrium, L with 0.385 for the kicker and 0.420 for the keeper, scoring 79.57. **Shapley's game** has one too, a third for each strategy. In **Exercise 5** the row player mixes U and D half and half and never plays M; the value is 2.
 4. Set G to 20,000 and press **Survey**. The column "Even number" is 0 at every size. At m = 2, 0.875 of the games have one equilibrium and 0.125 three; at m = 4, 0.536 one, 0.380 three, 0.068 five and 0.016 seven or more. The mean grows from 1.251 to 2.130.
 5. The last column, games with no pure equilibrium (0.125, 0.212, 0.253), repeats module 01's numbers for the same games: every one of them still has an equilibrium, a mixed one.
 `,
     it: `
-1. Il pannello si apre sulla tabella casuale n. 1, 3 × 3. Ha due equilibri puri, (1, C) e (3, B), cerchiati nella tabella, e un terzo, misto: il giocatore di riga gioca 1 con probabilità 3/7 e 3 con 4/7, quello di colonna B con 1/8 e C con 7/8. Tre in tutto.
+1. La simulazione si apre sulla tabella casuale n. 1, 3 × 3. Ha due equilibri puri, (1, C) e (3, B), cerchiati nella tabella, e un terzo, misto: il giocatore di riga gioca 1 con probabilità 3/7 e 3 con 4/7, quello di colonna B con 1/8 e C con 7/8. Tre in tutto.
 2. Carica **Sasso-carta-forbici** (la morra cinese): un equilibrio, 1/3 ciascuno, valore 0. Poi **Il sasso batte le forbici per 2**: ancora uno, ma ora 1/4, 1/2, 1/4. La mossa che ci ha guadagnato non è la più giocata: la più giocata è la carta.
 3. Carica il **calcio di rigore**: un equilibrio, S con 0,385 per il rigorista e 0,420 per il portiere, percentuale di realizzazione 79,57. Anche **il gioco di Shapley** ne ha uno, un terzo per ogni strategia. Nell'**Esercizio 5** il giocatore di riga mescola U e D metà e metà e non gioca mai M; il valore è 2.
 4. Porta G a 20.000 e premi **Rassegna**. La colonna «Numero pari» è 0 a ogni dimensione. Per m = 2, 0,875 dei giochi hanno un equilibrio e 0,125 tre; per m = 4, 0,536 uno, 0,380 tre, 0,068 cinque e 0,016 sette o più. La media cresce da 1,251 a 2,130.
-5. L'ultima colonna, i giochi senza equilibri puri (0,125, 0,212, 0,253), ripete i numeri del modulo 01 per gli stessi giochi: ciascuno di essi ha comunque un equilibrio, misto.
+5. L'ultima colonna, i giochi senza equilibri puri (0,125; 0,212; 0,253), ripete i numeri del modulo 01 per gli stessi giochi: ciascuno di essi ha comunque un equilibrio, misto.
 `,
   },
   learning: {
     en: `
-1. The panel opens on matching pennies with 10,000 rounds. The first runs are 1, 2, 3, 4, 5…: each one round longer than the last, so there are only 141 runs. The frequencies still approach 1/2: the largest gap is 0.0065.
+1. The simulation opens on matching pennies with 10,000 rounds. The first runs are 1, 2, 3, 4, 5…: each one round longer than the last, so there are only 141 runs. The frequencies still approach 1/2: the largest gap is 0.0065.
 2. Move the slider to 100,000 rounds. The largest gap was 0.050 after 100 rounds, 0.017 after 1,000, and is 0.0016 now. The play never settles in a cell, but the frequencies settle on the equilibrium.
 3. In **Rock-paper-scissors** the runs are 1, 3, 5, 7…, and the average payoff is the value, 0. With **Rock worth 2** the frequencies after 10,000 rounds are 0.256, 0.496 and 0.248, close to 1/4, 1/2, 1/4.
 4. In the **penalty kick** the kicker's average scoring rate is 79.99 after 100 rounds and 79.51 after 10,000, against a value of 79.57.
 5. **Shapley's game** is different. The runs are 1, 1, 2, 4, 6, 9, 14, 21… and keep growing by about half, so there are 22 runs in 10,000 rounds and 28 in 100,000. The largest gap stays near 0.25 (0.255 at 10,000 rounds), and from round 100 on it never falls below 0.173. The row player's frequencies, 0.274, 0.138 and 0.589, are nowhere near a third each.
 `,
     it: `
-1. Il pannello si apre sul pari o dispari con 10.000 turni. Le prime sequenze sono 1, 2, 3, 4, 5…: ognuna è lunga un turno più della precedente, e quindi le sequenze sono solo 141. Le frequenze si avvicinano comunque a 1/2: lo scarto massimo è 0,0065.
+1. La simulazione si apre sul pari o dispari con 10.000 turni. Le prime sequenze sono 1, 2, 3, 4, 5…: ognuna è lunga un turno più della precedente, e quindi le sequenze sono solo 141. Le frequenze si avvicinano comunque a 1/2: lo scarto massimo è 0,0065.
 2. Porta il cursore a 100.000 turni. Lo scarto massimo era 0,050 dopo 100 turni, 0,017 dopo 1.000, ed è 0,0016 ora. La partita non si ferma mai in una cella, ma le frequenze si assestano sull'equilibrio.
-3. In **Sasso-carta-forbici** le sequenze sono 1, 3, 5, 7…, e il payoff medio è il valore, 0. Con **Sasso che vale 2** le frequenze dopo 10.000 turni sono 0,256, 0,496 e 0,248, vicine a 1/4, 1/2, 1/4.
+3. In **Sasso-carta-forbici** le sequenze sono 1, 3, 5, 7…, e il payoff medio è il valore, 0. Con **Sasso che vale 2** le frequenze dopo 10.000 turni sono 0,256; 0,496 e 0,248, vicine a 1/4, 1/2, 1/4.
 4. Nel **calcio di rigore** la percentuale media di realizzazione del rigorista è 79,99 dopo 100 turni e 79,51 dopo 10.000, contro un valore di 79,57.
-5. **Il gioco di Shapley** è diverso. Le sequenze sono 1, 1, 2, 4, 6, 9, 14, 21… e continuano a crescere di circa la metà, così ce ne sono 22 in 10.000 turni e 28 in 100.000. Lo scarto massimo resta vicino a 0,25 (0,255 a 10.000 turni), e dal turno 100 in poi non scende mai sotto 0,173. Le frequenze del giocatore di riga, 0,274, 0,138 e 0,589, sono lontanissime da un terzo ciascuna.
+5. **Il gioco di Shapley** è diverso. Le sequenze sono 1, 1, 2, 4, 6, 9, 14, 21… e continuano a crescere di circa la metà, così ce ne sono 22 in 10.000 turni e 28 in 100.000. Lo scarto massimo resta vicino a 0,25 (0,255 a 10.000 turni), e dal turno 100 in poi non scende mai sotto 0,173. Le frequenze del giocatore di riga, 0,274; 0,138 e 0,589, sono lontanissime da un terzo ciascuna.
 `,
   },
   reader: {
@@ -98,7 +98,7 @@ Mostra che non c'è una cella stabile. Trova l'equilibrio misto e il payoff atte
     type: 'both',
     statement: {
       en: 'The penalty kick with scoring rates 58.30, 94.97 / 92.91, 69.92 (rows: kicker L, R; columns: keeper L, R; R is the kicker\'s natural side). Find both mixes and the value. What do "always L" and "always R" guarantee the kicker? The kicker trains and the R/R rate rises to 80: what changes? Then check it in Figure F2.',
-      it: 'Il calcio di rigore con percentuali di realizzazione 58,30, 94,97 / 92,91, 69,92 (righe: rigorista S, D; colonne: portiere S, D; D è il lato naturale del rigorista). Trova le due strategie miste e il valore. Che cosa garantiscono al rigorista «sempre a S» e «sempre a D»? Il rigorista si allena e la percentuale D/D sale a 80: che cosa cambia? Poi verificalo nella Figura F2.',
+      it: 'Il calcio di rigore con percentuali di realizzazione 58,30; 94,97 / 92,91; 69,92 (righe: rigorista S, D; colonne: portiere S, D; D è il lato naturale del rigorista). Trova le due strategie miste e il valore. Che cosa garantiscono al rigorista «sempre a S» e «sempre a D»? Il rigorista si allena e la percentuale D/D sale a 80: che cosa cambia? Poi verificalo nella Figura F2.',
     },
     solution: {
       en: 'The keeper\'s mix y (on L) makes the kicker indifferent: 58.30 y + 94.97 (1 − y) = 92.91 y + 69.92 (1 − y), so y = 25.05 / 59.66 = 42.0%. The kicker\'s mix x (on L) makes the keeper indifferent: 58.30 x + 92.91 (1 − x) = 94.97 x + 69.92 (1 − x), so x = 22.99 / 59.66 = 38.5%. The value is 79.57%. Always L guarantees 58.3 (the keeper goes L), always R 69.92. After training: kicker L 26.0%, keeper L 30.2%, value 83.90%. The kicker uses the better side more, the keeper covers it more: in a constant-sum game a change in the kicker\'s payoffs is a change in the keeper\'s too.',
@@ -130,12 +130,12 @@ Mostra che non c'è una cella stabile. Trova l'equilibrio misto e il payoff atte
   {
     type: 'sim',
     statement: {
-      en: 'In the simulation. Panel A, "Survey" with G = 20,000: what share of the random games have 1, 3, and 5 or more equilibria at each size; is the number ever even? Panel B: the largest gap after 100, 1,000, 10,000 and 100,000 rounds in matching pennies and in Shapley\'s game. Panel C: the machine\'s win rate against the simulated players with s = 0.6 and with h = 0.6, and against the coin.',
-      it: 'Nella simulazione. Pannello A, «Rassegna» con G = 20.000: che quota dei giochi casuali ha 1, 3 oppure 5 o più equilibri a ogni dimensione; il numero è mai pari? Pannello B: lo scarto massimo dopo 100, 1.000, 10.000 e 100.000 turni nel pari o dispari e nel gioco di Shapley. Pannello C: la quota di vittorie della macchina contro i giocatori simulati con s = 0,6 e con h = 0,6, e contro la moneta.',
+      en: 'In the simulations. Simulation A, "Survey" with G = 20,000: what share of the random games have 1, 3, and 5 or more equilibria at each size; is the number ever even? Simulation B: the largest gap after 100, 1,000, 10,000 and 100,000 rounds in matching pennies and in Shapley\'s game. Simulation C: the machine\'s win rate against the simulated players with s = 0.6 and with h = 0.6, and against the coin.',
+      it: 'Nelle simulazioni. Simulazione A, «Rassegna» con G = 20.000: che quota dei giochi casuali ha 1, 3 oppure 5 o più equilibri a ogni dimensione; il numero è mai pari? Simulazione B: lo scarto massimo dopo 100, 1.000, 10.000 e 100.000 turni nel pari o dispari e nel gioco di Shapley. Simulazione C: la quota di vittorie della macchina contro i giocatori simulati con s = 0,6 e con h = 0,6, e contro la moneta.',
     },
     solution: {
       en: 'At m = 2: 0.875 and 0.125; at m = 3: 0.707, 0.276 and 0.017; at m = 4: 0.536, 0.380 and 0.084; never even. Matching pennies: 0.050, 0.017, 0.0065, 0.0016. Shapley\'s game: 0.217, 0.255, 0.255, 0.251, about 0.25 from 1,000 rounds on. The machine: 0.595, 0.597 and 0.500.',
-      it: 'Per m = 2: 0,875 e 0,125; per m = 3: 0,707, 0,276 e 0,017; per m = 4: 0,536, 0,380 e 0,084; mai pari. Pari o dispari: 0,050, 0,017, 0,0065, 0,0016. Gioco di Shapley: 0,217, 0,255, 0,255, 0,251, circa 0,25 da 1.000 turni in poi. La macchina: 0,595, 0,597 e 0,500.',
+      it: 'Per m = 2: 0,875 e 0,125; per m = 3: 0,707; 0,276 e 0,017; per m = 4: 0,536; 0,380 e 0,084; mai pari. Pari o dispari: 0,050; 0,017; 0,0065; 0,0016. Gioco di Shapley: 0,217; 0,255; 0,255; 0,251, circa 0,25 da 1.000 turni in poi. La macchina: 0,595; 0,597 e 0,500.',
     },
   },
 ]

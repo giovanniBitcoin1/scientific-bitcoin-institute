@@ -39,7 +39,7 @@ const T = {
     chartX: 'offerta x, quota della torta →',
     curve: 'contro questa popolazione',
     closed: '(1 − x) x/m, soglie esattamente uniformi',
-    bars: '“Gioca”: payoff medio di ogni offerta',
+    bars: '«Gioca»: payoff medio di ogni offerta',
     bestMark: 'migliore',
     closedLine: (m, best, money) =>
       `Contro soglie uniformi tra 0 e m l’offerta x viene accettata con probabilità x/m, e il proponente si aspetta (1 − x) x/m. Quando m non supera 1/2 l’offerta migliore è m stesso: qui ${m}, che vale ${money}${best}.`,

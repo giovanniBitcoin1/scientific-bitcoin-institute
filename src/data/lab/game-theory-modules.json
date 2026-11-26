@@ -27,7 +27,7 @@
     "title_en": "Mixed strategies and zero-sum games",
     "title_it": "Strategie miste e giochi a somma zero",
     "summary_en": "When it pays to be unpredictable, and what the minimax theorem guarantees.",
-    "summary_it": "Quando conviene essere imprevedibili, e che cosa garantisce il teorema del minimax."
+    "summary_it": "Quando conviene essere imprevedibili e che cosa garantisce il teorema del minimax."
   },
   {
     "slug": "sequential-games-commitment",
@@ -47,7 +47,7 @@
     "title_en": "Incomplete information and signals",
     "title_it": "Informazione incompleta e segnali",
     "summary_en": "Playing without knowing who the others are: hidden types, costly signals and cheap talk.",
-    "summary_it": "Giocare senza sapere chi sono gli altri: tipi nascosti, segnali costosi e parole che non costano nulla."
+    "summary_it": "Giocare senza sapere chi siano gli altri: tipi nascosti, segnali costosi e parole che non costano nulla."
   },
   {
     "slug": "repeated-games-reputation",
@@ -57,7 +57,7 @@
     "title_en": "Repeated games and reputation",
     "title_it": "Giochi ripetuti e reputazione",
     "summary_en": "How much patience cooperation needs, and what a reputation is worth.",
-    "summary_it": "Quanta pazienza serve alla cooperazione, e quanto vale una reputazione."
+    "summary_it": "Quanta pazienza serve alla cooperazione e quanto vale una reputazione."
   },
   {
     "slug": "evolution-and-learning",
@@ -77,7 +77,7 @@
     "title_en": "Congestion and the price of anarchy",
     "title_it": "Congestione e prezzo dell'anarchia",
     "summary_en": "Braess's paradox, and how much selfish choices cost everyone.",
-    "summary_it": "Il paradosso di Braess, e quanto costano a tutti le scelte egoiste."
+    "summary_it": "Il paradosso di Braess e quanto costano a tutti le scelte egoistiche."
   },
   {
     "slug": "games-on-networks",
@@ -96,7 +96,7 @@
     "status": "ready",
     "title_en": "Coalitions: how to share the pie",
     "title_it": "Coalizioni: come dividere la torta",
-    "summary_en": "The core, the Shapley value, and why voting power is not proportional to votes.",
+    "summary_en": "The core, the Shapley value and why voting power is not proportional to votes.",
     "summary_it": "Il nucleo, il valore di Shapley e perché il potere di voto non è proporzionale ai voti."
   },
   {
@@ -117,7 +117,7 @@
     "title_en": "Designing the rules",
     "title_it": "Progettare le regole",
     "summary_en": "Rules that make telling the truth the best strategy, and the limits of what rules can achieve.",
-    "summary_it": "Regole che rendono la verità la strategia migliore, e i limiti di ciò che le regole possono ottenere."
+    "summary_it": "Regole per cui dire la verità è la strategia migliore, e i limiti di ciò che le regole possono ottenere."
   },
   {
     "slug": "mining-as-a-game",
@@ -126,8 +126,8 @@
     "status": "ready",
     "title_en": "Mining as a game",
     "title_it": "Il mining come gioco",
-    "summary_en": "A miner's choices, and when following the protocol is not the best strategy.",
-    "summary_it": "Le scelte di un miner, e quando seguire il protocollo non è la strategia migliore."
+    "summary_en": "A miner's choices, and when following the protocol does not pay.",
+    "summary_it": "Le scelte di un miner e quando seguire il protocollo non conviene."
   },
   {
     "slug": "capstone-the-price-of-security",
@@ -137,6 +137,6 @@
     "title_en": "Capstone: the price of security",
     "title_it": "Capstone: quanto costa la sicurezza",
     "summary_en": "The whole toolkit applied to one question: what it costs to keep Bitcoin secure.",
-    "summary_it": "Tutti gli strumenti del corso applicati a una domanda: quanto costa tenere sicuro Bitcoin."
+    "summary_it": "Tutti gli strumenti del corso applicati a una domanda: quanto costa mantenere sicuro Bitcoin."
   }
 ]

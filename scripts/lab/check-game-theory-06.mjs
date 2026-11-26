@@ -371,7 +371,7 @@ if (existsSync(textsPath) && existsSync(resolve(root, lecturePath('en'))) && exi
   check('lecture numbers are the code\'s: 1/(1 − 0.9) = 10; δ* = 1/2 at T = 5; (2.5, 2.5) needs 0.4, (3, 3) 0.5; giving up 1 and 2',
     close(1 / (1 - 0.9), 10, 1e-9) && threshold(5) === 0.5 && deltaNeeded([2.5, 2.5]).delta === 0.4 && deltaNeeded([3, 3]).delta === 0.5 && 1 - 0 === 1 && 5 - 3 === 2)
   quoted('lecture: playing again and the threshold', noBox, ['δ = 0.9', ['which is 10', 'cioè 10'], 'R = 3', 'S = 0', 'T = 5', 'P = 1', '= 1/2', ['0 instead of 1', '0 invece di 1'], '(1 − δ)5 + δ', 'Blackwell 1965', '/lab/cooperation'])
-  quoted('lecture: the folk theorem', noBox, ['(2.5, 2.5)', 'δ ≥ 0.4', ['which needs 0.5', 'che richiede 0,5'], ['1 instead of 0', '1 invece di 0'], ['5 instead of 3', '5 invece di 3'], 'Friedman (1971)', '(1986)', ['1950s', 'anni Cinquanta']])
+  quoted('lecture: the folk theorem', noBox, [['(2.5, 2.5)', '(2,5; 2,5)'], 'δ ≥ 0.4', ['which needs 0.5', 'che richiede 0,5'], ['1 instead of 0', '1 invece di 0'], ['5 instead of 3', '5 invece di 3'], 'Friedman (1971)', '(1986)', ['1950s', 'anni Cinquanta']])
   const c2 = levels(2, 'cournot')
   check('lecture numbers are the code\'s: 2.25, 10.125, 9, 3.375, 11.390625, 9/17; 0.571, 0.643, 0.752; Bertrand 0.5, 0.667, 0.8, 0.9; q(0.3) = 2.586, 9.899',
     cartelOutput(2) === 2.25 && c2.cartel === 10.125 && c2.punishment === 9 && c2.cheat === 11.390625 && f3(cournotThreshold(3)) === '0.571' && f3(cournotThreshold(5)) === '0.643' && f3(cournotThreshold(10)) === '0.752'
@@ -394,7 +394,7 @@ if (existsSync(textsPath) && existsSync(resolve(root, lecturePath('en'))) && exi
   check('box numbers are the code\'s: 15.8%, +1.9%, −10.1%, +4.1%; 14.9%, −8.1%, +8.1%; (1.019, 0.904), (0.919, 0.919); δ ≥ 0.19',
     pct(a.x1 / 0.25) === '15.8' && pct(a.r1 - 1) === '1.9' && pct(1 - a.r2) === '10.1' && pct(a.others - 1) === '4.1' && pct(eq.x1 / 0.25) === '14.9' && pct(1 - eq.r1) === '8.1' && pct(eq.others - 1) === '8.1'
     && f3(g.game.AN[0]) === '1.019' && f3(g.game.AN[1]) === '0.904' && f3(g.game.AA[0]) === '0.919' && f2(g.threshold) === '0.19')
-  quoted('the box', boxText, ['25%', '15.8%', '1.9%', '10.1%', '4.1%', '14.9%', '8.1%', '(1, 1)', '(1.019, 0.904)', '(0.904, 1.019)', '(0.919, 0.919)', 'δ ≥ 0.19', 'Eyal (2015)'])
+  quoted('the box', boxText, ['25%', '15.8%', '1.9%', '10.1%', '4.1%', '14.9%', '8.1%', '(1, 1)', ['(1.019, 0.904)', '(1,019; 0,904)'], ['(0.904, 1.019)', '(0,904; 1,019)'], ['(0.919, 0.919)', '(0,919; 0,919)'], 'δ ≥ 0.19', 'Eyal (2015)'])
 
   // ---- What to observe, Panel A
   {

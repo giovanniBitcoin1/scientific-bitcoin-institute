@@ -48,7 +48,7 @@ flow
 
 Il **sussidio del blocco** è di 3,125 BTC. Le commissioni sono state in media di 0,0201 BTC per blocco nella settimana al 23 novembre 2026, lo 0,64% di ciò che i miner hanno incassato (Hashrate Index). A 60.374 dollari, la chiusura di CoinGecko del 25 novembre 2026, un blocco paga p_block = 189.882 dollari. Con k + e = 12, A*·t(A*) vale 20,0, quindi il flusso scoraggia attacchi fino a circa 20 volte p_block: 3,80 milioni di dollari. Se tutti attendessero una settimana (k + e = 1.008), il multiplo sarebbe 1.099 e sarebbero scoraggiati attacchi fino a 208,68 milioni di dollari.
 
-È questo il punto di Budish. Bitcoin muove ogni giorno somme molto più grandi, quindi se il suo modello descrivesse il mondo qualcuno avrebbe già attaccato. Il Pannello A parte da questi valori datati, ciascuno con la sua fonte sotto il campo.
+È questo il punto di Budish. Bitcoin muove ogni giorno somme molto più grandi, quindi se il suo modello descrivesse il mondo qualcuno avrebbe già attaccato. La Simulazione A parte da questi valori datati, ciascuno con la sua fonte sotto il campo.
 
 ## Le obiezioni
 
@@ -70,11 +70,11 @@ clock
 
 Le commissioni possono sostituire il sussidio? Raphael Auer (2019) sostiene che da sole non possano. Ogni utente paga la propria transazione ma beneficia della sicurezza che comprano le commissioni altrui, quindi si comporta da *free rider*; le commissioni offerte restano allora sotto ciò che la sicurezza richiede.
 
-Miles Carlsten, Harry Kalodner, Matthew Weinberg e Arvind Narayanan (2016) hanno mostrato che cosa cambia quando le commissioni sono l'intera ricompensa. Con blocchi trovati in tempi casuali e commissioni che affluiscono a ritmo costante, la ricompensa di un blocco dipende da quanto tempo è passato dal precedente, quindi le ricompense variano quanto gli intervalli. Se un blocco è per caso ricco, conviene biforcare la catena per prenderne le commissioni (*undercutting*). Il *selfish mining* conviene a un miner di qualunque dimensione. E subito dopo un blocco, quando le commissioni in attesa sono poche, può convenire spegnere le macchine finché non si riaccumulano: un *mining gap*. Il Pannello B disegna queste ricompense. Gur Huberman, Jacob Leshno e Ciamac Moallemi (2021) collegano a questa domanda il mercato delle commissioni del [modulo 11](/game-theory-lab/auctions): le commissioni sono alte solo quando i blocchi sono pieni, quindi è la disponibilità degli utenti ad aspettare a fissare il ricavo dei miner.
+Miles Carlsten, Harry Kalodner, Matthew Weinberg e Arvind Narayanan (2016) hanno mostrato che cosa cambia quando le commissioni sono l'intera ricompensa. Con blocchi trovati in tempi casuali e commissioni che affluiscono a ritmo costante, la ricompensa di un blocco dipende da quanto tempo è passato dal precedente, quindi le ricompense variano quanto gli intervalli. Se un blocco è per caso ricco, conviene biforcare la catena per prenderne le commissioni (*undercutting*). Il *selfish mining* conviene a un miner di qualunque dimensione. E subito dopo un blocco, quando le commissioni in attesa sono poche, può convenire spegnere le macchine finché non si riaccumulano: un *mining gap*. La Simulazione B disegna queste ricompense. Gur Huberman, Jacob Leshno e Ciamac Moallemi (2021) collegano a questa domanda il mercato delle commissioni del [modulo 11](/game-theory-lab/auctions): le commissioni sono alte solo quando i blocchi sono pieni, quindi è la disponibilità degli utenti ad aspettare a fissare il ricavo dei miner.
 
 ## Fai il conto tu
 
-Ogni numero di questo modulo dipende da ipotesi: un prezzo, un hash rate, il costo dell'hardware, l'attesa del commerciante, gli scopi dell'attaccante. Il Pannello C è un foglio di lavoro. Ogni valore ha un campo per la fonte e uno per la data, e il risultato è una frase della forma «con queste ipotesi un attacco che vale V è, o non è, scoraggiato». Non è mai un verdetto su Bitcoin, solo su un modello con dentro i tuoi numeri.
+Ogni numero di questo modulo dipende da ipotesi: un prezzo, un hash rate, il costo dell'hardware, l'attesa del commerciante, gli scopi dell'attaccante. La Simulazione C è un foglio di lavoro. Ogni valore ha un campo per la fonte e uno per la data, e il risultato è una frase della forma «con queste ipotesi un attacco che vale V è, o non è, scoraggiato». Non è mai un verdetto su Bitcoin, solo su un modello con dentro i tuoi numeri.
 
 ## Che cosa ha mostrato il corso
 
@@ -87,11 +87,11 @@ Bitcoin è un gioco che deve restare un equilibrio, blocco dopo blocco, senza ne
 ## Letture consigliate
 
 - Budish, E. (2025). Trust at scale: the economic limits of cryptocurrencies and blockchains. *Quarterly Journal of Economics* 140(1), 1–62. Sezioni III (le tre equazioni, Teoremi 1 e 2), IV (l'attacco di doppia spesa, Proposizione 3, Tabelle II e III) e V (capitale specifico e crollo). Prima versione: The economic limits of Bitcoin and the blockchain, NBER Working Paper 24717 (2018).
-- Carlsten, M., Kalodner, H., Weinberg, S. M. and Narayanan, A. (2016). On the instability of Bitcoin without the block reward. *ACM CCS 2016*, 154–167.
-- Kroll, J. A., Davey, I. C. and Felten, E. W. (2013). The economics of Bitcoin mining, or Bitcoin in the presence of adversaries. *Workshop on the Economics of Information Security (WEIS 2013)*.
+- Carlsten, M., Kalodner, H., Weinberg, S. M. e Narayanan, A. (2016). On the instability of Bitcoin without the block reward. *ACM CCS 2016*, 154–167.
+- Kroll, J. A., Davey, I. C. e Felten, E. W. (2013). The economics of Bitcoin mining, or Bitcoin in the presence of adversaries. *Workshop on the Economics of Information Security (WEIS 2013)*.
 - Bonneau, J. (2016). Why buy when you can rent? Bribery attacks on Bitcoin-style consensus. *Financial Cryptography 2016 Workshops*, LNCS 9604, 19–26.
-- Moroz, D. J., Aronoff, D. J., Narula, N. and Parkes, D. C. (2020). Double-spend counterattacks: threat of retaliation in proof-of-work systems. *Cryptoeconomic Systems 2020*; arXiv:2002.10736.
+- Moroz, D. J., Aronoff, D. J., Narula, N. e Parkes, D. C. (2020). Double-spend counterattacks: threat of retaliation in proof-of-work systems. *Cryptoeconomic Systems 2020*; arXiv:2002.10736.
 - Auer, R. (2019). Beyond the doomsday economics of "proof-of-work" in cryptocurrencies. BIS Working Paper 765.
-- Huberman, G., Leshno, J. D. and Moallemi, C. (2021). Monopoly without a monopolist: an economic analysis of the Bitcoin payment system. *Review of Economic Studies* 88(6), 3011–3040.
-- Nakamoto, S. (2008). Bitcoin: a peer-to-peer electronic cash system. Sezioni 6 (incentivo) e 11 (calcoli).
-- Narayanan, A., Bonneau, J., Felten, E., Miller, A. and Goldfeder, S. (2016). *Bitcoin and Cryptocurrency Technologies*. Princeton University Press. Cap. 2 (2.3, consenso senza identità: la doppia spesa) e cap. 5 (5.5, incentivi e strategie del *mining*: corruzione, *Goldfinger*).
+- Huberman, G., Leshno, J. D. e Moallemi, C. (2021). Monopoly without a monopolist: an economic analysis of the Bitcoin payment system. *Review of Economic Studies* 88(6), 3011–3040.
+- Nakamoto, S. (2008). Bitcoin: a peer-to-peer electronic cash system. Sezioni 6 (incentivi) e 11 (calcoli).
+- Narayanan, A., Bonneau, J., Felten, E., Miller, A. e Goldfeder, S. (2016). *Bitcoin and Cryptocurrency Technologies*. Princeton University Press. Cap. 2 (2.3, consenso senza identità: la doppia spesa) e cap. 5 (5.5, incentivi e strategie del *mining*: corruzione, *Goldfinger*).

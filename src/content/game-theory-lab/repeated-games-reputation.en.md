@@ -2,7 +2,7 @@
 
 ## Playing again
 
-The prisoner's dilemma of [module 01](/game-theory-lab/what-is-a-game) has one equilibrium, and it is bad for both players. But two firms in the same market, two neighbours, two mining pools do not meet once. They meet every day, and what each does today is seen and remembered tomorrow. This module asks what the future can do to the present.
+The Prisoner's Dilemma of [module 01](/game-theory-lab/what-is-a-game) has one equilibrium, and it is bad for both players. But two firms in the same market, two neighbours, two mining pools do not meet once. They meet every day, and what each does today is seen and remembered tomorrow. This module asks what the future can do to the present.
 
 The same game, now called the **stage game**, is played round after round. A player's payoffs form a stream u₀, u₁, u₂, …, and a payoff t rounds away is weighted by δᵗ. The number δ, between 0 and 1, is the **discount factor**, or **patience**. It can also be read as the chance that there is another round at all: then the expected number of rounds is 1/(1 − δ), which is 10 at δ = 0.9. To put a stream on the scale of a single round we use its **average payoff**:
 
@@ -26,7 +26,7 @@ If both follow it, each gets 3 on average. A player who defects today gets 5 now
 patience
 ```
 
-The punishment is credible. Once it starts, both play the stage game's equilibrium for ever, and against a defector defecting is the best reply: cooperating once would give 0 instead of 1 and would not stop the punishment. So the profile is subgame perfect, in the sense of [module 04](/game-theory-lab/sequential-games-commitment).
+The punishment is credible. Once it starts, both play the stage game's equilibrium for ever, and against a defector defecting is the best response: cooperating once would give 0 instead of 1 and would not stop the punishment. So the profile is subgame perfect, in the sense of [module 04](/game-theory-lab/sequential-games-commitment).
 
 How can we be sure no cleverer deviation pays, say defecting twice and then apologizing? The **one-shot deviation principle**, which comes from dynamic programming (Blackwell 1965), says that with discounting it is enough to check deviations of a single round followed by a return to the strategy. If no such deviation pays, no longer one does. This is the arithmetic behind the "shadow of the future" of the Complexity Lab's [module 11](/lab/cooperation), which told the story of Axelrod's tournaments and Tit for Tat.
 
@@ -46,7 +46,7 @@ The folk theorem says how cooperation can last, not which of the many equilibria
 
 ## Collusion without a contract
 
-Back to module 02's market, a = 10, c = 1. Two firms producing 2.25 each, half the monopoly output, earn 10.125 each against Cournot's 9. A firm that cheats once produces 3.375, its best reply, and earns 11.390625. If cheating is answered by Cournot for ever, the cartel holds when δ ≥ 9/17 ≈ 0.529.
+Back to module 02's market, a = 10, c = 1. Two firms producing 2.25 each, half the monopoly output, earn 10.125 each against Cournot's 9. A firm that cheats once produces 3.375, its best response, and earns 11.390625. If cheating is answered by Cournot for ever, the cartel holds when δ ≥ 9/17 ≈ 0.529.
 
 More firms make it harder. With n firms the threshold is
 
@@ -70,7 +70,7 @@ This is **tacit collusion**: no agreement is needed, only the expectation of the
 Bitcoin: the miner's dilemma
 Pools pay their members for partial proofs of work. A pool can send some of its miners into another pool, where they submit partial proofs but throw away any full block they find: **block withholding**. The attacker takes a share of the victim's rewards and adds nothing to them. Ittay Eyal (2015) studied pools that attack each other this way.
 
-**The model.** Two pools, the rest of the network mining honestly; pool i has power mᵢ and sends xᵢ into the other. Pool i's miners earn rᵢ per unit of power, 1 when nobody attacks, and each pool chooses xᵢ to maximize its own rᵢ. With two pools of 25%, a pool that attacks alone sends 15.8% of its power: its miners earn 1.9% more, the victim's 10.1% less, everyone else 4.1% more. In equilibrium both attack, with 14.9% each, and both earn 8.1% less, while everyone else earns 8.1% more. As a two-by-two game the payoffs are (1, 1), (1.019, 0.904), (0.904, 1.019) and (0.919, 0.919): a prisoner's dilemma.
+**The model.** Two pools, the rest of the network mining honestly; pool i has power mᵢ and sends xᵢ into the other. Pool i's miners earn rᵢ per unit of power, 1 when nobody attacks, and each pool chooses xᵢ to maximize its own rᵢ. With two pools of 25%, a pool that attacks alone sends 15.8% of its power: its miners earn 1.9% more, the victim's 10.1% less, everyone else 4.1% more. In equilibrium both attack, with 14.9% each, and both earn 8.1% less, while everyone else earns 8.1% more. As a two-by-two game the payoffs are (1, 1), (1.019, 0.904), (0.904, 1.019) and (0.919, 0.919): a Prisoner's Dilemma.
 
 **Patience is not the problem.** Grim trigger needs δ ≥ 0.19 only, and pools can react every day. Seeing is: Eyal notes that a pool may notice that it is being attacked, but not which of its miners are the infiltrators. With many pools the attacker is anonymous, which is the problem of the next section.
 
@@ -81,7 +81,7 @@ Pools pay their members for partial proofs of work. A pool can send some of its 
 
 Edward Green and Robert Porter (1984) asked what happens when firms see the price but not each other's output, and demand is noisy: **imperfect monitoring**. A low price can be the sign of a cheat or just of bad luck. The firms cannot tell, so they agree on a rule: when the price falls below a **trigger price** p̄, a price war (Cournot play) breaks out for L rounds, and then the cartel resumes.
 
-In equilibrium nobody cheats, and still wars break out, from bad luck alone. Panel B uses a simplified version: a firm that cheats produces 3.375, the best reply to 2.25 (in Green and Porter firms may choose any quantity, and a small cheat is even harder to see). With noise of spread σ = 0.5, p̄ = 4.5, L = 5 and δ = 0.9, a false alarm happens in 2.3% of the quiet rounds and a cheat is caught 60% of the time. Cheating does not pay, and in the long run about one round in ten is a war (the share of peace is 0.898). With wars of only L = 2 rounds, cheating pays.
+In equilibrium nobody cheats, and still wars break out, from bad luck alone. Simulation B uses a simplified version: a firm that cheats produces 3.375, the best response to 2.25 (in Green and Porter firms may choose any quantity, and a small cheat is even harder to see). With noise of spread σ = 0.5, p̄ = 4.5, L = 5 and δ = 0.9, a false alarm happens in 2.3% of the quiet rounds and a cheat is caught 60% of the time. Cheating does not pay, and in the long run about one round in ten is a war (the share of peace is 0.898). With wars of only L = 2 rounds, cheating pays.
 
 The noisier the price, the more patience a cartel needs. The least δ for which some trigger works rises from 9/17 ≈ 0.53 without noise to 0.54 at σ = 0.25, 0.64 at 0.5, 0.75 at 0.75 and 0.83 at 1. Robert Porter (1983) found wars of this kind in the Joint Executive Committee, the railway cartel that set the rates for grain shipped from Chicago to the East Coast in 1880–1886.
 
@@ -97,7 +97,7 @@ David Kreps and Robert Wilson (1982), and Paul Milgrom and John Roberts (1982), 
 
 The equilibrium has a clear shape. Let w be a fought newcomer's payoff (−1 here) and b = 2/(2 − w), module 05's threshold (2/3 at w = −1); let k be the number of markets still to go, this one included, and let p be the newcomers' belief that the incumbent is tough. The newcomer stays out if p ≥ bᵏ and enters if p < bᵏ. After an entry a weak incumbent fights for sure if p ≥ bᵏ⁻¹; otherwise it fights with exactly the probability that makes the belief after a fight equal to bᵏ⁻¹. In the last market it shares.
 
-With t = 0.05 and 20 markets, the first 13 newcomers stay out. Entry can happen only in the last 7 markets, and that 7 does not depend on how many markets there are. The weak incumbent earns 66, against 40 without the doubt. A little doubt and a long horizon are enough. Kreps, Milgrom, Roberts and Wilson (1982) showed that the same logic keeps cooperation going in a finitely repeated prisoner's dilemma until near the end, if there is a chance that a player simply plays Tit for Tat.
+With t = 0.05 and 20 markets, the first 13 newcomers stay out. Entry can happen only in the last 7 markets, and that 7 does not depend on how many markets there are. The weak incumbent earns 66, against 40 without the doubt. A little doubt and a long horizon are enough. Kreps, Milgrom, Roberts and Wilson (1982) showed that the same logic keeps cooperation going in a finitely repeated Prisoner's Dilemma until near the end, if there is a chance that a player simply plays Tit for Tat.
 
 Module 05 ended on the promise that a reputation is a type that the others learn about. Here it is: a reputation is a belief, and it is worth paying for.
 

@@ -83,7 +83,7 @@ About every ten minutes one miner wins the block reward, with a chance equal to 
 **The limits.** It is a one-shot model with a constant cost per unit. Real miners buy machines that last years, the reward's value moves with the price, and miners join pools (module 10). Nor does the model say whether the spending is too much: that depends on what it buys (module 14). A hypothesis with its limits, not a description of the industry.
 ```
 
-## What comes next
+## Next
 
 Not every game has an equilibrium to find. One two-by-two game in eight has no stable cell at all, and neither has about a third of the large random games of Simulation A; matching pennies is the smallest of them. [Module 03](/game-theory-lab/mixed-strategies-zero-sum) shows that these games have an equilibrium too, once the players are allowed to mix their strategies at random.
 
@@ -102,7 +102,7 @@ Not every game has an equilibrium to find. One two-by-two game in eight has no s
 - Van Huyck, J. B., Battalio, R. C. and Beil, R. O. (1990). Tacit coordination games, strategic uncertainty, and coordination failure. *American Economic Review* 80, 234–248.
 - Cournot, A. (1838). *Recherches sur les principes mathématiques de la théorie des richesses*. Hachette.
 - Bertrand, J. (1883). Review of Cournot's *Recherches* and of Walras's *Théorie mathématique de la richesse sociale*. *Journal des Savants*, September, 499–508.
-- Tullock, G. (1980). Efficient rent seeking. In Buchanan, J. M., Tollison, R. D. and Tullock, G. (eds), *Toward a Theory of the Rent-Seeking Society*. Texas A&M University Press.
+- Tullock, G. (1980). Efficient rent seeking. In Buchanan, J. M., Tollison, R. D. and Tullock, G. (eds.), *Toward a Theory of the Rent-Seeking Society*. Texas A&M University Press.
 - Theocharis, R. D. (1960). On the stability of the Cournot solution on the oligopoly problem. *Review of Economic Studies* 27, 133–134.
 - Goldberg, K., Goldman, A. J. and Newman, M. (1968). The probability of an equilibrium point. *Journal of Research of the National Bureau of Standards* 72B, 93–101.
 - Dimitri, N. (2017). Bitcoin mining as a contest. *Ledger* 2, 31–37.

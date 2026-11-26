@@ -54,7 +54,7 @@ Pigou's example with x^p already shows that the price of anarchy has no bound in
 
 Roughgarden (2003) then showed that, for a class of costs, the worst case is always a Pigou-like network of two parallel roads, one with a constant cost; the topology of the network does not matter. So the bound for polynomial costs of degree p is Pigou's ratio from the first section: 1.626 for p = 2, 1.896 for p = 3, 2.151 for p = 4.
 
-With no bound on the costs at all, there is still a guarantee of another kind (Roughgarden and Tardos 2002): the equilibrium costs no more than the optimum would with twice the traffic. Random networks are usually much better than the worst case: Panel A shows how much.
+With no bound on the costs at all, there is still a guarantee of another kind (Roughgarden and Tardos 2002): the equilibrium costs no more than the optimum would with twice the traffic. Random networks are usually much better than the worst case: Simulation A shows how much.
 
 ## Drivers who count
 
@@ -66,9 +66,9 @@ So far each driver was a drop in the flow: the game was **nonatomic**. With a fi
 
 When one driver switches, Φ changes by exactly his own change in cost: on the roads he leaves the last term disappears, on the roads he joins a term is added, and those terms are what he paid and what he now pays. So switches that help the switcher always lower Φ, and **best-response dynamics** cannot cycle. Since Φ takes finitely many values, the switches end at a pure equilibrium. Dov Monderer and Lloyd Shapley (1996) called such games **potential games**, and Φ their **potential function**.
 
-Different equilibria can now have different costs. Take Braess's network with 10 drivers, the two x roads costing k/10 with k drivers on them, and a costless shortcut. From everyone on the upper route, nine switches end at 1, 1 and 8 drivers on the upper, lower and zigzag routes: 1.82 hours on average, against 1.5 for the planner. Everyone on the zigzag is an equilibrium too, at 2. Panel B runs the switches one by one and checks that each driver's gain is the drop of Φ.
+Different equilibria can now have different costs. Take Braess's network with 10 drivers, the two x roads costing k/10 with k drivers on them, and a costless shortcut. From everyone on the upper route, nine switches end at 1, 1 and 8 drivers on the upper, lower and zigzag routes: 1.82 hours on average, against 1.5 for the planner. Everyone on the zigzag is an equilibrium too, at 2. Simulation B runs the switches one by one and checks that each driver's gain is the drop of Φ.
 
-With affine costs the worst case for drivers who count is 5/2 (Awerbuch, Azar and Epstein 2005; Christodoulou and Koutsoupias 2005), worse than the 4/3 of the nonatomic game. Panel B has a network of four drivers that reaches it. In large games, moreover, finding a pure equilibrium of a congestion game is as hard as any local search problem of its class, and best responses can need exponentially many steps (Fabrikant, Papadimitriou and Talwar 2004).
+With affine costs the worst case for drivers who count is 5/2 (Awerbuch, Azar and Epstein 2005; Christodoulou and Koutsoupias 2005), worse than the 4/3 of the nonatomic game. Simulation B has a network of four drivers that reaches it. In large games, moreover, finding a pure equilibrium of a congestion game is as hard as any local search problem of its class, and best responses can need exponentially many steps (Fabrikant, Papadimitriou and Talwar 2004).
 
 ## The best equilibrium
 
@@ -82,7 +82,7 @@ In **network cost-sharing games** a road has a fixed cost, split equally among t
 
 Φ is never below the total cost and never above H_k times it, where H_k = 1 + 1/2 + ... + 1/k is the **harmonic number** and k the number of players. Start the dynamics from the optimum: Φ only falls, so the equilibrium reached costs at most Φ(optimum) ≤ H_k times the optimum, and the best equilibrium costs no more: at most 2.93 times the optimum for 10 players.
 
-The bound cannot be improved. In the hub of Panel C, player i can take his own road to the target, costing 1/i, or a costless road to a hub and then the hub's road, costing 1 + ε, shared. Everyone at the hub costs 1 + ε, the optimum. But there the last player pays (1 + ε)/k, more than his own road's 1/k, so he leaves; then the next one has a reason to leave, and so on. The only equilibrium has everyone on his own road, at H_k. The other extreme shows the price of anarchy: two roads, one costing k and one 1 + ε. Everyone on the cheap road is an equilibrium and the optimum; everyone on the dear one is an equilibrium too, since each pays 1 and alone on the other road would pay 1 + ε. The worst equilibrium costs k/(1 + ε) times the optimum, while the best is the optimum itself.
+The bound cannot be improved. In the hub of Simulation C, player i can take his own road to the target, costing 1/i, or a costless road to a hub and then the hub's road, costing 1 + ε, shared. Everyone at the hub costs 1 + ε, the optimum. But there the last player pays (1 + ε)/k, more than his own road's 1/k, so he leaves; then the next one has a reason to leave, and so on. The only equilibrium has everyone on his own road, at H_k. The other extreme shows the price of anarchy: two roads, one costing k and one 1 + ε. Everyone on the cheap road is an equilibrium and the optimum; everyone on the dear one is an equilibrium too, since each pays 1 and alone on the other road would pay 1 + ε. The worst equilibrium costs k/(1 + ε) times the optimum, while the best is the optimum itself.
 
 ## Next
 

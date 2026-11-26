@@ -325,7 +325,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   const sv3 = (k) => f3(sv[k])
   quoted('observe, Panel A', observe.tree, [
     ['5 Nash equilibria', '5 equilibri di Nash'], ['4 Nash equilibria', '4 equilibri di Nash'], '(0, 3)', ['(newcomer, firm)', '(entrante, incumbent)'], '(1, 0)', '(5, 3)', ['G to 20,000', 'G a 20.000'],
-    [`${sv3('nash1')}, ${sv3('nash2')} and ${sv3('nash3')}`, `${it(sv3('nash1'))}, ${it(sv3('nash2'))} e ${it(sv3('nash3'))}`],
+    [`${sv3('nash1')}, ${sv3('nash2')} and ${sv3('nash3')}`, `${it(sv3('nash1'))}; ${it(sv3('nash2'))} e ${it(sv3('nash3'))}`],
     sv3('notSpe'), sv3('differs'), sv3('secondBetter'), sv3('better'), sv3('worse'), sv3('same'), sv3('noPure'), sv3('noPureBothSecond'), sv3('leaderAbove'),
   ])
   {
@@ -366,14 +366,14 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   quoted('exercise 3', sol(2), ['(9 − q1)/2', '4.5', '2.25', '3.25', '10.125', '5.0625', '3.375', 'q1 = 7', '7 × 2 = 14', f3(deterThreshold().F), '9 − 2√F'])
   quoted('exercise 4', sol(3), [['One round: 1', 'Un turno: 1'], '0.1', '0.91', f3(rubinstein(0.9)), f3(rubinstein(0.9, 0.8)), f3(rubinstein(0.8, 0.9)), '0.2/0.28', '0.1/0.28'])
   check('exercise 4: 0.2/0.28 and 0.1/0.28 are the formula', close(0.2 / 0.28, rubinstein(0.9, 0.8), 1e-12) && close(0.1 / 0.28, rubinstein(0.8, 0.9), 1e-12))
-  quoted('exercise 5', sol(4), [f2(featherChance(0.2)), f4(feeThreshold(0.2)), f2(attemptCost(0.2)), [`${f2(featherChance(0.3))}, ${f4(feeThreshold(0.3))}, ${f2(attemptCost(0.3))}`, `${it(f2(featherChance(0.3)))}, ${it(f4(feeThreshold(0.3)))}, ${it(f2(attemptCost(0.3)))}`]])
+  quoted('exercise 5', sol(4), [f2(featherChance(0.2)), f4(feeThreshold(0.2)), f2(attemptCost(0.2)), [`${f2(featherChance(0.3))}, ${f4(feeThreshold(0.3))}, ${f2(attemptCost(0.3))}`, `${it(f2(featherChance(0.3)))}; ${it(f4(feeThreshold(0.3)))}; ${it(f2(attemptCost(0.3)))}`]])
   {
     const p = population()
     const p2 = population(1000, 0.2)
     quoted('exercise 6', sol(5), [
-      [`${sv3('nash1')}, ${sv3('nash2')} and ${sv3('nash3')}`, `${it(sv3('nash1'))}, ${it(sv3('nash2'))} e ${it(sv3('nash3'))}`], sv3('differs'), [`${sv3('better')} and ${sv3('worse')}`, `${it(sv3('better'))} e ${it(sv3('worse'))}`],
+      [`${sv3('nash1')}, ${sv3('nash2')} and ${sv3('nash3')}`, `${it(sv3('nash1'))}; ${it(sv3('nash2'))} e ${it(sv3('nash3'))}`], sv3('differs'), [`${sv3('better')} and ${sv3('worse')}`, `${it(sv3('better'))} e ${it(sv3('worse'))}`],
       [`offers 0.4 and 0.2, money 0.6 and 0.8`, `offerte 0,4 e 0,2, denaro 0,6 e 0,8`], f3(closedMoney(0.1, 0.4)),
-      [`${f3(bestOffer(p).offer)} worth ${f3(bestOffer(p).money)}, ${f3(bestOffer(p2).offer)} worth ${f3(bestOffer(p2).money)}, and ${f3(expectedMoney(p, 0.1))}`, `${it(f3(bestOffer(p).offer))} che vale ${it(f3(bestOffer(p).money))}, ${it(f3(bestOffer(p2).offer))} che vale ${it(f3(bestOffer(p2).money))}, e ${it(f3(expectedMoney(p, 0.1)))}`],
+      [`${f3(bestOffer(p).offer)} worth ${f3(bestOffer(p).money)}, ${f3(bestOffer(p2).offer)} worth ${f3(bestOffer(p2).money)}, and ${f3(expectedMoney(p, 0.1))}`, `${it(f3(bestOffer(p).offer))} che vale ${it(f3(bestOffer(p).money))}; ${it(f3(bestOffer(p2).offer))} che vale ${it(f3(bestOffer(p2).money))}; infine ${it(f3(expectedMoney(p, 0.1)))}`],
     ])
   }
   check('six exercises, each with a statement and a solution in both languages', exercises.length === 6 && exercises.every((x) => x.statement.en && x.statement.it && x.solution.en && x.solution.it && ['paper', 'sim', 'both'].includes(x.type)))

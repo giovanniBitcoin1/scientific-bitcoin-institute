@@ -484,7 +484,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
     [`m = 2, ${f3(page[2].one)} of the games have one equilibrium and ${f3(page[2].three)} three`, `m = 2, ${it(f3(page[2].one))} dei giochi hanno un equilibrio e ${it(f3(page[2].three))} tre`],
     [`m = 4, ${f3(page[4].one)} one, ${f3(page[4].three)} three, ${f3(page[4].five)} five and ${f3(page[4].sevenUp)} seven or more`, `m = 4, ${it(f3(page[4].one))} uno, ${it(f3(page[4].three))} tre, ${it(f3(page[4].five))} cinque e ${it(f3(page[4].sevenUp))} sette o più`],
     [`from ${f3(page[2].mean)} to ${f3(page[4].mean)}`, `da ${it(f3(page[2].mean))} a ${it(f3(page[4].mean))}`],
-    `(${[2, 3, 4].map((m) => f3(page[m].noPure)).join(', ')})`,
+    [`(${[2, 3, 4].map((m) => f3(page[m].noPure)).join(', ')})`, `(${[2, 3, 4].map((m) => it(f3(page[m].noPure))).join('; ')})`],
   ])
   check('observe, Panel A: the page\'s survey (20,000 games per size) has no even count, and its "no pure" column is module 01\'s', [2, 3, 4].every((m) => page[m].even === 0) && (() => {
     const m01 = survey01({ sizes: [2, 3, 4], games: 20000 })
@@ -497,12 +497,12 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   quoted('observe, Panel B', observe.learning, [
     ['1, 2, 3, 4, 5', '1, 2, 3, 4, 5'], [`only ${fp10.pennies.runs.length} runs`, `solo ${fp10.pennies.runs.length}`], fp10.pennies.series.at(-1).gap.toFixed(4),
  fp.pennies.atMarks[1000].gap.toFixed(3), fp.pennies.atMarks[100000].gap.toFixed(4),
-    '1, 3, 5, 7', `${fp10.rps2.final.x.map(f3).slice(0, 2).join(', ')}`.replace(', ', ', '), f3(fp10.rps2.final.x[2]),
+    '1, 3, 5, 7', [fp10.rps2.final.x.map(f3).slice(0, 2).join(', '), fp10.rps2.final.x.map((v) => it(f3(v))).slice(0, 2).join('; ')], f3(fp10.rps2.final.x[2]),
     f2(fp.penalty.atMarks[100].average), f2(fp10.penalty.final.average), f2(mm.value),
     '1, 1, 2, 4, 6, 9, 14, 21',
     [`${fp10.shapley.runs.length} runs in 10,000 rounds and ${fp.shapley.runs.length} in 100,000`, `${fp10.shapley.runs.length} in 10.000 turni e ${fp.shapley.runs.length} in 100.000`],
     [`${f3(fp10.shapley.series.at(-1).gap)} at 10,000 rounds`, `${it(f3(fp10.shapley.series.at(-1).gap))} a 10.000 turni`],
-    f3(fp10.shapley.minGap), `${fp10.shapley.final.x.map(f3).slice(0, 2).join(', ')}`, f3(fp10.shapley.final.x[2]),
+    f3(fp10.shapley.minGap), [fp10.shapley.final.x.map(f3).slice(0, 2).join(', '), fp10.shapley.final.x.map((v) => it(f3(v))).slice(0, 2).join('; ')], f3(fp10.shapley.final.x[2]),
   ])
   check('observe, Panel B: the runs of matching pennies grow by one, those of rock-paper-scissors by two (first 20)', fp.pennies.runs.slice(0, 20).every((v, k) => v === k + 1) && fp.rps.runs.slice(0, 20).every((v, k) => v === 2 * k + 1))
   check('observe, Panel B: with 10,000 rounds the play of the page is the start of the 100,000-round play', FP_IDS.every((id) => fp10[id].atMarks[10000].gap === fp[id].atMarks[10000].gap))
@@ -524,11 +524,11 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   quoted('exercise 5', sol(4), ['1/4 < w < 3/4'])
   quoted('exercise 6', sol(5), [
     [`m = 2: ${f3(page[2].one)} and ${f3(page[2].three)}`, `m = 2: ${it(f3(page[2].one))} e ${it(f3(page[2].three))}`],
-    [`m = 3: ${f3(page[3].one)}, ${f3(page[3].three)} and ${f3(page[3].fiveUp)}`, `m = 3: ${it(f3(page[3].one))}, ${it(f3(page[3].three))} e ${it(f3(page[3].fiveUp))}`],
-    [`m = 4: ${f3(page[4].one)}, ${f3(page[4].three)} and ${f3(page[4].fiveUp)}`, `m = 4: ${it(f3(page[4].one))}, ${it(f3(page[4].three))} e ${it(f3(page[4].fiveUp))}`],
-    MARKS.map((k) => (k === 100 || k === 1000 ? f3(fp.pennies.atMarks[k].gap) : f4(fp.pennies.atMarks[k].gap))).join(', '),
-    MARKS.map((k) => f3(fp.shapley.atMarks[k].gap)).join(', '),
-    [`${f3(sims['switch0.6'].mean)}, ${f3(sims['heads0.6'].mean)} and ${f3(sims['coin0.5'].mean)}`, `${it(f3(sims['switch0.6'].mean))}, ${it(f3(sims['heads0.6'].mean))} e ${it(f3(sims['coin0.5'].mean))}`],
+    [`m = 3: ${f3(page[3].one)}, ${f3(page[3].three)} and ${f3(page[3].fiveUp)}`, `m = 3: ${it(f3(page[3].one))}; ${it(f3(page[3].three))} e ${it(f3(page[3].fiveUp))}`],
+    [`m = 4: ${f3(page[4].one)}, ${f3(page[4].three)} and ${f3(page[4].fiveUp)}`, `m = 4: ${it(f3(page[4].one))}; ${it(f3(page[4].three))} e ${it(f3(page[4].fiveUp))}`],
+    ((s) => [s, it(s).replace(/, /g, '; ')])(MARKS.map((k) => (k === 100 || k === 1000 ? f3(fp.pennies.atMarks[k].gap) : f4(fp.pennies.atMarks[k].gap))).join(', ')),
+    ((s) => [s, it(s).replace(/, /g, '; ')])(MARKS.map((k) => f3(fp.shapley.atMarks[k].gap)).join(', ')),
+    [`${f3(sims['switch0.6'].mean)}, ${f3(sims['heads0.6'].mean)} and ${f3(sims['coin0.5'].mean)}`, `${it(f3(sims['switch0.6'].mean))}; ${it(f3(sims['heads0.6'].mean))} e ${it(f3(sims['coin0.5'].mean))}`],
   ])
   check('six exercises, each with a statement and a solution in both languages', exercises.length === 6 && exercises.every((x) => x.statement.en && x.statement.it && x.solution.en && x.solution.it && ['paper', 'sim', 'both'].includes(x.type)))
 

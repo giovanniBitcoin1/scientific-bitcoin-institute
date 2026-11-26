@@ -78,12 +78,12 @@ La frazione spesa del premio è `1 − Σ s_i²`. La Simulazione C lascia che i 
 Bitcoin: il mining come gara
 Circa ogni dieci minuti un *miner* vince la ricompensa del blocco, con probabilità pari alla sua quota dell'*hash rate* totale. Con l'hash rate come sforzo e il valore della ricompensa come premio, è la gara vista sopra (Dimitri 2017).
 
-**Che cosa dice il modello.** La spesa per il *mining* segue il valore della ricompensa, non il numero delle transazioni, e con libera entrata i profitti vanno a zero. L'aggiustamento della difficoltà fissa il numero dei blocchi, quindi più hash rate non produce più monete: tutti i miner guadagnerebbero di più se tutti dimezzassero il proprio, e a nessuno conviene farlo da solo. Piccole differenze di costo diventano grandi differenze di quota: costi di 1,0, 1,1, 1,2, 1,5 e 2,0 danno quote del 37,5%, 31,3%, 25%, 6,3% e zero (Arnosti e Weinberg 2022).
+**Che cosa dice il modello.** La spesa per il *mining* segue il valore della ricompensa, non il numero delle transazioni, e con libera entrata i profitti vanno a zero. L'aggiustamento della difficoltà fissa il numero dei blocchi, quindi più hash rate non produce più monete: tutti i miner guadagnerebbero di più se tutti dimezzassero il proprio, e a nessuno conviene farlo da solo. Piccole differenze di costo diventano grandi differenze di quota: costi di 1,0; 1,1; 1,2; 1,5 e 2,0 danno quote del 37,5%, 31,3%, 25%, 6,3% e zero (Arnosti e Weinberg 2022).
 
 **I limiti.** È un modello giocato una sola volta, a costo unitario costante. I miner reali comprano macchine che durano anni, il valore della ricompensa segue il prezzo e i miner si uniscono in *pool* (modulo 10). Né il modello dice se la spesa sia eccessiva: dipende da che cosa compra (modulo 14). Un'ipotesi con i suoi limiti, non una descrizione del settore.
 ```
 
-## Che cosa viene dopo
+## Il prossimo modulo
 
 Non tutti i giochi hanno un equilibrio da trovare. Un gioco due per due su otto non ha nessuna cella stabile, e nemmeno circa un terzo dei grandi giochi casuali della Simulazione A; il più piccolo è il pari o dispari. Il [modulo 03](/game-theory-lab/mixed-strategies-zero-sum) mostra che anche questi giochi hanno un equilibrio, se ai giocatori si permette di mescolare a caso le strategie.
 

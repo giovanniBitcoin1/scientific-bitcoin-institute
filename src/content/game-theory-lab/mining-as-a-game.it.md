@@ -64,7 +64,7 @@ R è una quota, non un reddito. Il selfish mining rende orfani alcuni blocchi, q
 T_pari = T₁ · (R − r_A) / (R − α)
 ```
 
-Cyril Grunspan e Ricardo Pérez-Marco (2018) hanno mostrato di più: nessuna strategia rende più del mining onesto prima di un aggiustamento della difficoltà, quindi il selfish mining è un attacco alla regola di aggiustamento e il guadagno arriva solo dopo l'aggiustamento. Il Pannello B disegna le due ricompense attese e un percorso simulato.
+Cyril Grunspan e Ricardo Pérez-Marco (2018) hanno mostrato di più: nessuna strategia rende più del mining onesto prima di un aggiustamento della difficoltà, quindi il selfish mining è un attacco alla regola di aggiustamento e il guadagno arriva solo dopo l'aggiustamento. La Simulazione B disegna le due ricompense attese e un percorso simulato.
 
 ## La deviazione migliore
 
@@ -83,7 +83,7 @@ Non ci sono prove pubbliche di selfish mining su Bitcoin. Le ragioni qui sotto s
 
 Nessuna di queste chiude la questione: ciascuna dice solo che i *payoff* del modello potrebbero non essere quelli di un miner reale.
 
-## Prossimo modulo
+## Il prossimo modulo
 
 Il [modulo 14](/game-theory-lab/capstone-the-price-of-security), il *capstone*: quanto costa la sicurezza e chi la paga quando la ricompensa del blocco scende.
 

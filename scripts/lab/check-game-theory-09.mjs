@@ -465,7 +465,7 @@ if (existsSync(textsPath) && existsSync(resolve(root, lecturePath('en'))) && exi
     quoted('observe, Panel C', observe.formation, [
       [`${r1.steps} steps and ${r1.changes} changes (${r1.adds} links added, ${r1.cuts} cut)`, `${r1.steps} passi e ${r1.changes} cambi (${r1.adds} collegamenti aggiunti, ${r1.cuts} tagliati)`],
       [`${r1.links} links, degrees ${r1.degrees.join(', ')}`, `${r1.links} collegamenti, gradi ${r1.degrees.join('; ')}`], f2(r1.total), f2(r1.efficient),
-      [r25.map((r) => f2(r.total)).slice(0, 3).join(', ') + ' and ' + f2(r25[3].total), r25.map((r) => itn(f2(r.total))).slice(0, 3).join(', ') + ' e ' + itn(f2(r25[3].total))],
+      [r25.map((r) => f2(r.total)).slice(0, 3).join(', ') + ' and ' + f2(r25[3].total), r25.map((r) => itn(f2(r.total))).slice(0, 3).join('; ') + ' e ' + itn(f2(r25[3].total))],
       ['8 to 10 links', 'da 8 a 10 collegamenti'], ['from 9.60 to 10.50', 'tra 9,60 e 10,50'],
       ['c = **0.2**', 'c a **0,2**'], ['28 links and 16.80', '28 collegamenti e 16,80'], ['c = **0.6**', 'c a **0,6**'], ['0 steps', '0 passi'], f2(C.totals(8, 0.5, 0.6).star), [`all 28 links in ${c6.steps} steps`, `tutti i 28 collegamenti in ${c6.steps} passi`],
       ['c = **1.5**', 'c a **1,5**'], ['n = **12**', 'n a **12**'], [`${n12.steps} steps`, `${n12.steps} passi`], [`${n12.links} links and a total of ${f2(n12.total)}`, `${n12.links} collegamenti e un totale di ${itn(f2(n12.total))}`], f2(n12.efficient),

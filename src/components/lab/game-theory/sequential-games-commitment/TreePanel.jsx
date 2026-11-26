@@ -79,7 +79,7 @@ const T = {
     notSpe: 'non perfetto nei sottogiochi',
     pays: (u, v) => `payoff ${u} e ${v}`,
     where: (path) => (path.length ? `dopo ${path.join(', ')}` : 'all’inizio'),
-    threat: (who, move, where, got, better, could) => `${who}: il piano dice “${move}” ${where}, dove otterrebbe ${got}; “${better}” darebbe ${could}. La minaccia non verrebbe eseguita.`,
+    threat: (who, move, where, got, better, could) => `${who}: il piano dice «${move}» ${where}, dove otterrebbe ${got}; «${better}» darebbe ${could}. La minaccia non verrebbe eseguita.`,
     steps: (k, n) => `Risolti ${k} punti su ${n}`,
     done: (u, v) => `Induzione a ritroso: payoff ${u} e ${v}.`,
     tie: 'Qui chi muove per primo è indifferente: le due mosse gli danno lo stesso.',

@@ -472,7 +472,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   check('lecture: those prices are the code\'s', same([1, 2, 5, 10].map((n) => Number(cournot.symmetric(10, 1, n).price.toFixed(2))), [5.5, 4, 2.5, 1.82]))
   quoted('lecture: the contest and the box', lecture, [
     ['37.5%, 31.3%, 25%, 6.3%', '37,5%, 31,3%, 25%, 6,3%'],
-    ['1.0, 1.1, 1.2, 1.5 and 2.0', '1,0, 1,1, 1,2, 1,5 e 2,0'],
+    ['1.0, 1.1, 1.2, 1.5 and 2.0', '1,0; 1,1; 1,2; 1,5 e 2,0'],
   ])
   check('lecture: the shares of the box are the code\'s (37.5, 31.3, 25, 6.3 and nothing)', same(miners.shares.map(percent), ['37.5%', '31.3%', '25.0%', '6.3%', '0.0%']) && same(MINERS.map(f1), ['1.0', '1.1', '1.2', '1.5', '2.0']), miners.shares.map((s) => (100 * s).toFixed(2)).join(', '))
   check('lecture: with two players half the prize is spent, with ten nine tenths', contestEq(equalCosts(2)).spentShare === 0.5 && close(contestEq(equalCosts(10)).spentShare, 0.9, 1e-12))
@@ -527,11 +527,11 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   check('the scan has 21 starting shares and 200 runs each', X0_VALUES.length === 21 && scan200.length === 21 && scan200.every((p) => p.runs === DEFAULTS.runs) && DEFAULTS.runs === 200)
 
   quoted('observe, Panel C', observe.contest, [
-    ['50.00, 80.00 and 90.00', '50,00, 80,00 e 90,00'],
+    ['50.00, 80.00 and 90.00', '50,00; 80,00 e 90,00'],
     '62.50', '69.53',
     [`${miners.shares.slice(0, 3).map(percent).join(', ')} and ${percent(miners.shares[3])}`, `${miners.shares.slice(0, 3).map((s) => it(percent(s))).join(', ')} e ${it(percent(miners.shares[3]))}`],
-    [`(${[0, 1, 2, 3].map((r) => f1(once(4, r))).join(', ')}…)`, `(${[0, 1, 2, 3].map((r) => it(f1(once(4, r)))).join(', ')}…)`],
-    [`(${[0, 1, 2, 3].map((r) => f1(once(10, r))).join(', ')})`, `(${[0, 1, 2, 3].map((r) => it(f1(once(10, r)))).join(', ')})`],
+    [`(${[0, 1, 2, 3].map((r) => f1(once(4, r))).join(', ')}…)`, `(${[0, 1, 2, 3].map((r) => it(f1(once(4, r)))).join('; ')}…)`],
+    [`(${[0, 1, 2, 3].map((r) => f1(once(10, r))).join(', ')})`, `(${[0, 1, 2, 3].map((r) => it(f1(once(10, r)))).join('; ')})`],
     [`after ${settleTurn[10]} rounds`, `dopo ${settleTurn[10]} turni`],
     [`from ${f1(adjust(equalCosts(10), 'turn').totals[0])} to ${f1(adjust(equalCosts(10), 'turn').totals[1])}`, `da ${it(f1(adjust(equalCosts(10), 'turn').totals[0]))} a ${it(f1(adjust(equalCosts(10), 'turn').totals[1]))}`],
     [`from ${f2(contestEq(equalCosts(2)).profits[0])} to ${f2(contestEq(equalCosts(5)).profits[0])} and to ${f2(contestEq(equalCosts(10)).profits[0])}`, `da ${it(f2(contestEq(equalCosts(2)).profits[0]))} a ${it(f2(contestEq(equalCosts(5)).profits[0]))} e a ${it(f2(contestEq(equalCosts(10)).profits[0]))}`],
@@ -551,9 +551,9 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   const sol = (i) => ({ en: exercises[i].solution.en, it: exercises[i].solution.it })
   quoted('exercise 1', sol(0), ['(M, L)', '(D, R)', '(D, C)'])
   quoted('exercise 2', sol(1), ['2/3, 1/2', '2/5'])
-  quoted('exercise 3', sol(2), ['10.125', '3.375', '4.375', '11.39', '7.59', ['5.5, 4, 2.5, 1.82 and 1.09', '5,5, 4, 2,5, 1,82 e 1,09']])
+  quoted('exercise 3', sol(2), ['10.125', '3.375', '4.375', '11.39', '7.59', ['5.5, 4, 2.5, 1.82 and 1.09', '5,5; 4; 2,5; 1,82 e 1,09']])
   check('exercise 3: the price with 100 firms is 1.09', f2(cournot.symmetric(10, 1, 100).price) === '1.09')
-  quoted('exercise 5', sol(4), [['50, 80 and 90', '50, 80 e 90'], ['25, 4 and 1', '25, 4 e 1'], '0.375, 0.3125, 0.25', '0.0625', '62.5', '69.5', '0.3047', '1.6', '31.25'])
+  quoted('exercise 5', sol(4), [['50, 80 and 90', '50, 80 e 90'], ['25, 4 and 1', '25, 4 e 1'], ['0.375, 0.3125, 0.25', '0,375; 0,3125; 0,25'], '0.0625', '62.5', '69.5', '0.3047', '1.6', '31.25'])
   quoted('exercise 6', sol(5), [
     [`${f3(big[2].none)} at m = 2 and ${f3(big[8].none)} at m = 8`, `${it(f3(big[2].none))} per m = 2 e ${it(f3(big[8].none))} per m = 8`],
     [`${f3(big[2].walks)} at m = 2 and ${f3(big[8].walks)} at m = 8`, `${it(f3(big[2].walks))} per m = 2 e ${it(f3(big[8].walks))} per m = 8`],

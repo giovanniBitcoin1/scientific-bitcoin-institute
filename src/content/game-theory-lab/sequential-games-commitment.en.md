@@ -36,7 +36,7 @@ How common is the problem? Simulation A draws random trees in which the first pl
 
 Give the firm a move before the game. It can make sharing impossible, at a cost k: capacity useful only in a price war, a contract that punishes sharing, a public promise too costly to break. After this **commitment** the firm can only fight. So the newcomer stays out, and the firm earns 4 − k instead of 2: this is entry deterrence. It pays whenever k < 2.
 
-The firm gains by destroying its own best reply. Thomas Schelling made this the centre of *The Strategy of Conflict* (1960): the general who burns the bridge behind his army, the negotiator who cannot be reached, the threat that leaves something to chance because nobody fully controls what will happen. Deterrence between states runs on the same logic: troops placed where an attack would draw them in, whatever their government then prefers. Two things make a commitment work. It must be seen: a hidden commitment changes nothing. And it must be impossible to undo: a commitment that can be bought back is only a threat again.
+The firm gains by destroying its own best response. Thomas Schelling made this the centre of *The Strategy of Conflict* (1960): the general who burns the bridge behind his army, the negotiator who cannot be reached, the threat that leaves something to chance because nobody fully controls what will happen. Deterrence between states runs on the same logic: troops placed where an attack would draw them in, whatever their government then prefers. Two things make a commitment work. It must be seen: a hidden commitment changes nothing. And it must be impossible to undo: a commitment that can be bought back is only a threat again.
 
 ```box
 Bitcoin: a threat with 20% of the hash rate
@@ -99,6 +99,6 @@ Here the players always knew whom they faced. In [module 05](/game-theory-lab/in
 - Rosenthal, R. W. (1981). Games of perfect information, predatory pricing and the chain-store paradox. *Journal of Economic Theory* 25, 92–100.
 - McKelvey, R. D. and Palfrey, T. R. (1992). An experimental study of the centipede game. *Econometrica* 60, 803–836.
 - Güth, W., Schmittberger, R. and Schwarze, B. (1982). An experimental analysis of ultimatum bargaining. *Journal of Economic Behavior and Organization* 3, 367–388.
-- Henrich, J., Boyd, R., Bowles, S., Camerer, C., Fehr, E., Gintis, H. and McElreath, R. (2001). In search of Homo economicus: behavioral experiments in 15 small-scale societies. *American Economic Review* 91 (2), 73–78.
+- Henrich, J., Boyd, R., Bowles, S., Camerer, C., Fehr, E., Gintis, H. and McElreath, R. (2001). In search of Homo economicus: behavioral experiments in 15 small-scale societies. *American Economic Review* 91(2), 73–78.
 - Rubinstein, A. (1982). Perfect equilibrium in a bargaining model. *Econometrica* 50, 97–109.
 - Narayanan, A., Bonneau, J., Felten, E., Miller, A. and Goldfeder, S. (2016). *Bitcoin and Cryptocurrency Technologies*. Princeton University Press. Ch. 5.

@@ -38,7 +38,7 @@ In its modern form, Shapley's result says that the value is the only rule with f
 
 The partners get 125/3, 95/3 and 80/3, that is 41.67, 31.67 and 26.67: a point inside the core. But fairness and stability can conflict. If A and B could make 90, the Shapley value becomes 45, 35 and 20, outside the core: together A and B would get 80, and they could make 90 on their own. In **convex** games, where a player adds more to a larger group, the two never conflict: the Shapley value is always in the core (Shapley 1971).
 
-Panel A computes the Shapley value from all the orders and tests the core with a linear programme. It includes two classics. In the **glove market** two players own a left glove and one a right glove, and only a complete pair sells, for 1. The Shapley value gives each left glove 1/6 and the right glove 2/3. The core is harsher: its only division is (0, 0, 1), everything to the right glove, because each left glove can be replaced by the other. In the **airport game** (Stephen Littlechild and Guillermo Owen 1973) planes of different sizes share a runway, and a coalition pays for the longest runway it needs. Its Shapley value has a simple form: each stretch of the runway is paid in equal parts by the planes that need it.
+Simulation A computes the Shapley value from all the orders and tests the core with a linear programme. It includes two classics. In the **glove market** two players own a left glove and one a right glove, and only a complete pair sells, for 1. The Shapley value gives each left glove 1/6 and the right glove 2/3. The core is harsher: its only division is (0, 0, 1), everything to the right glove, because each left glove can be replaced by the other. In the **airport game** (Stephen Littlechild and Guillermo Owen 1973) planes of different sizes share a runway, and a coalition pays for the longest runway it needs. Its Shapley value has a simple form: each stretch of the runway is paid in equal parts by the planes that need it.
 
 ## Power is not weight
 
@@ -50,7 +50,7 @@ The Council of the first European Communities, from 1958, is the textbook case. 
 votes
 ```
 
-Weight can mislead the other way too. Take three parties with 49, 49 and 2 seats and a majority of 51: any two of them win and none wins alone, so all three have the same power, 1/3 each. Panel B computes both indices for up to 30 players.
+Weight can mislead the other way too. Take three parties with 49, 49 and 2 seats and a majority of 51: any two of them win and none wins alone, so all three have the same power, 1/3 each. Simulation B computes both indices for up to 30 players.
 
 ## An estate that cannot pay
 
@@ -58,17 +58,17 @@ A man dies owing his three wives, under their marriage contracts, 100, 200 and 3
 
 Robert Aumann and Michael Maschler (1985) solved the puzzle, reading it as a **bankruptcy problem**: the claims add up to more than the estate. Take the game in which a coalition is worth what is left for it once everyone outside it has been paid in full, or 0 if nothing is left. All three divisions are the **nucleolus** of this game (David Schmeidler 1969): the division that makes the worst-treated coalition as well off as possible, then the next worst, and so on. They also showed that the same rule follows from another passage of the Talmud (Bava Metzia 2a), on two people holding a garment. One claims all of it, the other half; the second concedes to the first the half she does not claim, the disputed half is split equally, and the shares are 3/4 and 1/4. The Talmud's divisions are the only ones that split what any two creditors receive together in this way.
 
-Other rules give other answers. At 200, proportional division gives 33.33, 66.67 and 100. The Shapley value of the same game gives 33.33, 83.33 and 83.33: it is the average over random orders of arrival, each creditor paid in full while money remains (Barry O'Neill 1982). Panel C compares five rules at any estate.
+Other rules give other answers. At 200, proportional division gives 33.33, 66.67 and 100. The Shapley value of the same game gives 33.33, 83.33 and 83.33: it is the average over random orders of arrival, each creditor paid in full while money remains (Barry O'Neill 1982). Simulation C compares five rules at any estate.
 
 ```box
 Mining pools: who gets the reward?
-**Why pools exist: variance.** A miner with a share h of the hash rate finds on average a fraction h of the blocks. In late November 2026 the network ran at about 1 ZH/s, 10²¹ hashes a second (a 30-day average of 1,019 EH/s on 23 November, according to Hashrate Index). At 1 ZH/s a miner with 1 PH/s has a share of one in a million: with 52,560 blocks a year (one every ten minutes), she finds one every 19 years on average, and may find none for much longer. A pool pays its members for partial proofs of work, called shares, which are far easier to find, and turns a lottery into a steady income.
+**Why pools exist: variance.** A miner with a share α of the hash rate finds on average a fraction α of the blocks. In late November 2026 the network ran at about 1 ZH/s, 10²¹ hashes a second (a 30-day average of 1,019 EH/s on 23 November, according to Hashrate Index). At 1 ZH/s a miner with 1 PH/s has a share of one in a million: with 52,560 blocks a year (one every ten minutes), she finds one every 19 years on average, and may find none for much longer. A pool pays its members for partial proofs of work, called shares, which are far easier to find, and turns a lottery into a steady income.
 
 **How pools split.** In proportion to the shares of the round; per share, at a fixed price (the pool bears the risk); or over the last N shares. Meni Rosenfeld (2011) described these schemes and showed why a proportional pool can be gamed by hopping between pools: a share early in a round is worth more than one late in it. Bahar Can, Jens Leth Hougaard and Mohsen Pourpouneh (2022) study the split as an allocation problem with fairness properties, and characterize the proportional scheme.
 
 **The coalitional view.** Yoad Lewenberg, Yoram Bachrach, Yonatan Sompolinsky, Aviv Zohar and Jeffrey Rosenschein (2015) modelled pools as a coalitional game. For some network parameters, in particular when blocks carry many transactions, a stable split of the rewards may not exist, and some miners always gain by moving to another pool.
 
-**Power.** In Panel B's illustrative pools, a pool with 26% of the hash rate holds about 30% of the power to form a majority, and splitting it into two pools of 13% lowers their combined power to about 26%. Real shares change from week to week, and a pool is not its miners: they can leave it, and an attack is not a ballot. Reading pools as voters is a hypothesis, not a description.
+**Power.** In Simulation B's illustrative pools, a pool with 26% of the hash rate holds about 30% of the power to form a majority, and splitting it into two pools of 13% lowers their combined power to about 26%. Real shares change from week to week, and a pool is not its miners: they can leave it, and an attack is not a ballot. Reading pools as voters is a hypothesis, not a description.
 ```
 
 ## Next

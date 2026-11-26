@@ -40,7 +40,7 @@ Non è un caso. L'**equivalenza del ricavo** (Vickrey 1961 in casi particolari; 
 
 Le medie coincidono; i rischi no. Con due offerenti la deviazione standard del ricavo è 23,57 nell'asta al secondo prezzo, 11,79 in quella al primo prezzo e 21,08 nell'asta all-pay. Il secondo prezzo dipende solo dal valore più basso, che può cadere ovunque tra 0 e 100; il primo prezzo dipende da metà del valore più alto, che varia meno.
 
-Un **prezzo di riserva**, sotto il quale il venditore si tiene l'oggetto, alza la media: si perdono le vendite sotto la riserva, ma chi vince paga almeno la riserva anche quando il secondo valore è più basso. Con valori uniformi il prezzo di riserva migliore è 50, qualunque sia il numero di offerenti (Myerson 1981; Riley e Samuelson 1981). Con due offerenti rende 41,67 invece di 33,33, ma l'oggetto resta invenduto una volta su quattro, quando entrambi i valori sono sotto 50. Eppure un offerente in più vale più della riserva migliore (Jeremy Bulow e Paul Klemperer 1996): tre offerenti senza riserva rendono 50. Il Pannello A simula migliaia di aste in ciascun formato.
+Un **prezzo di riserva**, sotto il quale il venditore si tiene l'oggetto, alza la media: si perdono le vendite sotto la riserva, ma chi vince paga almeno la riserva anche quando il secondo valore è più basso. Con valori uniformi il prezzo di riserva migliore è 50, qualunque sia il numero di offerenti (Myerson 1981; Riley e Samuelson 1981). Con due offerenti rende 41,67 invece di 33,33, ma l'oggetto resta invenduto una volta su quattro, quando entrambi i valori sono sotto 50. Eppure un offerente in più vale più della riserva migliore (Jeremy Bulow e Paul Klemperer 1996): tre offerenti senza riserva rendono 50. La Simulazione A simula migliaia di aste in ciascun formato.
 
 ## La maledizione del vincitore
 
@@ -48,13 +48,13 @@ Cambiamo oggetto. Un giacimento di petrolio contiene lo stesso petrolio chiunque
 
 Un modello. Ogni stima è il valore più un errore uniforme entro ±a. Se ognuno offre la propria stima in un'asta al primo prezzo, vince l'offerente con la stima più alta, cioè quello che ha sovrastimato di più. In media paga un sovrapprezzo di a(n − 1)/(n + 1): con a = 10, di 3,33 con due offerenti, 6,67 con cinque, 8,18 con dieci. Più sono gli offerenti, peggio va.
 
-Un offerente prudente offre come se la sua stima fosse la più alta, perché è l'unico caso in cui la sua offerta conta. Lontano dagli estremi dell'intervallo dei valori, l'offerta di equilibrio è la stima meno a nell'asta al primo prezzo (John Kagel e Dan Levin 1986) e la stima meno a(n − 2)/n in quella al secondo prezzo (Kagel, Levin e Ronald Harstad 1995). Con valore comune i formati non rendono più lo stesso: il secondo prezzo rende più del primo. L'asta inglese, in cui si vedono gli altri ritirarsi e se ne trae informazione, rende almeno quanto il secondo prezzo (Paul Milgrom e Robert Weber 1982). Il Pannello B mette all'asta il barattolo di monete.
+Un offerente prudente offre come se la sua stima fosse la più alta, perché è l'unico caso in cui la sua offerta conta. Lontano dagli estremi dell'intervallo dei valori, l'offerta di equilibrio è la stima meno a nell'asta al primo prezzo (John Kagel e Dan Levin 1986) e la stima meno a(n − 2)/n in quella al secondo prezzo (Kagel, Levin e Ronald Harstad 1995). Con valore comune i formati non rendono più lo stesso: il secondo prezzo rende più del primo. L'asta inglese, in cui si vedono gli altri ritirarsi e se ne trae informazione, rende almeno quanto il secondo prezzo (Paul Milgrom e Robert Weber 1982). La Simulazione B mette all'asta il barattolo di monete.
 
 ## Molte unità
 
 Ora il venditore ha k unità identiche e n offerenti che ne vogliono una ciascuno. In un'**asta discriminatoria** (*pay-your-bid*, «paghi la tua offerta») vincono le k offerte più alte e ogni vincitore paga la propria offerta. In un'**asta a prezzo uniforme** tutti i vincitori pagano lo stesso prezzo, la più alta delle offerte escluse. Con un'unità a testa il prezzo uniforme è di nuovo l'asta di Vickrey: la tua offerta decide se vinci, quelle degli altri decidono il prezzo, e offrire il proprio valore è dominante. Nell'asta discriminatoria gli offerenti abbassano l'offerta, come al primo prezzo. In media entrambe rendono 100 k(n − k)/(n + 1), ancora una volta l'equivalenza del ricavo, ma l'asta discriminatoria è molto meno rischiosa.
 
-Quando gli offerenti vogliono più unità, il prezzo uniforme perde il suo pregio: l'offerta per una seconda unità può fissare il prezzo pagato per la prima, e a un offerente conviene chiedere meno unità di quante ne voglia (**riduzione della domanda**; Vijay Krishna, cap. 13). La questione è concreta: nel 1998 il Tesoro degli Stati Uniti è passato, per le aste dei suoi titoli di Stato, dall'asta discriminatoria al prezzo uniforme. Il Pannello C mette in vendita i posti di un blocco.
+Quando gli offerenti vogliono più unità, il prezzo uniforme perde il suo pregio: l'offerta per una seconda unità può fissare il prezzo pagato per la prima, e a un offerente conviene chiedere meno unità di quante ne voglia (**riduzione della domanda**; Vijay Krishna, cap. 13). La questione è concreta: nel 1998 il Tesoro degli Stati Uniti è passato, per le aste dei suoi titoli di Stato, dall'asta discriminatoria al prezzo uniforme. La Simulazione C mette in vendita i posti di un blocco.
 
 ```box
 Lo spazio nel blocco: un'asta ogni dieci minuti
@@ -64,7 +64,7 @@ Lo spazio nel blocco: un'asta ogni dieci minuti
 
 **Un'altra regola.** Ron Lavi, Or Sattath e Aviv Zohar (2019) mostrano che con l'asta discriminatoria un blocco più grande può ridurre il ricavo dei miner. Propongono il prezzo monopolistico: ogni transazione inclusa paga la commissione inclusa più bassa, e il miner sceglie quante transazioni includere. Questa regola mantiene il ricavo quando il blocco cresce, resiste alle manipolazioni del miner e rende meno utile abbassare l'offerta al crescere del numero di utenti (Andrew Chi-Chih Yao 2020).
 
-**Nel Pannello C.** Con 20 utenti e 10 posti, l'asta discriminatoria e il prezzo uniforme raccolgono entrambi 476,19 in media; con posto per tutti e 20, nulla. Il prezzo monopolistico raccoglie circa 547 con 10 posti e circa 579 con 20, servendo circa 11 utenti e lasciandone fuori 9.
+**Nella Simulazione C.** Con 20 utenti e 10 posti, l'asta discriminatoria e il prezzo uniforme raccolgono entrambi 476,19 in media; con posto per tutti e 20, nulla. Il prezzo monopolistico raccoglie circa 547 con 10 posti e circa 579 con 20, servendo circa 11 utenti e lasciandone fuori 9.
 
 **Un'ipotesi, non una descrizione.** Qui ogni utente vuole un posto e i valori sono uniformi; le transazioni reali differiscono per dimensione e per urgenza, e possono aspettare il blocco successivo. Se ci si possa fidare del miner, che conduce l'asta, è la domanda del modulo 12.
 ```
@@ -77,7 +77,7 @@ Lo spazio nel blocco: un'asta ogni dieci minuti
 
 ## Letture consigliate
 
-- Krishna, V. (2010). *Auction Theory*, 2ª ed. Academic Press. Capp. 2–3 (valori privati, equivalenza del ricavo), cap. 6 (valori interdipendenti), capp. 12–13 (molte unità).
+- Krishna, V. (2010). *Auction Theory*, 2ª ed. Academic Press. Cap. 2–3 (valori privati, equivalenza del ricavo), cap. 6 (valori interdipendenti), cap. 12–13 (molte unità).
 - Tadelis, S. (2013). *Game Theory: An Introduction*. Princeton University Press. Cap. 13 (aste e offerte competitive).
 - Shoham, Y. e Leyton-Brown, K. (2009). *Multiagent Systems*. Cambridge University Press. Cap. 11 (aste).
 - Roughgarden, T. (2016). *Twenty Lectures on Algorithmic Game Theory*. Cambridge University Press. Lezione 2 (basi della progettazione dei meccanismi: aste di un solo oggetto).

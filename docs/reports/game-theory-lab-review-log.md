@@ -714,3 +714,116 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: built (17 s).
 - `node check-module.mjs game-theory capstone-the-price-of-security`: 0 failures of 56 (49 s).
 - `node modules/game-theory-capstone-the-price-of-security.mjs`: 0 failures of 39 (11 s).
+
+- Commit d52920e "Game Theory Lab review: module 14".
+
+## Stage 2: across modules
+
+One helper agent went through the 14 modules in order (the only agent
+editing them); the lead reviewed the lab's index and ran the checks.
+
+- Terms (every row of the status table searched in the 28 lectures, 14
+  texts.js and the UI strings, EN and IT):
+  - "best reply" → "best response": 04 (1), 06 (3), EN lectures (only code
+    comments keep it).
+  - "prisoner's dilemma" → "Prisoner's Dilemma": 06 EN (3).
+  - "private chain" → "private branch": 14 EN (2), as module 13 and the
+    table (the IT keeps «catena privata»).
+  - "Rock, paper, scissors" / «Sasso, carta, forbici» → "Rock-paper-scissors"
+    / «Sasso-carta-forbici»: 07 (heading, exercise 1 and, by the lead,
+    Panel A's title in `index.js` and the status table), as module 03.
+  - «guidatore» → «automobilista»: 07 (lecture, texts.js ×2,
+    `FigureTraffic.jsx`), as module 08 and the table.
+  - «attacco di maggioranza» → «attacco del 51%»: 10, `VotingPanel.jsx`.
+  - *pool* in italics at its first use: 10 IT (the box).
+  - Already gone everywhere: «risposta migliore», «catena segreta»,
+    «equilibrio di confusione», «round» in IT.
+- Panel names: the page labels each panel "Simulation A" / "Simulazione A"
+  (`LabLecture.jsx`, the eyebrow over the title). Modules 01–05 already
+  said so; 06–14 and several texts.js said "Panel A" / "Pannello A".
+  About 103 EN and 103 IT changes, with the Italian gender fixed («nel
+  Pannello A» → «nella Simulazione A», «Il pannello si apre» → «La
+  simulazione si apre»); modules 03 and 04, last exercise, "In the
+  simulation. Panel A…" → "In the simulations. Simulation A…"; module 05's
+  lower-case «simulazione A» capitalized (6); `FigureThreshold.jsx`
+  "(Panel C)" → "(Simulation C)". No pin contained Panel or Pannello.
+- Closing section: 02 "## What comes next" / «## Che cosa viene dopo» →
+  "## Next" / «## Il prossimo modulo»; 13 IT «## Prossimo modulo» → «## Il
+  prossimo modulo». Every "Next" paragraph (02, 05–13) names and links the
+  right module. 01, 03, 04 and 14 have no such section (the engine's "Next
+  module" button follows every lecture).
+- Notation: module 10's box called the hash-rate share h; now α, as 04
+  and 13. Left, because the panels use them (reported for Adriano): δ is
+  the discount factor in 04 and 06 but the spillover strength in 09; b is
+  the bias and the lemons parameter (05), the threshold 2/(2 − w) (06),
+  the bid (11, 12); ρ the fixation probability (07) and the guessed share
+  (13); v(S) a coalition's worth (10) against v a value (11, 12); k counts
+  different things in 06, 08, 11/12, 14; module 14 uses Budish's A and A*
+  (a multiple of the honest hash rate) where 13 uses α (a share), as
+  Budish does.
+- Titles and cross-lab links: module titles quoted in the text match
+  `game-theory-modules.json` (12 → "Mining as a game", 08 → "Games on
+  networks"); every `/network-lab/` and `/lab/` link has the right number
+  (08 → 10; 09 → 03, 06, 13; Complexity Lab → 11).
+- Reading lists, one format: "(eds)" → "(eds.)" (02, 03 EN); "91 (2)" →
+  "91(2)" (04, as 14's "140(1)"); «Capp.» → «Cap.» (11 IT); Ausubel ",
+  MIT Press, ch. 1." → ". MIT Press. Ch. 1." / «Cap. 1.» (12); Hannan "In
+  *Contributions…*" (07, as 10); 14 IT "and" → «e» between authors (5
+  entries), Nakamoto «(incentivo)» → «(incentivi)», as 13. Citation
+  content unchanged; "Vazirani, V." (07–09) against "V. V." (12) left.
+- Italian details: about 55 lists of bare decimals now separated by
+  semicolons (01, 02, 03, 04, 05, 06, 07, 09, 10), e.g. «cioè 41,67; 31,67
+  e 26,67»; commas that read like a list → colons («0,0013: 14 volte
+  meno»); curly “ ” → « » in IT UI strings (`EstatePanel.jsx`,
+  `FigureEntry.jsx`, `TreePanel.jsx`, `UltimatumPanel.jsx`); 07 IT «una
+  sola giocatrice … lei … lei» → «un solo giocatore … lui … lui» (the
+  players masculine, as in every other module; no other feminine
+  reference to the miner, players, bidders or attacker; 01's «giocatrici»
+  are real badminton players).
+- Pins changed (the semicolon lists): 01 (four observe/exercise lists),
+  02 (six), 03 (observe A, B; exercise 6), 04 (nash1–3, exercise 5,
+  ultimatum «; infine»), 05 (three), 06 ('(2.5, 2.5)' and the box's three
+  pairs), 09 (observe C totals), 10 (a helper `and3d` and the Shapley,
+  proportional, pools and exercise lists). EN sides unchanged. No browser
+  check pins a changed string.
+- Words that moved: 02 EN 1,687, IT 1,697; 07 EN 1,636, IT 1,691; 13 IT
+  1,795 (limit 1,800); the rest unchanged.
+- Left for Adriano: Tit for Tat roman in 06 IT, italic in 07 IT; the
+  notation clashes above; 05 IT intervals «0–0,133, 0,133–0,467, 0,467–1»
+  kept with commas; 05 IT Panel B title «Separarsi o confondersi?».
+- Not unified (reported by several module passes): apostrophes, straight '
+  in the lectures and texts.js, curly ’ in the UI strings and captions;
+  each file type is consistent and the two render alike in the fonts used.
+- The lab's index (`src/data/lab/game-theory-modules.json`), the fourteen
+  titles and summaries read as one list (no check pins them; JSON
+  validated). Titles unchanged. Summaries, 9 strings:
+  - 13 EN "…when following the protocol is not the best strategy." → "…when
+    following the protocol does not pay." (module 12's summary already
+    says "the best strategy"); IT «…non è la strategia migliore.» → «Le
+    scelte di un miner e quando seguire il protocollo non conviene.»
+  - 12 IT «Regole che rendono la verità la strategia migliore» → «Regole
+    per cui dire la verità è la strategia migliore» (as the EN "telling
+    the truth").
+  - 10 EN "The core, the Shapley value, and why…" → "The core, the Shapley
+    value and why…" (no serial comma, as 01 and 11).
+  - IT, comma before «e» dropped where it joins two plain members: 03
+    («imprevedibili e che cosa garantisce»), 06 («alla cooperazione e
+    quanto vale»), 08; kept after a relative or a «quando» clause (07, 09,
+    12) where it guides the reading.
+  - 08 IT «le scelte egoiste» → «le scelte egoistiche» (egoista for people,
+    egoistico for acts).
+  - 05 IT «senza sapere chi sono gli altri» → «chi siano gli altri».
+  - 14 IT «quanto costa tenere sicuro Bitcoin» → «mantenere sicuro».
+- Checks (one per command, after a build):
+  - `node scripts/lab/check-game-theory-01.mjs` … `-14.mjs`: all checks
+    passed, each (01 10 s, 02 15 s, 03 45 s, 04 6 s, 05 2 s, 06 1 s, 07
+    1 s, 08 2 s, 09 0 s, 10 1 s, 11 10 s, 12 14 s, 13 8 s, 14 1 s).
+  - `npx vite build`: built (12 s).
+  - A slip: the four browser checks below were first sent in one batch and
+    ran at the same time, against the "one at a time" rule; two exited 1
+    and two hung past 600 s. Nothing was left running (no node process).
+    Rerun one per command:
+  - `node check-index.mjs game-theory`: 0 failures of 76 (104 s).
+  - `node check-index.mjs network`: 0 failures of 76 (105 s).
+  - `node check-index.mjs complexity`: 0 failures of 72 (103 s).
+  - `node check-links.mjs`: 0 failures of 131 (164 s).

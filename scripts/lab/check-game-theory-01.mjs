@@ -342,7 +342,7 @@ console.log('— Quoted on the page')
     ['one eighth have two stable cells, and one eighth have none', 'un ottavo ha due celle stabili, e un ottavo non ne ha nessuna'],
   ])
   quoted('lecture: the guessing game', lecture, [
-    '66.7', '44.4', '29.6, 19.8, 13.2', '33.3', '22.2',
+    '66.7', '44.4', ['29.6, 19.8, 13.2', '29,6; 19,8; 13,2'], '33.3', '22.2',
     [`an average of ${m1(round1.mean)}`, `una media di ${it(m1(round1.mean))}`],
     [`The target is ${m1(round1.target)}`, `Il bersaglio è ${it(m1(round1.target))}`],
     [`level 2 wins ${w[2]} times`, `il livello 2 vince ${w[2]} volte`],
@@ -364,7 +364,7 @@ console.log('— Quoted on the page')
     m1(many.default.dist[4]), m1(many.default.dist[1]), m1(many.default.dist[0]),
     f2(expected(D.deep, 2 / 3).mean), f2(expected(D.deep, 2 / 3).target),
     [`Level 0 wins ${many.half.wins[0]} times and level 3 ${many.half.wins[3]} times`, `Il livello 0 vince ${many.half.wins[0]} volte e il livello 3 ${many.half.wins[3]} volte`],
-    `(${seq.slice(0, 8).map((r) => m1(r.mean)).join(', ')})`,
+    [`(${seq.slice(0, 8).map((r) => m1(r.mean)).join(', ')})`, `(${seq.slice(0, 8).map((r) => it(m1(r.mean))).join('; ')})`],
     [`${many.p09.wins[2]} and ${many.p09.wins[3]}`, `${many.p09.wins[2]} e ${many.p09.wins[3]}`],
     [`level 2 wins ${many.p05.wins[2]} times`, `il livello 2 vince ${many.p05.wins[2]} volte`],
     ['in round 8', 'al turno 8'],
@@ -378,7 +378,7 @@ console.log('— Quoted on the page')
   const small = survey({ sizes: [DEFAULT_SIZE], games: DEFAULT_GAMES })[DEFAULT_SIZE]
   quoted('observe, Panel C', observe.dominance, [
     f3(small.dominated), f3(small.solved),
-    [`from ${f3(big[2].solved)} at m = 2 to ${[3, 4, 5, 6, 7].map((m) => f3(big[m].solved)).join(', ')} and ${f3(big[8].solved)} at m = 8`, `da ${it(f3(big[2].solved))} per m = 2 a ${[3, 4, 5, 6, 7].map((m) => it(f3(big[m].solved))).join(', ')} e ${it(f3(big[8].solved))} per m = 8`],
+    [`from ${f3(big[2].solved)} at m = 2 to ${[3, 4, 5, 6, 7].map((m) => f3(big[m].solved)).join(', ')} and ${f3(big[8].solved)} at m = 8`, `da ${it(f3(big[2].solved))} per m = 2 a ${[3, 4, 5, 6, 7].map((m) => it(f3(big[m].solved))).join('; ')} e ${it(f3(big[8].solved))} per m = 8`],
     [`from ${f3(big[2].none)} to ${f3(big[8].none)}`, `da ${it(f3(big[2].none))} a ${it(f3(big[8].none))}`],
     [`from ${f3(big[2].one)} to ${f3(big[8].one)}`, `da ${it(f3(big[2].one))} a ${it(f3(big[8].one))}`],
     [`${m1(big[8].cells)} of the 64 cells`, `${it(m1(big[8].cells))} delle 64 celle`],
@@ -386,7 +386,7 @@ console.log('— Quoted on the page')
   check('observe, Panel C: at every size at least 0.66 of the games have a stable cell; the panel opens on 3 × 3 and 2,000 games', SIZES.every((m) => 1 - big[m].none >= 0.66) && DEFAULT_SIZE === 3 && DEFAULT_GAMES === 2000)
 
   const sol = (i) => ({ en: exercises[i].solution.en, it: exercises[i].solution.it })
-  quoted('exercise 2', sol(1), ['33.3, 22.2, 14.8', '9.9', '0.87', '1.30', '0.78', '0.91', ['level 10', 'livello 10'], ['level 6', 'livello 6'], ['level 38', 'livello 38']])
+  quoted('exercise 2', sol(1), [['33.3, 22.2, 14.8', '33,3; 22,2; 14,8'], '9.9', '0.87', '1.30', '0.78', '0.91', ['level 10', 'livello 10'], ['level 6', 'livello 6'], ['level 38', 'livello 38']])
   quoted('exercise 4', sol(3), ['576', '144', '432', ['72 and 72', '72 e 72']])
   const e = (s, p) => expected(s, p)
   quoted('exercise 5', sol(4), [
@@ -397,7 +397,7 @@ console.log('— Quoted on the page')
   ])
   check('exercise 5: the 1,000 plays average 29.82 and 19.88; in "half at equilibrium" level 3 is about 5 from the target and the players at 0 are 9.5 away', f2(many.default.mean) === '29.82' && f2(many.default.target) === '19.88' && Math.round(many.half.dist[3]) === 5 && m1(many.half.dist[4]) === '9.5', `${f2(many.default.mean)} ${f2(many.default.target)} ${many.half.dist[3]} ${many.half.dist[4]}`)
   quoted('exercise 6', sol(5), [
-    [`${[2, 3, 4].map((m) => f3(big[m].solved)).join(', ')} and ${f3(big[6].solved)}`, `${[2, 3, 4].map((m) => it(f3(big[m].solved))).join(', ')} e ${it(f3(big[6].solved))}`],
+    [`${[2, 3, 4].map((m) => f3(big[m].solved)).join(', ')} and ${f3(big[6].solved)}`, `${[2, 3, 4].map((m) => it(f3(big[m].solved))).join('; ')} e ${it(f3(big[6].solved))}`],
     f3(big[2].none), f3(big[8].none),
   ])
 

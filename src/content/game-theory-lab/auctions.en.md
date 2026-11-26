@@ -40,7 +40,7 @@ This is no coincidence. **Revenue equivalence** (Vickrey 1961 in special cases; 
 
 The averages agree; the risks do not. With two bidders the standard deviation of the revenue is 23.57 in the second-price auction, 11.79 in the first-price and 21.08 in the all-pay. The second price rests on the lower value alone, which can fall anywhere between 0 and 100; the first price on half the higher value, which varies less.
 
-A **reserve price**, below which the seller keeps the object, raises the average: it loses the sales below the reserve, but makes the winner pay at least the reserve when the second value is lower. With uniform values the best reserve is 50, whatever the number of bidders (Myerson 1981; Riley and Samuelson 1981). With two bidders it earns 41.67 instead of 33.33, at the cost of no sale a quarter of the time, when both values are below 50. Yet one more bidder is worth more than the best reserve (Jeremy Bulow and Paul Klemperer 1996): three bidders and no reserve earn 50. Panel A runs thousands of auctions in each format.
+A **reserve price**, below which the seller keeps the object, raises the average: it loses the sales below the reserve, but makes the winner pay at least the reserve when the second value is lower. With uniform values the best reserve is 50, whatever the number of bidders (Myerson 1981; Riley and Samuelson 1981). With two bidders it earns 41.67 instead of 33.33, at the cost of no sale a quarter of the time, when both values are below 50. Yet one more bidder is worth more than the best reserve (Jeremy Bulow and Paul Klemperer 1996): three bidders and no reserve earn 50. Simulation A runs thousands of auctions in each format.
 
 ## The winner's curse
 
@@ -48,13 +48,13 @@ Now change the object. An oil field holds the same oil whoever drills it: its va
 
 A model. Each estimate is the value plus an error uniform within ±a. If everyone bids her estimate in a first-price auction, the winner is the bidder with the highest estimate, the one who overestimated the most. She overpays by a(n − 1)/(n + 1) on average: with a = 10, by 3.33 with two bidders, 6.67 with five, 8.18 with ten. The more bidders, the worse.
 
-A careful bidder bids as if her estimate were the highest, since that is the only case in which her bid matters. Away from the ends of the range of values, the equilibrium bid is the estimate minus a in the first-price auction (John Kagel and Dan Levin 1986) and the estimate minus a(n − 2)/n in the second-price auction (Kagel, Levin and Ronald Harstad 1995). With common values the formats no longer earn the same: the second price earns more than the first. The English auction, in which bidders see the others drop out and learn from it, earns at least as much as the second price (Paul Milgrom and Robert Weber 1982). Panel B auctions the jar of coins.
+A careful bidder bids as if her estimate were the highest, since that is the only case in which her bid matters. Away from the ends of the range of values, the equilibrium bid is the estimate minus a in the first-price auction (John Kagel and Dan Levin 1986) and the estimate minus a(n − 2)/n in the second-price auction (Kagel, Levin and Ronald Harstad 1995). With common values the formats no longer earn the same: the second price earns more than the first. The English auction, in which bidders see the others drop out and learn from it, earns at least as much as the second price (Paul Milgrom and Robert Weber 1982). Simulation B auctions the jar of coins.
 
 ## Many units
 
 Now the seller has k identical units and n bidders who want one each. In a **pay-your-bid** (discriminatory) auction the k highest bids win and each winner pays her own bid. In a **uniform-price** auction every winner pays the same price, the highest losing bid. With one unit per bidder the uniform price is the Vickrey auction again: your bid decides whether you win, the others' bids decide the price, and bidding your value is dominant. Under pay-your-bid bidders shade, as in the first-price auction. On average both earn 100 k(n − k)/(n + 1), revenue equivalence once more, and pay-your-bid is far less risky.
 
-When bidders want several units, the uniform price loses its charm: a bid for a second unit can set the price paid for the first, so a bidder gains by asking for fewer units than she wants (**demand reduction**; Vijay Krishna, ch. 13). The question is practical: the US Treasury moved its auctions of government debt from pay-your-bid to a uniform price in 1998. Panel C sells the slots of a block.
+When bidders want several units, the uniform price loses its charm: a bid for a second unit can set the price paid for the first, so a bidder gains by asking for fewer units than she wants (**demand reduction**; Vijay Krishna, ch. 13). The question is practical: the US Treasury moved its auctions of government debt from pay-your-bid to a uniform price in 1998. Simulation C sells the slots of a block.
 
 ```box
 Block space: an auction every ten minutes
@@ -64,7 +64,7 @@ Block space: an auction every ten minutes
 
 **Another rule.** Ron Lavi, Or Sattath and Aviv Zohar (2019) show that under pay-your-bid a bigger block can lower the miners' revenue. They propose the monopolistic price: every included transaction pays the lowest included fee, and the miner chooses how many transactions to include. This rule keeps the revenue as the block grows, resists manipulation by the miner, and makes shading less useful as the number of users grows (Andrew Chi-Chih Yao 2020).
 
-**In Panel C.** With 20 users and 10 slots, pay-your-bid and the uniform price both raise 476.19 on average; with room for all 20, nothing. The monopolistic price raises about 547 with 10 slots and about 579 with 20, serving about 11 users and leaving 9 out.
+**In Simulation C.** With 20 users and 10 slots, pay-your-bid and the uniform price both raise 476.19 on average; with room for all 20, nothing. The monopolistic price raises about 547 with 10 slots and about 579 with 20, serving about 11 users and leaving 9 out.
 
 **A hypothesis, not a description.** Here every user wants one slot and values are uniform; real transactions differ in size and in patience, and can wait for the next block. Whether the miner, who runs the auction, can be trusted is module 12's question.
 ```

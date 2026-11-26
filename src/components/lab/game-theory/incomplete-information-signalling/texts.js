@@ -13,7 +13,7 @@ export const observe = {
 5. Press **Survey**. The exact curves of cars traded and gains realized jump to 1 where b(1 + q_min)/2 reaches 1, and the gains curve always lies below the cars curve: the cars that stay unsold are the best. The dots of the samples sit on the curves, except near b = 2 with q_min = 0: at b = 1.9 the sample stops with 0.040 of the cars where the exact model sells none, because the price falls by only 5% per round and a sample soon finds a round where no car leaves. At b = 2 itself the exact model is on a knife edge (any price below 1 would stay where it is); on this seed the dot is 1.000, on other seeds it ends anywhere from 0.366 to 1.
 `,
     it: `
-1. Premi **Avvia** con i valori iniziali (q_min = 0,2, b = 1,5, 10.000 auto, campione n. 1). Il prezzo scende da 0,898 (0,9 nel modello esatto) turno dopo turno e si ferma a 0,594 dopo 27 turni; passa di mano lo 0,493 delle auto e si realizza lo 0,326 dei guadagni, contro 0,6, 1/2 e 1/3 nel modello esatto. Il campione va avanti anche dopo che la traiettoria esatta è a meno di 0,001 dalla fine (turno 20): si ferma solo quando non esce nemmeno un'auto.
+1. Premi **Avvia** con i valori iniziali (q_min = 0,2; b = 1,5; 10.000 auto; campione n. 1). Il prezzo scende da 0,898 (0,9 nel modello esatto) turno dopo turno e si ferma a 0,594 dopo 27 turni; passa di mano lo 0,493 delle auto e si realizza lo 0,326 dei guadagni, contro 0,6; 1/2 e 1/3 nel modello esatto. Il campione va avanti anche dopo che la traiettoria esatta è a meno di 0,001 dalla fine (turno 20): si ferma solo quando non esce nemmeno un'auto.
 2. Porta **q_min a 0**: il prezzo scivola fino a 0,001 e si vendono solo 8 delle 10.000 auto, anche se ciascuna vale per un compratore la metà in più. Porta **q_min a 0,4**: ora il primo prezzo, 1,048, è sopra ogni qualità, nessuno si ritira e passa di mano tutto il mercato in un turno.
 3. Di nuovo con q_min = 0,2, alza **b**: a 1,65 il prezzo continua a scendere, ma lentamente (32 turni, lo 0,904 delle auto); a 1,70, sopra 5/3, passa di mano subito tutto il mercato.
 4. Con **N = 1.000** la fine di un campione è molto meno certa: il campione n. 1 si ferma a 0,580 dopo 16 turni. Con i semi da 1 a 10, i campioni di 10.000 auto finiscono tra 0,576 e 0,617, quelli di 1.000 tra 0,529 e 0,667.
@@ -49,7 +49,7 @@ export const observe = {
 2. Premi **1**: un solo intervallo, il messaggio non dice nulla, e la perdita è 1/12. Ogni equilibrio con meno intervalli del massimo è peggiore per entrambi.
 3. Porta b a **0,05**: tre intervalli, confini 0,1333 e 0,4667, ognuno più lungo di 0,2 del precedente; la perdita è 0,01593 (0,02333 con due). A **0,02** sono cinque, lunghi da 0,04 a 0,36.
 4. Porta b a **0,25**: un solo intervallo. La delega costa ancora b², 0,0625, meno di 1/12; sopra circa 0,289 costa di più, e la riga sotto i valori cambia.
-5. Premi **Rassegna**. L'N più grande scende da 10 a b = 0,005 a 7, 6, 5, 4 entro b = 0,025, a 3 a 0,045, 2 a 0,085 e 1 a 0,25. La perdita del decisore sale a gradini verso 1/12; resta sopra b² fino a b = 0,285 e scende sotto da 0,290, gli ultimi tre punti della rassegna.
+5. Premi **Rassegna**. L'N più grande scende da 10 a b = 0,005 a 7, 6, 5, 4 entro b = 0,025; a 3 a 0,045; 2 a 0,085 e 1 a 0,25. La perdita del decisore sale a gradini verso 1/12; resta sopra b² fino a b = 0,285 e scende sotto da 0,290, gli ultimi tre punti della rassegna.
 `,
   },
 }
@@ -103,7 +103,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'Cheap talk with b = 0.1 and b = 0.05: the most informative partition, the decision maker’s loss, and the comparison with no talk and with letting the expert decide. Why is each interval 4b longer than the one before? Check your numbers in Simulation C.',
-      it: "Cheap talk con b = 0,1 e b = 0,05: la partizione più informativa, la perdita del decisore, e il confronto con il caso senza parole e con la delega all'esperto. Perché ogni intervallo è più lungo di 4b del precedente? Controlla i numeri nella simulazione C.",
+      it: "Cheap talk con b = 0,1 e b = 0,05: la partizione più informativa, la perdita del decisore, e il confronto con il caso senza parole e con la delega all'esperto. Perché ogni intervallo è più lungo di 4b del precedente? Controlla i numeri nella Simulazione C.",
     },
     solution: {
       en: 'b = 0.1: 0–0.3 and 0.3–1; loss (0.3³ + 0.7³)/12 = 0.0308; no talk 0.0833; delegation 0.01. b = 0.05: 0–0.133, 0.133–0.467, 0.467–1; loss 0.0159; delegation 0.0025. An expert who sees exactly a boundary a must be indifferent between the two neighbouring actions, so a + b lies halfway between the two midpoints. If the intervals have lengths L and L′, the midpoints are a − L/2 and a + L′/2, and a + b = a + (L′ − L)/4: L′ = L + 4b.',
@@ -114,11 +114,11 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'On paper, then in the simulation. Show that 1/2 is the threshold of the global game: what does a hunter with signal 1/2 believe about the other’s signal? Then: in F2, the steps until the open band is narrower than 0.02 for σ = 0.2, 0.1, 0.05 and 0.02; in Simulation A, the share of cars traded with b = 1.5 for q_min = 0, 0.1, 0.2 and 0.4, and the end price of a sample of 10,000 cars; in Simulation C, the largest N for b = 0.2, 0.1, 0.05 and 0.02.',
-      it: "Su carta, poi nella simulazione. Mostra che 1/2 è la soglia del gioco globale: che cosa crede un cacciatore con segnale 1/2 sul segnale dell'altro? Poi: in F2, i passi necessari perché la fascia aperta diventi più stretta di 0,02 per σ = 0,2, 0,1, 0,05 e 0,02; nella simulazione A, la quota di auto vendute con b = 1,5 per q_min = 0, 0,1, 0,2 e 0,4, e il prezzo finale di un campione di 10.000 auto; nella simulazione C, l'N più grande per b = 0,2, 0,1, 0,05 e 0,02.",
+      it: "Su carta, poi nella simulazione. Mostra che 1/2 è la soglia del gioco globale: che cosa crede un cacciatore con segnale 1/2 sul segnale dell'altro? Poi: in F2, i passi necessari perché la fascia aperta diventi più stretta di 0,02 per σ = 0,2; 0,1; 0,05 e 0,02; nella Simulazione A, la quota di auto vendute con b = 1,5 per q_min = 0; 0,1; 0,2 e 0,4, e il prezzo finale di un campione di 10.000 auto; nella Simulazione C, l'N più grande per b = 0,2; 0,1; 0,05 e 0,02.",
     },
     solution: {
       en: 'Given its signal, a hunter believes the other’s signal is centred on its own: with signal 1/2 it is above or below 1/2 with equal chances. If the other hunts the stag above 1/2, the stag pays 1/2 − 1 × 1/2 = 0, the same as the hare: indifference, so 1/2 is the cutoff. F2: 8, 13, 24 and 56 steps. Simulation A, exact: 0, 0.222, 1/2 and 1; sample no. 1 of 10,000 cars: 0.001, 0.228, 0.493 and 1.000, end price 0.594 at q_min = 0.2. Simulation C: 2, 2, 3, 5.',
-      it: "Dato il suo segnale, un cacciatore crede che il segnale dell'altro sia centrato sul proprio: con segnale 1/2 è sopra o sotto 1/2 con uguale probabilità. Se l'altro caccia il cervo sopra 1/2, il cervo rende 1/2 − 1 × 1/2 = 0, quanto la lepre: indifferenza, quindi 1/2 è la soglia. F2: 8, 13, 24 e 56 passi. Simulazione A, esatto: 0, 0,222, 1/2 e 1; campione n. 1 di 10.000 auto: 0,001, 0,228, 0,493 e 1,000, prezzo finale 0,594 con q_min = 0,2. Simulazione C: 2, 2, 3, 5.",
+      it: "Dato il suo segnale, un cacciatore crede che il segnale dell'altro sia centrato sul proprio: con segnale 1/2 è sopra o sotto 1/2 con uguale probabilità. Se l'altro caccia il cervo sopra 1/2, il cervo rende 1/2 − 1 × 1/2 = 0, quanto la lepre: indifferenza, quindi 1/2 è la soglia. F2: 8, 13, 24 e 56 passi. Simulazione A, esatto: 0; 0,222; 1/2 e 1; campione n. 1 di 10.000 auto: 0,001; 0,228; 0,493 e 1,000, prezzo finale 0,594 con q_min = 0,2. Simulazione C: 2, 2, 3, 5.",
     },
   },
 ]

@@ -22,7 +22,7 @@ Eric Budish (2025; first version 2018) reduced the question to three equations. 
 N*·c = p_block                         (1)
 ```
 
-**Incentive compatibility.** An attacker with A times the honest computing power must keep mining for t(A) blocks on average before her private chain overtakes the honest one. The attack must cost her more than the V_attack it brings:
+**Incentive compatibility.** An attacker with A times the honest computing power must keep mining for t(A) blocks on average before her private branch overtakes the honest one. The attack must cost her more than the V_attack it brings:
 
 ```math
 A·N*·c·t(A) > V_attack                 (2)
@@ -38,7 +38,7 @@ p_block > V_attack / (A*·t(A*))         (3)
 
 The left side is a **flow**, paid in every block for as long as the chain exists. The right side is a **stock**, a one-off gain. Equation (3) says the flow must be large against the stock, and that the flow needed grows in proportion to the stock: securing twice the value costs twice as much, for ever.
 
-How long does an attack last? Budish lets the merchant wait for e blocks of **escrow** after the attacker's transaction is in a block, and k counts the blocks in which the attacker places her transactions. When the honest chain has n = k + e blocks, the number m of blocks on her private chain follows a negative binomial distribution. If she is behind, she gains on average A − 1 blocks for each honest block, so closing a gap of i blocks and getting one ahead takes (i + 1)/(A − 1) more. Budish's base case is an hour of each, k + e = 12: then A* = 1.43, a 59% share of all computing power (a **majority attack**, the "51% attack", with room to spare), and t(A*) = 13.99 blocks. So every block must pay about 5.00% of the value at stake, 720% of it a day. Deterring a $1 billion attack this way would cost about $2.63 trillion a year. Figure F1 recomputes Budish's table of t(A) and draws the cost against A.
+How long does an attack last? Budish lets the merchant wait for e blocks of **escrow** after the attacker's transaction is in a block, and k counts the blocks in which the attacker places her transactions. When the honest chain has n = k + e blocks, the number m of blocks on her private branch follows a negative binomial distribution. If she is behind, she gains on average A − 1 blocks for each honest block, so closing a gap of i blocks and getting one ahead takes (i + 1)/(A − 1) more. Budish's base case is an hour of each, k + e = 12: then A* = 1.43, a 59% share of all computing power (a **majority attack**, the "51% attack", with room to spare), and t(A*) = 13.99 blocks. So every block must pay about 5.00% of the value at stake, 720% of it a day. Deterring a $1 billion attack this way would cost about $2.63 trillion a year. Figure F1 recomputes Budish's table of t(A) and draws the cost against A.
 
 ```figure
 flow
@@ -48,7 +48,7 @@ flow
 
 The **subsidy** is 3.125 BTC a block. Fees averaged 0.0201 BTC a block in the week to 23 November 2026, 0.64% of what miners earned (Hashrate Index). At $60,374, CoinGecko's close of 25 November 2026, a block pays p_block = $189,882. With k + e = 12, A*·t(A*) is 20.0, so the flow deters attacks worth up to about 20 times p_block: $3.80 million. If everyone waited a week (k + e = 1,008), the multiple would be 1,099, and attacks up to $208.68 million would be deterred.
 
-That is Budish's point. Bitcoin moves far larger sums than these every day, so if his model described the world, someone would already have attacked. Panel A starts from these dated defaults; every value has its source under its field.
+That is Budish's point. Bitcoin moves far larger sums than these every day, so if his model described the world, someone would already have attacked. Simulation A starts from these dated defaults; every value has its source under its field.
 
 ## The objections
 
@@ -70,11 +70,11 @@ clock
 
 Can fees take over? Raphael Auer (2019) argues that they cannot, on their own. Each user pays for her own transaction but benefits from the security that all the others' fees buy, so she leaves that cost to them; the fees offered then fall short of what security needs.
 
-Miles Carlsten, Harry Kalodner, Matthew Weinberg and Arvind Narayanan (2016) showed what changes when fees are the whole reward. With blocks found at random times and fees flowing in steadily, a block's reward depends on how long it has been since the last one, so rewards vary as much as the gaps. A block that happens to be rich becomes worth forking, to take its fees for oneself (**undercutting**). Selfish mining pays for a miner of any size. And just after a block, when few fees are waiting, it may pay to switch the machines off until fees build up again: a **mining gap**. Panel B draws these rewards. Gur Huberman, Jacob Leshno and Ciamac Moallemi (2021) connect the fee market of [module 11](/game-theory-lab/auctions) to this question: fees are high only when blocks are full, so the users' willingness to wait is what sets the miners' revenue.
+Miles Carlsten, Harry Kalodner, Matthew Weinberg and Arvind Narayanan (2016) showed what changes when fees are the whole reward. With blocks found at random times and fees flowing in steadily, a block's reward depends on how long it has been since the last one, so rewards vary as much as the gaps. A block that happens to be rich becomes worth forking, to take its fees for oneself (**undercutting**). Selfish mining pays for a miner of any size. And just after a block, when few fees are waiting, it may pay to switch the machines off until fees build up again: a **mining gap**. Simulation B draws these rewards. Gur Huberman, Jacob Leshno and Ciamac Moallemi (2021) connect the fee market of [module 11](/game-theory-lab/auctions) to this question: fees are high only when blocks are full, so the users' willingness to wait is what sets the miners' revenue.
 
 ## Do the sum yourself
 
-Every number in this module depends on assumptions: a price, a hash rate, a cost of hardware, how long a merchant waits, what an attacker wants. Panel C is a worksheet. Each input has a field for its source and its date, and the result is a sentence of the form "under these assumptions an attack worth V is, or is not, deterred". It is never a verdict on Bitcoin, only on a model with your numbers in it.
+Every number in this module depends on assumptions: a price, a hash rate, a cost of hardware, how long a merchant waits, what an attacker wants. Simulation C is a worksheet. Each input has a field for its source and its date, and the result is a sentence of the form "under these assumptions an attack worth V is, or is not, deterred". It is never a verdict on Bitcoin, only on a model with your numbers in it.
 
 ## What the lab has shown
 

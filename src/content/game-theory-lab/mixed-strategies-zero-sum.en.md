@@ -93,7 +93,7 @@ Outside pure conflict there is no such promise. Lloyd Shapley (1964) built a thr
 - Nash, J. F. (1950). Equilibrium points in n-person games. *Proceedings of the National Academy of Sciences* 36, 48–49.
 - Brown, G. W. (1951). Iterative solution of games by fictitious play. In Koopmans, T. C. (ed.), *Activity Analysis of Production and Allocation*. Wiley, 374–376.
 - Robinson, J. (1951). An iterative method of solving a game. *Annals of Mathematics* 54, 296–301.
-- Shapley, L. S. (1964). Some topics in two-person games. In Dresher, M., Shapley, L. S. and Tucker, A. W. (eds), *Advances in Game Theory*. Princeton University Press, 1–28.
+- Shapley, L. S. (1964). Some topics in two-person games. In Dresher, M., Shapley, L. S. and Tucker, A. W. (eds.), *Advances in Game Theory*. Princeton University Press, 1–28.
 - Wilson, R. (1971). Computing equilibria of N-person games. *SIAM Journal on Applied Mathematics* 21, 80–87.
 - Harsanyi, J. C. (1973). Oddness of the number of equilibrium points: a new proof. *International Journal of Game Theory* 2, 235–250.
 - Palacios-Huerta, I. (2003). Professionals play minimax. *Review of Economic Studies* 70, 395–415.

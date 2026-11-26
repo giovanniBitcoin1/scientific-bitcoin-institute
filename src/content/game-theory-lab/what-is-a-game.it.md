@@ -58,7 +58,7 @@ Un fatto rassicurante: con la dominanza stretta l'ordine delle cancellazioni non
 
 In una sala, ognuno scrive un numero da 0 a 100. Vince chi si avvicina di più ai due terzi della media.
 
-La media non può superare 100, quindi i suoi due terzi non possono superare 66,7. Un numero sopra 66,7 non è mai migliore di 66,7, e a volte è peggiore (è la dominanza debole: mai meglio, in qualche caso peggio). Dunque nessuno di buon senso va oltre 66,7. Ma allora la media è al massimo 66,7 e il bersaglio al massimo 44,4. Ripetendo l'argomento il limite scende a 29,6, 19,8, 13,2… Sopravvive solo lo 0.
+La media non può superare 100, quindi i suoi due terzi non possono superare 66,7. Un numero sopra 66,7 non è mai migliore di 66,7, e a volte è peggiore (è la dominanza debole: mai meglio, in qualche caso peggio). Dunque nessuno di buon senso va oltre 66,7. Ma allora la media è al massimo 66,7 e il bersaglio al massimo 44,4. Ripetendo l'argomento il limite scende a 29,6; 19,8; 13,2… Sopravvive solo lo 0.
 
 Ma le persone non scelgono 0. Nell'esperimento di Rosemarie Nagel del 1995 la media dei numeri del primo turno fu di circa 37. Quando tre giornali proposero il gioco ai lettori, 7.900 in tutto, le medie furono tra 19 e 25, con i numeri addensati vicino a 33 e a 22.
 

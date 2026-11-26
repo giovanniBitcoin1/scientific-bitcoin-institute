@@ -38,7 +38,7 @@ fates
 
 Ogni ESS è un punto di equilibrio asintoticamente stabile dell'equazione del replicatore (Taylor e Jonker 1978; Hofbauer, Schuster e Sigmund 1979). Con due strategie vale anche il contrario, come mostra la figura; con tre o più no: un punto di equilibrio può attirare la popolazione senza essere una ESS.
 
-## Sasso, carta, forbici
+## Sasso-carta-forbici
 
 Con tre strategie, ognuna batte la successiva in un ciclo, come nella morra cinese del [modulo 03](/game-theory-lab/mixed-strategies-zero-sum): una vittoria paga a, una sconfitta costa b, un pareggio dà 0. L'unico punto di equilibrio interno al triangolo è il centro (1/3, 1/3, 1/3), e il prodotto V = x_S x_C x_F dice dove va la popolazione:
 
@@ -50,7 +50,7 @@ La parentesi non è mai negativa, ed è nulla solo nel centro. Quando a > b, V c
 
 Barry Sinervo e Curtis Lively (1996) descrissero i maschi della lucertola *Uta stansburiana*: tre colori della gola, tre tattiche di accoppiamento, ognuna capace di batterne un'altra. Le frequenze dei colori seguono un ciclo di pochi anni.
 
-L'ultima scelta del Pannello A riprende il modulo 06. Le tre strategie sono coopera sempre, defeziona sempre e *Tit for Tat*, in 10 turni del dilemma del modulo 01. Sul lato tra defeziona sempre e Tit for Tat, Tit for Tat prende il sopravvento appena supera 1/17 ≈ 0,059. Sul lato tra coopera sempre e Tit for Tat non si muove nulla. Ma dove coopera sempre supera i 4/9 della popolazione, defeziona sempre può invadere. La cooperazione ingenua apre la porta a chi defeziona.
+L'ultima scelta della Simulazione A riprende il modulo 06. Le tre strategie sono coopera sempre, defeziona sempre e *Tit for Tat*, in 10 turni del dilemma del modulo 01. Sul lato tra defeziona sempre e Tit for Tat, Tit for Tat prende il sopravvento appena supera 1/17 ≈ 0,059. Sul lato tra coopera sempre e Tit for Tat non si muove nulla. Ma dove coopera sempre supera i 4/9 della popolazione, defeziona sempre può invadere. La cooperazione ingenua apre la porta a chi defeziona.
 
 ## Un mutante in una popolazione finita
 
@@ -64,13 +64,13 @@ cioè 0,148 per r = 1,1 e N = 10, e ancora 0,059 per un mutante dannoso con r = 
 
 In un gioco la fitness dipende da chi si incontra: 1 − w + w × (payoff medio), dove w è l'**intensità della selezione**. Nowak, Sasaki, Taylor e Fudenberg (2004) trovarono una regola semplice per i giochi di coordinamento con selezione debole e popolazione grande. Un singolo mutante A arriva alla fissazione più spesso di uno neutrale quando il punto instabile x* è sotto 1/3: la **regola di un terzo** (*one-third rule*). E A sostituisce B più facilmente di quanto B sostituisca A proprio quando A è rischio-dominante (x* < 1/2), la nozione del modulo 02.
 
-La caccia al cervo del modulo 02 ha x* = 2/3 per il cervo. Con N = 50 e w = 0,1, un singolo cacciatore di lepri prende il sopravvento con probabilità 0,0184, uno di cervi con 0,0013, 14 volte meno. Kandori, Mailath e Rob (1993) e Young (1993) arrivarono allo stesso verdetto in un modello con rari errori casuali. Nel lungo periodo una popolazione passa quasi tutto il tempo nella convenzione rischio-dominante.
+La caccia al cervo del modulo 02 ha x* = 2/3 per il cervo. Con N = 50 e w = 0,1, un singolo cacciatore di lepri prende il sopravvento con probabilità 0,0184, uno di cervi con 0,0013: 14 volte meno. Kandori, Mailath e Rob (1993) e Young (1993) arrivarono allo stesso verdetto in un modello con rari errori casuali. Nel lungo periodo una popolazione passa quasi tutto il tempo nella convenzione rischio-dominante.
 
 ## Imparare senza conoscere il gioco
 
-Ora una sola giocatrice ripete un gioco e vede solo i propri payoff, non quelli degli altri.
+Ora un solo giocatore ripete un gioco e vede solo i propri payoff, non quelli degli altri.
 
-Il suo ***regret*** (il rimpianto) dopo T turni è quanto avrebbe guadagnato in più la migliore azione singola, contro ciò che gli altri hanno fatto davvero, rispetto a ciò che lei ha guadagnato. Una regola è ***no-regret*** se il regret medio va a zero qualunque cosa facciano gli altri. James Hannan (1957) trovò la prima regola di questo tipo. Una delle più semplici è quella dei **pesi moltiplicativi**, o ***Hedge*** (Littlestone e Warmuth 1994; Freund e Schapire 1997). A ogni turno il peso di ogni azione viene moltiplicato per e^(η·payoff), e lei gioca ciascuna azione con probabilità proporzionale al peso. η è il **tasso di apprendimento**.
+Il suo ***regret*** (il rimpianto) dopo T turni è quanto avrebbe guadagnato in più la migliore azione singola, contro ciò che gli altri hanno fatto davvero, rispetto a ciò che lui ha guadagnato. Una regola è ***no-regret*** se il regret medio va a zero qualunque cosa facciano gli altri. James Hannan (1957) trovò la prima regola di questo tipo. Una delle più semplici è quella dei **pesi moltiplicativi**, o ***Hedge*** (Littlestone e Warmuth 1994; Freund e Schapire 1997). A ogni turno il peso di ogni azione viene moltiplicato per e^(η·payoff), e lui gioca ciascuna azione con probabilità proporzionale al peso. η è il **tasso di apprendimento**.
 
 Con i payoff normalizzati in [0, 1] e n azioni, il suo regret medio, misurato con le sue stesse probabilità, è al più
 
@@ -84,7 +84,7 @@ qualunque cosa facciano gli altri. Con η scelto in base a T è al più √(ln n
 
 Robert Aumann (1974) definì un equilibrio con un mediatore, che estrae una cella della tabella con probabilità note e dice a ogni giocatore solo la parte che lo riguarda: è un **equilibrio correlato** se nessuno guadagna a disobbedire.
 
-Nel gioco del pollo del modulo 01, il mediatore sceglie (sterza, sterza), (sterza, dritto) e (dritto, sterza), ciascuna con probabilità 1/3. Chi riceve l'ordine di sterzare sa che l'altro sterza con probabilità 1/2, ed è indifferente: 3·½ + 1·½ = 4·½ + 0·½. Chi riceve l'ordine di andare dritto sa che l'altro sterza, e andare dritto gli conviene. Ciascuno ottiene 8/3 ≈ 2,67, più dell'equilibrio misto (2) e più di una moneta che decide solo chi va dritto (2,5). È un semaforo che dà a ogni guidatore un'informazione privata.
+Nel gioco del pollo del modulo 01, il mediatore sceglie (sterza, sterza), (sterza, dritto) e (dritto, sterza), ciascuna con probabilità 1/3. Chi riceve l'ordine di sterzare sa che l'altro sterza con probabilità 1/2, ed è indifferente: 3·½ + 1·½ = 4·½ + 0·½. Chi riceve l'ordine di andare dritto sa che l'altro sterza, e andare dritto gli conviene. Ciascuno ottiene 8/3 ≈ 2,67, più dell'equilibrio misto (2) e più di una moneta che decide solo chi va dritto (2,5). È un semaforo che dà a ogni automobilista un'informazione privata.
 
 ```figure
 traffic
@@ -92,7 +92,7 @@ traffic
 
 Quando il regret di ognuno va a zero, le frequenze di gioco tendono all'insieme degli **equilibri correlati *coarse***, in cui nessuno avrebbe preferito impegnarsi in anticipo su una sola azione. Una nozione più forte, lo ***swap regret***, chiede se sarebbe convenuto sostituire ogni azione con un'altra tutte le volte che è stata giocata. Se va a zero anche questo, come nel *regret matching* di Hart e Mas-Colell (2000), le frequenze tendono agli equilibri correlati. Ogni equilibrio di Nash è correlato, e ogni equilibrio correlato è correlato coarse (Roughgarden, lezione 13); con due azioni ciascuno gli ultimi due insiemi coincidono.
 
-Nel Pannello C due giocatori Hedge affrontano i giochi del modulo 01. Nel gioco del pollo si fermano su uno dei due equilibri puri. In pari o dispari non si fermano mai: le loro strategie miste si allontanano a spirale verso gli angoli (Bailey e Piliouras 2018), eppure in media giocano 1/2 e 1/2 e ottengono il valore.
+Nella Simulazione C due giocatori Hedge affrontano i giochi del modulo 01. Nel gioco del pollo si fermano su uno dei due equilibri puri. In pari o dispari non si fermano mai: le loro strategie miste si allontanano a spirale verso gli angoli (Bailey e Piliouras 2018), eppure in media giocano 1/2 e 1/2 e ottengono il valore.
 
 ## Il prossimo modulo
 
@@ -117,7 +117,7 @@ Parte III, convivere. Nel [modulo 08](/game-theory-lab/congestion-price-of-anarc
 - Nowak, M. A., Sasaki, A., Taylor, C. e Fudenberg, D. (2004). Emergence of cooperation and evolutionary stability in finite populations. *Nature* 428, 646–650.
 - Kandori, M., Mailath, G. J. e Rob, R. (1993). Learning, mutation, and long run equilibria in games. *Econometrica* 61, 29–56.
 - Young, H. P. (1993). The evolution of conventions. *Econometrica* 61, 57–84.
-- Hannan, J. (1957). Approximation to Bayes risk in repeated play. *Contributions to the Theory of Games III*, 97–139.
+- Hannan, J. (1957). Approximation to Bayes risk in repeated play. In *Contributions to the Theory of Games III*, 97–139.
 - Littlestone, N. e Warmuth, M. K. (1994). The weighted majority algorithm. *Information and Computation* 108, 212–261.
 - Freund, Y. e Schapire, R. E. (1997). A decision-theoretic generalization of on-line learning and an application to boosting. *Journal of Computer and System Sciences* 55, 119–139.
 - Freund, Y. e Schapire, R. E. (1999). Adaptive game playing using multiplicative weights. *Games and Economic Behavior* 29, 79–103.

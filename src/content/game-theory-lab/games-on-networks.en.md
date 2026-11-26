@@ -38,7 +38,7 @@ This is a model of **local public goods** (Yann Bramoullé and Rachel Kranton 20
 
 Among the equilibria, the simplest are **specialized**: some players work 1 and the others nothing. For this to be an equilibrium, no two workers can be neighbours (each would then want to stop), and every non-worker must have a working neighbour (otherwise she would want to start). In the language of graph theory, the workers form a **maximal independent set**: no two of them linked, and no one else can join without breaking that. A network usually has many such sets, and so many equilibria, with very different totals.
 
-Not all of them survive a small shock. Bramoullé and Kranton show that a specialized equilibrium is stable when every non-worker has at least two working neighbours. The reason is simple. If a worker's effort slips a little, a non-worker with only that one working neighbour has a reason to start, and the profile drifts away from the equilibrium. With two working neighbours, the other one still covers her. On a star of six nodes, the hub working alone, a total of 1, is an equilibrium, but each leaf relies on her alone. The stable one has the five leaves working and the hub relying on them: a total of 5. Panel A lists every specialized equilibrium of four small networks and runs best responses from random starts.
+Not all of them survive a small shock. Bramoullé and Kranton show that a specialized equilibrium is stable when every non-worker has at least two working neighbours. The reason is simple. If a worker's effort slips a little, a non-worker with only that one working neighbour has a reason to start, and the profile drifts away from the equilibrium. With two working neighbours, the other one still covers her. On a star of six nodes, the hub working alone, a total of 1, is an equilibrium, but each leaf relies on her alone. The stable one has the five leaves working and the hub relying on them: a total of 5. Simulation A lists every specialized equilibrium of four small networks and runs best responses from random starts.
 
 With weaker substitutes there may be just one equilibrium. Bramoullé, Kranton and Martin D'Amours (2014) showed that it is unique when |δ| is below 1/|λ_min|, where λ_min is the lowest eigenvalue of the network's adjacency matrix. F1's star has λ_min = −2: that is why its equilibrium is unique on the whole slider.
 
@@ -58,7 +58,7 @@ Which player's removal would lower total effort most? Removing player i takes aw
 b_i² / m_ii
 ```
 
-where b_i is her centrality and m_ii the i-th diagonal entry of (I − δG)^(−1); they called it her **intercentrality**. The **key player**, the one with the highest intercentrality, need not be the most active. In Panel B's bridge network, at δ = 0.3, the most active is player 1 in the triangle, with 4.1655; but the key player is player 4, the bridge between the triangle and the rest, whose removal lowers total effort by 11.3988 against 10.9163 for player 1. Player 1's effort is inflated by the triangle's walks that loop back to her; player 4 holds the network together. The working paper behind the article spoke of crime networks: if the police can remove one person, whom should they pick?
+where b_i is her centrality and m_ii the i-th diagonal entry of (I − δG)^(−1); they called it her **intercentrality**. The **key player**, the one with the highest intercentrality, need not be the most active. In Simulation B's bridge network, at δ = 0.3, the most active is player 1 in the triangle, with 4.1655; but the key player is player 4, the bridge between the triangle and the rest, whose removal lowers total effort by 11.3988 against 10.9163 for player 1. Player 1's effort is inflated by the triangle's walks that loop back to her; player 4 holds the network together. The working paper behind the article spoke of crime networks: if the police can remove one person, whom should they pick?
 
 ## Coordination on a network
 
@@ -78,7 +78,7 @@ So between δ and δ + (n − 2)δ²/2 the efficient network, the star, is not s
 formation
 ```
 
-Jackson and Alison Watts (2002) let pairs of players add and cut links one at a time, chosen at random, and asked where the process ends: Panel C runs it. Venkatesh Bala and Sanjeev Goyal (2000) let a single player pay for a link on her own, as in a phone call that one side pays for; in their model a star, with the hub paying for every link, comes back as an equilibrium. The Network Lab's [module 06](/network-lab/growth-mechanisms) showed another way hubs arise: by growth.
+Jackson and Alison Watts (2002) let pairs of players add and cut links one at a time, chosen at random, and asked where the process ends: Simulation C runs it. Venkatesh Bala and Sanjeev Goyal (2000) let a single player pay for a link on her own, as in a phone call that one side pays for; in their model a star, with the hub paying for every link, comes back as an equilibrium. The Network Lab's [module 06](/network-lab/growth-mechanisms) showed another way hubs arise: by growth.
 
 ```box
 Lightning: who opens the channels?

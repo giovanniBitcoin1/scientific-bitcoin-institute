@@ -99,6 +99,6 @@ Qui i giocatori sapevano sempre con chi avevano a che fare. Nel [modulo 05](/gam
 - Rosenthal, R. W. (1981). Games of perfect information, predatory pricing and the chain-store paradox. *Journal of Economic Theory* 25, 92–100.
 - McKelvey, R. D. e Palfrey, T. R. (1992). An experimental study of the centipede game. *Econometrica* 60, 803–836.
 - Güth, W., Schmittberger, R. e Schwarze, B. (1982). An experimental analysis of ultimatum bargaining. *Journal of Economic Behavior and Organization* 3, 367–388.
-- Henrich, J., Boyd, R., Bowles, S., Camerer, C., Fehr, E., Gintis, H. e McElreath, R. (2001). In search of Homo economicus: behavioral experiments in 15 small-scale societies. *American Economic Review* 91 (2), 73–78.
+- Henrich, J., Boyd, R., Bowles, S., Camerer, C., Fehr, E., Gintis, H. e McElreath, R. (2001). In search of Homo economicus: behavioral experiments in 15 small-scale societies. *American Economic Review* 91(2), 73–78.
 - Rubinstein, A. (1982). Perfect equilibrium in a bargaining model. *Econometrica* 50, 97–109.
 - Narayanan, A., Bonneau, J., Felten, E., Miller, A. e Goldfeder, S. (2016). *Bitcoin and Cryptocurrency Technologies*. Princeton University Press. Cap. 5.

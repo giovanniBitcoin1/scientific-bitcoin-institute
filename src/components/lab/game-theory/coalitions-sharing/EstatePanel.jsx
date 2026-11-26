@@ -51,7 +51,7 @@ const T = {
     award: 'somma',
     creditor: (i) => `creditore ${i}`,
     marks: 'le eredità del Talmud 100, 200, 300',
-    aria: (r) => `La somma di ogni creditore in funzione dell’eredità, da 0 a D, con la regola “${r}”`,
+    aria: (r) => `La somma di ogni creditore in funzione dell’eredità, da 0 a D, con la regola «${r}»`,
   },
 }
 

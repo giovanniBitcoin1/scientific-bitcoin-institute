@@ -26,7 +26,7 @@ George Akerlof (1970) mostrò che cosa fa questa ignoranza a un mercato. Una ver
 
 Con q_min = 0,2 la media è 0,6 e il prezzo parte da 0,9. I proprietari di auto migliori di 0,9 lo rifiutano e si ritirano. Le auto rimaste sono peggiori, il prezzo scende e altri si ritirano, turno dopo turno, fino a 0,6. Passa di mano metà delle auto, ma si ottiene solo un terzo dei guadagni, perché le auto che escono sono le migliori. Con q_min = 0 il prezzo scende fino in fondo: non si vende mai nulla, anche se ogni auto vale di più per un compratore che per il proprietario. È la **selezione avversa**: il prezzo stesso seleziona le auto che nessuno vuole, i **bidoni**. Akerlof ricordò poi che due riviste rifiutarono l'articolo perché troppo banale e una terza perché, se fosse stato giusto, l'economia sarebbe stata diversa.
 
-La simulazione A riproduce questo mercato con migliaia di auto. Aiutano le ispezioni, le garanzie, i commercianti con un buon nome da perdere e i segnali. Il premio Nobel per l'economia del 2001 andò ad Akerlof, Michael Spence e Joseph Stiglitz per le loro analisi dei mercati con **informazione asimmetrica**.
+La Simulazione A riproduce questo mercato con migliaia di auto. Aiutano le ispezioni, le garanzie, i commercianti con un buon nome da perdere e i segnali. Il premio Nobel per l'economia del 2001 andò ad Akerlof, Michael Spence e Joseph Stiglitz per le loro analisi dei mercati con **informazione asimmetrica**.
 
 ## Segnali che costano
 
@@ -38,7 +38,7 @@ Entrambi si reggono su ciò che i datori di lavoro credono dei livelli che nessu
 
 Cho e Kreps (1987) proposero un test, spesso chiamato **criterio intuitivo**, che elimina gran parte di questi equilibri. Se da un certo livello il tipo basso non può mai guadagnare, nemmeno se pagato 2, mentre il tipo alto sì, un datore di lavoro che lo vede dovrebbe concludere che il lavoratore è di tipo alto. Applicato il criterio, sopravvive solo la separazione più economica, e* = 1.
 
-E quanto costa? Con λ = 0,8 il tipo alto ottiene 2 − 1/2 = 1,5 in questo equilibrio. Se nessuno segnalasse, tutti sarebbero pagati la media, 1,8. Il tipo basso ottiene 1 invece di 1,8. Il segnale impoverisce tutti, eppure nessuno può smettere da solo. La simulazione B prova altri costi e altre quote. In biologia Amotz Zahavi (1975) propose che la coda del pavone funzionasse allo stesso modo, secondo un **principio dell'handicap**: un ornamento è credibile perché portarlo costa. Alan Grafen (1990) gli avrebbe dato una base formale: una lettura diffusa, ma poi discussa.
+E quanto costa? Con λ = 0,8 il tipo alto ottiene 2 − 1/2 = 1,5 in questo equilibrio. Se nessuno segnalasse, tutti sarebbero pagati la media, 1,8. Il tipo basso ottiene 1 invece di 1,8. Il segnale impoverisce tutti, eppure nessuno può smettere da solo. La Simulazione B prova altri costi e altre quote. In biologia Amotz Zahavi (1975) propose che la coda del pavone funzionasse allo stesso modo, secondo un **principio dell'handicap**: un ornamento è credibile perché portarlo costa. Alan Grafen (1990) gli avrebbe dato una base formale: una lettura diffusa, ma poi discussa.
 
 ## Parole che non costano nulla
 
@@ -46,7 +46,7 @@ Un segnale senza costo può informare? Crawford e Sobel (1982) studiarono un **e
 
 In equilibrio l'esperto può solo indicare un intervallo di una **partizione** di 0–1, e il decisore ne sceglie il punto medio. Con b = 0,1 si distinguono solo due messaggi, «sotto 0,3» e «sopra 0,3». Con b = 0,05 sono tre. Da b = 1/4 in su, nessuno: nulla di ciò che l'esperto dice può essere creduto. Un esperto il cui valore cade esattamente su un confine deve essere indifferente tra le due azioni vicine. Questo rende ogni intervallo più lungo di 4b del precedente: un esperto che vuole spingere l'azione in alto è preciso sui valori bassi e vago su quelli alti.
 
-La perdita attesa del decisore, misurata dal quadrato della distanza tra l'azione e θ, è 1/12 ≈ 0,083 senza parole e 0,031 con b = 0,1. Lasciar decidere l'esperto (la **delega**) costa al decisore solo b² = 0,01, perché l'esperto sceglie allora θ + b. Wessel Dessein (2002) mostrò che la delega è preferibile al consiglio purché il conflitto non sia troppo grande; in questo modello lo è quando b è sotto circa 0,29, come mostra la simulazione C.
+La perdita attesa del decisore, misurata dal quadrato della distanza tra l'azione e θ, è 1/12 ≈ 0,083 senza parole e 0,031 con b = 0,1. Lasciar decidere l'esperto (la **delega**) costa al decisore solo b² = 0,01, perché l'esperto sceglie allora θ + b. Wessel Dessein (2002) mostrò che la delega è preferibile al consiglio purché il conflitto non sia troppo grande; in questo modello lo è quando b è sotto circa 0,29, come mostra la Simulazione C.
 
 ## Un po' di dubbio sceglie un equilibrio
 
