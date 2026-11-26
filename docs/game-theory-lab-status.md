@@ -167,7 +167,7 @@ uses it and the regression compare.
 | 08 | III | `congestion-price-of-anarchy` | done | the commit "Game Theory Lab 08: Congestion and the price of anarchy" | A How bad can it get?; B Drivers who count; C Sharing the cost of a road | `tworoads`, `braess` |
 | 09 | III | `games-on-networks` | done | the commit "Game Theory Lab 09: Games on networks" | A Who does the work?; B The key player; C Building the network | `star`, `formation` |
 | 10 | III | `coalitions-sharing` | done | the commit "Game Theory Lab 10: Coalitions and sharing" | A Who gets what?; B Who decides?; C An estate that cannot pay | `core`, `votes` |
-| 11 | IV | `auctions` | planned | | | |
+| 11 | IV | `auctions` | done | the commit "Game Theory Lab 11: Auctions" | A Same revenue, different risk; B The winner's curse; C A block for sale | `truth`, `shading` |
 | 12 | IV | `mechanism-design` | planned | | | |
 | 13 | IV | `mining-as-a-game` | planned | | | |
 | 14 | IV | `capstone-the-price-of-security` | planned | | | |
@@ -477,21 +477,83 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | contested garment | il mantello conteso | 10 |
 | share (of a pool) | *share* (kept, feminine: "le share") | 10 |
 | swing | *swing* (kept) | 10 |
+| English auction; Dutch auction | asta inglese (asta ascendente); asta olandese (asta discendente) | 11 |
+| sealed-bid, first-price, second-price auction | asta in busta chiusa; al primo prezzo, al secondo prezzo; asta di Vickrey | 11 |
+| bidder; bid | offerente; offerta | 11 |
+| (independent) private values; common value | valori privati (indipendenti); valore comune | 11 |
+| bid shading | *bid shading* (kept; gloss "l'autoriduzione dell'offerta", Bosco UniMiB) | 11 |
+| revenue equivalence | equivalenza del ricavo (not "dei ricavi": Bosco 24 to 2, and the module list) | 11 |
+| reserve price | prezzo di riserva | 11 |
+| all-pay auction | asta *all-pay* (kept) | 11 |
+| winner's curse | maledizione del vincitore | 11 |
+| multi-unit auctions | aste multi-unità | 11 |
+| pay-your-bid (discriminatory) auction | asta discriminatoria (*pay-your-bid*: paghi la tua offerta; "paghi la tua offerta" in Panel C) | 11 |
+| uniform-price auction | asta a prezzo uniforme (the Italian Treasury's "asta competitiva" / "asta marginale" not used) | 11 |
+| demand reduction | riduzione della domanda | 11 |
+| fee; fee rate | commissione; commissione per unità di peso ("tasso di commissione" not attested) | 11 |
+| block weight; weight unit | peso del blocco; unità di peso | 11 |
+| wallet; replace-by-fee | *wallet*, *replace-by-fee* (kept) | 11 |
+| monopolistic price (Lavi–Sattath–Zohar) | prezzo monopolistico (no Italian source: our translation) | 11 |
+| unit demand | not used ("domanda unitaria" not attested) | 11 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 10 is finished: stage 0 and module 10 in
-054b3b8 "Game Theory Lab 10: Coalitions and sharing" (four WIP commits
-squashed), the report `docs/reports/game-theory-lab-10.md` and the working
-log `docs/reports/game-theory-lab-10-log.md` in "Game Theory Lab 10: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere.
+Module 11 is built and committed: "Game Theory Lab 11: Auctions" (three WIP
+commits squashed onto 36eaee7). The whole CHECKS list ran on the final code
+before the squash: 0 failures everywhere. Remains: the report
+`docs/reports/game-theory-lab-11.md`, committed with the working log as "Game
+Theory Lab 11: report"; until that commit exists prompt 11 is not finished.
 
 ## Next
 
-Module 11, `auctions`, when its prompt is there.
+Module 12, `mechanism-design`, when its prompt is there.
 
 ## Open items
+
+- Module 11, things a later module may reuse, all in `auctions/`:
+  `auctions.js` (F1's payoff, F2's expected payoff and best bid; equilibrium
+  bids of the first price with a reserve, second price, all-pay; exact mean
+  with a reserve, closed-form standard deviations, the moments with a reserve
+  by Simpson's rule; the bidders' payoff; the best reserve on a grid),
+  `montecarlo.js` (the three formats on the same seeded draws, histograms),
+  `commonvalue.js` (the jar of coins: exact profit, losing share, revenue,
+  break-even and equilibrium discounts, one bidder's payoff when she moves
+  her bid, by integration split at the kinks; the simulation),
+  `block.js` (binomial tails summed from the largest term, the pay-your-bid
+  bid, its 16,385-point table, exact means and the uniform price's standard
+  deviation; pay your bid, uniform and monopolistic price on seeded blocks;
+  the monopolistic revenue for every k in one pass). Module 12 can start from
+  `block.js` (the miner as auctioneer) and `auctions.js` (Myerson's reserve).
+- Module 11, choices to review: F1 also has a slider for your bid b (for
+  exercise 1); h moves by slider, by mouse on the chart, by touch with "Move
+  h" on, or by arrow keys (1). F2 shows "you bid X% of your value" rounded
+  to whole percent. Panel A runs the three formats on the same draws (the
+  table shows all three, the stats the chosen one); the reserve slider is
+  greyed for the all-pay; the histogram spans 0–100 for two bidders and
+  0–200 otherwise (last bin "everything above"); the y scale steps by 0.1.
+  Panel B's k presets "Bid the estimate", "Break even" and
+  "Equilibrium" set exact values (6.67, 3.33…) off the slider's 0.5 grid;
+  the chart's simulated points use the same draws at every k, so they lie on
+  a line parallel to the exact one. Panel C reads the pay-your-bid bid from
+  a table (within 3e-7 of the formula on the 0–100 scale); "price per
+  included user" is total revenue over total users served; the revenue chart
+  draws pay your bid and the uniform price as one exact line (they
+  coincide). Every "Run again" n uses seed n; changing a setting keeps the
+  run number. Figure heights at 1280 px 420 and 420 (EN and IT; guide about
+  380); at 375 IT 728 and 541.
+- Module 11, findings the texts state: every number of the prompt agrees
+  with the code; my simulated Panel C values at 2,000,000 blocks are within
+  1% of the prompt's (details in the log and the report). The lecture quotes
+  Bazerman and Samuelson's $8, $5.13 and $10.01 and cites Kagel, Levin and
+  Harstad 1995 for the second-price discount, Riley and Samuelson with
+  Myerson for the reserve of 50; Roughgarden's lecture 2 is "Mechanism
+  Design Basics".
+- Module 11 texts quote numbers pinned by `check-game-theory-11.mjs` (about
+  15 s, of which 12.5 s are seven runs of 2,000,000 blocks) and by
+  `browser-checks/modules/game-theory-auctions.mjs`, which times the panels
+  to the updated DOM and, separately, to the second frame (headless Chrome's
+  frame scheduling makes the latter vary: 433 ms once for a 63 ms update).
+  Module chunk 74.0 kB.
 
 - Module 10, things a later module may reuse, all in `coalitions-sharing/`:
   `simplex.js` (a dense two-phase simplex on exact fractions with Bland's

@@ -22,5 +22,6 @@
   "game-theory/evolution-and-learning": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/congestion-price-of-anarchy": { "figures": 2, "panels": 3, "exercises": 6 },
   "game-theory/games-on-networks": { "figures": 2, "panels": 3, "exercises": 6 },
-  "game-theory/coalitions-sharing": { "figures": 2, "panels": 3, "exercises": 6 }
+  "game-theory/coalitions-sharing": { "figures": 2, "panels": 3, "exercises": 6 },
+  "game-theory/auctions": { "figures": 2, "panels": 3, "exercises": 6 }
 }
