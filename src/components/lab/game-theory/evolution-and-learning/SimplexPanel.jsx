@@ -56,7 +56,7 @@ const T_ = {
     V: 'x₁ x₂ x₃',
     avg: 'Media nel tempo finora',
     eig: 'Autovalori nel centro',
-    eigMean: { in: 'la popolazione spiraleggia verso il centro', round: 'cicli chiusi', out: 'la popolazione spiraleggia verso i bordi' },
+    eigMean: { in: 'la popolazione va a spirale verso il centro', round: 'cicli chiusi', out: 'la popolazione va a spirale verso i bordi' },
     hint: 'Clicca sul triangolo per far partire lì una traiettoria (fino a cinque).',
     matrix: 'Righe e colonne: coopera sempre, defeziona sempre, Tit for Tat; 10 turni del dilemma (3, 0, 5, 1).',
     marks: ['1/17: sopra questa quota Tit for Tat batte chi defeziona sempre', '4/9: sopra questa quota di chi coopera sempre, chi defeziona sempre invade'],

@@ -324,3 +324,54 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: the build made for module 05 (after module 06's edits).
 - `node check-module.mjs game-theory repeated-games-reputation`: 0 failures of 60 (57 s).
 - `node modules/game-theory-repeated-games-reputation.mjs`: 0 failures of 41 (8 s).
+- Commit 84971f4 "Game Theory Lab review: module 06".
+
+### Module 07 `evolution-and-learning`
+
+- Files: the two lectures, `texts.js`; UI strings in `SimplexPanel.jsx`
+  (2 IT), `MoranPanel.jsx` (the rhoB label EN/IT, an IT note),
+  `HedgePanel.jsx` (2 IT), `FigureTraffic.jsx` (an IT note);
+  `scripts/lab/check-game-theory-07.mjs` (one pin).
+- Changes (approximate): Italian 24, English 6, parity 14, facts 0,
+  quotations 0 (none in the module), clarity 8, links 0, panel texts 22.
+- Most significant:
+  - The second ESS condition was imprecise: "the residents must do better
+    in the rare meetings between mutants" → "a resident must earn more
+    against a mutant than a mutant does" (IT «contro un mutante un
+    residente deve guadagnare più di un mutante»).
+  - Parity of terms: the EN now has bistability, Moran process, neutral
+    drift, evolutionary game theory and *Uta stansburiana*, as the IT; the
+    IT gained «come mostra la figura», «non quelli degli altri», «e andare
+    dritto gli conviene», as the EN.
+  - IT: «spiraleggia» → «va a spirale / si allontana a spirale» (lecture,
+    observe, Panel A readouts); «un mutante solo / una C sola» → «un
+    singolo mutante / un singolo C»; «Scriviamo u(x, y) per ciò che…» →
+    «Indichiamo con u(x, y) il payoff che…»; Panel B observe «chi viene
+    sostituito cerchiato più spesso» (ambiguous) → «un anello più marcato».
+  - Long sentences split in both languages (Moran model, Hedge's rule, the
+    lizard, Kandori et al., swap regret).
+  - IT number triples with semicolons: «(0,5; 0,3; 0,2)» (three times),
+    «(0,1; 0,85; 0,05)».
+  - Cut for the IT word limit: EN-only sentences ("Now let the shares
+    move", "The rest points … closely related", "Three strategies are
+    enough for something new", "Chance can carry a worse strategy to the
+    top", "nor whether they are learning too"); in both languages "with
+    bats and hawks" and the closing "Blind processes land on…"; the
+    co-authors' first names of Nowak, Sasaki, Taylor and Fudenberg and of
+    Kandori, Mailath, Rob and Young (full names stay in the reading list).
+- Pin changed: observe Panel A `'(0.1, 0.85, 0.05)'` →
+  `['(0.1, 0.85, 0.05)', '(0,1; 0,85; 0,05)']` (EN unchanged).
+- Facts: none changed.
+- Words: EN 1,638, IT 1,693 (limits 1,400–1,700).
+- For Adriano: the IT learner is «una sola giocatrice … lei» (the only
+  lecture with «giocatrice»; kept); the first names dropped for the word
+  limit can return with other cuts; «η è il tasso di apprendimento» opens
+  a sentence with a symbol; «pari o dispari» (as module 01).
+- Cross-module: panels write x₁x₂x₃ while the lecture writes x_R x_P x_S
+  (IT x_S x_C x_F), bridged in observe item 1 (the browser check tests the
+  readouts); «Il prossimo modulo» against "Next".
+- `node scripts/lab/check-game-theory-07.mjs`: all checks passed (1 s).
+- `npx vite build`: the build made for module 05 (after module 07's edits).
+- `node check-module.mjs game-theory evolution-and-learning`: 0 failures
+  of 68 (71 s).
+- `node modules/game-theory-evolution-and-learning.mjs`: 0 failures of 41 (11 s).

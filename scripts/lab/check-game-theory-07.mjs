@@ -468,7 +468,7 @@ if (existsSync(textsPath) && existsSync(resolve(root, lecturePath('en'))) && exi
     quoted('observe, Panel A', observe.rps, [
       '0.03', ['t = 100', 't = 100'], '11.4', triple(t1.end), triple(avgOf(t1.points), 3), '±0.57735i',
       `${e2.re.toFixed(5).replace('-', '−')} ± ${e2.im.toFixed(5)}i`, triple(t2.end), '1/27 = 0.03704',
-      `+${e3.re.toFixed(5)} ± ${e3.im.toFixed(5)}i`, triple(t3.end), product(t3.end).toExponential(2), triple(tr.end), '1/17', '4/9', '(0.1, 0.85, 0.05)',
+      `+${e3.re.toFixed(5)} ± ${e3.im.toFixed(5)}i`, triple(t3.end), product(t3.end).toExponential(2), triple(tr.end), '1/17', '4/9', ['(0.1, 0.85, 0.05)', '(0,1; 0,85; 0,05)'],
     ])
   }
 

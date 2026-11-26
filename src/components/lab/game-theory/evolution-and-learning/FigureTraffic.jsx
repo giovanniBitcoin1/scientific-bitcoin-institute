@@ -42,7 +42,7 @@ const T = {
     coinV: 'payoff 2,5 a testa',
     area: 'Area della regione correlata',
     legend: ['ammissibili', 'equilibri correlati', 'monete', 'Nash'],
-    note: 'S = sterza, D = dritto. Il mediatore estrae una cella con queste probabilità e dice a ogni guidatore solo la sua parte.',
+    note: 'S = sterza, D = dritto. Il mediatore estrae una cella con queste probabilità e dice a ogni guidatore solo la parte che lo riguarda.',
     aria: 'Il piano dei payoff del gioco del pollo: l’insieme ammissibile, i payoff degli equilibri correlati, le monete tra i due equilibri puri e gli equilibri di Nash',
   },
 }
