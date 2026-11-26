@@ -20,7 +20,7 @@ const T = {
     rules: { single: 'One object', slots: 'Two ad slots', lottery: 'A lottery' },
     h: 'h, the highest rival bid',
     alpha: 'α2, clicks of the second slot',
-    H: 'H, the lottery’s weight of the others',
+    H: 'H, the others’ weight in the lottery',
     b: 'b, your bid',
     how: {
       single: 'You win when your bid is above h (a tie is a coin toss).',
@@ -42,7 +42,7 @@ const T = {
     H: 'H, il peso degli altri nella lotteria',
     b: 'b, la tua offerta',
     how: {
-      single: 'Vinci quando la tua offerta supera h (un pareggio si decide a sorte).',
+      single: 'Vinci quando la tua offerta supera h (in caso di parità si tira a sorte).',
       slots: 'Offerte rivali 60 e 30: sopra 60 hai lo spazio in alto (1 clic), tra 30 e 60 il secondo (α2 clic).',
       lottery: 'Vinci con probabilità z/(z + H): di più con un’offerta più alta, mai con certezza.',
     },

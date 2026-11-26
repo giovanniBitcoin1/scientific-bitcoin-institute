@@ -27,7 +27,7 @@ const T = {
     total: 'total of the bids in the allocation',
     leave: (i) => `without bidder ${i}`,
     person: (g, val, paid, pay) => `The person behind bidders 2 and 3 gets ${g || 'nothing'}, worth ${val} to her, pays ${paid}: payoff ${pay}.`,
-    tie: 'The allocation with the largest total of bids among all (n + 1)² ways to give A and B to a bidder or to nobody; a tie goes to the first in the order A to bidder 1, 2, …, then to nobody, and for each B in the same order. Each bidder pays the others’ best total without her minus their total with her; payoffs use the true values.',
+    tie: 'The allocation with the largest total of bids among all (n + 1)² ways to give A and B to a bidder or to nobody; a tie goes to the first in this order: A to bidder 1, 2, …, then to nobody, and for each of these B in the same order. Each bidder pays the others’ best total without her minus their total with her; payoffs use the true values.',
     leaveTitle: 'Revenue if one bidder leaves',
   },
   it: {
@@ -36,7 +36,7 @@ const T = {
     two: 'Con due nomi',
     bidders: 'Offerenti:',
     truth: 'Offerte = valori veri',
-    merge: 'gli offerenti 2 e 3 sono una persona',
+    merge: 'gli offerenti 2 e 3 sono la stessa persona',
     bids: 'offerte',
     values: 'valori veri',
     bidder: (i) => `Offerente ${i}`,
@@ -48,7 +48,7 @@ const T = {
     total: 'totale delle offerte nell’allocazione',
     leave: (i) => `senza l’offerente ${i}`,
     person: (g, val, paid, pay) => `La persona dietro gli offerenti 2 e 3 ottiene ${g || 'niente'}, che per lei vale ${val}, paga ${paid}: payoff ${pay}.`,
-    tie: 'L’allocazione con il totale delle offerte più alto tra tutti gli (n + 1)² modi di dare A e B a un offerente o a nessuno; un pareggio va alla prima nell’ordine A all’offerente 1, 2, …, poi a nessuno, e per ognuna B nello stesso ordine. Ogni offerente paga il miglior totale degli altri senza di lei meno il loro totale con lei; i payoff usano i valori veri.',
+    tie: 'L’allocazione con il totale delle offerte più alto tra tutti gli (n + 1)² modi di dare A e B a un offerente o a nessuno; in caso di parità vale la prima in quest’ordine: A all’offerente 1, 2, …, poi a nessuno, e per ciascuna di queste B nello stesso ordine. Ogni offerente paga il miglior totale degli altri senza di lui meno il loro totale con lui; i payoff usano i valori veri.',
     leaveTitle: 'Ricavo se un offerente se ne va',
   },
 }

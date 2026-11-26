@@ -30,6 +30,7 @@ const T = {
     props: { efficient: 'efficient', truthful: 'truthful', voluntary: 'voluntary', balanced: 'balanced' },
     propsHow: 'efficient: trades whenever v ≥ c; truthful: the truth is dominant or an equilibrium; voluntary: nobody expects to lose by taking part; balanced: the designer neither pays nor keeps money.',
     none: 'No rule shows all four.',
+    diag: 'v = c dashed',
     aria: 'The square of cost and value with the region where the rule trades shaded',
   },
   it: {
@@ -37,7 +38,7 @@ const T = {
     how: {
       vcg: 'Si scambia quando il valore è almeno il costo; il compratore paga c, il venditore riceve v, e il progettista paga la differenza.',
       posted: 'Si scambia a p quando il costo è al più p e il valore almeno p; ciascuno dice solo sì o no.',
-      split: 'Ciascuno indica un prezzo e si scambia alla media se l’offerta è almeno la richiesta; nell’equilibrio lineare il compratore offre 2v/3 + 100/12, il venditore chiede 2c/3 + 25, e si scambia solo quando v ≥ c + 25.',
+      split: 'Ciascuno indica un prezzo, e si scambia al prezzo medio se l’offerta del compratore è almeno pari alla richiesta del venditore; nell’equilibrio lineare il compratore offre 2v/3 + 100/12, il venditore chiede 2c/3 + 25, e si scambia solo quando v ≥ c + 25.',
     },
     p: 'p, il prezzo fisso',
     c: 'c, il costo del venditore',
@@ -48,6 +49,7 @@ const T = {
     props: { efficient: 'efficiente', truthful: 'veritiero', voluntary: 'volontario', balanced: 'in pareggio' },
     propsHow: 'efficiente: si scambia ogni volta che v ≥ c; veritiero: dire il vero è dominante o un equilibrio; volontario: nessuno si aspetta di perdere partecipando; in pareggio: il progettista non paga né trattiene denaro.',
     none: 'Nessuna regola le ha tutte e quattro.',
+    diag: 'in tratteggio v = c',
     aria: 'Il quadrato di costo e valore con la regione in cui la regola scambia ombreggiata',
   },
 }
@@ -93,7 +95,7 @@ export default function FigureTrade({ lang = 'en' }) {
             <text x={X(100)} y={H - 2} textAnchor="end" fontSize="9" fontFamily={MONO} fill={SLATE}>c</text>
             <text x={X(0) + 4} y={Y(100) + 10} fontSize="9" fontFamily={MONO} fill={SLATE}>v</text>
           </svg>
-          <p className="text-xs text-slate-500">{L.c} →, {L.v} ↑; v = c dashed.</p>
+          <p className="text-xs text-slate-500">{L.c} →, {L.v} ↑; {L.diag}.</p>
         </div>
         <div className="min-w-0 space-y-2">
           <p className="text-xs text-slate-600 leading-snug">{L.how[rule]}</p>

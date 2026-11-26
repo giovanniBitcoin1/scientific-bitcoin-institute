@@ -556,3 +556,59 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: the build made for module 09 (after module 11's edits).
 - `node check-module.mjs game-theory auctions`: 0 failures of 60 (54 s).
 - `node modules/game-theory-auctions.mjs`: 0 failures of 29 (15 s).
+- Commit ba7c26d "Game Theory Lab review: module 11".
+
+### Module 12 `mechanism-design`
+
+- Files: the two lectures (the IT reworked sentence by sentence throughout,
+  structure, figures, box and markers kept), `texts.js`; UI strings in
+  `TruthPanel.jsx`, `FigureArea.jsx`, `FigureTrade.jsx`, `VcgPanel.jsx`,
+  `CheatPanel.jsx`; `scripts/lab/check-game-theory-12.mjs` (one pin).
+- Changes (approximate): Italian 54 (38 lecture, 8 texts.js, 8 UI),
+  English 10, parity 10, facts 0, quotations 0, clarity 12, links 1, panel
+  texts 22 (within the counts above).
+- Most significant:
+  - Parity of terms: the EN now names incentive compatibility, dominant
+    strategy, GSP, optimal auction, false-name bids, bilateral trade,
+    individual rationality, budget balance and double auction, as the IT.
+  - Revelation principle, both languages: "Gibbard (1973) stated it for
+    dominant strategies; building on his work, several authors found it
+    independently at the end of the 1970s for Bayesian equilibrium, among
+    them…" (report 12's softening kept).
+  - Accuracy: optimal auction "values drawn independently", "when φ rises
+    with v"; "as module 11 found by computation" → "the best reserve
+    already met in module 11" (module 11 states it, citing Myerson);
+    "exceeds the cost by 25" → "by 25 or more" (trade when v ≥ c + 25); "a
+    rule can have three" → "at most three"; "the area to the right of h" →
+    "the area under the step, b − h"; long sentences split (GSP,
+    Myerson–Satterthwaite, Babaioff, Panel C's numbers).
+  - IT: «La Figura F2 mette i numeri» → «lo traduce in numeri»;
+    «esattamente quando» → «se e solo se»; «Passare le transazioni» →
+    «Inoltrare»; the bidder masculine throughout (Panel B's «senza di
+    lei/con lei» → «lui», exercise 4, exercise 5 «un'offerente» → «un
+    offerente»).
+  - Box: "Bitcoin keeps pay your bid…" → "One reading of Bitcoin's choice:
+    …" (a hypothesis, as the Bitcoin rule asks); EIP-1559 passes the three
+    "in Roughgarden's analysis". Observe C3 no longer suggests 476.15 for
+    the monopolistic price too.
+  - UI: `FigureTrade.jsx` had "v = c dashed." hard-coded in English on the
+    IT page; a `diag` string added («in tratteggio v = c»), the one JSX
+    change beyond editing a string. "H, the lottery's weight of the
+    others" → "H, the others' weight in the lottery".
+  - Next names module 13 with its title.
+- Pin changed (the box sentence split): `'with room for all 20, 0 against
+  about 579'` → `'room for all 20 users the honest miner earns 0, and the
+  cheating one about 579'` (IT likewise).
+- Facts: none changed.
+- Words (box not counted): EN 1,580, IT 1,656 (limits 1,400–1,700); box
+  EN 341, IT 379 (not limited; report 12 aimed at 250–300).
+- For Adriano: F2's caption "Two out of three" / «Due su tre» against "at
+  most three" (kept); the box's length; passato remoto and prossimo side
+  by side; «orologi d'asta», «pacchetto di oggetti» (no source); the
+  table's open calques of module 12.
+- Cross-module: «lei» for the bidder in other modules' panels; the next
+  module's title in quotes here.
+- `node scripts/lab/check-game-theory-12.mjs`: all checks passed (24 s).
+- `npx vite build`: built (15 s).
+- `node check-module.mjs game-theory mechanism-design`: 0 failures of 56 (48 s).
+- `node modules/game-theory-mechanism-design.mjs`: 0 failures of 29 (12 s).

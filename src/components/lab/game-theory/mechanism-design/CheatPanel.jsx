@@ -39,7 +39,7 @@ const T = {
     run: (s) => `Prova n. ${s} (seme ${s})`,
     rules: { pyb: 'Paghi la tua offerta', uniform: 'Prezzo uniforme', monopolistic: 'Prezzo monopolistico' },
     how: {
-      pyb: 'ogni utente incluso paga la sua offerta (offerte di equilibrio, come nel modulo 11); una transazione falsa spinge solo fuori un utente vero, e la ricerca non trova guadagno',
+      pyb: 'ogni utente incluso paga la sua offerta (offerte di equilibrio, come nel modulo 11); una transazione falsa si limita a escludere un utente vero, e la ricerca non trova guadagno',
       uniform: 'ogni utente incluso paga l’offerta esclusa più alta (le offerte sono i valori); il miner che imbroglia mette k − j transazioni false in cima e una appena sotto la j-esima offerta vera, che diventa l’offerta esclusa più alta, e sceglie il j migliore',
       monopolistic: 'ogni utente incluso paga l’offerta inclusa più bassa e il miner sceglie già quanti includerne: nessuna transazione falsa alza ciò che pagano gli utenti veri',
     },

@@ -13,9 +13,9 @@ export const observe = {
 6. Choose **With a reserve**, value 40: the truth keeps 0, and so does every report up to 49.9; winning would cost the reserve, 50, more than the object is worth.
 `,
     it: `
-1. Il pannello si apre su un oggetto, offerta rivale h = 60, il pagamento di Myerson e un valore vero di 80: la verità paga 60 e tiene 20, e ogni dichiarazione sopra 60 tiene gli stessi 20 (il tratto verde). La verità è una dichiarazione migliore, non l'unica.
+1. Il pannello si apre su un oggetto, offerta rivale h = 60, il pagamento di Myerson e un valore vero di 80: la verità paga 60 e tiene 20, e ogni dichiarazione sopra 60 tiene gli stessi 20 (il tratto verde). La verità è una delle dichiarazioni migliori, non l'unica.
 2. Scegli **Paghi la tua offerta**: ora la verità tiene 0, e la dichiarazione migliore è 60,1, appena sopra h, che tiene 19,90. Dove stia la dichiarazione migliore dipende da h, che l'offerente non vede.
-3. Scegli **Due spazi pubblicitari** e porta v a **100**. Con il pagamento di Myerson la verità prende lo spazio in alto e tiene 64. Con il secondo prezzo generalizzato la verità tiene 40, mentre ogni dichiarazione da 30,1 a 59,9 prende il secondo spazio e tiene 56. La lettura dà la soglia 0,5714 (4/7): porta α2 a **0,5** e la verità torna migliore, 40 contro 35.
+3. Scegli **Due spazi pubblicitari** e porta v a **100**. Con il pagamento di Myerson la verità prende lo spazio in alto e tiene 64. Con il secondo prezzo generalizzato la verità tiene 40, mentre ogni dichiarazione da 30,1 a 59,9 prende il secondo spazio e tiene 56. Il pannello indica la soglia 0,5714 (4/7): porta α2 a **0,5** e la verità torna migliore, 40 contro 35.
 4. Scegli **Una lotteria**, valore 80: con il pagamento di Myerson l'unica dichiarazione migliore è 80, che tiene 32,22. Con «paghi la tua offerta» la dichiarazione migliore è 30,6, che tiene 18,75: chi paga la propria offerta la abbassa.
 5. Scegli **Vinci solo nel mezzo**, valore 70: la formula di Myerson ti paga 20 per perdere, quindi la verità tiene 20, mentre ogni dichiarazione da 40 a 59,9 tiene 30. La regola non è monotona, e nessun pagamento può renderla veritiera.
 6. Scegli **Con riserva**, valore 40: la verità tiene 0, come ogni dichiarazione fino a 49,9; vincere costerebbe la riserva, 50, più di quanto vale l'oggetto.
@@ -34,21 +34,21 @@ export const observe = {
 2. **L'asta solitaria**: A all'offerente 2, B all'offerente 3, nessuno paga, ricavo 0. Senza l'offerente 3 il ricavo è 4: un offerente in più, 4 in meno per il venditore.
 3. **Due nomi**, **Come una persona**: l'offerente che valuta AB 6 lo vince, paga 4 e tiene 2. **Con due nomi**, offrendo A 4 e B 4: vince entrambi per 0 e tiene 6, e il venditore non riceve nulla.
 4. **I perdenti colludono**: gli offerenti 2 e 3, che valutano A e B 1 ciascuno, offrono 10; vincono, pagano 0 e tengono 1 ciascuno. Premi **Offerte = valori veri**: l'offerente 1 vince AB, paga 2 e tiene 2.
-5. Allontana le offerte di un offerente dai suoi valori veri e guarda il suo payoff: non sale mai. La sua offerta sposta solo l'allocazione, mai il prezzo di un'allocazione data.
+5. Modifica le offerte di un offerente rispetto ai suoi valori veri e osserva il suo payoff: non sale mai. La sua offerta cambia solo l'allocazione, mai il prezzo di un'allocazione data.
 `,
   },
   cheat: {
     en: `
-1. The panel opens on 20 users, 10 slots, 10,000 blocks. Under the uniform price the honest miner earns 475.21 ± 1.07 (exact 476.19); the cheating miner earns 546.62 ± 0.93, exactly the monopolistic price's 546.62, in all 10,000 blocks. It serves 9.22 users instead of 10, and the users' total payoff falls from 262.51 to 153.77.
+1. The panel opens on 20 users, 10 slots, 10,000 blocks. Under the uniform price the honest miner earns 475.21 ± 1.07 (exact 476.19); the cheating miner earns 546.62 ± 0.93, exactly the monopolistic price's 546.62, in all 10,000 blocks. It serves 9.22 users on average instead of 10, and the users' total payoff falls from 262.51 to 153.77.
 2. The single fake bid just below the tenth bid: 523.81 instead of 476.19, a gain of 47.62. The rest of the gain comes from also leaving real users out.
-3. Pay your bid: 476.15 honest and cheating, and the same for the monopolistic price: there, no fake helps.
+3. Pay your bid: 476.15, both honest and cheating. The monopolistic price, too, earns the same either way: under these two rules no fake helps.
 4. Set k to **20**: room for all, and the honest uniform price earns 0, while the cheating miner earns 578.47, serving 11.06 users; the users' payoff falls from 999.23 to 211.75.
 5. Set k to **1**: one slot, the second-price auction. The cheating miner puts a fake just below the top bid and earns 95.23 instead of 90.45; the winner keeps 0.00.
 `,
     it: `
-1. Il pannello si apre su 20 utenti, 10 posti, 10.000 blocchi. Con il prezzo uniforme il miner onesto incassa 475,21 ± 1,07 (esatto 476,19); quello che imbroglia incassa 546,62 ± 0,93, esattamente i 546,62 del prezzo monopolistico, in tutti i 10.000 blocchi. Serve 9,22 utenti invece di 10, e il payoff totale degli utenti scende da 262,51 a 153,77.
+1. Il pannello si apre su 20 utenti, 10 posti, 10.000 blocchi. Con il prezzo uniforme il miner onesto incassa 475,21 ± 1,07 (esatto 476,19); quello che imbroglia incassa 546,62 ± 0,93, esattamente i 546,62 del prezzo monopolistico, in tutti i 10.000 blocchi. Serve in media 9,22 utenti invece di 10, e il payoff totale degli utenti scende da 262,51 a 153,77.
 2. Una sola offerta falsa appena sotto la decima: 523,81 invece di 476,19, un guadagno di 47,62. Il resto del guadagno viene dal lasciare fuori anche utenti veri.
-3. «Paghi la tua offerta»: 476,15 da onesto e imbrogliando, e lo stesso per il prezzo monopolistico: lì nessuna transazione falsa aiuta.
+3. «Paghi la tua offerta»: 476,15, sia da onesto sia imbrogliando. Anche il prezzo monopolistico rende lo stesso nei due casi: con queste due regole nessuna transazione falsa aiuta.
 4. Porta k a **20**: c'è posto per tutti, e il prezzo uniforme onesto rende 0, mentre il miner che imbroglia incassa 578,47, servendo 11,06 utenti; il payoff degli utenti scende da 999,23 a 211,75.
 5. Porta k a **1**: un solo posto, l'asta al secondo prezzo. Il miner che imbroglia mette un'offerta falsa appena sotto quella più alta e incassa 95,23 invece di 90,45; chi vince tiene 0,00.
 `,
@@ -75,7 +75,7 @@ export const exercises = [
     },
     solution: {
       en: 'Generalized second price: the top slot costs 60, so 100 − 60 = 40; the second costs 30 per click, so 0.8 × (100 − 30) = 56. The truth does not pay. Myerson: the top slot costs 0.8 × 30 + 0.2 × 60 = 36, so 64; the second costs 0.8 × 30 = 24, so 80 − 24 = 56. The truth pays. The generalized second price makes the truth best here only if α2 ≤ 4/7: 100 − 60 ≥ α2(100 − 30).',
-      it: 'Secondo prezzo generalizzato: lo spazio in alto costa 60, quindi 100 − 60 = 40; il secondo costa 30 per clic, quindi 0,8 × (100 − 30) = 56. La verità non conviene. Myerson: lo spazio in alto costa 0,8 × 30 + 0,2 × 60 = 36, quindi 64; il secondo costa 0,8 × 30 = 24, quindi 80 − 24 = 56. La verità conviene. Il secondo prezzo generalizzato rende migliore la verità qui solo se α2 ≤ 4/7: 100 − 60 ≥ α2(100 − 30).',
+      it: 'Secondo prezzo generalizzato: lo spazio in alto costa 60, quindi 100 − 60 = 40; il secondo costa 30 per clic, quindi 0,8 × (100 − 30) = 56. La verità non conviene. Myerson: lo spazio in alto costa 0,8 × 30 + 0,2 × 60 = 36, quindi 64; il secondo costa 0,8 × 30 = 24, quindi 80 − 24 = 56. La verità conviene. Qui il secondo prezzo generalizzato rende la verità la scelta migliore solo se α2 ≤ 4/7: 100 − 60 ≥ α2(100 − 30).',
     },
   },
   {
@@ -97,14 +97,14 @@ export const exercises = [
     },
     solution: {
       en: 'A to 2 and B to 3, total 8. Without bidder 2 the others could reach 4 (AB to 1 or B to 3), and with her they have 4: she pays 0, and so does bidder 3. Revenue 0. Without bidder 3 the best total is 4, and the winner pays 4: revenue 4.',
-      it: 'A a 2 e B a 3, totale 8. Senza l\'offerente 2 gli altri arriverebbero a 4 (AB a 1 o B a 3), e con lei hanno 4: paga 0, come l\'offerente 3. Ricavo 0. Senza l\'offerente 3 il totale migliore è 4, e chi vince paga 4: ricavo 4.',
+      it: 'A a 2 e B a 3, totale 8. Senza l\'offerente 2 gli altri arriverebbero a 4 (AB a 1 o B a 3), e con lui hanno 4: paga 0, come l\'offerente 3. Ricavo 0. Senza l\'offerente 3 il totale migliore è 4, e chi vince paga 4: ricavo 4.',
     },
   },
   {
     type: 'both',
     statement: {
       en: 'On paper, then in Panel B. "Two names": against bidder 1 (AB 4), a bidder who values AB at 6 bids as one person, then as two names, A 4 and B 4. What does she win, pay and keep?',
-      it: 'Su carta, poi nel Pannello B. «Due nomi»: contro l\'offerente 1 (AB 4), un\'offerente che valuta AB 6 offre come una persona, poi con due nomi, A 4 e B 4. Che cosa vince, paga e tiene?',
+      it: 'Su carta, poi nel Pannello B. «Due nomi»: contro l\'offerente 1 (AB 4), un offerente che valuta AB 6 offre come una persona, poi con due nomi, A 4 e B 4. Che cosa vince, paga e tiene?',
     },
     solution: {
       en: 'As one person she wins AB, pays 4 (what bidder 1 loses) and keeps 2. As two names each name wins one object and pays 4 − 4 = 0, since without it the others still reach 4: she wins both for 0 and keeps 6, and the seller gets nothing.',
@@ -130,7 +130,7 @@ export const exercises = [
     },
     solution: {
       en: 'Honest: the ten winners pay the 11th highest value, 100 × 10/21 on average: 476.19. With the fake they pay about the 10th highest value, 100 × 11/21: 10 × 100 × 11/21 = 523.81. The best cheating, about 547, needs the panel.',
-      it: 'Da onesto: i dieci vincitori pagano l\'11° valore più alto, in media 100 × 10/21: 476,19. Con l\'offerta falsa pagano circa il 10° valore più alto, 100 × 11/21: 10 × 100 × 11/21 = 523,81. L\'imbroglio migliore, circa 547, richiede il pannello.',
+      it: 'Da onesto: i dieci vincitori pagano l\'undicesimo valore più alto, in media 100 × 10/21: 476,19. Con l\'offerta falsa pagano circa il decimo valore più alto, 100 × 11/21: 10 × 100 × 11/21 = 523,81. L\'imbroglio migliore, circa 547, richiede il pannello.',
     },
   },
 ]

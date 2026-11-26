@@ -451,7 +451,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
     quoted('the box: Panel C\'s numbers', boxText, [
       ['20 users and 10 slots', '20 utenti e 10 posti'], two(honestUniform(20, 10)), two(oneFake(20, 10)),
       ['the best cheating about 547', "l'imbroglio migliore circa 547"], [`from ${two(honestUsers(20, 10))} to about 153.5`, `da ${itn(two(honestUsers(20, 10)))} a circa 153,5`],
-      ['with room for all 20, 0 against about 579', 'con posto per tutti e 20, 0 contro circa 579'], ['5 August 2021', '5 agosto 2021'],
+      ['room for all 20 users the honest miner earns 0, and the cheating one about 579', 'posto per tutti e 20 gli utenti il miner onesto incassa 0, e quello che imbroglia circa 579'], ['5 August 2021', '5 agosto 2021'],
     ])
     check('the box: 476.19 and 523.81 exact; about 547, 153.5 and 579 are the 2,000,000-block values (546.6, 153.55, 578.85) rounded; the 10,000-block page agrees within 1%; honest 0 at k = 20', two(honestUniform(20, 10)) === '476.19' && two(oneFake(20, 10)) === '523.81' && Math.abs(r.uniform.cheat.mean / 547 - 1) < 0.01 && Math.abs(r.uniform.cheat.users / 153.5 - 1) < 0.01 && honestUniform(20, 20) === 0)
     check('the box names the authors, calls the reading a hypothesis, and uses Roughgarden\'s and Chung–Shi\'s wording', ['en', 'it'].every((l) => ['Babaioff', 'Dobzinski', 'Oren', 'Zohar', 'Roughgarden', 'Chung', 'Shi', 'EIP-1559', 'Sybil', 'OCA-proof'].every((a) => boxText[l].includes(a))) && boxText.en.includes('A hypothesis, not a description') && boxText.it.includes("Un'ipotesi, non una descrizione") && boxText.en.includes('no non-trivial rule') && boxText.it.includes('nessuna regola non banale') && boxText.en.includes('iterated removal of dominated strategies'))
