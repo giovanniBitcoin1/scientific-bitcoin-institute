@@ -173,7 +173,7 @@ uses it and the regression compare.
 | 10 | III | `coalitions-sharing` | done | the commit "Game Theory Lab 10: Coalitions and sharing" | A Who gets what?; B Who decides?; C An estate that cannot pay | `core`, `votes` |
 | 11 | IV | `auctions` | done | the commit "Game Theory Lab 11: Auctions" | A Same revenue, different risk; B The winner's curse; C A block for sale | `truth`, `shading` |
 | 12 | IV | `mechanism-design` | done | the commit "Game Theory Lab 12: Designing the rules" | A Lying does not pay; B Pay for the harm you do; C Who runs the auction? | `area`, `trade` |
-| 13 | IV | `mining-as-a-game` | planned | | | |
+| 13 | IV | `mining-as-a-game` | done | the commit "Game Theory Lab 13: Mining as a game" | A Race the network; B The difficulty catches up; C The best deviation | `chain`, `threshold` |
 | 14 | IV | `capstone-the-price-of-security` | planned | | | |
 
 Parts: I Reasoning / Ragionare; II Learning / Imparare; III Living together /
@@ -517,21 +517,75 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | transaction fee mechanism; base fee | meccanismo delle commissioni (*transaction fee mechanism*); commissione base (*base fee*; no Italian source, it.wikipedia keeps English) | 12 |
 | MMIC, OCA-proofness | *myopic miner incentive compatibility*, *OCA-proofness* (kept) | 12 |
 | fake transaction; honest, cheating (miner) | transazione falsa; onesto, imbroglio (as module 06's imbrogliare) | 12 |
+| selfish mining | *selfish mining* (kept; UniBo thesis; "mining egoistico" only in Spanish) | 13 |
+| reference implementation | implementazione di riferimento (no Italian source; transparent) | 13 |
+| longest chain | catena più lunga (Italian whitepaper) | 13 |
+| orphan (stale) block | blocco orfano, as module 04 (it.wikipedia; *stale* once) | 13 |
+| private branch; (private) lead | catena privata; vantaggio (di k blocchi) ("vantaggio privato" not found) | 13 |
+| race | gara (Italian whitepaper) | 13 |
+| Markov chain; stationary distribution | catena di Markov; distribuzione stazionaria (it.wikipedia) | 13 |
+| relative revenue (her share of the chain) | quota dei blocchi (della catena) (no source for any form) | 13 |
+| profitability threshold | soglia di redditività (no source for either; Treccani marks "profittabilità" as modelled on English) | 13 |
+| difficulty adjustment | aggiustamento della difficoltà, as module 02 ("adeguamento", "regolazione" also found) | 13 |
+| Markov decision process; optimal policy | processo decisionale di Markov; politica ottima (it.wikipedia; PoliMi thesis; "ottimale" also found) | 13 |
+| (relative) value iteration | *value iteration* (kept: Italian sources keep it; "iterazione dei valori" not found) | 13 |
+| truncation | troncamento | 13 |
+| adopt, override, match, wait; irrelevant, relevant, active | kept in English, in italics, with glosses (no Italian source) | 13 |
+| fair-weather mining | *fair-weather mining* (kept) | 13 |
+| miner (gender) | masculine, as modules 02–12 ("il miner", "un pool") | 13 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 12 is finished: module 12 in 34a9392 "Game
-Theory Lab 12: Designing the rules" (two WIP commits squashed), the report
-`docs/reports/game-theory-lab-12.md` and the working log
-`docs/reports/game-theory-lab-12-log.md` in "Game Theory Lab 12: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere.
+Prompt 13: module 13 is done in the commit "Game Theory Lab 13: Mining as a
+game" (three WIP commits squashed). The whole CHECKS list ran on the final
+code before the squash: 0 failures everywhere (details in the log
+`docs/reports/game-theory-lab-13-log.md`).
+
+Remains: the report `docs/reports/game-theory-lab-13.md`, committed with the
+log as "Game Theory Lab 13: report".
 
 ## Next
 
-Module 13, `mining-as-a-game`, when its prompt is there.
+Module 14, `capstone-the-price-of-security`, when its prompt is there.
 
 ## Open items
+
+- Module 13, things module 14 may reuse, all in `mining-as-a-game/`:
+  `selfish.js` (SM1's chain: R in closed form, the stationary distribution in
+  closed form and solved numerically, r_A, r_H, orphans, G), `race.js` (SM1
+  block by block, batch standard errors, the strip of the last 40 events),
+  `difficulty.js` (expected rewards with the first adjustment at 14/G days,
+  the break-even day, a Poisson path retargeted every 2016 chain blocks),
+  `mdp.js` (Sapirshtein et al.'s MDP as flat arrays, relative value
+  iteration with τ = 0.95 and certified gain bounds, bisection on ρ, greedy
+  policy with ties to SM1, reachability, SM1 as a policy, thresholds),
+  `optimal.json` (written by `scripts/lab/gen-game-theory-13-optimal.mjs`,
+  one γ per command, 3–7 s each).
+- Module 13, choices to review: adopt's (1 − α) branch goes to (0, 1,
+  irrelevant), as the paper's Table 1 (the prompt's wording did not say);
+  match is "relevant and a ≥ h ≥ 1" (the paper: a ≥ h, the same). Policy maps
+  break ties in favour of SM1's action and show unreached states as blank;
+  "differs" counts reached cells only (19 at α 0.35, γ 0; 68 at α 0.4, γ 1/2).
+  F1 has an "α = 1/3" button (the slider moves by 0.01). F2's γ slider steps
+  by 0.05, default 1/4; the best-deviation switch draws the table's γ only.
+  Panel A defaults α 0.4, γ 0, 100,000 blocks; Panel B α from 0.01 (α = 0
+  has no ratio), the path retargets without the factor-4 clamp; Panel C
+  shows the stored maps for γ = 0, 1/2, 1 only. Figure heights 390 and 368
+  px at 1280 (EN; 390 and 388 IT); at 375 IT 673 and 525.
+- Module 13, findings and sources (November 2026, details in the log): every
+  number of the prompt agrees with the code (chain, Panel B, Panel C cells
+  and thresholds, exercise answers). Felten 2013 is "Bitcoin isn't so broken
+  after all" (7 November), arguing that a selfish coalition is unstable
+  (fair-weather mining), not dominance: the lecture says so. Sapirshtein et
+  al.'s table is for γ = 0 only (T = 95); their threshold figure (γ up to
+  about 0.24) merges with SM1's near γ ≈ 0.2, so our equal thresholds at 1/4
+  and 1/2 agree. Grunspan–Pérez-Marco is a preprint only. Kroll et al.'s
+  model has no withholding. The stale rate quoted is Gervais et al.'s 0.41%
+  (February 2016). At T = 40 the optimum is understated above α ≈ 0.4
+  (0.45, γ 0: 0.66334 against the paper's 0.66891).
+- Module 13 texts quote numbers pinned by `check-game-theory-13.mjs` (about
+  12 s) and by `browser-checks/modules/game-theory-mining-as-a-game.mjs`.
+  Module chunk 75.0 kB (25.0 kB gzip); `optimal.json` is bundled in it.
 
 - Module 12, things a later module may reuse, all in `mechanism-design/`:
   `myerson.js` (allocation rules: one object, reserve, two slots, lottery,

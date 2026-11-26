@@ -1,0 +1,927 @@
+{
+ "about": "Game Theory Lab module 13, Panel C: optimal selfish-mining shares (Sapirshtein, Sompolinsky and Zohar's MDP), written by scripts/lab/gen-game-theory-13-optimal.mjs. Policy maps: one string per a = 0..8, one letter per h = 0..8 (A adopt, O override, M match, W wait).",
+ "T": 40,
+ "tol": 0.000001,
+ "cells": [
+  {
+   "alpha": 0.2,
+   "gamma": 0,
+   "opt": 0.2,
+   "sm1": 0.1296703,
+   "honest": true,
+   "steps": 0,
+   "iterations": 191
+  },
+  {
+   "alpha": 0.225,
+   "gamma": 0,
+   "opt": 0.225,
+   "sm1": 0.1608953,
+   "honest": true,
+   "steps": 0,
+   "iterations": 221
+  },
+  {
+   "alpha": 0.25,
+   "gamma": 0,
+   "opt": 0.25,
+   "sm1": 0.195122,
+   "honest": true,
+   "steps": 0,
+   "iterations": 259
+  },
+  {
+   "alpha": 0.275,
+   "gamma": 0,
+   "opt": 0.275,
+   "sm1": 0.2324538,
+   "honest": true,
+   "steps": 0,
+   "iterations": 307
+  },
+  {
+   "alpha": 0.3,
+   "gamma": 0,
+   "opt": 0.3,
+   "sm1": 0.2731261,
+   "honest": true,
+   "steps": 0,
+   "iterations": 375
+  },
+  {
+   "alpha": 0.325,
+   "gamma": 0,
+   "opt": 0.325,
+   "sm1": 0.3175675,
+   "honest": true,
+   "steps": 0,
+   "iterations": 462
+  },
+  {
+   "alpha": 0.3333333333333333,
+   "gamma": 0,
+   "opt": 0.3370454,
+   "sm1": 0.3333333,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1441
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 0,
+   "opt": 0.3707542,
+   "sm1": 0.3665085,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1400
+  },
+  {
+   "alpha": 0.375,
+   "gamma": 0,
+   "opt": 0.4259039,
+   "sm1": 0.4211823,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1556
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 0,
+   "opt": 0.4882445,
+   "sm1": 0.4837209,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1707
+  },
+  {
+   "alpha": 0.425,
+   "gamma": 0,
+   "opt": 0.5662931,
+   "sm1": 0.5580111,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1935
+  },
+  {
+   "alpha": 0.45,
+   "gamma": 0,
+   "opt": 0.6633402,
+   "sm1": 0.6517734,
+   "honest": false,
+   "steps": 20,
+   "iterations": 2026
+  },
+  {
+   "alpha": 0.2,
+   "gamma": 0.25,
+   "opt": 0.2,
+   "sm1": 0.156044,
+   "honest": true,
+   "steps": 0,
+   "iterations": 201
+  },
+  {
+   "alpha": 0.225,
+   "gamma": 0.25,
+   "opt": 0.225,
+   "sm1": 0.1880165,
+   "honest": true,
+   "steps": 0,
+   "iterations": 234
+  },
+  {
+   "alpha": 0.25,
+   "gamma": 0.25,
+   "opt": 0.25,
+   "sm1": 0.222561,
+   "honest": true,
+   "steps": 0,
+   "iterations": 276
+  },
+  {
+   "alpha": 0.275,
+   "gamma": 0.25,
+   "opt": 0.275,
+   "sm1": 0.2598049,
+   "honest": true,
+   "steps": 0,
+   "iterations": 338
+  },
+  {
+   "alpha": 0.3,
+   "gamma": 0.25,
+   "opt": 0.3,
+   "sm1": 0.3,
+   "honest": true,
+   "steps": 0,
+   "iterations": 411
+  },
+  {
+   "alpha": 0.325,
+   "gamma": 0.25,
+   "opt": 0.3438565,
+   "sm1": 0.3435812,
+   "honest": false,
+   "steps": 20,
+   "iterations": 905
+  },
+  {
+   "alpha": 0.3333333333333333,
+   "gamma": 0.25,
+   "opt": 0.3595317,
+   "sm1": 0.3589744,
+   "honest": false,
+   "steps": 20,
+   "iterations": 817
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 0.25,
+   "opt": 0.3923684,
+   "sm1": 0.3912713,
+   "honest": false,
+   "steps": 20,
+   "iterations": 897
+  },
+  {
+   "alpha": 0.375,
+   "gamma": 0.25,
+   "opt": 0.4471654,
+   "sm1": 0.4442734,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1056
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 0.25,
+   "opt": 0.5179116,
+   "sm1": 0.5046512,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1304
+  },
+  {
+   "alpha": 0.425,
+   "gamma": 0.25,
+   "opt": 0.6029122,
+   "sm1": 0.576149,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1359
+  },
+  {
+   "alpha": 0.45,
+   "gamma": 0.25,
+   "opt": 0.7091461,
+   "sm1": 0.6661858,
+   "honest": false,
+   "steps": 20,
+   "iterations": 2402
+  },
+  {
+   "alpha": 0.2,
+   "gamma": 0.5,
+   "opt": 0.2,
+   "sm1": 0.1824176,
+   "honest": true,
+   "steps": 0,
+   "iterations": 203
+  },
+  {
+   "alpha": 0.225,
+   "gamma": 0.5,
+   "opt": 0.225,
+   "sm1": 0.2151377,
+   "honest": true,
+   "steps": 0,
+   "iterations": 249
+  },
+  {
+   "alpha": 0.25,
+   "gamma": 0.5,
+   "opt": 0.25,
+   "sm1": 0.25,
+   "honest": true,
+   "steps": 0,
+   "iterations": 293
+  },
+  {
+   "alpha": 0.275,
+   "gamma": 0.5,
+   "opt": 0.2871561,
+   "sm1": 0.2871561,
+   "honest": false,
+   "steps": 20,
+   "iterations": 836
+  },
+  {
+   "alpha": 0.3,
+   "gamma": 0.5,
+   "opt": 0.3268741,
+   "sm1": 0.3268739,
+   "honest": false,
+   "steps": 20,
+   "iterations": 927
+  },
+  {
+   "alpha": 0.325,
+   "gamma": 0.5,
+   "opt": 0.3740545,
+   "sm1": 0.3695948,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1069
+  },
+  {
+   "alpha": 0.3333333333333333,
+   "gamma": 0.5,
+   "opt": 0.3918333,
+   "sm1": 0.3846154,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1191
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 0.5,
+   "opt": 0.4301767,
+   "sm1": 0.416034,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1194
+  },
+  {
+   "alpha": 0.375,
+   "gamma": 0.5,
+   "opt": 0.4961968,
+   "sm1": 0.4673645,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1335
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 0.5,
+   "opt": 0.5725068,
+   "sm1": 0.5255814,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1332
+  },
+  {
+   "alpha": 0.425,
+   "gamma": 0.5,
+   "opt": 0.6599189,
+   "sm1": 0.5942868,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1775
+  },
+  {
+   "alpha": 0.45,
+   "gamma": 0.5,
+   "opt": 0.7595405,
+   "sm1": 0.6805982,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1295
+  },
+  {
+   "alpha": 0.2,
+   "gamma": 0.75,
+   "opt": 0.2090794,
+   "sm1": 0.2087912,
+   "honest": false,
+   "steps": 20,
+   "iterations": 859
+  },
+  {
+   "alpha": 0.225,
+   "gamma": 0.75,
+   "opt": 0.2459309,
+   "sm1": 0.2422589,
+   "honest": false,
+   "steps": 20,
+   "iterations": 947
+  },
+  {
+   "alpha": 0.25,
+   "gamma": 0.75,
+   "opt": 0.2864605,
+   "sm1": 0.277439,
+   "honest": false,
+   "steps": 20,
+   "iterations": 878
+  },
+  {
+   "alpha": 0.275,
+   "gamma": 0.75,
+   "opt": 0.330814,
+   "sm1": 0.3145072,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1030
+  },
+  {
+   "alpha": 0.3,
+   "gamma": 0.75,
+   "opt": 0.3794187,
+   "sm1": 0.3537477,
+   "honest": false,
+   "steps": 20,
+   "iterations": 966
+  },
+  {
+   "alpha": 0.325,
+   "gamma": 0.75,
+   "opt": 0.4328135,
+   "sm1": 0.3956085,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1131
+  },
+  {
+   "alpha": 0.3333333333333333,
+   "gamma": 0.75,
+   "opt": 0.4517705,
+   "sm1": 0.4102564,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1139
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 0.75,
+   "opt": 0.491563,
+   "sm1": 0.4407968,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1132
+  },
+  {
+   "alpha": 0.375,
+   "gamma": 0.75,
+   "opt": 0.5563194,
+   "sm1": 0.4904557,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1362
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 0.75,
+   "opt": 0.6278144,
+   "sm1": 0.5465116,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1596
+  },
+  {
+   "alpha": 0.425,
+   "gamma": 0.75,
+   "opt": 0.7068894,
+   "sm1": 0.6124247,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1986
+  },
+  {
+   "alpha": 0.45,
+   "gamma": 0.75,
+   "opt": 0.794622,
+   "sm1": 0.6950106,
+   "honest": false,
+   "steps": 20,
+   "iterations": 2114
+  },
+  {
+   "alpha": 0.2,
+   "gamma": 1,
+   "opt": 0.25,
+   "sm1": 0.2351648,
+   "honest": false,
+   "steps": 4,
+   "iterations": 322
+  },
+  {
+   "alpha": 0.225,
+   "gamma": 1,
+   "opt": 0.2903226,
+   "sm1": 0.2693801,
+   "honest": false,
+   "steps": 20,
+   "iterations": 975
+  },
+  {
+   "alpha": 0.25,
+   "gamma": 1,
+   "opt": 0.3333334,
+   "sm1": 0.304878,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1059
+  },
+  {
+   "alpha": 0.275,
+   "gamma": 1,
+   "opt": 0.3793105,
+   "sm1": 0.3418583,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1072
+  },
+  {
+   "alpha": 0.3,
+   "gamma": 1,
+   "opt": 0.4285714,
+   "sm1": 0.3806216,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1140
+  },
+  {
+   "alpha": 0.325,
+   "gamma": 1,
+   "opt": 0.4814815,
+   "sm1": 0.4216222,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1447
+  },
+  {
+   "alpha": 0.3333333333333333,
+   "gamma": 1,
+   "opt": 0.4999997,
+   "sm1": 0.4358974,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1297
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 1,
+   "opt": 0.5384612,
+   "sm1": 0.4655596,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1462
+  },
+  {
+   "alpha": 0.375,
+   "gamma": 1,
+   "opt": 0.6000001,
+   "sm1": 0.5135468,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1526
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 1,
+   "opt": 0.6666665,
+   "sm1": 0.5674419,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1671
+  },
+  {
+   "alpha": 0.425,
+   "gamma": 1,
+   "opt": 0.7391293,
+   "sm1": 0.6305626,
+   "honest": false,
+   "steps": 20,
+   "iterations": 1951
+  },
+  {
+   "alpha": 0.45,
+   "gamma": 1,
+   "opt": 0.8181258,
+   "sm1": 0.709423,
+   "honest": false,
+   "steps": 20,
+   "iterations": 2037
+  }
+ ],
+ "thresholds": [
+  {
+   "gamma": 0,
+   "opt": 0.3294,
+   "sm1": 0.33333
+  },
+  {
+   "gamma": 0.25,
+   "opt": 0.3,
+   "sm1": 0.3
+  },
+  {
+   "gamma": 0.5,
+   "opt": 0.25,
+   "sm1": 0.25
+  },
+  {
+   "gamma": 0.75,
+   "opt": 0.16667,
+   "sm1": 0.16667
+  },
+  {
+   "gamma": 1,
+   "opt": 0,
+   "sm1": 0
+  }
+ ],
+ "policies": [
+  {
+   "alpha": 0.3,
+   "gamma": 0,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "O........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ],
+    "relevant": [
+     ".A.......",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ]
+   }
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 0,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W.W......",
+     "W.OW.....",
+     "WW.OW....",
+     "WWW.OWW..",
+     "WWWW.OWW.",
+     "WWWWW.OWW",
+     "WWWWWW.OW"
+    ],
+    "relevant": [
+     ".A.......",
+     ".MWA.....",
+     ".O.WA....",
+     ".WO.WA...",
+     ".WWO.WWA.",
+     ".WWWO.WWA",
+     ".WWWWO.WW",
+     ".WWWWWO.W",
+     ".WWWWWWO."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".O.......",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ]
+   }
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 0,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W.W......",
+     "W.OW.....",
+     "WW.OWW...",
+     "WWW.OWW..",
+     "WWWW.OWW.",
+     "WWWWW.OWW",
+     "WWWWWW.OW"
+    ],
+    "relevant": [
+     ".A.......",
+     ".MWA.....",
+     ".O.WA....",
+     ".WO.WWA..",
+     ".WWO.WWA.",
+     ".WWWO.WWA",
+     ".WWWWO.WW",
+     ".WWWWWO.W",
+     ".WWWWWWO."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".O.......",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ]
+   }
+  },
+  {
+   "alpha": 0.3,
+   "gamma": 0.5,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W........",
+     "W........",
+     "WW.......",
+     "WWW......",
+     "WWWW.....",
+     "WWWWW....",
+     "WWWWWW..."
+    ],
+    "relevant": [
+     ".A.......",
+     ".MA......",
+     ".O.......",
+     ".WO......",
+     ".WWO.....",
+     ".WWWO....",
+     ".WWWWO...",
+     ".WWWWWO..",
+     ".WWWWWWO."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".O.......",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ]
+   }
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 0.5,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W........",
+     "W..W.....",
+     "W..OW....",
+     "W...OW...",
+     "WW...OWW.",
+     "WWW...OWW",
+     "WWWW...OW"
+    ],
+    "relevant": [
+     ".A.......",
+     ".MA......",
+     ".MMWA....",
+     ".MMMWA...",
+     ".MMO.WA..",
+     ".WMMO.WWA",
+     ".WWMMO.WW",
+     ".WWWMMO.W",
+     ".WWWWMMO."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".W.......",
+     ".WW......",
+     ".WWO.....",
+     ".WW......",
+     ".WWW.....",
+     ".WWWW....",
+     ".WWWWW..."
+    ]
+   }
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 0.5,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W........",
+     "W..W.....",
+     "W..OW....",
+     "W...OWW..",
+     "W....OWW.",
+     "W.....OWW",
+     "W......OW"
+    ],
+    "relevant": [
+     ".A.......",
+     ".MA......",
+     ".MMWA....",
+     ".MMMWA...",
+     ".MMMMWWA.",
+     ".MMMMMWWA",
+     ".MMMMMMWW",
+     ".MMMMMO.W",
+     ".MMMMMMO."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".W.......",
+     ".WW......",
+     ".WWW.....",
+     ".WWWW....",
+     ".WWWWW...",
+     ".WWWWWO..",
+     ".WWWWW..."
+    ]
+   }
+  },
+  {
+   "alpha": 0.3,
+   "gamma": 1,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W........",
+     "W........",
+     "WW.......",
+     "WWW......",
+     "WWWW.....",
+     "WWWWW....",
+     "WWWWWW..."
+    ],
+    "relevant": [
+     ".A.......",
+     ".M.......",
+     ".M.......",
+     ".WM......",
+     ".WWM.....",
+     ".WWWM....",
+     ".WWWWM...",
+     ".WWWWWM..",
+     ".WWWWWWM."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".W.......",
+     ".W.......",
+     ".WW......",
+     ".WWW.....",
+     ".WWWW....",
+     ".WWWWW...",
+     ".WWWWWW.."
+    ]
+   }
+  },
+  {
+   "alpha": 0.35,
+   "gamma": 1,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W........",
+     "W........",
+     "WW.......",
+     "WWW......",
+     "WWWW.....",
+     "WWWWW....",
+     "WWWWWW..."
+    ],
+    "relevant": [
+     ".A.......",
+     ".M.......",
+     ".M.......",
+     ".WM......",
+     ".WWM.....",
+     ".WWWM....",
+     ".WWWWM...",
+     ".WWWWWM..",
+     ".WWWWWWM."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".W.......",
+     ".W.......",
+     ".WW......",
+     ".WWW.....",
+     ".WWWW....",
+     ".WWWWW...",
+     ".WWWWWW.."
+    ]
+   }
+  },
+  {
+   "alpha": 0.4,
+   "gamma": 1,
+   "map": {
+    "irrelevant": [
+     ".A.......",
+     "W........",
+     "W........",
+     "W........",
+     "WW.......",
+     "WWW......",
+     "WWWW.....",
+     "WWWWW....",
+     "WWWWWW..."
+    ],
+    "relevant": [
+     ".A.......",
+     ".M.......",
+     ".M.......",
+     ".WM......",
+     ".WWM.....",
+     ".WWWM....",
+     ".WWWWM...",
+     ".WWWWWM..",
+     ".WWWWWWM."
+    ],
+    "active": [
+     ".........",
+     ".........",
+     ".W.......",
+     ".W.......",
+     ".WW......",
+     ".WWW.....",
+     ".WWWW....",
+     ".WWWWW...",
+     ".WWWWWW.."
+    ]
+   }
+  }
+ ]
+}
