@@ -49,7 +49,7 @@ const T = {
     stop: 'Ferma',
     computing: 'Calcolo in corso…',
     playLine: (best, v, own, n) =>
-      `${PROPOSERS.toLocaleString('it-IT')} proponenti, ${TRIES} offerte a caso ciascuno: l’offerta con il payoff medio più alto è ${best} (${v}). Solo ${own} dei ${n} proponenti l’hanno trovata dai propri tentativi.`,
+      `${PROPOSERS.toLocaleString('it-IT')} proponenti, ${TRIES} offerte a caso ciascuno: l’offerta con il payoff medio più alto è ${best} (${v}). Solo ${own} dei ${n} proponenti l’hanno trovata basandosi solo sui propri tentativi.`,
     aria: 'Il denaro atteso del proponente in funzione dell’offerta',
   },
 }

@@ -183,4 +183,51 @@ lab; Italian terms; DRAFT markers off).
   of 56 (48 s), on the build made for module 02 (after module 03's edits).
 - `node modules/game-theory-mixed-strategies-zero-sum.mjs`: 0 failures of
   39 (22 s).
+- Commit 6b75eae "Game Theory Lab review: module 03".
+
+### Module 04 `sequential-games-commitment`
+
+- Files: the two lectures, `texts.js`; UI strings in `TreePanel.jsx`,
+  `LeaderPanel.jsx`, `FigureEntry.jsx`, `UltimatumPanel.jsx`.
+- Changes: Italian about 40 (28 lecture, 10 texts.js, 7 UI), English about
+  8, parity 4, facts 0, quotations 0, clarity 9, links 0 (all slugs
+  checked), panel texts 11 (also counted above).
+- Most significant:
+  - IT: straight quotes → « » in the lecture (the strategy example, both
+    threats of the box), in exercises 2 and 6 and in Panel B's «insieme».
+  - Parity and order of definitions: EN and IT say the game has perfect
+    information before "subgame" relies on it; the EN now defines
+    **leader** and **follower** (only the IT did) and says "this is entry
+    deterrence", as the IT.
+  - Wrong or unclear: "has a pure equilibrium … the best of them" → "has
+    pure equilibria … the one it likes best"; "in shares close to 1/4, 1/2
+    and 1/4, which are exact" → "in about 1/4, 1/2 and 1/4 of the trees,
+    and in theory these shares are exact"; Rubinstein "a fraction δ of the
+    proposer's own share x" → "the same share x, worth δx today"; δ₁ and δ₂
+    named, the long sentence split.
+  - texts.js EN/IT: "both its moves are perfect" (moves are not perfect,
+    equilibria are) → "there are two subgame perfect equilibria, one for
+    each of its moves".
+  - IT calques: «si srotola» → «procede a catena»; «Rifiutare denaro non è
+    induzione a ritroso» → «contraddice l'induzione a ritroso»; «chi
+    risponde / chi propone» → «il rispondente / il proponente» (table).
+  - EN: "industrialised" → "industrialized", "maximises" → "maximizes".
+- Facts and pins: none changed. The browser check pins the EN "credible
+  without help" in `FigureEntry.jsx`: kept; only the IT changed («senza
+  aiuti» → «anche senza impegno»).
+- Words: lecture EN 1,698, IT 1,699 (limits 1,400–1,700; additions offset
+  by cuts); box EN 198, IT 198 (150–200).
+- For Adriano: both lectures sit at the top of the limit; the IT box keeps
+  «Servono i due blocchi successivi» without a subject (word limit) and
+  "Feather fork" (table); "Nel confronto di Henrich e colleghi (2001)"
+  kept (their summary of earlier studies).
+- Cross-module: "Panel" against "Simulation"; index.js captions and UI
+  strings use the curly ’, the lectures and texts.js the straight ': stage
+  2. Report 04's terms table is stale.
+- `node scripts/lab/check-game-theory-04.mjs`: all checks passed (9 s).
+- `npx vite build`: built (16 s).
+- `node check-module.mjs game-theory sequential-games-commitment`: 0
+  failures of 56 (50 s).
+- `node modules/game-theory-sequential-games-commitment.mjs`: 0 failures
+  of 45 (19 s).
 
