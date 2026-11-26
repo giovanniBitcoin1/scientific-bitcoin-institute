@@ -401,7 +401,7 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | evolutionary game theory | teoria evolutiva dei giochi | 07 |
 | evolutionarily stable strategy (ESS) | strategia evolutivamente stabile (una ESS) | 07 |
 | replicator equation, replicator dynamics | equazione del replicatore, dinamica del replicatore | 07 |
-| rest point | punto di equilibrio (not "punto di riposo": no source) | 07 |
+| rest point | punto di equilibrio (Ghezzo, Padova thesis 2023-24, which also writes "punti fissi"; "punto di riposo" not used) | 07 |
 | asymptotically stable | asintoticamente stabile | 07 |
 | coexistence, bistability | coesistenza, bistabilità | 07 |
 | phase line | retta delle fasi | 07 |
@@ -448,7 +448,7 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | maximal independent set | insieme indipendente massimale (it.wikipedia) | 09 |
 | key player | giocatore chiave (*key player* at first use; no Italian source) | 09 |
 | intercentrality | intercentralità (no Italian source) | 09 |
-| Katz–Bonacich centrality | centralità di Katz–Bonacich (no Italian source; Italian authors write it in English) | 09 |
+| Katz–Bonacich centrality | centralità di Katz–Bonacich (Bordoli, Padova thesis, Dip. Scienze Economiche) | 09 |
 | (strategic) network formation | formazione (strategica) delle reti (Padova theses: "formazione di reti") | 09 |
 | pairwise stable, pairwise stability | stabile a coppie, stabilità a coppie (*pairwise stability* at first use; no Italian source) | 09 |
 | efficient network | rete efficiente (Fagnani, PoliTo) | 09 |
@@ -471,14 +471,14 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | balanced (game); balancedness | (gioco) bilanciato; bilanciamento ("collezione bilanciata" in Fragnelli; "famiglia bilanciata" not found) | 10 |
 | Bondareva–Shapley theorem | teorema di Bondareva–Shapley | 10 |
 | nucleolus | nucleolo | 10 |
-| least core | *least core* (kept: no Italian term found) | 10 |
+| least core | *least core* (kept: no Italian term found; a Pisa thesis, 2024, keeps "Least Core") | 10 |
 | weighted voting game; quota | gioco a maggioranza pesata; quota | 10 |
 | Shapley–Shubik index, Banzhaf index | indice (di potere) di Shapley–Shubik, indice di Banzhaf | 10 |
 | pivot (Shapley–Shubik); decisive (Banzhaf) | pivotale (il *pivot*); cruciale (Bernardi, Pavia 2019) | 10 |
 | minimal winning coalition | coalizione vincente minimale | 10 |
 | bankruptcy problem | problema di bancarotta (Fragnelli; "fallimento" not found) | 10 |
 | proportional rule; constrained equal awards, losses | regola proporzionale; CEA, CEL (English kept, as Fragnelli; "somme uguali", "perdite uguali" as glosses) | 10 |
-| airport game; glove market | gioco dell'aeroporto; gioco dei guanti ("mercato dei guanti" not found) | 10 |
+| airport game; glove market | gioco dell'aeroporto; gioco dei guanti (Torre, Pavia, slides 2019; "mercato dei guanti" not found) | 10 |
 | contested garment | il mantello conteso | 10 |
 | share (of a pool) | *share* (kept, feminine: "le share") | 10 |
 | swing | *swing* (kept) | 10 |
@@ -504,7 +504,7 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | mechanism; direct mechanism; designer; report | meccanismo; meccanismo diretto; progettista; dichiarazione | 12 |
 | revelation principle | principio di rivelazione | 12 |
 | incentive compatibility | compatibilità degli incentivi (PoliMi, Teramo; "compatibilità con gli incentivi" not found) | 12 |
-| Myerson's lemma; allocation rule; monotone | lemma di Myerson; regola di allocazione; monotona (no Italian source: calques) | 12 |
+| Myerson's lemma; allocation rule; monotone | lemma di Myerson; regola di allocazione; monotona (regola di allocazione: Bosco, UniMiB, who mostly writes "regola di assegnazione"; lemma di Myerson, monotona: no Italian source) | 12 |
 | virtual value; optimal auction | valore virtuale; asta ottima (no Italian source: calques) | 12 |
 | VCG mechanism; externality | meccanismo VCG (Vickrey–Clarke–Groves); esternalità (as module 08) | 12 |
 | individual rationality (voluntary) | razionalità individuale; "volontario" in F2 ("vincolo di partecipazione" found, not used) | 12 |
@@ -522,7 +522,7 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | reference implementation | implementazione di riferimento (no Italian source; transparent) | 13 |
 | longest chain | catena più lunga (Italian whitepaper) | 13 |
 | orphan (stale) block | blocco orfano, as module 04 (it.wikipedia; *stale* once) | 13 |
-| private branch; (private) lead | catena privata; vantaggio (di k blocchi) ("vantaggio privato" not found) | 13 |
+| private branch; (private) lead | catena privata; vantaggio (di k blocchi) ("in vantaggio di due blocchi": Serena, UniBo thesis 2018/19; "vantaggio privato" not found) | 13 |
 | race | gara (Italian whitepaper) | 13 |
 | Markov chain; stationary distribution | catena di Markov; distribuzione stazionaria (it.wikipedia) | 13 |
 | relative revenue (her share of the chain) | quota dei blocchi (della catena) (no source for any form) | 13 |
@@ -534,13 +534,13 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | adopt, override, match, wait; irrelevant, relevant, active | kept in English, in italics, with glosses (no Italian source) | 13 |
 | fair-weather mining | *fair-weather mining* (kept) | 13 |
 | miner (gender) | masculine, as modules 02–12 ("il miner", "un pool") | 13 |
-| zero-profit condition | condizione di profitti nulli ("profitti economici nulli", Unife; "condizione di profitto nullo" not found) | 14 |
+| zero-profit condition | condizione di profitti nulli (Battistini, UniSi; "profitti economici nulli", Unife; Tor Vergata also "condizione di profitto nullo") | 14 |
 | incentive compatibility constraint | vincolo di compatibilità degli incentivi (Unife) | 14 |
 | flow and stock | flusso e stock (grandezze di flusso, di stock: Teramo) | 14 |
 | majority (51%) attack | attacco del 51% (Bitcoin.com IT, UniBo thesis); "attacco di maggioranza" as a gloss | 14 |
 | double spend | doppia spesa (ethereum.org IT) | 14 |
 | escrow | *escrow* (kept, as in legal Italian; gloss "deposito in garanzia") | 14 |
-| specialized capital | capitale specifico (transaction-cost literature; "capitale specializzato" not found) | 14 |
+| specialized capital | capitale specifico (transaction-cost literature; Battistini, UniSi, writes "investimenti specifici"; "capitale specifico" itself not seen; "capitale specializzato" not found) | 14 |
 | renting hash rate | noleggio di potenza di calcolo (Bitpanda "noleggiare") | 14 |
 | sabotage; counterattack; Goldfinger attack | sabotaggio; contrattacco; attacco *Goldfinger* (no Italian source: plain forms) | 14 |
 | bribery | corruzione (*bribery*) (no source; ethereum.org IT "tangenti") | 14 |
@@ -554,8 +554,8 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 **The review of the lectures** (`prompts.local/game-theory-lab-review.md`,
 log `docs/reports/game-theory-lab-review-log.md`): stage 0 committed;
-stage 1 (the 14 modules) and stage 2 (across modules) committed. To
-resume: read the log, then do stage 3 (Italian terms).
+stages 1 (the 14 modules), 2 (across modules) and 3 (Italian terms)
+committed. To resume: read the log, then do stage 4 (the DRAFT markers).
 
 Nothing in progress. All fourteen modules are "ready" and done (table
 above); the lab was closed in the commit "Game Theory Lab: close" (prompt
@@ -585,16 +585,15 @@ has the last full version).
   them; the marker comes off a file once it is approved.
 - **Italian terms without a source.** In the table above, the rows whose
   Italian column says "no source", "not found" or "no Italian … found" are
-  our choices, to be confirmed by Adriano: rest point (07), the lizard's
+  our choices, to be confirmed by Adriano (searched once more in the review of 26 November 2026, log `docs/reports/game-theory-lab-review-log.md`, "Stage 3"): the lizard's
   name (07), Wardrop's principle and best-response dynamics (08),
-  specialized equilibrium, key player, intercentrality, Katz–Bonacich
-  centrality, pairwise stability, connections model (09), least core,
-  balanced collection, bankruptcy problem, glove game (10), monopolistic
-  price, unit demand (11), Myerson's lemma and allocation rule, virtual
+  specialized equilibrium, key player, intercentrality, pairwise
+  stability, connections model (09), least core (10), monopolistic
+  price, unit demand (11), Myerson's lemma, virtual
   value and optimal auction, budget balance, bilateral trade, false-name
-  bids, base fee (12), reference implementation, private lead, relative
+  bids, base fee (12), reference implementation, relative
   revenue, profitability threshold, the four MDP actions and three fork
-  labels (13), zero-profit condition, specialized capital, sabotage,
+  labels (13), specialized capital, sabotage,
   counterattack, Goldfinger attack, bribery, block subsidy, undercutting,
   mining gap (14); and the one-shot deviation principle (06).
 - **The push.** Nothing has been pushed. The branch `game-theory-lab` is

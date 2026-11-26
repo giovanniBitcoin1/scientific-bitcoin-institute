@@ -827,3 +827,43 @@ editing them); the lead reviewed the lab's index and ran the checks.
   - `node check-index.mjs network`: 0 failures of 76 (105 s).
   - `node check-index.mjs complexity`: 0 failures of 72 (103 s).
   - `node check-links.mjs`: 0 failures of 131 (164 s).
+- Commit 9d1a6ce "Game Theory Lab review: across modules".
+
+## Stage 3: the Italian terms without a source
+
+- One helper agent (web search, one search per term; Italian PDFs
+  downloaded and read with pdftotext; the search tool's own Italian
+  summaries and snippet-only hits not counted as sources). Its findings,
+  as recorded:
+
+FOUND (term seen in the document text):
+- zero-profit condition (14): «condizione di profitti nulli» — A. Battistini, "Competizione tra organizzazioni, specificità degli investimenti ed efficienza", UniSi repository (usiena-air.unisi.it); «condizione di profitto nullo» — Univ. Roma Tor Vergata, Esercizi di Microeconomia (concorrenza perfetta nel lungo periodo). Keep ours; now sourced.
+- Katz–Bonacich centrality (09): «centralità di Katz-Bonacich» — D. Bordoli, prova finale "Scienza dei nodi per l'economia", Univ. Padova, Dip. Scienze Economiche (thesis.unipd.it). Sourced.
+- glove game (10): «gioco dei guanti» — A. Torre, Univ. Pavia, slides on cooperative games, Collegio Borromeo 2019 (mate.unipv.it/atorre/borromeo2019/coop1.pdf). Sourced.
+- allocation rule (12): «regola di allocazione» once, mostly «regola di assegnazione» with «regola di pagamento» — B. Bosco, Aste per microeconomia, Univ. Milano-Bicocca 2022/23. Keep ours (attested).
+- private lead (13): «in vantaggio di due blocchi», «vantaggio di due unità rispetto alla catena pubblica» — L. Serena, tesi triennale, Univ. Bologna 2018/19 (amslaurea.unibo.it/20600). Sourced; the thesis calls the private chain «catena personale» (ours, «catena privata», kept).
+PARTLY FOUND:
+- rest point (07): Ghezzo (tesi triennale, Padova, Dip. Matematica, 2023-24) calls the replicator's zeros «equilibrio evolutivo» / «punti fissi» and writes «punto di equilibrio» in the phase-diagram discussion; Demaio (tesi magistrale, Unimore) «punti fissi della dinamica». «punto di riposo» unused. Keep «punto di equilibrio».
+- least core (10): a Pisa thesis (N. Sansone, 2024) keeps "Least Core" (English abstract). Weak support for keeping the English.
+- balanced (10): Barbarino, Appunti di Teoria dei Giochi (2020): «gioco bilanciato», «vettore bilanciato di pesi»; no «collezione bilanciata» again (Fragnelli stays the source).
+- bankruptcy (10): Lucchetti (PoliMi), Bocconi 2011: a firm «dichiarata in bancarotta» in the creditors' example; supports «bancarotta» over «fallimento».
+- specialized capital (14): Battistini says «investimenti specifici», «specificità degli investimenti»; not «capitale specifico» verbatim. Keep ours; our choice.
+- profitability threshold (13): PoliTo thesis (Guglielmino 2021-22) «profittabilità» of mining, no threshold phrase. Our choice.
+SNIPPET ONLY (not counted): «equilibrio di Wardrop» (Univ. Pisa TMO_relazione.pdf, not opened); «commissione di base» (WisdomTree Italia, CoinDesk Italia; not university).
+NOT FOUND: one-shot deviation principle (06); the lizard's Italian name (07); Wardrop's principle, best-response dynamics (08); specialized equilibrium, key player, intercentrality, pairwise stability, connections model (09); monopolistic price, unit demand (11); Myerson's lemma, virtual value, optimal auction, budget balance, bilateral trade, false-name bids, base fee (12); reference implementation, relative revenue, the MDP actions (13); sabotage, counterattack, Goldfinger attack, bribery, block subsidy, undercutting, mining gap (14).
+Downloaded PDFs and text: scratchpad\dl\.
+
+- Decisions: no lecture text changes. Every term found is the one the
+  lectures already use (punto di equilibrio, centralità di Katz–Bonacich,
+  gioco dei guanti, regola di allocazione, vantaggio, condizione di
+  profitti nulli), so the table records the source and the term stays.
+  Specialized capital: the source's «investimenti specifici» is a
+  different noun for the same idea; «capitale specifico» kept, still our
+  choice. Least core: kept in English (weak support).
+- Status file: the eight rows updated with their sources; the open item
+  "Italian terms without a source" loses rest point, Katz–Bonacich,
+  glove game, allocation rule, private lead and zero-profit condition
+  (now sourced), and balanced collection and bankruptcy problem (their
+  rows already cite Fragnelli; Barbarino's "gioco bilanciato" and
+  Lucchetti's "bancarotta" confirm the words).
+- No check run for this stage: only the status file changed.
