@@ -612,3 +612,47 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: built (15 s).
 - `node check-module.mjs game-theory mechanism-design`: 0 failures of 56 (48 s).
 - `node modules/game-theory-mechanism-design.mjs`: 0 failures of 29 (12 s).
+- Commit 97ec672 "Game Theory Lab review: module 12".
+
+### Module 13 `mining-as-a-game`
+
+- Files: the two lectures, `texts.js`, `index.js` (IT caption of F1); UI
+  strings in `BestPanel.jsx`, `FigureChain.jsx`, `RacePanel.jsx`,
+  `DifficultyPanel.jsx`; `scripts/lab/check-game-theory-13.mjs` (two pins).
+- Changes (approximate): Italian 38, English 4, parity 2, facts 0,
+  quotations 0, clarity 7, links 0 (all slugs valid), panel texts 20 (14
+  texts.js, 6 UI).
+- Most significant:
+  - IT gender, SM1's fourth rule: «ogni blocco degli altri le fa
+    pubblicare» → «gli fa pubblicare» (the miner is masculine).
+  - Our remark marked as ours: "There is a second point. A share above α
+    makes…" → "A further point is ours, not Felten's: a share above α
+    makes…" (IT «Un'osservazione nostra, non di Felten: …»); report 13
+    says the remark is ours.
+  - Terms defined before use: r_A, r_H and R = r_A/(r_A + r_H) given in
+    the text (as `selfish.js`, R = rA/G); T₁ defined before the T_even
+    formula ("T₁ = 14/G is the day of the first adjustment").
+  - IT calques: «dato che gli altri seguono il protocollo» → «se gli altri
+    seguono il protocollo»; «sulla fine della catena più lunga valida» →
+    «sull'ultimo blocco della **catena più lunga** tra quelle valide».
+  - Panel C IT labels: «bordate» (also "broadsides") → «con il bordo»;
+    «politica migliore» → «politica ottima» (the lecture's term); «adopt:
+    abbandona il suo ramo» → «abbandona la sua catena».
+  - IT «Prossimo modulo»: «Il [modulo 14](…), il *capstone*» (was «il
+    progetto finale»); «Per default» → «Di default» (four times).
+- Pins changed: IT lecture "the chain and the threshold": «…(γ = 1/2), e
+  zero…» → «…(γ = 1/2) e zero…» (comma before «e» removed); exercise 3's
+  IT template with semicolons: «0,4843 ± 0,0013; 5,89 e 23,65; 70,46».
+- Facts: none changed.
+- Words: EN 1,776, IT 1,794 (limits 1,500–1,800). Clarity additions paid
+  by short cuts («estenderla a propria volta» → «estenderla», «sopra un
+  certo minimo» → «sopra un minimo»…); no sentence or first name dropped.
+- For Adriano: «Di default» (or «per impostazione predefinita»); module 14
+  called *capstone*; «vantaggio» both the private lead and Felten's «in
+  vantaggio»; observe lists write wait / adopt / override in roman.
+- Cross-module: closing headings differ ("Next", "What comes next",
+  «Il prossimo modulo», «Prossimo modulo»): stage 2.
+- `node scripts/lab/check-game-theory-13.mjs`: all checks passed (16 s).
+- `npx vite build`: the build made for module 12 (after module 13's edits).
+- `node check-module.mjs game-theory mining-as-a-game`: 0 failures of 56 (48 s).
+- `node modules/game-theory-mining-as-a-game.mjs`: 0 failures of 32 (10 s).

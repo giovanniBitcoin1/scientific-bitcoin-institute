@@ -16,7 +16,7 @@ export default {
       Component: FigureChain,
       caption: {
         en: 'Hide and release: the states of her private lead under Eyal and Sirer’s strategy, with the probability of each move and each state’s long-run share.',
-        it: 'Nascondere e rivelare: gli stati del suo vantaggio privato con la strategia di Eyal e Sirer, con la probabilità di ogni passaggio e la quota di lungo periodo di ogni stato.',
+        it: 'Nascondere e rivelare: gli stati del vantaggio della catena privata nella strategia di Eyal e Sirer, con la probabilità di ogni passaggio e la quota di lungo periodo di ogni stato.',
       },
     },
     threshold: {

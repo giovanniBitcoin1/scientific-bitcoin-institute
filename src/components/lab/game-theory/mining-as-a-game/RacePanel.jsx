@@ -45,7 +45,7 @@ const T = {
     again: 'Nuova prova',
     run: (s) => `Prova n. ${s} (seme ${s})`,
     head: ['', 'simulato', 'esatto'],
-    rows: { share: 'la sua quota della catena', oA: 'suoi blocchi orfani ogni 100 trovati', oH: 'blocchi orfani degli altri ogni 100 trovati', chain: 'blocchi della catena ogni 100 trovati' },
+    rows: { share: 'la sua quota della catena', oA: 'i suoi blocchi orfani ogni 100 trovati', oH: 'blocchi orfani degli altri ogni 100 trovati', chain: 'blocchi della catena ogni 100 trovati' },
     lead: 'vantaggio massimo della catena privata',
     pending: 'non decisi alla fine (i suoi blocchi privati, una gara)',
     strip: 'Gli ultimi 40 blocchi trovati (arancione: i suoi; grigio: degli altri), con ciò che è accaduto:',

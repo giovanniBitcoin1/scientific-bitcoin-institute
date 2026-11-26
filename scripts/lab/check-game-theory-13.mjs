@@ -255,7 +255,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
   quoted('lecture: the chain and the threshold', body, [
     ['(2016, section 5.5)', '(2016, sezione 5.5)'],
     'R(α, γ) = [α(1 − α)²(4α + γ(1 − 2α)) − α³] / [1 − α(1 + (2 − α)α)]', 'α > (1 − γ) / (3 − 2γ)',
-    ['a third if she loses every race (γ = 0), a quarter if she wins half of them (γ = 1/2), and zero if she wins them all (γ = 1)', 'un terzo se il miner perde ogni gara (γ = 0), un quarto se ne vince metà (γ = 1/2), e zero se le vince tutte (γ = 1)'],
+    ['a third if she loses every race (γ = 0), a quarter if she wins half of them (γ = 1/2), and zero if she wins them all (γ = 1)', 'un terzo se il miner perde ogni gara (γ = 0), un quarto se ne vince metà (γ = 1/2) e zero se le vince tutte (γ = 1)'],
     [`With α = 0.4 and γ = 0 her share is ${f(relativeRevenue(0.4, 0), 4)}, and ${f(p4.oA + p4.oH, 1)} of every 100 blocks found are orphaned, ${f(p4.oH, 1)} of them the others'`, `Con α = 0,4 e γ = 0 la sua quota è ${itn(f(relativeRevenue(0.4, 0), 4))}, e ${itn(f(p4.oA + p4.oH, 1))} blocchi ogni 100 trovati diventano orfani, ${itn(f(p4.oH, 1))} dei quali degli altri`],
     [`${f(p4.oA, 1)} of every 100, but the others lose four times as many`, `${itn(f(p4.oA, 1))} ogni 100, ma gli altri ne perdono quattro volte tanti`],
     ['(7 November 2013)', '(7 novembre 2013)'],
@@ -339,7 +339,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
     check('exercise 1: the code gives 9/17, 3/17, 2/17 and R = 1/3', near(s.p0, 9 / 17, 1e-15) && near(s.p1, 3 / 17, 1e-15) && near(s.p0p, 2 / 17, 1e-15) && near(relativeRevenue(1 / 3, 0), 1 / 3, 1e-15) && near(2 / 27 - 4 / 9 + 1, 17 / 27, 1e-15))
     quoted('exercise 2', sol(1), ['γ = 0: 1/3', '(3/4)/(5/2) = 0.3', '(1/2)/2 = 1/4', 'γ = 1: 0'])
     const b = runRace({ alpha: 0.4, gamma: 0, blocks: 1000000, seed: 1 })
-    quoted('exercise 3', sol(2), [[`Exact: ${f(relativeRevenue(0.4, 0), 4)}; ${f(p4.oA, 2)} of hers and ${f(p4.oH, 2)}`, `Esatti: ${itn(f(relativeRevenue(0.4, 0), 4))}; ${itn(f(p4.oA, 2))} dei suoi e ${itn(f(p4.oH, 2))}`], f(p4.chain, 2), [`${f(b.share, 4)} ± ${f(b.shareSe, 4)}, ${f(b.oA, 2)} and ${f(b.oH, 2)}, ${f(b.chain, 2)}`, itn(`${f(b.share, 4)} ± ${f(b.shareSe, 4)}, ${f(b.oA, 2)} e ${f(b.oH, 2)}, ${f(b.chain, 2)}`)]])
+    quoted('exercise 3', sol(2), [[`Exact: ${f(relativeRevenue(0.4, 0), 4)}; ${f(p4.oA, 2)} of hers and ${f(p4.oH, 2)}`, `Esatti: ${itn(f(relativeRevenue(0.4, 0), 4))}; ${itn(f(p4.oA, 2))} dei suoi e ${itn(f(p4.oH, 2))}`], f(p4.chain, 2), [`${f(b.share, 4)} ± ${f(b.shareSe, 4)}, ${f(b.oA, 2)} and ${f(b.oH, 2)}, ${f(b.chain, 2)}`, itn(`${f(b.share, 4)} ± ${f(b.shareSe, 4)}; ${f(b.oA, 2)} e ${f(b.oH, 2)}; ${f(b.chain, 2)}`)]])
     quoted('exercise 4', sol(3), ['G = 43/61', `R·G = ${f(r4.rA, 4)}`, `r_A/α = ${pct(e4.before)}`, `R/α = ${pct(e4.after)}`, `14/G = ${f(e4.T1, 2)}`, `(R − α) = ${f(e4.breakEven, 2)}`])
     check('exercise 4: r_A = R·G', near(r4.rA, r4.R * r4.G, 1e-15))
     const e3 = expected(0.3, 1)

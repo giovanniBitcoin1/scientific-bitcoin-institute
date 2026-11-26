@@ -45,7 +45,7 @@ const T = {
     never: 'mai (R ≤ α)',
     beyond: (h) => ` (oltre i ${h} giorni)`,
     end: (h, s, e, p) => `Giorno ${h}: selfish ${e} blocchi attesi, onesto ${s}; questo percorso ${p}.`,
-    how: 'L’attacco comincia all’inizio di un periodo di difficoltà. Finché 2016 blocchi non sono entrati nella catena, i blocchi si trovano al ritmo di uno ogni 10 minuti, ma di ogni blocco trovato solo G finisce nella catena; poi la difficoltà scende, la catena torna a crescere di un blocco ogni 10 minuti, e il suo reddito ogni 10 minuti è R. Il percorso simulato trova i blocchi in tempi casuali e ricalcola la difficoltà ogni 2016 blocchi della catena dal tempo che il periodo ha richiesto.',
+    how: 'L’attacco comincia all’inizio di un periodo di difficoltà. Finché 2016 blocchi non sono entrati nella catena, i blocchi si trovano al ritmo di uno ogni 10 minuti, ma di ogni blocco trovato solo G finisce nella catena; poi la difficoltà scende, la catena torna a crescere di un blocco ogni 10 minuti, e il suo reddito ogni 10 minuti è R. Il percorso simulato trova i blocchi in tempi casuali e ricalcola la difficoltà ogni 2016 blocchi della catena in base al tempo impiegato dal periodo.',
     aria: 'La sua ricompensa cumulata rispetto al mining onesto, giorno per giorno',
   },
 }
