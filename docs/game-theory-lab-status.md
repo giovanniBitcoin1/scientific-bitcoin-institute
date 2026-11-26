@@ -553,7 +553,10 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 Nothing in progress. All fourteen modules are "ready" and done (table
 above); the lab was closed in the commit "Game Theory Lab: close" (prompt
-14, stage 2).
+14, stage 2). Prompt 14 is finished: its report
+`docs/reports/game-theory-lab-14.md` and working log
+`docs/reports/game-theory-lab-14-log.md` are in "Game Theory Lab 14:
+report".
 
 ## Next
 

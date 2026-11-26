@@ -128,6 +128,51 @@ and 13; stage 2: the close of the lab).
   second time only to read the exit code.
 - `npm run check:dist`: 0 failures of 108.
 
+## Commit 1
+
+- WIP commits a55eec8, e8b91b9, fe2e357 squashed (`git reset --soft
+  3e8969f`) into 200c0c6 "Game Theory Lab 14: The price of security", with
+  the status file (module 14 done, its Italian terms, its open items).
+
+## Stage 2: the close
+
+- Index: `game-theory-modules.json` has 14 "ready", 0 "coming-soon". A
+  throwaway check on the built site (deleted after use), EN and IT, locked
+  and admin: 14 titles, 14 summaries, no "In preparation" badge, 4 PASS.
+  check-index game-theory had already passed with module 14 ready (0 of 76).
+- Status file: "Work in progress" says nothing is in progress; "Next" says
+  the lab is complete; "Open items" reduced to what is still open (DRAFT
+  lectures, Italian terms without a source, the provisional path, the push,
+  and module 14's dated defaults, which age). The per-module notes are in the
+  reports and in git history (603 lines instead of 1,241).
+- Read-only git facts (no branch changed): `main` is ddfed85 and an ancestor
+  of `game-theory-lab`; `git rev-list --count main..game-theory-lab` 33
+  before the close commit (34 after it, 35 with the report);
+  `game-theory-lab..main` 0. `git diff --name-only main...game-theory-lab`:
+  270 files, 46,725 insertions, 12 deletions; by folder: CLAUDE.md 1;
+  docs/game-theory-lab-status.md 1; docs/reports 25; scripts/lab 14 checks +
+  1 generator; scripts/lab/browser-checks 5 shared files (README, lib,
+  check-index, check-links, check-module) + expect.json + 14 module checks;
+  src/App.jsx 1; src/components/lab/game-theory 173 (2 shared, 14 module
+  folders); src/content/game-theory-lab 28; src/data/lab 3
+  (game-theory-modules.json, paths.js, registry.js); src/pages/lab 3
+  (LabChapter, LabIndex, loaders).
+- Nothing outside the allowed paths: no file of the other labs
+  (`src/components/lab/network`, `sims`, `src/content/lab`,
+  `src/content/network-lab`, `modules.json`, `network-modules.json`), no
+  `Header.jsx` or `nav.json`, nothing in `public/accademia`, no
+  `package.json` or lock file, no `src/data/lab/config.json`, no
+  `LabMarkdown`/`LabLecture`. The engine files touched come from the
+  skeleton (479e821: App.jsx, loaders, paths, registry, CLAUDE.md, lib,
+  check-index, check-links) and from "Labs: open lab pages at the top"
+  (9d1a32d: LabChapter, LabIndex, check-links), both earlier prompts.
+
+## Commits 2 and 3
+
+- 96efdc5 "Game Theory Lab: close" (the status file).
+- "Game Theory Lab 14: report": `docs/reports/game-theory-lab-14.md`, this
+  log, and one paragraph of the status file ("Prompt 14 is finished").
+
 ## Sources (helper agent, 26 November 2026)
 
 - Budish (2025), QJE 140(1), 1–62, doi 10.1093/qje/qjae033 (online 17
