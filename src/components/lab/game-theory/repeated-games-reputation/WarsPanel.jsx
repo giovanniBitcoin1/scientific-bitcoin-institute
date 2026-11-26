@@ -69,7 +69,7 @@ const T = {
     chart2: 'Il δ più piccolo per cui qualche soglia funziona (L = 30)',
     axis2: 'σ →',
     noiseless: '9/17 senza rumore',
-    found: (r, f) => `Regola migliore sulla griglia dei cursori: p̄ = ${f(r.trigger, 2)}, L = ${r.L}; valore ${f(r.value)} per turno, pace per ${f(r.peace)} del tempo.`,
+    found: (r, f) => `Regola migliore sulla griglia dei cursori: p̄ = ${f(r.trigger, 2)}, L = ${r.L}; valore ${f(r.value)} per turno, pace per una quota ${f(r.peace)} del tempo.`,
     noneFound: 'Nessuna regola sulla griglia dei cursori ferma gli imbrogli con questi σ e δ.',
     aria: 'Il prezzo su 200 turni, con i turni di guerra ombreggiati, la soglia e i due prezzi medi',
     aria2: 'La pazienza minima per cui qualche soglia ferma gli imbrogli, in funzione del rumore σ',

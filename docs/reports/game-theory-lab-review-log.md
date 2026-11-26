@@ -281,3 +281,46 @@ lab; Italian terms; DRAFT markers off).
 - `node modules/game-theory-incomplete-information-signalling.mjs`: 0
   failures of 39 (9 s).
 
+- Commit 82519c2 "Game Theory Lab review: module 05".
+
+### Module 06 `repeated-games-reputation`
+
+- Files: the two lectures, `texts.js`; `ReputationPanel.jsx` (one string,
+  EN and IT), `WarsPanel.jsx` (one IT string).
+- Changes: Italian about 30, English 8, parity 6, facts 0 numbers (one
+  claim of the box softened), quotations 0, clarity 6, links 0, panel
+  texts 14.
+- Most significant:
+  - Box, EN and IT: "a pool can tell it is being attacked, but not by whom"
+    → "a pool may notice that it is being attacked, but not which of its
+    miners are the infiltrators" (as report 06 quotes Eyal: "which of its
+    registered miners are the perpetrators"); "an unspoken agreement" →
+    "an agreement, perhaps unspoken" (Eyal: "implicit or explicit").
+  - IT ambiguity: «come senza dubbio» (reads as "undoubtedly") → «come
+    senza il dubbio» in observe C, exercise 6 and Panel C's readout; EN
+    "without the doubt".
+  - Clarity: w defined before use ("Let w be a fought newcomer's payoff
+    (−1 here) and b = 2/(2 − w)…"); chain-store payoffs "written
+    (newcomer, chain)", as module 05.
+  - Trigger rule rewritten: "…a price war (Cournot play) breaks out for L
+    rounds, and then the cartel resumes" / «scatta per L turni una guerra
+    dei prezzi alla Cournot, poi si torna al cartello».
+  - Parity, added to the EN: "discount factor", **imperfect monitoring**,
+    **chain-store paradox**, bold **weak**.
+  - IT: «è cattivo per entrambi» → «svantaggioso per entrambi»; «dove
+    mescola» → «dove gioca una strategia mista»; «per il pareggio» → «a
+    parità di payoff»; decimal lists separated by semicolons.
+  - EN: "apologising" → "apologizing", "maximise" → "maximize".
+- Facts and pins: no number changed; no pin changed.
+- Words (box not counted): EN 1,676, IT 1,698 (limits 1,400–1,700); boxes
+  EN 282, IT 324 (not limited).
+- For Adriano: «domanda rumorosa» kept (the lab's «rumore»); register of
+  «le autorità antitrust li tengono d'occhio»; Tit for Tat roman in IT (a
+  strategy's name).
+- Cross-module: the EN box mixes tenses (Eyal "notes"/"observed"); decimal
+  lists with plain commas in other IT modules; "senza dubbio" elsewhere; a
+  comment in `minersdilemma.js` says "maximise" (code comment, left).
+- `node scripts/lab/check-game-theory-06.mjs`: all checks passed (1 s).
+- `npx vite build`: the build made for module 05 (after module 06's edits).
+- `node check-module.mjs game-theory repeated-games-reputation`: 0 failures of 60 (57 s).
+- `node modules/game-theory-repeated-games-reputation.mjs`: 0 failures of 41 (8 s).
