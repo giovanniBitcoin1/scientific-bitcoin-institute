@@ -2,13 +2,13 @@
 
 ## Two roads
 
-Part III is about many players sharing something. Here it is roads. Every driver picks the route that is fastest for himself, and the route he picks slows down everybody else on it. Nobody is wicked and nobody is confused; the trouble is that no one pays for the delay he causes others. How much worse is the outcome than what a planner would choose?
+Part III is about many players sharing something: here, roads. Every driver picks the route that is fastest for himself, and the route he picks slows down everybody else on it. Nobody is wicked and nobody is confused; the trouble is that no one pays for the delay he causes others. How much worse is the outcome than what a planner would choose?
 
 Arthur Pigou (1920) gave the example that still opens the subject. One unit of traffic goes from A to B. The upper road is broad and long: it always takes 1 hour. The lower road is short and narrow: it takes x hours, where x is the share of the drivers on it. For each driver the lower road is never slower than 1 hour, so selfish drivers all take it, and every one of them needs 1 hour.
 
 A planner who sends half the drivers each way does better. Those on the upper road need 1 hour, those on the lower road half an hour, and the average is 3/4. The planner's drivers on the upper road are worse off than the selfish ones were, but the average falls by a quarter.
 
-The ratio between the cost of the selfish outcome and the best one, here 4/3, is the **price of anarchy**. Elias Koutsoupias and Christos Papadimitriou (1999) introduced the idea of measuring an equilibrium against the optimum in this way, as the coordination ratio; the name came soon after (Papadimitriou 2001). With the lower road taking x^p hours the selfish drivers still all take it, while the planner keeps more of them off it as p grows; the ratio grows without limit: 1.626 at p = 2, 2.151 at p = 4, 3.512 at p = 10.
+The ratio between the cost of the selfish outcome and the best one, here 4/3, is the **price of anarchy**. Elias Koutsoupias and Christos Papadimitriou (1999) introduced this way of measuring an equilibrium against the optimum, as the coordination ratio; the present name came soon after (Papadimitriou 2001). With the lower road taking x^p hours the selfish drivers still all take it, while the planner keeps more of them off it as p grows. The ratio grows without limit: 1.626 at p = 2, 2.151 at p = 4, 3.512 at p = 10.
 
 ```figure
 tworoads
@@ -16,23 +16,23 @@ tworoads
 
 ## Equal costs, and a hidden objective
 
-What does an equilibrium look like when the drivers are a continuum and each is a drop in the flow? John Wardrop (1952) stated it as a principle: every route in use costs the same, and no unused route costs less.
+What does an equilibrium look like when the drivers are a continuum and each is a drop in the **flow**? John Wardrop (1952) stated it as a principle: every route in use costs the same, and no unused route costs less. This is the **Wardrop equilibrium**.
 
-Martin Beckmann, Bart McGuire and Christopher Winsten (1956) found the objective that selfish drivers minimise without knowing it. Write f_e for the flow on road e and c_e for its cost. The equilibrium is the flow that minimises
+Martin Beckmann, Bart McGuire and Christopher Winsten (1956) found the objective that selfish drivers minimize without knowing it. Write f_e for the flow on road e and c_e for its cost. The equilibrium is the flow that minimizes
 
 ```math
 Φ(f) = Σ_e ∫_0^{f_e} c_e(x) dx
 ```
 
-while the planner minimises the total cost
+while the planner minimizes the total cost
 
 ```math
 C(f) = Σ_e f_e c_e(f_e)
 ```
 
-Φ is a **potential**: moving a little traffic from one route to another changes Φ by that amount times the difference between the two routes' costs. The two problems have the same form. The optimum is the equilibrium for the **marginal costs** c_e(x) + x c_e'(x), since the derivative of x c_e(x) is the cost a driver meets plus the delay he adds to all the others.
+Φ is a **potential**: moving a little traffic from one route to another changes Φ by that amount times the difference between the two routes' costs. The two problems have the same form. The optimum is the equilibrium computed with the **marginal costs** c_e(x) + x c_e'(x), since the derivative of x c_e(x) is the cost a driver meets plus the delay he adds to all the others.
 
-So a toll equal to x c_e'(x), the delay a driver imposes on the others, makes selfish drivers choose the optimum. This is Pigou's idea of a tax on an **externality**. In his example the toll on the lower road is 1/2 at the planner's split: time plus toll is 1/2 + 1/2 = 1 there, the same as the upper road, so drivers split as the planner wishes. Each still pays 1, in time or in time plus toll, and the 1/4 saved goes to the toll revenue.
+So a **toll** equal to x c_e'(x), the delay a driver imposes on the others, makes selfish drivers choose the optimum. This is Pigou's idea of a tax on an **externality**, the **Pigouvian tax**. In his example the toll on the lower road is 1/2 at the planner's split: time plus toll is 1/2 + 1/2 = 1 there, the same as the upper road. So drivers split as the planner wishes. Each still pays 1, in time or in time plus toll, and the 1/4 saved becomes toll revenue.
 
 ## Braess's paradox
 
@@ -52,23 +52,23 @@ The paradox is not about traffic alone. Joel Cohen and Paul Horowitz (1991) buil
 
 Pigou's example with x^p already shows that the price of anarchy has no bound in general. Tim Roughgarden and Éva Tardos (2002) showed that it does when the costs are affine, a x + b: then the price of anarchy is at most 4/3, in every network and at every demand. Pigou's two roads are the worst case.
 
-Roughgarden (2003) then showed that this is no accident. For a class of costs, the worst case is always a Pigou-like network of two parallel roads, one with a constant cost; the topology of the network does not matter. So the bound for costs of degree p is Pigou's ratio from the first section: 1.626 for p = 2, 1.896 for p = 3, 2.151 for p = 4.
+Roughgarden (2003) then showed that, for a class of costs, the worst case is always a Pigou-like network of two parallel roads, one with a constant cost; the topology of the network does not matter. So the bound for polynomial costs of degree p is Pigou's ratio from the first section: 1.626 for p = 2, 1.896 for p = 3, 2.151 for p = 4.
 
-With no bound on the costs at all, there is still a guarantee of another kind (Roughgarden and Tardos 2002): the equilibrium costs no more than the optimum would with twice the traffic. Selfishness costs no more than doubling the demand. Random networks are usually much better than the worst case: Panel A shows how much.
+With no bound on the costs at all, there is still a guarantee of another kind (Roughgarden and Tardos 2002): the equilibrium costs no more than the optimum would with twice the traffic. Random networks are usually much better than the worst case: Panel A shows how much.
 
 ## Drivers who count
 
-So far each driver was a drop in the flow. With a finite number of drivers, each a noticeable part of the traffic, a driver's switch changes the costs he meets himself. Robert Rosenthal (1973) showed that such **congestion games** still have a potential. Let n_e be the number of drivers on road e, and
+So far each driver was a drop in the flow: the game was **nonatomic**. With a finite number of drivers, each a noticeable part of the traffic, the game is **atomic**, and a driver's switch changes the costs he meets himself. Robert Rosenthal (1973) showed that such **congestion games** still have a potential. Let n_e be the number of drivers on road e, and
 
 ```math
 Φ = Σ_e (c_e(1) + c_e(2) + ... + c_e(n_e))
 ```
 
-When one driver switches, Φ changes by exactly his own change in cost: on the roads he leaves the last term disappears, on the roads he joins a term is added, and those terms are what he paid and what he now pays. So switches that help the switcher always lower Φ, the dynamics of best responses cannot cycle, and since Φ takes finitely many values they end at a pure equilibrium. Dov Monderer and Lloyd Shapley (1996) called such games **potential games**.
+When one driver switches, Φ changes by exactly his own change in cost: on the roads he leaves the last term disappears, on the roads he joins a term is added, and those terms are what he paid and what he now pays. So switches that help the switcher always lower Φ, and **best-response dynamics** cannot cycle. Since Φ takes finitely many values, the switches end at a pure equilibrium. Dov Monderer and Lloyd Shapley (1996) called such games **potential games**, and Φ their **potential function**.
 
-Different equilibria can now have different costs. Take Braess's network with 10 drivers, the two x roads costing k/10 with k drivers on them, and a costless shortcut. From everyone on the upper route, nine switches end at 1, 1 and 8 drivers on the upper, lower and zigzag routes: 1.82 hours on average, against 1.5 for the planner. Everyone on the zigzag is an equilibrium too, at 2. Panel B runs the switches one by one and checks, at each, that the driver's gain is the drop of Φ.
+Different equilibria can now have different costs. Take Braess's network with 10 drivers, the two x roads costing k/10 with k drivers on them, and a costless shortcut. From everyone on the upper route, nine switches end at 1, 1 and 8 drivers on the upper, lower and zigzag routes: 1.82 hours on average, against 1.5 for the planner. Everyone on the zigzag is an equilibrium too, at 2. Panel B runs the switches one by one and checks that each driver's gain is the drop of Φ.
 
-With affine costs the worst case for drivers who count is 5/2 (Awerbuch, Azar and Epstein 2005; Christodoulou and Koutsoupias 2005), worse than the 4/3 of the drop-sized drivers. Panel B has a network of four drivers that reaches it. And in large games the switches can take very long to end: finding a pure equilibrium of a congestion game is as hard as any local search problem of its class, and best responses can need exponentially many steps (Fabrikant, Papadimitriou and Talwar 2004).
+With affine costs the worst case for drivers who count is 5/2 (Awerbuch, Azar and Epstein 2005; Christodoulou and Koutsoupias 2005), worse than the 4/3 of the nonatomic game. Panel B has a network of four drivers that reaches it. In large games, moreover, finding a pure equilibrium of a congestion game is as hard as any local search problem of its class, and best responses can need exponentially many steps (Fabrikant, Papadimitriou and Talwar 2004).
 
 ## The best equilibrium
 
@@ -80,13 +80,13 @@ In **network cost-sharing games** a road has a fixed cost, split equally among t
 Φ = Σ_e c_e (1 + 1/2 + ... + 1/n_e)
 ```
 
-Φ is never below the total cost and never above H_k times it, where H_k = 1 + 1/2 + ... + 1/k is the harmonic number and k the number of players. Start the dynamics from the optimum: Φ only falls, so the equilibrium reached costs at most Φ(optimum) ≤ H_k times the optimum. The best equilibrium costs at most H_k times the optimum: 2.93 for 10 players.
+Φ is never below the total cost and never above H_k times it, where H_k = 1 + 1/2 + ... + 1/k is the **harmonic number** and k the number of players. Start the dynamics from the optimum: Φ only falls, so the equilibrium reached costs at most Φ(optimum) ≤ H_k times the optimum, and the best equilibrium costs no more: at most 2.93 times the optimum for 10 players.
 
-The bound is reached. In the hub of Panel C, player i can take his own road to the target, costing 1/i, or a costless road to a hub and then the hub's road, costing 1 + ε, shared. Everyone at the hub costs 1 + ε, the optimum. But there the last player pays (1 + ε)/k, more than his own road's 1/k, so he leaves; then the next one has a reason to leave, and so on. The only equilibrium has everyone on his own road, at H_k. The other extreme shows the price of anarchy: two roads, one costing k and one 1 + ε. Everyone on the cheap road is an equilibrium and the optimum; everyone on the dear one is an equilibrium too, since each pays 1 and alone on the other road would pay 1 + ε. The worst equilibrium costs k/(1 + ε) times the optimum, while the best is the optimum itself.
+The bound cannot be improved. In the hub of Panel C, player i can take his own road to the target, costing 1/i, or a costless road to a hub and then the hub's road, costing 1 + ε, shared. Everyone at the hub costs 1 + ε, the optimum. But there the last player pays (1 + ε)/k, more than his own road's 1/k, so he leaves; then the next one has a reason to leave, and so on. The only equilibrium has everyone on his own road, at H_k. The other extreme shows the price of anarchy: two roads, one costing k and one 1 + ε. Everyone on the cheap road is an equilibrium and the optimum; everyone on the dear one is an equilibrium too, since each pays 1 and alone on the other road would pay 1 + ε. The worst equilibrium costs k/(1 + ε) times the optimum, while the best is the optimum itself.
 
 ## Next
 
-[Module 09](/game-theory-lab/games-on-networks): games played on a network, where each player cares only about her neighbours, and networks that players build for themselves; with a Bitcoin box on the Lightning Network. For shortest paths and flows themselves, see the Network Lab's [module 10](/network-lab/weights-flows-navigation).
+[Module 09, Games on networks](/game-theory-lab/games-on-networks): games on a network, where each player cares only about his neighbours, and networks that players build for themselves; with a Bitcoin box on the Lightning Network. For shortest paths and flows themselves, see the Network Lab's [module 10](/network-lab/weights-flows-navigation).
 
 <!-- simulation -->
 

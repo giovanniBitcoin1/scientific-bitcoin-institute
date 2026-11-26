@@ -15,9 +15,9 @@ export const observe = {
     it: `
 1. Il pannello si apre sull'istanza n. 1: tre strade, d = 1, r = 1. In equilibrio la strada 2 è vuota e i flussi sono (0,7814; 0; 0,2186), costo 0,4928; l'ottimo è (0,6942; 0; 0,3058), costo 0,4806. Il rapporto è 1,0253, e lo 0,4928 dell'equilibrio è molto sotto l'1,6170 che costerebbe l'ottimo con domanda 2.
 2. Premi **Pigou**: il rapporto è 1,3333, esattamente il limite per d = 1. Porta d a 4: 2,1505, di nuovo il limite. Nel pannello niente va oltre.
-3. Torna alle strade casuali con d = 1 e premi **1.000 istanze**: il rapporto medio è 1,036, il più grande 1,289, e lo 0,27 delle istanze supera 1,05. La verifica con domanda doppia vale in ogni istanza.
+3. Torna alle strade casuali con d = 1 e premi **1.000 istanze**: il rapporto medio è 1,036, il massimo 1,289, e lo 0,27 delle istanze supera 1,05. La verifica con domanda doppia vale in ogni istanza.
 4. Con d = **4** lo stesso tasto dà una media di 1,245, un rapporto massimo di 2,110 (il limite è 2,151) e lo 0,72 sopra 1,05: costi più ripidi, più da perdere.
-5. Tieni d = 4 e muovi r. Con r = **0,1** la media è 1,000: con poco traffico tutti prendono la strada più economica, e lo farebbe anche il pianificatore. Con r = **5** la media è 1,007, il massimo 1,382, e solo lo 0,02 supera 1,05. Le perdite stanno nelle domande intermedie.
+5. Tieni d = 4 e muovi r. Con r = **0,1** la media è 1,000: con poco traffico tutti prendono la strada più economica, e lo farebbe anche il pianificatore. Con r = **5** la media è 1,007, il massimo 1,382, e solo lo 0,02 supera 1,05. Le perdite si concentrano sulle domande intermedie.
 6. Con n = **10** e d = 1 la media è 1,046, il massimo 1,212: più strade, un po' più da perdere in media, mai più di 4/3.
 `,
   },
@@ -27,16 +27,16 @@ export const observe = {
 2. The readouts list the planner's optimum, 1.5000 at (5, 5, 0), the best equilibrium, 1.8200 at (1, 1, 8), and the worst, 2.0000 at (0, 0, 10): a price of anarchy of 1.3333 and of stability of 1.2133.
 3. Set c = **0.25**: seven switches reach (3, 3, 4) at 1.6800, the only equilibrium, so both prices are 1.1200. At c = **0.5** the shortcut is not used: 1.5000.
 4. Close the shortcut: five switches reach (5, 5, 0), and every driver needs 1.5000.
-5. Set n = **40** with a costless shortcut: 39 switches reach (1, 1, 38) at 1.9512; the price of stability is 1.3008. The more drivers, the closer the best equilibrium comes to the 2 hours of the drop-sized drivers.
+5. Set n = **40** with a costless shortcut: 39 switches reach (1, 1, 38) at 1.9512; the price of stability is 1.3008. The more drivers, the closer the best equilibrium comes to the 2 hours of the nonatomic game.
 6. Choose **Four drivers**. From **all detours** nothing moves: the cost is 10.0000 against the optimum's 4.0000, a price of anarchy of 2.5000, the worst case for affine costs. From the **random** start no. 1 (drivers 1, 3, 4 on detours, total 11.0000) three switches lead to all direct, at 4.0000.
 `,
     it: `
-1. Il pannello si apre sulla rete di Braess con 10 automobilisti, una scorciatoia senza costo, tutti sul percorso in alto. Premi **Fino alla fine**: nove cambi, l'automobilista 1 sul percorso in basso con un guadagno di 0,9000, poi gli automobilisti da 2 a 9 sullo zigzag, con guadagni da 0,8000 giù fino a 0,1000. Ogni guadagno è il calo di Φ accanto; Φ scende da 15,5000 a 11,0000, e lo stato finisce in 1, 1, 8, a 1,8200 per automobilista.
-2. I riquadri danno l'ottimo del pianificatore, 1,5000 in (5, 5, 0), l'equilibrio migliore, 1,8200 in (1, 1, 8), e il peggiore, 2,0000 in (0, 0, 10): un prezzo dell'anarchia di 1,3333 e della stabilità di 1,2133.
-3. Porta c a **0,25**: sette cambi arrivano a (3, 3, 4) a 1,6800, l'unico equilibrio, quindi i due prezzi valgono 1,1200. Con c = **0,5** la scorciatoia non si usa: 1,5000.
-4. Chiudi la scorciatoia: cinque cambi arrivano a (5, 5, 0), e ognuno impiega 1,5000.
-5. Porta n a **40** con la scorciatoia senza costo: 39 cambi arrivano a (1, 1, 38) a 1,9512; il prezzo della stabilità è 1,3008. Più automobilisti ci sono, più l'equilibrio migliore si avvicina alle 2 ore degli automobilisti grandi come gocce.
-6. Scegli **Quattro automobilisti**. Da **tutti in deviazione** nessuno si muove: il costo è 10,0000 contro il 4,0000 dell'ottimo, un prezzo dell'anarchia di 2,5000, il caso peggiore per costi affini. Dalla partenza **casuale** n. 1 (gli automobilisti 1, 3, 4 in deviazione, totale 11,0000) tre cambi portano a tutti diretti, a 4,0000.
+1. Il pannello si apre sulla rete di Braess con 10 automobilisti, una scorciatoia senza costo, tutti sul percorso in alto. Premi **Fino alla fine**: nove cambi, l'automobilista 1 sul percorso in basso con un guadagno di 0,9000, poi gli automobilisti da 2 a 9 sullo zigzag, con guadagni che scendono da 0,8000 a 0,1000. Ogni guadagno è uguale al calo di Φ riportato accanto; Φ scende da 15,5000 a 11,0000, e lo stato finale è 1, 1, 8, a 1,8200 per automobilista.
+2. Il pannello riporta l'ottimo del pianificatore, 1,5000 in (5, 5, 0), l'equilibrio migliore, 1,8200 in (1, 1, 8), e il peggiore, 2,0000 in (0, 0, 10): un prezzo dell'anarchia di 1,3333 e della stabilità di 1,2133.
+3. Porta c a **0,25**: sette cambi portano a (3, 3, 4), con 1,6800, l'unico equilibrio, quindi i due prezzi valgono 1,1200. Con c = **0,5** la scorciatoia non si usa: 1,5000.
+4. Chiudi la scorciatoia: cinque cambi portano a (5, 5, 0), e ognuno impiega 1,5000.
+5. Porta n a **40** con la scorciatoia senza costo: 39 cambi portano a (1, 1, 38), con 1,9512; il prezzo della stabilità è 1,3008. Più automobilisti ci sono, più l'equilibrio migliore si avvicina alle 2 ore del gioco non atomico.
+6. Scegli **Quattro automobilisti**. Da **tutti in deviazione** nessuno si muove: il costo è 10,0000 contro il 4,0000 dell'ottimo, un prezzo dell'anarchia di 2,5000, il caso peggiore per costi affini. Dalla partenza **casuale** n. 1 (gli automobilisti 1, 3, 4 in deviazione, totale 11,0000) tre cambi portano tutti sul percorso diretto, a 4,0000.
 `,
   },
   sharing: {
@@ -48,9 +48,9 @@ export const observe = {
 5. Choose **Two roads**, k = 10, ε = 0.1. From everyone on road A nothing moves: the cost is 10.0000. The list shows exactly two equilibria, 0 on A at 1.1000 and 10 on A at 10.0000: the worst costs 9.0909 times the optimum, the best 1.0000.
 `,
     it: `
-1. Il pannello si apre sull'hub con k = 10 ed ε = 0,1, tutti all'hub, al costo dell'ottimo 1,1000. Premi **Fino alla fine**: dieci cambi, i giocatori 10, 9, ..., 1 in quest'ordine; il primo guadagno è 0,0100 (0,1100 all'hub contro 0,1000 da solo). Φ scende da 3,2219 a 2,9290, e lo stato finisce con tutti sulla propria strada a H_10 = 2,9290: un rapporto di 2,6627, per l'unico equilibrio.
+1. Il pannello si apre sull'hub con k = 10 ed ε = 0,1, tutti all'hub, al costo dell'ottimo 1,1000. Premi **Fino alla fine**: dieci cambi, i giocatori 10, 9, ..., 1 in quest'ordine; il primo guadagno è 0,0100 (0,1100 all'hub contro 0,1000 da solo). Φ scende da 3,2219 a 2,9290, e lo stato finale ha tutti sulla propria strada, a H_10 = 2,9290: un rapporto di 2,6627, per l'unico equilibrio.
 2. Porta ε a **0,01**: gli stessi dieci cambi, e il rapporto sale a 2,9000, vicino a H_10 = 2,9290.
-3. Riporta ε a 0,1 e k a **20**: l'ordine dei turni fa uscire i giocatori 19, 20, 17, 18, 15, 16, 13, 14, 11, 12 a coppie, poi da 10 giù fino a 1; il rapporto è 3,2707.
+3. Riporta ε a 0,1 e k a **20**: l'ordine dei turni fa uscire i giocatori 19, 20, 17, 18, 15, 16, 13, 14, 11, 12 a coppie, poi dal 10 all'1; il rapporto è 3,2707.
 4. Con k = 10 ed ε = **0,5** l'ordine è 7, 8, 9, 10, 5, 6, 3, 4, 2, 1 e il rapporto 1,9526: un hub più caro è una perdita minore.
 5. Scegli **Due strade**, k = 10, ε = 0,1. Da tutti sulla strada A nessuno si muove: il costo è 10,0000. L'elenco mostra esattamente due equilibri, 0 su A a 1,1000 e 10 su A a 10,0000: il peggiore costa 9,0909 volte l'ottimo, il migliore 1,0000.
 `,
@@ -73,7 +73,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'Braess\'s network with a shortcut costing c. Show that for c < 1/2 the equilibrium sends 1 − 2c on the zigzag and costs 2 − c. Give the shares and the cost at c = 0.25. Then check it in Figure F2.',
-      it: 'La rete di Braess con una scorciatoia che costa c. Mostra che per c < 1/2 l\'equilibrio manda 1 − 2c sullo zigzag e costa 2 − c. Dai le quote e il costo per c = 0,25. Poi verificalo nella Figura F2.',
+      it: 'La rete di Braess con una scorciatoia che costa c. Mostra che per c < 1/2 l\'equilibrio manda 1 − 2c sullo zigzag e costa 2 − c. Indica le quote e il costo per c = 0,25. Poi verificalo nella Figura F2.',
     },
     solution: {
       en: 'By symmetry let u = l and z = 1 − 2u. The x roads carry u + z = 1 − u, so the upper route costs (1 − u) + 1 = 2 − u and the zigzag (1 − u) + c + (1 − u) = 2 − 2u + c. Equal costs give u = c, hence z = 1 − 2c ≥ 0 when c ≤ 1/2, and every route costs 2 − c. At c = 0.25: upper 0.25, lower 0.25, zigzag 0.5, each route 1.75.',
@@ -95,7 +95,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'Ten drivers on Braess\'s network, costless shortcut. Check that 1, 1 and 8 drivers on the upper, lower and zigzag routes is an equilibrium and compute everyone\'s cost. Compute Φ for everyone on the upper route and for the final state. Then check it in Panel B.',
-      it: 'Dieci automobilisti sulla rete di Braess, scorciatoia senza costo. Verifica che 1, 1 e 8 automobilisti sui percorsi in alto, in basso e a zigzag sono un equilibrio e calcola il costo di ciascuno. Calcola Φ con tutti sul percorso in alto e nello stato finale. Poi verificalo nel Pannello B.',
+      it: 'Dieci automobilisti sulla rete di Braess, scorciatoia senza costo. Verifica che 1, 1 e 8 automobilisti sui percorsi in alto, in basso e a zigzag formano un equilibrio e calcola il costo di ciascuno. Calcola Φ con tutti sul percorso in alto e nello stato finale. Poi verificalo nel Pannello B.',
     },
     solution: {
       en: 'The roads s → v and w → t carry 9 drivers each, so they cost 0.9. Upper: 0.9 + 1 = 1.9; lower: 1.9; zigzag: 0.9 + 0 + 0.9 = 1.8. The average is (1.9 + 1.9 + 8 × 1.8)/10 = 1.82. The upper driver would pay 1 + 1.0 = 2 on the lower route and 0.9 + 1.0 = 1.9 on the zigzag: no gain; a zigzag driver would pay 1.9 on either other route: no gain. Φ with everyone on the upper route: (1 + 2 + ... + 10)/10 + 10 = 5.5 + 10 = 15.5. In the final state: 4.5 + 1 + 1 + 4.5 = 11. The drop, 4.5, is the sum of the nine gains, 0.9 + 0.8 + ... + 0.1.',
@@ -117,7 +117,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'The four drivers of Panel B: roads e1 to e4 cost the number of their users, z1 and z2 nothing; driver i takes e_i alone or a detour (driver 1 e2 and e3, driver 2 e1 and e4, driver 3 e1 and z1, driver 4 e2 and z2). Show that all direct (cost 4) and all detours (cost 10) are both equilibria. Then check it in Panel B.',
-      it: 'I quattro automobilisti del Pannello B: le strade da e1 a e4 costano il numero dei loro utenti, z1 e z2 nulla; l\'automobilista i prende e_i da solo o una deviazione (l\'1 e2 ed e3, il 2 e1 ed e4, il 3 e1 e z1, il 4 e2 e z2). Mostra che tutti diretti (costo 4) e tutti in deviazione (costo 10) sono entrambi equilibri. Poi verificalo nel Pannello B.',
+      it: 'I quattro automobilisti del Pannello B: le strade da e1 a e4 costano il numero dei loro utenti, z1 e z2 nulla; l\'automobilista i prende e_i da solo o una deviazione (per l\'1 e2 ed e3, per il 2 e1 ed e4, per il 3 e1 e z1, per il 4 e2 e z2). Mostra che tutti diretti (costo 4) e tutti in deviazione (costo 10) sono entrambi equilibri. Poi verificalo nel Pannello B.',
     },
     solution: {
       en: 'All direct: each pays 1; a detour would put him on two roads used by one other driver each (drivers 1 and 2: 2 + 2 = 4) or on one such road (drivers 3 and 4: 2): no gain. All detours: e1 and e2 have two users, e3 and e4 one. Driver 1 pays 2 + 1 = 3 and would pay 3 on e1, where he would join drivers 2 and 3; driver 2 likewise 3 and 3; driver 3 pays 2 and would pay 2 on e3, joining driver 1; driver 4 likewise 2 and 2. Each switch leaves the switcher\'s cost unchanged (3 for drivers 1 and 2, 2 for drivers 3 and 4), so nobody gains strictly. The ratio is 10/4 = 5/2.',

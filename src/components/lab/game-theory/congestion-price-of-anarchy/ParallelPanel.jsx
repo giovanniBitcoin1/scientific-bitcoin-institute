@@ -61,7 +61,7 @@ const T = {
     flowsNote: 'Barre: il flusso su ogni strada; il costo di ogni strada è a_i x^d + b_i. I costi sono il tempo di viaggio totale.',
     sTitle: (n, d, r) => `1.000 istanze casuali, n = ${n}, d = ${d}, r = ${r} (seme 1)`,
     mean: 'Rapporto medio',
-    largest: 'Rapporto più grande trovato',
+    largest: 'Rapporto massimo trovato',
     above: 'Quota sopra 1,05',
     bnd: (d) => `Limite per il grado ${d}`,
     allDoubled: 'Verifica con domanda doppia in ogni istanza',

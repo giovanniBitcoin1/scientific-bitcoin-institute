@@ -375,3 +375,49 @@ lab; Italian terms; DRAFT markers off).
 - `node check-module.mjs game-theory evolution-and-learning`: 0 failures
   of 68 (71 s).
 - `node modules/game-theory-evolution-and-learning.mjs`: 0 failures of 41 (11 s).
+- Commit ef11041 "Game Theory Lab review: module 07".
+
+### Module 08 `congestion-price-of-anarchy`
+
+- Files: the two lectures, `texts.js`; `ParallelPanel.jsx` (one IT label).
+- Changes: Italian about 34 (24 lecture, 10 texts.js), English 6, parity
+  8, facts 1 (a precision, no number changed), quotations 0, clarity 6,
+  links 1, panel texts 13.
+- Most significant:
+  - Parity, EN brought up to the IT's textbook terms: "This is the
+    **Wardrop equilibrium**", "the **Pigouvian tax**", **nonatomic** /
+    **atomic**, Φ the **potential function**, **best-response dynamics**;
+    flow, toll, harmonic number in bold as in the IT. IT «vanno molto
+    meglio» → «vanno molto meglio del caso peggiore», as the EN.
+  - Precision: "The bound is reached" / «Il limite viene raggiunto» → "The
+    bound cannot be improved" / «Il limite non si può migliorare» (with
+    ε > 0 the hub's ratio is H_k/(1 + ε): approached, not reached).
+  - IT: «Chi il pianificatore manda in alto sta peggio degli egoisti» →
+    «Chi è mandato in alto ci rimette»; «Sia f_e il flusso sulla strada e
+    e c_e» → «Indichiamo con f_e il flusso sulla strada e, con c_e»; «non
+    può girare in tondo» → «non può entrare in un ciclo»; «chiamarono
+    questi giochi giochi potenziali» → «chiamarono **giochi potenziali**
+    questi giochi».
+  - Clarity: "costs of degree p" → "polynomial costs of degree p"; "the
+    4/3 of the drop-sized drivers" / «degli automobilisti grandi come
+    gocce» → "of the nonatomic game" / «del gioco non atomico» (lecture and
+    observe B 5); long sentences split.
+  - Next: "[Module 09, Games on networks]" / «[Modulo 09, Giochi su
+    reti]»; "her neighbours" → "his neighbours" (the lecture uses he/his).
+    Cut for the word limit: "Selfishness costs no more than doubling the
+    demand." (EN and IT).
+  - IT label: «Rapporto più grande trovato» → «Rapporto massimo trovato»
+    (shorter).
+- Facts and pins: no number changed; no pin changed.
+- Words: EN 1,693, IT 1,695 (limits 1,400–1,700).
+- For Adriano: "For a class of costs" (Roughgarden 2003) is vague (the
+  paper's condition, unchecked, is a class containing the constants);
+  «Chi è mandato in alto ci rimette» shorter than the EN; «Nessuno è
+  malintenzionato o confuso».
+- Cross-module: the IT reading list uses «Cap.», «Lezioni», «(a cura di)»,
+  «versione su rivista»; the "Next" line with a title differs from module
+  01's "[Module 02]".
+- `node scripts/lab/check-game-theory-08.mjs`: all checks passed (1 s).
+- `npx vite build`: the build made for module 05 (after module 08's edits).
+- `node check-module.mjs game-theory congestion-price-of-anarchy`: 0 failures of 56 (50 s).
+- `node modules/game-theory-congestion-price-of-anarchy.mjs`: 0 failures of 43 (12 s).
