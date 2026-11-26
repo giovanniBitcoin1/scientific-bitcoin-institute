@@ -81,7 +81,11 @@ model for this one and holds the history of the engine.
 - **Long checks:** a check that may pass the tool's time limit is run with a
   longer timeout (up to 600 s), never moved to the background; if even that
   is not enough, stop and say so. Added in prompt 10 (check-game-theory-03
-  took 437 s in prompt 9; now about 80 s).
+  took 437 s in prompt 9; now about 80 s). Browser checks run one module per
+  command: `check-module.mjs` and the functional check of one module, then
+  the next module; never in a loop over modules. The same for any batch that
+  could pass the tool's limit. Added in prompt 12 (prompt 11 ran the 22
+  browser checks in one loop).
 
 ### Checks to run before a module commit
 
@@ -168,7 +172,7 @@ uses it and the regression compare.
 | 09 | III | `games-on-networks` | done | the commit "Game Theory Lab 09: Games on networks" | A Who does the work?; B The key player; C Building the network | `star`, `formation` |
 | 10 | III | `coalitions-sharing` | done | the commit "Game Theory Lab 10: Coalitions and sharing" | A Who gets what?; B Who decides?; C An estate that cannot pay | `core`, `votes` |
 | 11 | IV | `auctions` | done | the commit "Game Theory Lab 11: Auctions" | A Same revenue, different risk; B The winner's curse; C A block for sale | `truth`, `shading` |
-| 12 | IV | `mechanism-design` | planned | | | |
+| 12 | IV | `mechanism-design` | done | the commit "Game Theory Lab 12: Designing the rules" | A Lying does not pay; B Pay for the harm you do; C Who runs the auction? | `area`, `trade` |
 | 13 | IV | `mining-as-a-game` | planned | | | |
 | 14 | IV | `capstone-the-price-of-security` | planned | | | |
 
@@ -217,7 +221,7 @@ lab pages).
   multi-unit auctions. Bitcoin box: the fee market.
 - **12 Designing the rules:** the revelation principle, incentive
   compatibility, VCG, Myerson's lemma, the limits (budget balance, false
-  names). Bitcoin box: incentives to propagate transactions.
+  names). Bitcoin box "Who runs the auction?": incentives to pass transactions on, the miner as auctioneer (fake bids), the three properties of a fee rule.
 - **13 Mining as a game:** a miner's four decisions, whether following the
   protocol is an equilibrium, selfish mining as a Markov chain, the optimal
   strategy, the difficulty adjustment.
@@ -495,21 +499,87 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 | wallet; replace-by-fee | *wallet*, *replace-by-fee* (kept) | 11 |
 | monopolistic price (Lavi–Sattath–Zohar) | prezzo monopolistico (no Italian source: our translation) | 11 |
 | unit demand | not used ("domanda unitaria" not attested) | 11 |
+| mechanism design | progettazione dei meccanismi (*mechanism design* at first use; Li Calzi, Ca' Foscari; "disegno dei meccanismi" not found) | 12 |
+| mechanism; direct mechanism; designer; report | meccanismo; meccanismo diretto; progettista; dichiarazione | 12 |
+| revelation principle | principio di rivelazione | 12 |
+| incentive compatibility | compatibilità degli incentivi (PoliMi, Teramo; "compatibilità con gli incentivi" not found) | 12 |
+| Myerson's lemma; allocation rule; monotone | lemma di Myerson; regola di allocazione; monotona (no Italian source: calques) | 12 |
+| virtual value; optimal auction | valore virtuale; asta ottima (no Italian source: calques) | 12 |
+| VCG mechanism; externality | meccanismo VCG (Vickrey–Clarke–Groves); esternalità (as module 08) | 12 |
+| individual rationality (voluntary) | razionalità individuale; "volontario" in F2 ("vincolo di partecipazione" found, not used) | 12 |
+| budget balance | pareggio di bilancio; "in pareggio" in F2 (no source in this sense; it.wikipedia's VCG page says "conti equilibrati") | 12 |
+| bilateral trade; double auction | scambio bilaterale (no source); asta doppia (it.wikipedia) | 12 |
+| posted price; split the difference | prezzo fisso; dividere la differenza | 12 |
+| generalized second price (GSP) | asta generalizzata al secondo prezzo (*generalized second price*, GSP; Italian sources keep GSP); "Secondo prezzo generalizzato" in Panel A | 12 |
+| false-name bids | offerte sotto falso nome (*false-name bids*; no Italian source) | 12 |
+| Sybil attack; Sybil-proof | attacco Sybil (it.wikipedia "Bitcoin"); a prova di attacco Sybil | 12 |
+| collusion, to collude | collusione, colludere ("I perdenti colludono") | 12 |
+| transaction fee mechanism; base fee | meccanismo delle commissioni (*transaction fee mechanism*); commissione base (*base fee*; no Italian source, it.wikipedia keeps English) | 12 |
+| MMIC, OCA-proofness | *myopic miner incentive compatibility*, *OCA-proofness* (kept) | 12 |
+| fake transaction; honest, cheating (miner) | transazione falsa; onesto, imbroglio (as module 06's imbrogliare) | 12 |
 
 ## Work in progress
 
-Nothing in progress. Prompt 11 is finished: module 11 in 930565b "Game
-Theory Lab 11: Auctions" (three WIP commits squashed), the report
-`docs/reports/game-theory-lab-11.md` and the working log
-`docs/reports/game-theory-lab-11-log.md` in "Game Theory Lab 11: report".
-The whole CHECKS list ran on the final code before the squash: 0 failures
-everywhere.
+Module 12, `mechanism-design` (prompt 12): built and committed as "Game
+Theory Lab 12: Designing the rules" (two WIP commits squashed). The whole
+CHECKS list ran on the final code before the squash: 0 failures everywhere.
+Remains: the report `docs/reports/game-theory-lab-12.md`, committed with the
+working log `docs/reports/game-theory-lab-12-log.md` as "Game Theory Lab 12:
+report".
 
 ## Next
 
-Module 12, `mechanism-design`, when its prompt is there.
+Module 13, `mining-as-a-game`, when its prompt is there.
 
 ## Open items
+
+- Module 12, things a later module may reuse, all in `mechanism-design/`:
+  `myerson.js` (allocation rules: one object, reserve, two slots, lottery,
+  "win only in the middle"; exact areas, Myerson's payment with the
+  lottery's closed form, pay your bid, the generalized second price; the
+  scan of reports every 0.1 with the best reports as intervals; the GSP
+  threshold; the curve as a polyline), `vcg.js` (VCG for two objects and 2
+  to 4 bidders over all (n + 1)² assignments, fixed tie order, payments as
+  externalities, the revenue without each bidder, two names as one person,
+  the presets), `bilateral.js` (efficient trade, posted price, split the
+  difference: exact chance, gains and budget, a midpoint grid, the linear
+  equilibrium's best replies), `cheat.js` (module 11's draws with a miner
+  who adds fakes: the search over h high fakes and the place of one more,
+  O(k) per block, checked against every place and against a brute force over
+  multisets of fakes; exact honest, one-fake and users' values). Module 13 can
+  start from `cheat.js` and `vcg.js`.
+- Module 12, choices to review: ties with a rival bid are a coin toss
+  (x is the average of the two sides), so the best pay-your-bid report is
+  "just above" h, 60.1 on the 0.1 grid; "win only in the middle" is
+  [40, 60) as written. F1 has its own b slider and the three presets; F2
+  calls the split rule "truthful" because its linear equilibrium is, through
+  the revelation principle, a truthful equilibrium of a direct mechanism.
+  Panel B: bids and values are whole numbers 0–99; AB is raised to the larger
+  single bid; "Two names" has the sub-pills "As one person" (2 bidders) and
+  "As two names" (3 bidders, merged, the person's values in bidder 2's row,
+  bidder 3's payoff shown as ·); "Bids = true values" copies the values. Panel
+  C shows pay your bid and the monopolistic price "cheating" through the same
+  search (pay your bid) or as honest (monopolistic: no fake can raise what
+  real users pay; the brute force is in the self-check); "Run again" n uses
+  seed n, the same draws as module 11's Panel C. At k = n the single fake
+  below the n-th bid gives 100n/(n + 1) (95.24 at n = 20), where the prompt
+  said "none"; "none" only for k > n. Figure heights 355 and 408 px at 1280
+  (EN and IT; guide about 380, up to 420); at 375 IT 656 and 803.
+- Module 12, findings and sources (November 2026, details in the log):
+  every number of the prompt agrees with the code, except the single fake at
+  k = 20 (above); my Panel C values at 2,000,000 blocks are within 1% of the
+  prompt's. Roughgarden's three properties are DSIC, MMIC and OCA-proofness
+  (the prompt's "UIC" is Chung and Shi's term); the second price is DSIC only
+  "almost" for a block, so the box says the uniform price "comes close to the
+  first"; the revelation principle credited "among others" (Myerson's Nobel
+  lecture lists Holmström, Harris–Townsend, Rosenthal too); Roughgarden's
+  lecture 7 is "Multi-Parameter Mechanism Design"; the optimality of 14.06
+  from the abstract and secondary sources.
+- Module 12 texts quote numbers pinned by `check-game-theory-12.mjs` (about
+  25 s, of which 22 s are five runs of 2,000,000 blocks) and by
+  `browser-checks/modules/game-theory-mechanism-design.mjs`. Module chunk
+  79.0 kB; module 11's `block.js` is now a 2.3 kB shared chunk (module 11's
+  chunk 71.9 kB).
 
 - Module 11, things a later module may reuse, all in `auctions/`:
   `auctions.js` (F1's payoff, F2's expected payoff and best bid; equilibrium
