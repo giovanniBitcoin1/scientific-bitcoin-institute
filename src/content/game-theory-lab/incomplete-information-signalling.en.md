@@ -1,4 +1,3 @@
-<!-- DRAFT: to be reviewed by Adriano -->
 
 ## Not knowing who is across the table
 

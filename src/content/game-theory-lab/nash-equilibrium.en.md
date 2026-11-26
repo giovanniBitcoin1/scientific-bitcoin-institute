@@ -1,4 +1,3 @@
-<!-- DRAFT: to be reviewed by Adriano -->
 
 ## A stable cell with a name
 

@@ -454,7 +454,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   // ---- Words and structure
   const words = (s) => s.trim().split(/\s+/).length
   const body = (l) => lecture[l].split(/<!--\s*simulation\s*-->/)[0]
-  check('lecture words: between 1,400 and 1,700 in each language, with the DRAFT marker on the first line', ['en', 'it'].every((l) => words(body(l)) >= 1400 && words(body(l)) <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(body(l))}`).join(', '))
+  check('lecture words: between 1,400 and 1,700 in each language, with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => words(body(l)) >= 1400 && words(body(l)) <= 1700 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(body(l))}`).join(', '))
   check('no Bitcoin in this module and no box', ['en', 'it'].every((l) => !/bitcoin/i.test(lecture[l] + observe.lemons[l] + observe.signal[l] + observe.talk[l]) && !lecture[l].includes('```box')) && exercises.every((x) => !/bitcoin/i.test(x.statement.en + x.solution.en + x.statement.it + x.solution.it)))
   check('the lecture places the two live figures and links to modules 01, 02 and 04', ['en', 'it'].every((l) => /```figure\ntypes\n```/.test(lecture[l]) && /```figure\ndoubt\n```/.test(lecture[l]) && lecture[l].includes('(/game-theory-lab/what-is-a-game)') && lecture[l].includes('(/game-theory-lab/nash-equilibrium)') && lecture[l].includes('(/game-theory-lab/sequential-games-commitment)')))
   check('the texts never call the course free', ['en', 'it'].every((l) => !/\bfree\b|gratuit|gratis/i.test(lecture[l] + observe.lemons[l] + observe.signal[l] + observe.talk[l])))

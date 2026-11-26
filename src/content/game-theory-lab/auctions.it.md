@@ -1,4 +1,3 @@
-<!-- DRAFT: to be reviewed by Adriano -->
 
 ## Quattro modi di vendere un oggetto
 

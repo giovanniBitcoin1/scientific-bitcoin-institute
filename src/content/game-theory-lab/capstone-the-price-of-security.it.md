@@ -1,4 +1,3 @@
-<!-- DRAFT: to be reviewed by Adriano -->
 
 ## Che cosa compra la sicurezza
 

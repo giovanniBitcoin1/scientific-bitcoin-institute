@@ -35,8 +35,10 @@ model for this one and holds the history of the engine.
   `scripts/lab/check-network-01.mjs`. From module 02 on, this lab's own
   module 01 (`src/components/lab/game-theory/what-is-a-game/`) is the nearer
   example.
-- **Lecture conventions:** EN and IT, about 1,400–1,700 words each, first line
-  `<!-- DRAFT: to be reviewed by Adriano -->`, display equations in
+- **Lecture conventions:** EN and IT, about 1,400–1,700 words each; a new
+  lecture starts with the first line `<!-- DRAFT: to be reviewed by Adriano -->`
+  until it is reviewed, and the marker comes off in a commit of its own;
+  display equations in
   ```` ```math ````, live figures in ```` ```figure ````, optional boxes in
   ```` ```box ````, `<!-- simulation -->` before "Further reading". Never call
   the course free. Italian terms as listed below.
@@ -554,8 +556,11 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 **The review of the lectures** (`prompts.local/game-theory-lab-review.md`,
 log `docs/reports/game-theory-lab-review-log.md`): stage 0 committed;
-stages 1 (the 14 modules), 2 (across modules) and 3 (Italian terms)
-committed. To resume: read the log, then do stage 4 (the DRAFT markers).
+stages 0 to 4 committed: the 28 lectures, the 14 `texts.js` and the
+index were reviewed on 26 November 2026 (by Claude, at Adriano's
+request), and the DRAFT markers came off in the commit "Game Theory Lab:
+lectures reviewed, DRAFT markers removed" (revert it to put them back).
+What remains of the prompt: the final checks and the report.
 
 Nothing in progress. All fourteen modules are "ready" and done (table
 above); the lab was closed in the commit "Game Theory Lab: close" (prompt
@@ -580,9 +585,6 @@ sizes, figure heights) are in each module's report,
 file's git history (the commit "Game Theory Lab 14: The price of security"
 has the last full version).
 
-- **DRAFT lectures.** All 28 lecture files (14 modules, EN and IT) still
-  start with `<!-- DRAFT: to be reviewed by Adriano -->`. Adriano rereads
-  them; the marker comes off a file once it is approved.
 - **Italian terms without a source.** In the table above, the rows whose
   Italian column says "no source", "not found" or "no Italian … found" are
   our choices, to be confirmed by Adriano (searched once more in the review of 26 November 2026, log `docs/reports/game-theory-lab-review-log.md`, "Stage 3"): the lizard's

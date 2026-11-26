@@ -535,7 +535,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   // ---- Words and structure
   const words = (s) => s.trim().split(/\s+/).length
   const body = (l) => lecture[l].split(/<!--\s*simulation\s*-->/)[0]
-  check('lecture words: between 1,400 and 1,700 in each language, with the DRAFT marker on the first line', ['en', 'it'].every((l) => words(body(l)) >= 1400 && words(body(l)) <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(body(l))}`).join(', '))
+  check('lecture words: between 1,400 and 1,700 in each language, with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => words(body(l)) >= 1400 && words(body(l)) <= 1700 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(body(l))}`).join(', '))
   check('no Bitcoin box, no box at all, and no mention of Bitcoin', ['en', 'it'].every((l) => !/```box/.test(lecture[l]) && !/bitcoin/i.test(lecture[l])))
   check('the lecture places the two live figures and links to modules 01 and 02', ['en', 'it'].every((l) => /```figure\nsquare\n```/.test(lecture[l].replace(/\r/g, '')) && /```figure\nminimax\n```/.test(lecture[l].replace(/\r/g, '')) && lecture[l].includes('(/game-theory-lab/what-is-a-game)') && lecture[l].includes('(/game-theory-lab/nash-equilibrium)')))
   check('the texts never call the course free', ['en', 'it'].every((l) => !/\bfree\b|gratuit|gratis/i.test(lecture[l] + observe.all[l] + observe.learning[l] + observe.reader[l])))

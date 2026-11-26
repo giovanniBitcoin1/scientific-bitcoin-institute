@@ -565,7 +565,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en')))) {
   // ---- Words
   const words = (s) => s.trim().split(/\s+/).length
   const body = (l) => lecture[l].split(/<!--\s*simulation\s*-->/)[0]
-  check('lecture words: between 1,400 and 1,700 in each language (markup and box included), with the DRAFT marker on the first line', ['en', 'it'].every((l) => words(body(l)) >= 1400 && words(body(l)) <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(body(l))}`).join(', '))
+  check('lecture words: between 1,400 and 1,700 in each language (markup and box included), with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => words(body(l)) >= 1400 && words(body(l)) <= 1700 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(body(l))}`).join(', '))
   const box = (l) => (lecture[l].match(/```box\n([\s\S]*?)```/) || [, ''])[1]
   check('one Bitcoin box, after the contests, 150 to 200 words in each language (title included)', ['en', 'it'].every((l) => (lecture[l].match(/```box/g) || []).length === 1 && words(box(l)) >= 150 && words(box(l)) <= 200) && box('en').startsWith('Bitcoin: mining as a contest') && box('it').startsWith('Bitcoin: il mining come gara'), ['en', 'it'].map((l) => `${l} ${words(box(l))}`).join(', '))
   check('the lecture places the two live figures and links to module 01', ['en', 'it'].every((l) => /```figure\nstaghunt\n```/.test(lecture[l]) && /```figure\ncournot\n```/.test(lecture[l]) && lecture[l].includes('(/game-theory-lab/what-is-a-game)')))

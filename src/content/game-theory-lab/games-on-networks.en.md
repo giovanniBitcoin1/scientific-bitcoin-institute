@@ -1,4 +1,3 @@
-<!-- DRAFT: to be reviewed by Adriano -->
 
 ## Who you are next to
 

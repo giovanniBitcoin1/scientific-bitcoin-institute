@@ -549,7 +549,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
 
   // ---- Words and structure
   const words = (s) => s.trim().split(/\s+/).length
-  check('lecture words: between 1,400 and 1,700 in each language (the box not counted), with the DRAFT marker on the first line', ['en', 'it'].every((l) => words(noBox[l]) >= 1400 && words(noBox[l]) <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(noBox[l])}, box ${words(boxText[l])}`).join('; '))
+  check('lecture words: between 1,400 and 1,700 in each language (the box not counted), with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => words(noBox[l]) >= 1400 && words(noBox[l]) <= 1700 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(noBox[l])}, box ${words(boxText[l])}`).join('; '))
   check('the lecture places F1 and F2, has one box after the estate section, and names Bitcoin outside the box only in "Next"', ['en', 'it'].every((l) => /```figure\ncore\n```/.test(body[l]) && /```figure\nvotes\n```/.test(body[l]) && (body[l].match(/```box/g) || []).length === 1 && body[l].indexOf('```box') > body[l].indexOf(l === 'en' ? '## An estate' : "## Un'eredità") && (noBox[l].match(/bitcoin/gi) || []).length === 1))
   const allText = (l) => lecture[l] + Object.values(observe).map((o) => o[l]).join('') + exercises.map((x) => x.statement[l] + x.solution[l]).join('')
   check('the texts never call the course free, and never say peer-reviewed', ['en', 'it'].every((l) => !/\bfree\b|gratuit|gratis/i.test(allText(l)) && !/peer.reviewed/i.test(allText(l))))

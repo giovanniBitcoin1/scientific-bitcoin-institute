@@ -517,7 +517,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
 
   // ---- Words and structure
   const words = (s) => s.trim().split(/\s+/).length
-  check('lecture words: between 1,400 and 1,700 in each language (the box not counted), with the DRAFT marker on the first line', ['en', 'it'].every((l) => words(noBox[l]) >= 1400 && words(noBox[l]) <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(noBox[l])}, box ${words(boxText[l])}`).join('; '))
+  check('lecture words: between 1,400 and 1,700 in each language (the box not counted), with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => words(noBox[l]) >= 1400 && words(noBox[l]) <= 1700 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(noBox[l])}, box ${words(boxText[l])}`).join('; '))
   check('the lecture places F1 and F2, has one box after the section on the limits, and names Bitcoin only in the box', ['en', 'it'].every((l) => /```figure\narea\n```/.test(body[l]) && /```figure\ntrade\n```/.test(body[l]) && (body[l].match(/```box/g) || []).length === 1 && body[l].indexOf('```box') > body[l].indexOf(l === 'en' ? '## What rules cannot do' : '## Ciò che le regole non possono fare') && !/bitcoin/i.test(noBox[l])))
   check('the lecture links modules 05 and 08', ['en', 'it'].every((l) => body[l].includes('(/game-theory-lab/incomplete-information-signalling)') && body[l].includes('(/game-theory-lab/congestion-price-of-anarchy)')))
   const allText = (l) => lecture[l] + Object.values(observe).map((o) => o[l]).join('') + exercises.map((x) => x.statement[l] + x.solution[l]).join('')

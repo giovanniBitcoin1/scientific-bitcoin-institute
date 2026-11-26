@@ -404,9 +404,9 @@ console.log('— Quoted on the page')
   // The sample game of the panel is drawn from its own seed and has no ties.
   const g = sampleGame(DEFAULT_SIZE)
   check('the sample game is 3 × 3, with 18 different payoffs between 0 and 1', g.a.length === 3 && new Set([...g.a.flat(), ...g.b.flat()]).size === 18 && [...g.a.flat(), ...g.b.flat()].every((v) => v >= 0 && v < 1))
-  check('lecture words: between 1,400 and 1,700 in each language (markup included), with the DRAFT marker on the first line', ['en', 'it'].every((l) => {
+  check('lecture words: between 1,400 and 1,700 in each language (markup included), with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => {
     const words = lecture[l].split(/<!--\s*simulation\s*-->/)[0].trim().split(/\s+/).length
-    return words >= 1400 && words <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')
+    return words >= 1400 && words <= 1700 && !lecture[l].includes('<!-- DRAFT')
   }), ['en', 'it'].map((l) => `${l} ${lecture[l].split(/<!--\s*simulation\s*-->/)[0].trim().split(/\s+/).length}`).join(', '))
   check('the texts never call the course free', ['en', 'it'].every((l) => !/\bfree\b|gratuit|gratis/i.test(lecture[l] + observe.explorer[l] + observe.guessing[l] + observe.dominance[l])))
 }

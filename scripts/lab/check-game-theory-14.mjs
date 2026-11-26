@@ -369,7 +369,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
   check('six exercises, each with a statement and a solution in both languages', exercises.length === 6 && exercises.every((x) => x.statement.en && x.statement.it && x.solution.en && x.solution.it && ['paper', 'sim', 'both'].includes(x.type)))
   // ---- Words and structure
   const words = (s) => s.trim().split(/\s+/).length
-  check('lecture words: between 1,500 and 1,800 in each language (no box), with the DRAFT marker on the first line', ['en', 'it'].every((l) => words(body[l]) >= 1500 && words(body[l]) <= 1800 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(body[l])}`).join('; '))
+  check('lecture words: between 1,500 and 1,800 in each language (no box), with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => words(body[l]) >= 1500 && words(body[l]) <= 1800 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(body[l])}`).join('; '))
   check('the lecture places F1 and F2, has no box, and links modules 02, 04, 06, 10, 11, 12 and 13', ['en', 'it'].every((l) => /```figure\nflow\n```/.test(body[l]) && /```figure\nclock\n```/.test(body[l]) && !body[l].includes('```box') && ['nash-equilibrium', 'sequential-games-commitment', 'repeated-games-reputation', 'coalitions-sharing', 'auctions', 'mechanism-design', 'mining-as-a-game'].every((s) => body[l].includes(`(/game-theory-lab/${s})`))))
   check('seven sections, in the prompt\'s order', ['en', 'it'].every((l) => (body[l].match(/^## /gm) || []).length === 7))
   const allText = (l) => lecture[l] + Object.values(observe).map((o) => o[l]).join('') + exercises.map((x) => x.statement[l] + x.solution[l]).join('')

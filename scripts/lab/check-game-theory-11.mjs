@@ -466,7 +466,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
 
   // ---- Words and structure
   const words = (s) => s.trim().split(/\s+/).length
-  check('lecture words: between 1,400 and 1,700 in each language (the box not counted), with the DRAFT marker on the first line', ['en', 'it'].every((l) => words(noBox[l]) >= 1400 && words(noBox[l]) <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(noBox[l])}, box ${words(boxText[l])}`).join('; '))
+  check('lecture words: between 1,400 and 1,700 in each language (the box not counted), with no DRAFT marker (removed after the review)', ['en', 'it'].every((l) => words(noBox[l]) >= 1400 && words(noBox[l]) <= 1700 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(noBox[l])}, box ${words(boxText[l])}`).join('; '))
   check('the lecture places F1 and F2, has one box after the many-units section, and names Bitcoin only in the box', ['en', 'it'].every((l) => /```figure\ntruth\n```/.test(body[l]) && /```figure\nshading\n```/.test(body[l]) && (body[l].match(/```box/g) || []).length === 1 && body[l].indexOf('```box') > body[l].indexOf(l === 'en' ? '## Many units' : '## Molte unità') && !/bitcoin/i.test(noBox[l])))
   check('the lecture links module 05 and module 02', ['en', 'it'].every((l) => body[l].includes('(/game-theory-lab/incomplete-information-signalling)') && body[l].includes('(/game-theory-lab/nash-equilibrium)')))
   const allText = (l) => lecture[l] + Object.values(observe).map((o) => o[l]).join('') + exercises.map((x) => x.statement[l] + x.solution[l]).join('')

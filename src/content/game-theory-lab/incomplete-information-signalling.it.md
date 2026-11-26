@@ -1,4 +1,3 @@
-<!-- DRAFT: to be reviewed by Adriano -->
 
 ## Non sapere chi c'è dall'altra parte del tavolo
 

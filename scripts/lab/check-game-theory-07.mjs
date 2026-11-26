@@ -530,8 +530,8 @@ if (existsSync(textsPath) && existsSync(resolve(root, lecturePath('en'))) && exi
 
   // ---- The rules of the lab
   const words = (s) => s.trim().split(/\s+/).length
-  check('lecture words: between 1,400 and 1,700 in each language, with the DRAFT marker on the first line',
-    ['en', 'it'].every((l) => words(body[l]) >= 1400 && words(body[l]) <= 1700 && lecture[l].startsWith('<!-- DRAFT: to be reviewed by Adriano -->')), ['en', 'it'].map((l) => `${l} ${words(body[l])}`).join(', '))
+  check('lecture words: between 1,400 and 1,700 in each language, with no DRAFT marker (removed after the review)',
+    ['en', 'it'].every((l) => words(body[l]) >= 1400 && words(body[l]) <= 1700 && !lecture[l].includes('<!-- DRAFT')), ['en', 'it'].map((l) => `${l} ${words(body[l])}`).join(', '))
   const allText = (l) => lecture[l] + observe.rps[l] + observe.moran[l] + observe.hedge[l] + exercises.map((x) => x.statement[l] + x.solution[l]).join(' ')
   check('the texts never call the course free', ['en', 'it'].every((l) => !/\bfree\b|gratuit|gratis/i.test(allText(l))))
   check('the lecture links to the Complexity Lab\'s module 11 and has no Bitcoin box', ['en', 'it'].every((l) => lecture[l].includes('(/lab/cooperation)') && !lecture[l].includes('```box') && !/bitcoin/i.test(body[l])))
