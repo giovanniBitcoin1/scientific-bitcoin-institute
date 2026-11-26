@@ -554,13 +554,14 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 ## Work in progress
 
-**The review of the lectures** (`prompts.local/game-theory-lab-review.md`,
-log `docs/reports/game-theory-lab-review-log.md`): stage 0 committed;
-stages 0 to 4 committed: the 28 lectures, the 14 `texts.js` and the
-index were reviewed on 26 November 2026 (by Claude, at Adriano's
-request), and the DRAFT markers came off in the commit "Game Theory Lab:
-lectures reviewed, DRAFT markers removed" (revert it to put them back).
-What remains of the prompt: the final checks and the report.
+**The review of the lectures** (`prompts.local/game-theory-lab-review.md`)
+is finished: the 28 lectures, the 14 `texts.js` and the index were
+reviewed on 26 November 2026 (by Claude, at Adriano's request), and the
+DRAFT markers came off in the commit "Game Theory Lab: lectures reviewed,
+DRAFT markers removed" (revert it to put them back). The report
+`docs/reports/game-theory-lab-review.md` and the working log
+`docs/reports/game-theory-lab-review-log.md` are in "Game Theory Lab
+review: report"; the points left for Adriano are in the report.
 
 Nothing in progress. All fourteen modules are "ready" and done (table
 above); the lab was closed in the commit "Game Theory Lab: close" (prompt

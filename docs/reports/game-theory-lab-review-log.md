@@ -867,3 +867,48 @@ Downloaded PDFs and text: scratchpad\dl\.
   rows already cite Fragnelli; Barbarino's "gioco bilanciato" and
   Lucchetti's "bancarotta" confirm the words).
 - No check run for this stage: only the status file changed.
+- Commit 5682dc3 "Game Theory Lab review: Italian terms".
+
+## Stage 4: the markers
+
+- A script removed the first line, exactly `<!-- DRAFT: to be reviewed by
+  Adriano -->`, from the 28 lectures (it stops if a first line differs or
+  another DRAFT remains); git shows one line deleted in each file and
+  nothing else.
+- The 14 self-checks required the marker on the first line; their test is
+  now `!lecture[l].includes('<!-- DRAFT')` and their name says "with no
+  DRAFT marker (removed after the review)". Word counts fall by the 8
+  tokens of the marker line, well inside every lower limit.
+- Status file: the lectures reviewed on 26 November 2026, by Claude at
+  Adriano's request; the DRAFT item left the open items; "Lecture
+  conventions" says a new lecture starts with the marker until it is
+  reviewed, and the marker comes off in a commit of its own.
+- The 14 self-checks, one per command, before the commit: all passed.
+- Commit 6f737bb "Game Theory Lab: lectures reviewed, DRAFT markers
+  removed" (the lectures, the 14 checks and the status file; reverting it
+  puts the markers and the old tests back together).
+
+## Final checks (on 6f737bb, one per command)
+
+- `node scripts/lab/check-game-theory-NN.mjs`, 01 to 14: all checks
+  passed, each. Times: 01 14 s, 02 21 s, 03 68 s, 04 7 s, 05 2 s, 06 1 s,
+  07 1 s, 08 2 s, 09 0 s, 10 1 s, 11 14 s, 12 23 s, 13 12 s, 14 1 s.
+- `npx vite build`: built (18 s).
+- `node check-index.mjs game-theory`: 0 failures of 76 (105 s);
+  `network`: 0 of 76 (106 s); `complexity`: 0 of 72 (105 s).
+- `node check-links.mjs`: 0 failures of 131 (164 s).
+- A second slip: the browser checks of modules 01–04 were first sent in
+  one batch (all eight passed). They were run again one per command, and
+  only those runs count:
+- check-module / functional check, per module (failures of checks, time):
+  01 0/56 (44 s), 0/32 (13 s); 02 0/56 (47 s), 0/49 (34 s); 03 0/56
+  (46 s), 0/39 (24 s); 04 0/56 (45 s), 0/45 (19 s); 05 0/56 (47 s), 0/39
+  (9 s); 06 0/60 (54 s), 0/41 (8 s); 07 0/68 (64 s), 0/41 (11 s); 08 0/56
+  (47 s), 0/43 (11 s); 09 0/60 (52 s), 0/42 (18 s); 10 0/60 (51 s), 0/36
+  (13 s); 11 0/60 (52 s), 0/29 (13 s); 12 0/56 (42 s), 0/29 (12 s); 13
+  0/56 (47 s), 0/32 (12 s); 14 0/56 (48 s), 0/39 (11 s).
+- `node build-main.mjs`: built main into `.main-dist` (22 s);
+  `node compare-main.mjs`: 0 failures of 144 (370 s).
+- `npm run build`: exit 0 (validate, vite build, post-build: 9 static
+  pages, 3 redirect stubs, feed, sitemap; 19 s).
+- `npm run check:dist`: 0 failures of 108 (1 s).
