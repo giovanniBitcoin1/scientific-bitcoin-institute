@@ -65,8 +65,8 @@ export const SOURCES = {
     it: 'ipotesi: un valore tondo (la media globale costante del CBECI)',
   },
   n: {
-    en: 'Budish’s base case: an hour of confirmations and an hour of escrow',
-    it: 'il caso base di Budish: un’ora di conferme e un’ora di escrow',
+    en: 'Budish’s base case: the attacker’s transactions in k = 6 blocks, then e = 6 blocks of escrow (an hour each)',
+    it: 'il caso base di Budish: le transazioni dell’attaccante in k = 6 blocchi, poi e = 6 blocchi di escrow (un’ora ciascuno)',
   },
   V: {
     en: 'assumption: the value at stake in the attack',

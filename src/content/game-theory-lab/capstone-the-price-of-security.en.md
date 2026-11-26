@@ -68,7 +68,7 @@ The subsidy halves every 210,000 blocks, about four years: 3.125 BTC since April
 clock
 ```
 
-Can fees take over? Raphael Auer (2019) argues that they cannot, on their own: each user pays for her own transaction, but benefits from the security that all the others' fees buy, so she free-rides on them, and the fees offered fall short of what security needs.
+Can fees take over? Raphael Auer (2019) argues that they cannot, on their own: each user pays for her own transaction, but benefits from the security that all the others' fees buy, so she leaves that cost to them, and the fees offered fall short of what security needs.
 
 Miles Carlsten, Harry Kalodner, Matthew Weinberg and Arvind Narayanan (2016) showed what changes when fees are the whole reward. With blocks found at random times and fees flowing in steadily, a block's reward depends on how long it has been since the last one, so rewards vary as much as the gaps. A block that happens to be rich becomes worth forking, to take its fees for oneself (**undercutting**). Selfish mining pays for a miner of any size. And just after a block, when few fees are waiting, it may pay to switch the machines off until fees build up again: a **mining gap**. Panel B draws these rewards. Gur Huberman, Jacob Leshno and Ciamac Moallemi (2021) connect the fee market of [module 11](/game-theory-lab/auctions) to this question: fees are high only when blocks are full, so the users' willingness to wait is what sets the miners' revenue.
 

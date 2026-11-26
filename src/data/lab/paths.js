@@ -4,7 +4,7 @@
 export const LAB_PATHS = {
   complexity: '/lab',
   network: '/network-lab', // provisional
-  'game-theory': '/game-theory-lab', // provisional
+  'game-theory': '/game-theory-lab',
 }
 
 // The hub page that lists all the labs. "Labs" in the site nav links to it.

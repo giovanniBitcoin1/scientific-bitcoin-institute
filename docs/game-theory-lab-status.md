@@ -142,7 +142,7 @@ uses it and the regression compare.
 
 ## Where things are
 
-- Lab id `game-theory`; base path `/game-theory-lab` (provisional,
+- Lab id `game-theory`; base path `/game-theory-lab` (confirmed,
   `src/data/lab/paths.js`); registry entry in `src/data/lab/registry.js`,
   after the Network Lab.
 - Module list: `src/data/lab/game-theory-modules.json`.
@@ -230,7 +230,8 @@ lab pages).
 
 ## Decisions
 
-- The path `/game-theory-lab` is provisional (`src/data/lab/paths.js`).
+- The path `/game-theory-lab` is a decision, confirmed by Adriano on 26
+  November 2026 (`src/data/lab/paths.js`, one line).
 - The lab id has a hyphen, so it is a quoted key (`LAB_PATHS['game-theory']`,
   `loaders['game-theory']`) and the command-line argument of the browser
   checks is `game-theory`.
@@ -591,8 +592,6 @@ has the last full version).
   labels (13), zero-profit condition, specialized capital, sabotage,
   counterattack, Goldfinger attack, bribery, block subsidy, undercutting,
   mining gap (14); and the one-shot deviation principle (06).
-- **The provisional path.** `/game-theory-lab` (`src/data/lab/paths.js`),
-  to be decided with Giovanni; changing it is one line there.
 - **The push.** Nothing has been pushed. The branch `game-theory-lab` is
   ahead of `main` (ddfed85, unchanged since 25 November 2026), with no
   commit of `main` missing; merging and pushing are Adriano's decisions.
