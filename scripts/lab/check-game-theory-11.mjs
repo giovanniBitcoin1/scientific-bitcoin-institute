@@ -378,7 +378,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
     ...['second', 'first', 'allpay'].map((fm) => two(100 * sdClosed(fm, 2))),
     [`the best reserve is ${f(100 * bestReserve(2).rho, 0)}`, `il prezzo di riserva migliore è ${f(100 * bestReserve(2).rho, 0)}`],
     [`it earns ${two(100 * meanRevenue(2, 0.5))} instead of ${two(100 * meanRevenue(2, 0))}`, `rende ${itn(two(100 * meanRevenue(2, 0.5)))} invece di ${itn(two(100 * meanRevenue(2, 0)))}`],
-    ['no sale a quarter of the time', 'nessuna vendita una volta su quattro'],
+    ['no sale a quarter of the time', 'resta invenduto una volta su quattro'],
     [`three bidders and no reserve earn ${f(100 * meanRevenue(3, 0), 0)}`, `tre offerenti senza riserva rendono ${f(100 * meanRevenue(3, 0), 0)}`],
   ])
   check('lecture: the quarter is the no-sale chance at n = 2, r = 50', noSale(2, 0.5) === 0.25)
@@ -460,7 +460,7 @@ if (existsSync(textsFile) && existsSync(resolve(root, lectureFile('en'))) && exi
   check('exercise 3: five bidders give 66.67 = the expected second value 4/6 = (4/5)(5/6)', two(100 * meanRevenue(5)) === '66.67' && near(4 / 6, (4 / 5) * (5 / 6), 1e-15))
   quoted('exercise 4', sol(3), ['1/4', '1/3 + 1/4 − 1/6 = 5/12', two(100 * meanRevenue(2, 0.5)), '100 × 2/4 = 50'])
   check('exercise 4: 5/12 and 1/4 are the code\'s', near(meanRevenue(2, 0.5), 5 / 12, 1e-15) && noSale(2, 0.5) === 0.25)
-  quoted('exercise 5', sol(4), ['10(n − 1)/(n + 1)', and2([2, 5, 10].map((n) => two(profitExact('first', n, 10, 0)).replace('-', '−')).join(', ').replace(/, (?=[^,]*$)/, ' and '))])
+  quoted('exercise 5', sol(4), ['10(n − 1)/(n + 1)', ((s) => [s, itn(s).replace(/, /g, '; ').replace(' and ', ' e ')])([2, 5, 10].map((n) => two(profitExact('first', n, 10, 0)).replace('-', '−')).join(', ').replace(/, (?=[^,]*$)/, ' and '))])
   quoted('exercise 6', sol(5), [two(100 / 21 * 10), '10 × (10/21) × 100 = ' + two(100 * meanExact(20, 10)), ['0 for both', '0 per entrambi']])
   check('six exercises, each with a statement and a solution in both languages', exercises.length === 6 && exercises.every((x) => x.statement.en && x.statement.it && x.solution.en && x.solution.it && ['paper', 'sim', 'both'].includes(x.type)))
 

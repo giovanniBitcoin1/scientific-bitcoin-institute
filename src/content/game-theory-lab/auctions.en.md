@@ -4,11 +4,11 @@
 
 Parts I to III took the rules of a game as given and asked how to play it. Part IV turns the question around: someone chooses the rules, and the choice can be studied. Auctions are the oldest designed games. A seller with one object and several interested buyers can sell it in different ways, and each way is a different game.
 
-In an **English auction** the price rises, called by the auctioneer or by the bidders, until only one bidder is left; she takes the object at the last price. In a **Dutch auction** a clock starts high and falls, and the first bidder to call out stops it and buys at that price. In a **sealed-bid auction** each bidder writes down a bid without seeing the others'; the highest bid wins and pays either its own amount (**first price**) or the second-highest bid (**second price**). The second-price auction was analysed by William Vickrey (1961), and it often bears his name.
+In an **English auction** (an ascending auction) the price rises, called by the auctioneer or by the bidders, until only one bidder is left; she takes the object at the last price. In a **Dutch auction** (a descending auction) a clock starts high and falls, and the first bidder to call out stops it and buys at that price. In a **sealed-bid auction** each bidder writes down a bid without seeing the others'; the highest bid wins and pays either its own amount (**first price**) or the second-highest bid (**second price**). The second-price auction was analysed by William Vickrey (1961), and it is often called the Vickrey auction.
 
 We assume **private values**: each bidder knows what the object is worth to her, and of the others she knows only how their values are spread. An auction is then a game of incomplete information, a Bayesian game in the sense of [module 05](/game-theory-lab/incomplete-information-signalling): a strategy says what to bid for every possible value. The running example has two bidders whose values are independent and uniform between 0 and 100.
 
-Two of the four formats are the others in disguise. In the Dutch auction the only thing a bidder decides is the price at which she would stop the clock if nobody has stopped it before, and she pays that price if she is first: a first-price sealed bid, written on a clock. In the English auction with private values a bidder stays in while the price is below her value and drops out when it reaches it. The auction ends when the last rival drops out, at that rival's value: the second-highest value, which is what a second-price auction charges when everyone bids her value.
+Two of the four formats are the others in disguise. In the Dutch auction the only thing a bidder decides is the price at which she would stop the clock if nobody has stopped it before. If she is first, she pays that price: a first-price sealed bid, written on a clock. In the English auction with private values a bidder stays in while the price is below her value and drops out when it reaches it. The auction ends when the last rival drops out, at that rival's value: the second-highest value, which is what a second-price auction charges when everyone bids her value.
 
 ## Telling the truth
 
@@ -18,27 +18,27 @@ In the second-price auction, bidding your value is a weakly dominant strategy. T
 truth
 ```
 
-A bidder needs to know nothing about the others to bid well, which is rare in game theory. Online auction sites that let you enter a maximum and then bid for you, one step at a time up to that maximum, work like a second-price auction: the winner pays about the second-highest maximum (David Lucking-Reiley 2000).
+A bidder needs to know nothing about the others to bid well, which is rare in game theory. Online auction sites that let you enter a maximum and then bid for you, one step at a time up to that maximum, work like a second-price auction. The winner pays about the second-highest maximum (David Lucking-Reiley 2000).
 
 ## Shading
 
-In the first-price auction, bidding your value guarantees a payoff of 0: when you win, you pay all the object is worth to you. So you bid less, and the question is how much less. A lower bid keeps more when it wins, but wins less often.
+In the first-price auction, bidding your value guarantees a payoff of 0: when you win, you pay all the object is worth to you. So you bid less, which is called **bid shading**, and the question is how much less. A lower bid keeps more when it wins, but wins less often.
 
-Take n bidders with values uniform between 0 and 100. In equilibrium each bids (n − 1)/n of her value: half with two bidders. With two bidders and a value of 80 you bid 40. The other bids half her value, so you win when her value is below 80, with probability 0.8, and your expected payoff is 0.8 × 40 = 32. Figure F2 draws the expected payoff of every bid when the others follow the equilibrium.
+Take n bidders with values uniform between 0 and 100. In equilibrium each bids (n − 1)/n of her value: half with two bidders. With two bidders and a value of 80 you bid 40. The other bidder bids half her value, so you win when her value is below 80, with probability 0.8, and your expected payoff is 0.8 × 40 = 32. Figure F2 draws the expected payoff of every bid when the others follow the equilibrium.
 
 ```figure
 shading
 ```
 
-A general rule stands behind the formula. In equilibrium a bidder bids what she expects the highest of the other values to be, given that it is below her own: whenever she wins, she pays on average what a second-price auction would have charged her. The more bidders, the closer the highest rival is likely to be, and the less room there is to shade: with ten bidders the bid is 90% of the value.
+A general rule stands behind the formula. In equilibrium a bidder bids what she expects the highest of the other values to be, given that it is below her own. So, whenever she wins, she pays on average what a second-price auction would have charged her. The more bidders, the closer the highest rival is likely to be, and the less room there is to shade: with ten bidders the bid is 90% of the value.
 
 ## Same revenue on average
 
 Now the seller's question: which format earns more? With two bidders the second price earns the expected lower value, 33.33. The first price earns half the expected higher value, 66.67/2 = 33.33. The same.
 
-This is no coincidence. **Revenue equivalence** (Vickrey 1961 in special cases; Roger Myerson 1981; John Riley and William Samuelson 1981) says that with independent private values and bidders who care only about their expected payoff, every auction that gives the object to the highest value and leaves nothing to a bidder with the lowest possible value earns the same on average. With n bidders and uniform values that is 100(n − 1)/(n + 1). The **all-pay auction**, in which everyone pays her bid and the highest bid wins, qualifies too: it is the contest of [module 02](/game-theory-lab/nash-equilibrium) in which the highest effort always wins, and it earns the same.
+This is no coincidence. **Revenue equivalence** (Vickrey 1961 in special cases; Roger Myerson 1981; John Riley and William Samuelson 1981) concerns independent private values and bidders who care only about their expected payoff. It says that every auction that gives the object to the bidder with the highest value, and leaves nothing to a bidder with the lowest possible value, earns the same on average. With n bidders and uniform values that is 100(n − 1)/(n + 1). The **all-pay auction**, in which everyone pays her bid and the highest bid wins, qualifies too: it is the contest of [module 02](/game-theory-lab/nash-equilibrium) with one change, that the highest effort always wins, and it earns the same.
 
-The averages agree; the risks do not. With two bidders the standard deviation of the revenue is 23.57 in the second-price auction, 11.79 in the first-price and 21.08 in the all-pay. The second price rests on the lower value alone, which can be anything; the first price on half the higher value, which varies less.
+The averages agree; the risks do not. With two bidders the standard deviation of the revenue is 23.57 in the second-price auction, 11.79 in the first-price and 21.08 in the all-pay. The second price rests on the lower value alone, which can fall anywhere between 0 and 100; the first price on half the higher value, which varies less.
 
 A **reserve price**, below which the seller keeps the object, raises the average: it loses the sales below the reserve, but makes the winner pay at least the reserve when the second value is lower. With uniform values the best reserve is 50, whatever the number of bidders (Myerson 1981; Riley and Samuelson 1981). With two bidders it earns 41.67 instead of 33.33, at the cost of no sale a quarter of the time, when both values are below 50. Yet one more bidder is worth more than the best reserve (Jeremy Bulow and Paul Klemperer 1996): three bidders and no reserve earn 50. Panel A runs thousands of auctions in each format.
 
@@ -48,7 +48,7 @@ Now change the object. An oil field holds the same oil whoever drills it: its va
 
 A model. Each estimate is the value plus an error uniform within ±a. If everyone bids her estimate in a first-price auction, the winner is the bidder with the highest estimate, the one who overestimated the most. She overpays by a(n − 1)/(n + 1) on average: with a = 10, by 3.33 with two bidders, 6.67 with five, 8.18 with ten. The more bidders, the worse.
 
-A careful bidder bids as if her estimate were the highest, since that is the only case in which her bid matters. Away from the ends of the range of values, the equilibrium bid is the estimate minus a in the first-price auction (John Kagel and Dan Levin 1986) and the estimate minus a(n − 2)/n in the second-price auction (Kagel, Levin and Ronald Harstad 1995). With common values the formats no longer earn the same: the second price earns more than the first, and the English auction, in which bidders see the others drop out and learn from it, at least as much as the second price (Paul Milgrom and Robert Weber 1982). Panel B auctions the jar of coins.
+A careful bidder bids as if her estimate were the highest, since that is the only case in which her bid matters. Away from the ends of the range of values, the equilibrium bid is the estimate minus a in the first-price auction (John Kagel and Dan Levin 1986) and the estimate minus a(n − 2)/n in the second-price auction (Kagel, Levin and Ronald Harstad 1995). With common values the formats no longer earn the same: the second price earns more than the first. The English auction, in which bidders see the others drop out and learn from it, earns at least as much as the second price (Paul Milgrom and Robert Weber 1982). Panel B auctions the jar of coins.
 
 ## Many units
 
@@ -62,7 +62,7 @@ Block space: an auction every ten minutes
 
 **Fees as a queue.** Gur Huberman, Jacob Leshno and Ciamac Moallemi (2021) model fees as the price of priority in a queue: users who mind waiting pay more. When blocks have room, fees fall towards the minimum that nodes relay. A miner who asked for more would lose the transactions to the others, and entry is open, so fees come from congestion, not from any one miner's choice.
 
-**Another rule.** Ron Lavi, Or Sattath and Aviv Zohar (2019) show that under pay-your-bid a bigger block can lower the miners' revenue. Their monopolistic price, in which every included transaction pays the lowest included fee and the miner chooses how many to include, keeps the revenue as the block grows, resists manipulation by the miner, and makes shading less useful as users grow (Andrew Chi-Chih Yao 2020).
+**Another rule.** Ron Lavi, Or Sattath and Aviv Zohar (2019) show that under pay-your-bid a bigger block can lower the miners' revenue. They propose the monopolistic price: every included transaction pays the lowest included fee, and the miner chooses how many transactions to include. This rule keeps the revenue as the block grows, resists manipulation by the miner, and makes shading less useful as the number of users grows (Andrew Chi-Chih Yao 2020).
 
 **In Panel C.** With 20 users and 10 slots, pay-your-bid and the uniform price both raise 476.19 on average; with room for all 20, nothing. The monopolistic price raises about 547 with 10 slots and about 579 with 20, serving about 11 users and leaving 9 out.
 
@@ -71,7 +71,7 @@ Block space: an auction every ten minutes
 
 ## Next
 
-[Module 12](/game-theory-lab/mechanism-design): designing the rules, from the revelation principle to Myerson's lemma and the VCG mechanism, and whether an auctioneer who runs the auction for herself, a miner for instance, can be trusted.
+[Module 12](/game-theory-lab/mechanism-design): designing the rules, from the revelation principle to Myerson's lemma and the VCG mechanism, and whether an auctioneer who runs the auction in her own interest, a miner for instance, can be trusted.
 
 <!-- simulation -->
 

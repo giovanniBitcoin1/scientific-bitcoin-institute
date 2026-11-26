@@ -16,7 +16,7 @@ export default {
       Component: FigureTruth,
       caption: {
         en: 'Why the truth is safe: your payoff against your bid for your value v and the highest other bid h; drag on the chart to move h.',
-        it: 'Perché la verità non rischia: il tuo payoff in funzione della tua offerta, dati il tuo valore v e l’offerta più alta degli altri h; trascina sul grafico per spostare h.',
+        it: 'Perché dire il vero è sicuro: il tuo payoff in funzione della tua offerta, dati il tuo valore v e l’offerta più alta degli altri h; trascina sul grafico per spostare h.',
       },
     },
     shading: {

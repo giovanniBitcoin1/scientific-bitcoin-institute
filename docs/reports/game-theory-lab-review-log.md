@@ -510,3 +510,49 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: the build made for module 09 (after module 10's edits).
 - `node check-module.mjs game-theory coalitions-sharing`: 0 failures of 60 (59 s).
 - `node modules/game-theory-coalitions-sharing.mjs`: 0 failures of 36 (14 s).
+- Commit 12dd28d "Game Theory Lab review: module 10".
+
+### Module 11 `auctions`
+
+- Files: the two lectures, `texts.js`, `index.js` (one IT caption); UI
+  strings in `BlockPanel.jsx`, `CursePanel.jsx`, `FigureTruth.jsx`;
+  `scripts/lab/check-game-theory-11.mjs` (two pins).
+- Changes (approximate): Italian 40, English 3, parity 5, facts 0,
+  quotations 0 (none in the module), clarity 8, links 0 (05, 02, 12
+  correct), panel texts 12.
+- Most significant:
+  - IT gender of the bidder, mixed before, now masculine throughout
+    («un'offerente» → «un offerente», «per lei» → «per sé», «l'ultima
+    rivale» → «l'ultimo rivale», «L'altra offre» → «L'altro offre»; the
+    same in observe B 5 and exercise 2).
+  - IT calques: «prendevano le regole di un gioco come date» → «davano per
+    date le regole di un gioco»; «sono gli altri travestiti» → «sono gli
+    altri due sotto mentite spoglie»; «il primo offerente che chiama» → «che
+    si fa avanti»; «vince l'offerta più alta, che paga il proprio importo»
+    → «vince chi ha fatto l'offerta più alta, e paga la propria offerta».
+  - Revenue equivalence: the 45-word sentence split in both languages;
+    "to the highest value" → "to the bidder with the highest value".
+  - Parity: EN gains the "(an ascending / descending auction)" glosses,
+    "often called the Vickrey auction" and "which is called **bid
+    shading**", as the IT. Both: the all-pay link now reads "the contest of
+    module 02 with one change, that the highest effort always wins"
+    (module 02's contest is Tullock's share rule; the old wording misled).
+  - Panels: BlockPanel IT “paghi la tua offerta” → «paghi la tua offerta»;
+    FigureTruth IT «b = v è un'offerta migliore» → «è tra le offerte
+    migliori» (three strings); EN "maximise" → "maximize".
+- Pins changed: IT lecture `'nessuna vendita una volta su quattro'` →
+  `'resta invenduto una volta su quattro'`; exercise 5's IT expectation now
+  "−3,33; −6,67 e −8,18" (semicolons). EN pins unchanged.
+- Facts: none changed.
+- Words (box not counted): EN 1,608, IT 1,654 (limits 1,400–1,700); box
+  EN 315, IT 344. No sentence or first name dropped.
+- For Adriano: «Nell'esempio guida»; the box's "resists manipulation by
+  the miner" (Lavi–Sattath–Zohar) is strong, worth a look against the
+  paper; «orologio» kept for the Dutch clock; IT «per dimensione e per
+  urgenza» against EN "in patience".
+- Cross-module: module 13's IT heading «## Prossimo modulo» against «## Il
+  prossimo modulo» elsewhere; decimals alternating with words keep commas.
+- `node scripts/lab/check-game-theory-11.mjs`: all checks passed (15 s).
+- `npx vite build`: the build made for module 09 (after module 11's edits).
+- `node check-module.mjs game-theory auctions`: 0 failures of 60 (54 s).
+- `node modules/game-theory-auctions.mjs`: 0 failures of 29 (15 s).

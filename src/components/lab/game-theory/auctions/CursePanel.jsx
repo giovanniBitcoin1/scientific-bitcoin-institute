@@ -56,7 +56,7 @@ const T = {
     again: 'Nuova prova',
     run: (s) => `Prova n. ${s} (seme ${s})`,
     profit: 'Profitto medio del vincitore',
-    lose: 'Il vincitore ci perde',
+    lose: 'Il vincitore ci rimette',
     high: 'Stima del vincitore troppo alta',
     revenue: 'Ricavo medio del venditore',
     exact: 'esatto',

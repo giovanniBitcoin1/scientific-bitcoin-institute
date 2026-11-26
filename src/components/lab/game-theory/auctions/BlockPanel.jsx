@@ -27,7 +27,7 @@ const T = {
     how: {
       pyb: 'as in Bitcoin today: the k highest bids are included and each pays her own bid; bids are the equilibrium bids',
       uniform: 'every included user pays the highest losing bid; bids are values (the truth is dominant)',
-      monopolistic: 'every included user pays the lowest included bid; the miner includes the j ≤ k highest bids that maximise j times the j-th highest bid',
+      monopolistic: 'every included user pays the lowest included bid; the miner includes the j ≤ k highest bids that maximize j times the j-th highest bid',
     },
     approx: 'In the monopolistic price, bids are taken to be values: an approximation, since shading pays less and less as users grow (Yao 2020).',
     rows: ['average revenue', 'exact', 'standard deviation', 'exact', 'users served', 'value served', 'price per included user'],
@@ -53,11 +53,11 @@ const T = {
     how: {
       pyb: 'come in Bitcoin oggi: entrano le k offerte più alte e ognuno paga la sua offerta; le offerte sono quelle di equilibrio',
       uniform: 'ogni utente incluso paga l’offerta esclusa più alta; le offerte sono i valori (dire il vero è dominante)',
-      monopolistic: 'ogni utente incluso paga l’offerta inclusa più bassa; il miner include le j ≤ k offerte più alte che massimizzano j per la j-esima offerta più alta',
+      monopolistic: 'ogni utente incluso paga l’offerta inclusa più bassa; il miner include le j ≤ k offerte più alte che massimizzano il prodotto di j per la j-esima offerta più alta',
     },
     approx: 'Nel prezzo monopolistico le offerte sono i valori: un’approssimazione, perché abbassare l’offerta rende sempre meno al crescere degli utenti (Yao 2020).',
     rows: ['ricavo medio', 'esatto', 'deviazione standard', 'esatta', 'utenti serviti', 'valore servito', 'prezzo per utente incluso'],
-    room: 'C’è posto per tutti: con “paghi la tua offerta” e con il prezzo uniforme il ricavo è nullo.',
+    room: 'C’è posto per tutti: con «paghi la tua offerta» e con il prezzo uniforme il ricavo è nullo.',
     bidChart: (n, k) => `Paghi la tua offerta: l’offerta di equilibrio in funzione del valore (n = ${n}, k = ${k})`,
     bidLegend: ['l’offerta', 'offerta = valore'],
     value: 'valore',
@@ -66,7 +66,7 @@ const T = {
     revLegend: ['paghi la tua offerta = prezzo uniforme (esatto)', 'prezzo monopolistico (simulato, 10.000 blocchi, seme 1)'],
     slots: 'k',
     revenue: 'ricavo',
-    aria1: 'L’offerta di equilibrio di “paghi la tua offerta” in funzione del valore',
+    aria1: 'L’offerta di equilibrio di «paghi la tua offerta» in funzione del valore',
     aria2: 'Il ricavo medio in funzione del numero di posti per le tre regole',
   },
 }

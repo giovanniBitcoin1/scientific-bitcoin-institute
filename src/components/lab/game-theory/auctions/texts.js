@@ -15,7 +15,7 @@ export const observe = {
     it: `
 1. Il pannello si apre su due offerenti, primo prezzo, nessuna riserva, 10.000 aste: il ricavo medio è 33,26 ± 0,12 contro il valore esatto 33,33, con una deviazione standard di 11,81 (esatta 11,79). La tabella usa le stesse estrazioni negli altri formati: 33,12 al secondo prezzo e 33,17 nell'all-pay, con deviazioni standard 23,55 e 21,11 (esatte 23,57 e 21,08).
 2. Confronta gli istogrammi. Con due offerenti il primo prezzo non raccoglie mai più di 50 (metà del valore più alto); il secondo prezzo si allarga da 0 a 100, più spesso in basso, perché è il più basso di due valori.
-3. Porta la riserva a **50**: la media sale a 41,46 al primo prezzo e 41,44 al secondo (esatto 41,67), e una quota 0,2538 delle aste finisce senza vendita (esatta 0,25, una su quattro). Il payoff degli offerenti scende da circa 33 a circa 16,6.
+3. Porta la riserva a **50**: la media sale a 41,46 al primo prezzo e 41,44 al secondo (esatta 41,67), e una quota 0,2538 delle aste finisce senza vendita (esatta 0,25, una su quattro). Il payoff degli offerenti scende da circa 33 a circa 16,6.
 4. Di nuovo senza riserva, con tre offerenti: 49,74 al primo prezzo, 49,94 al secondo (esatto 50). Un offerente in più batte la riserva migliore.
 5. Dieci offerenti: la media esatta è 81,82 in ogni formato, ma la deviazione standard è 7,47 al primo prezzo, 11,13 al secondo e 56,46 nell'all-pay, il cui istogramma va oltre 100.
 6. Premi **Nuova prova**: le medie si spostano di circa un errore standard. Con 100.000 aste, due offerenti e il primo prezzo danno 33,33 ± 0,04.
@@ -30,11 +30,11 @@ export const observe = {
 5. Move n. With two bidders the first-price winner loses 3.31 (exact 3.33); with twelve, 8.45 (exact 8.46): the more bidders, the deeper the curse, and the larger the discount a careful bidder needs.
 `,
     it: `
-1. Il pannello si apre su cinque offerenti, errori entro ±10, primo prezzo, ognuno che offre la propria stima: il vincitore guadagna in media −6,64 ± 0,03 (esatto −6,67) e ci perde in una quota 0,9691 delle aste (esatta 0,9688). La sua stima era troppo alta nella stessa quota: è la più alta di cinque.
-2. Premi **Pareggio**: lo sconto 6,67 porta il profitto medio a 0, eppure il vincitore ci perde ancora in una quota 0,5913 delle aste (esatta 0,5981).
-3. Premi **Equilibrio**: con lo sconto 10 il vincitore guadagna in media 3,36 (esatto 3,33) e non ci perde mai, mentre il venditore riceve ancora 147,11 (esatto 146,67).
+1. Il pannello si apre su cinque offerenti, errori entro ±10, primo prezzo, e ognuno offre la propria stima: il vincitore guadagna in media −6,64 ± 0,03 (esatto −6,67) e ci rimette in una quota 0,9691 delle aste (esatta 0,9688). La sua stima era troppo alta nella stessa quota: è la più alta di cinque.
+2. Premi **Pareggio**: lo sconto 6,67 porta il profitto medio a 0, eppure il vincitore ci rimette ancora in una quota 0,5913 delle aste (esatta 0,5981).
+3. Premi **Equilibrio**: con lo sconto 10 il vincitore guadagna in media 3,36 (esatto 3,33) e non ci rimette mai, mentre il venditore riceve ancora 147,11 (esatto 146,67).
 4. Scegli **Secondo prezzo**: offrire la stima ora costa al vincitore in media 3,30 (esatto 3,33), perché paga la seconda stima. Lo sconto di equilibrio è 6, e lì il venditore riceve 147,77 (esatto 147,33): più che al primo prezzo, come prevedono Milgrom e Weber.
-5. Muovi n. Con due offerenti chi vince al primo prezzo perde 3,31 (esatto 3,33); con dodici, 8,45 (esatto 8,46): più offerenti, più profonda la maledizione, e più grande lo sconto che serve a un'offerente prudente.
+5. Muovi n. Con due offerenti chi vince al primo prezzo perde 3,31 (esatto 3,33); con dodici, 8,45 (esatto 8,46): più offerenti ci sono, più la maledizione è grave e più grande è lo sconto che serve a un offerente prudente.
 `,
   },
   block: {
@@ -47,9 +47,9 @@ export const observe = {
 `,
     it: `
 1. Il pannello si apre su 20 utenti e 10 posti. «Paghi la tua offerta» raccoglie 476,15 ± 0,21 e il prezzo uniforme 475,21 ± 1,07 (esatto 476,19 per entrambi); le loro deviazioni standard sono 20,77 e 106,56 (esatta per il prezzo uniforme 106,48). Il prezzo monopolistico raccoglie 546,62, servendo in media 9,22 utenti.
-2. Guarda il grafico delle offerte: nessun utente offre più di 50, il 10° valore più alto atteso degli altri 19; un utente con valore 80 offre 49,95.
+2. Guarda il grafico delle offerte: nessun utente offre più di 50, il valore atteso del 10° più alto tra gli altri 19; un utente con valore 80 offre 49,95.
 3. Porta k a **20**: c'è posto per tutti, e «paghi la tua offerta» e il prezzo uniforme non raccolgono nulla. Il prezzo monopolistico raccoglie ancora 578,47, servendo 11,06 utenti e lasciando fuori gli altri.
-4. Il grafico dei ricavi: «paghi la tua offerta» e il prezzo uniforme hanno il massimo a k = 10, metà di n, e scendono a 0 con k = 20; il prezzo monopolistico sale con k e si ferma a circa 578.
+4. Il grafico dei ricavi: «paghi la tua offerta» e il prezzo uniforme raggiungono il massimo per k = 10, metà di n, e scendono a 0 per k = 20; il prezzo monopolistico sale con k e si ferma a circa 578.
 5. Porta k a **1**: un solo posto, un'asta al primo prezzo; gli utenti offrono il 95% del loro valore e «paghi la tua offerta» raccoglie 90,47 (esatto 90,48).
 `,
   },
@@ -71,7 +71,7 @@ export const exercises = [
     type: 'both',
     statement: {
       en: 'On paper, then in Figure F2. First price, two bidders, values uniform 0–100, the other bids half her value. Your value is 80: find your best bid, the chance of winning and the expected payoff.',
-      it: 'Su carta, poi nella Figura F2. Primo prezzo, due offerenti, valori uniformi tra 0 e 100, l\'altra offre metà del suo valore. Il tuo valore è 80: trova l\'offerta migliore, la probabilità di vincere e il payoff atteso.',
+      it: 'Su carta, poi nella Figura F2. Primo prezzo, due offerenti, valori uniformi tra 0 e 100, l\'altro offerente offre metà del suo valore. Il tuo valore è 80: trova l\'offerta migliore, la probabilità di vincere e il payoff atteso.',
     },
     solution: {
       en: 'With a bid b you win when her value is below 2b, with probability 2b/100; the expected payoff (80 − b) · 2b/100 is largest at b = 40. The chance of winning is 0.8 and the expected payoff 0.8 × 40 = 32.',
@@ -108,7 +108,7 @@ export const exercises = [
     },
     solution: {
       en: 'The winner pays the value plus the highest of n errors, which is −10 + 20n/(n + 1) = 10(n − 1)/(n + 1) on average. Her profit is minus that: −3.33, −6.67 and −8.18.',
-      it: 'Il vincitore paga il valore più il massimo di n errori, che in media è −10 + 20n/(n + 1) = 10(n − 1)/(n + 1). Il suo profitto è l\'opposto: −3,33, −6,67 e −8,18.',
+      it: 'Il vincitore paga il valore più il massimo di n errori, che in media è −10 + 20n/(n + 1) = 10(n − 1)/(n + 1). Il suo profitto è l\'opposto: −3,33; −6,67 e −8,18.',
     },
   },
   {
