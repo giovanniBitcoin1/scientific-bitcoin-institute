@@ -465,3 +465,48 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: built (15 s).
 - `node check-module.mjs game-theory games-on-networks`: 0 failures of 60 (55 s).
 - `node modules/game-theory-games-on-networks.mjs`: 0 failures of 42 (17 s).
+- Commit 38f381f "Game Theory Lab review: module 09".
+
+### Module 10 `coalitions-sharing`
+
+- Files: the two lectures, `texts.js`, `index.js` (IT caption of F1); UI
+  strings in `CoalitionPanel.jsx`, `EstatePanel.jsx`, `VotingPanel.jsx`.
+  Self-check unchanged.
+- Changes (approximate): Italian 34 (19 lecture, 11 texts.js, 4 UI),
+  English 4, parity 5, facts 0, quotations 0, clarity 7, links 0, panel
+  texts 6 (within the counts above).
+- Most significant:
+  - IT garment: «la seconda cede all'altra metà» (ambiguous) → «la seconda
+    concede alla prima la metà che non reclama»; EN "concedes the other
+    half to the first" → "concedes to the first the half she does not
+    claim".
+  - IT nucleolus: «rende la coalizione trattata peggio il meglio possibile,
+    poi la seconda peggiore» → «migliora il più possibile la coalizione più
+    svantaggiata, poi la seconda più svantaggiata».
+  - Parity: characteristic function, marginal contribution, balanced game
+    with the Bondareva–Shapley theorem and bankruptcy problem were only in
+    the IT: now in both. Balancedness: the core is nonempty exactly when
+    the game is **balanced**, then a separate sentence defines it. The
+    bankruptcy problem moves to the Aumann–Maschler sentence in both.
+  - IT calques: «sottoquotare» → «praticare … un prezzo più basso»;
+    «passarsi uno a uno» → «trasferirsi l'un l'altro alla pari»; «caso da
+    manuale» → «caso di scuola»; «la quota degli ordini» → «la frazione
+    degli ordini» (quota is the voting quota); «un pool non è i suoi
+    miner» → «non coincide con i suoi miner»; «uguali somme / perdite» →
+    «somme uguali / perdite uguali» (Panel C's labels).
+  - EN: "characterise" → "characterize"; "normalised" → "normalized" (two
+    VotingPanel strings); "weighted vote" → "weighted voting game"
+    (table); "Lloyd Shapley" named in full at first mention.
+- Facts and pins: none changed; report 10's softenings kept.
+- Words (box not counted): EN 1,593, IT 1,653 (limits 1,400–1,700); box
+  EN 335, IT 346 (not limited).
+- For Adriano: «obiettare» (F1, exercise 2's solution) against
+  «contestare» (lecture, exercise 2's statement): choose one; "enforced,
+  by a court or by a contract" (a contract does not enforce); «Torna al
+  preset» keeps "preset"; "glove market" in the EN lecture against the
+  buttons' "Gloves".
+- Cross-module: -ise spellings in code comments only (left).
+- `node scripts/lab/check-game-theory-10.mjs`: all checks passed (1 s).
+- `npx vite build`: the build made for module 09 (after module 10's edits).
+- `node check-module.mjs game-theory coalitions-sharing`: 0 failures of 60 (59 s).
+- `node modules/game-theory-coalitions-sharing.mjs`: 0 failures of 36 (14 s).

@@ -554,7 +554,7 @@ Sources of the revised terms: the log `docs/reports/game-theory-lab-06-log.md`.
 
 **The review of the lectures** (`prompts.local/game-theory-lab-review.md`,
 log `docs/reports/game-theory-lab-review-log.md`): stage 0 committed;
-stage 1 modules reviewed and committed: 01, 02, 03, 04, 05, 06, 07, 08, 09. To resume: read the log, then
+stage 1 modules reviewed and committed: 01, 02, 03, 04, 05, 06, 07, 08, 09, 10. To resume: read the log, then
 review the next module.
 
 Nothing in progress. All fourteen modules are "ready" and done (table

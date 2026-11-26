@@ -83,7 +83,7 @@ const T = {
     costPoint: 'Come costi',
     shapleyIn: 'Il valore di Shapley è nel nucleo?',
     objects: (s, by) => `no: ${s} avrebbe ${by} in più da sola`,
-    least: 'Least core: il più piccolo ε',
+    least: 'Least core: l’ε più piccolo',
     leastLine: (e) => `ε = ${e}: una divisione dà a ogni coalizione almeno v(S) − ε`,
     costNote: 'Una divisione dei costi è nel nucleo quando nessuna coalizione paga più di quanto pagherebbe da sola.',
     table: 'Modifica una cella qualsiasi; v(∅) = 0.',

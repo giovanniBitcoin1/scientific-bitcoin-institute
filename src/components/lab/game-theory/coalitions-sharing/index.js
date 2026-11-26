@@ -17,7 +17,7 @@ export default {
       Component: FigureCore,
       caption: {
         en: 'The core of three: the divisions of 100 among A, B and C, the pairs’ lines, the core shaded and the Shapley value (orange); drag the white division.',
-        it: 'Il nucleo in tre: le divisioni di 100 tra A, B e C, le rette delle coppie, il nucleo ombreggiato e il valore di Shapley (arancione); trascina la divisione bianca.',
+        it: 'Il nucleo con tre giocatori: le divisioni di 100 tra A, B e C, le rette delle coppie, il nucleo ombreggiato e il valore di Shapley (arancione); trascina la divisione bianca.',
       },
     },
     votes: {
