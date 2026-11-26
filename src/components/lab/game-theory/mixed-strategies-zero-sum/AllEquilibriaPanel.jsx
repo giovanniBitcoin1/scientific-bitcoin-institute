@@ -207,7 +207,7 @@ export default function AllEquilibriaPanel({ lang = 'en' }) {
       </div>
 
       <div className="mt-8 grid gap-x-8 gap-y-3 sm:grid-cols-2 max-w-3xl items-end">
-        <Slider label={t.games} min={500} max={20000} step={500} value={games} onChange={setGames} format={(v) => v.toLocaleString('en-US')} />
+        <Slider label={t.games} min={500} max={20000} step={500} value={games} onChange={setGames} format={(v) => v.toLocaleString(lang === 'it' ? 'it-IT' : 'en-US')} />
         <div className="flex flex-wrap items-center gap-2">
           {exp.running ? (
             <Pill onClick={exp.cancel}>{t.stop}</Pill>

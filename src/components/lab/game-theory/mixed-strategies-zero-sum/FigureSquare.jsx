@@ -56,7 +56,7 @@ const T = {
       pennies: 'Pari o dispari',
       coordination: 'Coordinamento puro',
       exercise1: 'Esercizio 1',
-      penalty: 'Calcio di rigore (rigorista in riga)',
+      penalty: 'Calcio di rigore (rigorista sulle righe)',
     },
     names: {
       pd: ['C', 'D'],

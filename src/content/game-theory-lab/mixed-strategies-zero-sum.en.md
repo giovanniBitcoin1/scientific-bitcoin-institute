@@ -2,7 +2,7 @@
 
 ## A game with no stable cell
 
-In matching pennies each player shows a coin. The row player wins if the two faces match, the column player if they differ. Take any cell of the table: one of the two players would rather be somewhere else. [Module 02](/game-theory-lab/nash-equilibrium) ended on this game as the smallest one with no equilibrium.
+In matching pennies each player shows a coin. The row player wins if the two faces match, the column player if they differ. Take any cell of the table: one of the two players would rather be somewhere else. [Module 02](/game-theory-lab/nash-equilibrium) ended on this game as the smallest one with no stable cell.
 
 A penalty kick has the same shape. The kicker shoots to one side, the keeper dives to one side, and the ball is too fast for the keeper to wait and see. If the kicker always chose the same side, the keeper would go there; if the keeper always dived the same way, the kicker would aim at the other. Whatever fixed choice one of them makes, the other has an answer to it. In such a game the mistake is not a bad choice but a predictable one.
 
@@ -10,7 +10,7 @@ A penalty kick has the same shape. The kicker shoots to one side, the keeper div
 
 A **mixed strategy** is a probability for each strategy: shoot left with probability 0.4 and right with 0.6, say. A strategy chosen for sure is now called **pure**. When the players mix, the payoff of each one becomes an average, the **expected payoff**: the payoff of each cell weighted by how often that cell occurs.
 
-One thing changes. In [module 01](/game-theory-lab/what-is-a-game) only the order of the payoffs mattered: a best response stays a best response if every payoff is doubled or shifted. With mixing the sizes matter too, because averages compare a sure payoff with a gamble.
+One thing changes. In [module 01](/game-theory-lab/what-is-a-game) only the order of the payoffs mattered: a best response stays a best response if every payoff is doubled or shifted. With mixing the sizes matter too, because sure payoffs are compared with the averages of gambles.
 
 ## The indifference rule
 
@@ -20,24 +20,24 @@ This has a strange consequence. My probabilities are fixed by your payoffs, not 
 
 In the game of exercise 1 the row player mixes 3/4 and 1/4, the column player 1/2 and 1/2. Now raise the row player's payoff in the top-left cell from 3 to 5. The row player's mix does not move: it is still 3/4, because it is set by the column player's payoffs. It is the column player who changes, to 1/3 on the first column, so as to keep the row player indifferent.
 
-Now the penalty kick with realistic numbers. Ignacio Palacios-Huerta (2003) studied 1,417 penalties of professional football, from 1995 to 2000, and named the sides, by convention, from the kicker's point of view: R is the kicker's natural side (left for a right-footed kicker), L the other. Scoring rates of the size he measured are:
+Now the penalty kick with realistic numbers. Ignacio Palacios-Huerta (2003) studied 1,417 penalty kicks in professional football, from 1995 to 2000. He named the sides, by convention, from the kicker's point of view: R is the kicker's natural side (left for a right-footed kicker), L the other. Scoring rates of the size he measured are:
 
 | | keeper L | keeper R |
 |---|---|---|
 | kicker L | 58.30 | 94.97 |
 | kicker R | 92.91 | 69.92 |
 
-The keeper must make the kicker indifferent between L and R, and the kicker must make the keeper indifferent too. Solving the two conditions, the kicker shoots L 38.5% of the time and the keeper dives L 42.0% of the time, and the kick then scores 79.6% of the time whatever either of them does alone.
+The keeper must make the kicker indifferent between L and R, and the kicker must make the keeper indifferent too. Solving the two conditions gives the mixes: the kicker shoots L 38.5% of the time and the keeper dives L 42.0% of the time. The kick then scores 79.6% of the time, whatever either of them does alone.
 
 ```figure
 square
 ```
 
-If the kicker trains and the R/R rate rises to 80, both mixes move: the kicker shoots L only 26.0% of the time and the keeper dives L 30.2%. Here the rule does not isolate one player, because this game is one of pure conflict: what the kicker gains in a cell, the keeper loses in the same cell, so a change of the kicker's payoff is also a change of the keeper's (exercise 3).
+If the kicker trains and the R/R rate rises to 80, both mixes move: the kicker shoots L only 26.0% of the time and the keeper dives L 30.2%. Unlike in exercise 1, neither mix stays put, because this game is one of pure conflict. What the kicker gains in a cell, the keeper loses in the same cell, so a change of the kicker's payoff is also a change of the keeper's (exercise 3).
 
 ## Pure conflict
 
-In a **zero-sum** game one player's gain is exactly the other's loss; in a **constant-sum** game the two payoffs always add up to the same number, as the scoring rate and its complement do in the penalty kick. Nothing is gained by cooperating, so there is a second, cautious way to choose: take the mix whose worst case is best. This is the **best worst case**, or maxmin.
+In a **zero-sum** game one player's gain is exactly the other's loss; in a **constant-sum** game the two payoffs always add up to the same number, as the scoring rate and its complement do in the penalty kick. Nothing is gained by cooperating, so there is a second, cautious way to choose: take the mix whose worst case is best. This is the **best worst case**, or maxmin strategy; what it guarantees is the player's **security level**.
 
 John von Neumann proved in 1928 that in these games the two cautious answers meet. The best that the kicker can guarantee against any keeper and the least that the keeper can concede against any kicker are the same number, the **value of the game**. This is the **minimax theorem**.
 
@@ -75,11 +75,11 @@ Neither U nor D dominates M: U pays less against R, D against L. But half U and 
 
 ## Nash's theorem and learning
 
-John Nash showed in 1950 that once mixing is allowed, every game with finitely many players and strategies has at least one equilibrium. In the square of Figure F1 the reason can be seen. The row player's best-response line runs from one side of the square to the other, and so does the column player's, across it: two such lines must cross, and a crossing is an equilibrium. In general the argument is a **fixed-point theorem**, Kakutani's: the map that sends each pair of mixes to the best responses to it must leave some pair where it is, and that pair is an equilibrium.
+John Nash showed in 1950 that once mixing is allowed, every game with finitely many players and strategies has at least one equilibrium. In the square of Figure F1 the reason can be seen. The row player's best-response line runs from one side of the square to the other, and so does the column player's, across it: two such lines must cross, and a crossing is an equilibrium. In general the argument rests on a **fixed-point theorem**, Kakutani's: the map that sends each pair of mixes to the best responses to it must leave some pair where it is, and that pair is an equilibrium.
 
 How would players find the mix without solving equations? George Brown proposed **fictitious play** in 1951: each player looks at how often the other has played each strategy so far and plays the best response to those frequencies. Julia Robinson proved in the same year that in games of pure conflict this works in the long run: what the frequencies guarantee approaches the value. Yet the play itself never settles; it keeps switching from cell to cell in longer and longer **runs**. In Simulation B, the largest gap between the frequencies and the equilibrium of matching pennies is 0.05 after 100 rounds and 0.0016 after 100,000.
 
-Outside pure conflict there is no such promise. Lloyd Shapley (1964) built a three-by-three game whose only equilibrium is a third for each strategy, but where fictitious play goes round and round: each run is about one and a half times as long as the last, there are only 28 runs in 100,000 rounds, and the gap stays near 0.25 forever. Module 07 comes back to learning. [Module 04](/game-theory-lab/sequential-games-commitment) lets the players move one after the other.
+Outside pure conflict there is no such promise. Lloyd Shapley (1964) built a three-by-three game whose only equilibrium is a third for each strategy, but where fictitious play goes round and round: each run is about one and a half times as long as the last, there are only 28 runs in 100,000 rounds, and the gap stays near 0.25 forever. [Module 07](/game-theory-lab/evolution-and-learning) comes back to learning. [Module 04](/game-theory-lab/sequential-games-commitment) lets the players move one after the other.
 
 <!-- simulation -->
 

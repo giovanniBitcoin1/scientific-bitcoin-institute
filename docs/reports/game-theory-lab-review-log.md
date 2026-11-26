@@ -140,4 +140,47 @@ lab; Italian terms; DRAFT markers off).
 - `npx vite build`: built (16 s).
 - `node check-module.mjs game-theory nash-equilibrium`: 0 failures of 56 (48 s).
 - `node modules/game-theory-nash-equilibrium.mjs`: 0 failures of 49 (33 s).
+- Commit 81a25ec "Game Theory Lab review: module 02" (the status file's
+  progress line missed that commit, a path slip; it is in module 03's).
+
+### Module 03 `mixed-strategies-zero-sum`
+
+- Files: the two lectures, `texts.js`; `FigureSquare.jsx` (one IT label),
+  `AllEquilibriaPanel.jsx` (number format of the G slider, see below).
+- Changes: Italian 24 (lecture), English 4, parity 1, facts 0, quotations
+  0 (none in the module), clarity 5 per language, links 1 per language,
+  panel texts 14 (12 texts.js, 2 UI).
+- Most significant:
+  - EN/IT: the dangling "Solving the two conditions, the kicker shoots…" /
+    «Risolvendo le due condizioni, il rigorista tira…» → "Solving the two
+    conditions gives the mixes: … The kick then scores…" / «Dalle due
+    condizioni si ricava che il rigorista tira a S … Il rigore va allora a
+    segno nel 79,6% dei casi».
+  - Clarity: matching pennies "the smallest one with no equilibrium" (which
+    contradicts Nash's theorem later in the module) → "…with no stable
+    cell" / «…senza cella stabile».
+  - Parity: the EN now names the **security level** as the IT's «payoff di
+    sicurezza» (status table).
+  - Calque: "Here the rule does not isolate one player" → "Unlike in
+    exercise 1, neither mix stays put"; the 45-word sentence after it split.
+  - Links: "Module 07" is now a link to `/game-theory-lab/evolution-and-learning`.
+  - texts.js IT: quoted labels in « »; «le frequenze si fermano» →
+    «si assestano» (the table's "settle").
+  - Panel A's G slider printed en-US numbers on the Italian page ("20,000"
+    against the observe text's «20.000»); it now formats with it-IT, as
+    Panel B already does. Display only, the one code touch.
+- Facts and pins: none changed.
+- Words: EN 1,649, IT 1,691 (limits 1,400–1,700).
+- For Adriano: register of «Le conseguenze sembrano paradossali» (was
+  «suonano strane») and of «traslati»; the lecture addresses the reader as
+  «voi», texts.js as «tu» (kept); report 03's open points stay open (the
+  rate 69.92 not confirmed in the paper; Shoham and Leyton-Brown 2008 or
+  2009).
+- Cross-module: "Panel" against "Simulation" (stage 2); report 03's terms
+  list is stale.
+- `node scripts/lab/check-game-theory-03.mjs`: all checks passed (69 s).
+- `node check-module.mjs game-theory mixed-strategies-zero-sum`: 0 failures
+  of 56 (48 s), on the build made for module 02 (after module 03's edits).
+- `node modules/game-theory-mixed-strategies-zero-sum.mjs`: 0 failures of
+  39 (22 s).
 
