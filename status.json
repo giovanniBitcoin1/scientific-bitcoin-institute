@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-11-28T02:46:19Z",
+  "series": {
+    "btc-daily": {
+      "file": "btc-daily.json",
+      "ok": true,
+      "checked_at": "2026-11-28T02:46:19Z",
+      "updated_at": "2026-11-28T02:46:19Z",
+      "rows": {
+        "rows": 5581
+      }
+    },
+    "btc-hourly": {
+      "file": "btc-hourly.json",
+      "ok": true,
+      "checked_at": "2026-11-28T02:46:19Z",
+      "updated_at": "2026-11-28T02:46:19Z",
+      "rows": {
+        "rows": 1440
+      }
+    },
+    "fear-greed": {
+      "file": "fear-greed.json",
+      "ok": true,
+      "checked_at": "2026-11-28T02:46:19Z",
+      "updated_at": "2026-11-28T02:46:19Z",
+      "rows": {
+        "rows": 3219
+      }
+    },
+    "mining": {
+      "file": "mining.json",
+      "ok": true,
+      "checked_at": "2026-11-28T02:46:19Z",
+      "updated_at": "2026-11-28T02:46:19Z",
+      "rows": {
+        "adjustments": 471,
+        "hashrate": 6538
+      }
+    },
+    "network-activity": {
+      "file": "network-activity.json",
+      "ok": true,
+      "checked_at": "2026-11-28T02:46:19Z",
+      "updated_at": "2026-11-28T02:46:19Z",
+      "rows": {
+        "daily": 6520,
+        "snapshots": 23
+      }
+    },
+    "news-volume": {
+      "file": "news-volume.json",
+      "ok": true,
+      "checked_at": "2026-11-28T02:46:19Z",
+      "updated_at": "2026-11-28T02:46:19Z",
+      "rows": {
+        "rows": 340
+      }
+    },
+    "wiki-pageviews": {
+      "file": "wiki-pageviews.json",
+      "ok": true,
+      "checked_at": "2026-11-28T02:46:19Z",
+      "updated_at": "2026-11-28T02:46:19Z",
+      "rows": {
+        "rows": 4167
+      }
+    }
+  }
+}
